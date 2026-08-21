@@ -21,6 +21,11 @@ on:
         required: true
         type: string
 
+      project_name:
+        description: "Project Name"
+        required: true
+        type: string
+
       package_name:
         description: "Package Name"
         required: true
@@ -33,7 +38,9 @@ on:
 
 
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -192,6 +199,9 @@ jobs:
           set -e
 
           USER_ID="${{ inputs.user_id }}"
+
+          # IMPORTANT:
+          # Project name is NOT part of the folder path.
           PROJECT_DIR="native-apps/users/$USER_ID"
 
           echo "=========================================="
@@ -199,7 +209,8 @@ jobs:
           echo "=========================================="
 
           echo "User ID: $USER_ID"
-          echo "Project: $PROJECT_DIR"
+          echo "Project directory: $PROJECT_DIR"
+          echo "Project name: ${{ inputs.project_name }}"
 
           if [ ! -d "$PROJECT_DIR" ]; then
             echo "::error::User project folder not found"
@@ -257,6 +268,10 @@ jobs:
           echo "Build Tools: 34.0.0"
           echo "Target SDK: 34"
           echo "Min SDK: 21"
+
+          echo ""
+          echo "Project Name:"
+          echo "${{ inputs.project_name }}"
 
           echo ""
           echo "=========================================="
@@ -445,6 +460,358 @@ jobs:
           tag_name: apk-${{ inputs.user_id }}-${{ inputs.app_id }}
           name: "${{ inputs.app_name }} (${{ inputs.app_id }})"
           files: ${{ steps.apk.outputs.apk_path }}
+
+
+      # ==========================================
+      # UPDATE USER apps-info.json
+      # ==========================================
+
+      - name: Update User apps-info.json
+        env:
+          GH_TOKEN: ${{ secrets.APK_STORAGE_TOKEN }}
+        shell: bash
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "UPDATING USER APPS INFO"
+          echo "=========================================="
+
+          USER_ID="${{ inputs.user_id }}"
+          APP_ID="${{ inputs.app_id }}"
+          PROJECT_NAME="${{ inputs.project_name }}"
+          APP_NAME="${{ inputs.app_name }}"
+          PACKAGE_NAME="${{ inputs.package_name }}"
+          APK_NAME="${{ steps.apk.outputs.apk_name }}"
+
+          STORAGE_REPO="timetotime798546/apk-storage"
+
+          # ------------------------------------------
+          # SAFE USER FILE NAME
+          # ------------------------------------------
+
+          SAFE_USER_ID=$(printf '%s' "$USER_ID" | tr -cd '[:alnum:]!_-')
+
+          META_FILE="${SAFE_USER_ID}-apps-info.json"
+
+          echo "User ID:"
+          echo "$USER_ID"
+
+          echo ""
+          echo "Project Name:"
+          echo "$PROJECT_NAME"
+
+          echo ""
+          echo "Metadata file:"
+          echo "$META_FILE"
+
+
+          # ------------------------------------------
+          # RELEASE TAG
+          # ------------------------------------------
+
+          TAG_NAME="apk-${USER_ID}-${APP_ID}"
+
+          echo ""
+          echo "Release tag:"
+          echo "$TAG_NAME"
+
+
+          # ------------------------------------------
+          # GET RELEASE
+          # ------------------------------------------
+
+          echo ""
+          echo "Getting GitHub release information..."
+
+          RELEASE_JSON=$(gh api \
+            "repos/$STORAGE_REPO/releases/tags/$TAG_NAME")
+
+          if [ -z "$RELEASE_JSON" ]; then
+            echo "::error::Unable to get APK release information."
+            exit 1
+          fi
+
+
+          # ------------------------------------------
+          # RELEASE ID
+          # ------------------------------------------
+
+          RELEASE_ID=$(echo "$RELEASE_JSON" | jq -r '.id')
+
+          if [ -z "$RELEASE_ID" ] || [ "$RELEASE_ID" = "null" ]; then
+            echo "::error::Release ID not found."
+            exit 1
+          fi
+
+          echo ""
+          echo "Release ID:"
+          echo "$RELEASE_ID"
+
+
+          # ------------------------------------------
+          # RELEASE CREATED / PUBLISHED TIME
+          # ------------------------------------------
+
+          RELEASE_CREATED_AT=$(echo "$RELEASE_JSON" | jq -r '.created_at // ""')
+
+          RELEASE_PUBLISHED_AT=$(echo "$RELEASE_JSON" | jq -r '.published_at // ""')
+
+          if [ -z "$RELEASE_PUBLISHED_AT" ] || [ "$RELEASE_PUBLISHED_AT" = "null" ]; then
+            RELEASE_PUBLISHED_AT="$RELEASE_CREATED_AT"
+          fi
+
+
+          # ------------------------------------------
+          # FIND APK ASSET
+          # ------------------------------------------
+
+          ASSET_JSON=$(echo "$RELEASE_JSON" | jq \
+            --arg APK_NAME "$APK_NAME" \
+            '.assets[] | select(.name == $APK_NAME)')
+
+          if [ -z "$ASSET_JSON" ]; then
+            echo "::error::APK asset was not found in GitHub Release."
+            exit 1
+          fi
+
+
+          # ------------------------------------------
+          # GITHUB ASSET API URL
+          # ------------------------------------------
+
+          ASSET_URL=$(echo "$ASSET_JSON" | jq -r '.url')
+
+          if [ -z "$ASSET_URL" ] || [ "$ASSET_URL" = "null" ]; then
+            echo "::error::APK asset URL not found."
+            exit 1
+          fi
+
+          echo ""
+          echo "APK asset URL:"
+          echo "$ASSET_URL"
+
+
+          # ------------------------------------------
+          # CREATE DOWNLOAD URL
+          # ------------------------------------------
+
+          ENCODED_USER_ID=$(printf '%s' "$USER_ID" | jq -sRr @uri)
+
+          ENCODED_ASSET=$(printf '%s' "$ASSET_URL" | jq -sRr @uri)
+
+          ENCODED_APK_NAME=$(printf '%s' "$APK_NAME" | jq -sRr @uri)
+
+          DOWNLOAD_URL="https://astrethost-apk-storage.cloudappbuild7292.workers.dev/download?user_id=${ENCODED_USER_ID}&asset=${ENCODED_ASSET}&name=${ENCODED_APK_NAME}&storage_owner=astrethost"
+
+          echo ""
+          echo "Download URL created:"
+          echo "$DOWNLOAD_URL"
+
+
+          # ------------------------------------------
+          # TEMP DIRECTORY
+          # ------------------------------------------
+
+          TMP_DIR=$(mktemp -d)
+
+          OLD_FILE="$TMP_DIR/old.json"
+          NEW_FILE="$TMP_DIR/new.json"
+
+
+          # ------------------------------------------
+          # DOWNLOAD EXISTING USER JSON
+          # ------------------------------------------
+
+          echo ""
+          echo "Checking existing user apps-info.json..."
+
+          if gh api \
+            "repos/$STORAGE_REPO/contents/$META_FILE" \
+            --jq '.content' \
+            2>/dev/null \
+            | base64 -d > "$OLD_FILE" 2>/dev/null; then
+
+            echo "Existing file found."
+
+            if ! jq empty "$OLD_FILE" >/dev/null 2>&1; then
+              echo "::warning::Existing JSON is invalid. Starting with empty array."
+              echo "[]" > "$OLD_FILE"
+            fi
+
+          else
+
+            echo "No existing file found."
+
+            echo "[]" > "$OLD_FILE"
+
+          fi
+
+
+          # ------------------------------------------
+          # CURRENT TIME
+          # ------------------------------------------
+
+          NOW=$(date -u +"%Y-%m-%d %H:%M:%S")
+
+
+          # ------------------------------------------
+          # UPDATE APP RECORD
+          # ------------------------------------------
+
+          jq \
+            --arg app_id "$APP_ID" \
+            --arg user_id "$USER_ID" \
+            --arg project_name "$PROJECT_NAME" \
+            --arg app_name "$APP_NAME" \
+            --arg package_name "$PACKAGE_NAME" \
+            --arg apk_name "$APK_NAME" \
+            --arg download_url "$DOWNLOAD_URL" \
+            --arg release_id "$RELEASE_ID" \
+            --arg build_id "${{ github.run_id }}" \
+            --arg build_url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --arg run_number "${{ github.run_number }}" \
+            --arg created_at "$NOW" \
+            --arg release_created_at "$RELEASE_CREATED_AT" \
+            --arg release_published_at "$RELEASE_PUBLISHED_AT" \
+            '
+            map(select(.app_id != $app_id))
+            +
+            [
+              {
+                "app_id": $app_id,
+                "user_id": $user_id,
+                "project_name": $project_name,
+                "app_name": $app_name,
+                "package_name": $package_name,
+                "status": "success",
+                "created_at": $created_at,
+                "build_id": ($build_id | tonumber),
+                "build_url": $build_url,
+                "build_started_at": $created_at,
+                "status_check_count": 0,
+                "last_status_check": 0,
+                "last_status_check_at": "",
+                "run_number": ($run_number | tonumber),
+                "build_created_at": $release_created_at,
+                "build_started_at_github": $release_created_at,
+                "build_updated_at": $release_published_at,
+                "github_status": "completed",
+                "conclusion": "success",
+                "build_completed_at": $created_at,
+                "download_url": $download_url,
+                "release_id": ($release_id | tonumber),
+                "apk_name": $apk_name,
+                "apk_status": "ready",
+                "apk_ready_at": $created_at
+              }
+            ]
+            ' \
+            "$OLD_FILE" \
+            > "$NEW_FILE"
+
+
+          # ------------------------------------------
+          # VALIDATE JSON
+          # ------------------------------------------
+
+          echo ""
+          echo "Validating apps-info.json..."
+
+          jq empty "$NEW_FILE"
+
+          echo ""
+          echo "=========================================="
+          echo "UPDATED USER APPS INFO"
+          echo "=========================================="
+
+          cat "$NEW_FILE"
+
+
+          # ------------------------------------------
+          # GET EXISTING FILE SHA
+          # ------------------------------------------
+
+          echo ""
+          echo "Getting existing GitHub file SHA..."
+
+          SHA=$(gh api \
+            "repos/$STORAGE_REPO/contents/$META_FILE" \
+            --jq '.sha' \
+            2>/dev/null || true)
+
+
+          # ------------------------------------------
+          # BASE64 CONTENT
+          # ------------------------------------------
+
+          CONTENT=$(base64 -w 0 "$NEW_FILE")
+
+
+          # ------------------------------------------
+          # CREATE OR UPDATE FILE
+          # ------------------------------------------
+
+          echo ""
+          echo "Uploading metadata to GitHub..."
+
+          if [ -n "$SHA" ]; then
+
+            echo "Updating existing:"
+            echo "$META_FILE"
+
+            gh api \
+              --method PUT \
+              "repos/$STORAGE_REPO/contents/$META_FILE" \
+              -f message="Update $META_FILE for $APP_ID" \
+              -f content="$CONTENT" \
+              -f sha="$SHA"
+
+          else
+
+            echo "Creating new:"
+            echo "$META_FILE"
+
+            gh api \
+              --method PUT \
+              "repos/$STORAGE_REPO/contents/$META_FILE" \
+              -f message="Create $META_FILE" \
+              -f content="$CONTENT"
+
+          fi
+
+
+          # ------------------------------------------
+          # CLEAN TEMP
+          # ------------------------------------------
+
+          rm -rf "$TMP_DIR"
+
+
+          echo ""
+          echo "=========================================="
+          echo "apps-info.json UPDATE COMPLETE"
+          echo "=========================================="
+
+          echo ""
+          echo "File:"
+          echo "$META_FILE"
+
+          echo ""
+          echo "Project Name:"
+          echo "$PROJECT_NAME"
+
+          echo ""
+          echo "APK:"
+          echo "$APK_NAME"
+
+          echo ""
+          echo "Release ID:"
+          echo "$RELEASE_ID"
+
+          echo ""
+          echo "Download URL:"
+          echo "$DOWNLOAD_URL"
 
 
       # ==========================================
