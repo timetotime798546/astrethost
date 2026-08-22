@@ -3,88 +3,88 @@
     {
       "step": 1,
       "title": "Inspect duplicate resources",
-      "description": "Detect the collision between icon.xml and icon.png",
+      "description": "Identify conflict between icon.xml and icon.png",
       "files": [],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 2,
-      "title": "Configure clean routine in Gradle",
-      "description": "Add the automatic afterEvaluate deletion code to build.gradle",
+      "title": "Implement dynamic resource cleanup",
+      "description": "Configure Gradle pre-build task to automatically delete duplicate icon.xml before resource merging",
       "files": [
         "app/build.gradle"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 3,
-      "title": "Remove unnecessary dependencies",
-      "description": "Eliminate nanohttpd from build.gradle",
+      "title": "Remove external nanohttpd dependency",
+      "description": "Clean up build.gradle to ensure strictly built-in Android SDK classes are utilized",
       "files": [
         "app/build.gradle"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 4,
-      "title": "Verify MainActivity configuration",
-      "description": "Ensure standard launcher flows",
+      "title": "Verify MainActivity setup",
+      "description": "Ensure dashboard navigation triggers properly for all utility options",
       "files": [],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Verify CalculatorActivity layout and UI",
-      "description": "Confirm buttons and display linkages",
+      "title": "Verify Calculator layout",
+      "description": "Confirm alignment and grid layout operations work cleanly",
       "files": [],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Verify NotesActivity local storage",
-      "description": "Check SharedPreferences behavior",
+      "title": "Verify Quick Notes SharedPreferences",
+      "description": "Validate persistence of quick user notes across app sessions",
       "files": [],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Verify StopwatchActivity millisecond timer",
-      "description": "Validate Handler updates",
+      "title": "Verify Stopwatch updates",
+      "description": "Confirm accurate millisecond rendering via high-resolution handler threads",
       "files": [],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Verify UnitConverterActivity conversions",
-      "description": "Confirm formulas for temperature/distance",
+      "title": "Verify Converter formulas",
+      "description": "Validate conversion formulas for distance and temperature metrics",
       "files": [],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Verify FlashlightActivity camera manager integrations",
-      "description": "Check camera parameters",
+      "title": "Verify Flashlight torch API helper",
+      "description": "Review safe execution paths of CameraManager with torch-mode attributes",
       "files": [],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Verify BmiActivity and DiceActivity utilities",
-      "description": "Ensure formulas and random bounds are correct",
+      "title": "Verify BMI and Dice utilities",
+      "description": "Verify correct BMI calculations and random dice roll output bounds",
       "files": [],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Verify AndroidManifest application attributes",
-      "description": "Check launcher configurations",
+      "title": "Validate manifest parameters",
+      "description": "Check icon attributes and activity definitions",
       "files": [],
       "status": "pending"
     },
     {
       "step": 12,
       "title": "Building Multi Tool Suite",
-      "description": "Compile project into debug APK",
+      "description": "Execute gradle assembleDebug to compile application package free of resource merge errors",
       "files": [],
       "status": "pending"
     }

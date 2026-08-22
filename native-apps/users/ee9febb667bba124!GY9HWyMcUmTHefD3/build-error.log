@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Multi Tool Suite
 App ID: app_6a8992660ce8d
-Build ID: 32572430837
-Time: 2026-08-22 17:48:45
+Build ID: 32572745553
+Time: 2026-08-22 17:54:01
 ==================================================
 
 ==================================================
@@ -31,7 +31,7 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 161635
+Original log characters: 161638
 Extracted error characters: 27485
 File references detected: 203
 ==================================================
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+8 from tool-cache
 Setting Java 17.0.20+8 as the default
-(node:2288) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2313) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/8debb1d3-fc49-43c4-9877-201df939743c
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/9d1ee850-e66a-4500-94ee-94469ebedee7
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/20.0/bin/sdkmanager --licenses
 Loading local repository...
@@ -227,6 +227,7 @@ Execution failed for task ':app:mergeDebugResources'.
 > Run with --info or --debug option to get more log output.
 > Run with --scan to get full insights.
 > Get more help at https://help.gradle.org.
+6 actionable tasks: 6 executed
 
 * Exception is:
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:mergeDebugResources'.
@@ -316,7 +317,6 @@ at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsSt
 at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:91)
 at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:55)
 at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:55)
-6 actionable tasks: 6 executed
 at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:37)
 at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
 at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
@@ -359,7 +359,7 @@ at com.android.build.gradle.tasks.MergeResources$doFullTaskAction$1$1$1.invoke(M
 at com.android.build.gradle.tasks.MergeResources.doFullTaskAction(MergeResources.kt:235)
 ... 127 more
 
-BUILD FAILED in 22s
+BUILD FAILED in 26s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
