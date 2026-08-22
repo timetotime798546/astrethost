@@ -2,33 +2,33 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze build failure root cause",
-      "description": "Identify manifest merger errors related to missing namespace attributes and legacy package configuration.",
+      "title": "Initialize Simple App Environment",
+      "description": "Setting up Java 17 and Android SDK compile levels targeting API level 34.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Refactor AndroidManifest.xml structure",
-      "description": "Remove legacy package attribute from manifest tag and use fully qualified class paths to align with AGP 8.3.2 specifications.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Verify build.gradle configurations",
-      "description": "Verify namespace and applicationId settings inside the module-level build file to maintain consistent build outputs.",
+      "title": "Configure Gradle Project Properties",
+      "description": "Setting up Gradle 8.5 and Android Gradle Plugin 8.3.2 build.gradle definitions.",
       "files": [
         "app/build.gradle"
       ],
       "status": "pending"
     },
     {
+      "step": 3,
+      "title": "Define Android Manifest",
+      "description": "Configuring Application Manifest including hardware settings, permissions, package declaration, and App Theme.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
       "step": 4,
-      "title": "Validate layout XML syntax",
-      "description": "Confirm correctness of linear and scroll view layout structures inside activity_main.xml.",
+      "title": "Create App Layout Interface",
+      "description": "Building custom user interface containing an interactive counter display, press button, and reset control elements inside main layout resource.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -36,8 +36,8 @@
     },
     {
       "step": 5,
-      "title": "Inspect MainActivity imports and variables",
-      "description": "Check Java package declarations and interactive hooks for the counter and quick memo features.",
+      "title": "Implement MainActivity Controller",
+      "description": "Writing core Java controller logic to track button interactions and dynamically update UI values using Java 8 structures.",
       "files": [
         "app/src/main/java/com/simpleapp/app/MainActivity.java"
       ],
@@ -45,17 +45,17 @@
     },
     {
       "step": 6,
-      "title": "Optimize persistent storage bindings",
-      "description": "Validate SharedPreferences routines for reading and writing data safely on UI action triggers.",
+      "title": "Prepare Asset Metadata Configurations",
+      "description": "Assembling system parameters inside app-meta.json configuration files.",
       "files": [
-        "app/src/main/java/com/simpleapp/app/MainActivity.java"
+        "app-meta.json"
       ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Verify launcher icon specifications",
-      "description": "Ensure the manifest uses standard unified drawable launcher configuration rules.",
+      "title": "Verify Standard Manifest Integrity",
+      "description": "Reviewing structural alignment inside Manifest definitions to ensure proper initialization mappings.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -63,24 +63,26 @@
     },
     {
       "step": 8,
-      "title": "Verify Java 8 compatibility standards",
-      "description": "Check compatibility constraints to prevent any modern JDK features from interfering with compilation.",
-      "files": [],
+      "title": "Verify Code Flow Compatibility",
+      "description": "Ensuring the absence of incompatible functional structures such as lambda syntax or external standard bindings.",
+      "files": [
+        "app/src/main/java/com/simpleapp/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Configure build environment properties",
-      "description": "Double check local properties and settings.gradle before launching compilation tools.",
+      "title": "Audit Package Setup and Resources",
+      "description": "Validating correct naming, package structures, file locations, and layout properties.",
       "files": [
-        "settings.gradle"
+        "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building Simple App",
-      "description": "Trigger standard gradle assembleDebug compiler execution routine to generate corrected APK.",
+      "description": "Assembling the project components, linking application structures, compiling resources, and running build configurations.",
       "files": [],
       "status": "pending"
     }
