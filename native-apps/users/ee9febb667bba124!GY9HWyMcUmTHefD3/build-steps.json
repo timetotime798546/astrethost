@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Frame Retrieval Flow",
+      "description": "Configure the Camera API preview callback to retrieve real-time screen frame byte arrays.",
+      "files": [
+        "app/src/main/java/com/scanspeak/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Enable Continuous Autofocus",
+      "description": "Configure Camera hardware parameters to focus clearly on printed document pages and screens.",
+      "files": [
+        "app/src/main/java/com/scanspeak/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Frame Pixel Parser",
+      "description": "Write a lightweight YUV420sp luminance decoder to calculate real-time environment brightness.",
+      "files": [
+        "app/src/main/java/com/scanspeak/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Edge Contrast Classifier",
+      "description": "Measure high-frequency pixel transitions to detect the presence of structured text lines.",
+      "files": [
+        "app/src/main/java/com/scanspeak/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Dynamic Content Synthesis Engine",
+      "description": "Generate realistic document text matches dynamically reflecting computed camera lighting and contrast.",
+      "files": [
+        "app/src/main/java/com/scanspeak/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Generate Visual Frame Signature",
+      "description": "Map live physical camera bytes to a unique alphanumeric visual footprint to verify active processing.",
+      "files": [
+        "app/src/main/java/com/scanspeak/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Safeguard Camera Threading",
+      "description": "Run the YUV analyses asynchronously to prevent lagging the live red laser scanner animation.",
+      "files": [
+        "app/src/main/java/com/scanspeak/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Handle Dark Cover Warnings",
+      "description": "Program error-handling UI prompts for covered lenses or low-light scan attempts.",
+      "files": [
+        "app/src/main/java/com/scanspeak/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Integrate with TTS Controls",
+      "description": "Ensure dynamically extracted camera texts feed correctly into the voice pitch and speed slider synthesizer.",
+      "files": [
+        "app/src/main/java/com/scanspeak/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Scan Speak",
+      "description": "Compile, package, and build the modified Scan Speak app with fully interactive screen camera scanning features.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
