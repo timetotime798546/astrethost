@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.multitoolsuite.app">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.flashlight" android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="Multi Tool Suite"
+        android:roundIcon="@drawable/icon"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Material.Light">
+        
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".CalculatorActivity" android:label="Calculator" />
+        <activity android:name=".NotesActivity" android:label="Quick Notes" />
+        <activity android:name=".StopwatchActivity" android:label="Stopwatch" />
+        <activity android:name=".UnitConverterActivity" android:label="Unit Converter" />
+        <activity android:name=".FlashlightActivity" android:label="Flashlight" />
+        <activity android:name=".BmiActivity" android:label="BMI Calculator" />
+        <activity android:name=".DiceActivity" android:label="Dice Roller" />
+
+    </application>
+</manifest>
