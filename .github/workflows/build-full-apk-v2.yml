@@ -602,7 +602,7 @@ jobs:
 
           ENCODED_APK_NAME=$(printf '%s' "$APK_NAME" | jq -sRr @uri)
 
-          DOWNLOAD_URL="https://astrethost-apk-storage.cloudappbuild7292.workers.dev/download?user_id=${ENCODED_USER_ID}&asset=${ENCODED_ASSET}&name=${ENCODED_APK_NAME}&storage_owner=astrethost"
+          DOWNLOAD_URL="https://astrethost-apk-storage.cloudappbuild7292.workers.dev/download?user_id=${ENCODED_USER_ID}&asset=${ENCODED_ASSET}&name=${ENCODED_APK_NAME}&storage_owner=timetotime798546"
 
           echo ""
           echo "Download URL created:"
