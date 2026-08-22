@@ -2,120 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Multi Tool Suite Android Project Configuration",
-      "description": "Configure basic application meta definitions and environment variables for Gradle 8.5 compatibility.",
-      "files": ["app-meta.json"],
+      "title": "Inspect project files and configuration",
+      "description": "Examine current structure of Multi Tool Suite to locate resource redundancy.",
+      "files": ["app/src/main/res/drawable/icon.xml", "app/src/main/res/drawable/icon.png"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Gradle build script",
-      "description": "Write app/build.gradle defining compatible SDK targets, packaging options, and source directories.",
-      "files": ["app/build.gradle"],
+      "title": "Analyze merger resource issue",
+      "description": "Diagnose the duplicate resource conflict between vector xml asset and raster png asset in build system.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Write Android Manifest file with all permissions and activity mappings",
-      "description": "Map activities for Calculator, Notes, Stopwatch, Converter, Flashlight, BMI, and Dice screens in AndroidManifest.xml.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Formulate automated cleanup routine",
+      "description": "Prepare a custom Gradle preBuild task that systematically removes the redundant icon.xml configuration.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create visual assets and vector XML icons",
-      "description": "Create elegant vector-based app icons and functional drawables inside drawable folder.",
-      "files": ["app/src/main/res/drawable/icon.xml"],
+      "title": "Refactor app build.gradle",
+      "description": "Integrate the deleteDuplicateIconXml task and clean up external libraries to comply with SDK restrictions.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Design Hub launcher layout",
-      "description": "Establish a beautiful user friendly main control board in activity_main.xml layout.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Validate manifest configurations",
+      "description": "Confirm correct application theme launcher icon mapping settings for AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Hub controller logic",
-      "description": "Wire user click listeners inside MainActivity.java to launch correct utility features.",
+      "title": "Validate main hub code structure",
+      "description": "Confirm launcher code paths and activity bindings in MainActivity.java are ready and accurate.",
       "files": ["app/src/main/java/com/multitoolsuite/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Build working Calculator module",
-      "description": "Program mathematical calculations and UI components inside CalculatorActivity and activity_calculator.xml.",
-      "files": [
-        "app/src/main/res/layout/activity_calculator.xml",
-        "app/src/main/java/com/multitoolsuite/app/CalculatorActivity.java"
-      ],
+      "title": "Validate widget configurations",
+      "description": "Examine XML resource references inside layout files to prevent outstanding compilation warnings.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Build persistent Notes module",
-      "description": "Implement durable notepad using SharedPreferences configuration in NotesActivity and activity_notes.xml.",
-      "files": [
-        "app/src/main/res/layout/activity_notes.xml",
-        "app/src/main/java/com/multitoolsuite/app/NotesActivity.java"
-      ],
+      "title": "Verify application metadata definitions",
+      "description": "Define metadata definitions within app-meta.json correctly identifying app settings.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Build high-resolution Stopwatch timer",
-      "description": "Formulate high efficiency run loop updating layout counters dynamically in StopwatchActivity and activity_stopwatch.xml.",
-      "files": [
-        "app/src/main/res/layout/activity_stopwatch.xml",
-        "app/src/main/java/com/multitoolsuite/app/StopwatchActivity.java"
-      ],
+      "title": "Run preliminary validation check",
+      "description": "Double check all Gradle parameters match environment specifications.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Build instant Unit Converter",
-      "description": "Develop multiple metrics converter for Distance and Temp in UnitConverterActivity and activity_unit_converter.xml.",
-      "files": [
-        "app/src/main/res/layout/activity_unit_converter.xml",
-        "app/src/main/java/com/multitoolsuite/app/UnitConverterActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Build hardware-supported Flashlight light source",
-      "description": "Configure Camera API torching and screen maximum brightness fallbacks in FlashlightActivity and activity_flashlight.xml.",
-      "files": [
-        "app/src/main/res/layout/activity_flashlight.xml",
-        "app/src/main/java/com/multitoolsuite/app/FlashlightActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Build BMI calculator medical engine",
-      "description": "Calculate real-time body mass indicators with dynamic metrics assessment in BmiActivity and activity_bmi.xml.",
-      "files": [
-        "app/src/main/res/layout/activity_bmi.xml",
-        "app/src/main/java/com/multitoolsuite/app/BmiActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Build Random Dice roller simulator",
-      "description": "Initialize random selection algorithm mapping custom layouts in DiceActivity and activity_dice.xml.",
-      "files": [
-        "app/src/main/res/layout/activity_dice.xml",
-        "app/src/main/java/com/multitoolsuite/app/DiceActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 14,
       "title": "Building Multi Tool Suite",
-      "description": "Verify standard Java code constructs, resolve all asset mapping dependencies, and trigger absolute project build compiler.",
+      "description": "Trigger project build compiler to generate clean APK output without resource duplicate errors.",
       "files": [],
       "status": "pending"
     }
