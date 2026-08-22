@@ -2,71 +2,89 @@
   "steps": [
     {
       "step": 1,
-      "title": "Inspect project files and configuration",
-      "description": "Examine current structure of Multi Tool Suite to locate resource redundancy.",
-      "files": ["app/src/main/res/drawable/icon.xml", "app/src/main/res/drawable/icon.png"],
-      "status": "pending"
-    },
-    {
-      "step": 2,
-      "title": "Analyze merger resource issue",
-      "description": "Diagnose the duplicate resource conflict between vector xml asset and raster png asset in build system.",
+      "title": "Inspect duplicate resources",
+      "description": "Detect the collision between icon.xml and icon.png",
       "files": [],
       "status": "pending"
     },
     {
+      "step": 2,
+      "title": "Configure clean routine in Gradle",
+      "description": "Add the automatic afterEvaluate deletion code to build.gradle",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
       "step": 3,
-      "title": "Formulate automated cleanup routine",
-      "description": "Prepare a custom Gradle preBuild task that systematically removes the redundant icon.xml configuration.",
-      "files": ["app/build.gradle"],
+      "title": "Remove unnecessary dependencies",
+      "description": "Eliminate nanohttpd from build.gradle",
+      "files": [
+        "app/build.gradle"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Refactor app build.gradle",
-      "description": "Integrate the deleteDuplicateIconXml task and clean up external libraries to comply with SDK restrictions.",
-      "files": ["app/build.gradle"],
+      "title": "Verify MainActivity configuration",
+      "description": "Ensure standard launcher flows",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Validate manifest configurations",
-      "description": "Confirm correct application theme launcher icon mapping settings for AndroidManifest.xml.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Verify CalculatorActivity layout and UI",
+      "description": "Confirm buttons and display linkages",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Validate main hub code structure",
-      "description": "Confirm launcher code paths and activity bindings in MainActivity.java are ready and accurate.",
-      "files": ["app/src/main/java/com/multitoolsuite/app/MainActivity.java"],
+      "title": "Verify NotesActivity local storage",
+      "description": "Check SharedPreferences behavior",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Validate widget configurations",
-      "description": "Examine XML resource references inside layout files to prevent outstanding compilation warnings.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Verify StopwatchActivity millisecond timer",
+      "description": "Validate Handler updates",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Verify application metadata definitions",
-      "description": "Define metadata definitions within app-meta.json correctly identifying app settings.",
-      "files": ["app-meta.json"],
+      "title": "Verify UnitConverterActivity conversions",
+      "description": "Confirm formulas for temperature/distance",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Run preliminary validation check",
-      "description": "Double check all Gradle parameters match environment specifications.",
+      "title": "Verify FlashlightActivity camera manager integrations",
+      "description": "Check camera parameters",
       "files": [],
       "status": "pending"
     },
     {
       "step": 10,
+      "title": "Verify BmiActivity and DiceActivity utilities",
+      "description": "Ensure formulas and random bounds are correct",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Verify AndroidManifest application attributes",
+      "description": "Check launcher configurations",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 12,
       "title": "Building Multi Tool Suite",
-      "description": "Trigger project build compiler to generate clean APK output without resource duplicate errors.",
+      "description": "Compile project into debug APK",
       "files": [],
       "status": "pending"
     }
