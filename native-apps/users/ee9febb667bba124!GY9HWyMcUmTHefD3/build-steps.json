@@ -1,0 +1,93 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define project structures and configuration",
+      "description": "Initialize build-steps.json and app-meta.json for Simple Calculator.",
+      "files": [
+        "build-steps.json",
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure build.gradle",
+      "description": "Configure the Gradle build script with compile/target SDK 34 and standard Java 8 settings.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure AndroidManifest.xml",
+      "description": "Define application properties, package, MainActivity entry point, and system themes.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design user interface layout",
+      "description": "Create activity_main.xml with a clean, fully functional calculator grid design using standard Android views.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Initialize MainActivity",
+      "description": "Create the MainActivity Java file with appropriate package declaration and imports.",
+      "files": [
+        "app/src/main/java/com/simplecalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Bind UI elements in Java",
+      "description": "Find and bind display text views and grid buttons for digits, operations, clear, and equals.",
+      "files": [
+        "app/src/main/java/com/simplecalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement button click listeners",
+      "description": "Set up traditional anonymous inner class onClickListeners for all calculator buttons.",
+      "files": [
+        "app/src/main/java/com/simplecalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement calculator logic",
+      "description": "Code basic arithmetic operations, state tracking, decimal entry, and error handling (like division by zero).",
+      "files": [
+        "app/src/main/java/com/simplecalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Java 8 compatibility",
+      "description": "Check code to ensure compliance with Java 8 standards and clean non-lambda compatibility.",
+      "files": [
+        "app/src/main/java/com/simplecalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Simple Calculator",
+      "description": "Perform assembly compilation using the Gradle wrapper and ensure zero compilation errors.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
