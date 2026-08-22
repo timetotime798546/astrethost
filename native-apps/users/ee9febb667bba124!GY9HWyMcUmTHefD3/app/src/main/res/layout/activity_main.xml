@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- Header Panel -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#3F51B5"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Scan Speak - Reader"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Camera Viewfinder Section -->
+            <CardView
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="#000000">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <SurfaceView
+                        android:id="@+id/camera_preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <!-- Empty state/no camera text -->
+                    <TextView
+                        android:id="@+id/camera_placeholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Initialising Viewfinder...\n(Grant Camera Permission if prompted)"
+                        android:textColor="#AAAAAA"
+                        android:textSize="14sp"
+                        android:padding="20dp"
+                        android:textAlignment="center" />
+
+                    <!-- Scanning red-laser scanner bar line simulator -->
+                    <View
+                        android:id="@+id/scanner_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#FF0000"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </CardView>
+
+            <!-- Action Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btn_scan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="6dp"
+                    android:background="#3F51B5"
+                    android:text="Scan &amp; Extract Text"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_clear"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="6dp"
+                    android:background="#757575"
+                    android:text="Clear text"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- Scanning Indicator Message -->
+            <TextView
+                android:id="@+id/scan_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Ready to capture and process OCR extraction."
+                android:textColor="#424242"
+                android:textSize="13sp"
+                android:textStyle="italic"
+                android:gravity="center" />
+
+            <!-- Result Editable Area -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Extracted Text (Editable):"
+                android:textColor="#3F51B5"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_extracted_text"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginTop="4dp"
+                android:background="#FFFFFF"
+                android:gravity="top|left"
+                android:hint="No text loaded yet. Tap 'Scan &amp; Extract Text' or type manually directly in this box!"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:scrollbars="vertical"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <!-- Speak controls panel -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:background="#E8EAF6"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Voice Synthesizer Tuning"
+                    android:textColor="#1A237E"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+
+                <!-- Speed adjustment -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="8dp">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Speed (Rate):"
+                        android:textSize="12sp"
+                        android:textColor="#212121" />
+                    <SeekBar
+                        android:id="@+id/sb_speed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="20" />
+                </LinearLayout>
+
+                <!-- Pitch adjustment -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="8dp">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Voice Pitch:"
+                        android:textSize="12sp"
+                        android:textColor="#212121" />
+                    <SeekBar
+                        android:id="@+id/sb_pitch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="20" />
+                </LinearLayout>
+
+                <!-- Speak Actions -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:weightSum="3">
+
+                    <Button
+                        android:id="@+id/btn_speak"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.5"
+                        android:layout_height="wrap_content"
+                        android:background="#4CAF50"
+                        android:text="🔊 Read Speak"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:layout_marginRight="4dp" />
+
+                    <Button
+                        android:id="@+id/btn_stop"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_height="wrap_content"
+                        android:background="#F44336"
+                        android:text="Stop"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginRight="4dp" />
+
+                    <Button
+                        android:id="@+id/btn_copy"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.7"
+                        android:layout_height="wrap_content"
+                        android:background="#FF9800"
+                        android:text="Copy"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
