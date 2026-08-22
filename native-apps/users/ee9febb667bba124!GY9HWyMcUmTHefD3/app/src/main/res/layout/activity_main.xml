@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Multi Utility Suite"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="10 Functional Apps in 1 Suite"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btn_calculator"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="1. Calculator Tool"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_stopwatch"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="2. Digital Stopwatch"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_notes"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="3. Personal Notes"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_converter"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="4. Unit Converter"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_dice"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="5. Dice Roller"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_bmi"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="6. BMI Calculator"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_color"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="7. Color Palette Mixer"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_sensor"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="8. Device Sensor Explorer"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_info"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="9. System &amp; App Info"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#3F51B5"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="All modules are fully decoupled custom Activities."
+            android:textSize="11sp"
+            android:textColor="#9E9E9E"
+            android:gravity="center" />
+
+    </LinearLayout>
+</ScrollView>

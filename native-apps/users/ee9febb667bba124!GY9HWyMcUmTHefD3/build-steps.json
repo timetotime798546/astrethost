@@ -1,0 +1,102 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Build Settings",
+      "description": "Configure compilation settings with SDK 34, AGP 8.3.2, and JDK 17 support in build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Declare Android Components",
+      "description": "Register MainActivity and the 9 specialized tool activities in the AndroidManifest file.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Design Dashboard UI",
+      "description": "Construct a polished vertical grid UI in activity_main.xml with distinct launchers for all tools.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Build Navigation Hub",
+      "description": "Develop MainActivity.java to bind and route launcher click actions to all activities.",
+      "files": ["app/src/main/java/com/multiutilitysuite/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build Calculator Activity",
+      "description": "Implement CalculatorActivity.java containing layout parameters and operation parsing logic.",
+      "files": ["app/src/main/java/com/multiutilitysuite/app/CalculatorActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Stopwatch Activity",
+      "description": "Implement StopwatchActivity.java utilizing a Handler for high-precision millisecond timing.",
+      "files": ["app/src/main/java/com/multiutilitysuite/app/StopwatchActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build Note Keeper Activity",
+      "description": "Implement NotesActivity.java integrating dynamic note addition and local SharedPreferences persistence.",
+      "files": ["app/src/main/java/com/multiutilitysuite/app/NotesActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build Unit Converter Activity",
+      "description": "Implement UnitConverterActivity.java with multi-unit mathematical translations.",
+      "files": ["app/src/main/java/com/multiutilitysuite/app/UnitConverterActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Build Interactive Dice Roller",
+      "description": "Implement DiceRollerActivity.java with animation-interval calculations to simulate rolling.",
+      "files": ["app/src/main/java/com/multiutilitysuite/app/DiceRollerActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Build BMI Calculator",
+      "description": "Implement BmiCalculatorActivity.java providing real-time metric evaluations of height and weight.",
+      "files": ["app/src/main/java/com/multiutilitysuite/app/BmiCalculatorActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Build Color Mixer Activity",
+      "description": "Implement ColorPickerActivity.java combining RGB SeekBars and live color panel updates.",
+      "files": ["app/src/main/java/com/multiutilitysuite/app/ColorPickerActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Build Hardware Sensor Explorer",
+      "description": "Implement SensorExplorerActivity.java listing active hardware properties of the target mobile device.",
+      "files": ["app/src/main/java/com/multiutilitysuite/app/SensorExplorerActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Build System Information Tool",
+      "description": "Implement AppInfoActivity.java reporting SDK versions, system specifications, and suite credits.",
+      "files": ["app/src/main/java/com/multiutilitysuite/app/AppInfoActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Multi Utility Suite",
+      "description": "Run high-level verification and compile all 10 Java source files inside the build ecosystem.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
