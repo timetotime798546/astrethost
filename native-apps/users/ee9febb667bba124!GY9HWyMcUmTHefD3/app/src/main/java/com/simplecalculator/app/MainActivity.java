@@ -114,7 +114,7 @@ public class MainActivity extends Activity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        } 
     }
 
     private void setupFunctionalToggles() {
@@ -213,7 +213,7 @@ public class MainActivity extends Activity {
             if (btn != null) {
                 btn.setBackgroundColor(digitBtnColor);
                 btn.setTextColor(digitTextColor);
-            }
+            } 
         }
 
         // Utility operators
@@ -247,7 +247,7 @@ public class MainActivity extends Activity {
             TextView rowTv = new TextView(this);
             rowTv.setText(record);
             rowTv.setPadding(0, 8, 0, 8);
-            rowTv.setTextSize(14sp);
+            rowTv.setTextSize(14);
             rowTv.setTextColor(textColor);
             rowTv.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -293,7 +293,8 @@ public class MainActivity extends Activity {
                     public void onClick(View v) {
                         playFeedbackSound();
                         onDigitPressed(btn.getText().toString());
-                    }                });
+                    }
+                });
             }
         }
 
