@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Fullscreen Camera View -->
+    <SurfaceView
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Empty state/no camera text (centered) -->
+    <TextView
+        android:id="@+id/camera_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="Initialising Viewfinder...\n(Grant Camera Permission if prompted)"
+        android:textColor="#AAAAAA"
+        android:textSize="16sp"
+        android:padding="20dp" />
+
+    <!-- Scanning red-laser line (animating over the screen) -->
+    <View
+        android:id="@+id/scanner_bar"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#FF0000"
+        android:visibility="gone" />
+
+    <!-- Header Panel Overlaid at the Top -->
+    <RelativeLayout
+        android:id="@+id/header_panel"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#D93F51B5"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Scan Speak - Live Reader"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Bottom Controls ScrollView Panel (Semi-Transparent Overlaid at the Bottom) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/header_panel"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        android:background="#D9121212"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Scanning Indicator Message -->
+            <TextView
+                android:id="@+id/scan_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ready to capture and process OCR extraction."
+                android:textColor="#FFEB3B"
+                android:textSize="13sp"
+                android:textStyle="italic"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Action Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="12dp">
+
+                <Button
+                    android:id="@+id/btn_scan"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="4dp"
+                    android:background="#3F51B5"
+                    android:text="Scan &amp; Extract"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_clear"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="4dp"
+                    android:background="#757575"
+                    android:text="Clear Text"
+                    android:textSize="13sp"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- Result Editable Area -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Extracted Text (Editable):"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_extracted_text"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#F2FFFFFF"
+                android:gravity="top|left"
+                android:hint="No text loaded yet. Tap 'Scan &amp; Extract' or type manually..."
+                android:inputType="textMultiLine"
+                android:padding="8dp"
+                android:scrollbars="vertical"
+                android:textColor="#000000"
+                android:textSize="13sp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Speak controls panel -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#33FFFFFF"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Voice Synthesizer Tuning"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+                <!-- Speed adjustment -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="6dp">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Speed:"
+                        android:textSize="11sp"
+                        android:textColor="#EEEEEE" />
+                    <SeekBar
+                        android:id="@+id/sb_speed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="20" />
+                </LinearLayout>
+
+                <!-- Pitch adjustment -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="6dp">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Pitch:"
+                        android:textSize="11sp"
+                        android:textColor="#EEEEEE" />
+                    <SeekBar
+                        android:id="@+id/sb_pitch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="20" />
+                </LinearLayout>
+
+                <!-- Speak Actions -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="3">
+
+                    <Button
+                        android:id="@+id/btn_speak"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.4"
+                        android:layout_height="40dp"
+                        android:background="#4CAF50"
+                        android:text="🔊 Read Speak"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginRight="4dp" />
+
+                    <Button
+                        android:id="@+id/btn_stop"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_height="40dp"
+                        android:background="#F44336"
+                        android:text="Stop"
+                        android:textSize="12sp"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginRight="4dp" />
+
+                    <Button
+                        android:id="@+id/btn_copy"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_height="40dp"
+                        android:background="#FF9800"
+                        android:text="Copy"
+                        android:textSize="12sp"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
