@@ -2,99 +2,85 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define project name and packages for Simple App",
-      "description": "Determine com.simpleapp.app package boundaries and clean namespaces for Java integration.",
+      "title": "Analyze build failure root cause",
+      "description": "Identify manifest merger errors related to missing namespace attributes and legacy package configuration.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure AndroidManifest.xml for Simple App launcher activity",
-      "description": "Set up the main application declaration and tie launcher intent-filters directly to MainActivity.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Refactor AndroidManifest.xml structure",
+      "description": "Remove legacy package attribute from manifest tag and use fully qualified class paths to align with AGP 8.3.2 specifications.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Apply target SDK and build rules for Simple App in build.gradle",
-      "description": "Enforce SDK level 34, set Java 1.8 compatibility, and set up AGP version parameters.",
-      "files": ["app/build.gradle"],
+      "title": "Verify build.gradle configurations",
+      "description": "Verify namespace and applicationId settings inside the module-level build file to maintain consistent build outputs.",
+      "files": [
+        "app/build.gradle"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Set up main activity layout containers and custom styling",
-      "description": "Design high-compatibility scroll view container for modern, clean view rendering.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Validate layout XML syntax",
+      "description": "Confirm correctness of linear and scroll view layout structures inside activity_main.xml.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create header section for Simple App UI",
-      "description": "Position visual branding and supportive subtitle texts inside the main layout hierarchy.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Inspect MainActivity imports and variables",
+      "description": "Check Java package declarations and interactive hooks for the counter and quick memo features.",
+      "files": [
+        "app/src/main/java/com/simpleapp/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Add simple counter container with dynamic interactive views",
-      "description": "Integrate value indicator, count increment button, count decrement button, and reset controller.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Optimize persistent storage bindings",
+      "description": "Validate SharedPreferences routines for reading and writing data safely on UI action triggers.",
+      "files": [
+        "app/src/main/java/com/simpleapp/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Add quick memo container with input field and persist buttons",
-      "description": "Build multi-line text field and action controls to clear or store persistent user data.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Verify launcher icon specifications",
+      "description": "Ensure the manifest uses standard unified drawable launcher configuration rules.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement MainActivity and class fields initialization",
-      "description": "Generate clean Java structures, binding visual assets directly using stable findViewByID hooks.",
-      "files": ["app/src/main/java/com/simpleapp/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Hook up SharedPreferences persistent storage mechanisms",
-      "description": "Integrate logic to read and auto-populate existing memory structures when app launches.",
-      "files": ["app/src/main/java/com/simpleapp/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Register increment, decrement, and reset button action listeners",
-      "description": "Configure standard anonymous click interfaces to recalculate, refresh, and save counter values.",
-      "files": ["app/src/main/java/com/simpleapp/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Register note saving and note clearing persistent listeners",
-      "description": "Save data directly to storage using safe transaction boundaries, providing feedback alerts using Toasts.",
-      "files": ["app/src/main/java/com/simpleapp/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Verify Java 8 compatibility and validate code references",
-      "description": "Sanity check all parameters, layout components, imports, and variables to guarantee standard compilation.",
+      "title": "Verify Java 8 compatibility standards",
+      "description": "Check compatibility constraints to prevent any modern JDK features from interfering with compilation.",
       "files": [],
       "status": "pending"
     },
     {
-      "step": 13,
-      "title": "Review manifest icon hooks and light material styling layout",
-      "description": "Validate launcher icons and background structures prior to execution of Gradle compiler routines.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "step": 9,
+      "title": "Configure build environment properties",
+      "description": "Double check local properties and settings.gradle before launching compilation tools.",
+      "files": [
+        "settings.gradle"
+      ],
       "status": "pending"
     },
     {
-      "step": 14,
+      "step": 10,
       "title": "Building Simple App",
-      "description": "Generate clean build APK using local gradle assembleDebug target flow configuration.",
+      "description": "Trigger standard gradle assembleDebug compiler execution routine to generate corrected APK.",
       "files": [],
       "status": "pending"
     }
