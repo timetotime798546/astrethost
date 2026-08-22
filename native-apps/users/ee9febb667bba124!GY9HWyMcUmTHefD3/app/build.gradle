@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.easycalculator.app"
+    namespace "com.calculatorpro.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.easycalculator.app"
+        applicationId "com.calculatorpro.app"
 
         minSdkVersion 21
 

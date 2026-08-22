@@ -2,85 +2,89 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define App Configuration Metadata",
-      "description": "Establish the application meta file, assigning the name 'Easy Calculator' and package 'com.easycalculator.app'.",
-      "files": ["app-meta.json"],
+      "title": "Initialize Project Structure",
+      "description": "Generate basic directories and place global descriptors for Calculator Pro.",
+      "files": [
+        "app-meta.json"
+      ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build System Properties",
-      "description": "Establish proper compilation criteria using AGP 8.3.2 and Target SDK 34.",
-      "files": ["app/build.gradle"],
+      "title": "Configure Target SDK and Gradle Options",
+      "description": "Inject standard properties into the application-level build script matching the strict pipeline SDK definitions.",
+      "files": [
+        "app/build.gradle"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Set Android Manifest Configuration",
-      "description": "Configure the manifest file defining the main launcher activity with system material dark theme integration.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Register Launcher Actions inside Android Manifest",
+      "description": "Specify startup activity targets and load default material layout configuration styles.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Establish Dynamic User Interface Layout",
-      "description": "Design an elegant high contrast dark UI with proportional grids for clear calculation viewing and keypad inputs.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Build Layout Templates",
+      "description": "Produce custom nested linear arrangements of weight-aligned controls representing classic dynamic keypad sizes.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Set Up Activity Structure",
-      "description": "Initialize standard imports, views, and activity layout bindings.",
-      "files": ["app/src/main/java/com/easycalculator/app/MainActivity.java"],
+      "title": "Coordinate MainActivity Initialization",
+      "description": "Incorporate base runtime listeners across active component IDs inside Calculator Pro.",
+      "files": [
+        "app/src/main/java/com/calculatorpro/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Digit Click Binding",
-      "description": "Establish logic to input standard numbers and manage state transitions accurately.",
-      "files": ["app/src/main/java/com/easycalculator/app/MainActivity.java"],
+      "title": "Configure Decimal Formatting Rules",
+      "description": "Implement standard decimal layout parameters to control precise rendering boundaries.",
+      "files": [
+        "app/src/main/java/com/calculatorpro/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Math Operations Binding",
-      "description": "Setup core processing logic for +, -, *, and / signs.",
-      "files": ["app/src/main/java/com/easycalculator/app/MainActivity.java"],
+      "title": "Implement Mathematical Toggles and Operations",
+      "description": "Enforce positive/negative conversion, float tracking, and zero division safeguards.",
+      "files": [
+        "app/src/main/java/com/calculatorpro/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Add Sign Toggle Implementation",
-      "description": "Incorporate custom logic mapping +/- sign state toggling for positive and negative conversions.",
-      "files": ["app/src/main/java/com/easycalculator/app/MainActivity.java"],
+      "title": "Integrate Dynamic Display Logic",
+      "description": "Maintain interactive expression updates inside visual output indicators on the layout.",
+      "files": [
+        "app/src/main/java/com/calculatorpro/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Add Expression Result Processing",
-      "description": "Map mathematical evaluations ensuring proper double decimal outcomes and integer formatting standard.",
-      "files": ["app/src/main/java/com/easycalculator/app/MainActivity.java"],
+      "title": "Clean State Management",
+      "description": "Introduce robust clears and selective backspacing commands for custom computational chains.",
+      "files": [
+        "app/src/main/java/com/calculatorpro/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Add Clear and Backspace Routing",
-      "description": "Establish direct handling of deleting symbols and clearing computational state registers.",
-      "files": ["app/src/main/java/com/easycalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Verify Java 8 Compatibility",
-      "description": "Examine view components, interfaces, and methods for strict standard conformity without lambdas.",
-      "files": ["app/src/main/java/com/easycalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Building Easy Calculator",
-      "description": "Process gradle packaging tasks to compile output debug APK application binary.",
+      "title": "Building Calculator Pro",
+      "description": "Trigger gradle resource compilation models and bundle dependencies within target build distributions.",
       "files": [],
       "status": "pending"
     }
