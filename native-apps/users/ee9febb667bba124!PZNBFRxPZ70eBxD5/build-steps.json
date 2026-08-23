@@ -2,64 +2,64 @@
   "steps": [
     {
       "step": 1,
-      "title": "Inspect Manifest Errors",
-      "description": "Analyze the manifest merger failure to identify missing package attributes and namespace resolution issues.",
+      "title": "Analyze Manifest Error",
+      "description": "Identify that the package attribute in AndroidManifest.xml is causing parsing and validation issues in AGP 8.3.2.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Fix Android Manifest",
-      "description": "Add the package namespace attribute directly to the root manifest tag to properly initialize manifest merger context.",
+      "title": "Remove package Attribute",
+      "description": "Remove the package=\"com.ncalc.app\" attribute from the manifest tag, as namespace is already specified in build.gradle.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Verify Gradle Configuration",
-      "description": "Ensure build.gradle namespace matches the package definition and uses target SDK 34.",
+      "title": "Verify Namespace Configuration",
+      "description": "Verify that build.gradle defines namespace and applicationId correctly as com.ncalc.app.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Check Activity and Keypad Layout",
-      "description": "Verify MainActivity binding and UI elements match properly with XML view IDs.",
+      "title": "Verify MainActivity Integration",
+      "description": "Ensure MainActivity remains mapped to the correct package path and layouts.",
       "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Verify Sound Player",
-      "description": "Check synthesize buffer generation and AudioTrack configuration to prevent thread blockages.",
-      "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
+      "title": "Verify Layout References",
+      "description": "Check layout controls and elements reference the correct package IDs.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Verify Mathematical Parser",
-      "description": "Ensure the recursive descent parser is robust and handles all basic expressions successfully.",
+      "title": "Verify Sound Player Configuration",
+      "description": "Ensure custom audio synth and thread pool execute correctly without errors.",
       "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Validate Sound Controls",
-      "description": "Validate that sound selection controls work and update UI states properly.",
+      "title": "Verify Expression Parser",
+      "description": "Ensure the robust recursive descent math evaluator is fully integrated.",
       "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Test Live Expression Preview",
-      "description": "Confirm live evaluation updates results list without crashing on incomplete math input.",
+      "title": "Verify Sound Mode UI States",
+      "description": "Validate that changing sound types updates button colors correctly.",
       "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Verify Android Environment Compatibility",
-      "description": "Align toolchains and dependencies to compile with SDK 34 and JVM 1.8 compatibility.",
+      "title": "Verify Build Dependencies",
+      "description": "Ensure dependencies and toolchains compile cleanly against SDK 34.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },

@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: N-Calc
 App ID: app_6a8af458c8686
-Build ID: 32642234911
-Time: 2026-08-23 18:59:09
+Build ID: 32642650692
+Time: 2026-08-23 19:09:51
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 161408
-Extracted error characters: 27345
-File references detected: 208
+Original log characters: 168581
+Extracted error characters: 30042
+File references detected: 271
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+8 from tool-cache
 Setting Java 17.0.20+8 as the default
-(node:2197) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2188) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/79437686-2610-4d87-a421-3b728cc9e023
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/c1b6f4cc-328b-466f-9562-d9011d902cf4
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/20.0/bin/sdkmanager --licenses
 Loading local repository...
@@ -189,6 +189,7 @@ PROJECT FILES
 ./app-meta.json
 ./app/build.gradle
 ./app/proguard-rules.pro
+./build-error.log
 ./build-steps.json
 ./build.gradle
 ./local.properties
@@ -216,27 +217,29 @@ Daemon will be stopped at the end of the build
 > Task :app:packageDebugResources
 > Task :app:mergeDebugResources
 > Task :app:createDebugCompatibleScreenManifests
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:11:9-18:20 Error:
 > Task :app:extractDeepLinksDebug
-Missing 'name' key attribute on element activity at AndroidManifest.xml:11:9-18:20
-> Task :app:parseDebugLocalResources
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:14:13-17:29 Error:
 
-Missing one of the key attributes 'action#name,category#name,data#scheme,data#host,data#mimeType,data#port,data#path,data#pathPattern,data#pathPrefix' on element intent-filter at AndroidManifest.xml:14:13-17:29
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:12:9-19:20 Error:
+Missing 'name' key attribute on element activity at AndroidManifest.xml:12:9-19:20
 > Task :app:processDebugMainManifest FAILED
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:15:17-69 Error:
-Missing 'name' key attribute on element action at AndroidManifest.xml:15:17-69
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:16:17-77 Error:
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:15:13-18:29 Error:
+package="com.ncalc.app" found in source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.ncalc.app" from the source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml.
 
-Missing 'name' key attribute on element category at AndroidManifest.xml:16:17-77
 See https://developer.android.com/r/studio-ui/build/manifest-merger for more information about the manifest merger.
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml Error:
 
+> Task :app:parseDebugLocalResources
+Missing one of the key attributes 'action#name,category#name,data#scheme,data#host,data#mimeType,data#port,data#path,data#pathPattern,data#pathPrefix' on element intent-filter at AndroidManifest.xml:15:13-18:29
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:16:17-69 Error:
+Missing 'name' key attribute on element action at AndroidManifest.xml:16:17-69
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:17:17-77 Error:
+Missing 'name' key attribute on element category at AndroidManifest.xml:17:17-77
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml Error:
 Validation failed, exiting
 
 FAILURE: Build failed with an exception.
 
-11 actionable tasks: 11 executed
 Execution failed for task ':app:processDebugMainManifest'.
 > Manifest merger failed with multiple errors, see logs
 
@@ -266,6 +269,7 @@ at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultB
 at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
 at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
 at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+11 actionable tasks: 11 executed
 at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
 at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
 at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
@@ -277,6 +281,27 @@ at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareE
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:116)
+at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
+at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
+at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
+at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
+at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
+at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
+at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
+at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:264)
+at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:128)
+at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
 at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 Caused by: java.lang.RuntimeException: Manifest merger failed with multiple errors, see logs
@@ -290,9 +315,11 @@ at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
-at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
-at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
-at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+at org.gradle.api.in
+
+================ EXTRACTED LOG CONTINUED ================
+
+ternal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
 at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:248)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
@@ -368,7 +395,7 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 22s
+BUILD FAILED in 23s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
