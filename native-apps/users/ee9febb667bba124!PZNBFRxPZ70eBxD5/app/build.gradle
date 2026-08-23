@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.compilefaildemo.app"
+    namespace "com.ncalc.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.compilefaildemo.app"
+        applicationId "com.ncalc.app"
 
         minSdkVersion 21
 

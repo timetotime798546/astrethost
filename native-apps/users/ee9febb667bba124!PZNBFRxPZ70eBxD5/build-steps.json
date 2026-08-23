@@ -2,89 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze Build Failures",
-      "description": "Inspect error logs regarding manifest merging and incorrect key attributes.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
+      "title": "Define N-Calc Project Identity",
+      "description": "Establish the package name com.ncalc.app and set up app metadata for N-Calc.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Sanitize AndroidManifest Namespace",
-      "description": "Rewrite AndroidManifest.xml with proper, clean XML standards to avoid parsing issues with android:name.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
+      "title": "Clean Android Manifest File",
+      "description": "Remove deprecated package attributes and setup MainActivity as the primary launcher with proper intent filters.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Clean build.gradle Configuration",
-      "description": "Clean the build configuration to align compilation properties with target and compile versions.",
-      "files": [
-        "app/build.gradle"
-      ],
+      "title": "Configure App Build Settings",
+      "description": "Set compiler and JVM settings to Java 1.8 compatibility inside Gradle configurations.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Remove Prohibited External Dependencies",
-      "description": "Remove nanohttpd and other non-standard external dependencies from build.gradle to satisfy strict rules.",
-      "files": [
-        "app/build.gradle"
-      ],
+      "title": "Develop Sound Waveforms Dynamically",
+      "description": "Define sound-synthesis functions using PCM arrays to generate high-quality sound effects like beeps, clicks, and lasers.",
+      "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Validate Java Source Code",
-      "description": "Ensure MainActivity is correctly defined within the package and matches package metadata.",
-      "files": [
-        "app/src/main/java/com/compilefaildemo/app/MainActivity.java"
-      ],
+      "title": "Build Sound Management Layer",
+      "description": "Use single-threaded worker executor to serialize AudioTrack actions and prevent main thread freezes.",
+      "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Validate Layout Resource XML",
-      "description": "Ensure layout activity_main.xml compiles successfully with the correct text element.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
+      "title": "Design Keypad Layout in XML",
+      "description": "Create a fully styled flat numeric and operator layout using nested high-performance containers.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Verify Java 8 Toolchain settings",
-      "description": "Check and enforce compatibility rules for Java 1.8 in the build environment.",
-      "files": [
-        "app/build.gradle"
-      ],
+      "title": "Write Recursive Descent Parser",
+      "description": "Program an efficient mathematics evaluation engine supporting order of operations and grouped parentheses.",
+      "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Match Package Metadata",
-      "description": "Verify app-meta.json consistently reflects the correct application name and package identifier.",
-      "files": [
-        "app-meta.json"
-      ],
+      "title": "Integrate Live Results Logic",
+      "description": "Track keypad actions and trigger real-time evaluation preview while user types.",
+      "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Perform Manifest Verification Check",
-      "description": "Double check manifest elements for missing attributes or invalid characters prior to building.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
+      "title": "Add Sound Selection Panel",
+      "description": "Provide clickable menu icons allowing instant toggling between Mute, Click, Beep, and Laser profiles.",
+      "files": ["app/src/main/res/layout/activity_main.xml", "app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Building Compile Fail Demo",
-      "description": "Assemble the project to verify successful generation of the debug APK.",
+      "title": "Building N-Calc",
+      "description": "Assemble and build the debug APK using standard AGP environment.",
       "files": [],
       "status": "pending"
     }

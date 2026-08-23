@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.google.com/apk/res/android"
-    package="com.compilefaildemo.app">
+<manifest xmlns:android="http://schemas.google.com/apk/res/android">
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:roundIcon="@drawable/icon"
-        android:label="Compile Fail Demo"
+        android:label="N-Calc"
         android:theme="@android:style/Theme.Material.Light">
 
         <activity
-            android:name="com.compilefaildemo.app.MainActivity"
+            android:name="com.ncalc.app.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
