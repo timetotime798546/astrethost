@@ -2,85 +2,69 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize App Metadata",
-      "description": "Configure basic application information and target system parameters for Todo Pro.",
-      "files": ["app-meta.json"],
+      "title": "Analyze Build Error Logs",
+      "description": "Identify the exact lines of compilation failure inside MainActivity.java.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Gradle Settings",
-      "description": "Set up AGP 8.3.2, Gradle 8.5, and SDK 34 compatibility configurations.",
-      "files": ["app/build.gradle"],
+      "title": "Fix Text Size Typography Typo",
+      "description": "Correct the invalid syntax call 16spToPx(6) to 16 for txtTitle in MainActivity.java.",
+      "files": [
+        "app/src/main/java/com/todopro/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Setup Android Manifest",
-      "description": "Configure standard launcher activity, app permissions, and the system Material Light theme without Action Bar.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Fix Static References to View Visibility",
+      "description": "Replace non-static method call View.getSystemUiVisibility() with correct constant View.VISIBLE in setupWelcomeSimulation.",
+      "files": [
+        "app/src/main/java/com/todopro/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design Layout XML",
-      "description": "Create the visual structure including Welcome Screen with progress loader, dynamic task list, header stats, and interactive Task Creation modal layout.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Correct Typeface Style Assignment Method",
+      "description": "Convert incorrect setTextStyle() calls on TextView to standard setTypeface(null, Typeface.BOLD) syntax.",
+      "files": [
+        "app/src/main/java/com/todopro/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Define SQLite Database Helper",
-      "description": "Implement SQLite local database within MainActivity for robust task persistence including custom helper methods.",
-      "files": ["app/src/main/java/com/todopro/app/MainActivity.java"],
+      "title": "Validate SQLite Database Structure",
+      "description": "Double check persistence helpers and columns configurations.",
+      "files": [
+        "app/src/main/java/com/todopro/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Splash Simulated Loader",
-      "description": "Add a realistic delayed loading screen demonstrating simulated database indexing progress prior to launching main UI.",
-      "files": ["app/src/main/java/com/todopro/app/MainActivity.java"],
+      "title": "Verify Java 8 Backward Compatibility",
+      "description": "Ensure all listeners are implemented with legacy anonymous inner classes instead of newer lambdas.",
+      "files": [
+        "app/src/main/java/com/todopro/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Modern Card Builder",
-      "description": "Create a dynamic system to render visual task items as styled material card layouts inside Java.",
-      "files": ["app/src/main/java/com/todopro/app/MainActivity.java"],
+      "title": "Ensure XML Theme Properties",
+      "description": "Confirm AndroidManifest application tag uses standard light Material theme.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Configure Dynamic Filters",
-      "description": "Allow tasks to be filtered seamlessly in real-time by completion state (All, Pending, Completed) and search query keys.",
-      "files": ["app/src/main/java/com/todopro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Implement Creation and Update Actions",
-      "description": "Integrate full CRUD capabilities allowing users to add, edit, toggle completeness status, and permanently remove tasks.",
-      "files": ["app/src/main/java/com/todopro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Add Color-Coded Priorities",
-      "description": "Implement colored priority badge indicators for clear prioritization (High is red, Medium is orange, Low is green).",
-      "files": ["app/src/main/java/com/todopro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Verify Java 8 Backwards Compatibility",
-      "description": "Ensure that all dynamic behaviors are coded cleanly with anonymous inner classes instead of modern Java 9+ functional parameters.",
-      "files": ["app/src/main/java/com/todopro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building Todo Pro",
-      "description": "Run build pipeline steps to construct the final debug task management application successfully.",
+      "description": "Initiate gradle assemble task and generate the finalized error-free debug build.",
       "files": [],
       "status": "pending"
     }

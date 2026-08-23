@@ -158,7 +158,7 @@ public class MainActivity extends Activity {
                     @Override
                     public void run() {
                         welcomeScreen.setVisibility(View.GONE);
-                        mainScreen.setVisibility(View.getSystemUiVisibility());
+                        mainScreen.setVisibility(View.VISIBLE);
                         loadTasks();
                     }
                 });
@@ -438,10 +438,10 @@ public class MainActivity extends Activity {
 
         TextView txtTitle = new TextView(this);
         txtTitle.setText(title);
-        txtTitle.setTextSize(16spToPx(6)); // Modern sizing
+        txtTitle.setTextSize(16); // Modern sizing
         txtTitle.setTextColor(isCompleted ? Color.parseColor("#888888") : Color.parseColor("#212121"));
         txtTitle.setPaintFlags(isCompleted ? (txtTitle.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG) : (txtTitle.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG));
-        txtTitle.setTextStyle(android.graphics.Typeface.BOLD);
+        txtTitle.setTypeface(null, android.graphics.Typeface.BOLD);
         infoPanel.addView(txtTitle);
 
         TextView txtDesc = new TextView(this);
@@ -482,7 +482,7 @@ public class MainActivity extends Activity {
         badgePriority.setTextSize(10);
         badgePriority.setPadding(10, 4, 10, 4);
         badgePriority.setTextColor(Color.parseColor("#FFFFFF"));
-        badgePriority.setTextStyle(android.graphics.Typeface.BOLD);
+        badgePriority.setTypeface(null, android.graphics.Typeface.BOLD);
 
         String priorityColor = "#4CAF50"; // Low default (Green)
         if ("Medium".equalsIgnoreCase(priority)) {
