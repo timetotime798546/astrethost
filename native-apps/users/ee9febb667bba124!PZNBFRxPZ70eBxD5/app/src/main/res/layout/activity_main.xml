@@ -1,451 +1,468 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.google.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#000000">
+    android:background="#F5F5F5">
 
-    <!-- Sound settings top header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="12dp"
-        android:background="#1A1A1A">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="N-Calc"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/btn_sound_mute"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🔇"
-            android:textSize="18sp"
-            android:padding="8dp"
-            android:background="#1F1F1F"
-            android:layout_marginRight="4dp"
-            android:clickable="true"
-            android:focusable="true" />
-
-        <TextView
-            android:id="@+id/btn_sound_click"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Click"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:background="#FF9F0A"
-            android:layout_marginRight="4dp"
-            android:textStyle="bold"
-            android:clickable="true"
-            android:focusable="true" />
-
-        <TextView
-            android:id="@+id/btn_sound_beep"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Beep"
-            android:textColor="#888888"
-            android:textSize="12sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:background="#1F1F1F"
-            android:layout_marginRight="4dp"
-            android:clickable="true"
-            android:focusable="true" />
-
-        <TextView
-            android:id="@+id/btn_sound_laser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Laser"
-            android:textColor="#888888"
-            android:textSize="12sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:background="#1F1F1F"
-            android:clickable="true"
-            android:focusable="true" />
-    </LinearLayout>
-
-    <!-- Displays layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.2"
         android:orientation="vertical"
-        android:gravity="bottom|right"
-        android:padding="16dp"
-        android:background="#121212">
+        android:padding="16dp">
 
+        <!-- Header Title -->
         <TextView
-            android:id="@+id/tv_expression"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:textColor="#888888"
-            android:textSize="26sp"
-            android:singleLine="true"
-            android:scrollHorizontally="true"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:id="@+id/tv_result"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="0"
-            android:textColor="#FFFFFF"
-            android:textSize="44sp"
+            android:text="Word Counter Pro"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:singleLine="true" />
-    </LinearLayout>
+            android:textColor="#333333"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
 
-    <!-- Keypad -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3.0"
-        android:orientation="vertical"
-        android:background="#000000"
-        android:padding="2dp">
-
-        <!-- Row 1 -->
+        <!-- Realtime Counters Summary -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:layout_marginBottom="16dp">
+
+            <!-- Words Counter Card -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#FFFFFF"
+                android:padding="10dp"
+                android:layout_margin="2dp">
+                <TextView
+                    android:id="@+id/txt_words_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textStyle="bold"
+                    android:textColor="#6200EE"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Words"
+                    android:textSize="11sp"
+                    android:textColor="#666666" />
+            </LinearLayout>
+
+            <!-- Characters Counter Card -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#FFFFFF"
+                android:padding="10dp"
+                android:layout_margin="2dp">
+                <TextView
+                    android:id="@+id/txt_chars_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textStyle="bold"
+                    android:textColor="#6200EE"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chars"
+                    android:textSize="11sp"
+                    android:textColor="#666666" />
+            </LinearLayout>
+
+            <!-- Sentences Counter Card -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#FFFFFF"
+                android:padding="10dp"
+                android:layout_margin="2dp">
+                <TextView
+                    android:id="@+id/txt_sentences_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textStyle="bold"
+                    android:textColor="#6200EE"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sentences"
+                    android:textSize="11sp"
+                    android:textColor="#666666" />
+            </LinearLayout>
+
+            <!-- Paragraphs Counter Card -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#FFFFFF"
+                android:padding="10dp"
+                android:layout_margin="2dp">
+                <TextView
+                    android:id="@+id/txt_paragraphs_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textStyle="bold"
+                    android:textColor="#6200EE"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paragraphs"
+                    android:textSize="11sp"
+                    android:textColor="#666666" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Editor Input Panel -->
+        <EditText
+            android:id="@+id/edt_input_text"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="top|left"
+            android:hint="Type, paste, or load text here to instantly count words, sentences, reading speed, readability levels, and keyword density..."
+            android:background="#FFFFFF"
+            android:padding="12dp"
+            android:textColor="#333333"
+            android:textSize="15sp"
+            android:textCursorDrawable="@null"
+            android:scrollbars="vertical" />
+
+        <!-- Text Utilities / Buttons row -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_paste"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PASTE"
+                    android:textSize="12sp"
+                    android:layout_marginRight="6dp"
+                    android:backgroundTint="#6200EE"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/btn_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="COPY"
+                    android:textSize="12sp"
+                    android:layout_marginRight="6dp"
+                    android:backgroundTint="#6200EE"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/btn_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CLEAR"
+                    android:textSize="12sp"
+                    android:layout_marginRight="6dp"
+                    android:backgroundTint="#B00020"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/btn_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SHARE"
+                    android:textSize="12sp"
+                    android:layout_marginRight="6dp"
+                    android:backgroundTint="#03DAC6"
+                    android:textColor="#000000" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Case Converter Block -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Case Conversion"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:layout_marginBottom="6dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btn_case_upper"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UPPER"
+                android:textSize="10sp"
+                android:layout_margin="2dp"
+                android:backgroundTint="#757575"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btn_case_lower"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="lower"
+                android:textSize="10sp"
+                android:layout_margin="2dp"
+                android:backgroundTint="#757575"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btn_case_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Title"
+                android:textSize="10sp"
+                android:layout_margin="2dp"
+                android:backgroundTint="#757575"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btn_case_sentence"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sentence"
+                android:textSize="10sp"
+                android:layout_margin="2dp"
+                android:backgroundTint="#757575"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Find and Replace Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp">
 
             <TextView
-                android:id="@+id/btn_clear"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="C"
-                android:textColor="#FF453A"
-                android:textSize="22sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find &amp; Replace"
                 android:textStyle="bold"
-                android:background="#2C2C2E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
+                android:textColor="#333333"
+                android:layout_marginBottom="8dp" />
 
-            <TextView
-                android:id="@+id/btn_bracket_open"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="("
-                android:textColor="#30D158"
-                android:textSize="22sp"
-                android:background="#2C2C2E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/btn_bracket_close"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text=")"
-                android:textColor="#30D158"
-                android:textSize="22sp"
-                android:background="#2C2C2E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
+                <EditText
+                    android:id="@+id/edt_find"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Find word"
+                    android:textSize="13sp" />
 
-            <TextView
-                android:id="@+id/btn_divide"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="÷"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                android:background="#FF9F0A"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
+                <EditText
+                    android:id="@+id/edt_replace"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Replace with"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/btn_replace_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Replace"
+                    android:textSize="12sp"
+                    android:backgroundTint="#03DAC6"
+                    android:textColor="#000000" />
+            </LinearLayout>
         </LinearLayout>
 
-        <!-- Row 2 -->
+        <!-- Deep Analytics Card -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
 
             <TextView
-                android:id="@+id/btn_7"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="7"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:background="#1C1C1E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <TextView
-                android:id="@+id/btn_8"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="8"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:background="#1C1C1E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <TextView
-                android:id="@+id/btn_9"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="9"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:background="#1C1C1E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <TextView
-                android:id="@+id/btn_multiply"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="×"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                android:background="#FF9F0A"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-        </LinearLayout>
-
-        <!-- Row 3 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/btn_4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="4"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:background="#1C1C1E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <TextView
-                android:id="@+id/btn_5"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="5"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:background="#1C1C1E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <TextView
-                android:id="@+id/btn_6"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="6"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:background="#1C1C1E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <TextView
-                android:id="@+id/btn_subtract"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="-"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                android:background="#FF9F0A"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-        </LinearLayout>
-
-        <!-- Row 4 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/btn_1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="1"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:background="#1C1C1E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <TextView
-                android:id="@+id/btn_2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="2"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:background="#1C1C1E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <TextView
-                android:id="@+id/btn_3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="3"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:background="#1C1C1E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <TextView
-                android:id="@+id/btn_add"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="+"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                android:background="#FF9F0A"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-        </LinearLayout>
-
-        <!-- Row 5 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/btn_decimal"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="."
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:background="#1C1C1E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <TextView
-                android:id="@+id/btn_0"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="0"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:background="#1C1C1E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <TextView
-                android:id="@+id/btn_delete"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="⌫"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:background="#2C2C2E"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <TextView
-                android:id="@+id/btn_equals"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="="
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Advanced Text Metrics"
                 android:textStyle="bold"
-                android:background="#30D158"
-                android:gravity="center"
-                android:layout_margin="2dp"
-                android:clickable="true"
-                android:focusable="true" />
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Detail Row: Reading Time -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Estimated Reading Time:"
+                    android:textColor="#666666" />
+                <TextView
+                    android:id="@+id/txt_reading_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 min"
+                    android:textStyle="bold"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <!-- Detail Row: Speaking Time -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Estimated Speaking Time:"
+                    android:textColor="#666666" />
+                <TextView
+                    android:id="@+id/txt_speaking_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 min"
+                    android:textStyle="bold"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <!-- Detail Row: Readability Score -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Readability (Flesch Ease):"
+                    android:textColor="#666666" />
+                <TextView
+                    android:id="@+id/txt_readability"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100 (Very Easy)"
+                    android:textStyle="bold"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <!-- Detail Row: Avg Word Length -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Avg. Word Length:"
+                    android:textColor="#666666" />
+                <TextView
+                    android:id="@+id/txt_avg_word_len"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.0 chars"
+                    android:textStyle="bold"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <!-- Detail Row: Characters No Spaces -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Chars (excluding spaces):"
+                    android:textColor="#666666" />
+                <TextView
+                    android:id="@+id/txt_chars_no_spaces"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textStyle="bold"
+                    android:textColor="#333333" />
+            </LinearLayout>
         </LinearLayout>
+
+        <!-- Keyword Density Checker Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keyword Density (Top Words)"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/txt_density_results"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Write some text to analyze keyword frequency."
+                android:textColor="#666666"
+                android:textSize="13sp" />
+        </LinearLayout>
+
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

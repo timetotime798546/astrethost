@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.ncalc.app"
+    namespace "com.wordcounterpro.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.ncalc.app"
+        applicationId "com.wordcounterpro.app"
 
         minSdkVersion 21
 

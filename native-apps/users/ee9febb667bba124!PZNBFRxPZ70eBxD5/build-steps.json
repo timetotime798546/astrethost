@@ -2,71 +2,85 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze Manifest Error",
-      "description": "Identify that the package attribute in AndroidManifest.xml is causing parsing and validation issues in AGP 8.3.2.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Initialize Project Structure",
+      "description": "Set up the base directory structure for Word Counter Pro using package name com.wordcounterpro.app.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Remove package Attribute",
-      "description": "Remove the package=\"com.ncalc.app\" attribute from the manifest tag, as namespace is already specified in build.gradle.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Configure App Metadata",
+      "description": "Create app-meta.json containing metadata configuration for packaging.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Verify Namespace Configuration",
-      "description": "Verify that build.gradle defines namespace and applicationId correctly as com.ncalc.app.",
+      "title": "Set Up Gradle Configurations",
+      "description": "Configure app/build.gradle with Android SDK 34, AGP 8.3.2, and dependencies rules.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Verify MainActivity Integration",
-      "description": "Ensure MainActivity remains mapped to the correct package path and layouts.",
-      "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Verify Layout References",
-      "description": "Check layout controls and elements reference the correct package IDs.",
+      "title": "Design App Layout UI",
+      "description": "Create a rich, single-screen UI layout in activity_main.xml featuring statistics grid, input field, keyword list, and action tools.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 5,
+      "title": "Define Application Manifest",
+      "description": "Configure AndroidManifest.xml specifying application name, main entry point, and light material theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
       "step": 6,
-      "title": "Verify Sound Player Configuration",
-      "description": "Ensure custom audio synth and thread pool execute correctly without errors.",
-      "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
+      "title": "Implement Real-Time Analysis Logic",
+      "description": "Code the text parsing, syllable calculation, and readability index algorithms in MainActivity.java.",
+      "files": ["app/src/main/java/com/wordcounterpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Verify Expression Parser",
-      "description": "Ensure the robust recursive descent math evaluator is fully integrated.",
-      "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
+      "title": "Implement Keyword Density Analyzer",
+      "description": "Add sorting mechanism to map top recurring words without using external Java 8+ features.",
+      "files": ["app/src/main/java/com/wordcounterpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Verify Sound Mode UI States",
-      "description": "Validate that changing sound types updates button colors correctly.",
-      "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
+      "title": "Implement Text Tools Actions",
+      "description": "Add copy, paste, clear, share, and find & replace functionalities within MainActivity.java.",
+      "files": ["app/src/main/java/com/wordcounterpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Verify Build Dependencies",
-      "description": "Ensure dependencies and toolchains compile cleanly against SDK 34.",
-      "files": ["app/build.gradle"],
+      "title": "Implement Case Conversion Features",
+      "description": "Integrate UPPERCASE, lowercase, sentence case, and title case helpers in the action panel.",
+      "files": ["app/src/main/java/com/wordcounterpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Building N-Calc",
-      "description": "Assemble and build the debug APK using standard AGP environment.",
+      "title": "Configure App Theme Styles",
+      "description": "Utilize android:theme Theme.Material.Light dynamically for standard professional styling.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Validate Code and Layout compatibility",
+      "description": "Confirm compilation properties and resources alignments for target SDK.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Word Counter Pro",
+      "description": "Assemble application components into a production build using Gradle 8.5.",
       "files": [],
       "status": "pending"
     }
