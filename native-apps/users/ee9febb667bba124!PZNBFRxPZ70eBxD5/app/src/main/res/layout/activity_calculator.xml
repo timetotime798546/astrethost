@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.google.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    android:padding="16dp">
+
+    <!-- Back Navigation Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_bg"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Utility Processor"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <!-- Calculation Engine Workspace Screen -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:id="@+id/txtCalcExpression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="@color/textSecondary"
+            android:gravity="right"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/txtCalcResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/textDark"
+            android:gravity="right" />
+    </LinearLayout>
+
+    <!-- Calculator Layout Keyboard Grid -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card_bg"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp">
+
+        <!-- Row 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+            <Button android:id="@+id/btnC" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="C" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/btnDiv" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="/" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/btnMult" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="*" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/btnMinus" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="-" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Row 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+            <Button android:id="@+id/btn7" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="7" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/btn8" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="8" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/btn9" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="9" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/btnPlus" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="+" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Row 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+            <Button android:id="@+id/btn4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="4" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/btn5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="5" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/btn6" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="6" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/btnEquals" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_gravity="fill_vertical" android:text="=" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Row 4 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btn1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="1" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/btn2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="2" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/btn3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="3" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/btn0" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="0" android:layout_margin="2dp" android:background="@drawable/button_bg" android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Conversion Dashboard Unit Utility Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        android:padding="12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scientific Unit Metric Converter"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/editMetricValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Input Value to Convert (e.g. Celsius)"
+            android:textColor="@color/textDark"
+            android:background="@drawable/input_bg"
+            android:padding="10dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="numberDecimal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCelsiusToFahr"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="°C to °F"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_bg"
+                android:layout_marginRight="4dp"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btnFahrToCelsius"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="°F to °C"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_bg"
+                android:layout_marginLeft="4dp"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtMetricResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Result Metric Output: --"
+            android:textSize="13sp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:gravity="center_horizontal" />
+    </LinearLayout>
+</LinearLayout>
