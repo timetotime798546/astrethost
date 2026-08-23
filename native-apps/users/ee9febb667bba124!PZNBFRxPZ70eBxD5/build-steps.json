@@ -2,65 +2,65 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define N-Calc Project Identity",
-      "description": "Establish the package name com.ncalc.app and set up app metadata for N-Calc.",
-      "files": ["app-meta.json"],
+      "title": "Inspect Manifest Errors",
+      "description": "Analyze the manifest merger failure to identify missing package attributes and namespace resolution issues.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Clean Android Manifest File",
-      "description": "Remove deprecated package attributes and setup MainActivity as the primary launcher with proper intent filters.",
+      "title": "Fix Android Manifest",
+      "description": "Add the package namespace attribute directly to the root manifest tag to properly initialize manifest merger context.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure App Build Settings",
-      "description": "Set compiler and JVM settings to Java 1.8 compatibility inside Gradle configurations.",
+      "title": "Verify Gradle Configuration",
+      "description": "Ensure build.gradle namespace matches the package definition and uses target SDK 34.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Develop Sound Waveforms Dynamically",
-      "description": "Define sound-synthesis functions using PCM arrays to generate high-quality sound effects like beeps, clicks, and lasers.",
+      "title": "Check Activity and Keypad Layout",
+      "description": "Verify MainActivity binding and UI elements match properly with XML view IDs.",
       "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Build Sound Management Layer",
-      "description": "Use single-threaded worker executor to serialize AudioTrack actions and prevent main thread freezes.",
+      "title": "Verify Sound Player",
+      "description": "Check synthesize buffer generation and AudioTrack configuration to prevent thread blockages.",
       "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Design Keypad Layout in XML",
-      "description": "Create a fully styled flat numeric and operator layout using nested high-performance containers.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Verify Mathematical Parser",
+      "description": "Ensure the recursive descent parser is robust and handles all basic expressions successfully.",
+      "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Write Recursive Descent Parser",
-      "description": "Program an efficient mathematics evaluation engine supporting order of operations and grouped parentheses.",
+      "title": "Validate Sound Controls",
+      "description": "Validate that sound selection controls work and update UI states properly.",
       "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Integrate Live Results Logic",
-      "description": "Track keypad actions and trigger real-time evaluation preview while user types.",
+      "title": "Test Live Expression Preview",
+      "description": "Confirm live evaluation updates results list without crashing on incomplete math input.",
       "files": ["app/src/main/java/com/ncalc/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Add Sound Selection Panel",
-      "description": "Provide clickable menu icons allowing instant toggling between Mute, Click, Beep, and Laser profiles.",
-      "files": ["app/src/main/res/layout/activity_main.xml", "app/src/main/java/com/ncalc/app/MainActivity.java"],
+      "title": "Verify Android Environment Compatibility",
+      "description": "Align toolchains and dependencies to compile with SDK 34 and JVM 1.8 compatibility.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
