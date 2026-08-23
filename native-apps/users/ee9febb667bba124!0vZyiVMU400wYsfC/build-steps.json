@@ -1,0 +1,97 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Specifications",
+      "description": "Establish the UI layout of the Calculator Plus app, supporting basic arithmetic operators and parenthesis.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Setup App Directory and Package Structure",
+      "description": "Create packages following the pattern com.calculatorplus.app.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Application Metadata Config",
+      "description": "Include app-meta.json at root specifying package name and app name.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure Build Settings in Gradle",
+      "description": "Configure compilation and SDK constraints compatible with Java 17, Gradle 8.5, and target SDK 34.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define Android Manifest",
+      "description": "Establish the application entry-point and launcher properties inside AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build UI Layout XML",
+      "description": "Construct activity_main.xml with formula view, result view, and key grid buttons.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Write Native Math Engine",
+      "description": "Develop a pure Java expression evaluator using standard recursive descent parsing logic inside MainActivity.",
+      "files": [
+        "app/src/main/java/com/calculatorplus/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Wire Up Layout Buttons with Listeners",
+      "description": "Bind numeric, operations, brackets, clear, backspace, and result buttons to listeners using standard inner classes.",
+      "files": [
+        "app/src/main/java/com/calculatorplus/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Add UI Interaction Logic",
+      "description": "Enable dynamic screen display refreshes, syntax handling, and automatic decimal placement safeguards.",
+      "files": [
+        "app/src/main/java/com/calculatorplus/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Verify Java 8 Language Compatibility",
+      "description": "Check source code constraints to ensure standard anonymous inner class compatibility.",
+      "files": [
+        "app/src/main/java/com/calculatorplus/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Calculator Plus",
+      "description": "Run assembly tasks with SDK build configurations to generate the debug APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
