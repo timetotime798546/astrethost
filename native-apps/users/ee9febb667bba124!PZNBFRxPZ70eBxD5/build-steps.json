@@ -2,141 +2,89 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Project Metadata",
-      "description": "Configure app metadata, app name, and define target package structure 'com.omnicontrolsuite.app'.",
+      "title": "Analyze Build Failures",
+      "description": "Scan the diagnostic logs to locate errors inside the Manifest merger and layout definition resources.",
       "files": [
-        "app-meta.json"
+        "app/src/main/AndroidManifest.xml",
+        "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure build.gradle and Tooling SDKs",
-      "description": "Set up Gradle build settings targeting SDK 34 and AGP 8.3.2 with strict Java 17 requirements.",
-      "files": [
-        "app/build.gradle"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Implement AndroidManifest.xml Registry",
-      "description": "Register OmniControl Suite's Activities and configure system styling variables.",
+      "title": "Resolve Manifest Merger Package Conflicts",
+      "description": "Remove deprecated package attribute from the manifest element and register fully-qualified Activity names for OmniControl Suite to align with AGP 8.3.2 specifications.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 4,
-      "title": "Define Theme and Color Systems",
-      "description": "Create responsive material resource palettes using Indigo and Teal accents for light/dark templates.",
+      "step": 3,
+      "title": "Fix Layout XML Syntax Typo",
+      "description": "Correct the invalid layout_width attribute ('match_match' changed to 'match_parent') in activity_main.xml.",
       "files": [
-        "app/src/main/res/values/colors.xml",
-        "app/src/main/res/values/styles.xml"
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Enforce Dependency Restrictions",
+      "description": "Clean build.gradle files by stripping out forbidden third-party dependency declarations (nanohttpd) to enforce native-only rules.",
+      "files": [
+        "app/build.gradle"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Vector Drawables",
-      "description": "Build modern card gradients, input styling layers, and rounded layouts.",
-      "files": [
-        "app/src/main/res/drawable/card_bg.xml",
-        "app/src/main/res/drawable/button_bg.xml",
-        "app/src/main/res/drawable/input_bg.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Establish Enterprise Database Controller",
-      "description": "Develop local SQLite database adapter containing modules for dynamic task records and document files.",
+      "title": "Validate Database Integration Helper",
+      "description": "Verify SQLite database tables and cursor queries in DatabaseHelper are optimized and clean.",
       "files": [
         "app/src/main/java/com/omnicontrolsuite/app/DatabaseHelper.java"
       ],
       "status": "pending"
     },
     {
-      "step": 7,
-      "title": "Create Canvas-Based Analytics View",
-      "description": "Construct custom dashboard graphics viewport using core Java Android graphic canvases.",
+      "step": 6,
+      "title": "Verify Canvas Graphic View Implementation",
+      "description": "Validate the layout structure, paint objects, and random metric plotter configurations inside the AnalyticsView class.",
       "files": [
         "app/src/main/java/com/omnicontrolsuite/app/AnalyticsView.java"
       ],
       "status": "pending"
     },
     {
-      "step": 8,
-      "title": "Develop Main Dashboard View",
-      "description": "Build the primary activity layout featuring system stats cards and modular activity routers.",
+      "step": 7,
+      "title": "Audit Dashboard Router Setup",
+      "description": "Review MainActivity navigation handlers, real-time thread clocks, and SQLite statistical metrics loaders.",
       "files": [
-        "app/src/main/res/layout/activity_main.xml",
         "app/src/main/java/com/omnicontrolsuite/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Develop Task Manager Interface",
-      "description": "Build task boards with real-time checkbox monitoring, query sorting, and status toggles.",
+      "step": 8,
+      "title": "Audit Utilities and Settings Control Panels",
+      "description": "Double check unit conversions, custom calculator state logs, and administrative settings parameters.",
       "files": [
-        "app/src/main/res/layout/activity_task.xml",
-        "app/src/main/java/com/omnicontrolsuite/app/TaskActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Develop Rich Note Editor",
-      "description": "Create dynamic notebook canvas with side panels and continuous SQLite auto-save capabilities.",
-      "files": [
-        "app/src/main/res/layout/activity_notes.xml",
-        "app/src/main/java/com/omnicontrolsuite/app/NotesActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Develop Advanced Calculator and Conversions Unit",
-      "description": "Implement mathematical parse engines and unit metrics translators.",
-      "files": [
-        "app/src/main/res/layout/activity_calculator.xml",
-        "app/src/main/java/com/omnicontrolsuite/app/CalculatorActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Develop Analytics Dashboard Layout",
-      "description": "Integrate real-time system process outputs and diagnostic log systems alongside custom graphs.",
-      "files": [
-        "app/src/main/res/layout/activity_analytics.xml",
-        "app/src/main/java/com/omnicontrolsuite/app/AnalyticsActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Develop App Customizer Panel",
-      "description": "Build dynamic UI switches and configuration registers utilizing SharedPreferences controls.",
-      "files": [
-        "app/src/main/res/layout/activity_settings.xml",
+        "app/src/main/java/com/omnicontrolsuite/app/CalculatorActivity.java",
         "app/src/main/java/com/omnicontrolsuite/app/SettingsActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 14,
-      "title": "Execute Code Compilation Check",
-      "description": "Verify strict type safety configurations and clean up resource bindings.",
+      "step": 9,
+      "title": "Verify Strict Java 8 Compatibility",
+      "description": "Perform static verification to ensure that lambdas and stream features are not included in source codes.",
       "files": [],
       "status": "pending"
     },
     {
-      "step": 15,
+      "step": 10,
       "title": "Building OmniControl Suite",
-      "description": "Compile, package, and optimize OmniControl Suite application using target Gradle 8.5 tools.",
+      "description": "Assemble, compile and deploy the corrected project artifacts with the native standard toolkit.",
       "files": [],
       "status": "pending"
     }
