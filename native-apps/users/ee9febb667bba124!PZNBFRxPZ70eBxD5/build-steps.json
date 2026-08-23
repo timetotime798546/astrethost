@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Audit Crash Logs and Project Structure",
+      "description": "Locate potential thread or class-loading errors causing startup crashes inside OmniControl Suite.",
+      "files": [
+        "app/src/main/java/com/omnicontrolsuite/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Fix MainActivity Handler Threading",
+      "description": "Migrate deprecated empty Handler constructor to utilize the explicit Main Looper to prevent startup initialization exceptions on modern Android versions.",
+      "files": [
+        "app/src/main/java/com/omnicontrolsuite/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Strip External Prohibited Dependencies",
+      "description": "Remove third-party NanoHTTPD libraries from app build.gradle to ensure compliance with native SDK boundaries.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Robust Custom View Constructors",
+      "description": "Add the multi-parameter AttributeSet constructor to AnalyticsView to guarantee safe custom canvas layout inflation and prevent layout inflator crashes.",
+      "files": [
+        "app/src/main/java/com/omnicontrolsuite/app/AnalyticsView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify AndroidManifest.xml Integration",
+      "description": "Explicitly register package declaration attributes to validate namespace mapping on Gradle compilation tasks.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify SQLite Database Operations",
+      "description": "Check column helpers and table structure statements to prevent runtime SQLiteExceptions.",
+      "files": [
+        "app/src/main/java/com/omnicontrolsuite/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Inspect Resource Color and Drawables",
+      "description": "Review shape and gradient parameters inside button backgrounds and view borders.",
+      "files": [
+        "app/src/main/res/values/colors.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify SharedPreferences Operations",
+      "description": "Check preference persistency and operations flow across Activity lifecycles.",
+      "files": [
+        "app/src/main/java/com/omnicontrolsuite/app/SettingsActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Validate Layout Resource Bindings",
+      "description": "Perform integrity mapping checks between widget UI identifiers and Java class control binds.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building OmniControl Suite",
+      "description": "Compile entire pipeline and execute safe debug build tests.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

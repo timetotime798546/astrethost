@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.google.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    android:padding="16dp">
+
+    <!-- Back Control Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_bg"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suite Settings"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <!-- Profile Settings Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Administrative User Info"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Operator Name"
+            android:textSize="12sp"
+            android:textColor="@color/textSecondary"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/editUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Administrator"
+            android:textColor="@color/textDark"
+            android:background="@drawable/input_bg"
+            android:padding="10dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Department Group ID"
+            android:textSize="12sp"
+            android:textColor="@color/textSecondary"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/editUserDept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IT Security Operations"
+            android:textColor="@color/textDark"
+            android:background="@drawable/input_bg"
+            android:padding="10dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="textShortMessage" />
+
+        <Button
+            android:id="@+id/btnSaveProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Settings Configuration"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_bg" />
+    </LinearLayout>
+
+    <!-- Database Controls Box -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Critical Security Tasks"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Performing these processes completely cleans the device database registries. Be sure before committing."
+            android:textSize="11sp"
+            android:textColor="@color/textDark"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnPurgeDatabase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wipe Entire SQLite Local Store"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_bg" />
+    </LinearLayout>
+</LinearLayout>
