@@ -55,9 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COL_TASK_TITLE, title);
         values.put(COL_TASK_STATUS, 0);
-        long result = db.insert(TABLE_TASKS, null, values);
-        db.close();
-        return result;
+        return db.insert(TABLE_TASKS, null, values);
     }
 
     public Cursor getAllTasks() {
@@ -70,19 +68,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COL_TASK_STATUS, status);
         db.update(TABLE_TASKS, values, COL_TASK_ID + "=?", new String[]{String.valueOf(id)});
-        db.close();
     }
 
     public void deleteTask(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_TASKS, COL_TASK_ID + "=?", new String[]{String.valueOf(id)});
-        db.close();
     }
 
     public void purgeTasks() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_TASKS, null, null);
-        db.close();
     }
 
     // Notes Operations
@@ -91,9 +86,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COL_NOTE_TITLE, title);
         values.put(COL_NOTE_CONTENT, content);
-        long result = db.insert(TABLE_NOTES, null, values);
-        db.close();
-        return result;
+        return db.insert(TABLE_NOTES, null, values);
     }
 
     public Cursor getAllNotes() {
@@ -107,18 +100,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COL_NOTE_TITLE, title);
         values.put(COL_NOTE_CONTENT, content);
         db.update(TABLE_NOTES, values, COL_NOTE_ID + "=?", new String[]{String.valueOf(id)});
-        db.close();
     }
 
     public void deleteNote(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NOTES, COL_NOTE_ID + "=?", new String[]{String.valueOf(id)});
-        db.close();
     }
 
     public void purgeNotes() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NOTES, null, null);
-        db.close();
     }
 }
