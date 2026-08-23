@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.google.com/apk/res/android">
+<manifest xmlns:android="http://schemas.google.com/apk/res/android"
+    package="com.omnicontrolsuite.app">
 
     <application
         android:allowBackup="true"
@@ -7,9 +8,9 @@
         android:icon="@drawable/icon"
         android:roundIcon="@drawable/icon"
         android:theme="@style/AppTheme">
-        
+
         <activity
-            android:name="com.omnicontrolsuite.app.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,29 +19,29 @@
         </activity>
 
         <activity
-            android:name="com.omnicontrolsuite.app.TaskActivity"
+            android:name=".TaskActivity"
             android:label="Task Manager"
             android:exported="false" />
 
         <activity
-            android:name="com.omnicontrolsuite.app.NotesActivity"
+            android:name=".NotesActivity"
             android:label="Notes Editor"
             android:exported="false" />
 
         <activity
-            android:name="com.omnicontrolsuite.app.CalculatorActivity"
+            android:name=".CalculatorActivity"
             android:label="Calculator &amp; Utility"
             android:exported="false" />
 
         <activity
-            android:name="com.omnicontrolsuite.app.AnalyticsActivity"
+            android:name=".AnalyticsActivity"
             android:label="System Analytics"
             android:exported="false" />
 
         <activity
-            android:name="com.omnicontrolsuite.app.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="Suite Settings"
             android:exported="false" />
-            
+
     </application>
 </manifest>

@@ -2,18 +2,17 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze Build Failures",
-      "description": "Scan the diagnostic logs to locate errors inside the Manifest merger and layout definition resources.",
+      "title": "Analyze Manifest Merger Issues",
+      "description": "Inspect the AndroidManifest.xml and identify missing key attributes during compilation.",
       "files": [
-        "app/src/main/AndroidManifest.xml",
-        "app/src/main/res/layout/activity_main.xml"
+        "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Resolve Manifest Merger Package Conflicts",
-      "description": "Remove deprecated package attribute from the manifest element and register fully-qualified Activity names for OmniControl Suite to align with AGP 8.3.2 specifications.",
+      "title": "Fix Manifest Namespace and Package",
+      "description": "Add package attribute to the manifest tag and use relative class references to satisfy manifest merger requirements.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -21,70 +20,71 @@
     },
     {
       "step": 3,
-      "title": "Fix Layout XML Syntax Typo",
-      "description": "Correct the invalid layout_width attribute ('match_match' changed to 'match_parent') in activity_main.xml.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Enforce Dependency Restrictions",
-      "description": "Clean build.gradle files by stripping out forbidden third-party dependency declarations (nanohttpd) to enforce native-only rules.",
+      "title": "Remove Forbidden Third-Party Dependencies",
+      "description": "Remove org.nanohttpd:nanohttpd from build.gradle to ensure full compliance with internal native library rules.",
       "files": [
         "app/build.gradle"
       ],
       "status": "pending"
     },
     {
-      "step": 5,
-      "title": "Validate Database Integration Helper",
-      "description": "Verify SQLite database tables and cursor queries in DatabaseHelper are optimized and clean.",
+      "step": 4,
+      "title": "Verify Database Integration Helper",
+      "description": "Ensure SQLite tables, helper class creation scripts, and task query loaders are structured properly.",
       "files": [
         "app/src/main/java/com/omnicontrolsuite/app/DatabaseHelper.java"
       ],
       "status": "pending"
     },
     {
-      "step": 6,
-      "title": "Verify Canvas Graphic View Implementation",
-      "description": "Validate the layout structure, paint objects, and random metric plotter configurations inside the AnalyticsView class.",
+      "step": 5,
+      "title": "Check Canvas Custom View Renderer",
+      "description": "Validate the AnalyticsView painting logic, grid metrics, and background thread redraws.",
       "files": [
         "app/src/main/java/com/omnicontrolsuite/app/AnalyticsView.java"
       ],
       "status": "pending"
     },
     {
-      "step": 7,
-      "title": "Audit Dashboard Router Setup",
-      "description": "Review MainActivity navigation handlers, real-time thread clocks, and SQLite statistical metrics loaders.",
+      "step": 6,
+      "title": "Audit Dashboard and Clock Thread",
+      "description": "Verify the uptime clock thread state and database counts loader in MainActivity.",
       "files": [
         "app/src/main/java/com/omnicontrolsuite/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 8,
-      "title": "Audit Utilities and Settings Control Panels",
-      "description": "Double check unit conversions, custom calculator state logs, and administrative settings parameters.",
+      "step": 7,
+      "title": "Validate Task Activity Controls",
+      "description": "Confirm the adapter bindings, input validators, and task database clear operations function flawlessly.",
       "files": [
-        "app/src/main/java/com/omnicontrolsuite/app/CalculatorActivity.java",
-        "app/src/main/java/com/omnicontrolsuite/app/SettingsActivity.java"
+        "app/src/main/java/com/omnicontrolsuite/app/TaskActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Inspect Note Document Workspaces",
+      "description": "Verify the notepad rich editor, content auto-save procedures, and list selection logs.",
+      "files": [
+        "app/src/main/java/com/omnicontrolsuite/app/NotesActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Verify Strict Java 8 Compatibility",
-      "description": "Perform static verification to ensure that lambdas and stream features are not included in source codes.",
-      "files": [],
+      "title": "Verify Calculator Operations and Converters",
+      "description": "Check the evaluation stack, metric adapters, and custom conversion functions.",
+      "files": [
+        "app/src/main/java/com/omnicontrolsuite/app/CalculatorActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building OmniControl Suite",
-      "description": "Assemble, compile and deploy the corrected project artifacts with the native standard toolkit.",
+      "description": "Compile and assemble the application to generate a clean, warning-free debug APK.",
       "files": [],
       "status": "pending"
     }
