@@ -2,26 +2,26 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure App Metadata",
-      "description": "Generate app-meta.json with Compile Fail Demo name and package.",
+      "title": "Analyze Manifest Merger Error",
+      "description": "Inspect AndroidManifest.xml and identify namespace issues related to the deprecated package attribute.",
       "files": [
-        "app-meta.json"
+        "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Environment",
-      "description": "Set up build.gradle with target SDK 34 and Java 1.8 compatibility.",
+      "title": "Remove Deprecated Package Attribute",
+      "description": "Remove the package attribute from the manifest tag as recommended by AGP 8.3.2.",
       "files": [
-        "app/build.gradle"
+        "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Create Android Manifest",
-      "description": "Define permissions and register MainActivity in AndroidManifest.xml.",
+      "title": "Fully Qualify Activity Names",
+      "description": "Update MainActivity declaration in AndroidManifest.xml to use its fully qualified name to avoid merger ambiguity.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -29,24 +29,26 @@
     },
     {
       "step": 4,
-      "title": "Design Layout UI",
-      "description": "Create activity_main.xml with user interface text detailing compile failure simulation.",
+      "title": "Analyze Java Compilation Issues",
+      "description": "Inspect MainActivity.java for any deliberate syntax errors or typos that prevent successful compilation.",
       "files": [
-        "app/src/main/res/layout/activity_main.xml"
+        "app/src/main/java/com/compilefaildemo/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Java Package Directories",
-      "description": "Set up standard Java source directories for package com.compilefaildemo.app.",
-      "files": [],
+      "title": "Resolve Deliberate Typo",
+      "description": "Remove the deliberate typo statement inside the onCreate method of MainActivity.java.",
+      "files": [
+        "app/src/main/java/com/compilefaildemo/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Main Activity Structure",
-      "description": "Initialize standard lifecycle hooks inside MainActivity.java.",
+      "title": "Verify Java 8 Compatibility",
+      "description": "Ensure MainActivity.java uses standard Java 8 compatible API calls and standard Activity lifecycle methods.",
       "files": [
         "app/src/main/java/com/compilefaildemo/app/MainActivity.java"
       ],
@@ -54,8 +56,8 @@
     },
     {
       "step": 7,
-      "title": "Introduce Deliberate Typo Error",
-      "description": "Add a deliberate compile-time syntax error inside MainActivity.java as requested by the user.",
+      "title": "Validate Resource References",
+      "description": "Confirm that setContentView(R.layout.activity_main) correctly references activity_main.xml layout resource.",
       "files": [
         "app/src/main/java/com/compilefaildemo/app/MainActivity.java"
       ],
@@ -63,22 +65,24 @@
     },
     {
       "step": 8,
-      "title": "Verify Resource References",
-      "description": "Ensure layout identifiers match resources exactly.",
-      "files": [],
+      "title": "Verify App Metadata Configuration",
+      "description": "Ensure app-meta.json specifies the correct application name and package identifier.",
+      "files": [
+        "app-meta.json"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Prepare Gradle Wrapper Config",
-      "description": "Ensure compatibility with Gradle 8.5 and Temurin JDK 17.",
+      "title": "Prepare Project Configuration",
+      "description": "Confirm that Gradle settings match the fixed build environment (AGP 8.3.2, Gradle 8.5).",
       "files": [],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building Compile Fail Demo",
-      "description": "Execute gradle assembleDebug to trigger compilation. This step is expected to fail compile due to the user-requested typo.",
+      "description": "Trigger gradle assembleDebug to compile the application and produce a valid, working debug APK.",
       "files": [],
       "status": "pending"
     }
