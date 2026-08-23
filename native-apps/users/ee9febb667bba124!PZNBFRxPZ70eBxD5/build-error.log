@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Compile Fail Demo
 App ID: app_6a8ae7850f415
-Build ID: 32640751276
-Time: 2026-08-23 18:29:18
+Build ID: 32641515059
+Time: 2026-08-23 18:44:20
 ==================================================
 
 ==================================================
@@ -31,8 +31,8 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 161471
-Extracted error characters: 27076
+Original log characters: 161478
+Extracted error characters: 27397
 File references detected: 208
 ==================================================
 
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+8 from tool-cache
 Setting Java 17.0.20+8 as the default
-(node:2101) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2433) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/1fb23ce4-2ffa-4e17-a27f-bb2965d93315
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/760e306a-7f7b-4cd2-957e-a894e5a44c21
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/20.0/bin/sdkmanager --licenses
 Loading local repository...
@@ -210,26 +210,27 @@ Daemon will be stopped at the end of the build
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :app:javaPreCompileDebug
-> Task :app:generateDebugResValues
 > Task :app:checkDebugAarMetadata
+> Task :app:generateDebugResValues
 > Task :app:mapDebugSourceSetPaths
 > Task :app:generateDebugResources
 > Task :app:packageDebugResources
 > Task :app:mergeDebugResources
 > Task :app:createDebugCompatibleScreenManifests
 > Task :app:extractDeepLinksDebug
-> Task :app:parseDebugLocalResources
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:10:9-17:20 Error:
 
-Missing 'name' key attribute on element activity at AndroidManifest.xml:10:9-17:20
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:13:13-16:29 Error:
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:10:9-17:20 Error:
 > Task :app:processDebugMainManifest FAILED
+Missing 'name' key attribute on element activity at AndroidManifest.xml:10:9-17:20
+
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:13:13-16:29 Error:
+See https://developer.android.com/r/studio-ui/build/manifest-merger for more information about the manifest merger.
 Missing one of the key attributes 'action#name,category#name,data#scheme,data#host,data#mimeType,data#port,data#path,data#pathPattern,data#pathPrefix' on element intent-filter at AndroidManifest.xml:13:13-16:29
 
 /home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:14:17-69 Error:
-See https://developer.android.com/r/studio-ui/build/manifest-merger for more information about the manifest merger.
-Missing 'name' key attribute on element action at AndroidManifest.xml:14:17-69
 
+Missing 'name' key attribute on element action at AndroidManifest.xml:14:17-69
+> Task :app:parseDebugLocalResources
 /home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:15:17-77 Error:
 Missing 'name' key attribute on element category at AndroidManifest.xml:15:17-77
 /home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml Error:
@@ -261,6 +262,7 @@ at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventF
 at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+11 actionable tasks: 11 executed
 at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
 at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
@@ -368,9 +370,10 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 19s
-11 actionable tasks: 11 executed
+BUILD FAILED in 28s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
 [36;1mrm -rf gradle-8.5[0m
+
+Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

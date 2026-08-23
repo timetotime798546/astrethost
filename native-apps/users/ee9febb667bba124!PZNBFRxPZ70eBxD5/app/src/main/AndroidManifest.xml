@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.google.com/apk/res/android">
+<manifest xmlns:android="http://schemas.google.com/apk/res/android"
+    package="com.compilefaildemo.app">
 
     <application
         android:allowBackup="true"
@@ -7,6 +8,7 @@
         android:roundIcon="@drawable/icon"
         android:label="Compile Fail Demo"
         android:theme="@android:style/Theme.Material.Light">
+
         <activity
             android:name="com.compilefaildemo.app.MainActivity"
             android:exported="true">
@@ -15,6 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

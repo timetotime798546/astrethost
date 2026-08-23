@@ -2,8 +2,8 @@
   "steps": [
     {
       "step": 1,
-      "title": "Inspect Manifest Configuration",
-      "description": "Analyze AndroidManifest.xml for correct namespace definitions and element attributes.",
+      "title": "Analyze Build Failures",
+      "description": "Inspect error logs regarding manifest merging and incorrect key attributes.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -11,8 +11,8 @@
     },
     {
       "step": 2,
-      "title": "Fix Activity Declaration",
-      "description": "Ensure the MainActivity is properly declared with the correct android:name attribute.",
+      "title": "Sanitize AndroidManifest Namespace",
+      "description": "Rewrite AndroidManifest.xml with proper, clean XML standards to avoid parsing issues with android:name.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -20,17 +20,17 @@
     },
     {
       "step": 3,
-      "title": "Resolve Intent Filter Attributes",
-      "description": "Verify and fix action and category names within the intent-filter of MainActivity.",
+      "title": "Clean build.gradle Configuration",
+      "description": "Clean the build configuration to align compilation properties with target and compile versions.",
       "files": [
-        "app/src/main/AndroidManifest.xml"
+        "app/build.gradle"
       ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Remove Unallowed External Dependencies",
-      "description": "Clean app build.gradle dependencies to remove external nanohttpd dependency in compliance with project rules.",
+      "title": "Remove Prohibited External Dependencies",
+      "description": "Remove nanohttpd and other non-standard external dependencies from build.gradle to satisfy strict rules.",
       "files": [
         "app/build.gradle"
       ],
@@ -38,46 +38,46 @@
     },
     {
       "step": 5,
-      "title": "Configure Build SDK Versions",
-      "description": "Set and verify compileSdkVersion, minSdkVersion, and targetSdkVersion to 34, 21, and 34 respectively.",
-      "files": [
-        "app/build.gradle"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Verify Java 8 Toolchain compatibility",
-      "description": "Configure Java compatibility to VERSION_1_8 in compilation options.",
-      "files": [
-        "app/build.gradle"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Clean MainActivity Java Source",
-      "description": "Verify MainActivity is fully clean and properly inflates the correct main layout.",
+      "title": "Validate Java Source Code",
+      "description": "Ensure MainActivity is correctly defined within the package and matches package metadata.",
       "files": [
         "app/src/main/java/com/compilefaildemo/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 8,
-      "title": "Verify Layout XML file",
-      "description": "Ensure activity_main.xml contains correct layout elements and has no validation errors.",
+      "step": 6,
+      "title": "Validate Layout Resource XML",
+      "description": "Ensure layout activity_main.xml compiles successfully with the correct text element.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Validate Metadata and Package Matching",
-      "description": "Ensure app-meta.json corresponds perfectly with build.gradle and MainActivity package names.",
+      "step": 7,
+      "title": "Verify Java 8 Toolchain settings",
+      "description": "Check and enforce compatibility rules for Java 1.8 in the build environment.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Match Package Metadata",
+      "description": "Verify app-meta.json consistently reflects the correct application name and package identifier.",
       "files": [
         "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Perform Manifest Verification Check",
+      "description": "Double check manifest elements for missing attributes or invalid characters prior to building.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
