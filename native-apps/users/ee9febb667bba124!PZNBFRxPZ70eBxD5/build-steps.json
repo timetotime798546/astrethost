@@ -2,90 +2,76 @@
   "steps": [
     {
       "step": 1,
-      "title": "Inspect and Audit Startup Crash Suspects",
-      "description": "Analyze project resources, style files, and database connections to identify the source of the crash on app open.",
-      "files": [
-        "app/src/main/java/com/omnicontrolsuite/app/DatabaseHelper.java",
-        "app/src/main/res/values/styles.xml"
-      ],
+      "title": "Define modern layout goals for Modern Calculator",
+      "description": "Establish key aesthetic and ergonomic structures including clear display areas and round-cornered flat styled buttons.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Optimize Database Connection Lifecycle",
-      "description": "Remove premature manual db.close() calls in DatabaseHelper write operations to prevent SQLiteException connection state crashes.",
+      "title": "Create background shape resources for buttons",
+      "description": "Implement custom state selector drawables for numbers, operators, and action buttons to provide beautiful interactive hover states.",
       "files": [
-        "app/src/main/java/com/omnicontrolsuite/app/DatabaseHelper.java"
+        "app/src/main/res/drawable/btn_number.xml",
+        "app/src/main/res/drawable/btn_operator.xml",
+        "app/src/main/res/drawable/btn_action.xml",
+        "app/src/main/res/drawable/btn_equal.xml"
       ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Refactor Theme and Window Settings",
-      "description": "Update AppTheme in styles.xml to use a reliable system-level Material Light theme with explicit titlebar disabling to prevent action bar inflation crashes.",
-      "files": [
-        "app/src/main/res/values/styles.xml"
-      ],
+      "title": "Set up project metadata configuration",
+      "description": "Define the app package name com.moderncalculator.app and set compile configurations in app-meta.json.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Clean build.gradle Dependencies",
-      "description": "Remove external NanoHTTPD dependency to maintain full SDK compatibility and ensure strict alignment with built-in native SDK packages.",
-      "files": [
-        "app/build.gradle"
-      ],
+      "title": "Configure standard build files",
+      "description": "Configure the build.gradle build system matching target SDK 34 and AGP 8.3.2 with strict Java 1.8 compatibility.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Validate Main Activity Handler",
-      "description": "Ensure Main Thread Looper is correctly bound to avoid execution errors on modern target Android version runtimes.",
-      "files": [
-        "app/src/main/java/com/omnicontrolsuite/app/MainActivity.java"
-      ],
+      "title": "Declare app permissions and activities in manifest",
+      "description": "Create the AndroidManifest.xml setup with a default system Light material theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Inspect Layout Inflation Bindings",
-      "description": "Verify custom view reference inside analytics layout and main relative structures.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
+      "title": "Construct activity layout xml file",
+      "description": "Code the user interface inside activity_main.xml with distinct colored visual elements and full weighting to support all screens.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Validate AndroidManifest Configuration",
-      "description": "Check namespace resolution and application entry configurations inside the main manifest.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
+      "title": "Implement mathematical evaluation parser algorithm",
+      "description": "Implement a solid Recursive Descent Parser directly inside MainActivity.java supporting precedence, brackets, and divide-by-zero checks.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Verify SharedPreferences Initialization",
-      "description": "Confirm safety of administrative preference loaders inside Settings activity flow.",
-      "files": [
-        "app/src/main/java/com/omnicontrolsuite/app/SettingsActivity.java"
-      ],
+      "title": "Handle user button click events",
+      "description": "Wire buttons to custom click handlers in Java 8 compatible anonymous inner classes to append expressions and trigger calculation.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Confirm App Metadata Package Details",
-      "description": "Verify metadata file coordinates accurately correspond to the build system target.",
-      "files": [
-        "app-meta.json"
-      ],
+      "title": "Add smart formatting and decimal validations",
+      "description": "Prevent duplicate decimals in individual number inputs and display results correctly formatted with zero-removal logic.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Building OmniControl Suite",
-      "description": "Compile entire suite with optimized parameters and run debug check tasks.",
+      "title": "Building Modern Calculator",
+      "description": "Perform comprehensive gradle builds and static checking steps to package and finalize the executable debug Android app package.",
       "files": [],
       "status": "pending"
     }
