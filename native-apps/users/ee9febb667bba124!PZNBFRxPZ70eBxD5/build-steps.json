@@ -2,8 +2,8 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze Manifest Merger Issues",
-      "description": "Inspect the AndroidManifest.xml and identify missing key attributes during compilation.",
+      "title": "Resolve Manifest Package Attribute Conflict",
+      "description": "Remove package attribute from AndroidManifest.xml to comply with AGP 8.3.2 requirements where namespace is defined in build.gradle.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -11,8 +11,8 @@
     },
     {
       "step": 2,
-      "title": "Fix Manifest Namespace and Package",
-      "description": "Add package attribute to the manifest tag and use relative class references to satisfy manifest merger requirements.",
+      "title": "Fix Manifest Namespaces and Relative References",
+      "description": "Change relative activity name declarations to fully qualified class names inside the manifest for cleaner merging validation.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -20,8 +20,8 @@
     },
     {
       "step": 3,
-      "title": "Remove Forbidden Third-Party Dependencies",
-      "description": "Remove org.nanohttpd:nanohttpd from build.gradle to ensure full compliance with internal native library rules.",
+      "title": "Remove Unauthorized NanoHTTPD Dependency",
+      "description": "Strip org.nanohttpd from build.gradle dependencies block to conform with native development rules.",
       "files": [
         "app/build.gradle"
       ],
@@ -29,62 +29,26 @@
     },
     {
       "step": 4,
-      "title": "Verify Database Integration Helper",
-      "description": "Ensure SQLite tables, helper class creation scripts, and task query loaders are structured properly.",
-      "files": [
-        "app/src/main/java/com/omnicontrolsuite/app/DatabaseHelper.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Check Canvas Custom View Renderer",
-      "description": "Validate the AnalyticsView painting logic, grid metrics, and background thread redraws.",
+      "title": "Validate Canvas Custom Graphic View Renderers",
+      "description": "Ensure AnalyticsView draws coordinate points and scales custom grids natively without compile errors.",
       "files": [
         "app/src/main/java/com/omnicontrolsuite/app/AnalyticsView.java"
       ],
       "status": "pending"
     },
     {
-      "step": 6,
-      "title": "Audit Dashboard and Clock Thread",
-      "description": "Verify the uptime clock thread state and database counts loader in MainActivity.",
+      "step": 5,
+      "title": "Audit MainActivity Diagnostic Clock UI",
+      "description": "Verify the handler thread updates layout dashboard parameters correctly.",
       "files": [
         "app/src/main/java/com/omnicontrolsuite/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 7,
-      "title": "Validate Task Activity Controls",
-      "description": "Confirm the adapter bindings, input validators, and task database clear operations function flawlessly.",
-      "files": [
-        "app/src/main/java/com/omnicontrolsuite/app/TaskActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Inspect Note Document Workspaces",
-      "description": "Verify the notepad rich editor, content auto-save procedures, and list selection logs.",
-      "files": [
-        "app/src/main/java/com/omnicontrolsuite/app/NotesActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Verify Calculator Operations and Converters",
-      "description": "Check the evaluation stack, metric adapters, and custom conversion functions.",
-      "files": [
-        "app/src/main/java/com/omnicontrolsuite/app/CalculatorActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 10,
+      "step": 6,
       "title": "Building OmniControl Suite",
-      "description": "Compile and assemble the application to generate a clean, warning-free debug APK.",
+      "description": "Verify entire compilation pipeline and generate debug app bundle.",
       "files": [],
       "status": "pending"
     }
