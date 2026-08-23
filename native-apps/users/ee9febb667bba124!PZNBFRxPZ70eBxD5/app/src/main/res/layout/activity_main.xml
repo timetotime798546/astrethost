@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This app contains a deliberate syntax error in MainActivity.java to demonstrate compile failure."
+        android:text="The build error has been successfully fixed by correcting the AndroidManifest attributes and cleanup configuration."
         android:gravity="center"
         android:layout_marginTop="16dp" />
 

@@ -2,8 +2,8 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze Manifest Merger Error",
-      "description": "Inspect AndroidManifest.xml and identify namespace issues related to the deprecated package attribute.",
+      "title": "Inspect Manifest Configuration",
+      "description": "Analyze AndroidManifest.xml for correct namespace definitions and element attributes.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -11,8 +11,8 @@
     },
     {
       "step": 2,
-      "title": "Remove Deprecated Package Attribute",
-      "description": "Remove the package attribute from the manifest tag as recommended by AGP 8.3.2.",
+      "title": "Fix Activity Declaration",
+      "description": "Ensure the MainActivity is properly declared with the correct android:name attribute.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -20,8 +20,8 @@
     },
     {
       "step": 3,
-      "title": "Fully Qualify Activity Names",
-      "description": "Update MainActivity declaration in AndroidManifest.xml to use its fully qualified name to avoid merger ambiguity.",
+      "title": "Resolve Intent Filter Attributes",
+      "description": "Verify and fix action and category names within the intent-filter of MainActivity.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -29,35 +29,35 @@
     },
     {
       "step": 4,
-      "title": "Analyze Java Compilation Issues",
-      "description": "Inspect MainActivity.java for any deliberate syntax errors or typos that prevent successful compilation.",
+      "title": "Remove Unallowed External Dependencies",
+      "description": "Clean app build.gradle dependencies to remove external nanohttpd dependency in compliance with project rules.",
       "files": [
-        "app/src/main/java/com/compilefaildemo/app/MainActivity.java"
+        "app/build.gradle"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Resolve Deliberate Typo",
-      "description": "Remove the deliberate typo statement inside the onCreate method of MainActivity.java.",
+      "title": "Configure Build SDK Versions",
+      "description": "Set and verify compileSdkVersion, minSdkVersion, and targetSdkVersion to 34, 21, and 34 respectively.",
       "files": [
-        "app/src/main/java/com/compilefaildemo/app/MainActivity.java"
+        "app/build.gradle"
       ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Verify Java 8 Compatibility",
-      "description": "Ensure MainActivity.java uses standard Java 8 compatible API calls and standard Activity lifecycle methods.",
+      "title": "Verify Java 8 Toolchain compatibility",
+      "description": "Configure Java compatibility to VERSION_1_8 in compilation options.",
       "files": [
-        "app/src/main/java/com/compilefaildemo/app/MainActivity.java"
+        "app/build.gradle"
       ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Validate Resource References",
-      "description": "Confirm that setContentView(R.layout.activity_main) correctly references activity_main.xml layout resource.",
+      "title": "Clean MainActivity Java Source",
+      "description": "Verify MainActivity is fully clean and properly inflates the correct main layout.",
       "files": [
         "app/src/main/java/com/compilefaildemo/app/MainActivity.java"
       ],
@@ -65,24 +65,26 @@
     },
     {
       "step": 8,
-      "title": "Verify App Metadata Configuration",
-      "description": "Ensure app-meta.json specifies the correct application name and package identifier.",
+      "title": "Verify Layout XML file",
+      "description": "Ensure activity_main.xml contains correct layout elements and has no validation errors.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Validate Metadata and Package Matching",
+      "description": "Ensure app-meta.json corresponds perfectly with build.gradle and MainActivity package names.",
       "files": [
         "app-meta.json"
       ],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Prepare Project Configuration",
-      "description": "Confirm that Gradle settings match the fixed build environment (AGP 8.3.2, Gradle 8.5).",
-      "files": [],
-      "status": "pending"
-    },
-    {
       "step": 10,
       "title": "Building Compile Fail Demo",
-      "description": "Trigger gradle assembleDebug to compile the application and produce a valid, working debug APK.",
+      "description": "Assemble the project to verify successful generation of the debug APK.",
       "files": [],
       "status": "pending"
     }

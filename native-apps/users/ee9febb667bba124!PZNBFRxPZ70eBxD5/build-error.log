@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Compile Fail Demo
 App ID: app_6a8ae7850f415
-Build ID: 32639531850
-Time: 2026-08-23 18:03:26
+Build ID: 32640184021
+Time: 2026-08-23 18:16:32
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 162002
-Extracted error characters: 27607
-File references detected: 211
+Original log characters: 161471
+Extracted error characters: 27075
+File references detected: 208
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+8 from tool-cache
 Setting Java 17.0.20+8 as the default
-(node:1999) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2317) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/6f20e8a0-0fd4-47ae-9749-07a827d65764
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/1d46ca55-43af-4dff-8cfd-61d02d784d33
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/20.0/bin/sdkmanager --licenses
 Loading local repository...
@@ -189,6 +189,7 @@ PROJECT FILES
 ./app-meta.json
 ./app/build.gradle
 ./app/proguard-rules.pro
+./build-error.log
 ./build-steps.json
 ./build.gradle
 ./local.properties
@@ -218,26 +219,22 @@ Daemon will be stopped at the end of the build
 > Task :app:createDebugCompatibleScreenManifests
 > Task :app:extractDeepLinksDebug
 > Task :app:parseDebugLocalResources
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:11:9-18:20 Error:
 
 > Task :app:processDebugMainManifest FAILED
-package="com.compilefaildemo.app" found in source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml.
-Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
-Recommendation: remove package="com.compilefaildemo.app" from the source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml.
-
-See https://developer.android.com/r/studio-ui/build/manifest-merger for more information about the manifest merger.
-
-Missing 'name' key attribute on element activity at AndroidManifest.xml:11:9-18:20
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:14:13-17:29 Error:
-Missing one of the key attributes 'action#name,category#name,data#scheme,data#host,data#mimeType,data#port,data#path,data#pathPattern,data#pathPrefix' on element intent-filter at AndroidManifest.xml:14:13-17:29
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:15:17-69 Error:
-Missing 'name' key attribute on element action at AndroidManifest.xml:15:17-69
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:16:17-77 Error:
-Missing 'name' key attribute on element category at AndroidManifest.xml:16:17-77
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:10:9-17:20 Error:
+Missing 'name' key attribute on element activity at AndroidManifest.xml:10:9-17:20
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:13:13-16:29 Error:
+Missing one of the key attributes 'action#name,category#name,data#scheme,data#host,data#mimeType,data#port,data#path,data#pathPattern,data#pathPrefix' on element intent-filter at AndroidManifest.xml:13:13-16:29
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:14:17-69 Error:
+Missing 'name' key attribute on element action at AndroidManifest.xml:14:17-69
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml:15:17-77 Error:
+Missing 'name' key attribute on element category at AndroidManifest.xml:15:17-77
 /home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!PZNBFRxPZ70eBxD5/app/src/main/AndroidManifest.xml Error:
 Validation failed, exiting
 
 FAILURE: Build failed with an exception.
+
+See https://developer.android.com/r/studio-ui/build/manifest-merger for more information about the manifest merger.
 
 Execution failed for task ':app:processDebugMainManifest'.
 > Manifest merger failed with multiple errors, see logs
@@ -370,7 +367,7 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 17s
+BUILD FAILED in 24s
 11 actionable tasks: 11 executed
 Process completed with exit code 1.
 
