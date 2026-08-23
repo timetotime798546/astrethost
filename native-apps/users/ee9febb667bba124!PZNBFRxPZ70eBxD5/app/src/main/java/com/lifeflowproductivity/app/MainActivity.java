@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -18,6 +19,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -80,7 +82,7 @@ public class MainActivity extends Activity {
     private boolean isDarkMode = false;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -458,7 +460,7 @@ public class MainActivity extends Activity {
     private void triggerVibration() {
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         if (vibrator != null) {
-            vibrator.vibrate(800);
+            vibrator.vibrate(800); // obsolete in higher versions but fully compatible
         }
     }
 
@@ -483,7 +485,7 @@ public class MainActivity extends Activity {
         });
     }
 
-    private String getTodayString() {
+    private String getTodayString() { 
         return new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(new Date());
     }
 
@@ -523,7 +525,7 @@ public class MainActivity extends Activity {
                 titleTv.setText(name);
                 titleTv.setTextSize(16);
                 titleTv.setTextColor(isDarkMode ? Color.WHITE : Color.BLACK);
-                titleTv.setTextStyle(Typeface_BOLD());
+                titleTv.setTypeface(null, Typeface.BOLD);
                 infoLayout.addView(titleTv);
 
                 TextView streakTv = new TextView(MainActivity.this);
@@ -579,10 +581,6 @@ public class MainActivity extends Activity {
         }
         cursor.close();
         applyThemeOnView(habitsContainer, isDarkMode);
-    }
-
-    private int Typeface_BOLD() {
-        return android.graphics.Typeface.BOLD;
     }
 
     // ---------------- EXPENSES & NOTES SECTION ----------------
@@ -734,7 +732,7 @@ public class MainActivity extends Activity {
                 TextView titleTv = new TextView(MainActivity.this);
                 titleTv.setText(title);
                 titleTv.setTextSize(16);
-                titleTv.setTextStyle(Typeface_BOLD());
+                titleTv.setTypeface(null, Typeface.BOLD);
                 titleTv.setTextColor(isDarkMode ? Color.WHITE : Color.BLACK);
                 headerRow.addView(titleTv);
 

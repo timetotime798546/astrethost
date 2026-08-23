@@ -2,85 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure Project and SDK Options",
-      "description": "Set up the Gradle configurations targets to Android SDK 34 and Java 8 compatibility.",
-      "files": ["app/build.gradle"],
+      "title": "Analyze Build Error Logs",
+      "description": "Identify syntax issues in layout XML and missing Java symbol imports.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Implement AndroidManifest Requirements",
-      "description": "Set basic theme, dynamic icon path reference, and permission requests like vibration.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Set App Meta Data Configuration",
-      "description": "Write package identifiers and proper app names for automated build mapping.",
+      "title": "Configure App Meta Information",
+      "description": "Define static app configuration details such as name and package id.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
-      "step": 4,
-      "title": "Build local Database Manager",
-      "description": "Implement SQLite helper code managing individual tables for Tasks, Habits, Expenses, and Notes.",
-      "files": ["app/src/main/java/com/lifeflowproductivity/app/DatabaseHelper.java"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Design UI layout wireframes",
-      "description": "Create main activity interface housing navigation structures, custom widgets, cards, and sections.",
+      "step": 3,
+      "title": "Correct XML Syntax in Main Layout",
+      "description": "Fix quotation escaping on text views in activity_main.xml.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 4,
+      "title": "Add Missing UI Imports",
+      "description": "Import ScrollView and Typeface inside MainActivity.java to enable layout resolution.",
+      "files": ["app/src/main/java/com/lifeflowproductivity/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Refactor TextStyle Property Configuration",
+      "description": "Replace custom setTextStyle calls with standard setTypeface parameters for SDK compliance.",
+      "files": ["app/src/main/java/com/lifeflowproductivity/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
       "step": 6,
-      "title": "Create Layout Component Backdrops",
-      "description": "Design layout structures with lightweight rounded assets using XML vectors.",
+      "title": "Verify Database Helper Setup",
+      "description": "Ensure SQLite structural definitions are intact and load dynamically without compile issues.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Initialize Dashboard & Navigation Core",
-      "description": "Map visual tabs to background view arrays and establish layout swap structures.",
-      "files": ["app/src/main/java/com/lifeflowproductivity/app/MainActivity.java"],
+      "title": "Validate Dynamic Navigation Actions",
+      "description": "Confirm navigation triggers correspond correctly with hidden layout bindings.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Develop SQLite Integration Logic",
-      "description": "Draft content fetch loops mapping entries directly into modern card frameworks dynamically.",
-      "files": ["app/src/main/java/com/lifeflowproductivity/app/MainActivity.java"],
+      "title": "Validate Interactive Dark Mode Layouts",
+      "description": "Verify view traversal algorithms apply background changes smoothly to cards and screens.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Build Pomodoro Timer Routine",
-      "description": "Program CountDownTimer cycles containing interactive Start, Pause, Reset and Session transitions.",
-      "files": ["app/src/main/java/com/lifeflowproductivity/app/MainActivity.java"],
+      "title": "Review Pomodoro Timer Core logic",
+      "description": "Ensure CountDownTimer operates correctly on interval ticks.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement Habit Tracker Streaks",
-      "description": "Inject dynamic calendar date validations comparing daily entries to update task streak sequences.",
-      "files": ["app/src/main/java/com/lifeflowproductivity/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Build On-The-Fly Theme System",
-      "description": "Implement tree-traversal algorithms recursively refreshing backgrounds and colors on visual toggles.",
-      "files": ["app/src/main/java/com/lifeflowproductivity/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building Life Flow Productivity",
-      "description": "Compile, execute debugging, verify component properties, and package optimized debug builds.",
+      "description": "Compile the complete codebase, generate build artifacts, and package optimal debug builds.",
       "files": [],
       "status": "pending"
     }
