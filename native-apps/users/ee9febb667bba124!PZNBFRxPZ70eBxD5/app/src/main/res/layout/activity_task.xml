@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.google.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    android:padding="16dp">
+
+    <!-- Back Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_bg"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task Board"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <!-- Form Board -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        android:padding="12dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/editTaskName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Task Description"
+            android:textColor="@color/textDark"
+            android:background="@drawable/input_bg"
+            android:padding="10dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="textCapSentences" />
+
+        <Button
+            android:id="@+id/btnAddTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Task into Queue"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_bg" />
+    </LinearLayout>
+
+    <!-- List Management Headers -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Task Queue Log"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnClearAllTasks"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Purge Queue"
+            android:textSize="11sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_bg" />
+    </LinearLayout>
+
+    <!-- List Viewer -->
+    <ListView
+        android:id="@+id/listTasks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/borderLight"
+        android:dividerHeight="1dp"
+        android:background="@drawable/card_bg"
+        android:padding="8dp" />
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.google.com/apk/res/android"
+    package="com.omnicontrolsuite.app">
+
+    <application
+        android:allowBackup="true"
+        android:label="OmniControl Suite"
+        android:icon="@drawable/icon"
+        android:roundIcon="@drawable/icon"
+        android:theme="@style/AppTheme">
+        
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".TaskActivity"
+            android:label="Task Manager"
+            android:exported="false" />
+
+        <activity
+            android:name=".NotesActivity"
+            android:label="Notes Editor"
+            android:exported="false" />
+
+        <activity
+            android:name=".CalculatorActivity"
+            android:label="Calculator &amp; Utility"
+            android:exported="false" />
+
+        <activity
+            android:name=".AnalyticsActivity"
+            android:label="System Analytics"
+            android:exported="false" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Suite Settings"
+            android:exported="false" />
+            
+    </application>
+</manifest>
