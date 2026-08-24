@@ -1,0 +1,56 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Identify Server Response Format Discrepancies",
+      "description": "Analyze the exception where local server plain-text responses (e.g. 'Hello!') cause JSON parsing failures within the OpenAI choices structure extractor.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Implement Adaptive Response Parsing",
+      "description": "Enhance handleOpenAiApiResponse to gracefully catch parse errors, falling back to treating the raw payload as a standard text message instead of failing with JSONException.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Enhance Custom Schema Parser Fallback",
+      "description": "Add nested try-catch blocks to separate internal state-extraction JSON schema parsing from the conversational response text extractor.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Verify State & Metadata Consistency",
+      "description": "Ensure that even if the AI responds in plain-text conversational format, the current tracked appointment indicators and SQLite database state are preserved.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Optimize Network Thread Response Handlers",
+      "description": "Update UI status indicator and connection thread state feedback loops to handle fallback scenarios gracefully and avoid thread hangs.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Building Hospital AI Booker",
+      "description": "Compile debug build with the revised robust API parsing strategy to confirm complete stability with local servers.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
