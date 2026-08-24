@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
     // Regex compiler patterns for editor syntax highlighting
     private final Pattern keyWordPattern = Pattern.compile("\\b(class|public|static|void|int|double|boolean|String|if|else|for|while|return|new|import|private|protected)\\b");
     private final Pattern numberPattern = Pattern.compile("\\b(\\d+)\\b");
-    private final Pattern stringPattern = Pattern.compile("\"([^\\"\\\\]|\\\\.)*\"");
+    private final Pattern stringPattern = Pattern.compile("\"([^\"\\\\\\\\]|\\\\\\\\.)*\"");
     private final Pattern commentPattern = Pattern.compile("//.*|/\\*.*?\\*/", Pattern.DOTALL);
 
     @Override
@@ -172,7 +172,7 @@ public class MainActivity extends Activity {
         for (final String fileName : projectFiles.keySet()) {
             TextView tv = new TextView(this);
             tv.setText(fileName);
-            tv.setTextSize(12sp);
+            tv.setTextSize(12);
             tv.setPadding(8, 12, 8, 12);
             tv.setSingleLine(true);
 
@@ -230,7 +230,7 @@ public class MainActivity extends Activity {
         }
         // Apply numbers
         m = numberPattern.matcher(s);
-        while (m.find()) {
+        while (m.find()) { 
             s.setSpan(new ForegroundColorSpan(Color.parseColor("#D19A66")), m.start(), m.end(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         // Apply String matching blocks
@@ -284,18 +284,18 @@ public class MainActivity extends Activity {
                 activeFileName = name;
                 updateFileListUI();
                 loadActiveFileToEditor();
-            }
+            } 
         });
         builder.setNegativeButton("Cancel", null);
         builder.show();
     }
 
-    private void showDeleteFileDialog(final String fileName) {
+    private void showDeleteFileDialog(final String fileName) { 
         if (projectFiles.size() <= 1) {
             Toast.makeText(this, "You must keep at least one source file in the workspace.", Toast.LENGTH_SHORT).show();
             return;
         }
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, AlertDialog.THEME_DEVICE_DEFAULT_DARK);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, AlertDialog.THEME_DEVICE_DEFAULT_DARK); 
         builder.setTitle("Delete File");
         builder.setMessage("Are you sure you want to delete " + fileName + "?");
         builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {

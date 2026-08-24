@@ -2,78 +2,78 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Project Structure",
-      "description": "Set up the directory structure and create core build configuration files tailored for high-performance Java interpretation on Android.",
-      "files": ["app/build.gradle", "app-meta.json"],
+      "title": "Analyze Build Failures",
+      "description": "Inspect error logs and identify syntax errors inside MainActivity.java.",
+      "files": ["app/src/main/java/com/javarunner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Android Manifest",
-      "description": "Define permissions, register activities, set the application theme to Dark Material, and define application entry points.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Verify Regex Patterns",
+      "description": "Analyze regex string escaping rules in Java Pattern compilations.",
+      "files": ["app/src/main/java/com/javarunner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Create Main UI Layout",
-      "description": "Construct the multi-panel dark theme layout containing a file manager, syntax-highlighted editor with line numbers, controls (Compile, Run, Stop), and a scrollable output console.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Fix String Highlighting Regex",
+      "description": "Update stringPattern syntax to resolve illegal character errors in MainActivity.java.",
+      "files": ["app/src/main/java/com/javarunner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Develop Java Lexer and Tokenizer",
-      "description": "Implement the syntax scanner inside the execution engine that tokenizes raw Java code strings into meaningful syntactical components for parsing.",
-      "files": ["app/src/main/java/com/javarunner/app/JavaEngine.java"],
+      "title": "Fix TextView Font Size Units",
+      "description": "Resolve invalid '12sp' unit in setTextSize in MainActivity.java.",
+      "files": ["app/src/main/java/com/javarunner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement AST Expression Parser",
-      "description": "Build the mathematical and logical expression parser, supporting binary operations, local variables, dynamic strings, and operator precedence.",
-      "files": ["app/src/main/java/com/javarunner/app/JavaEngine.java"],
+      "title": "Clean workspace compilation parameters",
+      "description": "Verify MainActivity configuration structures.",
+      "files": ["app/src/main/java/com/javarunner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Runtime Statement Executor",
-      "description": "Implement AST execution blocks supporting basic statements like variable assignment, conditional If/Else branching, nested structures, and loops.",
-      "files": ["app/src/main/java/com/javarunner/app/JavaEngine.java"],
+      "title": "Validate Android Manifest Namespace",
+      "description": "Confirm that the main manifest references the correct namespace.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Design Custom Syntax Highlighting Editor",
-      "description": "Write code to apply custom visual text styling to keywords, literals, type systems, comments, and numbers on-the-fly without UI stutter.",
-      "files": ["app/src/main/java/com/javarunner/app/MainActivity.java"],
+      "title": "Audit build.gradle dependencies",
+      "description": "Ensure no unwanted external dependencies break standard compiles.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Build Editor Line Number Coordinator",
-      "description": "Synchronize the text views and lines of the code editor with a specialized line numbering widget to align matching indices accurately.",
-      "files": ["app/src/main/java/com/javarunner/app/MainActivity.java"],
+      "title": "Test Java Syntax Validator",
+      "description": "Ensure JavaEngine parses braces, semicolons, and loop limits correctly.",
+      "files": ["app/src/main/java/com/javarunner/app/JavaEngine.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Create Local File Manager and Project Store",
-      "description": "Program functions to manage user workspace files locally, including initial demo template generation, reading, writing, renaming, and file listing.",
+      "title": "Verify Editor Line Numbering",
+      "description": "Confirm line count synchronization works perfectly.",
       "files": ["app/src/main/java/com/javarunner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Build Background Executor with Threads",
-      "description": "Architect asynchronous thread control, allowing non-blocking source parsing, intermediate compilation output, direct program state interruption, and console logging safely.",
+      "title": "Verify Thread Interruption Mechanics",
+      "description": "Ensure background thread cancels cleanly.",
       "files": ["app/src/main/java/com/javarunner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 11,
       "title": "Building Java Runner",
-      "description": "Compile, verify code compliance, link resources, package configurations, and output the functional Android debugging APK application.",
+      "description": "Trigger final build to verify successful APK compilation.",
       "files": [],
       "status": "pending"
     }
