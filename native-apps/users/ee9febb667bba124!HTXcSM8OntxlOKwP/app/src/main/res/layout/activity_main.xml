@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#121212">
+
+    <!-- Header toolbar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#1e1e1e"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Java Runner"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_compile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="#3700B3"
+                android:text="Compile"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_run"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="#03DAC6"
+                android:text="Run"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CF6679"
+                android:text="Stop"
+                android:textColor="#ffffff"
+                android:textSize="12sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Editor & File Manager split container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        android:orientation="horizontal">
+
+        <!-- Left pane: Simple File Navigation Drawer / Explorer -->
+        <LinearLayout
+            android:id="@+id/file_sidebar"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="#1a1a1a"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Workspace"
+                android:textColor="#a0a0a0"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:paddingBottom="6dp" />
+
+            <Button
+                android:id="@+id/btn_new_file"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#2c2c2c"
+                android:text="+ New File"
+                android:textColor="#ffffff"
+                android:textSize="11sp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:id="@+id/file_list_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- Editor Panel -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Current file tab indicator -->
+            <TextView
+                android:id="@+id/tv_active_tab"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:background="#242424"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:text="Main.java"
+                android:textColor="#82B1FF"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+            <!-- Editor scrolling view -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Line numbering list -->
+                    <TextView
+                        android:id="@+id/tv_line_numbers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="#1d1d1d"
+                        android:fontFamily="monospace"
+                        android:gravity="end"
+                        android:paddingEnd="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingTop="12dp"
+                        android:text="1"
+                        android:textColor="#5c6370"
+                        android:textSize="14sp" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fillViewport="true">
+
+                        <!-- Primary Code Editor -->
+                        <EditText
+                            android:id="@+id/et_code_editor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="#121212"
+                            android:fontFamily="monospace"
+                            android:gravity="top|start"
+                            android:hint="// Write Java code here"
+                            android:inputType="textMultiLine|textNoSuggestions|textVisiblePassword"
+                            android:paddingTop="12dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="32dp"
+                            android:textColor="#ffffff"
+                            android:textColorHint="#404040"
+                            android:textSize="14sp" />
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Console output partition -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:background="#181818"
+        android:orientation="vertical">
+
+        <!-- Title for console panel with clear action -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="#202020"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Console"
+                android:textColor="#e0e0e0"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_clear_console"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="CLEAR"
+                android:textColor="#CF6679"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/console_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/tv_console_output"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#98c379"
+                android:fontFamily="monospace"
+                android:textSize="13sp"
+                android:text="System compiler initialized. Ready to compile Java programs." />
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
