@@ -1,0 +1,110 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Remove PHP/MySQL Backend Code",
+      "description": "Clean up and remove legacy PHP script documentation, backend credentials, and HTTP request logic for MySQL integrations.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Implement Local SQLite Database Helper",
+      "description": "Create a local DatabaseHelper class inside MainActivity extending SQLiteOpenHelper to maintain the 'appointments' schema natively.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define SQLite Structure & Fields",
+      "description": "Configure database columns for name, age, phone, department, doctor, date, time, status, and created_at timestamps.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Upgrade AI Model to Gemini 2.5 Flash",
+      "description": "Update API calls to utilize Google Gemini 2.5 Flash as the processing engine for conversation and metadata synthesis.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build Parameterized SQLite Insertion Logic",
+      "description": "Deploy parameterized SQLite queries via ContentValues to secure local insert operations and prevent query vulnerabilities.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Enhance Admin Tab Layout with Search Control",
+      "description": "Add layout search inputs and dynamic action button to filter appointments locally in real-time.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Remove Legacy Backend URL Input",
+      "description": "Purge remote URL fields from activity_main.xml and clean configuration UI for clean local operations.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Admin Search Filter Queries",
+      "description": "Write parameterized database reading functions using SQL LIKE patterns to search by patient name, phone, or department.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Add Interactive Appointment Details View",
+      "description": "Render a modern AlertDialog containing full detail breakdown when clicking any appointment item in the Admin list.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Integrate Status and Deletion Management",
+      "description": "Implement quick drop-down status selection updates and deletion workflows directly in the detail dialog to modify database records.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Verify Speech Voice Feedback Systems",
+      "description": "Ensure TextToSpeech voice outputs and speech input listeners work robustly with modern Gemini 2.5 response outputs.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Hospital AI Booker",
+      "description": "Compile the app natively with Android SDK 34 and Gradle 8.5 verifying correct behavior and local SQLite stability.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
