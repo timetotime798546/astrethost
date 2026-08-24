@@ -2,85 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Hospital AI Booker Project Structure",
-      "description": "Generate package path folders and clean directory structure matching com.hospitalaibooker.app.",
+      "title": "Audit Build Logs for AAPT Error",
+      "description": "Analyze error logs to trace resource linking failure to activity_main.xml layout width/height settings.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Setup Android Manifest",
-      "description": "Configure permissions for internet access, network status, and record audio, setting up standard orientation and package properties.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Diagnose Java Source File Warnings",
+      "description": "Identify Java compiler issues in MainActivity.java regarding invalid unit suffix syntax for text sizes.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Build System",
-      "description": "Configure app/build.gradle with Android SDK 34 and standard Gradle build plugins matching build environment criteria.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Design Custom AI Animation View",
-      "description": "Develop custom Canvas-based AI state indicator drawing beautiful ripple, waveform, and rotation effects without external libraries.",
-      "files": ["app/src/main/java/com/hospitalaibooker/app/AiAnimationView.java"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Develop Modern Hospital UI XML",
-      "description": "Construct activity_main.xml layout with customized state tracker boards, clean chat viewports, navigation tabs, and system forms.",
+      "title": "Repair Layout XML Resource Attributes",
+      "description": "Update layout_width to match_parent in activity_main.xml, eliminating match_height incompatibility error.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 4,
+      "title": "Refactor Text Size Configurations in Java",
+      "description": "Convert invalid literal 10sp and 14sp expressions in MainActivity.java to use standard TypedValue.COMPLEX_UNIT_SP.",
+      "files": ["app/src/main/java/com/hospitalaibooker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Optimize Android Manifest Declarations",
+      "description": "Verify target permissions and remove deprecated package namespace configurations from the manifest element.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
       "step": 6,
-      "title": "Create User Chat Bubble Drawable",
-      "description": "Develop rounded gradient layout background for user dialogue bubble boxes.",
-      "files": ["app/src/main/res/drawable/bg_bubble_user.xml"],
+      "title": "Confirm Custom Waveform Drawing Logic",
+      "description": "Inspect AiAnimationView.java for correct use of Canvas drawing APIs and target Java 8 compatibility.",
+      "files": ["app/src/main/java/com/hospitalaibooker/app/AiAnimationView.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Create AI Chat Bubble Drawable",
-      "description": "Develop soft gray flat corner dialogue bubble layout for assistant response bubbles.",
-      "files": ["app/src/main/res/drawable/bg_bubble_ai.xml"],
+      "title": "Verify Theme Style References",
+      "description": "Ensure default light material styles are declared correctly across all layouts without importing material design modules.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Create Container Style Background Drawables",
-      "description": "Develop card views and rounded primary dynamic button styling to guarantee smooth visual feedback.",
-      "files": ["app/src/main/res/drawable/bg_card.xml", "app/src/main/res/drawable/bg_button.xml"],
+      "title": "Clean Up Gradle Dependencies",
+      "description": "Review build.gradle file dependencies to ensure pure standard Android SDK usage without redundant packages.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement App Logic and Local Store",
-      "description": "Build core system variables, SharedPreference configs, text-to-speech controllers, and speech recognizers inside MainActivity.java.",
+      "title": "Verify Secure PHP Integration Structure",
+      "description": "Review PHP backend documentation comments in MainActivity.java to guarantee safe data persistence design.",
       "files": ["app/src/main/java/com/hospitalaibooker/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement Gemini JSON AI Orchestration",
-      "description": "Establish dynamic structured prompt template generating formatted JSON state updates directly from raw conversational dialogue.",
-      "files": ["app/src/main/java/com/hospitalaibooker/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Setup API Backend and Admin Sync",
-      "description": "Integrate background execution procedures uploading complete confirmed booking JSON objects to user-configured MySQL backends.",
-      "files": ["app/src/main/java/com/hospitalaibooker/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building Hospital AI Booker",
-      "description": "Validate the full workspace parameters, verify compilation dependencies, and run final compilation rules.",
+      "description": "Initiate automated compilation verification utilizing standard Gradle wrapper settings.",
       "files": [],
       "status": "pending"
     }

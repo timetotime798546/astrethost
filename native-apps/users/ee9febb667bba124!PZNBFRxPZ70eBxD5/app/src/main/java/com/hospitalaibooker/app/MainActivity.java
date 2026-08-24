@@ -12,13 +12,13 @@ package com.hospitalaibooker.app;
  * header("Access-Control-Allow-Origin: *");
  * header("Access-Control-Allow-Methods: POST, GET");
  * header("Access-Control-Allow-Headers: Content-Type");
- *
+ * 
  * // SECURE DATABASE CONNECTION CREDENTIALS
  * $host = "localhost";
  * $db_user = "YOUR_DB_USER";
  * $db_pass = "YOUR_DB_PASS";
  * $db_name = "hospital_bookings_db";
- *
+ * 
  * try {
  *     $pdo = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $db_user, $db_pass, [
  *         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -28,7 +28,7 @@ package com.hospitalaibooker.app;
  *     echo json_encode(["status" => "error", "message" => "Database connection failed."]);
  *     exit;
  * }
- *
+ * 
  * // AUTO INITIALIZE APPOINTMENTS SCHEMA TABLE FOR HIGHLY COMPATIBLE INTEGRATION
  * $pdo->exec("CREATE TABLE IF NOT EXISTS appointments (
  *     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -41,9 +41,9 @@ package com.hospitalaibooker.app;
  *     time VARCHAR(50) NOT NULL,
  *     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
  * ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
- *
+ * 
  * $method = $_SERVER['REQUEST_METHOD'];
- *
+ * 
  * if ($method === 'POST') {
  *     // INSERT NEW CONFIRMED APPOINTMENT SECURELY VIA SQL PREPARED STATEMENTS
  *     $input = json_decode(file_get_contents('php://input'), true);
@@ -52,7 +52,7 @@ package com.hospitalaibooker.app;
  *         echo json_encode(["status" => "error", "message" => "Required patient information is missing."]);
  *         exit;
  *     }
- *
+ * 
  *     $stmt = $pdo->prepare("INSERT INTO appointments (name, age, phone, department, doctor, date, time) VALUES (?, ?, ?, ?, ?, ?, ?)");
  *     try {
  *         $stmt->execute([
@@ -75,7 +75,7 @@ package com.hospitalaibooker.app;
  *     }
  *     exit;
  * }
- *
+ * 
  * if ($method === 'GET') {
  *     // RETRIEVE ALL RECORDED DATA FOR ADMIN PANEL LIST VIEW
  *     try {
@@ -201,7 +201,7 @@ public class MainActivity extends Activity {
     private boolean isListening = false;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -368,7 +368,7 @@ public class MainActivity extends Activity {
                                 @Override
                                 public void run() {
                                     setAiState(AiAnimationView.STATE_SPEAKING, "AI is speaking...");
-                                }
+                                } 
                             });
                         }
 
@@ -378,7 +378,7 @@ public class MainActivity extends Activity {
                                 @Override
                                 public void run() {
                                     setAiState(AiAnimationView.STATE_IDLE, "AI is sleeping");
-                                }
+                                } 
                             });
                         }
 
@@ -388,7 +388,7 @@ public class MainActivity extends Activity {
                                 @Override
                                 public void run() {
                                     setAiState(AiAnimationView.STATE_IDLE, "AI is sleeping");
-                                }
+                                } 
                             });
                         }
                     });
@@ -541,13 +541,13 @@ public class MainActivity extends Activity {
 
         TextView senderLabel = new TextView(this);
         senderLabel.setText(sender);
-        senderLabel.setTextSize(10sp);
+        senderLabel.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
         senderLabel.setTextColor(0xFF78909C);
 
         TextView messageBody = new TextView(this);
         messageBody.setText(text);
         messageBody.setTextColor(sender.equals("You") ? Color.WHITE : 0xFF263238);
-        messageBody.setTextSize(14sp);
+        messageBody.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
         messageBody.setPadding(12, 10, 12, 10);
 
         if (sender.equals("You")) {
@@ -642,7 +642,7 @@ public class MainActivity extends Activity {
                             @Override
                             public void run() {
                                 handleGeminiApiResponse(resultString);
-                            }
+                            } 
                         });
                     } else {
                         final int errCode = code;
@@ -650,7 +650,7 @@ public class MainActivity extends Activity {
                             @Override
                             public void run() {
                                 handleNetworkError("Gemini API returned code: " + errCode);
-                            }
+                            } 
                         });
                     }
                 } catch (final Exception e) {
@@ -658,7 +658,7 @@ public class MainActivity extends Activity {
                         @Override
                         public void run() {
                             handleNetworkError("Connection failure: " + e.getMessage());
-                        }
+                        } 
                     });
                 }
             } 
@@ -728,7 +728,7 @@ public class MainActivity extends Activity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
+            } 
         }
     }
 
@@ -829,7 +829,7 @@ public class MainActivity extends Activity {
                             @Override
                             public void run() {
                                 handleBackendBookingError("HTTP code response error: " + errCode);
-                            }
+                            } 
                         });
                     }
                 } catch (final Exception e) {
@@ -837,7 +837,7 @@ public class MainActivity extends Activity {
                         @Override
                         public void run() {
                             handleBackendBookingError(e.getMessage());
-                        }
+                        } 
                     });
                 }
             }
@@ -916,7 +916,7 @@ public class MainActivity extends Activity {
                             @Override
                             public void run() {
                                 displayAdminError("Server return error code: " + errCode);
-                            }
+                            } 
                         });
                     }
                 } catch (final Exception e) {
@@ -924,7 +924,7 @@ public class MainActivity extends Activity {
                         @Override
                         public void run() {
                             displayAdminError(e.getMessage());
-                        }
+                        } 
                     });
                 }
             }
