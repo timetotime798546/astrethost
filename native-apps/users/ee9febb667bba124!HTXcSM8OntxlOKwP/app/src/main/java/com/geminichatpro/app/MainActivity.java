@@ -141,7 +141,7 @@ public class MainActivity extends Activity implements ChatAdapter.OnSpeakClickLi
                 } else {
                     isTtsReady = false;
                     Toast.makeText(MainActivity.this, "TTS initialization failed", Toast.LENGTH_SHORT).show();
-                }
+                } 
             }
         });
 
@@ -153,7 +153,7 @@ public class MainActivity extends Activity implements ChatAdapter.OnSpeakClickLi
                 if (isAutoTtsEnabled) {
                     btnAutoTts.setImageResource(R.drawable.ic_speak);
                     Toast.makeText(MainActivity.this, "Auto TTS Enabled", Toast.LENGTH_SHORT).show();
-                } else {
+                } else { 
                     btnAutoTts.setImageResource(R.drawable.ic_mute);
                     Toast.makeText(MainActivity.this, "Auto TTS Disabled", Toast.LENGTH_SHORT).show();
                 }
@@ -225,7 +225,7 @@ public class MainActivity extends Activity implements ChatAdapter.OnSpeakClickLi
 
         TextView tvKeysLabel = new TextView(this);
         tvKeysLabel.setText("Gemini API Keys (comma-separated rotation pool):");
-        tvKeysLabel.setTextSize(14sp);
+        tvKeysLabel.setTextSize(14);
         tvKeysLabel.setTextColor(0xFF333333);
         tvKeysLabel.setPadding(0, 10, 0, 5);
         layout.addView(tvKeysLabel);
@@ -244,7 +244,7 @@ public class MainActivity extends Activity implements ChatAdapter.OnSpeakClickLi
 
         TextView tvModelLabel = new TextView(this);
         tvModelLabel.setText("Gemini Model Name (e.g., gemini-2.5-flash, gemini-3.5-flash):");
-        tvModelLabel.setTextSize(14sp);
+        tvModelLabel.setTextSize(14);
         tvModelLabel.setTextColor(0xFF333333);
         tvModelLabel.setPadding(0, 20, 0, 5);
         layout.addView(tvModelLabel);
