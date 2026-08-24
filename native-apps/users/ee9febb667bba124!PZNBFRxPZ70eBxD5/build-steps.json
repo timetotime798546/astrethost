@@ -1,0 +1,101 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Refactor Network Endpoints",
+      "description": "Change API request URLs from Gemini API to local OpenAI endpoint http://10.0.2.2:8090/v1/chat/completions inside MainActivity.java.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Switch Request Payload format",
+      "description": "Convert from Gemini contents/parts format to standard OpenAI chat completion parameters including messages array, model, and temperature.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Refactor API Key Verification",
+      "description": "Remove hard API Key blockages. Treat local LLM API key configuration as completely optional.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Update Response Parsing Logic",
+      "description": "Implement parsing for OpenAI's choices[0].message.content response path.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build Markdown Cleanup Utility",
+      "description": "Write robust raw text cleaning helper to remove LLM-generated markdown JSON wrapper code blocks.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Update Settings Layout Labels",
+      "description": "Re-brand settings options from Gemini-specific values to Local OpenAI compatible configurations inside activity_main.xml.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Refactor Settings Key Fields",
+      "description": "Update settings text boxes and hint indicators inside MainActivity to express Local Host Port 8090 integration state.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Configure Chat History Mapping",
+      "description": "Build chat completion message array containing system prompt, historic chat elements, and user messages in proper OpenAI role structures.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Validate Connection Status Updates",
+      "description": "Ensure network indicator dynamically reflects Local LLM server connectivity when dispatching payloads.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Verify Speech Interface Integrations",
+      "description": "Ensure voice input speech synthesis features operate seamlessly with the newly parsed local response contents.",
+      "files": [
+        "app/src/main/java/com/hospitalaibooker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Hospital AI Booker",
+      "description": "Compile the integrated application and ensure build is verified on SDK 34 and Java 8 compatibility standards.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
