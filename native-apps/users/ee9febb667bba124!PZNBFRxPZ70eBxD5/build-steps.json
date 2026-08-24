@@ -1,0 +1,106 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize requirements",
+      "description": "Initialize target directories and check general SDK parameters for Virtual Mouse Touchpad.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure environment settings",
+      "description": "Configure compileSdkVersion 34, targetSdkVersion 34, and Gradle build settings in app/build.gradle.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure AndroidManifest.xml details",
+      "description": "Declare system permissions for overlay drawing and bind accessibility service configuration.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define accessibility service xml description",
+      "description": "Add accessibility_service_config.xml with gesture performance declarations required for virtual mouse clicks.",
+      "files": [
+        "app/src/main/res/xml/accessibility_service_config.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Generate graphical drawable components",
+      "description": "Generate trackpad buttons, hover bubble circles, and rounded background assets.",
+      "files": [
+        "app/src/main/res/drawable/card_background.xml",
+        "app/src/main/res/drawable/touchpad_background.xml",
+        "app/src/main/res/drawable/touchpad_area_background.xml",
+        "app/src/main/res/drawable/scroll_area_background.xml",
+        "app/src/main/res/drawable/btn_circle_bg.xml",
+        "app/src/main/res/drawable/bubble_background.xml",
+        "app/src/main/res/drawable/button_left_bg.xml",
+        "app/src/main/res/drawable/button_right_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build activity_main UI",
+      "description": "Develop UI layouts containing permission controls, trackpad customization seeks bars, and user instructions.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build floating trackpad UI",
+      "description": "Design layout_touchpad.xml consisting of sensitive drag areas, left/right clicks, dragging header handles, scroll guides, and minimize options.",
+      "files": [
+        "app/src/main/res/layout/layout_touchpad.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build floating bubble widget UI",
+      "description": "Implement layout_bubble.xml representing the touchpad in minimized condition, which is movable system-wide.",
+      "files": [
+        "app/src/main/res/layout/layout_bubble.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Program core launch validation settings",
+      "description": "Develop MainActivity.java handling user requests for system overlays and accessibility bindings.",
+      "files": [
+        "app/src/main/java/com/virtualmousetouchpad/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Develop virtual trackpad core service logic",
+      "description": "Program MouseService.java tracking finger gestures, shifting virtual pointer, drawing a crisp vector cursor, and triggering system-wide clicks/scrolls.",
+      "files": [
+        "app/src/main/java/com/virtualmousetouchpad/app/MouseService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Virtual Mouse Touchpad",
+      "description": "Compile, package, and build the final installable debug APK for Virtual Mouse Touchpad.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
