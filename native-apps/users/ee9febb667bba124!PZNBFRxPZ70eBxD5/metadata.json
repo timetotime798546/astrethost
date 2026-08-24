@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "timestamp": "2026-08-24 09:28:05",
+        "prompt": "Build an Android hospital appointment booking app in Java.\r\n\r\nFeatures:\r\n\r\n- Settings screen to enter and save the Gemini API key.\r\n- Separate Settings field for the default AI system instruction\/niche prompt.\r\n- AI acts as a Hospital Appointment Assistant.\r\n- User can type or speak; AI responds with text and voice.\r\n- Add attractive AI animations for listening, thinking, and speaking.\r\n- AI collects patient name, age, phone, department, doctor, date, and time.\r\n- Maintain a structured appointment metadata\/state containing all collected information.\r\n- Save the latest metadata locally and send it with every Gemini request.\r\n- Use previous metadata for follow-up questions and never ask again for information already collected.\r\n- Update only changed\/missing metadata fields.\r\n- Before booking, show a complete appointment summary and ask for confirmation.\r\n- Only after clear user confirmation, send the validated appointment data to the PHP\/MySQL backend.\r\n- Insert the confirmed appointment into SQL\/MySQL using a secure API and prepared statements.\r\n- Never tell the user an appointment is confirmed until the backend successfully returns a booking confirmation.\r\n- Add an Admin screen to view all booked appointments from the database.\r\n- Clean modern hospital + AI UI with loading states, error handling, microphone permissions, and secure API\/database handling.\r\n- Never expose MySQL credentials inside the Android app.\r\n- Handle Gemini\/API, network, speech recognition, JSON parsing, and database errors gracefully."
+    },
+    {
+        "id": 2,
+        "timestamp": "2026-08-24 09:35:52",
+        "prompt": "Look at the build errors and fix them."
+    },
+    {
+        "id": 3,
+        "timestamp": "2026-08-24 09:46:05",
+        "prompt": "Modify the existing Android hospital appointment app.\r\n\r\nIMPORTANT:\r\n\r\n- Remove MySQL, PHP backend, remote SQL APIs, database credentials, and all server-side database code.\r\n- Use ONLY Android SQLite for appointment storage.\r\n- Use Gemini 2.5 Flash as the Gemini AI model.\r\n\r\nRequirements:\r\n\r\n- Use \"SQLiteOpenHelper\" or \"SQLiteDatabase\" in Java.\r\n- Create a local \"appointments\" table.\r\n- Store patient name, age, phone, department, doctor, date, time, status, and created_at.\r\n- After the user confirms an appointment, insert the validated appointment directly into SQLite using Java.\r\n- Use parameterized\/prepared SQLite queries.\r\n- Do not send appointment data to MySQL or PHP.\r\n- Admin screen must read appointments directly from the local SQLite database.\r\n- Add appointment search, details, and status management.\r\n- Keep the existing Gemini API integration, using Gemini 2.5 Flash.\r\n- Keep metadata\/state management and send the latest appointment metadata with every Gemini request.\r\n- Maintain conversation context for follow-up questions and never ask again for information already collected.\r\n- Keep voice input, voice output, AI animations, API-key Settings, and separate default AI instruction Settings unchanged.\r\n- Never claim an appointment is confirmed until the SQLite INSERT succeeds.\r\n- Remove all unused MySQL\/PHP-related code and dependencies.\r\n- Do not hardcode the Gemini API key.\r\n- Handle Gemini errors, invalid JSON, SQLite errors, network errors, and speech errors gracefully.\r\n- Ensure the final Android project compiles successfully with no missing classes, resources, imports, or dependencies."
+    },
+    {
+        "id": 4,
+        "timestamp": "2026-08-24 09:49:04",
+        "prompt": "Modify the existing Android hospital appointment app.\r\n\r\nIMPORTANT:\r\n\r\n- Remove MySQL, PHP backend, remote SQL APIs, database credentials, and all server-side database code.\r\n- Use ONLY Android SQLite for appointment storage.\r\n- Use Gemini 2.5 Flash as the Gemini AI model.\r\n\r\nRequirements:\r\n\r\n- Use \"SQLiteOpenHelper\" or \"SQLiteDatabase\" in Java.\r\n- Create a local \"appointments\" table.\r\n- Store patient name, age, phone, department, doctor, date, time, status, and created_at.\r\n- After the user confirms an appointment, insert the validated appointment directly into SQLite using Java.\r\n- Use parameterized\/prepared SQLite queries.\r\n- Do not send appointment data to MySQL or PHP.\r\n- Admin screen must read appointments directly from the local SQLite database.\r\n- Add appointment search, details, and status management.\r\n- Keep the existing Gemini API integration, using Gemini 2.5 Flash.\r\n- Keep metadata\/state management and send the latest appointment metadata with every Gemini request.\r\n- Maintain conversation context for follow-up questions and never ask again for information already collected.\r\n- Keep voice input, voice output, AI animations, API-key Settings, and separate default AI instruction Settings unchanged.\r\n- Never claim an appointment is confirmed until the SQLite INSERT succeeds.\r\n- Remove all unused MySQL\/PHP-related code and dependencies.\r\n- Do not hardcode the Gemini API key.\r\n- Handle Gemini errors, invalid JSON, SQLite errors, network errors, and speech errors gracefully.\r\n- Ensure the final Android project compiles successfully with no missing classes, resources, imports, or dependencies."
+    },
+    {
+        "id": 5,
+        "timestamp": "2026-08-24 10:22:46",
+        "prompt": "Modify the existing Android hospital appointment app so that the AI conversation NEVER resets when the app is closed and reopened.\r\n\r\nRequirements:\r\n\r\n- Save the complete conversation history locally using SQLite.\r\n- Save the latest appointment metadata locally using SQLite.\r\n- Save the current conversation\/session ID.\r\n- Save every user message immediately.\r\n- Save every AI response immediately.\r\n- Save the latest metadata after every Gemini response.\r\n- When the app starts, load the most recent active conversation from SQLite.\r\n- Restore the previous chat messages on the Chat screen.\r\n- Restore the previous appointment metadata\/state.\r\n- Continue the conversation from exactly where the user left it.\r\n- Send the restored metadata and necessary conversation context with the next Gemini request.\r\n- Do NOT start a new conversation automatically when the app is reopened.\r\n- If an appointment is already confirmed, show the confirmed appointment state instead of asking the same questions again.\r\n- If the appointment is incomplete, continue asking only for the remaining missing information.\r\n- Keep the existing Gemini 2.5 Flash integration, voice input, voice output, AI animation, and multilingual behavior unchanged.\r\n- Add a \"New Chat\" or \"Reset Conversation\" button that explicitly clears the current conversation and starts a new one.\r\n- Do not delete the previous appointment records when starting a new chat.\r\n- Handle app crashes\/restarts gracefully by restoring the last saved state.\r\n- Ensure every database operation is safe and does not lose conversation data.\r\n\r\nSQLite tables should include:\r\n\r\nconversation_sessions:\r\n\r\n- id\r\n- created_at\r\n- updated_at\r\n- status\r\n\r\nchat_messages:\r\n\r\n- id\r\n- session_id\r\n- role\r\n- message\r\n- created_at\r\n\r\nappointment_metadata:\r\n\r\n- id\r\n- session_id\r\n- name\r\n- age\r\n- phone\r\n- department\r\n- doctor\r\n- date\r\n- time\r\n- is_ready_to_confirm\r\n- is_confirmed\r\n- updated_at\r\n\r\nOn app launch:\r\n\r\nSQLite\r\n\u2193\r\nFind latest active session\r\n\u2193\r\nLoad chat_messages\r\n\u2193\r\nLoad appointment_metadata\r\n\u2193\r\nDisplay previous conversation\r\n\u2193\r\nContinue from the last state\r\n\r\nOnly create a new session when the user explicitly presses \"New Chat\".\r\n\r\nMake sure the final Android project compiles successfully."
+    },
+    {
+        "id": 6,
+        "timestamp": "2026-08-24 14:53:23",
+        "prompt": "Act as an expert Android developer. I want to refactor my entire Android application from using the Google Gemini API to using a local OpenAI-compatible LLM server running on port 8090. Please update all required files in my project (including MainActivity, network helper classes, and settings configuration) based on the following requirements:\r\n\r\n1. API Endpoint Update:\r\n   - Change the request URL from the Gemini endpoint to the local server endpoint: http:\/\/10.0.2.2:8090\/v1\/chat\/completions (or the appropriate local host IP if running on a real device).\r\n\r\n2. Payload & Request Format:\r\n   - Switch from Gemini's `contents\/parts` JSON schema to the OpenAI standard chat completion payload format (`model`, `temperature`, and `messages` array containing `system`, `user`, or `assistant` roles).\r\n   - Remove the dependency on the Gemini `apiKey` since local LLM servers do not require authentication keys (set it to empty or optional).\r\n\r\n3. Response Parsing:\r\n   - Update the response extraction logic to parse OpenAI-compatible JSON responses (`data.choices[0].message.content`).\r\n   - Clean up any accidental markdown blocks (like ```json ... ```) returned by the local model before parsing the inner JSON payload.\r\n\r\n4. UI & Settings Cleanup:\r\n   - Update the Settings screen logic so that the API key field is optional or marked as \"Local Server Active\", ensuring connection status reflects the local server on port 8090.\r\n\r\nPlease provide the updated code blocks for all files that need modification.\r\n"
+    },
+    {
+        "id": 7,
+        "timestamp": "2026-08-24 14:57:51",
+        "prompt": "use\r\n\r\nhttp:\/\/127.0.0.1:8090\r\n\r\nInstead\r\nhttp:\/\/10.0.2.2:8090\/\r\n\r\n\r\n"
+    },
+    {
+        "id": 8,
+        "timestamp": "2026-08-24 15:02:55",
+        "prompt": "Look at the build errors and fix them."
+    },
+    {
+        "id": 9,
+        "timestamp": "2026-08-24 15:10:26",
+        "prompt": "Fix\r\nNetwork transaction failed: Connection failure:\r\nCleartext HTTP traffic to 127.0.0.1 not permitted\r\n\r\n\r\nAllow also http \r\n"
+    },
+    {
+        "id": 10,
+        "timestamp": "2026-08-24 15:30:58",
+        "prompt": "Failed parsing local server response: Value Hello!\r\nof type java.lang.String cannot be converted to\r\nJSONObject\r\nFix"
+    },
+    {
+        "id": 11,
+        "timestamp": "2026-08-24 15:53:17",
+        "prompt": "Give all files as it "
+    }
+]
