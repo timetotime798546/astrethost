@@ -1,0 +1,89 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define requirements for Gemini Chat Pro",
+      "description": "Analyze the core architectural details including round-robin Gemini API key rotation, multi-language TextToSpeech engine, custom styling, and lightweight native components.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure app/build.gradle script",
+      "description": "Configure compile and target SDK versions to 34, enforce JVM 1.8 compatibility, and remove all external library dependencies to preserve native light weight.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure AndroidManifest.xml",
+      "description": "Add network permissions and declare MainActivity with Theme.Material.Light support.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Generate custom drawable shape backgrounds",
+      "description": "Build bubble-style backgrounds for both user messages and AI responses with asymmetric corner radii using XML shape structures.",
+      "files": [
+        "app/src/main/res/drawable/bg_user_bubble.xml",
+        "app/src/main/res/drawable/bg_ai_bubble.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Generate vector icons for layout widgets",
+      "description": "Construct vector graphic files representing speak, mute, send, and individual bubble speak triggers.",
+      "files": [
+        "app/src/main/res/drawable/ic_send.xml",
+        "app/src/main/res/drawable/ic_speak.xml",
+        "app/src/main/res/drawable/ic_mute.xml",
+        "app/src/main/res/drawable/ic_speaker_bubble.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create main application activity layout",
+      "description": "Design high-fidelity UI including a modern header bar, API rotation status monitor, active key management buttons, ListView, and message input tray.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create chat bubble list item layout",
+      "description": "Construct custom item_chat.xml managing side-by-side visibility toggle structures for user bubbles and AI bubbles.",
+      "files": ["app/src/main/res/layout/item_chat.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Message model class",
+      "description": "Write data structures holding text content, timestamp, and metadata variables to distinguish speech and role classifications.",
+      "files": ["app/src/main/java/com/geminichatpro/app/Message.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement custom BaseAdapter",
+      "description": "Write ChatAdapter.java supporting high performance ListView item rendering and dynamic trigger callback triggers for voice readout buttons.",
+      "files": ["app/src/main/java/com/geminichatpro/app/ChatAdapter.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement MainActivity logic",
+      "description": "Incorporate HttpURLConnection-based round-robin rotation of 40 keys, native multi-locale offline TTS, and runtime interactive key updating tools.",
+      "files": ["app/src/main/java/com/geminichatpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Gemini Chat Pro",
+      "description": "Trigger standard gradle assemble debug compiler instructions to construct and verify the resulting debug package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
