@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Hospital AI Booker Project Structure",
+      "description": "Generate package path folders and clean directory structure matching com.hospitalaibooker.app.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Setup Android Manifest",
+      "description": "Configure permissions for internet access, network status, and record audio, setting up standard orientation and package properties.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Build System",
+      "description": "Configure app/build.gradle with Android SDK 34 and standard Gradle build plugins matching build environment criteria.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Custom AI Animation View",
+      "description": "Develop custom Canvas-based AI state indicator drawing beautiful ripple, waveform, and rotation effects without external libraries.",
+      "files": ["app/src/main/java/com/hospitalaibooker/app/AiAnimationView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Develop Modern Hospital UI XML",
+      "description": "Construct activity_main.xml layout with customized state tracker boards, clean chat viewports, navigation tabs, and system forms.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create User Chat Bubble Drawable",
+      "description": "Develop rounded gradient layout background for user dialogue bubble boxes.",
+      "files": ["app/src/main/res/drawable/bg_bubble_user.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create AI Chat Bubble Drawable",
+      "description": "Develop soft gray flat corner dialogue bubble layout for assistant response bubbles.",
+      "files": ["app/src/main/res/drawable/bg_bubble_ai.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Container Style Background Drawables",
+      "description": "Develop card views and rounded primary dynamic button styling to guarantee smooth visual feedback.",
+      "files": ["app/src/main/res/drawable/bg_card.xml", "app/src/main/res/drawable/bg_button.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement App Logic and Local Store",
+      "description": "Build core system variables, SharedPreference configs, text-to-speech controllers, and speech recognizers inside MainActivity.java.",
+      "files": ["app/src/main/java/com/hospitalaibooker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Gemini JSON AI Orchestration",
+      "description": "Establish dynamic structured prompt template generating formatted JSON state updates directly from raw conversational dialogue.",
+      "files": ["app/src/main/java/com/hospitalaibooker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Setup API Backend and Admin Sync",
+      "description": "Integrate background execution procedures uploading complete confirmed booking JSON objects to user-configured MySQL backends.",
+      "files": ["app/src/main/java/com/hospitalaibooker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Hospital AI Booker",
+      "description": "Validate the full workspace parameters, verify compilation dependencies, and run final compilation rules.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
