@@ -8,153 +8,176 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-    private TextView display;
+    private TextView tvDisplay;
+    private TextView tvHistory;
+
     private String currentNumber = "";
-    private String previousNumber = "";
-    private String operation = "";
-    private boolean newOperation = true;
+    private String operator = "";
+    private double firstOperand = Double.NaN;
+    private boolean isResultDisplayed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        display = (TextView) findViewById(R.id.display_text_view);
+        tvDisplay = (TextView) findViewById(R.id.tvDisplay);
+        tvHistory = (TextView) findViewById(R.id.tvHistory);
 
-        // Set up number buttons
-        setupNumberButton(R.id.button0, "0");
-        setupNumberButton(R.id.button1, "1");
-        setupNumberButton(R.id.button2, "2");
-        setupNumberButton(R.id.button3, "3");
-        setupNumberButton(R.id.button4, "4");
-        setupNumberButton(R.id.button5, "5");
-        setupNumberButton(R.id.button6, "6");
-        setupNumberButton(R.id.button7, "7");
-        setupNumberButton(R.id.button8, "8");
-        setupNumberButton(R.id.button9, "9");
-        setupNumberButton(R.id.button_dot, ".");
+        setupClickListeners();
+    }
 
-        // Set up operation buttons
-        setupOperationButton(R.id.button_plus, "+");
-        setupOperationButton(R.id.button_minus, "-");
-        setupOperationButton(R.id.button_multiply, "*");
-        setupOperationButton(R.id.button_divide, "/");
+    private void setupClickListeners() {
+        int[] numberIds = {
+            R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+            R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9,
+            R.id.btnDot
+        };
 
-        // Set up clear and equals buttons
-        Button clearButton = (Button) findViewById(R.id.button_clear);
-        clearButton.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener numberClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clear();
+                Button b = (Button) v;
+                String text = b.getText().toString();
+                if (isResultDisplayed) {
+                    currentNumber = "";
+                    isResultDisplayed = false;
+                }
+                if (text.equals(".") && currentNumber.contains(".")) {
+                    return;
+                }
+                if (currentNumber.equals("0") && !text.equals(".")) {
+                    currentNumber = text;
+                } else {
+                    currentNumber += text;
+                }
+                updateDisplay();
             }
-        });
+        };
 
-        Button equalsButton = (Button) findViewById(R.id.button_equals);
-        equalsButton.setOnClickListener(new View.OnClickListener() {
+        for (int i = 0; i < numberIds.length; i++) {
+            findViewById(numberIds[i]).setOnClickListener(numberClickListener);
+        }
+
+        int[] operatorIds = {
+            R.id.btnAdd, R.id.btnSubtract, R.id.btnMultiply, R.id.btnDivide
+        };
+
+        View.OnClickListener operatorClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Button b = (Button) v;
+                String op = b.getText().toString();
+                
+                if (!Double.isNaN(firstOperand) && !currentNumber.isEmpty()) {
+                    calculate();
+                } else if (!currentNumber.isEmpty()) {
+                    firstOperand = Double.parseDouble(currentNumber);
+                }
+                
+                operator = op;
+                if (!Double.isNaN(firstOperand)) {
+                    tvHistory.setText(formatValue(firstOperand) + " " + operator);
+                }
+                currentNumber = "";
+                isResultDisplayed = false;
+            }
+        };
+
+        for (int i = 0; i < operatorIds.length; i++) {
+            findViewById(operatorIds[i]).setOnClickListener(operatorClickListener);
+        }
+
+        findViewById(R.id.btnEqual).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calculate();
+                operator = "";
+                tvHistory.setText("");
             }
         });
 
-        display.setText("0");
-    }
-
-    private void setupNumberButton(int id, final String number) {
-        Button button = (Button) findViewById(id);
-        button.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnClear).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onNumberClick(number);
+                currentNumber = "0";
+                firstOperand = Double.NaN;
+                operator = "";
+                tvHistory.setText("");
+                updateDisplay();
             }
         });
-    }
 
-    private void setupOperationButton(int id, final String op) {
-        Button button = (Button) findViewById(id);
-        button.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnSign).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onOperationClick(op);
+                if (!currentNumber.isEmpty() && !currentNumber.equals("0")) {
+                    double val = Double.parseDouble(currentNumber);
+                    val = val * -1;
+                    currentNumber = formatValue(val);
+                    updateDisplay();
+                }
             }
         });
-    }
 
-    private void onNumberClick(String num) {
-        if (newOperation) {
-            currentNumber = num;
-            newOperation = false;
-        } else {
-            if (num.equals(".") && currentNumber.contains(".")) {
-                // Do nothing if dot is already present
-                return;
+        findViewById(R.id.btnPercent).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!currentNumber.isEmpty()) {
+                    double val = Double.parseDouble(currentNumber);
+                    val = val / 100.0;
+                    currentNumber = formatValue(val);
+                    updateDisplay();
+                }
             }
-            currentNumber = currentNumber + num;
-        }
-        display.setText(currentNumber);
-    }
-
-    private void onOperationClick(String op) {
-        if (!currentNumber.isEmpty()) {
-            if (!previousNumber.isEmpty() && !newOperation) {
-                calculate(); // Calculate previous operation if exists
-            }
-            previousNumber = currentNumber;
-            operation = op;
-            newOperation = true;
-            // display.setText(op); // Optional: show operation on display briefly
-        }
+        });
     }
 
     private void calculate() {
-        if (previousNumber.isEmpty() || currentNumber.isEmpty() || operation.isEmpty()) {
+        if (Double.isNaN(firstOperand) || currentNumber.isEmpty()) {
             return;
         }
 
-        double num1 = Double.parseDouble(previousNumber);
-        double num2 = Double.parseDouble(currentNumber);
+        double secondOperand = Double.parseDouble(currentNumber);
         double result = 0;
 
-        if (operation.equals("+")) {
-            result = num1 + num2;
-        } else if (operation.equals("-")) {
-            result = num1 - num2;
-        } else if (operation.equals("*")) {
-            result = num1 * num2;
-        } else if (operation.equals("/")) {
-            if (num2 != 0) {
-                result = num1 / num2;
-            } else {
-                display.setText("Error");
-                clearAll();
+        if (operator.equals("+")) {
+            result = firstOperand + secondOperand;
+        } else if (operator.equals("-")) {
+            result = firstOperand - secondOperand;
+        } else if (operator.equals("×")) {
+            result = firstOperand * secondOperand;
+        } else if (operator.equals("÷")) {
+            if (secondOperand == 0) {
+                tvDisplay.setText("Error");
+                currentNumber = "";
+                firstOperand = Double.NaN;
+                operator = "";
                 return;
             }
+            result = firstOperand / secondOperand;
         }
 
-        currentNumber = formatResult(result);
-        display.setText(currentNumber);
-        previousNumber = "";
-        operation = "";
-        newOperation = true;
+        tvHistory.setText(formatValue(firstOperand) + " " + operator + " " + formatValue(secondOperand) + " =");
+        firstOperand = result;
+        currentNumber = formatValue(result);
+        isResultDisplayed = true;
+        updateDisplay();
     }
 
-    private void clear() {
-        clearAll();
-        display.setText("0");
-    }
-
-    private void clearAll() {
-        currentNumber = "";
-        previousNumber = "";
-        operation = "";
-        newOperation = true;
-    }
-
-    private String formatResult(double result) {
-        if (result == (long) result) {
-            return String.valueOf((long) result);
+    private void updateDisplay() {
+        if (currentNumber.isEmpty()) {
+            tvDisplay.setText("0");
         } else {
-            return String.valueOf(result);
+            tvDisplay.setText(currentNumber);
+        }
+    }
+
+    private String formatValue(double val) {
+        if (val == (long) val) {
+            return String.format("%d", (long) val);
+        } else {
+            return String.valueOf(val);
         }
     }
 }
