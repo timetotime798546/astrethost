@@ -1,0 +1,101 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Inspect Existing Code and Fix Import Typo",
+      "description": "Review the existing MainActivity code and correct the malformed JSON import syntax to restore proper compilation.",
+      "files": [
+        "app/src/main/java/com/priyaaigirlfriend/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Add Voice Status Banner to Layout",
+      "description": "Integrate a sweet, stylish real-time voice chat banner in activity_main.xml to clearly signal to the user when Continuous Voice Chat is active.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Initialize TextToSpeech with Progress Tracking",
+      "description": "Implement an UtteranceProgressListener inside TextToSpeech to detect when Priya finishes speaking her response, which is crucial for real-time continuous voice chat.",
+      "files": [
+        "app/src/main/java/com/priyaaigirlfriend/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure Continuous Voice Loop",
+      "description": "Build the automatic response-to-listening loop. When Priya finishes talking, the microphone turns back on automatically without requiring button taps.",
+      "files": [
+        "app/src/main/java/com/priyaaigirlfriend/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Enhance Speech Recognition Actions",
+      "description": "Configure SpeechRecognizer callbacks so that in Continuous Voice Mode, transcribed messages are automatically queued to Gemini for rapid dialogue.",
+      "files": [
+        "app/src/main/java/com/priyaaigirlfriend/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Double-Send Safeguards for Cancel Timer",
+      "description": "Enhance the 3-second cancel queue to automatically send any pending messages if a user immediately schedules a new message, preventing queue collisions.",
+      "files": [
+        "app/src/main/java/com/priyaaigirlfriend/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Upgrade AI Response Typing Animation",
+      "description": "Establish a dynamic UI cycle of dots directly inside the active list view model indicating that Priya is actively formulating thoughts in real time.",
+      "files": [
+        "app/src/main/java/com/priyaaigirlfriend/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Customize Typing Bubble Visuals in Adapter",
+      "description": "Refine ChatAdapter styling logic to display the typing animation bubble in a distinct, cute pink-shaded background.",
+      "files": [
+        "app/src/main/java/com/priyaaigirlfriend/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Incorporate Audio Toggle Status Management",
+      "description": "Synchronize the voice toggle button, state, status banner, and shared preference storage to ensure the user stays fully informed of the app's audio mode.",
+      "files": [
+        "app/src/main/java/com/priyaaigirlfriend/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Verify Resource Cleanups and Lifecycles",
+      "description": "Guarantee that TTS voice output, SpeechRecognizer listening states, and post-handlers are securely destroyed on close events to eliminate memory leaks.",
+      "files": [
+        "app/src/main/java/com/priyaaigirlfriend/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building PriyaAi Girlfriend",
+      "description": "Compile the app with the newly implemented real-time voice capabilities and animation visual styles.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
