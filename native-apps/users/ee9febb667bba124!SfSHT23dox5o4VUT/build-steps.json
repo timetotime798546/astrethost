@@ -2,37 +2,37 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize the ModernCalc Android Project",
-      "description": "Set up the basic project structure for the ModernCalc app, defining the app name and package name.",
+      "title": "Initialize Project Configuration",
+      "description": "Define the application name 'Modern Calculator Pro' and the unique package identifier 'com.moderncalculatorpro.app'. These will be used consistently throughout the project files.",
       "files": [
         "app-meta.json",
         "app/src/main/AndroidManifest.xml",
-        "app/build.gradle"
+        "app/build.gradle",
+        "app/src/main/java/com/moderncalculatorpro/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Define Project Structure and Dependencies",
-      "description": "Configure the app/build.gradle file with the specified SDK versions, build tools, and Java compatibility (Java 8).",
-      "files": [
-        "app/build.gradle"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Configure Android Manifest for ModernCalc",
-      "description": "Create the AndroidManifest.xml file, declaring the application, main activity, and setting the app label and icon for ModernCalc.",
+      "title": "Configure Android Manifest",
+      "description": "Set up the 'AndroidManifest.xml' file, declaring the application's package, specifying the main activity 'MainActivity', defining the application label 'Modern Calculator Pro', and setting the application icon to '@drawable/icon'.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
+      "step": 3,
+      "title": "Setup Gradle Build Script",
+      "description": "Configure 'app/build.gradle' to specify the Android SDK versions (compileSdkVersion 34, targetSdkVersion 34, minSdkVersion 21), build tools version (34.0.0), and the application ID ('com.moderncalculatorpro.app'). Ensure Java 8 compatibility for source and target.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },\n    {
       "step": 4,
-      "title": "Design the Calculator UI Layout",
-      "description": "Create the activity_main.xml layout file, designing the user interface for the calculator, including display and button grid.",
+      "title": "Design Main Layout Structure",
+      "description": "Create the 'activity_main.xml' layout file using a vertical 'LinearLayout' as the root. This will contain a 'TextView' at the top for displaying the calculator input and results, and a 'GridLayout' below it to arrange the calculator buttons.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -40,8 +40,8 @@
     },
     {
       "step": 5,
-      "title": "Implement Calculator Display (TextView)",
-      "description": "Add a TextView to the layout to display input and results, ensuring it's appropriately styled and positioned.",
+      "title": "Implement Calculator Display UI",
+      "description": "Within 'activity_main.xml', design the 'TextView' for showing calculations. Set its ID to 'display_text_view', make its text large and right-aligned, and apply appropriate padding and background for a clean look.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -49,8 +49,8 @@
     },
     {
       "step": 6,
-      "title": "Create Number Buttons (0-9 and decimal)",
-      "description": "Add Button widgets for numbers 0-9 and the decimal point to the layout, arranging them in a grid.",
+      "title": "Create Number Buttons",
+      "description": "Add 'Button' widgets for digits 0-9 inside the 'GridLayout' in 'activity_main.xml'. Assign unique IDs (e.g., 'btn_0', 'btn_1') and set their text. Ensure they are arranged in a standard calculator number pad layout.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -58,8 +58,8 @@
     },
     {
       "step": 7,
-      "title": "Create Operator Buttons (+, -, *, /)",
-      "description": "Add Button widgets for basic arithmetic operations (+, -, *, /) to the layout, ensuring clear visual separation.",
+      "title": "Create Operator Buttons",
+      "description": "Add 'Button' widgets for common arithmetic operators (+, -, *, /) into the 'GridLayout'. Assign appropriate IDs (e.g., 'btn_add', 'btn_subtract') and text for clear identification.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -67,8 +67,8 @@
     },
     {
       "step": 8,
-      "title": "Implement Clear and Equals Buttons",
-      "description": "Add 'Clear' (C) and 'Equals' (=) buttons to the layout, completing the basic calculator interface.",
+      "title": "Implement Control Buttons",
+      "description": "Include 'Button' widgets for 'Clear' (C), 'Delete' (DEL), decimal point (.), and 'Equals' (=) in the 'GridLayout'. Assign IDs (e.g., 'btn_clear', 'btn_del', 'btn_dot', 'btn_equals') and ensure their placement is intuitive.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -76,90 +76,80 @@
     },
     {
       "step": 9,
-      "title": "Set up MainActivity for UI Interaction",
-      "description": "Create the MainActivity.java file within the 'com.moderncalc.app' package, extending Activity and setting up the basic onCreate method.",
+      "title": "Initialize UI Components in MainActivity",
+      "description": "In 'MainActivity.java', declare member variables for the 'TextView' (display_text_view) and all 'Button' objects. In the 'onCreate' method, use 'findViewById' to link these variables to their respective UI elements defined in 'activity_main.xml'.",
       "files": [
-        "app/src/main/java/com/moderncalc/app/MainActivity.java"
+        "app/src/main/java/com/moderncalculatorpro/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement Button Click Listeners in MainActivity",
-      "description": "Initialize and attach OnClickListener interfaces to all calculator buttons in MainActivity.java.",
+      "title": "Implement Button Click Listeners",
+      "description": "Attach 'OnClickListener' instances to each calculator button in 'MainActivity.java'. These listeners will be responsible for handling user interactions and triggering the appropriate calculator logic.",
       "files": [
-        "app/src/main/java/com/moderncalc/app/MainActivity.java"
+        "app/src/main/java/com/moderncalculatorpro/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Develop Number and Operator Input Logic",
-      "description": "Implement the logic within the click listeners to handle number input and store selected operators in MainActivity.java.",
+      "title": "Develop Number Input Logic",
+      "description": "Implement the logic within 'MainActivity.java' to handle number and decimal point button presses. This involves appending digits to the current display string, ensuring correct decimal placement, and managing new number entry states.",
       "files": [
-        "app/src/main/java/com/moderncalc/app/MainActivity.java"
+        "app/src/main/java/com/moderncalculatorpro/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Implement Core Calculation Logic",
-      "description": "Add the necessary methods and variables in MainActivity.java to perform arithmetic calculations based on the selected operator.",
+      "title": "Handle Operator Selection",
+      "description": "Implement logic in 'MainActivity.java' to process operator button presses. This includes storing the first operand, the selected operator, and preparing for the input of the second operand. If an operation is pending, perform it first.",
       "files": [
-        "app/src/main/java/com/moderncalc/app/MainActivity.java"
+        "app/src/main/java/com/moderncalculatorpro/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 13,
-      "title": "Handle Decimal Point Input",
-      "description": "Ensure the decimal button correctly appends a decimal point to numbers, preventing multiple decimal points in a single number in MainActivity.java.",
+      "title": "Perform Calculation on Equals",
+      "description": "Develop the core arithmetic logic in 'MainActivity.java' that executes when the equals button is pressed. This will involve parsing the operands, performing the specified operation, displaying the result, and handling potential errors like division by zero.",
       "files": [
-        "app/src/main/java/com/moderncalc/app/MainActivity.java"
+        "app/src/main/java/com/moderncalculatorpro/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 14,
-      "title": "Implement Clear Functionality",
-      "description": "Code the 'Clear' button's action to reset the display and all calculation variables to their initial state in MainActivity.java.",
+      "title": "Implement Clear and Delete Functionality",
+      "description": "Add the functionality for the 'C' button to reset the entire calculator state (display, operands, operator) and for the 'DEL' button to remove the last character from the display string.",
       "files": [
-        "app/src/main/java/com/moderncalc/app/MainActivity.java"
+        "app/src/main/java/com/moderncalculatorpro/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 15,
-      "title": "Implement Equals Functionality and Display Result",
-      "description": "Finalize the 'Equals' button's logic to trigger the calculation, format the result, and update the display TextView in MainActivity.java.",
+      "title": "Ensure Java 8 Compatibility",
+      "description": "Verify that all Java source code written in 'MainActivity.java' adheres strictly to Java 8 language features and syntax, avoiding any Java 9+ constructs such as lambdas or streams to ensure compatibility with the build environment.",
       "files": [
-        "app/src/main/java/com/moderncalc/app/MainActivity.java"
+        "app/src/main/java/com/moderncalculatorpro/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 16,
-      "title": "Add Basic Error Handling",
-      "description": "Implement checks for common issues like division by zero, displaying appropriate messages to the user in MainActivity.java.",
+      "title": "Generate App Metadata",
+      "description": "Create the 'app-meta.json' file at the project root, containing the 'app_name' and 'package_name' for consistent project identification and management.",
       "files": [
-        "app/src/main/java/com/moderncalc/app/MainActivity.java"
+        "app-meta.json"
       ],
       "status": "pending"
     },
     {
       "step": 17,
-      "title": "Validate UI and Functionality",
-      "description": "Review the layout and code to ensure all buttons are responsive, calculations are accurate, and the UI is visually appealing for ModernCalc.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml",
-        "app/src/main/java/com/moderncalc/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 18,
-      "title": "Building ModernCalc",
-      "description": "Compile the ModernCalc app using Gradle to generate a debug APK.",
+      "title": "Building Modern Calculator Pro",
+      "description": "The final step involves compiling and assembling the 'Modern Calculator Pro' application, generating the debug APK ready for installation and testing on an Android device or emulator.",
       "files": [],
       "status": "pending"
     }
