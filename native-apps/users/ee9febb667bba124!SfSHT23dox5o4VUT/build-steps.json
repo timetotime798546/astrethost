@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define requirements for Nitin Live Wallpaper app",
+      "description": "Analyze user requirements to build an interactive, animated name live wallpaper showing the name 'नितिन' (Nitin) with custom settings.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Generate metadata files and app structure configuration",
+      "description": "Setup app-meta.json with standard parameters representing the Nitin Live Wallpaper package.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure build.gradle compatibility parameters",
+      "description": "Configure compileSdkVersion 34, targetSdkVersion 34, AGP 8.3.2, and pure Java 8 target parameters with no external dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define Hindi-supported local strings",
+      "description": "Create strings.xml holding appropriate descriptive strings for the application settings and live wallpaper selection lists.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create the Live Wallpaper descriptor config",
+      "description": "Write xml/wallpaper.xml to let the system interface discover, thumbnail, and describe the customizable service.",
+      "files": ["app/src/main/res/xml/wallpaper.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Develop the NitinWallpaperService base framework",
+      "description": "Create NitinWallpaperService.java extending standard WallpaperService with state-handling logic for live customization cycles.",
+      "files": ["app/src/main/java/com/nitinlivewallpaper/app/NitinWallpaperService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement complex interactive Neon graphic drawing loops",
+      "description": "Formulate high-performance, double-buffered Canvas operations representing particle generation, customizable gradient cycles, and touch-induced explosion physics.",
+      "files": ["app/src/main/java/com/nitinlivewallpaper/app/NitinWallpaperService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create MainActivity premium custom dashboard layout",
+      "description": "Formulate linear layouts inside scrolling panels displaying live customized configurations, neon styled quick pre-visualizer, and wallpaper setting guides.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement MainActivity controller logic for real-time preferences",
+      "description": "Code the interactive logic updating shared wallpaper preferences immediately upon text changes or style selects.",
+      "files": ["app/src/main/java/com/nitinlivewallpaper/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Incorporate the wallpaper trigger intents",
+      "description": "Program appropriate native triggers calling ACTION_CHANGE_LIVE_WALLPAPER intents to seamlessly launch the system Live Wallpaper applying interface.",
+      "files": ["app/src/main/java/com/nitinlivewallpaper/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Configure system requirements in AndroidManifest.xml",
+      "description": "Declare proper BIND_WALLPAPER permissions, manifest entries, launcher activities, and background rendering services inside AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Nitin Live Wallpaper",
+      "description": "Perform complete SDK 34 compilations generating the fully custom Nitin Live Wallpaper application build.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
