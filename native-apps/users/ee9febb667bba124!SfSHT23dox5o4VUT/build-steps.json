@@ -2,106 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize App Metadata",
-      "description": "Configure app-meta.json with package name com.studentadminpro.app and app name Student Admin Pro.",
-      "files": ["app-meta.json"],
+      "title": "Analyze Build Failure Logs",
+      "description": "Inspect compilation output to identify AAPT linking failure cause inside activity_main.xml.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Setup Android Manifest",
-      "description": "Define single MainActivity layout entry with proper android permissions and app settings.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Diagnose Invalid Layout Attributes",
+      "description": "Locate invalid 'match_height' value assigned to android:layout_width inside the root RelativeLayout.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Gradle Scripts",
-      "description": "Create main build.gradle file matching SDK 34, AGP 8.3.2 and Java 17 requirements.",
-      "files": ["app/build.gradle"],
+      "title": "Fix Layout XML Error",
+      "description": "Correct root RelativeLayout android:layout_width property to match_parent to resolve AAPT resource linking crash.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design Layout Architecture",
-      "description": "Generate activity_main.xml consisting of login screen, school admin dashboard, and feature layouts.",
+      "title": "Verify Nested View Dimensions",
+      "description": "Scan XML sub-hierarchies to ensure correct dimensions are applied to all ScrollViews, Buttons and Forms.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Database Schema",
-      "description": "Create DatabaseHelper class to support Students, Attendance, Fees and Performance tables.",
-      "files": ["app/src/main/java/com/studentadminpro/app/MainActivity.java"],
+      "title": "Review SQLite Queries Integrity",
+      "description": "Perform safety checks on DatabaseHelper raw SQL create statements in MainActivity.java.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Admin Login Feature",
-      "description": "Incorporate login validations with credential verification (admin/password) inside MainActivity.",
-      "files": ["app/src/main/java/com/studentadminpro/app/MainActivity.java"],
+      "title": "Validate Manifest Namespace",
+      "description": "Audit AndroidManifest.xml package and launch intent elements configurations.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Add Mock Students Base",
-      "description": "Setup standard dummy records in Database on first setup for immediate administrative use.",
-      "files": ["app/src/main/java/com/studentadminpro/app/MainActivity.java"],
+      "title": "Check Java 8 Compiler Compliance",
+      "description": "Confirm no incompatible Java 9+ features or lambda expressions exist in MainActivity.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Create Dynamic Dashboard Metrics",
-      "description": "Add real-time statistics counters for Total Students, Present counts, and Total Fees collected.",
-      "files": ["app/src/main/java/com/studentadminpro/app/MainActivity.java"],
+      "title": "Re-align Build Configurations",
+      "description": "Ensure build.gradle targets Java 1.8 compatibility and aligns with AGP 8.3.2 and Gradle 8.5 parameters.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Incorporate Student Insertion Panel",
-      "description": "Code Add Student form inputs mapping details (Name, Class, Roll Number, Contact) to Database.",
-      "files": ["app/src/main/java/com/studentadminpro/app/MainActivity.java"],
+      "title": "Review App Metadata Configurations",
+      "description": "Verify metadata parameters inside app-meta.json synchronize with corrected project modules.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Build Student Directory Panel",
-      "description": "Design directory listing for managing records with long-press deletion option.",
-      "files": ["app/src/main/java/com/studentadminpro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Develop Attendance Module",
-      "description": "Construct Attendance list view with instant present/absent logs processing.",
-      "files": ["app/src/main/java/com/studentadminpro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Incorporate Fee Billing System",
-      "description": "Integrate Fees tracking module to submit payments and display status logs dynamically.",
-      "files": ["app/src/main/java/com/studentadminpro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Build Academic Performance Log",
-      "description": "Deploy Marks manager to select student, enter score, and render historical progress sheets.",
-      "files": ["app/src/main/java/com/studentadminpro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Perform Verification & Styling Audit",
-      "description": "Ensure Java 8 backward compatibility, verify system styles, and package elements layout integrity.",
-      "files": ["app/src/main/java/com/studentadminpro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 15,
       "title": "Building Student Admin Pro",
-      "description": "Run standard gradle assemble debug compilation process.",
+      "description": "Run the Gradle compiler compilation task to assemble the error-free debug APK output.",
       "files": [],
       "status": "pending"
     }
