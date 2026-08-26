@@ -1,0 +1,7 @@
+[
+    {
+        "id": 1,
+        "timestamp": "2026-08-26 16:13:14",
+        "prompt": "Create a complete Android app in Java named \"Audio Booster\".\r\n\r\nThe app should allow the user to:\r\n\r\n- Record audio from the microphone.\r\n- Select an existing audio file from storage.\r\n- Increase audio volume from 1x to 50x.\r\n- Actually process and amplify the audio samples, not just change MediaPlayer volume.\r\n- Prevent clipping and distortion using normalization or limiting.\r\n- Play the original and boosted audio.\r\n- Save the boosted audio as a new file.\r\n- Show the current amplification level.\r\n- Use a simple modern UI.\r\n\r\nUse Java, AudioRecord, AudioTrack, and Android native APIs.\r\nThe app must work offline and compile successfully.\r\nGenerate complete working code."
+    }
+]
