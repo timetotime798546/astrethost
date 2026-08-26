@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#121212">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cosmic Particles"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Customize your interactive Live Wallpaper experience"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Color Nebula Theme"
+            android:textColor="#2196F3"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/themeGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp"
+            android:background="#1E1E1E"
+            android:padding="12dp">
+
+            <RadioButton
+                android:id="@+id/radioBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deep Space Blue"
+                android:textColor="#FFFFFF"
+                android:buttonTint="#2196F3"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/radioPurple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Neon Purple Nebula"
+                android:textColor="#FFFFFF"
+                android:buttonTint="#9C27B0" />
+
+            <RadioButton
+                android:id="@+id/radioEmerald"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Emerald Aurora"
+                android:textColor="#FFFFFF"
+                android:buttonTint="#4CAF50" />
+
+            <RadioButton
+                android:id="@+id/radioFire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Solar Flare"
+                android:textColor="#FFFFFF"
+                android:buttonTint="#FF5722" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/labelSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Particle Drift Speed"
+            android:textColor="#2196F3"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <SeekBar
+            android:id="@+id/seekBarSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="5"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:id="@+id/labelCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Particle Density"
+            android:textColor="#2196F3"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <SeekBar
+            android:id="@+id/seekBarCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="200"
+            android:progress="80"
+            android:layout_marginBottom="20dp" />
+
+        <CheckBox
+            android:id="@+id/chkTouch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spawn Particles on Touch"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#2196F3"
+            android:checked="true"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btnApplySet"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="ACTIVATE WALLPAPER"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#2196F3"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Note: Click 'Activate Wallpaper' to launch the live wallpaper setup screen. Select 'Cosmic Particles' and hit set wallpaper!"
+            android:textColor="#777777"
+            android:textSize="12sp"
+            android:gravity="center" />
+    </LinearLayout>
+</ScrollView>

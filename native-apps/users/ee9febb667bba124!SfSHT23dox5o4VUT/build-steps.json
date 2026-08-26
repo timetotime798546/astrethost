@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Setup",
+      "description": "Define standard project configuration with AGP 8.3.2, SDK 34, and Java 8 targeting support.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Manifest Declaration",
+      "description": "Declare required Live Wallpaper permissions, the settings Activity, and the WallpaperService in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Live Wallpaper Meta Resource",
+      "description": "Create xml/livewallpaper.xml configuring active wallpaper properties and referencing settings activity.",
+      "files": [
+        "app/src/main/res/xml/livewallpaper.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define Application Strings",
+      "description": "Configure application strings including descriptions for the live wallpaper selector interface.",
+      "files": [
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Color Definitions",
+      "description": "Setup app-level primary and accent colors within colors.xml.",
+      "files": [
+        "app/src/main/res/values/colors.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Launcher & Settings UI",
+      "description": "Create active scrollable settings UI for color themes, particle size, and touchscreen burst responses.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Configure Settings Activity",
+      "description": "Implement MainActivity.java saving choices into SharedPreferences and routing users directly to active system wallpaper pickers.",
+      "files": [
+        "app/src/main/java/com/cosmicparticles/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Develop Engine Foundation",
+      "description": "Develop CosmicWallpaperService.java extending WallpaperService with high performance drawing loops.",
+      "files": [
+        "app/src/main/java/com/cosmicparticles/app/CosmicWallpaperService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Touch Burst Graphics",
+      "description": "Implement fluid velocity physics, fade-out loops, and multi-color particle rendering using standard canvases.",
+      "files": [
+        "app/src/main/java/com/cosmicparticles/app/CosmicWallpaperService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Cosmic Particles",
+      "description": "Verify system compatibility, package classes, build project dependencies and assemble debug APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
