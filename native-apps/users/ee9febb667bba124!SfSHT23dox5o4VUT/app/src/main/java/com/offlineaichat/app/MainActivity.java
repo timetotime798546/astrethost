@@ -273,7 +273,7 @@ public class MainActivity extends Activity {
                     "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1_5b-instruct-q4_k_m.gguf",
                     "qwen2.5-1_5b-instruct-q4_k_m.gguf"
                 );
-            }
+            } 
         });
 
         btnDlQwen3.setOnClickListener(new View.OnClickListener() {
@@ -283,7 +283,7 @@ public class MainActivity extends Activity {
                     "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/main/qwen2.5-3b-instruct-q4_k_m.gguf",
                     "qwen2.5-3b-instruct-q4_k_m.gguf"
                 );
-            }
+            } 
         });
 
         btnCancelDownload.setOnClickListener(new View.OnClickListener() {
@@ -419,7 +419,7 @@ public class MainActivity extends Activity {
 
         // Threads config
         int threadSelection = spinnerThreads.getSelectedItemPosition();
-        switch (threadSelection) { 
+        switch (threadSelection) {
             case 0: numThreads = 1; break;
             case 1: numThreads = 2; break;
             case 2: numThreads = 4; break;
@@ -461,7 +461,7 @@ public class MainActivity extends Activity {
     }
 
     private void updateEngineStatsBanner() {
-        String infoText = String.format(Locale.US, "Active: %s | Core Threads: %d | Context limit: %d | Temp: %.1f", 
+        String infoText = String.format(Locale.US, "Active: %s | Core Threads: %d | Context limit: %d | Temp: %.1f",
                 currentSelectedModel, numThreads, contextLength, temperature);
         inferenceStats.setText(infoText);
         chatSubtitle.setText(currentSelectedModel);
@@ -535,7 +535,7 @@ public class MainActivity extends Activity {
                                 double currentMb = (double) currentTotal / (1024 * 1024);
                                 double totalMb = (double) fileLength / (1024 * 1024);
                                 double speedKb = timeElapsed > 0 ? ((double) currentTotal / 1024) / ((double) timeElapsed / 1000) : 0;
-                                
+
                                 dlStatusLabel.setText(String.format(Locale.US, "Downloading: %.1f%%", percentage));
                                 dlMetaLabel.setText(String.format(Locale.US, "%.1f MB of %.1f MB (%.2f KB/s)", currentMb, totalMb, speedKb));
                             }
@@ -567,7 +567,7 @@ public class MainActivity extends Activity {
                         public void run() {
                             Toast.makeText(MainActivity.this, "Network stream dropped: " + e.getMessage(), Toast.LENGTH_LONG).show();
                             resetDownloaderUi();
-                        }
+                        } 
                     });
                 } finally {
                     try {
@@ -633,7 +633,7 @@ public class MainActivity extends Activity {
         final StringBuilder outputBuilder = new StringBuilder();
         final String fullResponse = compileSmartHeuristicResponse(prompt);
         final String[] words = fullResponse.split(" ");
-        
+
         // Add LlamaCpp-style performance metadata log internally at the top
         long evalDelayTime = 100 + (long) (Math.random() * 200);
         outputBuilder.append("[llama_print_timings: prompt eval time = ").append(evalDelayTime).append(" ms, computation cores = ").append(numThreads).append(" threads]\n\n");
@@ -652,13 +652,13 @@ public class MainActivity extends Activity {
                     outputBuilder.append(words[currentWordIdx]).append(" ");
                     aiMessage.content = outputBuilder.toString();
                     aiMessage.view.setText(aiMessage.content);
-                    
+
                     // Scroll automatically to bottom of container
                     chatScroll.post(new Runnable() {
                         @Override
                         public void run() {
                             chatScroll.fullScroll(View.FOCUS_DOWN);
-                        } 
+                        }
                     });
 
                     currentWordIdx++;
@@ -666,13 +666,14 @@ public class MainActivity extends Activity {
                 } else {
                     // Complete streaming cycle
                     isGenerating = false;
+                    btnSend.setVisibility(View.getSystemUiVisibility());
                     btnSend.setVisibility(View.VISIBLE);
                     btnStopGeneration.setVisibility(View.GONE);
                     aiMessage.view.setText(outputBuilder.toString() + "\n\n[Local GGUF Token Gen: Complete]");
                 }
             }
         };
-        
+
         // Start stream scheduler
         streamingHandler.postDelayed(streamRunnable, 400);
     }
@@ -700,12 +701,12 @@ public class MainActivity extends Activity {
 
     private String compileSmartHeuristicResponse(String prompt) {
         String cleanPrompt = prompt.toLowerCase().trim();
-        
+
         if (cleanPrompt.contains("hello") || cleanPrompt.contains("hi ") || cleanPrompt.contains("hey")) {
             return "Hello! This is a fully local session running Qwen 2.5 on-device. Since everything runs inside the sandbox storage via llama.cpp, your chats are 100% private and confidential.";
         }
         if (cleanPrompt.contains("ram") || cleanPrompt.contains("spec") || cleanPrompt.contains("hardware")) {
-            return String.format(Locale.US, "Local System Stats: Total Memory: %.2f GB RAM detected. Allocation limits are regulated by the target parameters: Context length = %d tokens, Thread allocation = %d core engines. Real-time inference is fully active.", 
+            return String.format(Locale.US, "Local System Stats: Total Memory: %.2f GB RAM detected. Allocation limits are regulated by the target parameters: Context length = %d tokens, Thread allocation = %d core engines. Real-time inference is fully active.",
                     totalSystemRamGb, contextLength, numThreads);
         }
         if (cleanPrompt.contains("help") || cleanPrompt.contains("what can you do")) {
@@ -728,7 +729,7 @@ public class MainActivity extends Activity {
         // Outer bubble layout container
         final LinearLayout messageLayout = new LinearLayout(this);
         messageLayout.setOrientation(LinearLayout.VERTICAL);
-        
+
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -781,7 +782,7 @@ public class MainActivity extends Activity {
                     ClipData clip = ClipData.newPlainText("AI Message", txtMessage.getText().toString());
                     clipboard.setPrimaryClip(clip);
                     Toast.makeText(MainActivity.this, "Message copied to clipboard.", Toast.LENGTH_SHORT).show();
-                }
+                } 
             });
             actionsBar.addView(btnCopy);
 
@@ -794,7 +795,7 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     regenerateLastPrompt();
-                }
+                } 
             });
             actionsBar.addView(btnRegen);
             messageLayout.addView(actionsBar);
@@ -811,7 +812,7 @@ public class MainActivity extends Activity {
                     @Override
                     public void run() {
                         chatScroll.fullScroll(View.FOCUS_DOWN);
-                    } 
+                    }
                 });
             }
         });
@@ -863,7 +864,7 @@ public class MainActivity extends Activity {
             etMessageInput.setTextColor(Color.WHITE);
             chatTitle.setTextColor(Color.WHITE);
             inferenceStats.setBackgroundColor(Color.parseColor("#2D2D2D"));
-            inferenceStats.setTextColor(Color.LIGHTGRAY);
+            inferenceStats.setTextColor(Color.LTGRAY);
             Toast.makeText(this, "Dark UI Active", Toast.LENGTH_SHORT).show();
         } else {
             rootLayout.setBackgroundColor(Color.parseColor("#FAFAFA"));
