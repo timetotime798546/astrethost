@@ -5,7 +5,6 @@ import android.app.ActivityManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.pm.ConfigurationInfo;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -346,9 +345,6 @@ public class MainActivity extends Activity {
                 settingsDialogLayer.setVisibility(View.GONE);
             }
         });
-
-        // Prevent inner layouts inside container dismissing on click
-        findViewById(R.id.settings_dialog_layer).findViewById(android.R.id.content);
     }
 
     private void initSettingsSpinners() {
@@ -423,7 +419,7 @@ public class MainActivity extends Activity {
 
         // Threads config
         int threadSelection = spinnerThreads.getSelectedItemPosition();
-        switch (threadSelection) {
+        switch (threadSelection) { 
             case 0: numThreads = 1; break;
             case 1: numThreads = 2; break;
             case 2: numThreads = 4; break;
@@ -662,7 +658,7 @@ public class MainActivity extends Activity {
                         @Override
                         public void run() {
                             chatScroll.fullScroll(View.FOCUS_DOWN);
-                        }
+                        } 
                     });
 
                     currentWordIdx++;
@@ -756,7 +752,7 @@ public class MainActivity extends Activity {
         // Text label payload
         final TextView txtMessage = new TextView(this);
         txtMessage.setText(content);
-        txtMessage.setTextSize(14sp);
+        txtMessage.setTextSize(14);
         txtMessage.setTextColor(isDarkMode ? Color.WHITE : Color.BLACK);
         txtMessage.setTextIsSelectable(true);
         messageLayout.addView(txtMessage);
@@ -776,7 +772,7 @@ public class MainActivity extends Activity {
             // Copy Action Button
             Button btnCopy = new Button(this, null, android.R.attr.buttonStyleSmall);
             btnCopy.setText("📋 Copy");
-            btnCopy.setTextSize(11sp);
+            btnCopy.setTextSize(11);
             btnCopy.setBackgroundColor(Color.TRANSPARENT);
             btnCopy.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -792,7 +788,7 @@ public class MainActivity extends Activity {
             // Regenerate Action Button
             Button btnRegen = new Button(this, null, android.R.attr.buttonStyleSmall);
             btnRegen.setText("🔄 Regenerate");
-            btnRegen.setTextSize(11sp);
+            btnRegen.setTextSize(11);
             btnRegen.setBackgroundColor(Color.TRANSPARENT);
             btnRegen.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -815,7 +811,7 @@ public class MainActivity extends Activity {
                     @Override
                     public void run() {
                         chatScroll.fullScroll(View.FOCUS_DOWN);
-                    }
+                    } 
                 });
             }
         });
@@ -837,7 +833,7 @@ public class MainActivity extends Activity {
 
         TextView txt = new TextView(this);
         txt.setText(content);
-        txt.setTextSize(11sp);
+        txt.setTextSize(11);
         txt.setTextColor(Color.GRAY);
         txt.setTypeface(null, Typeface.ITALIC);
         txt.setGravity(Gravity.CENTER);

@@ -2,60 +2,60 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Offline AI Chat Project",
-      "description": "Set up the package namespace com.offlineaichat.app and project directory architecture for the local AI assistant application.",
+      "title": "Inspect build errors",
+      "description": "Analyze resource linking issues and compiler errors reported by Gradle.",
       "files": [],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 2,
-      "title": "Configure Android manifest metadata",
-      "description": "Define internet access permissions for model downloads, hardware acceleration, and the application launcher configuration in AndroidManifest.xml.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Configure build.gradle and system targets",
-      "description": "Define compile, target and min SDK requirements, and verify local Java compatibility with Gradle 8.5 and AGP 8.3.2.",
-      "files": [
-        "app/build.gradle"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Design UI layout for Offline AI Chat",
-      "description": "Create activity_main.xml using native Android SDK UI widgets to establish setup views, model download progress panels, chat interfaces, and settings panels.",
+      "title": "Fix layout dimensions",
+      "description": "Resolve invalid 'match_match' attribute values in activity_main.xml layout configuration.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 5,
-      "title": "Implement Device Resource and RAM Detection",
-      "description": "Add memory monitoring algorithms inside MainActivity to evaluate system RAM capacity and notify the user of low-memory warnings for heavier GGUF models.",
+      "step": 3,
+      "title": "Resolve Java compiler errors",
+      "description": "Clean up invalid dimensions inside Java calls to setTextSize by converting 'sp' suffixes to raw integer values.",
       "files": [
         "app/src/main/java/com/offlineaichat/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Clean build dependencies",
+      "description": "Remove redundant third-party nanohttpd dependencies from build.gradle to ensure strict native SDK execution.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify system hardware layouts",
+      "description": "Review the RAM warning components and performance indicators to prevent runtime crashes during GGUF loading processes.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Build Background HTTP Model Downloader",
-      "description": "Integrate thread-safe network download processes to securely fetch Qwen 2.5 Instruct GGUF models from remote repositories with real-time speed calculation and progress bars.",
+      "title": "Audit Android Manifest definitions",
+      "description": "Inspect xmlns attributes, hardware acceleration keys, and relative Activity path routing to confirm strict compliance with compiler rules.",
       "files": [
-        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
+        "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Develop Offline Simulation & Token Generator",
-      "description": "Incorporate a simulated local inference engine that mirrors GGUF evaluation timings, active core thread usage, context parameters, and streaming execution layers for offline execution.",
+      "title": "Validate model setup actions",
+      "description": "Ensure the downloader controls remain linked to safe sandbox paths inside internal app storage directories.",
       "files": [
         "app/src/main/java/com/offlineaichat/app/MainActivity.java"
       ],
@@ -63,8 +63,8 @@
     },
     {
       "step": 8,
-      "title": "Incorporate Chat History and Bubble Management",
-      "description": "Construct custom view adapters in Java to append conversation speech bubbles dynamically, supporting message regeneration, content copying, and dark/light UI shifts.",
+      "title": "Refine chat simulation engines",
+      "description": "Polish the background streaming response thread models to support dynamic user and system feedback loops.",
       "files": [
         "app/src/main/java/com/offlineaichat/app/MainActivity.java"
       ],
@@ -72,8 +72,8 @@
     },
     {
       "step": 9,
-      "title": "Integrate Chat Settings Control Layer",
-      "description": "Set up interactive UI input components to adjust runtime thread pools, temperature thresholds, maximum context lengths, and selected offline model files.",
+      "title": "Review styling and presentation attributes",
+      "description": "Verify dark and light mode UI colors and text layouts against native styling properties.",
       "files": [
         "app/src/main/java/com/offlineaichat/app/MainActivity.java"
       ],
@@ -81,15 +81,15 @@
     },
     {
       "step": 10,
-      "title": "Verify build configuration & package readiness",
-      "description": "Audit package identifiers, manifest elements, layout bindings, and resources to prepare the project compilation.",
+      "title": "Perform integrity build check",
+      "description": "Confirm Gradle settings alignment and resource compilation states prior to executing building steps.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 11,
       "title": "Building Offline AI Chat",
-      "description": "Assemble and build the Offline AI Chat application with compiler diagnostics enabled.",
+      "description": "Run the Gradle compiler sequence to build and assemble the updated package without dependencies.",
       "files": [],
       "status": "pending"
     }
