@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Offline AI Chat
 App ID: app_6a8fd987c929c
-Build ID: 33046590172
-Time: 2026-08-27 12:12:45
+Build ID: 33046968460
+Time: 2026-08-27 12:18:12
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 171195
-Extracted error characters: 30042
-File references detected: 296
+Original log characters: 164849
+Extracted error characters: 29840
+File references detected: 236
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -43,17 +43,17 @@ token: ***
 
 ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
 
-Resolved Java 17.0.20+8 from tool-cache
-Setting Java 17.0.20+8 as the default
-(node:2293) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Resolved Java 17.0.20+1 from tool-cache
+Setting Java 17.0.20+1 as the default
+(node:2335) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
 
 Java configuration:
 Distribution: temurin
-Version: 17.0.20+8
-Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+Version: 17.0.20+1
+Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
 
 Creating settings.xml with server-id: github
 Writing to /home/runner/.m2/settings.xml
@@ -64,8 +64,8 @@ cmdline-tools-version: 14742923
 accept-android-sdk-licenses: true
 log-accepted-android-sdk-licenses: true
 env:
-JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
-JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
 
 Found preinstalled sdkmanager in /usr/local/lib/android/sdk/cmdline-tools/latest with following source.properties:
 Pkg.Revision=12.0
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/b8054a7a-b161-4e19-afe9-729e5baff0e0
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/ca66c101-ab70-4e5f-890c-dff74a1157df
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/20.0/bin/sdkmanager --licenses
 Loading local repository...
@@ -227,26 +227,28 @@ Recommendation: remove package="com.offlineaichat.app" from the source AndroidMa
 
 > Task :app:processDebugManifest
 > Task :app:mergeDebugShaders
+> Task :app:processDebugManifestForPackage
 > Task :app:compileDebugShaders NO-SOURCE
 > Task :app:generateDebugAssets UP-TO-DATE
 > Task :app:mergeDebugAssets
 > Task :app:compressDebugAssets
 > Task :app:processDebugJavaRes NO-SOURCE
-> Task :app:processDebugManifestForPackage
-> Task :app:mergeDebugJavaResource
 > Task :app:checkDebugDuplicateClasses
 > Task :app:processDebugResources
+> Task :app:mergeDebugJavaResource
 > Task :app:desugarDebugFileDependencies
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!SfSHT23dox5o4VUT/app/src/main/java/com/offlineaichat/app/MainActivity.java:866: error: cannot find symbol
 
-inferenceStats.setTextColor(Color.LIGHTGRAY);
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!SfSHT23dox5o4VUT/app/src/main/java/com/offlineaichat/app/MainActivity.java:669: error: non-static method getSystemUiVisibility() cannot be referenced from a static context
+> Task :app:compileDebugJavaWithJavac FAILED
+btnSend.setVisibility(View.getSystemUiVisibility());
 ^
-symbol:   variable LIGHTGRAY
-location: class Color
+Note: /home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!SfSHT23dox5o4VUT/app/src/main/java/com/offlineaichat/app/MainActivity.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
 1 error
 
 FAILURE: Build failed with an exception.
 
+21 actionable tasks: 21 executed
 Execution failed for task ':app:compileDebugJavaWithJavac'.
 > Compilation failed; see the compiler error output for details.
 
@@ -286,27 +288,6 @@ at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareE
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
-at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:116)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
-at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
-at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
-at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
-at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
-at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
-at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
-at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
-at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
-at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
-at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:264)
-at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:128)
-at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
-at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
-at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
-at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
 at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler error output for details.
@@ -323,11 +304,21 @@ at org.gradle.jvm.toolchain.internal.DefaultToolchainJavaCompiler.execute(Defaul
 at org.gradle.api.tasks.compile.JavaCompile.lambda$createToolchainCompiler$3(JavaCompile.java:202)
 at org.gradle.api.internal.tasks.compile.CleaningJavaCompiler.execute(CleaningJavaCompiler.java:53)
 at org.gradle.api.internal.tasks.compile.incremental.IncrementalCompilerFactory.lambda$createRebuildAllCompiler$0(IncrementalCompilerFactory.java:52)
-at org.gradle.api.internal.tasks.compile.incremental.Selecti
-
-================ EXTRACTED LOG CONTINUED ================
-
-on.java:45)
+at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:70)
+at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:44)
+at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:66)
+at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:52)
+at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.call(CompileJavaBuildOperationReportingCompiler.java:64)
+at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.call(CompileJavaBuildOperationReportingCompiler.java:48)
+at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler.execute(CompileJavaBuildOperationReportingCompiler.java:48)
+at org.gradle.api.tasks.compile.JavaCompile.performCompilation(JavaCompile.java:220)
+at org.gradle.api.tasks.compile.JavaCompile.performIncrementalCompilation(JavaCompile.java:161)
+at org.gradle.api.tasks.compile.JavaCompile.compile(JavaCompile.java:146)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.doExecute(IncrementalTaskAction.java:45)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
 at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.execute(IncrementalTaskAction.java:26)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
@@ -406,10 +397,10 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 30s
-> Task :app:compileDebugJavaWithJavac FAILED
-21 actionable tasks: 21 executed
+BUILD FAILED in 26s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
 [36;1mrm -rf gradle-8.5[0m
+
+Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

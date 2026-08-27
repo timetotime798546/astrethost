@@ -127,7 +127,7 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -238,7 +238,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 transitionScreen(setupContainer, downloadContainer);
-            }
+            } 
         });
 
         btnSetupChoose.setOnClickListener(new View.OnClickListener() {
@@ -246,7 +246,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 transitionScreen(setupContainer, chatContainer);
                 settingsDialogLayer.setVisibility(View.VISIBLE);
-            }
+            } 
         });
 
         btnSetupContinueMock.setOnClickListener(new View.OnClickListener() {
@@ -256,14 +256,14 @@ public class MainActivity extends Activity {
                 transitionScreen(setupContainer, chatContainer);
                 updateEngineStatsBanner();
                 addSystemMessage("Welcome to Offline AI Chat! Active Local Inference Model: " + currentSelectedModel + ". Feel free to type in context details offline.");
-            }
+            } 
         });
 
         btnDlBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 transitionScreen(downloadContainer, setupContainer);
-            }
+            } 
         });
 
         btnDlQwen15.setOnClickListener(new View.OnClickListener() {
@@ -291,35 +291,35 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 isDownloadCancelled = true;
                 Toast.makeText(MainActivity.this, "Cancelling download and flushing disk cache...", Toast.LENGTH_SHORT).show();
-            }
+            } 
         });
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 handleSendMessage();
-            }
+            } 
         });
 
         btnStopGeneration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 stopActiveGeneration();
-            }
+            } 
         });
 
         btnThemeToggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toggleThemeMode();
-            }
+            } 
         });
 
         btnChatSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 settingsDialogLayer.setVisibility(View.VISIBLE);
-            }
+            } 
         });
 
         btnChatExit.setOnClickListener(new View.OnClickListener() {
@@ -328,14 +328,14 @@ public class MainActivity extends Activity {
                 transitionScreen(chatContainer, setupContainer);
                 chatBubbleContainer.removeAllViews();
                 messageLogList.clear();
-            }
+            } 
         });
 
         btnSaveSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveEngineSettings();
-            }
+            } 
         });
 
         settingsDialogLayer.setOnClickListener(new View.OnClickListener() {
@@ -343,7 +343,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 // Dimiss configuration on click empty bounds
                 settingsDialogLayer.setVisibility(View.GONE);
-            }
+            } 
         });
     }
 
@@ -419,7 +419,7 @@ public class MainActivity extends Activity {
 
         // Threads config
         int threadSelection = spinnerThreads.getSelectedItemPosition();
-        switch (threadSelection) {
+        switch (threadSelection) { 
             case 0: numThreads = 1; break;
             case 1: numThreads = 2; break;
             case 2: numThreads = 4; break;
@@ -429,7 +429,7 @@ public class MainActivity extends Activity {
 
         // Context configuration
         int contextSelection = spinnerContext.getSelectedItemPosition();
-        switch (contextSelection) {
+        switch (contextSelection) { 
             case 0: contextLength = 512; break;
             case 1: contextLength = 1024; break;
             case 2: contextLength = 2048; break;
@@ -438,7 +438,7 @@ public class MainActivity extends Activity {
 
         // Temperature parameter configuration
         int tempSelection = spinnerTemp.getSelectedItemPosition();
-        switch (tempSelection) {
+        switch (tempSelection) { 
             case 0: temperature = 0.2; break;
             case 1: temperature = 0.5; break;
             case 2: temperature = 0.7; break;
@@ -448,7 +448,7 @@ public class MainActivity extends Activity {
 
         // Token bounds
         int tokenSelection = spinnerMaxTokens.getSelectedItemPosition();
-        switch (tokenSelection) {
+        switch (tokenSelection) { 
             case 0: maxTokens = 128; break;
             case 1: maxTokens = 256; break;
             case 2: maxTokens = 512; break;
@@ -573,10 +573,10 @@ public class MainActivity extends Activity {
                     try {
                         if (output != null) output.close();
                         if (input != null) input.close();
-                    } catch (Exception ignored) {}
+                    } catch (Exception ignored) {} 
                     if (connection != null) connection.disconnect();
                 }
-            }
+            } 
         });
         downloadThread.start();
     }
@@ -624,7 +624,7 @@ public class MainActivity extends Activity {
         simulateInferenceStream(userText, aiMessage);
     }
 
-    private void simulateInferenceStream(final String prompt, final ChatMessage aiMessage) {
+    private void simulateInferenceStream(final String prompt, final ChatMessage aiMessage) { 
         isGenerating = true;
         btnSend.setVisibility(View.GONE);
         btnStopGeneration.setVisibility(View.VISIBLE);
@@ -666,7 +666,6 @@ public class MainActivity extends Activity {
                 } else {
                     // Complete streaming cycle
                     isGenerating = false;
-                    btnSend.setVisibility(View.getSystemUiVisibility());
                     btnSend.setVisibility(View.VISIBLE);
                     btnStopGeneration.setVisibility(View.GONE);
                     aiMessage.view.setText(outputBuilder.toString() + "\n\n[Local GGUF Token Gen: Complete]");
@@ -742,7 +741,7 @@ public class MainActivity extends Activity {
             params.rightMargin = 80;
             messageLayout.setBackgroundResource(android.R.drawable.dialog_holo_light_frame);
             messageLayout.setPadding(16, 12, 16, 12);
-        } else {
+        } else { 
             params.gravity = Gravity.RIGHT;
             params.leftMargin = 80;
             messageLayout.setBackgroundResource(android.R.drawable.dialog_frame);
@@ -814,7 +813,7 @@ public class MainActivity extends Activity {
                         chatScroll.fullScroll(View.FOCUS_DOWN);
                     }
                 });
-            }
+            } 
         });
 
         return msgObj;
@@ -850,7 +849,7 @@ public class MainActivity extends Activity {
                         chatScroll.fullScroll(View.FOCUS_DOWN);
                     }
                 });
-            }
+            } 
         });
     }
 
@@ -866,7 +865,7 @@ public class MainActivity extends Activity {
             inferenceStats.setBackgroundColor(Color.parseColor("#2D2D2D"));
             inferenceStats.setTextColor(Color.LTGRAY);
             Toast.makeText(this, "Dark UI Active", Toast.LENGTH_SHORT).show();
-        } else {
+        } else { 
             rootLayout.setBackgroundColor(Color.parseColor("#FAFAFA"));
             chatToolbar.setBackgroundColor(Color.WHITE);
             inputBar.setBackgroundColor(Color.WHITE);

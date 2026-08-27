@@ -2,24 +2,24 @@
   "steps": [
     {
       "step": 1,
-      "title": "Inspect build errors",
-      "description": "Analyze resource linking issues and compiler errors reported by Gradle.",
+      "title": "Analyze compilation error",
+      "description": "Inspect build-error.log to locate the exact cause of compilation failure.",
       "files": [],
       "status": "completed"
     },
     {
       "step": 2,
-      "title": "Fix layout dimensions",
-      "description": "Resolve invalid 'match_match' attribute values in activity_main.xml layout configuration.",
+      "title": "Locate non-static method call",
+      "description": "Identify erroneous View.getSystemUiVisibility() call inside the response streaming thread in MainActivity.java.",
       "files": [
-        "app/src/main/res/layout/activity_main.xml"
+        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
       ],
       "status": "completed"
     },
     {
       "step": 3,
-      "title": "Resolve Java compiler errors",
-      "description": "Replace non-existent symbol Color.LIGHTGRAY with standard Color.LTGRAY in MainActivity.java to fix compilation failure.",
+      "title": "Fix non-static reference syntax error",
+      "description": "Remove the invalid static context call and ensure the send button visibility toggle functions natively using View.VISIBLE.",
       "files": [
         "app/src/main/java/com/offlineaichat/app/MainActivity.java"
       ],
@@ -27,69 +27,15 @@
     },
     {
       "step": 4,
-      "title": "Clean build dependencies",
-      "description": "Remove redundant third-party nanohttpd dependencies from build.gradle to ensure strict native SDK execution.",
-      "files": [
-        "app/build.gradle"
-      ],
-      "status": "completed"
-    },
-    {
-      "step": 5,
-      "title": "Verify system hardware layouts",
-      "description": "Review the RAM warning components and performance indicators to prevent runtime crashes during GGUF loading processes.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
-      "status": "completed"
-    },
-    {
-      "step": 6,
-      "title": "Audit Android Manifest definitions",
-      "description": "Inspect xmlns attributes, hardware acceleration keys, and relative Activity path routing to confirm strict compliance with compiler rules.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
-      "status": "completed"
-    },
-    {
-      "step": 7,
-      "title": "Validate model setup actions",
-      "description": "Ensure the downloader controls remain linked to safe sandbox paths inside internal app storage directories.",
-      "files": [
-        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
-      ],
-      "status": "completed"
-    },
-    {
-      "step": 8,
-      "title": "Refine chat simulation engines",
-      "description": "Polish the background streaming response thread models to support dynamic user and system feedback loops.",
-      "files": [
-        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
-      ],
-      "status": "completed"
-    },
-    {
-      "step": 9,
-      "title": "Review styling and presentation attributes",
-      "description": "Verify dark and light mode UI colors and text layouts against native styling properties.",
-      "files": [
-        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
-      ],
-      "status": "completed"
-    },
-    {
-      "step": 10,
-      "title": "Perform integrity build check",
-      "description": "Confirm Gradle settings alignment and resource compilation states prior to executing building steps.",
+      "title": "Verify build integrity",
+      "description": "Confirm that all imports, configurations, and variables are aligned with standard Java 8 rules.",
       "files": [],
       "status": "completed"
     },
     {
-      "step": 11,
+      "step": 5,
       "title": "Building Offline AI Chat",
-      "description": "Run the Gradle compiler sequence to build and assemble the updated package without dependencies.",
+      "description": "Compile, bundle, and assemble the debug APK without external dependencies.",
       "files": [],
       "status": "pending"
     }
