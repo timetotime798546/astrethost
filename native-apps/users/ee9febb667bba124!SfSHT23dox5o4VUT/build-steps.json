@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Inspect current Local Qwen AI chat app project structure",
+      "description": "Analyze existing project files and identify incorrect JSON key parsers in MainActivity.java.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Update App Metadata Config",
+      "description": "Verify and configure app-meta.json to hold correct package name and app name.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Modify job completion key mapping",
+      "description": "Modify polling logic to read status 'completed' and look for the 'response' key instead of the 'result' key.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Modify job failure key mapping",
+      "description": "Modify polling logic to read status 'error' and map the details from the 'response' key instead of the 'error' key.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Preserve core polling system settings",
+      "description": "Keep POST /chat and recursive polling of /job/{job_id} every 2 seconds via Handler and Runnable.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Ensure UI bubble settings are unaffected",
+      "description": "Retain bubble layout and auto-scrolling options inside MainActivity.java.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Keep dialog custom configuration intact",
+      "description": "Keep AlertDialog for updating system prompts and Flask base endpoints intact.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Perform Java 8 compatibility validation",
+      "description": "Ensure all Java code modifications respect standard Java 1.8 anonymous inner class structures and avoid restricted modern syntax features.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Validate manifest clearance configurations",
+      "description": "Double check cleartext traffic permissions and network flags are in sync for local execution testing.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Local Qwen AI",
+      "description": "Run gradle build verification using assembleDebug to produce the finalized executable package with updated parsing logic.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
