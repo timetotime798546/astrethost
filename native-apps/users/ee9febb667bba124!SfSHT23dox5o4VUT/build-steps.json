@@ -1,0 +1,137 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure environment settings",
+      "description": "Configure compileSdk 34, targetSdk 34, and gradle properties matching Java 17 environment specs.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Application Metadata",
+      "description": "Generate app-meta.json file defining app name as Local Qwen AI and package name com.localqwenai.app.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Set up permissions and configuration in Manifest",
+      "description": "Configure AndroidManifest.xml with Internet permissions and set android:usesCleartextTraffic to true for local network connections.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Gradient Background Asset",
+      "description": "Design layout background gradient_bg.xml with modern light-cyan tones.",
+      "files": [
+        "app/src/main/res/drawable/gradient_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create User Message Bubble Layout",
+      "description": "Design custom shape user_bubble.xml with rich teal color and rounded corners aligned to the right.",
+      "files": [
+        "app/src/main/res/drawable/user_bubble.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Assistant Message Bubble Layout",
+      "description": "Design custom shape bot_bubble.xml with neutral white background and light teal border aligned to the left.",
+      "files": [
+        "app/src/main/res/drawable/bot_bubble.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Dialog Settings Layout",
+      "description": "Create dialog_settings.xml configuration dialog for Server URL and System Instructions input elements.",
+      "files": [
+        "app/src/main/res/layout/dialog_settings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Activity Main Layout",
+      "description": "Design activity_main.xml consisting of a custom App bar, a ScrollView for chat messages, and a sticky input block at the bottom.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Initialize MainActivity and SharedPreferences",
+      "description": "Establish MainActivity.java, binding interface items and initializing default server settings.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Settings Panel Callback",
+      "description": "Hook up standard AlertDialog to let users dynamically save API server URLs and custom System Instructions.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Dynamic Message Addition Elements",
+      "description": "Code layout injection methods to add message widgets into scroll layout with automatic bottom-alignment scrolling.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Develop POST Request Async Thread",
+      "description": "Program HttpURLConnection logic to post prompt to /chat endpoint, reading returned job token and initializing poll routines.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Create Interval Polling Logic",
+      "description": "Program a 2-second safe Handler loop querying /job/{job_id} until completed or error statuses return.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Handle Processing and Validation States",
+      "description": "Apply interface locking to block multi-submissions while a task runs, handling visual states robustly.",
+      "files": [
+        "app/src/main/java/com/localqwenai/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Local Qwen AI",
+      "description": "Execute gradle assembleDebug validation and output final package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

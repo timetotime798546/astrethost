@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Server Configuration"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#004D40"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="API Base Server URL"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textColor="#546E7A"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/edit_server_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textUri"
+        android:hint="http://127.0.0.1:3333"
+        android:layout_marginBottom="16dp"
+        android:textColor="#212121" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AI System Instruction"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textColor="#546E7A"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/edit_system_instruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:hint="You are a helpful local assistant."
+        android:textColor="#212121" />
+
+</LinearLayout>
