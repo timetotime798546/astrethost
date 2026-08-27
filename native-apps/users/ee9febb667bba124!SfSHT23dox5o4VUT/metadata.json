@@ -1,0 +1,7 @@
+[
+    {
+        "id": 1,
+        "timestamp": "2026-08-27 12:00:31",
+        "prompt": "Create a standalone Android AI chat APK using Qwen 2.5 Instruct + llama.cpp for fully offline, on-device inference.\r\n\r\nOn first launch show:\r\n\r\nOffline AI\r\n\r\n- Install AI Model\r\n- Choose Model\r\n- Continue Without AI\r\n\r\nDo NOT bundle the large model inside the APK. Let users download\/install Qwen 2.5 1.5B Q4_K_M or Qwen 2.5 3B Q4_K_M from inside the app.\r\n\r\nInclude download progress, model management, RAM detection, and warnings for low-memory devices.\r\n\r\nAfter installation, provide a ChatGPT-style chat UI with streaming responses, conversation history, copy, regenerate, stop generation, dark\/light mode, and settings for model, context length, threads, temperature and max tokens.\r\n\r\nThe AI must work completely offline after model installation, with no Termux, server, Firebase, or API required.\r\n\r\nUse Kotlin\/Java + Android NDK + llama.cpp + GGUF and provide a complete buildable Android Studio\/Gradle project."
+    }
+]
