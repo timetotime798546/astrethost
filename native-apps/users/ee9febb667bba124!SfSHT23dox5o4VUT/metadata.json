@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "timestamp": "2026-08-27 12:00:31",
+        "prompt": "Create a standalone Android AI chat APK using Qwen 2.5 Instruct + llama.cpp for fully offline, on-device inference.\r\n\r\nOn first launch show:\r\n\r\nOffline AI\r\n\r\n- Install AI Model\r\n- Choose Model\r\n- Continue Without AI\r\n\r\nDo NOT bundle the large model inside the APK. Let users download\/install Qwen 2.5 1.5B Q4_K_M or Qwen 2.5 3B Q4_K_M from inside the app.\r\n\r\nInclude download progress, model management, RAM detection, and warnings for low-memory devices.\r\n\r\nAfter installation, provide a ChatGPT-style chat UI with streaming responses, conversation history, copy, regenerate, stop generation, dark\/light mode, and settings for model, context length, threads, temperature and max tokens.\r\n\r\nThe AI must work completely offline after model installation, with no Termux, server, Firebase, or API required.\r\n\r\nUse Kotlin\/Java + Android NDK + llama.cpp + GGUF and provide a complete buildable Android Studio\/Gradle project."
+    },
+    {
+        "id": 2,
+        "timestamp": "2026-08-27 12:07:49",
+        "prompt": "Look at the build errors and fix them."
+    },
+    {
+        "id": 3,
+        "timestamp": "2026-08-27 12:13:45",
+        "prompt": "Look at the build errors and fix them."
+    },
+    {
+        "id": 4,
+        "timestamp": "2026-08-27 12:21:47",
+        "prompt": "Look at the build errors and fix them."
+    },
+    {
+        "id": 5,
+        "timestamp": "2026-08-27 12:34:52",
+        "prompt": "FIX THE CURRENT ANDROID PROJECT.\r\n\r\nProject:\r\nOffline AI Chat\r\n\r\nIMPORTANT:\r\nThe APK build is already successful. Do NOT modify unrelated UI, design, navigation, chat behavior, settings, or build configuration.\r\n\r\nCURRENT RUNTIME ERROR:\r\nWhen the user taps:\r\n\r\nDOWNLOAD (980MB)\r\n\r\nthe app shows:\r\n\r\nServer response error: Not Found\r\n\r\nROOT CAUSE:\r\nMainActivity.java contains invalid\/non-existing Hugging Face GGUF URLs:\r\n\r\nhttps:\/\/huggingface.co\/Qwen\/Qwen2.5-1.5B-Instruct-GGUF\/resolve\/main\/qwen2.5-1_5b-instruct-q4_k_m.gguf\r\n\r\nhttps:\/\/huggingface.co\/Qwen\/Qwen2.5-3B-Instruct-GGUF\/resolve\/main\/qwen2.5-3b-instruct-q4_k_m.gguf\r\n\r\nThese URLs return HTTP 404.\r\n\r\nTASK:\r\n\r\n1. Inspect the existing MainActivity.java.\r\n2. Replace the invalid Qwen 2.5 1.5B and 3B download URLs with REAL, CURRENTLY EXISTING GGUF model files.\r\n3. Verify the exact repository, branch\/path, and filename before using each URL.\r\n4. Prefer direct Hugging Face resolve\/download URLs that return HTTP 200.\r\n5. Keep the existing destination filenames compatible with the rest of the application:\r\n   qwen2.5-1_5b-instruct-q4_k_m.gguf\r\n   qwen2.5-3b-instruct-q4_k_m.gguf\r\n\r\n6. If the actual upstream filenames differ, keep the local destination filename unchanged and only change the remote URL.\r\n7. Do NOT fake URLs.\r\n8. Do NOT replace the download system with a browser, WebView, or external downloader.\r\n9. Keep HttpURLConnection and the existing background download thread.\r\n10. Keep progress reporting, cancellation, error handling, and local file storage.\r\n11. Add proper HTTP response validation before opening the input stream.\r\n12. Handle HTTP redirects correctly because Hugging Face may redirect downloads.\r\n13. Set reasonable connection and read timeouts.\r\n14. Use User-Agent if required by the model host.\r\n15. Do not load the entire 980MB\/1.9GB file into RAM. Continue streaming with BufferedInputStream and FileOutputStream.\r\n16. Download to a temporary .part file first.\r\n17. Only rename the .part file to the final GGUF filename after the download completes successfully.\r\n18. If the download fails, delete the partial .part file.\r\n19. Verify that the downloaded file is non-zero and reasonably sized before marking it as installed.\r\n20. Preserve the existing scanForLocalModels() behavior.\r\n\r\nIMPORTANT MODEL\/ENGINE NOTE:\r\nDo NOT claim that llama.cpp inference is implemented unless it actually exists in the project.\r\n\r\nThe current chat implementation uses:\r\nsimulateInferenceStream()\r\ncompileSmartHeuristicResponse()\r\n\r\nTherefore, this task is ONLY to fix model downloading. Do not pretend the downloaded GGUF is being used for real inference.\r\n\r\nALSO CHECK:\r\nThe existing code currently calculates:\r\n\r\ndouble percentage = (double) currentTotal \/ fileLength * 100;\r\n\r\nIf Content-Length is unknown (-1), avoid invalid progress calculations and show downloaded MB instead.\r\n\r\nFINAL REQUIREMENT:\r\nAfter making the changes, build the Android project with:\r\n\r\ngradle assembleDebug --no-daemon\r\n\r\nIf compilation fails, inspect the actual compiler error and fix it with the minimum required change.\r\n\r\nDo not stop after editing the file. Verify the project builds successfully.\r\n\r\nReturn:\r\n1. Exact root cause\r\n2. Exact URLs\/files used\r\n3. Files modified\r\n4. Build result"
+    }
+]

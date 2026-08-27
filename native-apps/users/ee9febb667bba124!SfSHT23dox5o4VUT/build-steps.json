@@ -1,0 +1,101 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze model URL issues",
+      "description": "Identify that the existing Qwen Hugging Face repository URLs return 404 and find stable replacement URLs.",
+      "files": [
+        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Update GGUF model download URLs",
+      "description": "Replace outdated Qwen URLs in MainActivity.java with currently active URLs from the bartowski repository.",
+      "files": [
+        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Enable manual redirection handling",
+      "description": "Set connection.setInstanceFollowRedirects(false) and manually loop to follow redirect paths up to 8 hops.",
+      "files": [
+        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Add connection and read timeouts",
+      "description": "Set connection timeout to 20s and read timeout to 30s to prevent hanging download threads.",
+      "files": [
+        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Include standard User-Agent header",
+      "description": "Assign a modern desktop browser User-Agent header to the request to avoid cloud blockages.",
+      "files": [
+        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement safe .part file downloads",
+      "description": "Stream the data into a temporary .part file instead of directly writing to the destination target path.",
+      "files": [
+        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Handle cancellation clean up",
+      "description": "Safely delete the partial .part file if the download is cancelled by the user during the process.",
+      "files": [
+        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement download size validation",
+      "description": "Validate that the file is fully downloaded and has a size greater than 100MB before renaming and moving.",
+      "files": [
+        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Fix content-length unknown state logic",
+      "description": "Provide a safe fallback in UI update calculations when fileLength is -1 or empty.",
+      "files": [
+        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Preserve existing offline logic",
+      "description": "Keep local scan behaviors and mock engine fallback functions exactly as they were.",
+      "files": [
+        "app/src/main/java/com/offlineaichat/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Offline AI Chat",
+      "description": "Compile, bundle, and assemble the debug APK without external dependencies.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
