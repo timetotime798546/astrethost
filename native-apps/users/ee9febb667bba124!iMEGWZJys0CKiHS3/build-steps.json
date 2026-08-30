@@ -2,98 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Setup",
-      "description": "Establish application base folders, configure package namespace com.voiceassistantai.app and load settings.",
-      "files": ["app-meta.json"],
+      "title": "Analyze Build Error Logs",
+      "description": "Inspect the compilation logs to locate Resource Compilation errors.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Manifest Configuration",
-      "description": "Configure AndroidManifest.xml with Internet and Record Audio permissions, plus required query tags for offline Speech Recognition service.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Validate Color Resources",
+      "description": "Inspect colors.xml and strings.xml for invalid color value formats.",
+      "files": ["app/src/main/res/values/strings.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Gradle Configuration",
-      "description": "Configure compileSdk 34, minSdk 21, and application options targeting Java 8 in build.gradle.",
-      "files": ["app/build.gradle"],
+      "title": "Remove Invalid Color Declaration",
+      "description": "Delete the incorrect color element named app_name with non-hex value from strings.xml.",
+      "files": ["app/src/main/res/values/strings.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Define Colors and Resources",
-      "description": "Setup app visual palette containing deep teals, active reds, and soft bubble shades.",
-      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Implement Vector Icons",
-      "description": "Create scalable UI vectors for mic controls, settings, and playback cancellation actions.",
-      "files": [
-        "app/src/main/res/drawable/ic_settings.xml",
-        "app/src/main/res/drawable/ic_mic.xml",
-        "app/src/main/res/drawable/ic_stop.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Draw UI Bubble Assets",
-      "description": "Construct modern chat bubbles and active/idle state shapes for the recording controller.",
-      "files": [
-        "app/src/main/res/drawable/bg_card.xml",
-        "app/src/main/res/drawable/bg_user_bubble.xml",
-        "app/src/main/res/drawable/bg_assistant_bubble.xml",
-        "app/src/main/res/drawable/bg_mic_idle.xml",
-        "app/src/main/res/drawable/bg_mic_listening.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Design Custom Soundwave Visualizer",
-      "description": "Write WaveformView.java to calculate dynamic RMS amplitudes and draw real-time sine waves while speaking.",
-      "files": ["app/src/main/java/com/voiceassistantai/app/WaveformView.java"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Build Activity Layout",
-      "description": "Create activity_main.xml consisting of conversation log panels, status indicator boards, dynamic wave views, and control buttons.",
+      "title": "Inspect Layout XML files",
+      "description": "Scan layout XMLs to ensure all layout_width and layout_height attributes contain valid parameters.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 5,
+      "title": "Correct Layout Dimension Syntax",
+      "description": "Replace match_match with match_parent in activity_main.xml to resolve layout parsing issues.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify Android Namespace",
+      "description": "Confirm correct Android namespace URL is used inside AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Validate Theme References",
+      "description": "Ensure styles, themes, and design structures conform to traditional system material light theme standards.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify WaveformView Implementation",
+      "description": "Ensure custom UI view uses standard math calculations without compile-time syntax warnings.",
+      "files": ["app/src/main/java/com/voiceassistantai/app/WaveformView.java"],
+      "status": "pending"
+    },
+    {
       "step": 9,
-      "title": "Build Conversation Layout Templates",
-      "description": "Design custom templates for dynamically inflating assistant responses and user prompt elements into the scroll framework.",
-      "files": [
-        "app/src/main/res/layout/chat_item_user.xml",
-        "app/src/main/res/layout/chat_item_assistant.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Setup Settings Dialog Configuration",
-      "description": "Build dynamic API key inputs, detailed role inputs, and model selectors allowing preset selections or custom inputs.",
-      "files": ["app/src/main/res/layout/dialog_settings.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Code Core App Brain Logics",
-      "description": "Program MainActivity.java to bind SpeechRecognizer, TextToSpeech engine, preferences storage, and non-blocking background thread API requests.",
+      "title": "Verify Audio Permission Workflow",
+      "description": "Ensure runtime permissions for microphone audio capture are properly requested.",
       "files": ["app/src/main/java/com/voiceassistantai/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 12,
+      "step": 10,
       "title": "Building Voice Assistant AI",
-      "description": "Assemble complete resources and execute internal compiling sequence using standard Java gradle build tasks.",
+      "description": "Compile the modified project with Gradle and verify a successful build.",
       "files": [],
       "status": "pending"
     }
