@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#121212">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header App Branding -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NoiseRemover Pro"
+                android:textColor="#00E5FF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Professional Studio-Grade Audio &amp; Video Noise Suppressor"
+                android:textColor="#B0BEC5"
+                android:textSize="11sp"
+                android:layout_marginTop="4dp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Card 1: Recorder & Mic Tuning -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. Live Mic Capture &amp; Suppressor"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <CheckBox
+                    android:id="@+id/cb_hardware_suppressor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Enable Phone Hardware Noise Filter"
+                    android:textColor="#FFFFFF"
+                    android:checked="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btn_record"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Record Mic"
+                    android:drawableLeft="@drawable/ic_mic"
+                    android:backgroundTint="#FF1744"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginRight="8dp" />
+
+                <Button
+                    android:id="@+id/btn_stop_record"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Stop"
+                    android:drawableLeft="@drawable/ic_stop"
+                    android:backgroundTint="#3E3E3E"
+                    android:textColor="#FFFFFF"
+                    android:enabled="false" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_record_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Idle - Ready to record"
+                android:textColor="#B0BEC5"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+
+        <!-- Card 2: DSP Custom Noise Gate / Filters -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. Advanced Audio/Video Filter Adjustments"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="14dp" />
+
+            <!-- Noise Gate Parameter -->
+            <TextView
+                android:id="@+id/tv_gate_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Noise Gate Threshold: 400" 
+                android:textColor="#00E5FF"
+                android:textSize="13sp" />
+            
+            <SeekBar
+                android:id="@+id/sb_noise_gate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="3000"
+                android:progress="400"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- High Pass Hum Filter -->
+            <TextView
+                android:id="@+id/tv_hpf_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hum cut (High-Pass): Off"
+                android:textColor="#00E5FF"
+                android:textSize="13sp" />
+            
+            <SeekBar
+                android:id="@+id/sb_hpf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="20"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Voice Frequency Booster -->
+            <TextView
+                android:id="@+id/tv_boost_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Speech Dialog Booster: 1.5x"
+                android:textColor="#00E5FF"
+                android:textSize="13sp" />
+            
+            <SeekBar
+                android:id="@+id/sb_boost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="40"
+                android:progress="15"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp" />
+        </LinearLayout>
+
+        <!-- Card 3: File Import / Clean Processing Studio -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3. File Noise Cleaner &amp; Exporter"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btn_select_file"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Import Audio/Video File (.wav)"
+                android:drawableLeft="@drawable/ic_folder"
+                android:backgroundTint="#2C2C2C"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tv_selected_file_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No custom file chosen (Will process recorded audio by default)"
+                android:textColor="#B0BEC5"
+                android:textSize="12sp"
+                android:layout_marginBottom="14dp" />
+
+            <Button
+                android:id="@+id/btn_clean_now"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="Process &amp; Remove Noise"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/ic_clean"
+                android:backgroundTint="#00E676"
+                android:textColor="#121212"
+                android:layout_marginBottom="14dp" />
+
+            <!-- Processing state/progress -->
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_processing_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Press clean to begin conversion"
+                android:textColor="#B0BEC5"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Playback preview -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_play_original"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Original"
+                    android:drawableLeft="@drawable/ic_play"
+                    android:backgroundTint="#3E3E3E"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginRight="6dp"
+                    android:enabled="false" />
+
+                <Button
+                    android:id="@+id/btn_play_cleaned"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cleaned"
+                    android:drawableLeft="@drawable/ic_play"
+                    android:backgroundTint="#00E5FF"
+                    android:textColor="#121212"
+                    android:enabled="false" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
