@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F3F4F6">
+
+    <!-- Header Panel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#6200EE"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Voice Studio"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dynamic TTS &amp; Audio Transcriber Pro"
+            android:textColor="#D1C4E9"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+    <!-- Tab Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:padding="4dp">
+
+        <Button
+            android:id="@+id/btn_tab_tts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Text To Speech"
+            android:textSize="12sp"
+            android:background="?android:attr/selectableItemBackground"
+            android:textColor="#6200EE"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_tab_stt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Speak To Write"
+            android:textSize="12sp"
+            android:background="?android:attr/selectableItemBackground"
+            android:textColor="#757575" />
+
+        <Button
+            android:id="@+id/btn_tab_history"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Audio History"
+            android:textSize="12sp"
+            android:background="?android:attr/selectableItemBackground"
+            android:textColor="#757575" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <!-- PAGE 1: TEXT TO SPEECH -->
+        <ScrollView
+            android:id="@+id/layout_tts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- TextBox Container -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_background"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Text to Synthesize"
+                        android:textColor="#333333"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <EditText
+                        android:id="@+id/et_tts_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:hint="Type or paste your content here..."
+                        android:gravity="top|left"
+                        android:padding="12dp"
+                        android:background="@drawable/edittext_border"
+                        android:textSize="14sp"
+                        android:textColor="#333333"
+                        android:scrollbars="vertical"/>
+                </LinearLayout>
+
+                <!-- Configuration Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_background"
+                    android:layout_marginTop="16dp"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Voice &amp; Playback Tuning"
+                        android:textColor="#333333"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- Language Spinner -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Target Language/Voice"
+                        android:textColor="#666666"
+                        android:textSize="12sp"/>
+                    <Spinner
+                        android:id="@+id/spinner_languages"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- Pitch Control -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Voice Pitch"
+                            android:textColor="#666666"
+                            android:textSize="12sp"/>
+                        <SeekBar
+                            android:id="@+id/seek_pitch"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="20"
+                            android:progress="10"/>
+                    </LinearLayout>
+
+                    <!-- Rate Control -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Speech Rate"
+                            android:textColor="#666666"
+                            android:textSize="12sp"/>
+                        <SeekBar
+                            android:id="@+id/seek_rate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="20"
+                            android:progress="10"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- TTS Actions Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp">
+
+                    <Button
+                        android:id="@+id/btn_tts_play"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="🎙️ Speak"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/btn_primary"
+                        android:layout_marginRight="8dp"/>
+
+                    <Button
+                        android:id="@+id/btn_tts_stop"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="🛑 Stop"
+                        android:textColor="#333333"
+                        android:background="@drawable/edittext_border"
+                        android:layout_marginRight="8dp"/>
+
+                    <Button
+                        android:id="@+id/btn_tts_export"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="💾 Export Audio"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/btn_primary"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- PAGE 2: SPEECH TO TEXT -->
+        <LinearLayout
+            android:id="@+id/layout_stt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Live Recording Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="16dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_stt_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tap mic to begin writing"
+                    android:textColor="#757575"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"/>
+
+                <ImageButton
+                    android:id="@+id/btn_stt_mic"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:background="@drawable/btn_record"
+                    android:src="@android:drawable/ic_btn_speak_now"
+                    android:contentDescription="Microphone"
+                    android:tint="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- Editable Output Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:layout_marginTop="16dp"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Transcribed Output"
+                    android:textColor="#333333"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <EditText
+                    android:id="@+id/et_stt_output"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:hint="Your live spoken words will show here. You can edit them afterwards..."
+                    android:gravity="top|left"
+                    android:padding="12dp"
+                    android:background="@drawable/edittext_border"
+                    android:textSize="14sp"
+                    android:textColor="#333333"
+                    android:scrollbars="vertical"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <Button
+                        android:id="@+id/btn_stt_copy"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="📋 Copy"
+                        android:textColor="#333333"
+                        android:background="@drawable/edittext_border"
+                        android:layout_marginRight="8dp"/>
+
+                    <Button
+                        android:id="@+id/btn_stt_clear"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="🗑️ Clear"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/btn_record"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- PAGE 3: HISTORY -->
+        <LinearLayout
+            android:id="@+id/layout_history"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saved Audio Studio Archives"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <ListView
+                android:id="@+id/list_audio_history"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="#E0E0E0"
+                android:dividerHeight="1dp"/>
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>
