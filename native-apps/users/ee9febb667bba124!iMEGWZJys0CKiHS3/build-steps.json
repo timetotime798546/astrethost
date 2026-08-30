@@ -2,74 +2,69 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define Application Structure",
-      "description": "Configure directories and design the custom files for Modern Calculator.",
+      "title": "Analyze Build Failures",
+      "description": "Inspect the gradle error logs to identify incorrect XML namespace declarations and manifest configuration issues.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Prepare Gradle Configuration",
-      "description": "Set up Gradle configuration with AGP 8.3.2 and Target SDK 34 for compilation.",
+      "title": "Fix Display Background Namespace",
+      "description": "Update display_bg.xml to use the correct schema URI http://schemas.android.com/apk/res/android instead of the incorrect google.com URI.",
       "files": [
-        "app/build.gradle"
+        "app/src/main/res/drawable/display_bg.xml"
       ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Create Meta Properties",
-      "description": "Create app-meta.json to define identification properties for Modern Calculator.",
-      "files": [
-        "app-meta.json"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Design Custom Selectors",
-      "description": "Construct customized state drawables for tactile touch feedback on numeric, function, operator, and action buttons.",
-      "files": [
-        "app/src/main/res/drawable/display_bg.xml",
-        "app/src/main/res/drawable/btn_selector_num.xml",
-        "app/src/main/res/drawable/btn_selector_operator.xml",
-        "app/src/main/res/drawable/btn_selector_func.xml",
-        "app/src/main/res/drawable/btn_selector_special.xml",
-        "app/src/main/res/drawable/btn_selector_equal.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Draft Calculator Keypad and Display Layout",
-      "description": "Create activity_main.xml defining visual positioning for modern numeric, scientific, and functional interface keys.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Configure App Themes and Text Styles",
-      "description": "Declare application styles and themes inside styles.xml to deliver dark-mode layout mechanics.",
-      "files": [
-        "app/src/main/res/values/styles.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Construct Android Manifest",
-      "description": "Declare the main activity class, launch intent filters, application permissions, and orientation settings inside AndroidManifest.xml.",
+      "title": "Refactor Android Manifest Configuration",
+      "description": "Remove the deprecated package attribute from AndroidManifest.xml and use fully qualified class name for MainActivity.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
+      "step": 4,
+      "title": "Clean build.gradle Dependencies",
+      "description": "Remove the redundant external nanohttpd dependency from app/build.gradle to strictly utilize built-in SDK components.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify Style Themes",
+      "description": "Confirm application theme parent refers to system-supported Material Light/Dark configurations inside styles.xml.",
+      "files": [
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Review Keypad Layout XML",
+      "description": "Check activity_main.xml layout and key button IDs for direct layout alignment and compatibility.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Validate Button Event Listeners",
+      "description": "Ensure all numeric and scientific action button IDs in MainActivity.java map correctly to the layout.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
       "step": 8,
-      "title": "Develop Mathematical Parser",
-      "description": "Develop custom Java recursive descent parser inside MainActivity.java supporting scientific operations (trigonometry, log, powers, percent).",
+      "title": "Test Recursive Descent Mathematical Parser",
+      "description": "Validate parenthetical, trigonometric, logarithm, and square root calculations inside parser logic.",
       "files": [
         "app/src/main/java/com/moderncalculator/app/MainActivity.java"
       ],
@@ -77,8 +72,8 @@
     },
     {
       "step": 9,
-      "title": "Hook UI Controls and Keystrokes",
-      "description": "Configure event listeners for numeric, floating-point, operator, parenthetical, functional, and layout backspace keys.",
+      "title": "Optimize Number Formatting",
+      "description": "Ensure final result presentation trims redundant trailing zeros and handles division by zero safely.",
       "files": [
         "app/src/main/java/com/moderncalculator/app/MainActivity.java"
       ],
@@ -86,24 +81,6 @@
     },
     {
       "step": 10,
-      "title": "Implement Real-time Computations",
-      "description": "Create immediate preview calculations updating on user typing actions inside calculations screen dynamically.",
-      "files": [
-        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Format Precision Output and Double Cleanups",
-      "description": "Write mathematical formatting methods to truncate long double decimals and eliminate redundant fraction notations.",
-      "files": [
-        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building Modern Calculator",
       "description": "Execute gradle assembler tasks to build application code, package APK resources and finalize process.",
       "files": [],
