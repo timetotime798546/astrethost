@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Specifications",
+      "description": "Set target SDK to 34, compile SDK to 34, and Java version to 17 compat mode.",
+      "files": ["build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Establish Android Manifest",
+      "description": "Configure standard permissions, package name, application attributes, and MainActivity configuration.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Design Layout Architecture",
+      "description": "Build dynamic UI layout with standard Material Design containing standard calculator, Kaprekar constant calculator, and interactive Mind Reader sections.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Tab Switcher System",
+      "description": "Code custom layout-visibility based tab system to switch seamlessly between sections in MainActivity.",
+      "files": ["app/src/main/java/com/magicmathcalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Develop Mathematical Calculator Engine",
+      "description": "Develop interactive key inputs, screen display logic, and evaluation algorithms for basic math operations.",
+      "files": ["app/src/main/java/com/magicmathcalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Kaprekar's Routine Engine",
+      "description": "Implement the 6174 constant steps visualizer engine. Sorts digits, subtracts, and outputs intermediate steps visually.",
+      "files": ["app/src/main/java/com/magicmathcalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Construct Mind Reader Binary Algorithm",
+      "description": "Program the binary search algorithm for card-based mental mind reading with fully dynamic 6-step card generation logic.",
+      "files": ["app/src/main/java/com/magicmathcalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Set Visual Enhancements and Animations",
+      "description": "Integrate dynamic card indicators, success animations, color toggles, and results popups for math magic revealing.",
+      "files": ["app/src/main/java/com/magicmathcalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Validate Java 8 Compatibility",
+      "description": "Review Java codebase to ensure zero lambdas or modern streams are used, matching constraints of build environment.",
+      "files": ["app/src/main/java/com/magicmathcalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Magic Math Calculator",
+      "description": "Compiling resources and building the release-ready package file.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
