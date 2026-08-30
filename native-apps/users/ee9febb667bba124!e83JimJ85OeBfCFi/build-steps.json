@@ -1,0 +1,90 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Quick Note requirements",
+      "description": "Determine features, setup directories, layout design, and storage strategy using SharedPreferences.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create App Metadata",
+      "description": "Generate app-meta.json at the project root with the correct package name and application details.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Settings",
+      "description": "Configure compileSdk, minSdk, targetSdk targets and app-level attributes in app/build.gradle with Java 8 compatibility configurations.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Android Manifest",
+      "description": "Set correct permissions, define entry activity, package name, and register theme configurations.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build Layout Configuration XML",
+      "description": "Draft the activity_main.xml layout template containing note inputs, creation mechanisms, lists, empty state prompts, and container targets.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Write MainActivity Business Logic",
+      "description": "Initialize MainActivity, read/write helper operations, and parse JSON notes content using safe local SharedPreferences access.",
+      "files": [
+        "app/src/main/java/com/quicknote/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop Dynamic Card Creator",
+      "description": "Implement the programmatic creation of dynamic note cards inside the ScrollView linear layout dynamically loaded from local storage.",
+      "files": [
+        "app/src/main/java/com/quicknote/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Integrate Note Deletion Feature",
+      "description": "Implement item-by-item removal algorithms matching correct element IDs and instantly refresh UI on callback items.",
+      "files": [
+        "app/src/main/java/com/quicknote/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Validation and Error Handling",
+      "description": "Validate non-empty strings inside inputs and warn users about actions using beautiful customized Toast messages.",
+      "files": [
+        "app/src/main/java/com/quicknote/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Quick Note",
+      "description": "Perform complete native build processes ensuring flawless build execution compatibility on modern environments.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
