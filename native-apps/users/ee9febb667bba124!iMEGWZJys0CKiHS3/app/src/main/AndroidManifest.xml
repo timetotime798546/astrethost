@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.omnitoolspremium.app">
+
+    <application
+        android:allowBackup="true"
+        android:label="OmniTools Premium"
+        android:icon="@drawable/icon"
+        android:roundIcon="@drawable/icon"
+        android:theme="@android:style/Theme.Material.Light">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ConverterActivity"
+            android:label="Unit Converter"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".BudgetActivity"
+            android:label="Expense Tracker"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ExpenseAddActivity"
+            android:label="Add Expense"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".NotesActivity"
+            android:label="Quick Notes"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".NoteEditActivity"
+            android:label="Note Editor"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".TodoActivity"
+            android:label="Checklist Tasks"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".PaintActivity"
+            android:label="Canvas Sketchpad"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".BmiActivity"
+            android:label="BMI Indexer"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".StopwatchActivity"
+            android:label="Stopwatch Pro"
+            android:screenOrientation="portrait" />
+
+    </application>
+</manifest>

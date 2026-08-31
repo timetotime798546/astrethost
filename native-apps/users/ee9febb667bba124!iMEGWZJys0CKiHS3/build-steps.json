@@ -1,0 +1,144 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project Structure",
+      "description": "Configure basic application metadata, structure, package naming conventions, and resource mappings.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Set up Gradle Build Parameters",
+      "description": "Apply Java 17 and AGP 8.3.2 configurations with SDK 34 compatibility rules inside compile options.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Declare Manifest Components",
+      "description": "Define standard manifest permissions and map all 10 custom activity screens with valid launcher intents.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Build Dashboard Layout",
+      "description": "Create main grid hub UI styled elegantly with individual tool navigation panels.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Dashboard Navigation Logic",
+      "description": "Implement MainActivity class routing intents to dynamic utility tools.",
+      "files": ["app/src/main/java/com/omnitoolspremium/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Unit Converter UI",
+      "description": "Design input, selectors, and dynamic outputs for metrics transformations.",
+      "files": ["app/src/main/res/layout/activity_converter.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Code Converter Calculations",
+      "description": "Handle multi-metric unit conversions for distance, temperature, and weight fields.",
+      "files": ["app/src/main/java/com/omnitoolspremium/app/ConverterActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build Budget Planner UI",
+      "description": "Set dynamic overview charts, color balances, and expense management controls.",
+      "files": ["app/src/main/res/layout/activity_budget.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop Budget SQLite Manager",
+      "description": "Implement SQLite-based local persistence to manage logs, budgets, and categories.",
+      "files": ["app/src/main/java/com/omnitoolspremium/app/BudgetActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Build Budget Creator Layout",
+      "description": "Produce secondary dialog input UI templates for transactions.",
+      "files": ["app/src/main/res/layout/activity_expense_add.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Develop Budget Dialog Actions",
+      "description": "Save transaction logs with dynamic input validation checks.",
+      "files": ["app/src/main/java/com/omnitoolspremium/app/ExpenseAddActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Build Notes Archive UI",
+      "description": "Organize cards preview with date values in list containers.",
+      "files": ["app/src/main/res/layout/activity_notes.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Develop Notes Archive Controller",
+      "description": "Create file-based persistence for note tracking lists.",
+      "files": ["app/src/main/java/com/omnitoolspremium/app/NotesActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Build Notes Editor UI",
+      "description": "Design input fields and quick saving palettes.",
+      "files": ["app/src/main/res/layout/activity_note_edit.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Implement Editor Saving Operations",
+      "description": "Read/Write text body content directly to app internal storage.",
+      "files": ["app/src/main/java/com/omnitoolspremium/app/NoteEditActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Configure Task Checklist Views",
+      "description": "Generate clean toggleable list displays with text items.",
+      "files": ["app/src/main/res/layout/activity_todo.xml", "app/src/main/java/com/omnitoolspremium/app/TodoActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Design Paint Drawing Canvas View",
+      "description": "Create interactive layouts featuring paintbrush colors and width controls.",
+      "files": ["app/src/main/res/layout/activity_paint.xml", "app/src/main/java/com/omnitoolspremium/app/PaintActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 18,
+      "title": "Implement BMI Fitness Estimator",
+      "description": "Calculate height/weight proportions dynamically with colorful metrics advice.",
+      "files": ["app/src/main/res/layout/activity_bmi.xml", "app/src/main/java/com/omnitoolspremium/app/BmiActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 19,
+      "title": "Integrate Digital Millisecond Stopwatch",
+      "description": "Run high-precision timer counters with dynamic lap lists.",
+      "files": ["app/src/main/res/layout/activity_stopwatch.xml", "app/src/main/java/com/omnitoolspremium/app/StopwatchActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 20,
+      "title": "Building OmniTools Premium",
+      "description": "Compile, bundle resources, optimize custom canvas draw threads, verify activity transitions, and run final generation build.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

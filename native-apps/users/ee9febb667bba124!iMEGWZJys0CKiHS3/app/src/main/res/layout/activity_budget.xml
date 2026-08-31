@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F9FA"
+    android:padding="16dp">
+
+    <!-- Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="💸 Budget &amp; Expenses"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#2ECC71" />
+
+        <Button
+            android:id="@+id/btn_add_expense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="+ Add"
+            android:textColor="#FFFFFF"
+            android:background="#2ECC71"
+            android:textSize="13sp"
+            android:minHeight="38dp"
+            android:paddingHorizontal="12dp" />
+    </RelativeLayout>
+
+    <!-- Balance Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="20dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TOTAL DISBURSED"
+            android:textSize="12sp"
+            android:textColor="#7F8C8D"
+            android:letterSpacing="0.1" />
+
+        <TextView
+            android:id="@+id/txt_total_budget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$0.00"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="#2C3E50"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transaction Log History:"
+        android:textStyle="bold"
+        android:textColor="#34495E"
+        android:layout_marginBottom="8dp" />
+
+    <ListView
+        android:id="@+id/list_expenses"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#EAECEE"
+        android:dividerHeight="1dp" />
+</LinearLayout>
