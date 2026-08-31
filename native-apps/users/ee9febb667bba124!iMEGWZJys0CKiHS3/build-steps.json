@@ -1,0 +1,126 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Requirements",
+      "description": "Design a dark-themed modern calculator app with rounded soft buttons, clear readable display typography, and real-time computation features.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure App Metadata",
+      "description": "Setup app-meta.json declaring the application name and correct package ID structures.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Setup Build Settings",
+      "description": "Define build configurations in build.gradle targeting Android SDK 34 and Java 8 features compatibility.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Declare Manifest file",
+      "description": "Establish application parameters, main entry screen, screen orientation lock, and launcher activities inside AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Brand Palette",
+      "description": "Create dark and vibrant custom colors including display shades, primary functional buttons, and specialized operator indicators.",
+      "files": [
+        "app/src/main/res/values/colors.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Declare String resources",
+      "description": "Define localization strings and accessibility label metadata.",
+      "files": [
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Define Custom Themes",
+      "description": "Establish base styles inherited from system dark styles omitting default action bar.",
+      "files": [
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Number Button Selectors",
+      "description": "Generate highly-responsive shape selectors for numeric keypad inputs.",
+      "files": [
+        "app/src/main/res/drawable/btn_number_selector.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Operator Selectors",
+      "description": "Construct beautiful orange interactive button background states for division, addition, and other calculation operators.",
+      "files": [
+        "app/src/main/res/drawable/btn_operator_selector.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design Function Selectors",
+      "description": "Define tactile grey selectors for utility actions such as All Clear, Parentheses, and Percentage.",
+      "files": [
+        "app/src/main/res/drawable/btn_function_selector.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Equal Button Selectors",
+      "description": "Create distinctive emerald green background states for processing output trigger.",
+      "files": [
+        "app/src/main/res/drawable/btn_equal_selector.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Assemble Main UI Structure",
+      "description": "Create modern weighted grid layout in activity_main.xml featuring a seamless flow display area and nested keypad groups.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Program Application Control System",
+      "description": "Develop state variables, event processors, UI updates, and an integrated real-time recursive expression solver in MainActivity.java.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Modern Calculator",
+      "description": "Compile project elements, verify package namespace declarations, and generate the executable package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
