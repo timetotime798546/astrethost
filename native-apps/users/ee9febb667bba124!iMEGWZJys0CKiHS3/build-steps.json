@@ -1,0 +1,102 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project Structure",
+      "description": "Set up files and direct package parameters for the Ludo Classic application.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Script",
+      "description": "Configure compileSdk, targetSdk, and base build tools in app/build.gradle with Gradle 8.5 compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement AndroidManifest.xml",
+      "description": "Establish correct package references and set screen orientation to portrait to lock vertical game board rendering.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Classic board coordinates",
+      "description": "Implement standard 52-cell track coordinates and relative home pathways for Red, Green, Yellow, and Blue players.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Custom DiceView",
+      "description": "Implement a custom rendering DiceView class with 2D Canvas dots drawings and rapid rotation animations.",
+      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Custom LudoBoardView",
+      "description": "Implement 15x15 cell color mapping, big circular Yards, safe star zones, and centered triangular destinations in custom LudoBoardView.",
+      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Overlapping Token Clustering",
+      "description": "Write an advanced drawing loop inside LudoBoardView to represent multiple tokens occupying the same coordinates with balanced group layouts.",
+      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Layout activity_main.xml",
+      "description": "Design the UI containing title headings, player mode select buttons, Board View card, interactive dice, and dynamic stats grids.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Pass-and-Play Turn Logic",
+      "description": "Program multiplayer turn cycles inside MainActivity supporting both 2-Player (Red/Yellow) and 4-Player variants.",
+      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Integrate Animated Step-by-Step Movement",
+      "description": "Develop a recursive runnable scheduler that moves tokens cell-by-cell with haptic ticks to provide professional motion feedback.",
+      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Integrate Token Collision Mechanism",
+      "description": "Write cut checks that return targeted opponent pawns back to their home Yard unless positioned safely on standard star cells.",
+      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Automated Pass Handling",
+      "description": "Configure automatic turn rotation if a dice roll generates no eligible moves for active pawns.",
+      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Verify Manifest Namespace and Quality Assurance",
+      "description": "Verify xmlns:android is fully valid to complete code assembly cleanly.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Ludo Classic",
+      "description": "Compile, bundle and optimize the native Ludo Classic application.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
