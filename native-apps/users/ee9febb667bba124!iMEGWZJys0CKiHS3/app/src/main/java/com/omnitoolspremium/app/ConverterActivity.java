@@ -36,7 +36,7 @@ public class ConverterActivity extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 layoutResults.removeAllViews();
-            }
+            } 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
         });
@@ -88,10 +88,10 @@ public class ConverterActivity extends Activity {
         }
     }
 
-    private void addResultRow(String targetUnit, String calculatedVal) {
+    private void addResultRow(String targetUnit, String calculatedVal) { 
         TextView tv = new TextView(this);
         tv.setText(targetUnit + " : " + calculatedVal);
-        tv.setTextSize(16sp);
+        tv.setTextSize(16);
         tv.setTextColor(0xFF2C3E50);
         tv.setPadding(0, 8, 0, 8);
         layoutResults.addView(tv);

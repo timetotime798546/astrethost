@@ -17,7 +17,7 @@ public class ExpenseAddActivity extends Activity {
     private EditText editAmount;
     private Spinner spinnerExpCategory;
     private BudgetActivity.DatabaseHelper dbHelper;
-    private final String[] categories = {"Food &amp; Dining", "Utilities &amp; Rent", "Entertainment", "Transit", "Others"};
+    private final String[] categories = {"Food & Dining", "Utilities & Rent", "Entertainment", "Transit", "Others"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

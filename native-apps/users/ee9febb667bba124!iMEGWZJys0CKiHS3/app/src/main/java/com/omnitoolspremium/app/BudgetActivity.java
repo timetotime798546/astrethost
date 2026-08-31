@@ -26,7 +26,7 @@ public class BudgetActivity extends Activity {
     private List<ExpenseItem> expenseList;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budget);
 
@@ -86,7 +86,7 @@ public class BudgetActivity extends Activity {
         String category;
 
         public ExpenseItem(int id, String title, double amount, String category) {
-            this.id = id;
+            this.id = id; 
             this.title = title;
             this.amount = amount;
             this.category = category;
@@ -129,11 +129,11 @@ public class BudgetActivity extends Activity {
 
             text1.setText(item.title + " (" + item.category + ")");
             text1.setTextColor(0xFF2C3E50);
-            text1.setTextSize(16sp);
+            text1.setTextSize(16);
 
             text2.setText(String.format("-$%.2f", item.amount));
             text2.setTextColor(0xFFE74C3C);
-            text2.setTextSize(14sp);
+            text2.setTextSize(14);
 
             return convertView;
         }

@@ -27,7 +27,7 @@ public class NoteEditActivity extends Activity {
         sharedPrefs = getSharedPreferences("PremiumNotesPrefs", Context.MODE_PRIVATE);
         noteKey = getIntent().getStringExtra("NOTE_KEY");
 
-        if (noteKey != null &amp;&amp; !noteKey.startsWith("NEW_")) {
+        if (noteKey != null && !noteKey.startsWith("NEW_")) {
             String existingContent = sharedPrefs.getString(noteKey, "");
             editNoteBody.setText(existingContent);
         }
@@ -67,7 +67,7 @@ public class NoteEditActivity extends Activity {
     }
 
     private void deleteNote() {
-        if (noteKey != null &amp;&amp; !noteKey.startsWith("NEW_")) {
+        if (noteKey != null && !noteKey.startsWith("NEW_")) {
             SharedPreferences.Editor editor = sharedPrefs.edit();
             editor.remove(noteKey);
             editor.apply();
