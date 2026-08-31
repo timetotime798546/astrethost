@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Implement Dynamic Screen Scaling",
+      "description": "Modify GameView.java to calculate terrainBaseHeight dynamically based on screen height. This guarantees that the bike and terrain render fully on-screen rather than disappearing off the bottom boundary of different device resolutions.",
+      "files": ["app/src/main/java/com/motohillracer/app/GameView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Optimize Physics Landing and Rolling",
+      "description": "Eliminate the buggy jittering and bouncing loop by updating collision resolution logic. Ensure wheels stay aligned with hills and roll smoothly instead of forcefully resetting the bike's vertical velocity on every contact.",
+      "files": ["app/src/main/java/com/motohillracer/app/GameView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Speed Limit Restraints",
+      "description": "Add maximum horizontal and backward velocity safeguards inside the physics loop to keep the bike manageable, preventing clipping at steep slopes.",
+      "files": ["app/src/main/java/com/motohillracer/app/GameView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Main Menu Bike Preview Position",
+      "description": "Set initial bike and terrain coordinates inside onSizeChanged, placing a beautiful preview of the bike parked on the starting line visible behind the main menu rather than rendering a bugged position at (0,0).",
+      "files": ["app/src/main/java/com/motohillracer/app/GameView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Enlarge and Enhance Touch Control Buttons",
+      "description": "Update activity_main.xml to redesign the game controls. Enlarge buttons to 80dp x 80dp and add clearer fonts to ensure they register touches perfectly and respond reliably to player interactions.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Validate Layout and UI Layers",
+      "description": "Confirm high contrast colors and correct layout visibility to avoid HUD clipping or blocked overlays.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Verify MainActivity Lifecycle Handlers",
+      "description": "Verify MainActivity UI callbacks, state resets, and touch handlers to support smooth gameplay resumption.",
+      "files": ["app/src/main/java/com/motohillracer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify Manifest Layout Constraints",
+      "description": "Check full screen flag, standard light/no action bar themes, landscape mode configuration, and absolute custom icon resources.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Check Gradle Build Specifications",
+      "description": "Verify standard Java 8 settings, SDK versions, and dependency exclusions inside app/build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Moto Hill Racer",
+      "description": "Run high-level debugger compiler and finalize assets to build the project.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

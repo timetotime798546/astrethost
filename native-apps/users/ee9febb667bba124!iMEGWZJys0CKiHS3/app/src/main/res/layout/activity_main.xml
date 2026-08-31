@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF111111">
+
+    <!-- The custom game rendering canvas -->
+    <com.motohillracer.app.GameView
+        android:id="@+id/game_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Main Menu Overlay -->
+    <LinearLayout
+        android:id="@+id/menu_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DD0F172A"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/menu_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MOTO HILL RACER"
+            android:textColor="#F59E0B"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:shadowColor="#000000"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="3"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Conquer the hills, collect coins, and don't flip!"
+            android:textColor="#E2E8F0"
+            android:textSize="14sp"
+            android:layout_marginBottom="30dp"/>
+
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:text="START RACE"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#10B981"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btn_high_score"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="HIGH SCORES"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#3B82F6"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_instructions"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="HOW TO PLAY"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#64748B" />
+
+    </LinearLayout>
+
+    <!-- Instructions Overlay -->
+    <LinearLayout
+        android:id="@+id/instructions_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F00F172A"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HOW TO PLAY"
+            android:textColor="#F59E0B"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Accelerate using GAS to speed up.\n• Press BRAKE to slow down or drive backwards.\n• Balance or flip the bike in mid-air using Left/Right controls so you land safely on your wheels.\n• Do not let the driver's head hit the hills, or you will CRASH!\n• Keep an eye on your Fuel - collect Red Gas Canisters to refuel.\n• Collect Yellow Coins for score bonuses!"
+            android:textColor="#E2E8F0"
+            android:textSize="15sp"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_marginBottom="30dp" />
+
+        <Button
+            android:id="@+id/btn_close_instructions"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="BACK"
+            android:backgroundTint="#EF4444" />
+    </LinearLayout>
+
+    <!-- High Scores Overlay -->
+    <LinearLayout
+        android:id="@+id/high_score_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F00F172A"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HIGH SCORES"
+            android:textColor="#F59E0B"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_high_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Best Score: 0 Coins\nMax Distance: 0m"
+            android:textColor="#E2E8F0"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.3"
+            android:layout_marginBottom="30dp"/>
+
+        <Button
+            android:id="@+id/btn_reset_scores"
+            android:layout_width="180dp"
+            android:layout_height="45dp"
+            android:text="RESET STATS"
+            android:backgroundTint="#EF4444"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_close_scores"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="BACK"
+            android:backgroundTint="#64748B" />
+    </LinearLayout>
+
+    <!-- Game HUD Overlay -->
+    <RelativeLayout
+        android:id="@+id/hud_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <!-- Top Status Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="#44000000"
+            android:gravity="center_vertical">
+
+            <!-- Distance -->
+            <TextView
+                android:id="@+id/tv_hud_distance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Distance: 0m"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Coins -->
+            <TextView
+                android:id="@+id/tv_hud_coins"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Coins: 0"
+                android:textColor="#FFD700"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <!-- Fuel Layout -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:orientation="horizontal"
+                android:gravity="end|center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FUEL: "
+                    android:textColor="#FF3333"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Simple custom/progress for fuel -->
+                <ProgressBar
+                    android:id="@+id/pb_fuel"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="14dp"
+                    android:progress="100"
+                    android:progressDrawable="@android:drawable/progress_horizontal"
+                    android:progressTint="#EF4444" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Bottom Controls -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="20dp">
+
+            <!-- Left Controls (Brake, Tilt Left) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_control_brake"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:text="BRAKE"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#D1EF4444"
+                    android:padding="0dp"
+                    android:layout_marginEnd="15dp" />
+
+                <Button
+                    android:id="@+id/btn_control_tilt_left"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:text="◀ TILT"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#D13B82F6"
+                    android:padding="0dp" />
+            </LinearLayout>
+
+            <!-- Right Controls (Tilt Right, Gas) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_control_tilt_right"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:text="TILT ▶"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#D13B82F6"
+                    android:padding="0dp"
+                    android:layout_marginEnd="15dp" />
+
+                <Button
+                    android:id="@+id/btn_control_gas"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:text="GAS"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#D110B981"
+                    android:padding="0dp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!-- Game Over / Level Complete Dialog Overlay -->
+    <LinearLayout
+        android:id="@+id/game_over_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EE000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_game_over_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CRASHED!"
+            android:textColor="#EF4444"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/tv_game_over_reason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You flipped over!"
+            android:textColor="#E2E8F0"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:id="@+id/tv_game_over_stats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coins Collected: 0\nDistance Covered: 0m"
+            android:textColor="#FFD700"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.3"
+            android:layout_marginBottom="30dp" />
+
+        <Button
+            android:id="@+id/btn_restart"
+            android:layout_width="180dp"
+            android:layout_height="55dp"
+            android:text="RETRY"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#10B981"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btn_menu"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:text="MAIN MENU"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#64748B" />
+    </LinearLayout>
+
+</FrameLayout>
