@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Moto Hill Racer structure",
+      "description": "Setting up base directories and package directories matching com.motohillracer.app.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Setup build.gradle for Moto Hill Racer",
+      "description": "Configuring dependencies, targetSdk 34, compileSdk 34 and minSdk 21 conforming to build guidelines.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create AndroidManifest.xml",
+      "description": "Declare package structure, default theme, set screen orientation to landscape and specify Launcher Activity.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Game HUD and Menu Layout",
+      "description": "Define primary layouts for Main Menu, Instructions, High Scores, HUD, Controls and Game Over screens inside activity_main.xml.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement custom physics GameView",
+      "description": "Building the main custom View rendering, including cosine interpolation landscape hills, bike controls, air/ground physics and collision detection.",
+      "files": ["app/src/main/java/com/motohillracer/app/GameView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Write main game controller MainActivity",
+      "description": "Implement game lifecycle handles, touch listener bindings, game state routing, and persistent SharedPreferences high scores tracking.",
+      "files": ["app/src/main/java/com/motohillracer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Configure App Metadata file",
+      "description": "Define app name and packagename parameters in app-meta.json metadata block.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Establish Directory Tree Map file",
+      "description": "Map outline directories and build structures in directory-tree.json definition.",
+      "files": ["directory-tree.json"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Validate manifest parameters",
+      "description": "Verify xml namespaces, activity registrations, and reference icons to avoid deployment failures.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Verify build target parameters",
+      "description": "Verify local gradle compiler parameters support SDK targets and JVM 1.8 compatibility layers.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Check asset compilation dependencies",
+      "description": "Test drawing vector references on canvas inside GameView to confirm proper resource handling.",
+      "files": ["app/src/main/java/com/motohillracer/app/GameView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Moto Hill Racer",
+      "description": "Execute build compiler and output production debug artifacts.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
