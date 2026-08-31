@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.ludoclassic.app"
+    namespace "com.carracerpro.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.ludoclassic.app"
+        applicationId "com.carracerpro.app"
 
         minSdkVersion 21
 

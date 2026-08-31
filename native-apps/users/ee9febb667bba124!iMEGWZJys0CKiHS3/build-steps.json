@@ -2,99 +2,99 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Project Structure",
-      "description": "Set up files and direct package parameters for the Ludo Classic application.",
+      "title": "Project Architecture Definition",
+      "description": "Design the structure of the high-performance Car Racer Pro game featuring procedural Canvas drawing, system-synthesized sound effects, and smooth rendering.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Script",
-      "description": "Configure compileSdk, targetSdk, and base build tools in app/build.gradle with Gradle 8.5 compatibility.",
-      "files": ["app/build.gradle"],
+      "title": "Metadata configuration",
+      "description": "Generate app-meta.json containing metadata package 'com.carracerpro.app' and app name 'Car Racer Pro'.",
+      "files": [
+        "app-meta.json"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Implement AndroidManifest.xml",
-      "description": "Establish correct package references and set screen orientation to portrait to lock vertical game board rendering.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Gradle Configuration",
+      "description": "Configure app/build.gradle with Android target/compile SDK 34, min SDK 21, and Java 8 compatibility configurations.",
+      "files": [
+        "app/build.gradle"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design Classic board coordinates",
-      "description": "Implement standard 52-cell track coordinates and relative home pathways for Red, Green, Yellow, and Blue players.",
-      "files": [],
+      "title": "Manifest declaration",
+      "description": "Declare custom application settings, high-performance Hardware Acceleration, portrait lock, and the vibrate permission in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Custom DiceView",
-      "description": "Implement a custom rendering DiceView class with 2D Canvas dots drawings and rapid rotation animations.",
-      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "title": "Sound synthesis manager implementation",
+      "description": "Create SoundManager.java to programmatically play sound effects like engine hum, coin pick up, level progression, and crashes utilizing Android's ToneGenerator and single thread scheduling.",
+      "files": [
+        "app/src/main/java/com/carracerpro/app/SoundManager.java"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Create Custom LudoBoardView",
-      "description": "Implement 15x15 cell color mapping, big circular Yards, safe star zones, and centered triangular destinations in custom LudoBoardView.",
-      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "title": "Game GUI Layout Specification",
+      "description": "Implement activity_main.xml structure with modern dark-neon styles, high score panels, a interactive start menu, difficulty selections, and gameplay HUD elements.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Overlapping Token Clustering",
-      "description": "Write an advanced drawing loop inside LudoBoardView to represent multiple tokens occupying the same coordinates with balanced group layouts.",
-      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "title": "Dynamic Game Engine design",
+      "description": "Develop GameView.java featuring 60FPS Choreographer ticking, procedural asphalt roadways, rotating 3D-effect coins, fuel canisters, obstacle tracking, collision bounding, particle explosion engines, and screen shake mechanics.",
+      "files": [
+        "app/src/main/java/com/carracerpro/app/GameView.java"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Design Layout activity_main.xml",
-      "description": "Design the UI containing title headings, player mode select buttons, Board View card, interactive dice, and dynamic stats grids.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Main Activity orchestration",
+      "description": "Build MainActivity.java to link UI views, orchestrate start/pause/game-over states, handle saved high scores via SharedPreferences, and bridge physics loops with the layout interface.",
+      "files": [
+        "app/src/main/java/com/carracerpro/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Pass-and-Play Turn Logic",
-      "description": "Program multiplayer turn cycles inside MainActivity supporting both 2-Player (Red/Yellow) and 4-Player variants.",
-      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "title": "Vibration & Tactile Feedback Validation",
+      "description": "Confirm immediate vibration feedback on crash triggers using standard systems without breaking on newer Android devices.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Integrate Animated Step-by-Step Movement",
-      "description": "Develop a recursive runnable scheduler that moves tokens cell-by-cell with haptic ticks to provide professional motion feedback.",
-      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "title": "Graphic rendering and Parallax background check",
+      "description": "Verify programmatic styling, road marks sliding downwards, scenery speed transitions, and car lighting structures are rendered correctly in the core loop.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Integrate Token Collision Mechanism",
-      "description": "Write cut checks that return targeted opponent pawns back to their home Yard unless positioned safely on standard star cells.",
-      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "title": "Game difficulty adaptation tuning",
+      "description": "Ensure that selected difficulty configurations properly adapt maximum obstacle speeds, target point steps, and fuel depletion scales.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Implement Automated Pass Handling",
-      "description": "Configure automatic turn rotation if a dice roll generates no eligible moves for active pawns.",
-      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Verify Manifest Namespace and Quality Assurance",
-      "description": "Verify xmlns:android is fully valid to complete code assembly cleanly.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Building Ludo Classic",
-      "description": "Compile, bundle and optimize the native Ludo Classic application.",
+      "title": "Building Car Racer Pro",
+      "description": "Complete final packaging, asset references validation, and assemble the fully functional debug version of Car Racer Pro.",
       "files": [],
       "status": "pending"
     }
