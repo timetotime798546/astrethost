@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.brainblitz.app"
+    namespace "com.moderncalculator.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.brainblitz.app"
+        applicationId "com.moderncalculator.app"
 
         minSdkVersion 21
 

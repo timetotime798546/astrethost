@@ -1,552 +1,348 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_size"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FA"
+    android:orientation="vertical"
+    android:background="@color/bg_main"
     android:padding="16dp">
 
-    <!-- HEADER STATUS (Visible in gameplay modes) -->
+    <!-- Display Screens Area -->
     <LinearLayout
-        android:id="@+id/layout_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="10dp"
-        android:layout_alignParentTop="true"
-        android:visibility="gone">
+        android:layout_height="0dp"
+        android:layout_weight="3.2"
+        android:orientation="vertical"
+        android:gravity="bottom|end"
+        android:padding="8dp">
 
-        <TextView
-            android:id="@+id/txt_game_mode_title"
-            android:layout_width="0dp"
+        <!-- Equation Formula Screen -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Memory Matrix"
-            android:textColor="#1E293B"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:fillViewport="true"
+            android:scrollbars="none">
+            <TextView
+                android:id="@+id/tvFormula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/text_formula"
+                android:textSize="28sp"
+                android:maxLines="1"
+                android:gravity="end"
+                android:layout_gravity="end" />
+        </HorizontalScrollView>
 
+        <!-- Output / Preview Result Screen -->
         <TextView
-            android:id="@+id/txt_game_lives"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="❤❤❤"
-            android:textColor="#EF4444"
-            android:textSize="18sp"
-            android:layout_marginEnd="16dp" />
-
-        <TextView
-            android:id="@+id/txt_game_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Score: 0"
-            android:textColor="#3B82F6"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:text="0"
+            android:textColor="@color/text_result"
+            android:textSize="56sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:layout_marginTop="8dp" />
     </LinearLayout>
 
-    <!-- TIME PROGRESS BAR (For sprint-based modes) -->
-    <ProgressBar
-        android:id="@+id/progress_timer"
-        style="?android:attr/progressBarStyleHorizontal"
+    <!-- Elegant Divider -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="6dp"
-        android:layout_below="@+id/layout_header"
-        android:max="100"
-        android:progress="100"
-        android:visibility="gone"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_height="1dp"
+        android:background="#2E2F38"
+        android:layout_marginBottom="12dp" />
 
-    <!-- CENTRAL WORKSPACE -->
-    <FrameLayout
+    <!-- Premium Grid Core Control Layout -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/progress_timer"
-        android:layout_above="@+id/layout_footer_stats">
+        android:layout_height="0dp"
+        android:layout_weight="6.8"
+        android:orientation="vertical">
 
-        <!-- SCREEN 1: MAIN MENU -->
-        <ScrollView
-            android:id="@+id/panel_menu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none"
-            android:visibility="visible">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal"
-                android:paddingTop="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🧠 BRAIN BLITZ"
-                    android:textColor="#1E1B4B"
-                    android:textSize="32sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:layout_marginBottom="4dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kheliye, Seekhiye aur Dimag ko Tez Kijiye!"
-                    android:textColor="#64748B"
-                    android:textSize="14sp"
-                    android:gravity="center"
-                    android:layout_marginBottom="30dp" />
-
-                <!-- STATS DASHBOARD CARD -->
-                <LinearLayout
-                    android:id="@+id/card_stats_summary"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:layout_marginBottom="24dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🏆 PERSONAL HIGH SCORES"
-                        android:textColor="#0F172A"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="12dp" />
-
-                    <TextView
-                        android:id="@+id/txt_high_matrix"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="• Memory Matrix: 0 pts"
-                        android:textColor="#334155"
-                        android:textSize="14sp"
-                        android:layout_marginBottom="6dp" />
-
-                    <TextView
-                        android:id="@+id/txt_high_math"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="• Math Sprint: 0 pts"
-                        android:textColor="#334155"
-                        android:textSize="14sp"
-                        android:layout_marginBottom="6dp" />
-
-                    <TextView
-                        android:id="@+id/txt_high_stroop"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="• Stroop Reflex: 0 pts"
-                        android:textColor="#334155"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <!-- CHOOSE A GAME LABELS -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="SELECT TRAINING CHALLENGE:"
-                    android:textColor="#475569"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="12dp" />
-
-                <!-- GAME MODE 1 BUTTON -->
-                <LinearLayout
-                    android:id="@+id/btn_mode_matrix"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:layout_marginBottom="12dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🧩"
-                        android:textSize="30sp"
-                        android:layout_marginEnd="16dp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Memory Matrix"
-                            android:textColor="#0F172A"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Remember and match flashing block positions."
-                            android:textColor="#64748B"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- GAME MODE 2 BUTTON -->
-                <LinearLayout
-                    android:id="@+id/btn_mode_math"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:layout_marginBottom="12dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="⚡"
-                        android:textSize="30sp"
-                        android:layout_marginEnd="16dp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Math Sprint"
-                            android:textColor="#0F172A"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Solve rapid equations before timer ticks down!"
-                            android:textColor="#64748B"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- GAME MODE 3 BUTTON -->
-                <LinearLayout
-                    android:id="@+id/btn_mode_stroop"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:layout_marginBottom="12dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🌈"
-                        android:textSize="30sp"
-                        android:layout_marginEnd="16dp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Stroop Reflex"
-                            android:textColor="#0F172A"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Do text value and ink color match up? High speed!"
-                            android:textColor="#64748B"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- SCREEN 2: GAMEPLAY CONTAINER FOR MATRIX -->
+        <!-- Row 1: C, ( ), %, / -->
         <LinearLayout
-            android:id="@+id/panel_game_matrix"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/txt_matrix_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Watch the Pattern!"
-                android:textColor="#4F46E5"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="20dp"
-                android:gravity="center" />
-
-            <!-- Programmatically injected game grid -->
-            <GridLayout
-                android:id="@+id/grid_matrix"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="3"
-                android:rowCount="3"
-                android:layout_gravity="center"
-                android:padding="10dp"
-                android:layout_marginBottom="20dp" />
-        </LinearLayout>
-
-        <!-- SCREEN 3: GAMEPLAY CONTAINER FOR MATH SPRINT -->
-        <LinearLayout
-            android:id="@+id/panel_game_math"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Is this calculation correct?"
-                android:textColor="#64748B"
-                android:textSize="14sp"
-                android:layout_marginBottom="12dp" />
-
-            <!-- Calculation Card -->
-            <LinearLayout
-                android:id="@+id/card_math_term"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_marginBottom="40dp">
-
-                <TextView
-                    android:id="@+id/txt_math_expression"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="14 + 27 = 41"
-                    android:textColor="#1E293B"
-                    android:textSize="36sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- Choice Triggers -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_math_false"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:layout_weight="1"
-                    android:text="❌ FALSE"
-                    android:textColor="#FFFFFF"
-                    android:background="#EF4444"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginEnd="8dp" />
-
-                <Button
-                    android:id="@+id/btn_math_true"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:layout_weight="1"
-                    android:text="✔ TRUE"
-                    android:textColor="#FFFFFF"
-                    android:background="#10B981"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="8dp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- SCREEN 4: GAMEPLAY CONTAINER FOR STROOP REFLEX -->
-        <LinearLayout
-            android:id="@+id/panel_game_stroop"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Does the text color match the word?"
-                android:textColor="#64748B"
-                android:textSize="14sp"
-                android:layout_marginBottom="12dp" />
-
-            <LinearLayout
-                android:id="@+id/card_stroop"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_marginBottom="40dp">
-
-                <!-- Big Stroop Word (The text color might not match spelling) -->
-                <TextView
-                    android:id="@+id/txt_stroop_word"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="GREEN"
-                    android:textSize="44sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- Choice Buttons -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_stroop_false"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:layout_weight="1"
-                    android:text="❌ NO"
-                    android:textColor="#FFFFFF"
-                    android:background="#EF4444"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginEnd="8dp" />
-
-                <Button
-                    android:id="@+id/btn_stroop_true"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:layout_weight="1"
-                    android:text="✔ YES"
-                    android:textColor="#FFFFFF"
-                    android:background="#10B981"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="8dp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- SCREEN 5: GAME OVER PANEL -->
-        <LinearLayout
-            android:id="@+id/panel_game_over"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="💥 GAME OVER"
-                android:textColor="#EF4444"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp" />
-
-            <TextView
-                android:id="@+id/txt_gameover_summary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bohat badiya koshish!"
-                android:textColor="#475569"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:layout_marginBottom="32dp"
-                android:paddingHorizontal="20dp" />
-
-            <LinearLayout
-                android:id="@+id/card_gameover_score"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="24dp"
-                android:layout_marginBottom="32dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="YOUR FINAL SCORE"
-                    android:textColor="#64748B"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txt_final_score"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="350"
-                    android:textColor="#3B82F6"
-                    android:textSize="54sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txt_congrats_sub"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🏆 New Personal Best Record!"
-                    android:textColor="#10B981"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
-                    android:layout_marginTop="8dp"
-                    android:visibility="gone" />
-            </LinearLayout>
-
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
             <Button
-                android:id="@+id/btn_return_menu"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="🔄 PLAY ANOTHER GAME"
-                android:textColor="#FFFFFF"
-                android:background="#4F46E5"
-                android:textSize="16sp"
+                android:id="@+id/btn_clear"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_action"
+                android:text="C"
+                android:textColor="@color/btn_action_text"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_brackets"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_action"
+                android:text="( )"
+                android:textColor="@color/btn_action_text"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_percent"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_action"
+                android:text="%"
+                android:textColor="@color/btn_action_text"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_div"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_operator"
+                android:text="÷"
+                android:textColor="@color/btn_op_text"
+                android:textSize="26sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-    </FrameLayout>
+        <!-- Row 2: 7, 8, 9, x -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <Button
+                android:id="@+id/btn_7"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_number"
+                android:text="7"
+                android:textColor="@color/btn_num_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_8"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_number"
+                android:text="8"
+                android:textColor="@color/btn_num_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_9"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_number"
+                android:text="9"
+                android:textColor="@color/btn_num_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_mul"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_operator"
+                android:text="×"
+                android:textColor="@color/btn_op_text"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-    <!-- BOTTOM UTILITY BAR -->
-    <LinearLayout
-        android:id="@+id/layout_footer_stats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingTop="12dp">
+        <!-- Row 3: 4, 5, 6, - -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <Button
+                android:id="@+id/btn_4"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_number"
+                android:text="4"
+                android:textColor="@color/btn_num_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_5"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_number"
+                android:text="5"
+                android:textColor="@color/btn_num_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_6"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_number"
+                android:text="6"
+                android:textColor="@color/btn_num_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_sub"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_operator"
+                android:text="−"
+                android:textColor="@color/btn_op_text"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🧠 Brain Power Gym - Version 1.0"
-            android:textColor="#94A3B8"
-            android:textSize="11sp"
-            android:textStyle="bold" />
+        <!-- Row 4: 1, 2, 3, + -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <Button
+                android:id="@+id/btn_1"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_number"
+                android:text="1"
+                android:textColor="@color/btn_num_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_2"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_number"
+                android:text="2"
+                android:textColor="@color/btn_num_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_3"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_number"
+                android:text="3"
+                android:textColor="@color/btn_num_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_add"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_operator"
+                android:text="+"
+                android:textColor="@color/btn_op_text"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Row 5: 0, ., Back, = -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_0"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_number"
+                android:text="0"
+                android:textColor="@color/btn_num_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_dot"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_number"
+                android:text="."
+                android:textColor="@color/btn_num_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_back"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_action"
+                android:text="⌫"
+                android:textColor="@color/btn_action_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_equal"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/btn_operator"
+                android:text="="
+                android:textColor="@color/btn_op_text"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

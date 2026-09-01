@@ -2,106 +2,82 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Project Structure",
-      "description": "Setup core folders and project environment configs for Brain Blitz with AGP 8.3.2 and Gradle 8.5 compatibility.",
-      "files": ["app-meta.json", "build-steps.json"],
+      "title": "Verify Current Project Structure",
+      "description": "Inspect standard directories and configuration files of Modern Calculator for inconsistencies.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure App Permissions & Manifest",
-      "description": "Define standard manifest with strict XML namespace validation and single-activity navigation setup.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Configure App Meta File",
+      "description": "Generate app-meta.json with correct package namespace and app name matching compiler parameters.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Set Java Compatibility level",
-      "description": "Establish proper source and target Java compatibility configurations in compileOptions.",
-      "files": ["app/build.gradle"],
+      "title": "Validate Android Manifest Namespace",
+      "description": "Verify XML schema declarations, standard launcher configurations, and portrait screen limits.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design Unified User Interface Layout",
-      "description": "Build dynamic UI layout with modular sections for Memory Grid, Math Sprint, and Stroop Test panels.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Remove Prohibited Dependencies",
+      "description": "Cleanse the app/build.gradle configuration file of prohibited external NanoHTTPD libraries to comply with constraints.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement Programmatic Sound Module",
-      "description": "Establish zero-latency programmatic sound effects generator utilizing Android native ToneGenerator API.",
-      "files": ["app/src/main/java/com/brainblitz/app/MainActivity.java"],
+      "title": "Update Target Compiler Settings",
+      "description": "Ensure SDK 34 compatibility values and Java 1.8 compliance flags are explicitly set in build.gradle.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Incorporate SharedPreferences System",
-      "description": "Code local key-value store database to persist high-scores for each respective brain-game mode.",
-      "files": ["app/src/main/java/com/brainblitz/app/MainActivity.java"],
+      "title": "Check Custom Drawables",
+      "description": "Confirm tactile visual backgrounds exist in resource drawables with correct gradient selections.",
+      "files": [
+        "app/src/main/res/drawable/btn_number.xml",
+        "app/src/main/res/drawable/btn_operator.xml",
+        "app/src/main/res/drawable/btn_action.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Design Memory Matrix Challenge Logic",
-      "description": "Program matrix grid system that dynamically scales tile dimensions, handles pattern flashes, and tracks player precision.",
-      "files": ["app/src/main/java/com/brainblitz/app/MainActivity.java"],
+      "title": "Optimize Layout XML Rendering",
+      "description": "Validate activity_main.xml grid lines and view IDs to support seamless user interaction.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Code Math Sprint Rapid Engine",
-      "description": "Incorporate fast mental arithmetic simulator containing automated logic for true/false validation on randomized terms.",
-      "files": ["app/src/main/java/com/brainblitz/app/MainActivity.java"],
+      "title": "Refactor Mathematical Evaluation Indexes",
+      "description": "Optimize variable and pointer access logic in MainActivity's inner parser class to ensure seamless compiles.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Incorporate Stroop Color Test Logic",
-      "description": "Develop cognitive mismatch evaluator system using custom font coloring templates and interactive prompt validations.",
-      "files": ["app/src/main/java/com/brainblitz/app/MainActivity.java"],
+      "title": "Ensure Robust Real-time Previews",
+      "description": "Stabilize formula processing logic in MainActivity.java to suppress dynamic parsing errors during user input.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Optimize Graphic Styling Engine",
-      "description": "Write high-performance programmatically loaded GradientDrawable elements supporting seamless rounded cards, borders, and modern colors.",
-      "files": ["app/src/main/java/com/brainblitz/app/MainActivity.java"],
+      "title": "Confirm Strict Java 8 Compliance",
+      "description": "Validate anonymous inner class structures in MainActivity.java and eliminate any lambda syntax.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Code Game-Over Summary Dashboard",
-      "description": "Formulate intuitive game over cards to summarize current performance levels, high scores, rewards, and play-again triggers.",
-      "files": ["app/src/main/java/com/brainblitz/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Conduct Memory Leak Mitigation Tests",
-      "description": "Configure strict programmatic cleanups of active handlers and countdown loops to avoid background CPU drains.",
-      "files": ["app/src/main/java/com/brainblitz/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Perform Java 8 Backward-Compatibility Checks",
-      "description": "Verify standard legacy inner classes implementation formats to guarantee error-free compilation parameters.",
-      "files": ["app/src/main/java/com/brainblitz/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Finalize Package Namespace Verification",
-      "description": "Ensure absolute coherence between AndroidManifest, Gradle modules, and the main Java source package imports.",
-      "files": ["app/src/main/AndroidManifest.xml", "app/build.gradle", "app/src/main/java/com/brainblitz/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 15,
-      "title": "Building Brain Blitz",
-      "description": "Compile, bundle, and optimize the final debug application target ready for deployment.",
+      "title": "Building Modern Calculator",
+      "description": "Execute build steps to produce the final optimized error-free APK binary.",
       "files": [],
       "status": "pending"
     }
