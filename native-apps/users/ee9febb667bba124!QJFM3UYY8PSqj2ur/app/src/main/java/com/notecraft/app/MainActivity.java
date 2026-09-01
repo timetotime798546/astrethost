@@ -274,7 +274,7 @@ public class MainActivity extends Activity {
             btnDeleteNote.setVisibility(View.VISIBLE);
 
             Note targetNote = null;
-            for (int i = 0; i < currentNotesList.size(); i++) {
+            for (int i = 0; i < currentNotesList.size(); i++) { 
                 if (currentNotesList.get(i).getId() == noteId) {
                     targetNote = currentNotesList.get(i);
                     break;
@@ -369,7 +369,7 @@ public class MainActivity extends Activity {
             showPanel(panelList);
             refreshCategoryPickers();
             refreshNotesList();
-        } else {
+        } else { 
             super.onBackPressed();
         }
     }
@@ -396,13 +396,13 @@ public class MainActivity extends Activity {
 
                 TextView titleView = new TextView(context);
                 titleView.setId(Character.getNumericValue('t'));
-                titleView.setTextSize(16spToPx(16));
+                titleView.setTextSize(16);
                 titleView.setTextColor(Color.parseColor("#212121"));
                 titleView.setSingleLine(true);
 
                 TextView descView = new TextView(context);
                 descView.setId(Character.getNumericValue('d'));
-                descView.setTextSize(14spToPx(14));
+                descView.setTextSize(14);
                 descView.setTextColor(Color.parseColor("#757575"));
                 descView.setMaxLines(2);
                 descView.setPadding(0, 4, 0, 4);
@@ -412,12 +412,12 @@ public class MainActivity extends Activity {
 
                 TextView catTag = new TextView(context);
                 catTag.setId(Character.getNumericValue('c'));
-                catTag.setTextSize(11spToPx(11));
+                catTag.setTextSize(11);
                 catTag.setTextColor(Color.parseColor("#2196F3"));
 
                 TextView timeTag = new TextView(context);
                 timeTag.setId(Character.getNumericValue('m'));
-                timeTag.setTextSize(11spToPx(11));
+                timeTag.setTextSize(11);
                 timeTag.setTextColor(Color.parseColor("#BDBDBD"));
                 timeTag.setPadding(16, 0, 0, 0);
 
@@ -443,10 +443,6 @@ public class MainActivity extends Activity {
             m.setText(item.getTimestamp());
 
             return convertView;
-        }
-
-        private int spToPx(float sp) {
-            return (int) (sp * context.getResources().getDisplayMetrics().scaledDensity);
         }
     }
 

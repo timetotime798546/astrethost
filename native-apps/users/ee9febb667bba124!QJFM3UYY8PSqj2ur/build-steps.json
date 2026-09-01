@@ -3,78 +3,82 @@
     {
       "step": 1,
       "title": "Analyze Build Error Logs",
-      "description": "Inspect the compilation errors and identify incorrect XML attributes in layout file.",
+      "description": "Inspect compilation logs to find syntax errors in MainActivity.java.",
       "files": [],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 2,
       "title": "Verify App Configuration",
-      "description": "Confirm app metadata and standard options in app-meta.json.",
+      "description": "Confirm application package and metadata configurations.",
       "files": [
         "app-meta.json"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 3,
-      "title": "Correct Layout Width Error",
-      "description": "Fix the match_match typo in FrameLayout of activity_main.xml.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
-      "status": "pending"
+      "title": "Identify Typo in TextSize Methods",
+      "description": "Locate invalid expressions such as 16spToPx(16) inside MainActivity's NotesAdapter.",
+      "files": [],
+      "status": "completed"
     },
     {
       "step": 4,
-      "title": "Fix RelativeLayout Center Attributes",
-      "description": "Replace invalid android:layout_centerY attributes with android:layout_centerVertical in activity_main.xml.",
+      "title": "Fix Title TextSize Reference",
+      "description": "Change 16spToPx(16) syntax error to direct SP assignment in titleView.",
       "files": [
-        "app/src/main/res/layout/activity_main.xml"
+        "app/src/main/java/com/notecraft/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 5,
-      "title": "Validate Layout XML Schema",
-      "description": "Ensure all views inside RelativeLayouts are configured with correct attributes.",
+      "title": "Fix Description TextSize Reference",
+      "description": "Change 14spToPx(14) syntax error to direct SP assignment in descView.",
       "files": [
-        "app/src/main/res/layout/activity_main.xml"
+        "app/src/main/java/com/notecraft/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 6,
-      "title": "Inspect Java Sources",
-      "description": "Verify NoteCraft MainActivity.java to ensure it references layout IDs correctly.",
-      "files": [],
-      "status": "pending"
+      "title": "Fix Category Tag TextSize Reference",
+      "description": "Change 11spToPx(11) syntax error to direct SP assignment in catTag.",
+      "files": [
+        "app/src/main/java/com/notecraft/app/MainActivity.java"
+      ],
+      "status": "completed"
     },
     {
       "step": 7,
-      "title": "Verify SQLite Helper Schema",
-      "description": "Check NotesDatabaseHelper.java for standard SQL compatibility.",
-      "files": [],
-      "status": "pending"
+      "title": "Fix Timestamp Tag TextSize Reference",
+      "description": "Change 11spToPx(11) syntax error to direct SP assignment in timeTag.",
+      "files": [
+        "app/src/main/java/com/notecraft/app/MainActivity.java"
+      ],
+      "status": "completed"
     },
     {
       "step": 8,
-      "title": "Confirm Android Manifest Namespace",
-      "description": "Verify xmlns:android declaration in AndroidManifest.xml matches the correct URL.",
-      "files": [],
-      "status": "pending"
+      "title": "Validate Java Standard Semantics",
+      "description": "Ensure Java 8 compatibility and syntax completeness across MainActivity.java.",
+      "files": [
+        "app/src/main/java/com/notecraft/app/MainActivity.java"
+      ],
+      "status": "completed"
     },
     {
       "step": 9,
-      "title": "Verify Build Dependencies",
-      "description": "Verify the Gradle build script for compatibility with AGP 8.3.2 and Java 8.",
+      "title": "Confirm Android Manifest Integrations",
+      "description": "Verify namespace declarations and relative path registration inside AndroidManifest.xml.",
       "files": [],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 10,
       "title": "Building NoteCraft",
-      "description": "Run clean build with Gradle assembleDebug to produce a working NoteCraft APK.",
+      "description": "Execute custom clean build task using Gradle to generate a verified error-free NoteCraft APK.",
       "files": [],
       "status": "pending"
     }
