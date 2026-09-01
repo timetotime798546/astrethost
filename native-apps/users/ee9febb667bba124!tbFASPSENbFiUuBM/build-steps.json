@@ -8,7 +8,7 @@
         "app-meta.json",
         "build-steps.json"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 2,
@@ -17,7 +17,7 @@
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 3,
@@ -26,16 +26,16 @@
       "files": [
         "app/build.gradle"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 4,
       "title": "Layout Engineering",
-      "description": "Build the main entry point layout XML incorporating high performance GameView viewport structure.",
+      "description": "Fix activity_main.xml layout resource error by replacing invalid match_height with match_parent.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 5,
@@ -44,7 +44,7 @@
       "files": [
         "app/src/main/java/com/retro3dturboracer/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 6,
@@ -53,7 +53,7 @@
       "files": [
         "app/src/main/java/com/retro3dturboracer/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 7,
@@ -62,7 +62,7 @@
       "files": [
         "app/src/main/java/com/retro3dturboracer/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 8,
@@ -71,7 +71,7 @@
       "files": [
         "app/src/main/java/com/retro3dturboracer/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 9,
@@ -80,7 +80,7 @@
       "files": [
         "app/src/main/java/com/retro3dturboracer/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 10,
@@ -89,7 +89,7 @@
       "files": [
         "app/src/main/java/com/retro3dturboracer/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 11,
@@ -98,7 +98,7 @@
       "files": [
         "app/src/main/java/com/retro3dturboracer/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 12,
@@ -107,7 +107,7 @@
       "files": [
         "app/src/main/java/com/retro3dturboracer/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 13,
@@ -116,7 +116,7 @@
       "files": [
         "app/src/main/java/com/retro3dturboracer/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 14,
