@@ -1,0 +1,108 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Gather Requirements for Modern Calculator",
+      "description": "Analyze target SDK versions, core functional requirements, and visual styling guidelines.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Metadata",
+      "description": "Generate app-meta.json with app name and package namespace details.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Settings",
+      "description": "Build-out AGP 8.3.2 and Gradle 8.5 configurations targeting compileSdk 34.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Android Manifest",
+      "description": "Define standard application rules, launch settings, package context, and orientation configuration.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Custom Number Button Selector",
+      "description": "Implement XML state list shape for standard numerical calculator buttons.",
+      "files": [
+        "app/src/main/res/drawable/button_number.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Custom Operator Button Selector",
+      "description": "Implement XML state list shape for calculator arithmetic operators.",
+      "files": [
+        "app/src/main/res/drawable/button_operator.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Custom Action Button Selector",
+      "description": "Implement XML state list shape for utility calculator actions.",
+      "files": [
+        "app/src/main/res/drawable/button_action.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Main Application Layout",
+      "description": "Construct UI containing dynamic display areas and 5 rows of input actions using nested LinearLayout configurations.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Initialize Java Code Structure",
+      "description": "Implement main package setup, interface bindings, and views tracking in MainActivity.java.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Mathematical Evaluator Parser",
+      "description": "Write custom standard Java expression tokenizer and grammar interpreter supporting standard operators without third party libraries.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Add Input Rules and History Support",
+      "description": "Implement logic for decimal dots, clearing operations, percent modifiers, dynamic display scaling, and historical display caching.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Modern Calculator",
+      "description": "Run the Gradle compile assemble task to generate a debug build output file.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
