@@ -1,0 +1,107 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize NoteCraft Directory",
+      "description": "Setting up base directories and paths for NoteCraft notes application.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure app-meta.json",
+      "description": "Generate application metadata for package names and package matching.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure build.gradle",
+      "description": "Setup Gradle build parameters targeting SDK 34, Android Gradle Plugin 8.3.2, and Java 8 compatibility.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure AndroidManifest.xml",
+      "description": "Declare application configuration, launcher activity, and custom Material theme.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement SQLite Database Helper",
+      "description": "Build database schema with categories and notes tables, handling initial defaults and CRUD queries.",
+      "files": [
+        "app/src/main/java/com/notecraft/app/NotesDatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Define Data Models",
+      "description": "Create simple POJO models for Note and Category elements.",
+      "files": [
+        "app/src/main/java/com/notecraft/app/Note.java",
+        "app/src/main/java/com/notecraft/app/Category.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create App Layout XML",
+      "description": "Build dynamic activity_main.xml layout handling lists, add/edit view overlays, search inputs, and spin-filters.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Category Business Logic",
+      "description": "Write category management functions in MainActivity, supporting custom item additions and dynamic filtering.",
+      "files": [
+        "app/src/main/java/com/notecraft/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Notes CRUD Logic",
+      "description": "Write Note creation, editing, deletion, and dynamic list loading handling search inputs and selected categories.",
+      "files": [
+        "app/src/main/java/com/notecraft/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Optimize Search & Filters",
+      "description": "Add real-time text listener search triggers and category dropdown selections.",
+      "files": [
+        "app/src/main/java/com/notecraft/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Validate Code & Namespaces",
+      "description": "Review all Java 8 compatibility criteria, namespaces, and standard material themes properties.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building NoteCraft",
+      "description": "Compile, package, and generate target application package (APK) using standard Gradle task.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
