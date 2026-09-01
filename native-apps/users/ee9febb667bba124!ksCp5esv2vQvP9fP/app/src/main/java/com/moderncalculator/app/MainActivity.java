@@ -30,7 +30,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private ArrayList<String> historyList = new ArrayList<String>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -49,7 +49,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         // Initialize dynamic Tone synthesis generator
         try {
-            toneGenerator = new ToneGenerator(AudioManager.STREAM_MUSIC, 70);
+            toneGenerator = new ToneGenerator(AudioManager.STREAM_MUSIC, 75);
         } catch (Exception e) {
             toneGenerator = null;
         }
@@ -127,10 +127,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     // Audio Control Methods
-    private void playToneFeedback() {
+    private void playToneFeedback() { 
         if (isSoundEnabled && toneGenerator != null) {
             try {
-                toneGenerator.startTone(ToneGenerator.TONE_PROP_BEEP, 40);
+                toneGenerator.startTone(ToneGenerator.TONE_PROP_BEEP, 35);
             } catch (Exception e) {
                 // Fail silently if device resources are restricted
             }
@@ -150,13 +150,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         String historyData = prefs.getString("history_log", "");
         historyList.clear();
         if (!historyData.isEmpty()) {
-            String[] entries = historyData.split("
-
-");
+            String[] entries = historyData.split("##HIST_SEP##");
             for (int i = 0; i < entries.length; i++) {
                 if (!entries[i].trim().isEmpty()) {
                     historyList.add(entries[i]);
-                }
+                } 
             }
         }
     }
@@ -167,9 +165,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         for (int i = 0; i < historyList.size(); i++) {
             sb.append(historyList.get(i));
             if (i < historyList.size() - 1) {
-                sb.append("
-
-");
+                sb.append("##HIST_SEP##");
             }
         }
         prefs.edit().putString("history_log", sb.toString()).apply();
@@ -225,11 +221,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             for (int i = 0; i < historyList.size(); i++) {
                 sb.append(historyList.get(i));
                 if (i < historyList.size() - 1) {
-                    sb.append("
-
-───────────────────
-
-");
+                    sb.append("\n\n───────────────────\n\n");
                 }
             }
             textView.setText(sb.toString());
