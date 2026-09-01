@@ -2,15 +2,15 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize NoteCraft Directory",
-      "description": "Setting up base directories and paths for NoteCraft notes application.",
+      "title": "Analyze Build Error Logs",
+      "description": "Inspect the compilation errors and identify incorrect XML attributes in layout file.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure app-meta.json",
-      "description": "Generate application metadata for package names and package matching.",
+      "title": "Verify App Configuration",
+      "description": "Confirm app metadata and standard options in app-meta.json.",
       "files": [
         "app-meta.json"
       ],
@@ -18,88 +18,63 @@
     },
     {
       "step": 3,
-      "title": "Configure build.gradle",
-      "description": "Setup Gradle build parameters targeting SDK 34, Android Gradle Plugin 8.3.2, and Java 8 compatibility.",
-      "files": [
-        "app/build.gradle"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Configure AndroidManifest.xml",
-      "description": "Declare application configuration, launcher activity, and custom Material theme.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Implement SQLite Database Helper",
-      "description": "Build database schema with categories and notes tables, handling initial defaults and CRUD queries.",
-      "files": [
-        "app/src/main/java/com/notecraft/app/NotesDatabaseHelper.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Define Data Models",
-      "description": "Create simple POJO models for Note and Category elements.",
-      "files": [
-        "app/src/main/java/com/notecraft/app/Note.java",
-        "app/src/main/java/com/notecraft/app/Category.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Create App Layout XML",
-      "description": "Build dynamic activity_main.xml layout handling lists, add/edit view overlays, search inputs, and spin-filters.",
+      "title": "Correct Layout Width Error",
+      "description": "Fix the match_match typo in FrameLayout of activity_main.xml.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 8,
-      "title": "Implement Category Business Logic",
-      "description": "Write category management functions in MainActivity, supporting custom item additions and dynamic filtering.",
+      "step": 4,
+      "title": "Fix RelativeLayout Center Attributes",
+      "description": "Replace invalid android:layout_centerY attributes with android:layout_centerVertical in activity_main.xml.",
       "files": [
-        "app/src/main/java/com/notecraft/app/MainActivity.java"
+        "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Implement Notes CRUD Logic",
-      "description": "Write Note creation, editing, deletion, and dynamic list loading handling search inputs and selected categories.",
+      "step": 5,
+      "title": "Validate Layout XML Schema",
+      "description": "Ensure all views inside RelativeLayouts are configured with correct attributes.",
       "files": [
-        "app/src/main/java/com/notecraft/app/MainActivity.java"
+        "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 10,
-      "title": "Optimize Search & Filters",
-      "description": "Add real-time text listener search triggers and category dropdown selections.",
-      "files": [
-        "app/src/main/java/com/notecraft/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Validate Code & Namespaces",
-      "description": "Review all Java 8 compatibility criteria, namespaces, and standard material themes properties.",
+      "step": 6,
+      "title": "Inspect Java Sources",
+      "description": "Verify NoteCraft MainActivity.java to ensure it references layout IDs correctly.",
       "files": [],
       "status": "pending"
     },
     {
-      "step": 12,
+      "step": 7,
+      "title": "Verify SQLite Helper Schema",
+      "description": "Check NotesDatabaseHelper.java for standard SQL compatibility.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Confirm Android Manifest Namespace",
+      "description": "Verify xmlns:android declaration in AndroidManifest.xml matches the correct URL.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Build Dependencies",
+      "description": "Verify the Gradle build script for compatibility with AGP 8.3.2 and Java 8.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 10,
       "title": "Building NoteCraft",
-      "description": "Compile, package, and generate target application package (APK) using standard Gradle task.",
+      "description": "Run clean build with Gradle assembleDebug to produce a working NoteCraft APK.",
       "files": [],
       "status": "pending"
     }

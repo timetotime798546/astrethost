@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_match"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F9FA">
 
@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerY="true"
+                android:layout_centerVertical="true"
                 android:text="NoteCraft"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerY="true"
+                android:layout_centerVertical="true"
                 android:background="?android:attr/selectableItemBackground"
                 android:text="Categories"
                 android:textColor="#FFFFFF" />
@@ -132,7 +132,7 @@
                 android:id="@+id/lbl_editor_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerY="true"
+                android:layout_centerVertical="true"
                 android:text="Create Note"
                 android:textColor="#212121"
                 android:textSize="18sp"
@@ -143,7 +143,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerY="true"
+                android:layout_centerVertical="true"
                 android:background="?android:attr/selectableItemBackground"
                 android:text="Cancel"
                 android:textColor="#F44336" />
@@ -255,7 +255,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerY="true"
+                android:layout_centerVertical="true"
                 android:text="Manage Categories"
                 android:textColor="#212121"
                 android:textSize="18sp"
@@ -266,7 +266,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerY="true"
+                android:layout_centerVertical="true"
                 android:background="?android:attr/selectableItemBackground"
                 android:text="Done"
                 android:textColor="#2196F3" />
