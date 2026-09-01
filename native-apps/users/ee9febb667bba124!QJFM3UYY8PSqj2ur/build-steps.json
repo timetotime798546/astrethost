@@ -3,14 +3,14 @@
     {
       "step": 1,
       "title": "Analyze Build Error Logs",
-      "description": "Inspect compilation logs to find syntax errors in MainActivity.java.",
+      "description": "Inspect compilation logs to identify the root cause of the compilation failure in MainActivity.java.",
       "files": [],
       "status": "completed"
     },
     {
       "step": 2,
       "title": "Verify App Configuration",
-      "description": "Confirm application package and metadata configurations.",
+      "description": "Confirm application package and metadata configurations inside app-meta.json.",
       "files": [
         "app-meta.json"
       ],
@@ -18,15 +18,15 @@
     },
     {
       "step": 3,
-      "title": "Identify Typo in TextSize Methods",
-      "description": "Locate invalid expressions such as 16spToPx(16) inside MainActivity's NotesAdapter.",
+      "title": "Identify Missing Imports",
+      "description": "Locate the missing RelativeLayout class reference inside MainActivity's inner classes.",
       "files": [],
       "status": "completed"
     },
     {
       "step": 4,
-      "title": "Fix Title TextSize Reference",
-      "description": "Change 16spToPx(16) syntax error to direct SP assignment in titleView.",
+      "title": "Add RelativeLayout Import",
+      "description": "Import android.widget.RelativeLayout in MainActivity.java to resolve class and LayoutParams reference errors.",
       "files": [
         "app/src/main/java/com/notecraft/app/MainActivity.java"
       ],
@@ -34,8 +34,8 @@
     },
     {
       "step": 5,
-      "title": "Fix Description TextSize Reference",
-      "description": "Change 14spToPx(14) syntax error to direct SP assignment in descView.",
+      "title": "Validate Layout References",
+      "description": "Verify that all programmatic layout instantiation parameters are valid.",
       "files": [
         "app/src/main/java/com/notecraft/app/MainActivity.java"
       ],
@@ -43,26 +43,22 @@
     },
     {
       "step": 6,
-      "title": "Fix Category Tag TextSize Reference",
-      "description": "Change 11spToPx(11) syntax error to direct SP assignment in catTag.",
-      "files": [
-        "app/src/main/java/com/notecraft/app/MainActivity.java"
-      ],
+      "title": "Verify Adapter View Inflation",
+      "description": "Confirm programmatically constructed layouts in CategoryManagerAdapter render and delete correctly.",
+      "files": [],
       "status": "completed"
     },
     {
       "step": 7,
-      "title": "Fix Timestamp Tag TextSize Reference",
-      "description": "Change 11spToPx(11) syntax error to direct SP assignment in timeTag.",
-      "files": [
-        "app/src/main/java/com/notecraft/app/MainActivity.java"
-      ],
+      "title": "Inspect NotesAdapter Layout",
+      "description": "Review programmatic layout structure in NotesAdapter for compile-time safety.",
+      "files": [],
       "status": "completed"
     },
     {
       "step": 8,
       "title": "Validate Java Standard Semantics",
-      "description": "Ensure Java 8 compatibility and syntax completeness across MainActivity.java.",
+      "description": "Ensure strict Java 8 compatibility and syntax correctness across MainActivity.java.",
       "files": [
         "app/src/main/java/com/notecraft/app/MainActivity.java"
       ],
@@ -71,7 +67,7 @@
     {
       "step": 9,
       "title": "Confirm Android Manifest Integrations",
-      "description": "Verify namespace declarations and relative path registration inside AndroidManifest.xml.",
+      "description": "Verify relative path registrations and manifest integrity.",
       "files": [],
       "status": "completed"
     },

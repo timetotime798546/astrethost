@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -365,7 +366,7 @@ public class MainActivity extends Activity {
     public void onBackPressed() {
         if (panelEditor.getVisibility() == View.VISIBLE) {
             showPanel(panelList);
-        } else if (panelCategories.getVisibility() == View.VISIBLE) {
+        } else if (panelCategories.getVisibility() == View.VISIBLE) { 
             showPanel(panelList);
             refreshCategoryPickers();
             refreshNotesList();
@@ -379,7 +380,7 @@ public class MainActivity extends Activity {
         private final Context context;
         private final List<Note> values;
 
-        public NotesAdapter(Context context, List<Note> values) {
+        public NotesAdapter(Context context, List<Note> values) { 
             super(context, 0, values);
             this.context = context;
             this.values = values;
