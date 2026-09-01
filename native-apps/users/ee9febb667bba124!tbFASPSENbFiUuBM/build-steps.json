@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyzing requirements",
+      "description": "Verify requirements for Modern Calculator, establishing a pure native setup targeting SDK 34 with Java 8 support.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Creating build metadata config",
+      "description": "Generate the app-meta.json containing the application identifiers and metadata.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configuring build.gradle",
+      "description": "Write app/build.gradle script pointing compile and target SDKs to level 34 using Java 8 compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configuring AndroidManifest.xml",
+      "description": "Establish manifest file layout with single launcher activity using pure Material NoActionBar theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Designing strings.xml resources",
+      "description": "Configure standard string resource mappings for internationalization-ready structure.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Developing numeric key design style",
+      "description": "Create a custom rounded shape drawable selector representing premium dark numeric buttons.",
+      "files": ["app/src/main/res/drawable/btn_numeric.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Developing operator key design style",
+      "description": "Create dynamic round drawable shape selector indicating orange accent operator states.",
+      "files": ["app/src/main/res/drawable/btn_operator.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Developing utility functional key style",
+      "description": "Create clear grey rounded button selector indicating secondary operational actions.",
+      "files": ["app/src/main/res/drawable/btn_function.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Designing activity_main.xml structure",
+      "description": "Implement responsive UI grid setup inside a main parent layout combining expression screens and circular grid keys.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implementing parsing logic inside MainActivity",
+      "description": "Code a lightweight, self-sufficient recursive descent algebraic expression evaluator within MainActivity.java.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Modern Calculator",
+      "description": "Trigger gradle compiler to assemble full release-ready debug APK containing modern calculator modules.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
