@@ -1,0 +1,95 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project Structure",
+      "description": "Set up the core folder structure for the Modern Calculator app matching standard Android directories.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure App Meta File",
+      "description": "Generate app-meta.json with app name and package namespace mapping for compiler alignment.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Android Manifest",
+      "description": "Establish the AndroidManifest.xml specifying default portrait orientation, custom hardware acceleration, and the system Material theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure Gradle Build Script",
+      "description": "Apply Java 17 and Android SDK 34 specific compiler specifications, ensuring 100% build reliability with Gradle 8.5.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Resource Colors",
+      "description": "Define a modern, premium dark-themed color palette with deep dark grays, premium orange accents, and stark whites inside colors.xml.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Number Button Selector",
+      "description": "Build circular, sleek number key drawable backgrounds with smooth tactile press states.",
+      "files": ["app/src/main/res/drawable/btn_number.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Operator Button Selector",
+      "description": "Draft a vibrant orange accent style drawable configuration for key operations (+, -, *, /).",
+      "files": ["app/src/main/res/drawable/btn_operator.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Action Button Selector",
+      "description": "Configure state selector drawables for control keys like Clear, Backspace, and Percentage.",
+      "files": ["app/src/main/res/drawable/btn_action.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Modern UI Layout",
+      "description": "Construct a highly polished and responsive dual-text layout for formula history, standard equations, and a clean grid of keys.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Mathematical Parser Engine",
+      "description": "Build a highly optimized pure-Java recursive descent mathematical formula evaluation engine inside MainActivity.java.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Button Controls and Key Listeners",
+      "description": "Program user interaction callbacks for math formulas, clearing, bracket states, backspacing, and history visualization.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Validate Java 8 Compatibility",
+      "description": "Review Java source code to ensure strictly compliant anonymous classes, static math models, and zero forbidden dependencies.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Modern Calculator",
+      "description": "Execute build steps to produce the optimized production-ready APK binary.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
