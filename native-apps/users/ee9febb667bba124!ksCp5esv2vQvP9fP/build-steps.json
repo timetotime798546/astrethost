@@ -2,107 +2,60 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze User 3D Request",
-      "description": "Research custom beveling techniques and layout configurations to elevate the calculator into an ultra-realistic 3D tactile physical machine.",
+      "title": "Analyze and Prepare Launch Loader Feature",
+      "description": "Design an elegant launch loading overlay that integrates seamlessly with the 3D retro pocket calculator theme.",
       "files": [],
       "status": "completed"
     },
     {
       "step": 2,
-      "title": "Design Slanted Plastic Chassis Background",
-      "description": "Generate a rich multi-stage layered chassis border (calc_body_bg.xml) simulating a heavy molded structural pocket calculator shell.",
+      "title": "Create Missing dialog_history.xml Resource",
+      "description": "Generate dialog_history.xml to layout the calculation logs, history views, and clear buttons to resolve compilation issues.",
       "files": [
-        "app/src/main/res/drawable/calc_body_bg.xml"
+        "app/src/main/res/layout/dialog_history.xml"
       ],
       "status": "completed"
     },
     {
       "step": 3,
-      "title": "Enhance LCD Screen Bezel Frame",
-      "description": "Construct display_3d_inset.xml mimicking deep plastic bezels, physical glass layers, and a gorgeous glass flare reflection gradient.",
-      "files": [
-        "app/src/main/res/drawable/display_3d_inset.xml"
-      ],
-      "status": "completed"
-    },
-    {
-      "step": 4,
-      "title": "Create Mechanical 3D Keycap Drawables",
-      "description": "Re-engineer button drawables (btn_3d_gray.xml, btn_3d_orange.xml, btn_3d_dark.xml, btn_3d_red.xml) to contain an actual physical 8dp shift upon press.",
-      "files": [
-        "app/src/main/res/drawable/btn_3d_gray.xml",
-        "app/src/main/res/drawable/btn_3d_orange.xml",
-        "app/src/main/res/drawable/btn_3d_dark.xml",
-        "app/src/main/res/drawable/btn_3d_red.xml"
-      ],
-      "status": "completed"
-    },
-    {
-      "step": 5,
-      "title": "Create Metallic Brand Logo Plate",
-      "description": "Draft a custom badge layout shape (brand_badge.xml) representing an aluminum brushed product badge.",
-      "files": [
-        "app/src/main/res/drawable/brand_badge.xml"
-      ],
-      "status": "completed"
-    },
-    {
-      "step": 6,
-      "title": "Design Round Action Button Base",
-      "description": "Code a tactile circular mechanical switch (btn_3d_round.xml) for system keys like Sound and History.",
-      "files": [
-        "app/src/main/res/drawable/btn_3d_round.xml"
-      ],
-      "status": "completed"
-    },
-    {
-      "step": 7,
-      "title": "Add Active Green LED Indicators",
-      "description": "Generate luminous LED refraction bulbs (led_indicator_on.xml and led_indicator_off.xml) to visually display app state changes.",
-      "files": [
-        "app/src/main/res/drawable/led_indicator_on.xml",
-        "app/src/main/res/drawable/led_indicator_off.xml"
-      ],
-      "status": "completed"
-    },
-    {
-      "step": 8,
-      "title": "Construct Tactile Physical Layout Structure",
-      "description": "Modify activity_main.xml, introducing the heavy casing shell, VFD retro green screen glow, metallic badge plate, and the green active LED diode.",
+      "title": "Restructure activity_main.xml with FrameLayout Root",
+      "description": "Wrap activity_main.xml in a FrameLayout and place a clean, responsive launch loader overlay layout containing a neon green progress bar.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "completed"
     },
     {
-      "step": 9,
-      "title": "Integrate Interactive LEDs in Code",
-      "description": "Hook the active sound-state to the new mechanical green LED bulb, ensuring immediate state response when clicked.",
+      "step": 4,
+      "title": "Implement Launch Overlay Controller",
+      "description": "Incorporate Handler delay logic inside MainActivity's onCreate to automatically dismiss the initialization splash after exactly 2 seconds.",
       "files": [
         "app/src/main/java/com/moderncalculator/app/MainActivity.java"
       ],
       "status": "completed"
     },
     {
-      "step": 10,
-      "title": "Prune Unnecessary Build Dependencies",
-      "description": "Eliminate unused web libraries inside app/build.gradle to build instantly with core Android SDK features.",
+      "step": 5,
+      "title": "Prune Gradle Third Party Dependencies",
+      "description": "Remove unnecessary implementation dependencies like org.nanohttpd inside app/build.gradle to ensure pristine native building.",
       "files": [
         "app/build.gradle"
       ],
       "status": "completed"
     },
     {
-      "step": 11,
-      "title": "Perform Validation Testing",
-      "description": "Verify compatibility of XML namespaces, drawables, and physical screen dimensions to prevent overlaps.",
-      "files": [],
+      "step": 6,
+      "title": "Verify Manifest Namespace Configuration",
+      "description": "Double check that AndroidManifest.xml correctly implements the standard android namespace schema to prevent any manifest parsing errors.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "completed"
     },
     {
-      "step": 12,
+      "step": 7,
       "title": "Building Modern Calculator",
-      "description": "Execute build procedures to generate the most realistic physical pocket calculator application possible.",
+      "description": "Compile the modified, robust project with retro visual loader overlay and fully fixed dialog resources.",
       "files": [],
       "status": "pending"
     }

@@ -31,6 +31,17 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Show/hide loader overlay on launch
+        final View loaderOverlay = findViewById(R.id.loader_overlay);
+        if (loaderOverlay != null) {
+            new android.os.Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loaderOverlay.setVisibility(View.GONE);
+                }
+            }, 2000);
+        }
+
         tvFormula = (TextView) findViewById(R.id.tv_formula);
         tvResult = (TextView) findViewById(R.id.tv_result);
         btnSoundToggle = (Button) findViewById(R.id.btn_sound_toggle);
@@ -362,7 +373,7 @@ public class MainActivity extends Activity {
                     if      (eat('+')) x += parseTerm();
                     else if (eat('-')) x -= parseTerm();
                     else return x;
-                } 
+                }
             }
 
             double parseTerm() {
