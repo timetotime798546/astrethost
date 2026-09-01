@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Outer dark desk shadow -->
+    <item>
+        <shape>
+            <solid android:color="#08080A" />
+        </shape>
+    </item>
+    
+    <!-- Beveled Heavy Outer Case Rim -->
+    <item android:top="2dp" android:left="2dp" android:right="2dp" android:bottom="6dp">
+        <shape>
+            <gradient
+                android:startColor="#373C47"
+                android:centerColor="#1F2127"
+                android:endColor="#101114"
+                android:angle="270" />
+            <corners android:radius="4dp" />
+            <stroke android:width="2dp" android:color="#4B5261" />
+        </shape>
+    </item>
+    
+    <!-- Main Plastic Surface with subtle side slopes -->
+    <item android:top="10dp" android:left="10dp" android:right="10dp" android:bottom="14dp">
+        <shape>
+            <gradient
+                android:startColor="#252830"
+                android:endColor="#14161A"
+                android:angle="270" />
+            <corners android:radius="6dp" />
+            <stroke android:width="1dp" android:color="#090A0C" />
+        </shape>
+    </item>
+    
+    <!-- Embedded hardware plate dividing line -->
+    <item android:top="192dp" android:left="14dp" android:right="14dp" android:bottom="14dp">
+        <shape>
+            <stroke android:width="1dp" android:color="#0F1013" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed State -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="#281200" />
+                    <corners android:radius="10dp" />
+                </shape>
+            </item>
+            <item android:top="8dp" android:left="1.5dp" android:right="1.5dp" android:bottom="1dp">
+                <shape>
+                    <gradient
+                        android:startColor="#B85C00"
+                        android:endColor="#854200"
+                        android:angle="270" />
+                    <corners android:radius="9dp" />
+                    <stroke android:width="1.2dp" android:color="#DF6F00" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- Normal State -->
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="#1B0C00" />
+                    <corners android:radius="10dp" />
+                </shape>
+            </item>
+            <item android:top="3dp" android:bottom="1.5dp">
+                <shape>
+                    <solid android:color="#A15000" />
+                    <corners android:radius="10dp" />
+                </shape>
+            </item>
+            <item android:top="1dp" android:bottom="8dp">
+                <shape>
+                    <solid android:color="#FFA64D" />
+                    <corners android:radius="10dp" />
+                </shape>
+            </item>
+            <item android:top="2dp" android:bottom="10dp" android:left="1.5dp" android:right="1.5dp">
+                <shape>
+                    <gradient
+                        android:startColor="#FF901F"
+                        android:endColor="#D66A00"
+                        android:angle="270" />
+                    <corners android:radius="8dp" />
+                    <stroke android:width="1dp" android:color="#FFA23E" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

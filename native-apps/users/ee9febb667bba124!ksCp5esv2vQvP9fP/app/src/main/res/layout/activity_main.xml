@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/calc_body_bg"
+    android:padding="20dp">
+
+    <!-- Console Header Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="14dp">
+
+        <!-- Aluminum product branding plate badge -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/brand_badge"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="6dp">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TACTILE V.F.D. 3D-PRO"
+                android:textColor="#C5CCD8"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.06" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- LED Diode Sound Status indicator block -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginRight="12dp">
+            
+            <View
+                android:id="@+id/led_sound"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginRight="6dp"
+                android:background="@drawable/led_indicator_on" />
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SOUND"
+                android:textColor="#8C95A6"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.04" />
+        </LinearLayout>
+
+        <!-- Round metallic-finished systems control switches -->
+        <Button
+            android:id="@+id/btn_sound_toggle"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:text="🔊"
+            android:textSize="13sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_3d_round"
+            android:layout_marginRight="8dp" />
+
+        <Button
+            android:id="@+id/btn_history"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:text="📜"
+            android:textSize="13sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_3d_round" />
+    </LinearLayout>
+
+    <!-- Deep Recessed Vacuum Fluorescent screen panel (VFD Matrix) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@drawable/display_3d_inset"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:id="@+id/tv_formula"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="#387754"
+            android:textSize="22sp"
+            android:fontFamily="monospace"
+            android:singleLine="true"
+            android:ellipsize="start"
+            android:layout_marginTop="10dp"
+            android:letterSpacing="0.05" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end|bottom"
+            android:text="0"
+            android:textColor="#00FF66"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:singleLine="true"
+            android:ellipsize="start"
+            android:layout_marginBottom="10dp"
+            android:letterSpacing="0.02"
+            android:shadowColor="#4000FF66"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="12" />
+    </LinearLayout>
+
+    <!-- Keywell Grid Base with high margins emphasizing keycaps travel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Keycap Grid Row 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="C"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_red"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="⌫"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_dark"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_percent"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="%"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_dark"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_div"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="÷"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_orange"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+        </LinearLayout>
+
+        <!-- Keycap Grid Row 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/btn_7"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="7"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_gray"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_8"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="8"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_gray"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_9"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="9"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_gray"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_mul"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="×"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_orange"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+        </LinearLayout>
+
+        <!-- Keycap Grid Row 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/btn_4"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="4"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_gray"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_5"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="5"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_gray"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_6"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="6"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_gray"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_sub"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="-"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_orange"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+        </LinearLayout>
+
+        <!-- Keycap Grid Row 4 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/btn_1"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="1"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_gray"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_2"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="2"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_gray"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_3"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="3"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_gray"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="+"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_orange"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+        </LinearLayout>
+
+        <!-- Keycap Grid Row 5 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_plus_minus"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="+/-"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_gray"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_0"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_gray"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_dot"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="."
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_gray"
+                android:layout_marginRight="10dp"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+
+            <Button
+                android:id="@+id/btn_equal"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:text="="
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_3d_orange"
+                android:shadowColor="#30000000"
+                android:shadowDy="2"
+                android:shadowRadius="2" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
