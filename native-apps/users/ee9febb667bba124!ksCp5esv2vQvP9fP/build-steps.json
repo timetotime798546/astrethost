@@ -2,98 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define 3D Visual Requirements",
-      "description": "Plan out premium skeuomorphic mechanical button layers and inset 3D display panel designs.",
-      "files": [
-        "app/src/main/res/drawable/button_number_bg.xml"
-      ],
+      "title": "Define NoteFlow application structure and build environment settings",
+      "description": "Configure standard system properties and layout directory rules for the application.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Update App Metadata",
-      "description": "Keep metadata for com.moderncalculator.app and app name Modern Calculator.",
-      "files": [
-        "app-meta.json"
-      ],
+      "title": "Configure app/build.gradle with compileSdkVersion 34 and Gradle 8.5 target settings",
+      "description": "Configure package namespace and build configurations utilizing standard Android SDK frameworks.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Create Inset Screen Background",
-      "description": "Design a multi-layered drawable with deep recess gradient for a 3D LCD display plate look.",
-      "files": [
-        "app/src/main/res/drawable/screen_bg.xml"
-      ],
+      "title": "Establish NoteFlow AndroidManifest.xml with appropriate launchers",
+      "description": "Register application settings, single main activity, app icon mapping, and light material theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Redesign Tactile 3D Number Buttons",
-      "description": "Implement mechanical 3D button selector with top hover faces and bottom shadows for tactile depth.",
-      "files": [
-        "app/src/main/res/drawable/button_number_bg.xml"
-      ],
+      "title": "Setup custom card styling drawable for Note elements",
+      "description": "Create a card drawable background with corner radius and subtle boundary stroke.",
+      "files": ["app/src/main/res/drawable/note_bg.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Redesign Tactile 3D Operator Buttons",
-      "description": "Configure vivid orange 3D mechanical selector backgrounds using premium multi-level gradients.",
-      "files": [
-        "app/src/main/res/drawable/button_operator_bg.xml"
-      ],
+      "title": "Setup category badge styling drawable for visual division",
+      "description": "Create dynamic color layout badges to represent and distinct personal vs professional notes.",
+      "files": ["app/src/main/res/drawable/badge_bg.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Redesign Tactile 3D Action Buttons",
-      "description": "Configure functional slate gray 3D mechanical button selector with high gloss face edges.",
-      "files": [
-        "app/src/main/res/drawable/button_action_bg.xml"
-      ],
+      "title": "Design NoteItem XML layout for rendering in list flows",
+      "description": "Set up list adapter item design including Title, Content snippet, Category badge, Date, and quick delete targets.",
+      "files": ["app/src/main/res/layout/note_item.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Revamp Calculator Layout Structure",
-      "description": "Update activity_main.xml to use the recessed 3D display background, configure padding, and optimize alignment.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
+      "title": "Design ActivityMain XML layout featuring dynamic dual-layout container",
+      "description": "Design high performance list controls and form configurations that dynamically toggle display views.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Integrate Dynamic Tactile Touch Animations",
-      "description": "Add custom spring scaling click animation feedback inside MainActivity.java to emphasize tactile 3D movement.",
-      "files": [
-        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
-      ],
+      "title": "Implement SQLite database schema and controller mechanisms inside MainActivity",
+      "description": "Build OpenHelper logic for storing, updating, reading and query matching note rows dynamically.",
+      "files": ["app/src/main/java/com/noteflow/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Verify 3D Visual Flow and Synthesizer Sound",
-      "description": "Ensure startup synth audio sweeps, operational equations, and reset sequences mesh beautifully with 3D button pushes.",
-      "files": [
-        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
-      ],
+      "title": "Bind UI listeners, filters, search engines, and buttons inside MainActivity",
+      "description": "Configure live searches via TextWatcher, setup edit mode pre-fills, item deletions, and update routines.",
+      "files": ["app/src/main/java/com/noteflow/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Validate Compatibility and Manifest Settings",
-      "description": "Double check resource namespaces, launcher setups, and compile criteria are correctly verified.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Building Modern Calculator",
-      "description": "Compile, bundle, and package the tactile 3D application for deployment.",
+      "title": "Building NoteFlow",
+      "description": "Run the Gradle compiler and test overall activity layout configurations.",
       "files": [],
       "status": "pending"
     }

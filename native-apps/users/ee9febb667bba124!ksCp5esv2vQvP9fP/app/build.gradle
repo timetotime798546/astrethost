@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.moderncalculator.app"
+    namespace "com.noteflow.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.moderncalculator.app"
+        applicationId "com.noteflow.app"
 
         minSdkVersion 21
 
