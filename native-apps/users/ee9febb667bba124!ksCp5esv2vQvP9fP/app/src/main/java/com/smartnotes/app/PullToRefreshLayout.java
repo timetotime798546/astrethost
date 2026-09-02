@@ -17,7 +17,7 @@ public class PullToRefreshLayout extends LinearLayout {
     private int triggerDistance;
     private int headerHeight;
 
-    private View headerView;
+    private LinearLayout headerView;
     private BeautifulLoaderView loaderView;
     private ListView targetListView;
     private OnRefreshListener refreshListener;
@@ -44,8 +44,8 @@ public class PullToRefreshLayout extends LinearLayout {
         headerHeight = (int) (getResources().getDisplayMetrics().density * 80);
 
         headerView = new LinearLayout(context);
-        ((LinearLayout) headerView).setOrientation(HORIZONTAL);
-        ((LinearLayout) headerView).setGravity(android.view.Gravity.CENTER);
+        headerView.setOrientation(HORIZONTAL);
+        headerView.setGravity(android.view.Gravity.CENTER);
 
         loaderView = new BeautifulLoaderView(context);
         LinearLayout.LayoutParams loaderParams = new LinearLayout.LayoutParams(
@@ -80,7 +80,7 @@ public class PullToRefreshLayout extends LinearLayout {
                 if (result != null) {
                     return result;
                 }
-            }
+            } 
         }
         return null;
     }
@@ -221,8 +221,8 @@ public class PullToRefreshLayout extends LinearLayout {
                     lp.topMargin = (int) (startMargin + delta * t);
                     headerView.setLayoutParams(lp);
                     post(this);
-                }
+                } 
             }
         });
-    } 
+    }
 }

@@ -2,24 +2,24 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze Note List Refresh Requirements",
-      "description": "Assess the touch gesture logic and determine the touch event coordinates required to intercept scroll down events when at top of list.",
+      "title": "Analyze Build Failure in PullToRefreshLayout",
+      "description": "Review the compiler error output indicating that headerView of type View does not have an addView method.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Create BeautifulLoaderView Class",
-      "description": "Write a custom view class to render an animated pulsing neon loader with double arc canvas drawings during pulls.",
+      "title": "Update PullToRefreshLayout Class Declaration",
+      "description": "Modify the headerView variable declaration to LinearLayout instead of View to enable full ViewGroup support.",
       "files": [
-        "app/src/main/java/com/smartnotes/app/BeautifulLoaderView.java"
+        "app/src/main/java/com/smartnotes/app/PullToRefreshLayout.java"
       ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Develop PullToRefreshLayout Class",
-      "description": "Write a touch-interfering ViewGroup wrapper that measures drag offsets and handles custom snapping and scroll limits.",
+      "title": "Refactor PullToRefreshLayout Init Code",
+      "description": "Simplify casting logic inside init() because headerView is now natively recognized as LinearLayout.",
       "files": [
         "app/src/main/java/com/smartnotes/app/PullToRefreshLayout.java"
       ],
@@ -27,60 +27,50 @@
     },
     {
       "step": 4,
-      "title": "Implement Pull Progress Tick Synthesizer",
-      "description": "Design a high-frequency micro acoustic tick inside SoundManager that triggers sequentially as the user pulls down.",
-      "files": [
-        "app/src/main/java/com/smartnotes/app/SoundManager.java"
-      ],
+      "title": "Verify View Hierarchy in Layouts",
+      "description": "Check that activity_main.xml still correctly references and hosts the custom PullToRefreshLayout wrapper.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement Refresh Trigger Sound Synthesizer",
-      "description": "Design a rising pitch frequency laser-type audio trigger that sounds at the moment the swipe exceeds threshold.",
-      "files": [
-        "app/src/main/java/com/smartnotes/app/SoundManager.java"
-      ],
+      "title": "Verify Database Integration",
+      "description": "Confirm DatabaseHelper CRUD calls align with MainActivity UI controllers without warnings.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Refresh Completion Chord Synthesizer",
-      "description": "Synthesize a beautiful triple C-E-G major chord arpeggio with high decay to serve as a physical confirm sign when notes sync.",
-      "files": [
-        "app/src/main/java/com/smartnotes/app/SoundManager.java"
-      ],
+      "title": "Audit Dynamic SoundManager Synthesis",
+      "description": "Verify pure Android SDK-based real-time sound synthesized buffers for clicks, ticks, and completions are robust.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Configure activity_main.xml with PullToRefreshLayout Wrapper",
-      "description": "Wrap list view components inside PullToRefreshLayout to support gesture actions seamlessly.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
+      "title": "Validate BeautifulLoaderView Rendering",
+      "description": "Confirm dual arc pulsing logic and onDraw performance are optimal.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Wire Refresh Triggers in MainActivity.java",
-      "description": "Bind pull-down listeners inside main activities, start asynchronous delay tasks to display spinner feedback and stop refreshing after notes load.",
-      "files": [
-        "app/src/main/java/com/smartnotes/app/MainActivity.java"
-      ],
+      "title": "Test Touch Gesture Dispatching",
+      "description": "Ensure onInterceptTouchEvent and onTouchEvent in PullToRefreshLayout do not conflict with list scrolls.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Verify Touch Interference with 3D Card Animation View",
-      "description": "Test overlap gestures and verify scroll functionality is not blocked by custom touch handling elements.",
+      "title": "Verify Android Manifest Integration",
+      "description": "Confirm package declaration and target SDK configurations compile correctly under Java 8.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Perform Strict Standard and Java 8 Audits",
-      "description": "Verify namespace variables and source compatibility limits in configuration targets.",
+      "title": "Run Code Audits & Standard Verifications",
+      "description": "Ensure clean Java 8 syntax compatibility without unsupported dependencies.",
       "files": [],
       "status": "pending"
     },
