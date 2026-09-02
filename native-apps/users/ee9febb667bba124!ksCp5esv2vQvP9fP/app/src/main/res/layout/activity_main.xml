@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6F7">
+
+    <!-- Dashboard Container -->
+    <LinearLayout
+        android:id="@+id/layout_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Custom Beautiful Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="#2C3E50"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📝 NoteKeep"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true" />
+
+            <Button
+                android:id="@+id/btn_manage_categories"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:text="Categories"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_accent"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp" />
+        </RelativeLayout>
+
+        <!-- Search Bar and Category Filters -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp"
+            android:background="#FFFFFF"
+            android:elevation="4dp">
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:hint="Search notes..."
+                android:background="@drawable/search_bg"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:singleLine="true"
+                android:textColor="#2C3E50"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical">
+
+                <Spinner
+                    android:id="@+id/spinner_filter_category"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/btn_dropdown" />
+
+                <Button
+                    android:id="@+id/btn_add_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="+ Add Note"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/button_accent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ListView container -->
+        <ListView
+            android:id="@+id/list_notes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#00000000"
+            android:dividerHeight="0dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:clipToPadding="false" />
+    </LinearLayout>
+
+    <!-- Note Editor Container -->
+    <LinearLayout
+        android:id="@+id/layout_editor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:visibility="gone">
+
+        <!-- Editor Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="#2C3E50"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp">
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:text="Back"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_secondary"
+                android:textSize="12sp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Write Note"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:text="Save"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_accent"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+        </RelativeLayout>
+
+        <!-- Editor Content fields -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/et_note_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Title"
+                android:textSize="22sp"
+                android:textColor="#2C3E50"
+                android:textStyle="bold"
+                android:background="@null"
+                android:singleLine="true"
+                android:layout_marginBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp"
+                android:background="#F8F9FA"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Category:"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#7F8C8D" />
+
+                <Spinner
+                    android:id="@+id/spinner_note_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="8dp"
+                    android:background="@android:drawable/btn_dropdown" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/et_note_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Start typing your thoughts here..."
+                android:textSize="16sp"
+                android:textColor="#34495E"
+                android:background="@null"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="3dp" />
+        </LinearLayout>
+
+        <!-- Delete button panel -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_delete_note"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:text="Delete Note"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_delete"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Professional Overlay Loader -->
+    <LinearLayout
+        android:id="@+id/layout_loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B3FFFFFF"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:indeterminate="true" />
+
+        <TextView
+            android:id="@+id/tv_loader_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Updating notes..."
+            android:textColor="#2C3E50"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginTop="14dp" />
+    </LinearLayout>
+</FrameLayout>
