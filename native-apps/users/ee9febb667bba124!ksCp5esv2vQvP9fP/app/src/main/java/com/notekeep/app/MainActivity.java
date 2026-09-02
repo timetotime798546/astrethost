@@ -142,7 +142,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 playBeep(ToneGenerator.TONE_PROP_BEEP2);
                 showEditor(null);
-            } 
+            }
         });
 
         btnManageCategories.setOnClickListener(new View.OnClickListener() {
@@ -150,7 +150,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 playBeep(ToneGenerator.TONE_PROP_BEEP2);
                 showManageCategoriesDialog();
-            } 
+            }
         });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -181,7 +181,7 @@ public class MainActivity extends Activity {
                 playBeep(ToneGenerator.TONE_PROP_BEEP);
                 Note selectedNote = (Note) listNotes.getItemAtPosition(position);
                 showEditor(selectedNote);
-            }
+            } 
         });
 
         // Prepare clean layout initialization states
@@ -194,7 +194,7 @@ public class MainActivity extends Activity {
         executeSplashAnimation();
     }
 
-    private void executeSplashAnimation() {
+    private void executeSplashAnimation() { 
         if (layoutSplash == null) return;
 
         // Reset visual dynamic configurations
@@ -203,7 +203,7 @@ public class MainActivity extends Activity {
         tvSplashLogo.setScaleX(0.0f);
         tvSplashLogo.setScaleY(0.0f);
         tvSplashLogo.setAlpha(0.0f);
-        tvSplashTitle.setTranslationY(40dpToPx());
+        tvSplashTitle.setTranslationY(dpToPx(40.0f));
         tvSplashTitle.setAlpha(0.0f);
         tvSplashSubtitle.setAlpha(0.0f);
         pbSplash.setAlpha(0.0f);
@@ -267,45 +267,45 @@ public class MainActivity extends Activity {
                             public void onAnimationEnd(Animator animation) {
                                 layoutSplash.setVisibility(View.GONE);
                                 playBeep(ToneGenerator.TONE_PROP_BEEP);
-                            }
+                            } 
                         }).start();
-            }
+            } 
         }, 2500);
     }
 
-    private float dpToPx() {
-        return 40 * getResources().getDisplayMetrics().density;
+    private float dpToPx(float dp) { 
+        return dp * getResources().getDisplayMetrics().density;
     }
 
-    private void playBeep(int toneType) {
-        if (toneGenerator != null) {
-            try {
+    private void playBeep(int toneType) { 
+        if (toneGenerator != null) { 
+            try { 
                 toneGenerator.startTone(toneType, 120);
             } catch (Exception e) {}
         }
     }
 
-    private void showLoader(String message, final Runnable onDone) {
-        if (layoutLoader != null) {
+    private void showLoader(String message, final Runnable onDone) { 
+        if (layoutLoader != null) { 
             tvLoaderText.setText(message);
             layoutLoader.setVisibility(View.VISIBLE);
-            new Handler().postDelayed(new Runnable() {
+            new Handler().postDelayed(new Runnable() { 
                 @Override
-                public void run() {
+                public void run() { 
                     layoutLoader.setVisibility(View.GONE);
-                    if (onDone != null) {
+                    if (onDone != null) { 
                         onDone.run();
                     }
                 }
             }, 500); // Visual feedback load delay
-        } else {
-            if (onDone != null) {
+        } else { 
+            if (onDone != null) { 
                 onDone.run();
             }
         }
     }
 
-    private void refreshSpinners() {
+    private void refreshSpinners() { 
         List<Category> categoriesList = getCategories();
 
         // Filter categories list creation
@@ -331,8 +331,8 @@ public class MainActivity extends Activity {
         List<Category> list = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT id, name FROM categories ORDER BY name ASC", null);
-        if (cursor.moveToFirst()) {
-            do {
+        if (cursor.moveToFirst()) { 
+            do { 
                 list.add(new Category(cursor.getLong(0), cursor.getString(1)));
             } while (cursor.moveToNext());
         }
@@ -340,21 +340,21 @@ public class MainActivity extends Activity {
         return list;
     }
 
-    private List<Note> getAllNotes(String searchQuery, long filterCategoryId) {
+    private List<Note> getAllNotes(String searchQuery, long filterCategoryId) { 
         List<Note> notes = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
         String selection = "";
         List<String> selectionArgs = new ArrayList<>();
 
-        if (searchQuery != null && !searchQuery.trim().isEmpty()) {
+        if (searchQuery != null && !searchQuery.trim().isEmpty()) { 
             selection += "(notes.title LIKE ? OR notes.content LIKE ?)";
             selectionArgs.add("%" + searchQuery + "%");
             selectionArgs.add("%" + searchQuery + "%");
         }
 
-        if (filterCategoryId > 0) {
-            if (!selection.isEmpty()) {
+        if (filterCategoryId > 0) { 
+            if (!selection.isEmpty()) { 
                 selection += " AND ";
             }
             selection += "notes.category_id = ?";
@@ -364,14 +364,14 @@ public class MainActivity extends Activity {
         String query = "SELECT notes.id, notes.title, notes.content, notes.category_id, notes.timestamp, categories.name " +
                 "FROM notes LEFT JOIN categories ON notes.category_id = categories.id";
 
-        if (!selection.isEmpty()) {
+        if (!selection.isEmpty()) { 
             query += " WHERE " + selection;
         }
         query += " ORDER BY notes.id DESC";
 
         Cursor cursor = db.rawQuery(query, selectionArgs.toArray(new String[0]));
-        if (cursor.moveToFirst()) {
-            do {
+        if (cursor.moveToFirst()) { 
+            do { 
                 long id = cursor.getLong(0);
                 String title = cursor.getString(1);
                 String content = cursor.getString(2);
@@ -386,11 +386,11 @@ public class MainActivity extends Activity {
         return notes;
     }
 
-    private void refreshNotesList() {
+    private void refreshNotesList() { 
         String query = etSearch.getText().toString();
         Category selectedCat = (Category) spinnerFilterCategory.getSelectedItem();
         long catId = -1;
-        if (selectedCat != null) {
+        if (selectedCat != null) { 
             catId = selectedCat.getId();
         }
 
@@ -399,26 +399,26 @@ public class MainActivity extends Activity {
         listNotes.setAdapter(adapter);
     }
 
-    private void showDashboard() {
+    private void showDashboard() { 
         layoutDashboard.setVisibility(View.VISIBLE);
         layoutEditor.setVisibility(View.GONE);
         currentEditingNoteId = -1;
         refreshNotesList();
     }
 
-    private void showEditor(Note note) {
+    private void showEditor(Note note) { 
         layoutDashboard.setVisibility(View.GONE);
         layoutEditor.setVisibility(View.VISIBLE);
 
-        if (note == null) {
+        if (note == null) { 
             currentEditingNoteId = -1;
             etNoteTitle.setText("");
             etNoteContent.setText("");
             btnDeleteNote.setVisibility(View.GONE);
-            if (spinnerNoteCategory.getCount() > 0) {
+            if (spinnerNoteCategory.getCount() > 0) { 
                 spinnerNoteCategory.setSelection(0);
             }
-        } else {
+        } else { 
             currentEditingNoteId = note.getId();
             etNoteTitle.setText(note.getTitle());
             etNoteContent.setText(note.getContent());
@@ -426,22 +426,22 @@ public class MainActivity extends Activity {
 
             long noteCatId = note.getCategoryId();
             int selectionIndex = 0;
-            for (int i = 0; i < spinnerNoteCategory.getCount(); i++) {
+            for (int i = 0; i < spinnerNoteCategory.getCount(); i++) { 
                 Category cat = (Category) spinnerNoteCategory.getItemAtPosition(i);
-                if (cat.getId() == noteCatId) {
+                if (cat.getId() == noteCatId) { 
                     selectionIndex = i;
                     break;
-                } 
+                }
             }
             spinnerNoteCategory.setSelection(selectionIndex);
         }
     }
 
-    private void saveNote() {
+    private void saveNote() { 
         final String title = etNoteTitle.getText().toString().trim();
         final String content = etNoteContent.getText().toString().trim();
 
-        if (title.isEmpty()) {
+        if (title.isEmpty()) { 
             playBeep(ToneGenerator.TONE_CDMA_PIP);
             Toast.makeText(this, "Please enter a title", Toast.LENGTH_SHORT).show();
             return;
@@ -450,16 +450,16 @@ public class MainActivity extends Activity {
         Category selectedCategory = (Category) spinnerNoteCategory.getSelectedItem();
         final long catId = (selectedCategory != null) ? selectedCategory.getId() : 0;
 
-        showLoader("Saving Note...", new Runnable() {
+        showLoader("Saving Note...", new Runnable() { 
             @Override
-            public void run() {
+            public void run() { 
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
                 values.put("title", title);
                 values.put("content", content);
-                if (catId <= 0) {
+                if (catId <= 0) { 
                     values.putNull("category_id");
-                } else {
+                } else { 
                     values.put("category_id", catId);
                 }
 
@@ -467,11 +467,11 @@ public class MainActivity extends Activity {
                 String currentDate = sdf.format(new Date());
                 values.put("timestamp", currentDate);
 
-                if (currentEditingNoteId == -1) {
+                if (currentEditingNoteId == -1) { 
                     db.insert("notes", null, values);
                     playBeep(ToneGenerator.TONE_PROP_BEEP);
                     Toast.makeText(MainActivity.this, "Note saved", Toast.LENGTH_SHORT).show();
-                } else {
+                } else { 
                     db.update("notes", values, "id = ?", new String[]{String.valueOf(currentEditingNoteId)});
                     playBeep(ToneGenerator.TONE_PROP_BEEP);
                     Toast.makeText(MainActivity.this, "Note updated", Toast.LENGTH_SHORT).show();
@@ -481,8 +481,8 @@ public class MainActivity extends Activity {
         });
     }
 
-    private void deleteNote() {
-        if (currentEditingNoteId == -1) {
+    private void deleteNote() { 
+        if (currentEditingNoteId == -1) { 
             showDashboard();
             return;
         }
@@ -492,12 +492,12 @@ public class MainActivity extends Activity {
         new AlertDialog.Builder(this)
                 .setTitle("Delete Note")
                 .setMessage("Are you sure you want to delete this note?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() { 
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        showLoader("Deleting Note...", new Runnable() {
+                    public void onClick(DialogInterface dialog, int which) { 
+                        showLoader("Deleting Note...", new Runnable() { 
                             @Override
-                            public void run() {
+                            public void run() { 
                                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                                 db.delete("notes", "id = ?", new String[]{String.valueOf(currentEditingNoteId)});
                                 playBeep(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD);
@@ -505,13 +505,13 @@ public class MainActivity extends Activity {
                                 showDashboard();
                             }
                         });
-                    }
+                    } 
                 })
-                .setNegativeButton("No", null) 
+                .setNegativeButton("No", null)
                 .show();
     }
 
-    private void showManageCategoriesDialog() {
+    private void showManageCategoriesDialog() { 
         LayoutInflater inflater = getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_manage_categories, null);
 
@@ -528,27 +528,27 @@ public class MainActivity extends Activity {
         final CategoryAdapter adapter = new CategoryAdapter(this, categoriesList);
         listCategoriesManage.setAdapter(adapter);
 
-        btnAddCategory.setOnClickListener(new View.OnClickListener() {
+        btnAddCategory.setOnClickListener(new View.OnClickListener() { 
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { 
                 final String catName = etNewCategory.getText().toString().trim();
-                if (catName.isEmpty()) {
+                if (catName.isEmpty()) { 
                     playBeep(ToneGenerator.TONE_CDMA_PIP);
                     Toast.makeText(MainActivity.this, "Category name cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                showLoader("Adding Category...", new Runnable() {
+                showLoader("Adding Category...", new Runnable() { 
                     @Override
-                    public void run() {
+                    public void run() { 
                         SQLiteDatabase db = dbHelper.getWritableDatabase();
                         ContentValues values = new ContentValues();
                         values.put("name", catName);
                         long id = db.insertWithOnConflict("categories", null, values, SQLiteDatabase.CONFLICT_IGNORE);
-                        if (id == -1) {
+                        if (id == -1) { 
                             playBeep(ToneGenerator.TONE_CDMA_PIP);
                             Toast.makeText(MainActivity.this, "Category already exists", Toast.LENGTH_SHORT).show();
-                        } else {
+                        } else { 
                             playBeep(ToneGenerator.TONE_PROP_BEEP);
                             Toast.makeText(MainActivity.this, "Category added", Toast.LENGTH_SHORT).show();
                             etNewCategory.setText("");
@@ -562,9 +562,9 @@ public class MainActivity extends Activity {
             } 
         });
 
-        btnClose.setOnClickListener(new View.OnClickListener() {
+        btnClose.setOnClickListener(new View.OnClickListener() { 
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { 
                 playBeep(ToneGenerator.TONE_PROP_BEEP2);
                 dialog.dismiss();
             }
@@ -574,18 +574,18 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected void onDestroy() {
-        if (toneGenerator != null) {
+    protected void onDestroy() { 
+        if (toneGenerator != null) { 
             toneGenerator.release();
         }
         super.onDestroy();
     }
 
-    private class CategoryAdapter extends BaseAdapter {
+    private class CategoryAdapter extends BaseAdapter { 
         private Context context;
         private List<Category> list;
 
-        public CategoryAdapter(Context context, List<Category> list) {
+        public CategoryAdapter(Context context, List<Category> list) { 
             this.context = context;
             this.list = list;
         }
@@ -598,8 +598,8 @@ public class MainActivity extends Activity {
         public long getItemId(int position) { return list.get(position).getId(); }
 
         @Override
-        public View getView(final int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
+        public View getView(final int position, View convertView, ViewGroup parent) { 
+            if (convertView == null) { 
                 convertView = getLayoutInflater().inflate(R.layout.item_category_manage, parent, false); 
             }
 
@@ -609,19 +609,19 @@ public class MainActivity extends Activity {
             final Category cat = list.get(position);
             tvName.setText(cat.getName());
 
-            btnDelete.setOnClickListener(new View.OnClickListener() {
+            btnDelete.setOnClickListener(new View.OnClickListener() { 
                 @Override
-                public void onClick(View v) {
+                public void onClick(View v) { 
                     playBeep(ToneGenerator.TONE_CDMA_CONFIRM);
                     new AlertDialog.Builder(MainActivity.this)
                             .setTitle("Delete Category")
                             .setMessage("Are you sure you want to delete this category? Notes in this category will become uncategorized.")
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() { 
                                 @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    showLoader("Deleting Category...", new Runnable() {
+                                public void onClick(DialogInterface dialog, int which) { 
+                                    showLoader("Deleting Category...", new Runnable() { 
                                         @Override
-                                        public void run() {
+                                        public void run() { 
                                             SQLiteDatabase db = dbHelper.getWritableDatabase();
                                             db.delete("categories", "id = ?", new String[]{String.valueOf(cat.getId())});
                                             playBeep(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD);
@@ -631,9 +631,9 @@ public class MainActivity extends Activity {
                                             notifyDataSetChanged();
                                             refreshSpinners();
                                             refreshNotesList();
-                                        }
+                                        } 
                                     });
-                                }
+                                } 
                             })
                             .setNegativeButton("No", null)
                             .show();
