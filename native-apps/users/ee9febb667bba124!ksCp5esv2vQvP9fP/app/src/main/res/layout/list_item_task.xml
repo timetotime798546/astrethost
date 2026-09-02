@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="#FFFFFF"
+    android:layout_marginBottom="4dp"
+    android:gravity="center_vertical">
+
+    <!-- Quick Completion Marker -->
+    <CheckBox
+        android:id="@+id/itemTaskCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="false" />
+
+    <!-- Task Info Fields -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <TextView
+            android:id="@+id/itemTaskTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task Title Placeholder"
+            android:textColor="#1E2125"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/itemTaskDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detailed description goes here"
+            android:textColor="#6D7A8A"
+            android:textSize="12sp"
+            android:maxLines="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+
+            <!-- Category Tag -->
+            <TextView
+                android:id="@+id/itemTaskCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Work"
+                android:textColor="#2196F3"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:background="#E3F2FD"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_marginRight="8dp" />
+
+            <!-- Due Date tag -->
+            <TextView
+                android:id="@+id/itemTaskDueDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Due 2024-12-31"
+                android:textColor="#6D7A8A"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Star Highlight Action -->
+    <TextView
+        android:id="@+id/itemTaskStar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="★"
+        android:textColor="#FF4081"
+        android:textSize="22sp"
+        android:padding="4dp" />
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/tvHistoryAction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Action Trigger Name"
+        android:textColor="#1E2125"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvHistoryDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modified task title properties"
+        android:textColor="#6D7A8A"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp" />
+
+    <TextView
+        android:id="@+id/tvHistoryTimestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2024-05-12 14:02"
+        android:textColor="#94A3B8"
+        android:textSize="10sp"
+        android:layout_marginTop="4dp" />
+
+</LinearLayout>

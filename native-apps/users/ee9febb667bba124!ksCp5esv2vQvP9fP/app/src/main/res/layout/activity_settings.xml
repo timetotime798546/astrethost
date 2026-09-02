@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6F8"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header Area -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/btnSettingsBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/card_bg"
+                android:text="◀"
+                android:textColor="#1E2125"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Backup &amp; App Info"
+                android:textColor="#1E2125"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="12dp" />
+        </LinearLayout>
+
+        <!-- Backup Section Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Offline Backup Storage"
+                android:textColor="#1E2125"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dump tasks array to native file structures locally. This serves as protection prior to system installs."
+                android:textColor="#6D7A8A"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnSettingsExport"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/button_bg"
+                android:text="Export Backup Data"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnSettingsImport"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/card_bg"
+                android:text="Import Backup Data"
+                android:textColor="#2196F3"
+                android:textStyle="bold"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+        <!-- Legal Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Privacy &amp; Terms"
+                android:textColor="#1E2125"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSettingsPrivacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_policy_text"
+                android:textColor="#6D7A8A"
+                android:textSize="11sp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tvSettingsTerms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/terms_text"
+                android:textColor="#6D7A8A"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <!-- Info Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Application Details"
+                android:textColor="#1E2125"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSettingsAppVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_version"
+                android:textColor="#6D7A8A"
+                android:textSize="12sp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Developer: Premium Mobile AI"
+                android:textColor="#6D7A8A"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
