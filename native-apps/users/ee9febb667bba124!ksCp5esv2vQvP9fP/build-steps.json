@@ -1,0 +1,111 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project Directory structure for NoteKeep app",
+      "description": "Created directories and set up base environment for NoteKeep with package com.notekeep.app.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure build.gradle and system targets",
+      "description": "Configured AGP 8.3.2, Gradle 8.5, and SDK Version 34 configurations.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Design custom resources and UI color assets",
+      "description": "Declared customized hex colors and text resources for flat theme layout of NoteKeep.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Declare SQLite Database Schema with category relationship",
+      "description": "Created database classes with categories and notes tables with foreign keys inside NotesDbHelper.",
+      "files": [
+        "app/src/main/java/com/notekeep/app/NotesDbHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define data model components",
+      "description": "Implemented clean Java models for Notes and Categories structure compatibility.",
+      "files": [
+        "app/src/main/java/com/notekeep/app/Note.java",
+        "app/src/main/java/com/notekeep/app/Category.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Custom layouts for note list items and category rows",
+      "description": "Designed modular layout views to display individual notes and items in the management dialog.",
+      "files": [
+        "app/src/main/res/layout/item_note.xml",
+        "app/src/main/res/layout/item_category_manage.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Dialog XML layout for category management",
+      "description": "Configured clean pop-up XML elements to insert and delete categories from the database dialog list.",
+      "files": [
+        "app/src/main/res/layout/dialog_manage_categories.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create main NoteKeep activity layout",
+      "description": "Implemented layout switching screens for the note list dashboard and the rich editing panel.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement custom lists binding adapters",
+      "description": "Coded standard NoteListAdapter to safely populate details, category label, and formatting timestamp.",
+      "files": [
+        "app/src/main/java/com/notekeep/app/NoteListAdapter.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement NoteKeeper main core logic inside MainActivity",
+      "description": "Bound user actions including search filters, category spinner management, edit/create visual flows, and database writes using Java 8.",
+      "files": [
+        "app/src/main/java/com/notekeep/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Set AndroidManifest entries",
+      "description": "Defined launch activities, correct namespace targets, and launcher layout permissions.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building NoteKeep",
+      "description": "Assemble clean project output with SDK 34 specifications successfully.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
