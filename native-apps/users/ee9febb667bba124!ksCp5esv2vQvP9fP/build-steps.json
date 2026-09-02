@@ -1,0 +1,79 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Implement 3D Skeuomorphic Drawables",
+      "description": "Generate layer-lists and vector gradients to establish realistic 3D shadow depths and color-rich aesthetics for background, cards, and buttons.",
+      "files": [
+        "app/src/main/res/drawable/bg_gradient.xml",
+        "app/src/main/res/drawable/card_bg_blue.xml",
+        "app/src/main/res/drawable/card_bg_green.xml",
+        "app/src/main/res/drawable/card_bg_red.xml",
+        "app/src/main/res/drawable/card_white.xml",
+        "app/src/main/res/drawable/fab_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Synthesize Immersive Launch and Physics Tones",
+      "description": "Enhance the SoundHelper with programmatic synthesizer beeps, a progressive launch arpeggio, a bouncing boundary tick, and a toss audio swoosh.",
+      "files": [
+        "app/src/main/java/com/expensetrackerpro/app/SoundHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Design Custom Physics Gravity Canvas",
+      "description": "Develop a customized dynamic physics engine inside GravityView.java rendering physical ball entities that bounce, collide, and react to manual taps and programmatic gravity parameters.",
+      "files": [
+        "app/src/main/java/com/expensetrackerpro/app/GravityView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Construct Gradient-Themed Dashboard Interface",
+      "description": "Revamp the primary activity_main.xml layout, embedding the interactive gravity workspace, dark space gradient styles, and custom progress spinner configurations.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Introduce Launch Progression Controller",
+      "description": "Update MainActivity.java to bind progress UI elements, play audio alerts on app startup, and drive a smooth timed percentage loading sequence with status alerts.",
+      "files": [
+        "app/src/main/java/com/expensetrackerpro/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Integrate Gravity Playground with Transactions",
+      "description": "Bind user record databases dynamically to the interactive 3D physics engine so transaction categories and values visually map inside the bouncy environment.",
+      "files": [
+        "app/src/main/java/com/expensetrackerpro/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Add App Metadata Configuration",
+      "description": "Configure app-meta.json to confirm exact package and project namespaces.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Building Expense Tracker Pro",
+      "description": "Build, compile, and assemble the fully styled 3D physical layout and dynamic auditory simulation app.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
