@@ -2,79 +2,72 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze User Request for 3D UI, sound, and history additions",
-      "description": "Deconstruct features including continuous 3D canvas rendering, real-time procedural audio synthesis, and persistent local storage.",
+      "title": "Analyze Build Error Logs",
+      "description": "Inspect resource linking errors indicating invalid layout properties in activity_main.xml.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Application Metadata and Package Structure",
-      "description": "Define com.threedcalculator.app as the unique package namespace across configuration layers.",
-      "files": ["app-meta.json"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Setup Application Security Sandbox and Android Manifest",
-      "description": "Establish application parameters, single-instance orientations, and default system dark layouts without dependency bloat.",
+      "title": "Verify Manifest Package Registration",
+      "description": "Validate package properties inside AndroidManifest.xml for namespace correctness.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
-      "step": 4,
-      "title": "Implement Audio Synth DSP Modules inside SoundSynth",
-      "description": "Write low-level dynamic PCM buffer generator that outputs clean mechanical button presses and ascending booting arpeggios.",
-      "files": ["app/src/main/java/com/threedcalculator/app/SoundSynth.java"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Construct 3D Wireframe Graphics Matrix inside ThreeDLoaderView",
-      "description": "Develop perspective projections and 3D axis rotations on Canvas to render a spinning loading wireframe cube with a glowing neon shader.",
-      "files": ["app/src/main/java/com/threedcalculator/app/ThreeDLoaderView.java"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Formulate Oblique Projection Math inside ThreeDCalculatorView",
-      "description": "Compute 3D extrusion paths, depth shaders, face highlights, and key depression animations for 20 isometric buttons.",
-      "files": ["app/src/main/java/com/threedcalculator/app/ThreeDCalculatorView.java"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Build the Mathematical Parser Engine for Infix Equations",
-      "description": "Write custom recursive-descent math expression analyzer evaluating full operational hierarchies (MDAS) and parenthesis with zero third-party dependencies.",
-      "files": ["app/src/main/java/com/threedcalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Develop History State Management & SharedPreferences Layer",
-      "description": "Establish a non-volatile SharedPreferences interface for loading, storing, formatting, and clearing calculation history logs.",
-      "files": ["app/src/main/java/com/threedcalculator/app/HistoryManager.java"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Assemble User Interface and Bezel Dashboard Layout",
-      "description": "Merge custom interactive 3D decks, glossy LED display readouts, history panels, and introductory loaders in activity_main.xml.",
+      "step": 3,
+      "title": "Update Resource Layout Attributes",
+      "description": "Replace the unsupported 'android:layout_centerY' attributes with the correct 'android:layout_centerVertical' in activity_main.xml.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
-      "step": 10,
-      "title": "Coordinate Application Loader Flow & Event Dispatcher in MainActivity",
-      "description": "Develop sequential loading task handlers, fade animations, button event hooks, display managers, and retro chimes.",
+      "step": 4,
+      "title": "Validate 3D Drawing Surface",
+      "description": "Inspect ThreeDCalculatorView and ThreeDLoaderView drawing commands for compatibility.",
+      "files": ["app/src/main/java/com/threedcalculator/app/ThreeDCalculatorView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Check Audio Synth DSP Compatibility",
+      "description": "Ensure the dynamic SoundSynth PCM buffer generator compiles correctly.",
+      "files": ["app/src/main/java/com/threedcalculator/app/SoundSynth.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify Expression Parser Mechanics",
+      "description": "Validate the custom recursive-descent math parser in MainActivity.",
       "files": ["app/src/main/java/com/threedcalculator/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 11,
+      "step": 7,
+      "title": "Review Local Storage SharedPreferences",
+      "description": "Ensure history persistence behaves correctly inside HistoryManager.",
+      "files": ["app/src/main/java/com/threedcalculator/app/HistoryManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Check Gradle Build Configuration",
+      "description": "Verify Java 8 compatibility and SDK level 34 settings.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Resource Integrity",
+      "description": "Ensure the icon reference and system light/dark styles are consistent.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 10,
       "title": "Building ThreeD Calculator",
       "description": "Compile, assemble, run internal automated diagnostics, build project binaries, and output the debug packages.",
-      "files": ["app/build.gradle"],
+      "files": [],
       "status": "pending"
     }
   ]
