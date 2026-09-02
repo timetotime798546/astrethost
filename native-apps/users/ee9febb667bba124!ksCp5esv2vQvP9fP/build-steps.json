@@ -1,0 +1,144 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Student Study Planner Android Project Structure",
+      "description": "Configure standard system folder structures and verify execution parameters matching targetSdkVersion 34 and minSdkVersion 21.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define fixed build environment dependencies",
+      "description": "Write Gradle 8.5 compatible app/build.gradle script without external dependencies for stability.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create AndroidManifest.xml with system components",
+      "description": "Declare system permissions for alarms and local alerts, configure manifest namespaces, receiver systems, and target launcher activity.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design rounded card drawable backgrounds",
+      "description": "Create clean rounded corners XML drawable background configurations for card views and task elements.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement custom button action drawable shapes",
+      "description": "Implement custom clickable flat design button background selectors using direct resource XML paths.",
+      "files": [
+        "app/src/main/res/drawable/button_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build DatabaseHelper.java for storage structures",
+      "description": "Create SQLite schema architectures defining subject entities, task entities, relationships, completion trackers, and pre-population defaults.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Setup AlarmReceiver.java broadcast alerts handler",
+      "description": "Develop standard platform BroadcastReceiver executing local notifications triggers supporting custom notification channels.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/AlarmReceiver.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Code activity_main.xml layout structures",
+      "description": "Assemble clean tab-swappable XML containers, navigation headers, scrolling wrappers, input form layouts, and task templates.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Handle dynamic Android platform permissions",
+      "description": "Request dynamic POST_NOTIFICATIONS and schedule permissions inside MainActivity lifecycle runtime controls.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Build interactive study dashboard controls",
+      "description": "Inject dynamic code routines tracking live today progress, upcoming tasks counters, and fast action navigation.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement visual dynamic subject components",
+      "description": "Code interactive views listing subjects with custom hex color markers, deletion cascade structures, and subject creation form flows.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Design the complete Tasks Planner module",
+      "description": "Develop interactive lists enabling task completions, filters for status categories, priorities, due date selectors, and custom item managers.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement scheduling timers using AlarmManager",
+      "description": "Add time and date parsing actions converting calendar alerts to exact scheduled intents in the Android system OS alarm loops.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Program live metrics and progress trackers page",
+      "description": "Design statistical calculations comparing finished vs active tasks and render progression metrics bars grouped per Subject.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Verify Java 8 compliant execution syntax constraints",
+      "description": "Perform complete manual syntax reviews auditing anonymous class handlers, typecasts, and clean standard SDK code.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building Student Study Planner",
+      "description": "Assemble absolute release assets matching system execution requirements for stable student performance.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
