@@ -2,83 +2,15 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze Requirements & Setup Database Schema",
-      "description": "Configure TaskFlow schemas including users, tasks, history and notifications tables inside DatabaseHelper.",
-      "files": ["app/src/main/java/com/taskflow/app/DatabaseHelper.java"],
+      "title": "Resolve Java Compiler Errors",
+      "description": "Clean up obsolete layout variables, import missing Context and Color classes in MainActivity.java to resolve compilation failure.",
+      "files": [
+        "app/src/main/java/com/taskflow/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build System",
-      "description": "Write Gradle scripts setting target SDK, build options and Java 17 compatibility environment.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Create Manifest Declarations",
-      "description": "Register all application components, permissions and launch sequences within AndroidManifest.xml.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Define UI Style Assets",
-      "description": "Create responsive background drawables, color pallets and rounded style selectors for premium styling.",
-      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml", "app/src/main/res/drawable/card_bg.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Implement Splash Screen Sequence",
-      "description": "Develop elegant launcher animation logic directing users to login or main dashboard depending on auth session.",
-      "files": ["app/src/main/res/layout/activity_splash.xml", "app/src/main/java/com/taskflow/app/SplashActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Develop Authentication & Registration Systems",
-      "description": "Build robust client validation and local SQLite storage logic for secure user login and credential registration.",
-      "files": ["app/src/main/res/layout/activity_login.xml", "app/src/main/res/layout/activity_register.xml", "app/src/main/java/com/taskflow/app/LoginActivity.java", "app/src/main/java/com/taskflow/app/RegisterActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Build Dynamic Custom Adapters",
-      "description": "Program custom adapters with optimized list bind behaviors for real-time status updates and action handlers.",
-      "files": ["app/src/main/res/layout/list_item_task.xml", "app/src/main/java/com/taskflow/app/TaskAdapter.java"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Implement Central Multi-Tab Dashboard",
-      "description": "Formulate cohesive view switching representing Home stats, dynamic Explore search system, Favorites, and Profile fields.",
-      "files": ["app/src/main/res/layout/activity_main.xml", "app/src/main/java/com/taskflow/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Implement CRUD Details & Operations Manager",
-      "description": "Program detailed views enabling task creation, full edit, deletion actions, categories, and custom priority selections.",
-      "files": ["app/src/main/res/layout/activity_task_detail.xml", "app/src/main/java/com/taskflow/app/TaskDetailActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Implement Settings & Custom Local Backups",
-      "description": "Establish application preferences, appearance controls and serialized database backup export and restoration operations.",
-      "files": ["app/src/main/res/layout/activity_settings.xml", "app/src/main/java/com/taskflow/app/SettingsActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Verify Resources and Compile Checks",
-      "description": "Review Java compatibility, verify layout margins, secure configurations and compile.",
-      "files": [],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building TaskFlow",
       "description": "Generate final debug binary using the build system pipeline.",
       "files": [],

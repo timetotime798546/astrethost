@@ -2,11 +2,13 @@ package com.taskflow.app;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,13 +30,6 @@ public class MainActivity extends Activity {
 
     private DatabaseHelper dbHelper;
     private int loggedUserId;
-
-    // Top containers for views switching
-    private ScrollViewHelper layoutHome;
-    private LinearLayout layoutExplore;
-    private LinearLayout layoutFavorites;
-    private LinearLayout layoutHistory;
-    private ScrollViewHelper layoutProfile;
 
     // Layouts references directly matching main XML
     private View tabHome, tabExplore, tabFavorites, tabHistory, tabProfile;
@@ -186,7 +181,7 @@ public class MainActivity extends Activity {
                     })
                     .setNegativeButton("No", null)
                     .show();
-            }
+            } 
         });
 
         // Set Profile Sign out event trigger
@@ -211,7 +206,7 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, TaskDetailActivity.class);
                 intent.putExtra("task_id", (int) id);
-                startActivity(intent);
+                startActivity(intent); 
             }
         };
 
