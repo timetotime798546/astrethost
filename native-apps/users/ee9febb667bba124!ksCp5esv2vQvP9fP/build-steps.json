@@ -2,141 +2,107 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Student Study Planner Android Project Structure",
-      "description": "Configure standard system folder structures and verify execution parameters matching targetSdkVersion 34 and minSdkVersion 21.",
-      "files": [],
+      "title": "Initialize Project Structure",
+      "description": "Set up fundamental Android SDK configurations with Java 8 compatibility and SDK target 34.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Define fixed build environment dependencies",
-      "description": "Write Gradle 8.5 compatible app/build.gradle script without external dependencies for stability.",
-      "files": [
-        "app/build.gradle"
-      ],
+      "title": "Register Application Manifest",
+      "description": "Configure App Manifest containing pure Android system theme, permission definitions, and registration of main activity.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Create AndroidManifest.xml with system components",
-      "description": "Declare system permissions for alarms and local alerts, configure manifest namespaces, receiver systems, and target launcher activity.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
+      "title": "Create App Metadata Configuration",
+      "description": "Write app metadata description tracking package identification structures.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design rounded card drawable backgrounds",
-      "description": "Create clean rounded corners XML drawable background configurations for card views and task elements.",
-      "files": [
-        "app/src/main/res/drawable/card_bg.xml"
-      ],
+      "title": "Define UI Color Configuration",
+      "description": "Define standard palette configurations for the tracker system dashboard layout UI elements.",
+      "files": ["app/src/main/res/values/colors.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement custom button action drawable shapes",
-      "description": "Implement custom clickable flat design button background selectors using direct resource XML paths.",
+      "title": "Implement Card Elements Styling",
+      "description": "Create custom shaped drawables for standard, positive (Income), and negative (Expense) layout card items.",
       "files": [
-        "app/src/main/res/drawable/button_bg.xml"
+        "app/src/main/res/drawable/card_bg_blue.xml",
+        "app/src/main/res/drawable/card_bg_green.xml",
+        "app/src/main/res/drawable/card_bg_red.xml",
+        "app/src/main/res/drawable/card_white.xml",
+        "app/src/main/res/drawable/fab_bg.xml"
       ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Build DatabaseHelper.java for storage structures",
-      "description": "Create SQLite schema architectures defining subject entities, task entities, relationships, completion trackers, and pre-population defaults.",
-      "files": [
-        "app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"
-      ],
+      "title": "Establish Database Management Schema",
+      "description": "Program the SQLite storage engine helper layer for transactional management of income and expense allocations.",
+      "files": ["app/src/main/java/com/expensetrackerpro/app/DatabaseHelper.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Setup AlarmReceiver.java broadcast alerts handler",
-      "description": "Develop standard platform BroadcastReceiver executing local notifications triggers supporting custom notification channels.",
+      "title": "Implement Data Models",
+      "description": "Create standard Java models representing discrete Transactions and aggregated Monthly Category breakdown statistics.",
       "files": [
-        "app/src/main/java/com/studentstudyplanner/app/AlarmReceiver.java"
+        "app/src/main/java/com/expensetrackerpro/app/Transaction.java",
+        "app/src/main/java/com/expensetrackerpro/app/CategoryReport.java"
       ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Code activity_main.xml layout structures",
-      "description": "Assemble clean tab-swappable XML containers, navigation headers, scrolling wrappers, input form layouts, and task templates.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
+      "title": "Construct Main Dashboard Layout",
+      "description": "Generate activity layout featuring dual views (Tracker & Reports) mapped under functional tab management components.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Handle dynamic Android platform permissions",
-      "description": "Request dynamic POST_NOTIFICATIONS and schedule permissions inside MainActivity lifecycle runtime controls.",
+      "title": "Design Layout Rows for List Presentation",
+      "description": "Build layout templates for single transaction item details and aggregated category status meters.",
       "files": [
-        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+        "app/src/main/res/layout/item_transaction.xml",
+        "app/src/main/res/layout/item_report.xml"
       ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Build interactive study dashboard controls",
-      "description": "Inject dynamic code routines tracking live today progress, upcoming tasks counters, and fast action navigation.",
-      "files": [
-        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
-      ],
+      "title": "Design New Transaction Dialog UI",
+      "description": "Construct dialog form permitting customization of values including categories, payment amount, transactional note, and calendar selectors.",
+      "files": ["app/src/main/res/layout/dialog_add_transaction.xml"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Implement visual dynamic subject components",
-      "description": "Code interactive views listing subjects with custom hex color markers, deletion cascade structures, and subject creation form flows.",
+      "title": "Develop List Adapter Frameworks",
+      "description": "Program adapter components for real-time binding of SQLite operations into active system lists.",
       "files": [
-        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+        "app/src/main/java/com/expensetrackerpro/app/TransactionAdapter.java",
+        "app/src/main/java/com/expensetrackerpro/app/CategoryReportAdapter.java"
       ],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Design the complete Tasks Planner module",
-      "description": "Develop interactive lists enabling task completions, filters for status categories, priorities, due date selectors, and custom item managers.",
-      "files": [
-        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
-      ],
+      "title": "Implement Main Controller Functionality",
+      "description": "Integrate database hooks, dialog orchestration, transaction queries, report engines, and tab layouts in MainActivity.",
+      "files": ["app/src/main/java/com/expensetrackerpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 13,
-      "title": "Implement scheduling timers using AlarmManager",
-      "description": "Add time and date parsing actions converting calendar alerts to exact scheduled intents in the Android system OS alarm loops.",
-      "files": [
-        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Program live metrics and progress trackers page",
-      "description": "Design statistical calculations comparing finished vs active tasks and render progression metrics bars grouped per Subject.",
-      "files": [
-        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 15,
-      "title": "Verify Java 8 compliant execution syntax constraints",
-      "description": "Perform complete manual syntax reviews auditing anonymous class handlers, typecasts, and clean standard SDK code.",
-      "files": [
-        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 16,
-      "title": "Building Student Study Planner",
-      "description": "Assemble absolute release assets matching system execution requirements for stable student performance.",
+      "title": "Building Expense Tracker Pro",
+      "description": "Compile, assemble and finalise the application under targeted build requirements.",
       "files": [],
       "status": "pending"
     }
