@@ -1,0 +1,138 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project Structure",
+      "description": "Generate base configuration files including build scripts, metadata files, and steps directory structures for compilation.",
+      "files": [
+        "app-meta.json",
+        "build-steps.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure App Build Properties",
+      "description": "Write app/build.gradle with Android Gradle Plugin rules, target compile SDK 34, and dependencies.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Manifest and Launch Properties",
+      "description": "Establish application parameters and reference correct launchers and icon parameters inside AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Set App Colors and Typography",
+      "description": "Define standard colors including rich charcoal dark modes, electric accent oranges, blues, and pure blacks to maximize screen contrast.",
+      "files": [
+        "app/src/main/res/values/colors.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define Application Styles",
+      "description": "Create style entries with Material values and clean full-screen properties.",
+      "files": [
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Numeric Key Resources",
+      "description": "Draft btn_numeric.xml state selectors for standard numeric buttons with dark grey circular shapes.",
+      "files": [
+        "app/src/main/res/drawable/btn_numeric.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Operator Key Resources",
+      "description": "Draft btn_operator.xml state selectors to map glowing action indicators for plus, minus, multiply, and division signs.",
+      "files": [
+        "app/src/main/res/drawable/btn_operator.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Scientific Key Resources",
+      "description": "Generate btn_scientific.xml selector background maps for trigonometric, log, and constant variables.",
+      "files": [
+        "app/src/main/res/drawable/btn_scientific.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Main Action Key Resources",
+      "description": "Generate btn_action.xml selector states for clear/backspace tasks with customized responsive visual states.",
+      "files": [
+        "app/src/main/res/drawable/btn_action.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Create Accent Equals Key Resources",
+      "description": "Draft btn_equals.xml with glowing electric blue rounded contours indicating output evaluation.",
+      "files": [
+        "app/src/main/res/drawable/btn_equals.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Calculator Layout Grid",
+      "description": "Construct activity_main.xml file with scrollable inputs, double text display, and standard keyboard row grid mapped with precise proportional weights.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Configure App String Resources",
+      "description": "Create static application texts and titles in standard strings.xml structure.",
+      "files": [
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Expression Parsing Core",
+      "description": "Build recursive mathematical parser structure in MainActivity.java allowing basic operators, powers, roots, trigonometry and constants processing.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Wire Up Dynamic Input and Button Receivers",
+      "description": "Establish click event distributions, handle multi-character deletions (e.g. sin( to clear), backspace safety layers, and parenthesis auto-closures inside MainActivity.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Modern Calculator",
+      "description": "Complete final verification checks, assemble resources and finalize building of debug package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
