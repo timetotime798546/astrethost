@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#121212"
+    android:padding="16dp">
+
+    <!-- Top Area with sound indicator -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STOPWATCH"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true" />
+
+        <Button
+            android:id="@+id/btn_sound_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Sound: ON"
+            android:textSize="12sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_gray"
+            android:minWidth="100dp"
+            android:padding="6dp"/>
+    </RelativeLayout>
+
+    <!-- Circle Progress Ring Overlay Frame -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp">
+
+        <com.ultimatestopwatch.app.StopwatchProgressView
+            android:id="@+id/progress_loader"
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- Primary timer readout -->
+            <TextView
+                android:id="@+id/tv_main_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="#FFFFFF"
+                android:textSize="44sp"
+                android:textStyle="bold"/>
+
+            <!-- Milliseconds output readout -->
+            <TextView
+                android:id="@+id/tv_ms_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=".00"
+                android:textColor="#88FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Controls Panel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginBottom="24dp">
+
+        <Button
+            android:id="@+id/btn_lap_reset"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:layout_marginRight="8dp"
+            android:text="LAP"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/btn_gray"
+            android:enabled="false"/>
+
+        <Button
+            android:id="@+id/btn_start_pause"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:text="START"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/btn_green"/>
+    </LinearLayout>
+
+    <!-- Lap list container header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#1E1E1E">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:background="#2E2E2E">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LAP NO."
+                android:textColor="#88FFFFFF"
+                android:textSize="11sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LAP TIME"
+                android:textColor="#88FFFFFF"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TOTAL TIME"
+                android:textColor="#88FFFFFF"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:gravity="right"/>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_laps"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#2D2D2D"
+            android:dividerHeight="1dp"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+</LinearLayout>
