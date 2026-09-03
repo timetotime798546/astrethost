@@ -1,0 +1,116 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define App Specifications and Metadata",
+      "description": "Establish the Smart Notes app metadata, configuring parameters such as app name and package name in app-meta.json.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create AndroidManifest for Smart Notes",
+      "description": "Construct the main configuration manifest declaring MainActivity, NoteActivity, and the application theme with strict schema definitions.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Build Properties",
+      "description": "Establish target compatibility with Java 8, configure AGP version 8.3.2, compile SDK 34, and setup project gradle repositories.",
+      "files": ["app/build.gradle", "settings.gradle", "build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define Style Resources and Colors",
+      "description": "Define consistent Material color attributes and localized app values to present a polished visual palette.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Card and Badge Drawable Backgrounds",
+      "description": "Author custom shape resources in XML to create rounded corners, custom strokes, and container widgets.",
+      "files": [
+        "app/src/main/res/drawable/card_background.xml",
+        "app/src/main/res/drawable/badge_background.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Rounded and Colored Button Backgrounds",
+      "description": "Construct colored states and rounded corner structures for action buttons, edit triggers, and deletion tools.",
+      "files": [
+        "app/src/main/res/drawable/btn_rounded.xml",
+        "app/src/main/res/drawable/btn_save_background.xml",
+        "app/src/main/res/drawable/btn_delete_background.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Main Activity Layout",
+      "description": "Structure XML coordinates including the search bar input, note filter dropdown spinner, note list view, and floating action button.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Note Editor Layout",
+      "description": "Incorporate high-quality text editor fields for capturing the note's header, category type, detailed paragraphs, and saving options.",
+      "files": ["app/src/main/res/layout/activity_note.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Note ListItem Adapter Layout",
+      "description": "Coordinate the visual hierarchy for individual list rows representing note title, category pills, truncated summary, and insertion date.",
+      "files": ["app/src/main/res/layout/item_note.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement SQLite Database Engine",
+      "description": "Develop NoteDbHelper subclass extending standard SQLiteOpenHelper to maintain reliable SQL database tables and default initial entries.",
+      "files": ["app/src/main/java/com/smartnotes/app/NoteDbHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Define Note Data Class Structure",
+      "description": "Implement structural object parameters for Notes containing id, title, content, category, and date parameters.",
+      "files": ["app/src/main/java/com/smartnotes/app/Note.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Develop Main Note Handler Logics",
+      "description": "Compose the core logic in MainActivity to handle DB queries, run filtering logic, intercept real-time search strings, and refresh views.",
+      "files": ["app/src/main/java/com/smartnotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Editor and Operations Controller",
+      "description": "Build NoteActivity code to manage creation, loading existing note payloads, editing strings, SQLite modifications, and validation toasts.",
+      "files": ["app/src/main/java/com/smartnotes/app/NoteActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Finalize Manifest Declarations",
+      "description": "Assure exact activity launch properties, screen input modifications, and package designations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Smart Notes",
+      "description": "Assemble files and compile debug APK with Gradle using pure Android SDK configurations.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

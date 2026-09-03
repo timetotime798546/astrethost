@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:padding="12dp">
+
+    <!-- Header & Filter layout -->
+    <LinearLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Search row -->
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Search notes..."
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:background="@drawable/card_background"
+            android:singleLine="true"
+            android:imeOptions="actionSearch"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Filter row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category: "
+                android:textSize="14sp"
+                android:textColor="#666666" />
+
+            <Spinner
+                android:id="@+id/spinner_filter"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Notes List -->
+    <ListView
+        android:id="@+id/lv_notes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_layout"
+        android:divider="@null"
+        android:dividerHeight="8dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="none"/>
+
+    <!-- Empty view -->
+    <TextView
+        android:id="@+id/tv_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No notes found."
+        android:textSize="16sp"
+        android:textColor="#888888"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+    <!-- Floating Action-like Button -->
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="+"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/btn_rounded"/>
+</RelativeLayout>
