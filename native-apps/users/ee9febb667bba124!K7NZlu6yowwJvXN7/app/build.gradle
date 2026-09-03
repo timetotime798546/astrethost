@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.expensetrackerpro.app"
+    namespace "com.categorizednotes.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.expensetrackerpro.app"
+        applicationId "com.categorizednotes.app"
 
         minSdkVersion 21
 
