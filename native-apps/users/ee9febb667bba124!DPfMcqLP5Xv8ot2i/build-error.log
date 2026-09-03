@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Student Study Planner
 App ID: app_6a99c217ded8b
-Build ID: 33793223561
-Time: 2026-09-04 00:25:14
+Build ID: 33794191113
+Time: 2026-09-04 00:35:10
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 173147
+Original log characters: 165539
 Extracted error characters: 30042
-File references detected: 303
+File references detected: 240
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2252) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2250) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/63596266-de7f-4c95-9b2c-6705bbce3951
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/b4ea094e-88a1-4e50-b9bb-67fa5743debc
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/20.0/bin/sdkmanager --licenses
 Loading local repository...
@@ -189,6 +189,7 @@ PROJECT FILES
 ./app-meta.json
 ./app/build.gradle
 ./app/proguard-rules.pro
+./build-error.log
 ./build-steps.json
 ./build.gradle
 ./local.properties
@@ -235,26 +236,20 @@ Recommendation: remove package="com.studentstudyplanner.app" from the source And
 > Task :app:mergeDebugJavaResource
 > Task :app:processDebugResources
 > Task :app:desugarDebugFileDependencies
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:374: error: cannot find symbol
 
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:371: error: ')' expected
 > Task :app:compileDebugJavaWithJavac FAILED
-textName.setTextSize(14sp);
+textName.setTextStyle(android.graphics.Typeface.BOLD);
 ^
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:371: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:378: error: ')' expected
-21 actionable tasks: 21 executed
-textStatus.setTextSize(12sp);
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:378: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:421: error: ')' expected
-item.setTextSize(13sp);
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:421: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:951: error: ')' expected
-tTitle.setTextSize(15sp);
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:951: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:956: error: ')' expected
-tSub.setTextSize(11sp);
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:956: error: ';' expected
-10 errors
+symbol:   method setTextStyle(int)
+location: variable textName of type TextView
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:871: error: cannot find symbol
+title.setTextStyle(android.graphics.Typeface.BOLD);
+location: variable title of type TextView
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/MainActivity.java:1092: error: cannot find symbol
+Note: /home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!DPfMcqLP5Xv8ot2i/app/src/main/java/com/studentstudyplanner/app/AlarmReceiver.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 errors
 
 FAILURE: Build failed with an exception.
 
@@ -297,29 +292,37 @@ at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareE
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
-at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:116)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
-at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
-at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
-at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
-at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
-at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
-at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
-at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
-at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
-at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
-at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:264)
-at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:128)
-at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
-at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
-at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
-at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
 at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(Abst
+at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler error output for details.
+at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:57)
+at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:39)
+at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
+at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:52)
+at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:38)
+at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:51)
+at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:37)
+at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:46)
+at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:36)
+at org.gradle.jvm.toolchain.internal.DefaultToolchainJavaCompiler.execute(DefaultToolchainJavaCompiler.java:57)
+21 actionable tasks: 21 executed
+at org.gradle.api.tasks.compile.JavaCompile.lambda$createToolchainCompiler$3(JavaCompile.java:202)
+at org.gradle.api.internal.tasks.compile.CleaningJavaCompiler.execute(CleaningJavaCompiler.java:53)
+at org.gradle.api.internal.tasks.compile.incremental.IncrementalCompilerFactory.lambda$createRebuildAllCompiler$0(IncrementalCompilerFactory.java:52)
+at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:70)
+at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:44)
+at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:66)
+at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:52)
+at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.call(CompileJavaBuildOperationReportingCompiler.java:64)
+at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.call(CompileJavaBuildOperationReportingCompiler.java:48)
+at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler.execute(CompileJavaBuildOperationReportingCompiler.java:48)
+at org.gradle.api.tasks.compile.JavaCompile.performCompilation(JavaCompile.java:220)
+at org.gradle.api.tasks.compile.JavaCompile.performIncrementalCompilation(JavaCompile.java:161)
+at org.gradle.api.tasks.compile.JavaCompile.compile(JavaCompile.java:146)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at org.gradle.internal.reflect.JavaMet
 
 ================ EXTRACTED LOG CONTINUED ================
 
@@ -399,7 +402,7 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 26s
+BUILD FAILED in 30s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m

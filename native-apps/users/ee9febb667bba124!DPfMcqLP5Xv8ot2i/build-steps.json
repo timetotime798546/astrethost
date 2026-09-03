@@ -2,75 +2,78 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze compilation error roots",
-      "description": "Analyze the ASTRETHOST build log to isolate compilation errors in MainActivity.java regarding invalid 'sp' syntax.",
+      "title": "Analyze compiler build errors",
+      "description": "Identify root compilation causes related to the missing setTextStyle symbol on TextView.",
       "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Verify package structure and metadata",
-      "description": "Ensure app-meta.json and build.gradle configurations are aligned with the target SDK 34 and namespace.",
-      "files": ["app-meta.json", "app/build.gradle"],
+      "title": "Check standard Typeface APIs",
+      "description": "Determine that setTypeface(null, Typeface.BOLD) must be used instead of setTextStyle(Typeface.BOLD) in the Android SDK.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Add missing ScrollView import",
-      "description": "Add the missing android.widget.ScrollView import to MainActivity.java to prevent downstream compilation issues.",
+      "title": "Correct typefaces in Dashboard view",
+      "description": "Apply standard setTypeface parameters for the dynamic textName TextView inside refreshDashboard().",
       "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Fix programmatic text sizes in Dashboard UI",
-      "description": "Change textName.setTextSize(14sp) and textStatus.setTextSize(12sp) to use valid float values in MainActivity.java.",
+      "title": "Correct typefaces in SubjectAdapter",
+      "description": "Modify the getView implementation of SubjectAdapter to utilize setTypeface instead of setTextStyle.",
       "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Fix programmatic text sizes in Reminder view",
-      "description": "Change item.setTextSize(13sp) to use valid integer/float value in MainActivity.java.",
+      "title": "Correct typefaces in ReminderAdapter",
+      "description": "Fix the bold decoration of title TextView in ReminderAdapter using setTypeface.",
       "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Fix programmatic text sizes in TaskAdapter view",
-      "description": "Change tTitle.setTextSize(15sp) and tSub.setTextSize(11sp) to use valid float values in MainActivity.java.",
+      "title": "Review remaining imports and definitions",
+      "description": "Audit MainActivity.java for any other outdated or non-existent Android SDK methods.",
       "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Verify SQLite Database helper integration",
-      "description": "Validate that DatabaseHelper.java compiles successfully with standard Android SDK classes.",
-      "files": ["app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"],
+      "title": "Validate build configurations",
+      "description": "Confirm build.gradle file correctly targets SDK level 34 and matches Gradle version 8.5.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Verify custom drawables integration",
-      "description": "Confirm that layout styles and shapes function correctly in portrait mode orientation.",
-      "files": [
-        "app/src/main/res/drawable/card_bg.xml",
-        "app/src/main/res/drawable/button_bg.xml",
-        "app/src/main/res/drawable/badge_bg.xml"
-      ],
+      "title": "Inspect database helper helper methods",
+      "description": "Ensure the SQLite schema statements match actual insert/update operations in DatabaseHelper.java.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Verify Android Manifest declarations",
-      "description": "Confirm that the package namespace matches the target settings.",
+      "title": "Ensure theme style and launcher icon resolution",
+      "description": "Verify the app configuration XML complies with the customized Material Light theme rules.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 10,
+      "title": "Confirm UI element layouts and ID bindings",
+      "description": "Inspect visual container definitions inside activity_main.xml to avoid casting or runtime binding issues.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
       "title": "Building Student Study Planner",
-      "description": "Run the gradle assembler command to package the clean and optimized APK file.",
+      "description": "Execute the standard Gradle command to generate the debug APK and verify compilation success.",
       "files": [],
       "status": "pending"
     }

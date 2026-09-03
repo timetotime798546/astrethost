@@ -371,7 +371,7 @@ public class MainActivity extends Activity {
                     textName.setText(subName);
                     textName.setTextSize(14);
                     textName.setTextColor(Color.parseColor("#333333"));
-                    textName.setTextStyle(android.graphics.Typeface.BOLD);
+                    textName.setTypeface(null, android.graphics.Typeface.BOLD);
                     textName.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
 
                     TextView textStatus = new TextView(this);
@@ -868,7 +868,7 @@ public class MainActivity extends Activity {
 
                 title.setText(subName);
                 title.setTextColor(Color.parseColor(subColor));
-                title.setTextStyle(android.graphics.Typeface.BOLD);
+                title.setTypeface(null, android.graphics.Typeface.BOLD);
 
                 sub.setText("Long-press to delete this Subject entirely");
                 sub.setTextColor(Color.GRAY);
@@ -1089,7 +1089,7 @@ public class MainActivity extends Activity {
                 TextView sub = (TextView) convertView.findViewById(android.R.id.text2);
 
                 title.setText(titleStr);
-                title.setTextStyle(android.graphics.Typeface.BOLD);
+                title.setTypeface(null, android.graphics.Typeface.BOLD);
 
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd 'at' hh:mm a", Locale.getDefault());
                 sub.setText("Scheduled: " + format.format(new Date(timeMillis)) + "\n(Long-press to cancel alert)");
