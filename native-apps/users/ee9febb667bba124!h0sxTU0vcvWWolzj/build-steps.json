@@ -1,0 +1,123 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Expense Tracker Project Metadata",
+      "description": "Establish key identifying features, app title, and native package mapping for Expense Tracker",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Multi-Project Gradle Build Settings",
+      "description": "Specify repository directories, plugin management rules, and subproject inclusion in settings.gradle",
+      "files": ["settings.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Setup Global Build Plugins",
+      "description": "Configure top-level Gradle build file with Android build system plugins targeting AGP 8.3.2",
+      "files": ["build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Establish App Module Configurations",
+      "description": "Configure compile SDK, target SDK, namespace, and minimum SDK rules inside app module build.gradle",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Declare App Component Manifest",
+      "description": "Formulate AndroidManifest.xml with application parameters, startup activity routing, and theme settings",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Setup Resource Strings",
+      "description": "Define essential user-facing string resources and the Expense Tracker application title in strings.xml",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Card Background Style Drawable",
+      "description": "Define custom shape drawable with rounded corners and solid dark background colors for visual widgets",
+      "files": ["app/src/main/res/drawable/card_background.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Input Fields Layout Drawable",
+      "description": "Define style drawable with solid dark colors and subtle borders for the transaction input editors",
+      "files": ["app/src/main/res/drawable/input_background.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Action Button Style Drawable",
+      "description": "Define primary blue action button drawable with rounded edges to make UI elements look modern and polished",
+      "files": ["app/src/main/res/drawable/button_background.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design Expense Tracker Dashboard Layout",
+      "description": "Craft activity_main.xml consisting of a balance card, a dynamic transaction input form, and a vertical container list",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Transaction Row Layout",
+      "description": "Design visual layout item_transaction.xml incorporating category markers, formatted date, value amount, and a red delete trigger",
+      "files": ["app/src/main/res/layout/item_transaction.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Develop Transaction Entity Class",
+      "description": "Implement serializable Transaction.java data structures with getters, setters, and JSON serialization converters",
+      "files": ["app/src/main/java/com/expensetracker/app/Transaction.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Develop Core UI Bindings and Controls",
+      "description": "Establish main activity logic mapping view parameters, initial state setup, and selection spinner populations",
+      "files": ["app/src/main/java/com/expensetracker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement Dynamic Entry Adding and Validation",
+      "description": "Write sanitization checkers and transaction generation logic inside MainActivity.java avoiding null entries",
+      "files": ["app/src/main/java/com/expensetracker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Implement High-Performance Dynamic Layout Renderer",
+      "description": "Implement interactive layout generation routines to inflate, style, and draw transaction records in real-time",
+      "files": ["app/src/main/java/com/expensetracker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Integrate Local SharedPreferences Storage Mechanism",
+      "description": "Connect local data persistence layer to parse and stringify saved transactions on initialization and addition",
+      "files": ["app/src/main/java/com/expensetracker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Building Expense Tracker",
+      "description": "Assemble files and compile Expense Tracker under the target environment with no compiler warnings",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
