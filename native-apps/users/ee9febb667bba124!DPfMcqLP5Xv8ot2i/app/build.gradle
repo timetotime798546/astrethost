@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.expensetrackerpro.app"
+    namespace "com.helloworldsimple.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.expensetrackerpro.app"
+        applicationId "com.helloworldsimple.app"
 
         minSdkVersion 21
 

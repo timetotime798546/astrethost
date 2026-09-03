@@ -2,112 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define Project Metadata",
-      "description": "Establish the exact application name 'Expense Tracker Pro' and the package hierarchy 'com.expensetrackerpro.app' within app-meta.json.",
-      "files": [
-        "app-meta.json"
-      ],
+      "title": "Create project metadata configuration",
+      "description": "Configure the metadata details including app name and package namespace.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Configuration",
-      "description": "Establish compileSdkVersion 34, minSdkVersion 21, and configure target environments using pure Java standards compatible with Gradle 8.5 and AGP 8.3.2.",
-      "files": [
-        "app/build.gradle"
-      ],
+      "title": "Establish build orchestration steps",
+      "description": "Formulate a sequential list of steps for the build-steps process tracking.",
+      "files": ["build-steps.json"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Establish Android Application Manifest",
-      "description": "Construct the main AndroidManifest.xml specifying single-task launch actions, permissions, themes, and correct launcher activity declarations.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
+      "title": "Setup settings.gradle configuration",
+      "description": "Define repository sources and include the main application module.",
+      "files": ["settings.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design Style & Color Resources",
-      "description": "Create a unified modern, professional dark/light themed color palette and set custom resource strings.",
-      "files": [
-        "app/src/main/res/values/colors.xml",
-        "app/src/main/res/values/strings.xml"
-      ],
+      "title": "Configure root build.gradle",
+      "description": "Define global build plugins including Android Gradle Plugin version 8.3.2.",
+      "files": ["build.gradle"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement Custom UI Drawables",
-      "description": "Build high-quality vector-like rounded shapes, button selectors, input backgrounds, and card layouts using standard XML drawables for modern visual styling.",
-      "files": [
-        "app/src/main/res/drawable/card_bg.xml",
-        "app/src/main/res/drawable/card_income.xml",
-        "app/src/main/res/drawable/card_expense.xml",
-        "app/src/main/res/drawable/btn_accent.xml",
-        "app/src/main/res/drawable/edit_text_bg.xml",
-        "app/src/main/res/drawable/tab_indicator.xml"
-      ],
+      "title": "Configure app/build.gradle specifications",
+      "description": "Apply Android plugins, set compilation SDK to 34, and configure the unique application ID.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Build Data Model Class",
-      "description": "Program Transaction.java to represent financial records with identifier, label, amount, category, date, and flag for classification (Income vs. Expense).",
-      "files": [
-        "app/src/main/java/com/expensetrackerpro/app/Transaction.java"
-      ],
+      "title": "Design user interface layout",
+      "description": "Develop activity_main.xml layout to display a clean centered greetings card.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Create SQLite Database Helper",
-      "description": "Construct DatabaseHelper.java to manage database creation, schema design, record insertion, query filters, update transactions, and monthly analytical queries.",
-      "files": [
-        "app/src/main/java/com/expensetrackerpro/app/DatabaseHelper.java"
-      ],
+      "title": "Implement main screen activity logic",
+      "description": "Implement MainActivity.java extending pure android.app.Activity class to present the layout.",
+      "files": ["app/src/main/java/com/helloworldsimple/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Design List Row Templates",
-      "description": "Design modular XML files for displaying individual transactional records and dynamic monthly analytical breakdown indicators.",
-      "files": [
-        "app/src/main/res/layout/item_transaction.xml",
-        "app/src/main/res/layout/item_report_category.xml"
-      ],
+      "title": "Construct AndroidManifest.xml manifest",
+      "description": "Declare the package configuration, define app icons, launcher intent-filters, and specify Material Light theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Construct Dashboard Layout",
-      "description": "Engineer a gorgeous responsive master interface (activity_main.xml) supporting beautiful headers, a sliding transaction history panel, input forms, and reports.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Program Dynamic View Controller Logic",
-      "description": "Code MainActivity.java with robust business logic, form field verification, tab switches, dynamic list generation, and monthly breakdown calculation.",
-      "files": [
-        "app/src/main/java/com/expensetrackerpro/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Verification & Code Sanitization",
-      "description": "Review codebase structure to ensure compatibility with strict Java 8 features (excluding lambda syntax) and verify layout boundaries.",
+      "title": "Validate resources and directory mappings",
+      "description": "Perform code quality assurance to verify package paths and Java compatibility compliance.",
       "files": [],
       "status": "pending"
     },
     {
-      "step": 12,
-      "title": "Building Expense Tracker Pro",
-      "description": "Execute compilation and package verification with debug signature configuration.",
+      "step": 10,
+      "title": "Building Hello World Simple",
+      "description": "Compile the complete codebase utilizing Gradle 8.5 assemble commands.",
       "files": [],
       "status": "pending"
     }
