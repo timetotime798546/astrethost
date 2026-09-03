@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.categorizednotes.app"
+    namespace "com.moderncalculator.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.categorizednotes.app"
+        applicationId "com.moderncalculator.app"
 
         minSdkVersion 21
 

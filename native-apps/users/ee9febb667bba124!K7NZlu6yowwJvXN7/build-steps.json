@@ -2,88 +2,78 @@
   "steps": [
     {
       "step": 1,
-      "title": "Setup App Metadata",
-      "description": "Configure the core app identification metadata including package name and application name.",
+      "title": "Initialize App Configuration",
+      "description": "Establish metadata package name, application name, and define the base structure of Modern Calculator.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Environment",
-      "description": "Define build.gradle settings with targets matching Android SDK 34, Java 17 toolchain, and AGP 8.3.2 requirements.",
+      "title": "Configure Gradle Environment",
+      "description": "Configure the root gradle configuration aligning with Java 17 and AGP 8.3.2 standards without external dependencies.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Define Application Manifest",
-      "description": "Establish the AndroidManifest.xml setup including launching activity, permissions, and app themes targeting Android SDK 34.",
+      "title": "Set Up Android Manifest",
+      "description": "Create AndroidManifest.xml referencing standard Material themes, proper permissions, correct namespaces, and launcher references.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create SQLite Helper Database Layer",
-      "description": "Write the database helper Java class utilizing SQLiteOpenHelper to manage structured tables for Notes and Categories.",
-      "files": ["app/src/main/java/com/categorizednotes/app/DatabaseHelper.java"],
+      "title": "Create Number Button Visuals",
+      "description": "Design an XML state list selector drawable with appropriate corners and shadows for standard numeric inputs.",
+      "files": ["app/src/main/res/drawable/btn_number.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement Note and Category Data Models",
-      "description": "Define pure Java object representations for Note elements and Categories to facilitate clean structured data transfer.",
-      "files": [
-        "app/src/main/java/com/categorizednotes/app/Note.java",
-        "app/src/main/java/com/categorizednotes/app/Category.java"
-      ],
+      "title": "Create Operator Button Visuals",
+      "description": "Design dynamic color active/inactive selector backgrounds for operation buttons (+, -, *, /).",
+      "files": ["app/src/main/res/drawable/btn_operator.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Design List Item UI Layout",
-      "description": "Construct the XML layout for single note list entries displaying titles, snippets, dates, and category tags.",
-      "files": ["app/src/main/res/layout/note_list_item.xml"],
+      "title": "Create Action/Function Button Visuals",
+      "description": "Formulate high contrast button backgrounds for system-level actions like clear, backspace, and percentage.",
+      "files": ["app/src/main/res/drawable/btn_function.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Design Main Dashboard Layout",
-      "description": "Implement main interface containing note lists, filtering dropdowns, search query bars, and actions.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Create Equals Button Visuals",
+      "description": "Assemble specialized theme-accented action drawables highlighting the finish key.",
+      "files": ["app/src/main/res/drawable/btn_equals.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Design Note Editor Layout",
-      "description": "Build layout XML for inserting or updating records, including fields for title, category selections, and body content.",
-      "files": ["app/src/main/res/layout/activity_note_editor.xml"],
+      "title": "Formulate Layout & Typography",
+      "description": "Develop activity_main.xml layout aligning a premium digital canvas screen and custom formatted rows.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement MainActivity Logic",
-      "description": "Write the controller logic of MainActivity to fetch, search, category-filter, and display structured note cards dynamically.",
-      "files": ["app/src/main/java/com/categorizednotes/app/MainActivity.java"],
+      "title": "Construct Calculator Logic Core",
+      "description": "Implement MainActivity.java integrating math processors, state management, history outputs, floating point handlers, and click bindings.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement NoteEditorActivity Logic",
-      "description": "Implement standard activity mechanics to handle notes generation, updating database instances, category creation, and safe deletion flows.",
-      "files": ["app/src/main/java/com/categorizednotes/app/NoteEditorActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Verify Code Cleanliness and UI Polish",
-      "description": "Conduct dynamic checks on layouts, lists, search, filtering, and Java 8 anonymous inner compatibility.",
+      "title": "Review Manifest and Theme Mappings",
+      "description": "Validate target namespaces, theme structures, custom shapes, and verify standard Java 8 syntax controls.",
       "files": [],
       "status": "pending"
     },
     {
-      "step": 12,
-      "title": "Building Categorized Notes",
-      "description": "Trigger local gradle compiler wrapper execution to generate final build binaries.",
+      "step": 11,
+      "title": "Building Modern Calculator",
+      "description": "Assemble production-grade application and compile using local workspace runner.",
       "files": [],
       "status": "pending"
     }
