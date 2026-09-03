@@ -1,0 +1,109 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Application Metadata",
+      "description": "Establish the application name 'Space Run 3D' and define the package package identifier 'com.spacerun3d.app'.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Build Configuration",
+      "description": "Set up app/build.gradle with Android SDK 34, compile versions, namespace variables, and ensure compatible native Java 17 configuration.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Android Manifest",
+      "description": "Implement AndroidManifest.xml declaring GLES 2.0 requirements, full-screen orientation, and proper application icon setups.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Cyberpunk Neon Button XML Style",
+      "description": "Create button style drawables using standard XML shape definitions for neon-cyan game controllers.",
+      "files": ["app/src/main/res/drawable/btn_cyan.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Cyberpunk Danger Button XML Style",
+      "description": "Create button style drawables using standard XML shape definitions for neon-red warning actions and restarts.",
+      "files": ["app/src/main/res/drawable/btn_danger.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Main XML Layout HUD",
+      "description": "Implement a full layout displaying the GLSurfaceView with a transparent absolute layout overlay displaying health shields, scores, left/right direction keys, and an overlay game over state.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Construct Native OpenGL Shaders",
+      "description": "Code custom Vertex and Fragment Shaders supporting perspective transformations and realistic 3D vertex position-based gradient shading.",
+      "files": ["app/src/main/java/com/spacerun3d/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build standard 3D Cube geometry class",
+      "description": "Construct standard 3D cube model specifying vertices, drawing indices list, and dynamic custom uniform-tint rendering.",
+      "files": ["app/src/main/java/com/spacerun3d/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Build 3D Floor perspective grid class",
+      "description": "Construct large 3D perspective floor/road extending deep into the virtual scene to simulate high-speed running rails.",
+      "files": ["app/src/main/java/com/spacerun3d/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Develop 3D Obstacle Spawning and Updates",
+      "description": "Program random coordinate obstacle generator logic, advancing obstacle Z coordinates towards player views on each frame update.",
+      "files": ["app/src/main/java/com/spacerun3d/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Real-time 3D Collision Detection",
+      "description": "Formulate 3D AABB bounding-box check checking relative spatial overlapping distances on X and Z axes between player coordinates and obstacles.",
+      "files": ["app/src/main/java/com/spacerun3d/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Infinite Road Lane Speed Markers",
+      "description": "Implement multiple secondary moving 3D structures running backwards over the floor to enforce visual illusions of super speed velocity.",
+      "files": ["app/src/main/java/com/spacerun3d/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Connect Touch Handlers to Game Mechanics",
+      "description": "Build high-refresh continuous touch-listener states driving player cube horizontal velocities smoothly on left/right inputs.",
+      "files": ["app/src/main/java/com/spacerun3d/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement Game State Transition Machine",
+      "description": "Set up start, playing, and reset status configurations connected via standard UI triggers, cleanly driving screen overlays.",
+      "files": ["app/src/main/java/com/spacerun3d/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Space Run 3D",
+      "description": "Execute final build verification using Gradle assembling process to ensure correct rendering performance.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
