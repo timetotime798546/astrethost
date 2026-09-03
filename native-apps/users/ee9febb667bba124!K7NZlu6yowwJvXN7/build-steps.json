@@ -1,0 +1,93 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze User Request",
+      "description": "Examine loader overlay and Floating Action Button visibility constraints to resolve FAB overlapping the startup screen.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/java/com/notesmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Locate Main Layout XML File",
+      "description": "Inspect and prepare the main layout file containing the floating plus button and the loading screen overlay.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Update Floating Action Button Initial Visibility",
+      "description": "Configure the android:visibility attribute of the Add Note Button (btn_add_note) to 'gone' in activity_main.xml.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Trace Loader Lifecycle in MainActivity",
+      "description": "Ensure the startup loader sequence correctly manages UI view properties in MainActivity.java.",
+      "files": [
+        "app/src/main/java/com/notesmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Dynamic Visibility Toggle in Loader Handler",
+      "description": "Add explicit logic to set btn_add_note to GONE inside onCreate and to VISIBLE inside the transition animator complete callbacks.",
+      "files": [
+        "app/src/main/java/com/notesmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify Fade-out Animation Callback",
+      "description": "Confirm the AnimatorListenerAdapter accurately makes the Add Note Button visible once the loader overlay completely fades out.",
+      "files": [
+        "app/src/main/java/com/notesmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Validate Sound Synthesizer with New View States",
+      "description": "Ensure AudioTrack dynamic pitch synthesizers function perfectly alongside the revised loader flow state machine.",
+      "files": [
+        "app/src/main/java/com/notesmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Test Search and Spinner Interactivity with FAB Hidden State",
+      "description": "Ensure user experience interactions behave smoothly while the Add Note Button remains hidden.",
+      "files": [
+        "app/src/main/java/com/notesmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Metadata Integration Consistency",
+      "description": "Validate package structure, app names, and metadata match perfectly with the user specifications.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Notes Manager",
+      "description": "Initiate final compilation and deployment validation check.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
