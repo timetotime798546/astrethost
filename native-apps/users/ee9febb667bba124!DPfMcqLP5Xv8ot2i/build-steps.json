@@ -2,95 +2,68 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize App Metadata",
-      "description": "Create the root metadata configuration with unique application identifiers and user-friendly naming.",
+      "title": "Configure App Metadata",
+      "description": "Establish basic configurations including app name and unique package namespace properties.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Settings",
-      "description": "Establish standard Android build variables, targeting SDK 34 and optimizing compilers for Java 8.",
+      "title": "Configure build.gradle and Environment settings",
+      "description": "Establish pure Android SDK parameters, target SDK level 34, and strict Java 8 compatibility configurations.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Design Round Card Backgrounds",
-      "description": "Create rounded white card shapes with elegant subtle borders to structure the dashboards cleanly.",
-      "files": ["app/src/main/res/drawable/card_bg.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Design Gradient Balance Display",
-      "description": "Develop visual shape with rich teal/indigo gradient to host total balance, income, and expense summaries.",
-      "files": ["app/src/main/res/drawable/bg_balance.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Design Button Backgrounds",
-      "description": "Configure pressable interactive button indicators utilizing custom shapes and deep accent colorings.",
-      "files": ["app/src/main/res/drawable/button_bg.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Design Tab Toggle Visuals",
-      "description": "Draft highlight drawables for selected and idle navigation elements in the top navigation panel.",
-      "files": [
-        "app/src/main/res/drawable/tab_selected_bg.xml",
-        "app/src/main/res/drawable/tab_unselected_bg.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Design Input Field Frames",
-      "description": "Construct clean, thin-bordered light wrappers to host text fields for dynamic transaction entry forms.",
-      "files": ["app/src/main/res/drawable/input_bg.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Construct Dashboard & Form Screens",
-      "description": "Develop compound UI architecture displaying balance summaries, multi-view frame switchers, and monthly dynamic tables.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Declare App Manifest Settings",
-      "description": "Register standard Activity, launch intent-filters, custom application settings, and map application standard orientation.",
+      "title": "Setup Manifest Declarations",
+      "description": "Create AndroidManifest.xml, declare standard application nodes, MainActivity, permissions, and native alarm receiver.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
-      "step": 10,
-      "title": "Define Core Transaction Classes",
-      "description": "Draft primary object properties to safely model financial income and expense entities.",
-      "files": ["app/src/main/java/com/expensetracker/app/Transaction.java"],
+      "step": 4,
+      "title": "Design Card and Component Styles",
+      "description": "Write custom drawable XML shapes for background cards, dynamic borders, circular badges, and round button outlines without using AppCompat libraries.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/button_bg.xml",
+        "app/src/main/res/drawable/badge_bg.xml"
+      ],
       "status": "pending"
     },
     {
-      "step": 11,
-      "title": "Construct SQLite Database Helper",
-      "description": "Establish structured database connections, schema updates, auto-migrations, and custom category-based metric queries.",
-      "files": ["app/src/main/java/com/expensetracker/app/DatabaseHelper.java"],
+      "step": 5,
+      "title": "Create Database Schema for Data Storage",
+      "description": "Develop standard SQLiteDatabase wrapper to model and persist Subjects, study Tasks, and future Schedule Reminders.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"],
       "status": "pending"
     },
     {
-      "step": 12,
-      "title": "Build Main Controller & Dynamic Charts",
-      "description": "Write controller logic processing tabs, listing transactions, drawing customized programmatic breakdown charts, and parsing dialog alerts.",
-      "files": ["app/src/main/java/com/expensetracker/app/MainActivity.java"],
+      "step": 6,
+      "title": "Write local Alarm Notifications Broadcaster",
+      "description": "Construct custom BroadcastReceiver with notification channels support to trigger instant native task notifications.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/AlarmReceiver.java"],
       "status": "pending"
     },
     {
-      "step": 13,
-      "title": "Building Expense Tracker",
-      "description": "Compile native project, bind layout resources, pack resources, and prepare high-performance build outputs.",
+      "step": 7,
+      "title": "Design App Main Layout XML",
+      "description": "Build cohesive multi-view architecture in activity_main.xml featuring modern header, content frame switcher, custom dashboard layout, and tab buttons.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Develop Main Planner Application Controller",
+      "description": "Write Java 8 MainActivity containing logic to register click handlers, custom list-adapters, database transactions, dialog handlers, and custom visual graphics.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Perform Clean Build of Student Study Planner",
+      "description": "Process gradle packaging tasks to assemble fully functional debug APK with dynamic stats reporting and notification engines.",
       "files": [],
       "status": "pending"
     }
