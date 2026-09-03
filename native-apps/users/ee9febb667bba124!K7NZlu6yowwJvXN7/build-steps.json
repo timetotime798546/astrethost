@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Specifications",
+      "description": "Establish core project specifications with target SDK 34, min SDK 21, and namespace 'com.expensetrackerpro.app'.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Environment",
+      "description": "Configure build.gradle utilizing native Java 8 compilation settings and zero third-party dependencies.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Application Manifest",
+      "description": "Create AndroidManifest.xml referencing the application theme, launcher activity, and specifying proper package namespace structures.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Transaction Model",
+      "description": "Design a clean Java Model representing a transaction, featuring ID, Amount, Type (Income vs Expense), Category, Description, and Date.",
+      "files": [
+        "app/src/main/java/com/expensetrackerpro/app/Transaction.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Develop SQLite Database Helper",
+      "description": "Program a high-performance DatabaseHelper targeting native SQLite implementation to support inserts, deletes, aggregates, and category reporting.",
+      "files": [
+        "app/src/main/java/com/expensetrackerpro/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Main Activity Layout",
+      "description": "Design main application layout showcasing simple bottom navigation bars, dynamic page views, dashboard indicators, form elements, and report summaries.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build Transaction Item Layout",
+      "description": "Design layout xml for representing singular financial records inside the list adapter.",
+      "files": [
+        "app/src/main/res/layout/item_transaction.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build Category Report Row Layout",
+      "description": "Design layout xml for displaying categories alongside calculated expense aggregates inside reports view.",
+      "files": [
+        "app/src/main/res/layout/item_report.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Program Core App Logic",
+      "description": "Write MainActivity.java implementation encompassing UI navigation state machines, financial aggregation computations, and input form validations.",
+      "files": [
+        "app/src/main/java/com/expensetrackerpro/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Expense Tracker Pro",
+      "description": "Initiate compilation using Native Gradle commands and package production-ready APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
