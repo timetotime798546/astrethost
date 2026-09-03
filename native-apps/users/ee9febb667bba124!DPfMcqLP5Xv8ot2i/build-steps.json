@@ -1,0 +1,98 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize App Metadata",
+      "description": "Create the root metadata configuration with unique application identifiers and user-friendly naming.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Settings",
+      "description": "Establish standard Android build variables, targeting SDK 34 and optimizing compilers for Java 8.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Design Round Card Backgrounds",
+      "description": "Create rounded white card shapes with elegant subtle borders to structure the dashboards cleanly.",
+      "files": ["app/src/main/res/drawable/card_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Gradient Balance Display",
+      "description": "Develop visual shape with rich teal/indigo gradient to host total balance, income, and expense summaries.",
+      "files": ["app/src/main/res/drawable/bg_balance.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Button Backgrounds",
+      "description": "Configure pressable interactive button indicators utilizing custom shapes and deep accent colorings.",
+      "files": ["app/src/main/res/drawable/button_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Tab Toggle Visuals",
+      "description": "Draft highlight drawables for selected and idle navigation elements in the top navigation panel.",
+      "files": [
+        "app/src/main/res/drawable/tab_selected_bg.xml",
+        "app/src/main/res/drawable/tab_unselected_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Input Field Frames",
+      "description": "Construct clean, thin-bordered light wrappers to host text fields for dynamic transaction entry forms.",
+      "files": ["app/src/main/res/drawable/input_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Construct Dashboard & Form Screens",
+      "description": "Develop compound UI architecture displaying balance summaries, multi-view frame switchers, and monthly dynamic tables.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Declare App Manifest Settings",
+      "description": "Register standard Activity, launch intent-filters, custom application settings, and map application standard orientation.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Define Core Transaction Classes",
+      "description": "Draft primary object properties to safely model financial income and expense entities.",
+      "files": ["app/src/main/java/com/expensetracker/app/Transaction.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Construct SQLite Database Helper",
+      "description": "Establish structured database connections, schema updates, auto-migrations, and custom category-based metric queries.",
+      "files": ["app/src/main/java/com/expensetracker/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Build Main Controller & Dynamic Charts",
+      "description": "Write controller logic processing tabs, listing transactions, drawing customized programmatic breakdown charts, and parsing dialog alerts.",
+      "files": ["app/src/main/java/com/expensetracker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Expense Tracker",
+      "description": "Compile native project, bind layout resources, pack resources, and prepare high-performance build outputs.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
