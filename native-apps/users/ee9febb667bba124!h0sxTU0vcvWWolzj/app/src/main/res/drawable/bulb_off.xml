@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Soft rim shadow -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#000000"/>
+        </shape>
+    </item>
+    <!-- Metal Bezel -->
+    <item android:top="2dp" android:left="2dp" android:right="2dp" android:bottom="4dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="linear"
+                android:angle="90"
+                android:startColor="#2c2e32"
+                android:endColor="#5d636b"/>
+            <stroke
+                android:width="1dp"
+                android:color="#7d848f"/>
+        </shape>
+    </item>
+    <!-- Dull Glass Dome -->
+    <item android:top="6dp" android:left="6dp" android:right="6dp" android:bottom="8dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="40dp"
+                android:centerX="0.5"
+                android:centerY="0.4"
+                android:startColor="#4f5256"
+                android:endColor="#1d1e20"/>
+            <stroke
+                android:width="1dp"
+                android:color="#101112"/>
+        </shape>
+    </item>
+</layer-list>

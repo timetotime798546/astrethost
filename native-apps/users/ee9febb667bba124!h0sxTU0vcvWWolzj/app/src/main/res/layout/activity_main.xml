@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_brushed"
+    android:padding="20dp">
+
+    <!-- Header Panel -->
+    <LinearLayout
+        android:id="@+id/headerPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3D TACTILE FLASHLIGHT"
+            android:textColor="@color/text_bright"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <TextView
+            android:id="@+id/textStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="POWER: OFF"
+            android:textColor="@color/text_dim"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05" />
+    </LinearLayout>
+
+    <!-- Glowing Bulb Module -->
+    <RelativeLayout
+        android:id="@+id/bulbContainer"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/headerPanel"
+        android:layout_marginTop="40dp">
+
+        <ImageView
+            android:id="@+id/bulbStateView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bulb_off"
+            android:scaleType="fitCenter" />
+    </RelativeLayout>
+
+    <!-- Center Control Socket Switch Frame -->
+    <RelativeLayout
+        android:id="@+id/switchLayout"
+        android:layout_width="150dp"
+        android:layout_height="220dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/bulbContainer"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/switch_plate"
+        android:padding="20dp">
+
+        <ToggleButton
+            android:id="@+id/btnToggle3d"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_selector"
+            android:textOff=""
+            android:textOn=""
+            android:checked="false" />
+    </RelativeLayout>
+
+    <!-- Footer Strobe Module Panel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/strobe_panel"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/textStrobeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STROBE SPEED: OFF"
+            android:textColor="@color/text_bright"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <SeekBar
+            android:id="@+id/strobeSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:max="10"
+            android:progress="0"
+            android:thumb="@drawable/custom_thumb"
+            android:progressDrawable="@drawable/custom_track" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="SWIPE TO INCREASE FREQUENCY"
+            android:textColor="@color/text_dim"
+            android:textSize="9sp" />
+    </LinearLayout>
+</RelativeLayout>

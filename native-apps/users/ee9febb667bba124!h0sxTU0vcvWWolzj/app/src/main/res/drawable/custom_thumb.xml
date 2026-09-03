@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Knurled Knob Ring -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#000000"/>
+        </shape>
+    </item>
+    <!-- Inner Metallic Cap -->
+    <item android:top="2dp" android:left="2dp" android:right="2dp" android:bottom="2dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="linear"
+                android:angle="45"
+                android:startColor="#535961"
+                android:endColor="#e2e6eb"/>
+            <stroke
+                android:width="1.5dp"
+                android:color="#ffffff"/>
+        </shape>
+    </item>
+    <!-- Indicator center notch -->
+    <item android:top="10dp" android:left="10dp" android:right="10dp" android:bottom="10dp">
+        <shape android:shape="oval">
+            <solid android:color="#ff4d4d"/>
+        </shape>
+    </item>
+</layer-list>
