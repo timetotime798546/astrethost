@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -368,14 +369,14 @@ public class MainActivity extends Activity {
 
                     TextView textName = new TextView(this);
                     textName.setText(subName);
-                    textName.setTextSize(14sp);
+                    textName.setTextSize(14);
                     textName.setTextColor(Color.parseColor("#333333"));
                     textName.setTextStyle(android.graphics.Typeface.BOLD);
                     textName.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
 
                     TextView textStatus = new TextView(this);
                     textStatus.setText(sCompleted + "/" + sTotal + " Done");
-                    textStatus.setTextSize(12sp);
+                    textStatus.setTextSize(12);
                     textStatus.setTextColor(Color.parseColor("#666666"));
 
                     rowHeader.addView(badge);
@@ -418,7 +419,7 @@ public class MainActivity extends Activity {
                     item.setText("• " + titleStr + " (" + formattedDate + ")");
                     item.setPadding(0, 4, 0, 4);
                     item.setTextColor(Color.parseColor("#444444"));
-                    item.setTextSize(13sp);
+                    item.setTextSize(13);
 
                     layoutDashboardReminders.addView(item);
                     count++;
@@ -948,12 +949,12 @@ public class MainActivity extends Activity {
                 info.setLayoutParams(lp);
 
                 TextView tTitle = new TextView(context);
-                tTitle.setTextSize(15sp);
+                tTitle.setTextSize(15);
                 tTitle.setId(View.generateViewId());
                 tTitle.setTag("title");
 
                 TextView tSub = new TextView(context);
-                tSub.setTextSize(11sp);
+                tSub.setTextSize(11);
                 tSub.setId(View.generateViewId());
                 tSub.setTag("subtitle");
 

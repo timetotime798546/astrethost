@@ -2,29 +2,57 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure App Metadata",
-      "description": "Establish basic configurations including app name and unique package namespace properties.",
-      "files": ["app-meta.json"],
+      "title": "Analyze compilation error roots",
+      "description": "Analyze the ASTRETHOST build log to isolate compilation errors in MainActivity.java regarding invalid 'sp' syntax.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure build.gradle and Environment settings",
-      "description": "Establish pure Android SDK parameters, target SDK level 34, and strict Java 8 compatibility configurations.",
-      "files": ["app/build.gradle"],
+      "title": "Verify package structure and metadata",
+      "description": "Ensure app-meta.json and build.gradle configurations are aligned with the target SDK 34 and namespace.",
+      "files": ["app-meta.json", "app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Setup Manifest Declarations",
-      "description": "Create AndroidManifest.xml, declare standard application nodes, MainActivity, permissions, and native alarm receiver.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Add missing ScrollView import",
+      "description": "Add the missing android.widget.ScrollView import to MainActivity.java to prevent downstream compilation issues.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design Card and Component Styles",
-      "description": "Write custom drawable XML shapes for background cards, dynamic borders, circular badges, and round button outlines without using AppCompat libraries.",
+      "title": "Fix programmatic text sizes in Dashboard UI",
+      "description": "Change textName.setTextSize(14sp) and textStatus.setTextSize(12sp) to use valid float values in MainActivity.java.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Fix programmatic text sizes in Reminder view",
+      "description": "Change item.setTextSize(13sp) to use valid integer/float value in MainActivity.java.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Fix programmatic text sizes in TaskAdapter view",
+      "description": "Change tTitle.setTextSize(15sp) and tSub.setTextSize(11sp) to use valid float values in MainActivity.java.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Verify SQLite Database helper integration",
+      "description": "Validate that DatabaseHelper.java compiles successfully with standard Android SDK classes.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify custom drawables integration",
+      "description": "Confirm that layout styles and shapes function correctly in portrait mode orientation.",
       "files": [
         "app/src/main/res/drawable/card_bg.xml",
         "app/src/main/res/drawable/button_bg.xml",
@@ -33,37 +61,16 @@
       "status": "pending"
     },
     {
-      "step": 5,
-      "title": "Create Database Schema for Data Storage",
-      "description": "Develop standard SQLiteDatabase wrapper to model and persist Subjects, study Tasks, and future Schedule Reminders.",
-      "files": ["app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Write local Alarm Notifications Broadcaster",
-      "description": "Construct custom BroadcastReceiver with notification channels support to trigger instant native task notifications.",
-      "files": ["app/src/main/java/com/studentstudyplanner/app/AlarmReceiver.java"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Design App Main Layout XML",
-      "description": "Build cohesive multi-view architecture in activity_main.xml featuring modern header, content frame switcher, custom dashboard layout, and tab buttons.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Develop Main Planner Application Controller",
-      "description": "Write Java 8 MainActivity containing logic to register click handlers, custom list-adapters, database transactions, dialog handlers, and custom visual graphics.",
-      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
       "step": 9,
-      "title": "Perform Clean Build of Student Study Planner",
-      "description": "Process gradle packaging tasks to assemble fully functional debug APK with dynamic stats reporting and notification engines.",
+      "title": "Verify Android Manifest declarations",
+      "description": "Confirm that the package namespace matches the target settings.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Student Study Planner",
+      "description": "Run the gradle assembler command to package the clean and optimized APK file.",
       "files": [],
       "status": "pending"
     }
