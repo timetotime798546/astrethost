@@ -337,9 +337,7 @@
         android:background="#FFFFFF"
         android:orientation="horizontal"
         android:elevation="12dp"
-        android:weightSum="4"
-        android:strokeWidth="1dp"
-        android:strokeColor="#CFD8DC">
+        android:weightSum="4">
 
         <LinearLayout
             android:id="@+id/tabDashboard"
