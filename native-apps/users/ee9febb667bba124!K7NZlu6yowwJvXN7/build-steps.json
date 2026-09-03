@@ -1,0 +1,39 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Clean Dependencies in Gradle File",
+      "description": "Remove unnecessary nanohttpd dependency from app/build.gradle to comply with offline-only built-in app specifications.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create Memory Keys Resource Drawable",
+      "description": "Establish a dedicated design selector configuration for the MC, MR, M+, and M- premium button functions.",
+      "files": ["app/src/main/res/drawable/btn_memory.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Enhance Main Layout Interface",
+      "description": "Implement a high-fidelity dark UI, integrate an expandable Sliding calculation history log, custom branding, memory action row, and standardized layouts.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Upgrade Logic Core for Memory and History Support",
+      "description": "Update MainActivity.java to handle active calculation history, memory register transactions (MC, MR, M+, M-), tactile tap haptic indicators, and slide panels.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Building Modern Calculator",
+      "description": "Compile the modified layout and logic modules to verify complete assembly compatibility.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
