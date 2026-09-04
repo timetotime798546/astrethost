@@ -1,0 +1,112 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Initialization and Meta Setup",
+      "description": "Initialize app-meta.json and define the package name com.piccraftphotoeditor.app and application name PicCraft Photo Editor.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Gradle Build Scripts",
+      "description": "Configure app/build.gradle and root build.gradle for Gradle 8.5, AGP 8.3.2, Java 17, compiling and targeting SDK 34.",
+      "files": [
+        "app/build.gradle",
+        "build.gradle",
+        "settings.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Android Manifest",
+      "description": "Establish AndroidManifest.xml with suitable hardware acceleration, file access permissions, and single-screen orientation lock.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Main Layout Interface",
+      "description": "Create activity_main.xml offering a clean dark-slate theme layout with a drawing board workspace, visual filter horizontal scroll grids, and adjustment control panels.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Custom Interactive Drawing Workspace View",
+      "description": "Build the core Custom PhotoEditorView inside MainActivity to support canvas rendering, freehand drawing with customizable brushes, scaling, text rendering, and image matrix math.",
+      "files": [
+        "app/src/main/java/com/piccraftphotoeditor/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Integrate Media Loading and Scaling Operations",
+      "description": "Develop safe Android Intent handlers to read images from system gallery and downscale large high-resolution camera images to fit workspace memory.",
+      "files": [
+        "app/src/main/java/com/piccraftphotoeditor/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop Pixel-Level Photo Filters",
+      "description": "Program fast hardware-accelerated filters including Grayscale, Sepia, Invert, Vignette, Warm, and Cold styles using ColorMatrix transformations.",
+      "files": [
+        "app/src/main/java/com/piccraftphotoeditor/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Precision Image Adjustment Logic",
+      "description": "Configure real-time seekers for brightness, contrast, and color saturation scaling directly applied onto the photo canvas rendering pipeline.",
+      "files": [
+        "app/src/main/java/com/piccraftphotoeditor/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop Interactive Text and Doodle Tools",
+      "description": "Add multi-color support, brush size customization, and screen coordinates touch tracking to let users draw and place movable texts anywhere over photos.",
+      "files": [
+        "app/src/main/java/com/piccraftphotoeditor/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Add Transform Tools (Rotate, Flip, Crop)",
+      "description": "Incorporate image manipulation algorithms to rotate 90 degrees, flip vertically/horizontally, and crop current selections without losing clarity.",
+      "files": [
+        "app/src/main/java/com/piccraftphotoeditor/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Integrate MediaStore Storage Exporter",
+      "description": "Construct safe exporter routines that combine all edits (filters, drawings, adjustments) and save high-fidelity JPEG output directly into public pictures folders.",
+      "files": [
+        "app/src/main/java/com/piccraftphotoeditor/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building PicCraft Photo Editor",
+      "description": "Assemble and compile the debug APK configuration to verify proper build output, memory usage optimization, and UI performance.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
