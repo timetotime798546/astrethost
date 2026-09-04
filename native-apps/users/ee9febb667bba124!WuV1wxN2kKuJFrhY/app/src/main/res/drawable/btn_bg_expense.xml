@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bottom solid 3D shadow segment -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#991B1B"/>
+            <corners android:radius="12dp"/>
+        </shape>
+    </item>
+    <!-- High contrast glossy gradient top -->
+    <item android:bottom="5dp" android:left="1dp" android:right="1dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#EF4444"
+                android:endColor="#B91C1C"
+                android:angle="90"/>
+            <corners android:radius="12dp"/>
+            <stroke android:width="1dp" android:color="#FCA5A5"/>
+        </shape>
+    </item>
+</layer-list>
