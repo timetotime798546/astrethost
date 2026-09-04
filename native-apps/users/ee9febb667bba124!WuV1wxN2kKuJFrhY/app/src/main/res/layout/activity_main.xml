@@ -159,8 +159,7 @@
                     android:orientation="horizontal"
                     android:gravity="center"
                     android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:overflow="hidden">
+                    android:paddingRight="16dp">
 
                     <ProgressBar
                         android:id="@+id/prgRefresh"
@@ -430,9 +429,7 @@
             android:orientation="horizontal"
             android:background="#FFFFFF"
             android:gravity="center_vertical"
-            android:elevation="12dp"
-            android:strokeWidth="1dp"
-            android:strokeColor="#E2E8F0">
+            android:elevation="12dp">
 
             <!-- Home Tab block -->
             <LinearLayout

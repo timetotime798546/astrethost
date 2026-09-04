@@ -2,89 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define App Metadata",
-      "description": "Establish base app package definitions and metadata for Expense Tracker Pro.",
-      "files": ["app-meta.json"],
+      "title": "Inspect Error Log",
+      "description": "Analyze the AAPT resource linking errors in the build log to find incompatible attributes.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure 3D Metallic Header Gradient Background",
-      "description": "Create header_bg.xml drawable with metallic slate gradients and deep shadow layers for high fidelity 3D style.",
-      "files": ["app/src/main/res/drawable/header_bg.xml"],
+      "title": "Identify Invalid Overflow Attribute",
+      "description": "Locate line 163 of activity_main.xml containing the unsupported 'android:overflow' attribute.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Establish Raised 3D Card Drawables",
-      "description": "Create card_bg.xml featuring embossed light surfaces and solid bottom shadow layers to simulate 3D neumorphic sheets.",
-      "files": ["app/src/main/res/drawable/card_bg.xml"],
+      "title": "Identify Incompatible Stroke Attributes",
+      "description": "Locate line 435 of activity_main.xml containing invalid stroke attributes on standard LinearLayout layout.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create Dynamic 3D Gradients for Action Buttons",
-      "description": "Generate button backgrounds for Income, Expense and Neutral states using realistic double layered gradients with glowing stroke borders.",
-      "files": [
-        "app/src/main/res/drawable/btn_bg_expense.xml",
-        "app/src/main/res/drawable/btn_bg_income.xml",
-        "app/src/main/res/drawable/btn_bg_neutral.xml"
-      ],
+      "title": "Remove Overflow Attribute",
+      "description": "Strip the 'android:overflow' attribute from the pull-to-refresh header LinearLayout in activity_main.xml.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Design App-Open Loading Screen Animation Shape",
-      "description": "Define loader_circle.xml sweep gradient ring to act as a custom high-quality rotating dynamic spinner on app startup.",
-      "files": ["app/src/main/res/drawable/loader_circle.xml"],
+      "title": "Remove Incompatible Stroke Attributes",
+      "description": "Remove invalid 'android:strokeWidth' and 'android:strokeColor' attributes from the bottom tab bar LinearLayout in activity_main.xml.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Formulate Elegant Main Layout with Embedded Loader and Refresh Panel",
-      "description": "Update activity_main.xml layout with premium 3D cards, customized navigation items, custom pull-to-refresh header block, and absolute full-screen loader overlay panel.",
+      "title": "Validate activity_main.xml Layout File",
+      "description": "Verify the corrected XML layout syntax against standard Android SDK compilation schemas.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Enhance Main Activity Class with App-Open Timer and Progress Tracking",
-      "description": "Wire the splash loader overlay in MainActivity.java to show an elegant animated loading progress from 0% to 100% before fading out.",
-      "files": ["app/src/main/java/com/expensetrackerpro/app/MainActivity.java"],
+      "title": "Retain Application Java Controllers",
+      "description": "Retain existing high-fidelity Java controllers such as MainActivity, ChartView, and DatabaseHelper.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Build Custom Interactive Pull-to-Refresh Gesture Handler",
-      "description": "Track native touch events on the Transaction ListView, allowing the user to pull down to stretch open the dynamic loading header with real-time text guidelines.",
-      "files": ["app/src/main/java/com/expensetrackerpro/app/MainActivity.java"],
+      "title": "Verify DB and Table Schemas",
+      "description": "Validate local SQLite database creation and sample data seed queries.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Integrate Programmatic ToneGenerator Sounds",
-      "description": "Employ Android's audio ToneGenerator to play custom synthesized acoustic pitch-up and pitch-down bleep alerts for drag triggers and complete refresh states.",
-      "files": ["app/src/main/java/com/expensetrackerpro/app/MainActivity.java"],
+      "title": "Verify AndroidManifest and Assets",
+      "description": "Validate app package, manifest launcher attributes, and system-default light Material theme configurations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Enhance Custom Chart Drawing with Float Shadows",
-      "description": "Upgrade ChartView.java custom paint settings to draw realistic soft drop-shadow layers on analytic pie slices, adding premium 3D depth.",
-      "files": ["app/src/main/java/com/expensetrackerpro/app/ChartView.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Verify Strict SDK & Java 8 Compatibility",
-      "description": "Review and compile codebase structure with standard Java 8 conventions without modern lambdas or external libraries.",
-      "files": ["app/src/main/java/com/expensetrackerpro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building Expense Tracker Pro",
-      "description": "Assemble debug package with clean compile options.",
+      "description": "Assemble debug package with clean and compatible resource configurations.",
       "files": [],
       "status": "pending"
     }
