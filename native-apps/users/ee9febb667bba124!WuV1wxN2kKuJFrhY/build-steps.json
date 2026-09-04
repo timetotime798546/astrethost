@@ -1,0 +1,111 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define App Metadata",
+      "description": "Create the app-meta.json file defining the app name and custom package identifier.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Environment",
+      "description": "Configure compile parameters targeting SDK 34 and Java 8 compatibility inside build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Android Manifest File",
+      "description": "Initialize manifest declaring permissions, primary launcher activity, and layout indicators using exact XML namespaces.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure Colors Asset Profile",
+      "description": "Design dynamic color palette defining modern shades for savings balances, transactions, and categories.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Declare App Visual Themes",
+      "description": "Establish basic Light Theme metrics to support uniform layouts across device versions without material design components.",
+      "files": ["app/src/main/res/values/styles.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Formulate Rounded Card Backgrounds",
+      "description": "Build XML shapes representing general cards, positive earnings containers, and negative cost widgets.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/card_income_bg.xml",
+        "app/src/main/res/drawable/card_expense_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Input State Drawables",
+      "description": "Generate drawable files representing custom buttons, active selector forms, and indicator structures.",
+      "files": [
+        "app/src/main/res/drawable/button_accent.xml",
+        "app/src/main/res/drawable/button_delete.xml",
+        "app/src/main/res/drawable/edittext_border.xml",
+        "app/src/main/res/drawable/tab_indicator.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Transaction Layout Template",
+      "description": "Develop visual structure for individual transaction ledger rows featuring color indicators and removal switches.",
+      "files": ["app/src/main/res/layout/item_transaction.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Category Analysis Component Layout",
+      "description": "Establish modular bar chart interface utilizing dynamically-tinted native ProgressBars to outline category spending ratios.",
+      "files": ["app/src/main/res/layout/item_category_report.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design Core Transaction Model Class",
+      "description": "Create a data model class encapsulating identifiers, transaction types, categorization strings, and cost parameters.",
+      "files": ["app/src/main/java/com/expensetracker/app/Transaction.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Establish Storage Database Wrapper",
+      "description": "Code the SQL database helper engine defining queries to insert, erase, and fetch transactions filtered by calendar month.",
+      "files": ["app/src/main/java/com/expensetracker/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Design Multi-Panel Main Layout",
+      "description": "Assemble primary framework with navigation components, summary meters, income registration panels, and reports panels.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Code Activity Controller Logic",
+      "description": "Implement MainActivity binder establishing tab events, verification triggers, database pipelines, and dynamic analytics updates.",
+      "files": ["app/src/main/java/com/expensetracker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Expense Tracker",
+      "description": "Execute gradle script to compile resources and execute packaging into a debuggable application package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
