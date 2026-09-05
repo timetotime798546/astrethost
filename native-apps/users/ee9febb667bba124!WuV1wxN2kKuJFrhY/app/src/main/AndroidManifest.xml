@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.studentstudyplanner.app">
+    package="com.htmltoapkconverterstudio.app">
 
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:label="Student Study Planner"
         android:icon="@drawable/icon"
         android:roundIcon="@drawable/icon"
-        android:theme="@android:style/Theme.Material.Light">
-        
+        android:label="HTML to APK Studio"
+        android:theme="@style/AppTheme"
+        android:hardwareAccelerated="true">
+
         <activity
             android:name=".MainActivity"
+            android:label="HTML to APK Studio"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,8 +24,5 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name=".ReminderReceiver"
-            android:exported="false" />
     </application>
 </manifest>

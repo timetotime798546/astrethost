@@ -2,92 +2,96 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define Project Identity and Architecture",
-      "description": "Establish basic package metadata under com.studentstudyplanner.app and define target Android SDK 34 specifications with full Java 8 compatibility.",
+      "title": "Define App Metadata",
+      "description": "Create app-meta.json containing the HTML to APK Converter Studio app name and package configuration.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Gradle Build Files",
-      "description": "Configure app/build.gradle using AGP 8.3.2 and Gradle 8.5. Define standard compilation properties and set Java source compatibility configurations.",
+      "title": "Configure Gradle Build System",
+      "description": "Create app/build.gradle setting target SDK to 34, minimum SDK to 21, and configuring Java 8 compatibility with Gradle 8.5 and AGP 8.3.2.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Establish Android Manifest",
-      "description": "Configure AndroidManifest.xml with standard namespace validation, declare the application launcher, and register local alarm notification receiver permissions.",
+      "title": "Create Android Manifest",
+      "description": "Set up AndroidManifest.xml with appropriate permissions (INTERNET) and MainActivity configuration using standard system icons.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create SQLite Database Schema",
-      "description": "Create DatabaseHelper.java to manage tables for study subjects, planner tasks, and academic reminders with robust relational foreign keys.",
-      "files": ["app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"],
+      "title": "Design Color Palette",
+      "description": "Define deep professional blues, slate grays, and glowing cyan accents in colors.xml for a clean development workspace aesthetic.",
+      "files": ["app/src/main/res/values/colors.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement Background Reminder System",
-      "description": "Create ReminderReceiver.java acting as a BroadcastReceiver to trigger system notifications for scheduled study times using AlarmManager.",
-      "files": ["app/src/main/java/com/studentstudyplanner/app/ReminderReceiver.java"],
+      "title": "Define Custom UI Styles",
+      "description": "Create styles.xml using native Material.Light theme configurations without androidx or external library dependencies.",
+      "files": ["app/src/main/res/values/styles.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Design Clean Multi-Tab Planner Dashboard Layout",
-      "description": "Create activity_main.xml layout structure containing simple system-level navigation tabs to switch between Dashboard, Subjects, Tasks, and Reminders views.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Design Drawable Backgrounds",
+      "description": "Create shape drawables for custom editor styling, button rounded surfaces, and dynamic tab selections.",
+      "files": [
+        "app/src/main/res/drawable/button_bg.xml",
+        "app/src/main/res/drawable/editor_bg.xml",
+        "app/src/main/res/drawable/tab_indicator.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Main Activity Navigation Framework",
-      "description": "Create the MainActivity.java layout switcher logic to alternate active views between different visual modes using traditional click events.",
-      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "title": "Design Application Layout",
+      "description": "Develop dynamic split view holding the Code Editor, active quick tags block, responsive WebView renderer, and export configurations guide.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Build Dynamic Progress Calculations & Charts",
-      "description": "Develop math and tracking algorithms inside MainActivity to compute dynamic study statistics, tasks ratios, and visual progress levels.",
-      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "title": "Develop Main Activity - Code Setup",
+      "description": "Initialize main activity entrypoint, register controls, and construct basic custom screen states switcher.",
+      "files": ["app/src/main/java/com/htmltoapkconverterstudio/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Develop Subjects Management Module",
-      "description": "Integrate interactive prompts inside the subjects tab to add custom study topics, rendering them dynamically inside list templates.",
-      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "title": "Develop Code Editor Snippets Feature",
+      "description": "Create programmatically populated snippet tags bar inside editor panel for seamless mobile HTML scripting.",
+      "files": ["app/src/main/java/com/htmltoapkconverterstudio/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Formulate Tasks Management Logic",
-      "description": "Establish task item creation workflows complete with subject associations, date selections, checkbox completion flags, and SQLite writebacks.",
-      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "title": "Develop Templates Loader System",
+      "description": "Design an fully native list view adapter managing 4 interactive, responsive self-contained preloaded template files.",
+      "files": ["app/src/main/java/com/htmltoapkconverterstudio/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Integrate Scheduler Alert Setup Dialogs",
-      "description": "Implement notification timing triggers on the Reminders page with simple native Date/Time picker dialogs linking alarms to planned review times.",
-      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "title": "Configure Sandbox WebView Renderer",
+      "description": "Enable V8 features, DOM storage capabilities, and client callbacks to run sandbox outputs on CARTO server framework.",
+      "files": ["app/src/main/java/com/htmltoapkconverterstudio/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Verify Code Compliance and Clean Memory Leaks",
-      "description": "Validate safe execution on all resource handles, dynamic database cursor recycling, and standard system style implementation overrides.",
-      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "title": "Develop Exporter Manual Guide",
+      "description": "Implement fully readable comprehensive instructional guide inside the app outlining standard Android Studio web asset directory setup steps.",
+      "files": ["app/src/main/java/com/htmltoapkconverterstudio/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 13,
-      "title": "Building Student Study Planner",
-      "description": "Trigger local compilation routines using Gradle to generate the production-ready application binary.",
+      "title": "Building HTML to APK Converter Studio",
+      "description": "Assemble and compile the complete clean project matching SDK 34 specifications in standard headless environment.",
       "files": [],
       "status": "pending"
     }

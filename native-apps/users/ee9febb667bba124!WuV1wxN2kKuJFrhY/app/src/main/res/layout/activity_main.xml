@@ -1,53 +1,291 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_match"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FAFAFA">
+    android:background="#ECEFF1">
 
-    <!-- Top Bar Header -->
-    <LinearLayout
+    <!-- Header Toolbar -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#2196F3"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:layout_height="56dp"
+        android:background="#1A237E"
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
         <TextView
-            android:id="@+id/headerTitle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Study Planner"
+            android:layout_centerVertical="true"
+            android:text="HTML to APK Studio"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/quickStatsText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0% Done"
-            android:textColor="#E3F2FD"
-            android:textSize="14sp" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="v1.0"
+            android:textColor="#00E5FF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Professional Tab Navigation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="#283593">
+
+        <Button
+            android:id="@+id/tab_editor"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="EDITOR"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/tab_preview"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="PREVIEW"
+            android:textColor="#8C9EFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/tab_templates"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="TEMPLATES"
+            android:textColor="#8C9EFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/tab_guide"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="APK BLUEPRINT"
+            android:textColor="#8C9EFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Main Content Frame -->
+    <!-- Active Tab Indicator Line Strip -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:orientation="horizontal"
+        android:background="#283593">
+        <View
+            android:id="@+id/indicator_editor"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00E5FF" />
+        <View
+            android:id="@+id/indicator_preview"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#283593" />
+        <View
+            android:id="@+id/indicator_templates"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#283593" />
+        <View
+            android:id="@+id/indicator_guide"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#283593" />
+    </LinearLayout>
+
+    <!-- Main Fragment Container Area -->
     <FrameLayout
-        android:id="@+id/contentFrame"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <!-- DASHBOARD TAB VIEW -->
-        <ScrollView
-            android:id="@+id/viewDashboard"
+        <!-- Tab 1: IDE Editor Panel -->
+        <LinearLayout
+            android:id="@+id/container_editor"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp"
+            android:orientation="vertical"
+            android:padding="8dp"
             android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Code Editor Helper Bar"
+                android:textColor="#37474F"
+                android:textSize="11sp"
+                android:layout_marginBottom="4dp" />
+
+            <!-- Snippets Carousel -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:id="@+id/snippets_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fillViewport="true">
+
+                <EditText
+                    android:id="@+id/editor_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/editor_bg"
+                    android:gravity="top|left"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:padding="12dp"
+                    android:textColor="#F8F8F2"
+                    android:textSize="13sp"
+                    android:typeface="monospace" />
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/btn_clear"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Reset Code"
+                    android:textColor="#FF1744"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:layout_marginRight="4dp" />
+
+                <Button
+                    android:id="@+id/btn_run"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@drawable/button_bg"
+                    android:textColor="#FFFFFF"
+                    android:text="Preview Live Sandbox"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Tab 2: Sandbox WebView Sandbox -->
+        <LinearLayout
+            android:id="@+id/container_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:background="#37474F"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Sandbox Viewport"
+                    android:textColor="#ECEFF1"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/preview_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="READY TO LOAD"
+                    android:textColor="#00E676"
+                    android:textStyle="bold"
+                    android:textSize="11sp" />
+            </RelativeLayout>
+
+            <WebView
+                android:id="@+id/preview_webview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <!-- Tab 3: Code Templates Panel -->
+        <LinearLayout
+            android:id="@+id/container_templates"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select Code Preset Template"
+                android:textColor="#1A237E"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose one of our responsive pre-coded layouts to immediately inject into the HTML builder sandbox."
+                android:textColor="#546E7A"
+                android:textSize="13sp"
+                android:layout_marginBottom="12dp" />
+
+            <ListView
+                android:id="@+id/templates_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#CFD8DC"
+                android:dividerHeight="1dp" />
+        </LinearLayout>
+
+        <!-- Tab 4: Comprehensive Conversion Blueprint Guide -->
+        <ScrollView
+            android:id="@+id/container_guide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -57,474 +295,99 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Your Overall Progress"
-                    android:textColor="#333333"
+                    android:text="Packaging HTML to a Real Standalone APK"
+                    android:textColor="#1A237E"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp"/>
-
-                <ProgressBar
-                    android:id="@+id/dashboardProgress"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="24dp"
-                    android:progressDrawable="@android:drawable/progress_horizontal"
-                    android:max="100"
-                    android:progress="0"
-                    android:layout_marginBottom="8dp"/>
-
-                <TextView
-                    android:id="@+id/dashboardStatsDetail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No tasks registered yet."
-                    android:textColor="#666666"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="24dp"/>
-
-                <!-- Cards section -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:layout_marginBottom="16dp">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:background="#E8F5E9"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_marginRight="8dp"
-                        android:padding="8dp">
-
-                        <TextView
-                            android:id="@+id/completedTasksCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="#2E7D32"
-                            android:textSize="28sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Completed Tasks"
-                            android:textColor="#2E7D32"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:background="#FFF3E0"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_marginLeft="8dp"
-                        android:padding="8dp">
-
-                        <TextView
-                            android:id="@+id/pendingTasksCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="#E65100"
-                            android:textSize="28sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Pending Tasks"
-                            android:textColor="#E65100"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:layout_marginBottom="24dp">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:background="#E3F2FD"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_marginRight="8dp"
-                        android:padding="8dp">
-
-                        <TextView
-                            android:id="@+id/totalSubjectsCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="#1565C0"
-                            android:textSize="28sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Subjects Logged"
-                            android:textColor="#1565C0"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:background="#F3E5F5"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_marginLeft="8dp"
-                        android:padding="8dp">
-
-                        <TextView
-                            android:id="@+id/activeAlarmsCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="#6A1B9A"
-                            android:textSize="28sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Set Reminders"
-                            android:textColor="#6A1B9A"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Subject Accomplishments"
-                    android:textColor="#333333"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp"/>
+                    android:text="Here is the step-by-step implementation system to pack custom web files inside a secure Android application."
+                    android:textColor="#546E7A"
+                    android:textSize="13sp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="16dp" />
 
-                <LinearLayout
-                    android:id="@+id/subjectsProgressContainer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- SUBJECTS VIEW -->
-        <LinearLayout
-            android:id="@+id/viewSubjects"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add Academic Subjects"
-                android:textColor="#333333"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
-
-                <EditText
-                    android:id="@+id/subjectInput"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="e.g. Mathematics"
-                    android:singleLine="true" />
-
-                <Button
-                    android:id="@+id/addSubjectBtn"
+                <!-- Directive 1 -->
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add"
-                    android:background="#4CAF50"
-                    android:textColor="#FFFFFF" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Existing Subjects"
-                android:textColor="#555555"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
-
-            <ListView
-                android:id="@+id/subjectsListView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="#E0E0E0"
-                android:dividerHeight="1dp"/>
-        </LinearLayout>
-
-        <!-- TASKS VIEW -->
-        <LinearLayout
-            android:id="@+id/viewTasks"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add Study Task"
-                android:textColor="#333333"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#EEEEEE"
-                android:padding="12dp"
-                android:layout_marginBottom="16dp">
-
-                <Spinner
-                    android:id="@+id/taskSubjectSpinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp" />
-
-                <EditText
-                    android:id="@+id/taskTitleInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Task Title (e.g. Solve exercises)"
-                    android:singleLine="true"
-                    android:layout_marginBottom="8dp" />
-
-                <EditText
-                    android:id="@+id/taskDescInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Details (optional)"
-                    android:singleLine="true"
-                    android:layout_marginBottom="8dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="8dp">
-
-                    <TextView
-                        android:id="@+id/selectedDateLabel"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="No date chosen"
-                        android:textColor="#555555"/>
-
-                    <Button
-                        android:id="@+id/chooseDateBtn"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Choose Date" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/addTaskBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Save Planner Task"
-                    android:background="#2196F3"
-                    android:textColor="#FFFFFF" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Task Backlog"
-                    android:textColor="#555555"
+                    android:text="1. Create the Assets Directory"
+                    android:textColor="#1565C0"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <Spinner
-                    android:id="@+id/filterSubjectSpinner"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <ListView
-                android:id="@+id/tasksListView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="#E0E0E0"
-                android:dividerHeight="1dp"/>
-        </LinearLayout>
-
-        <!-- REMINDERS VIEW -->
-        <LinearLayout
-            android:id="@+id/viewReminders"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Schedule Alarm Alert"
-                android:textColor="#333333"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#EEEEEE"
-                android:padding="12dp"
-                android:layout_marginBottom="16dp">
-
-                <EditText
-                    android:id="@+id/reminderTitleInput"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Reminder Topic (e.g. Exam Prep!)"
-                    android:singleLine="true"
+                    android:text="In your standard native Android project workspace, locate and create a folder here: \n'app/src/main/assets/' \nPlace your code file ('index.html') inside it."
+                    android:textColor="#37474F"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginBottom="12dp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <!-- Directive 2 -->
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="12dp">
+                    android:text="2. XML Component Configuration"
+                    android:textColor="#1565C0"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/reminderTimeLabel"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Date &amp; Time: Not Set"
-                        android:textColor="#555555"/>
-
-                    <Button
-                        android:id="@+id/chooseReminderTimeBtn"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Select Time" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/addReminderBtn"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Set Alarm Reminder"
-                    android:background="#9C27B0"
-                    android:textColor="#FFFFFF" />
+                    android:background="#ECEFF1"
+                    android:padding="10dp"
+                    android:text="&lt;WebView\n    android:id=&quot;@+id/local_webview&quot;\n    android:layout_width=&quot;match_parent&quot;\n    android:layout_height=&quot;match_parent&quot; /&gt;"
+                    android:textColor="#263238"
+                    android:typeface="monospace"
+                    android:textSize="11sp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Directive 3 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3. Native Android Wrapper Code"
+                    android:textColor="#1565C0"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ECEFF1"
+                    android:padding="10dp"
+                    android:text="WebView webView = findViewById(R.id.local_webview);\nWebSettings settings = webView.getSettings();\n\n// Enable execution scripts\nsettings.setJavaScriptEnabled(true);\nsettings.setDomStorageEnabled(true);\n\n// Load directly from local file storage\nwebView.loadUrl(&quot;file:///android_asset/index.html&quot;);"
+                    android:textColor="#263238"
+                    android:typeface="monospace"
+                    android:textSize="10sp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Directive 4 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4. Javascript to Java Bridging"
+                    android:textColor="#1565C0"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="By employing custom web interfaces ('addJavascriptInterface()'), JavaScript script statements inside HTML can execute native phone functions like triggers, local SDK notifications, hardware systems, and camera systems directly!"
+                    android:textColor="#37474F"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="24dp" />
+
             </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Active Alarms"
-                android:textColor="#555555"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"/>
-
-            <ListView
-                android:id="@+id/remindersListView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="#E0E0E0"
-                android:dividerHeight="1dp"/>
-        </LinearLayout>
+        </ScrollView>
     </FrameLayout>
-
-    <!-- Navigation Bar Bottom -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:orientation="horizontal"
-        android:elevation="8dp"
-        android:gravity="center_vertical">
-
-        <Button
-            android:id="@+id/tabDashboard"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="?android:attr/selectableItemBackground"
-            android:text="Home"
-            android:textColor="#2196F3"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/tabSubjects"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="?android:attr/selectableItemBackground"
-            android:text="Subjects"
-            android:textColor="#777777"
-            android:textSize="11sp" />
-
-        <Button
-            android:id="@+id/tabTasks"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="?android:attr/selectableItemBackground"
-            android:text="Tasks"
-            android:textColor="#777777"
-            android:textSize="11sp" />
-
-        <Button
-            android:id="@+id/tabReminders"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="?android:attr/selectableItemBackground"
-            android:text="Alerts"
-            android:textColor="#777777"
-            android:textSize="11sp" />
-    </LinearLayout>
 </LinearLayout>
