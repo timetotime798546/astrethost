@@ -1,0 +1,25 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Request",
+      "description": "Analyze user request to deliberately introduce a compilation error into the application.",
+      "files": ["build-steps.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Introduce Code Error",
+      "description": "Modify MainActivity.java to include a syntax error that prevents successful compilation.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Building Modern Calculator",
+      "description": "Attempt to compile the application and trigger a build failure as requested.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
