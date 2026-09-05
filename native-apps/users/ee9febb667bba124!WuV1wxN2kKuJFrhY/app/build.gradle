@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.adminpanel.app"
+    namespace "com.moderncalculator.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.adminpanel.app"
+        applicationId "com.moderncalculator.app"
 
         minSdkVersion 21
 

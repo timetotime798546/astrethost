@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#1A237E</color>
-    <color name="primary_dark">#0D47A1</color>
-    <color name="accent">#00B0FF</color>
-    <color name="background">#F5F6FA</color>
-    <color name="white">#FFFFFF</color>
-    <color name="text_main">#212121</color>
-    <color name="text_muted">#757575</color>
-    <color name="success">#4CAF50</color>
-    <color name="danger">#F44336</color>
-    <color name="card_stroke">#E0E0E0</color>
+    <!-- Modern Dark Premium Theme Color Scheme -->
+    <color name="bg_app">#0F131E</color>
+    <color name="bg_display">#1A1F2E</color>
+    <color name="text_display_primary">#FFFFFF</color>
+    <color name="text_display_secondary">#7A869A</color>
+    
+    <!-- Button Base Colors -->
+    <color name="btn_num_default">#22293A</color>
+    <color name="btn_num_pressed">#2C354A</color>
+    
+    <color name="btn_op_default">#4F46E5</color>
+    <color name="btn_op_pressed">#6366F1</color>
+    
+    <color name="btn_action_default">#334155</color>
+    <color name="btn_action_pressed">#475569</color>
+    
+    <color name="btn_eq_default">#F97316</color>
+    <color name="btn_eq_pressed">#FB923C</color>
+
+    <!-- Text Colors -->
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_accent_blue">#818CF8</color>
 </resources>

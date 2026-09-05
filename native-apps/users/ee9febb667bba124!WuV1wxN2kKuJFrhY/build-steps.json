@@ -2,85 +2,120 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Initialization",
-      "description": "Initialize Admin Panel Android application project and meta configurations.",
+      "title": "Initialize App Meta and Package Configuration",
+      "description": "Establish the global package name 'com.moderncalculator.app' and define app metadata configuration for Modern Calculator.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Settings",
-      "description": "Set up Gradle compile/target SDK versions and build configurations for Java 17 and Gradle 8.5 compatibility.",
+      "title": "Configure Gradle Build Scripts",
+      "description": "Set up build.gradle with target/compile SDK 34, min SDK 21, and define Java 8 source and target compatibility settings.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
       "title": "Establish Android Manifest",
-      "description": "Create AndroidManifest.xml defining package structure, activity filters, permissions, and app themes.",
+      "description": "Configure AndroidManifest.xml, validating the core namespace and defining MainActivity as the main launcher activity using default Material Theme.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Define Color Palette",
-      "description": "Declare custom dark, neutral, and accent colors for a clean visual material administrative theme.",
+      "title": "Define Color Palette Resources",
+      "description": "Create colors.xml containing custom modern dark-slate and electric-blue design colors for a beautiful UI aesthetic.",
       "files": ["app/src/main/res/values/colors.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Define UI String Assets",
-      "description": "Define localized and static text strings used in the application dashboards.",
+      "title": "Define String Resources",
+      "description": "Populate strings.xml with standard configuration labels and basic visual text structures for button values.",
       "files": ["app/src/main/res/values/strings.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Create Material Card Drawable Background",
-      "description": "Design shadow-effect background layers for metrics, tables, and settings card wrappers.",
-      "files": ["app/src/main/res/drawable/card_background.xml"],
+      "title": "Design Number Button Drawable",
+      "description": "Create custom rounded slate-gray background shape with state selectors for number keys to ensure clear visual feedback on touch.",
+      "files": ["app/src/main/res/drawable/btn_number.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Create Accent Action Buttons",
-      "description": "Build custom state drawables for interactive navigation buttons and operations.",
-      "files": ["app/src/main/res/drawable/button_background.xml"],
+      "title": "Design Operator Button Drawable",
+      "description": "Create custom high-contrast electric-blue state selector background drawable for primary mathematical operators.",
+      "files": ["app/src/main/res/drawable/btn_operator.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Construct Main User Interface",
-      "description": "Draft complete layout combining Admin Panel Dashboard, User Controller, Notification Hub, and System Settings panels.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Design Action Button Drawable",
+      "description": "Create custom dark-gray active background for helper action keys like Clear, Backspace, and Percentage.",
+      "files": ["app/src/main/res/drawable/btn_action.xml"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Establish User Representation Entity",
-      "description": "Create standard User model class mapping users with names, roles, and status fields.",
-      "files": ["app/src/main/java/com/adminpanel/app/User.java"],
+      "title": "Design Equals Button Drawable",
+      "description": "Create vibrant orange/coral button style specifically highlighting the ultimate completion action (=).",
+      "files": ["app/src/main/res/drawable/btn_equals.xml"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Code Main Activity Logic",
-      "description": "Write comprehensive application controller handling tab navigation, mock users list management, custom broadcasts, stats calculation, and localized preference storage.",
-      "files": ["app/src/main/java/com/adminpanel/app/MainActivity.java"],
+      "title": "Construct Modern Layout XML Structure",
+      "description": "Design activity_main.xml layout structure. Implement a dual-line scrolling digital display header and nested row weights for responsive button layouts.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Verify Local Compilation Compatibility",
-      "description": "Confirm Java 8 language standard compliance, strict typecasting, and explicit callback handles.",
-      "files": ["app/src/main/java/com/adminpanel/app/MainActivity.java"],
+      "title": "Develop MainActivity Shell & Fields",
+      "description": "Create MainActivity.java structure, importing necessary native SDK modules, declaring active display elements, and tracking calculation states.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Building Admin Panel",
-      "description": "Execute gradle assembleDebug to build the final production administrative control suite application.",
+      "title": "Implement Display Formatting Engine",
+      "description": "Write numerical formatting functions inside MainActivity to beautifully format double outputs, handling precision limits and scientific representation cleanly.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Create Click Listener Framework",
+      "description": "Set up native programmatic click handlers for numeric inputs, updating display values iteratively on keypress.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Integrate Basic Mathematical Operators",
+      "description": "Incorporate arithmetic state routing to execute and display standard expressions (Addition, Subtraction, Multiplication, Division).",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Develop Advanced Modifiers",
+      "description": "Add logic for inline modular actions like percentage logic, dynamic sign inversion (+/-), backspace operations, and full calculator resets (C).",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Verify UI Rendering & Interaction Polish",
+      "description": "Perform final check of component interaction flow, handling large digit entries, overflow scenarios, and dividing by zero safely.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Building Modern Calculator",
+      "description": "Compile the complete codebase utilizing Gradle 8.5 to produce the final executable Android APK.",
       "files": [],
       "status": "pending"
     }

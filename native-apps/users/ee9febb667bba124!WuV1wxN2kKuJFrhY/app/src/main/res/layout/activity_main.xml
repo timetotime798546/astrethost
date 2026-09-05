@@ -1,626 +1,353 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_match"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F6FA">
+    android:background="@color/bg_app"
+    android:padding="16dp">
 
-    <!-- Header bar -->
+    <!-- Top Display Header with premium look -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#1A237E"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="System Admin Panel"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/system_status_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="● SYSTEM ONLINE"
-            android:textColor="#4CAF50"
-            android:textStyle="bold"
-            android:textSize="12sp" />
-    </LinearLayout>
-
-    <!-- Navigation Tabs -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#0D47A1"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/tab_dashboard"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:text="Dashboard"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/tab_users"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:text="Users"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/tab_notifications"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:text="Notify"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/tab_settings"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:text="Settings"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <!-- Main Dynamic Content (Frame / Switcher) -->
-    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="12dp">
+        android:layout_weight="1.3"
+        android:orientation="vertical"
+        android:gravity="bottom|end"
+        android:background="@color/bg_display"
+        android:elevation="4dp"
+        android:padding="20dp"
+        android:layout_marginBottom="16dp">
 
-        <!-- DASHBOARD CONTAINER -->
-        <ScrollView
-            android:id="@+id/view_dashboard"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Title -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Overview &amp; Realtime Metrics"
-                    android:textSize="16sp"
-                    android:textColor="#212121"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="12dp" />
-
-                <!-- Grid Simulation with Row Layouts -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="10dp">
-
-                    <!-- Metric Card 1 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/card_background"
-                        android:orientation="vertical"
-                        android:padding="12dp"
-                        android:layout_marginRight="5dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Total Users"
-                            android:textColor="#757575"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/metric_total_users"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="142"
-                            android:textColor="#1A237E"
-                            android:textSize="26sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="4dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="+12% this week"
-                            android:textColor="#4CAF50"
-                            android:textSize="10sp"
-                            android:layout_marginTop="2dp" />
-                    </LinearLayout>
-
-                    <!-- Metric Card 2 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/card_background"
-                        android:orientation="vertical"
-                        android:padding="12dp"
-                        android:layout_marginLeft="5dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Active Now"
-                            android:textColor="#757575"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/metric_active_now"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="48"
-                            android:textColor="#00B0FF"
-                            android:textSize="26sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="4dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Live traffic"
-                            android:textColor="#757575"
-                            android:textSize="10sp"
-                            android:layout_marginTop="2dp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="16dp">
-
-                    <!-- Metric Card 3 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/card_background"
-                        android:orientation="vertical"
-                        android:padding="12dp"
-                        android:layout_marginRight="5dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Daily Revenue"
-                            android:textColor="#757575"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/metric_revenue"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="$1,824"
-                            android:textColor="#4CAF50"
-                            android:textSize="26sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="4dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Target: $2,000"
-                            android:textColor="#757575"
-                            android:textSize="10sp"
-                            android:layout_marginTop="2dp" />
-                    </LinearLayout>
-
-                    <!-- Metric Card 4 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/card_background"
-                        android:orientation="vertical"
-                        android:padding="12dp"
-                        android:layout_marginLeft="5dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="System Logs"
-                            android:textColor="#757575"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/metric_logs_count"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0 Errors"
-                            android:textColor="#212121"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="6dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="API latency: 45ms"
-                            android:textColor="#4CAF50"
-                            android:textSize="10sp"
-                            android:layout_marginTop="4dp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Quick Action Center -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/card_background"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:layout_marginBottom="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Quick Engine Settings"
-                        android:textColor="#212121"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="12dp" />
-
-                    <Button
-                        android:id="@+id/btn_trigger_backup"
-                        android:layout_width="match_parent"
-                        android:layout_height="44dp"
-                        android:background="@drawable/button_background"
-                        android:text="Backup DB Storage Now"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp"
-                        android:layout_marginBottom="8dp" />
-
-                    <Button
-                        android:id="@+id/btn_simulate_crash"
-                        android:layout_width="match_parent"
-                        android:layout_height="44dp"
-                        android:background="#F44336"
-                        android:text="Simulate Critical Crash Check"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-                <!-- Console Display Logs -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/card_background"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Live Admin Audit Trail"
-                        android:textColor="#212121"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp" />
-
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:id="@+id/tv_console_logs"
-                            android:layout_width="wrap_content"
-                            android:layout_height="120dp"
-                            android:background="#212121"
-                            android:textColor="#00FF00"
-                            android:padding="8dp"
-                            android:textSize="12sp"
-                            android:fontFamily="monospace"
-                            android:text="[Audit Logger]: Console initialized...\n[System]: Server load 32%\n[API]: Handshake requested from 127.0.0.1" />
-                    </HorizontalScrollView>
-                </LinearLayout>
-
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- USERS MANAGEMENT CONTAINER -->
-        <LinearLayout
-            android:id="@+id/view_users"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone">
-
+        <!-- Expression History display -->
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:scrollbars="none">
             <TextView
+                android:id="@+id/tv_formula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Account &amp; User Directory"
-                android:textSize="16sp"
-                android:textColor="#212121"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp" />
+                android:text=""
+                android:textColor="@color/text_display_secondary"
+                android:textSize="20sp"
+                android:singleLine="true"
+                android:layout_gravity="end" />
+        </HorizontalScrollView>
 
-            <!-- Add User Form Area -->
-            <LinearLayout
-                android:layout_width="match_parent"
+        <!-- Current Output Display -->
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:scrollbars="none"
+            android:layout_marginTop="8dp">
+            <TextView
+                android:id="@+id/tv_display"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/card_background"
-                android:orientation="vertical"
-                android:padding="14dp"
-                android:layout_marginBottom="12dp">
+                android:text="0"
+                android:textColor="@color/text_display_primary"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:layout_gravity="end" />
+        </HorizontalScrollView>
+    </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add New User Account"
-                    android:textColor="#1A237E"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
+    <!-- Interactive Grid / Row Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.0"
+        android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/et_username"
-                        android:layout_width="0dp"
-                        android:layout_height="45dp"
-                        android:layout_weight="2"
-                        android:hint="Full Name"
-                        android:textSize="13sp"
-                        android:background="@drawable/card_background"
-                        android:padding="8dp"
-                        android:singleLine="true" />
-
-                    <View
-                        android:layout_width="8dp"
-                        android:layout_height="match_parent" />
-
-                    <EditText
-                        android:id="@+id/et_user_role"
-                        android:layout_width="0dp"
-                        android:layout_height="45dp"
-                        android:layout_weight="1"
-                        android:hint="Role (e.g. Editor)"
-                        android:textSize="13sp"
-                        android:background="@drawable/card_background"
-                        android:padding="8dp"
-                        android:singleLine="true" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btn_add_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/button_background"
-                    android:text="Provision User Access"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <!-- User list -->
-            <ListView
-                android:id="@+id/list_view_users"
-                android:layout_width="match_parent"
+        <!-- Row 1: [ C ] [ +/- ] [ % ] [ / ] -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            
+            <Button
+                android:id="@+id/btn_clear"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:divider="#E0E0E0"
-                android:dividerHeight="1dp" />
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_action"
+                android:text="C"
+                android:textColor="@color/text_white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_toggle_sign"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_action"
+                android:text="±"
+                android:textColor="@color/text_white"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/btn_percent"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_action"
+                android:text="%"
+                android:textColor="@color/text_white"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/btn_divide"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/btn_operator"
+                android:text="÷"
+                android:textColor="@color/text_white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- NOTIFICATIONS DISPATCH CONTAINER -->
+        <!-- Row 2: [ 7 ] [ 8 ] [ 9 ] [ x ] -->
         <LinearLayout
-            android:id="@+id/view_notifications"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Targeted System Notifications"
-                android:textSize="16sp"
-                android:textColor="#212121"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp" />
+            <Button
+                android:id="@+id/btn_7"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_number"
+                android:text="7"
+                android:textColor="@color/text_white"
+                android:textSize="22sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/card_background"
-                android:orientation="vertical"
-                android:padding="16dp">
+            <Button
+                android:id="@+id/btn_8"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_number"
+                android:text="8"
+                android:textColor="@color/text_white"
+                android:textSize="22sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Send Local Android System Notification"
-                    android:textColor="#757575"
-                    android:textSize="12sp"
-                    android:layout_marginBottom="16dp" />
+            <Button
+                android:id="@+id/btn_9"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_number"
+                android:text="9"
+                android:textColor="@color/text_white"
+                android:textSize="22sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Notification Header Title"
-                    android:textColor="#212121"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="4dp" />
-
-                <EditText
-                    android:id="@+id/et_notify_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="@drawable/card_background"
-                    android:padding="8dp"
-                    android:text="Admin Alert"
-                    android:textSize="13sp"
-                    android:singleLine="true"
-                    android:layout_marginBottom="12dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Detailed Announcement Body Text"
-                    android:textColor="#212121"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="4dp" />
-
-                <EditText
-                    android:id="@+id/et_notify_body"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="@drawable/card_background"
-                    android:padding="8dp"
-                    android:text="This is a test notification dispatched from the localized Admin panel console application."
-                    android:textSize="13sp"
-                    android:gravity="top"
-                    android:layout_marginBottom="16dp" />
-
-                <Button
-                    android:id="@+id/btn_dispatch_notification"
-                    android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:background="@drawable/button_background"
-                    android:text="Dispatch Push Notification"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13sp" />
-            </LinearLayout>
+            <Button
+                android:id="@+id/btn_multiply"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/btn_operator"
+                android:text="×"
+                android:textColor="@color/text_white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- SYSTEM CONFIGURATION CONTAINER -->
-        <ScrollView
-            android:id="@+id/view_settings"
+        <!-- Row 3: [ 4 ] [ 5 ] [ 6 ] [ - ] -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            <Button
+                android:id="@+id/btn_4"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_number"
+                android:text="4"
+                android:textColor="@color/text_white"
+                android:textSize="22sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Main System Infrastructure Configuration"
-                    android:textSize="16sp"
-                    android:textColor="#212121"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="12dp" />
+            <Button
+                android:id="@+id/btn_5"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_number"
+                android:text="5"
+                android:textColor="@color/text_white"
+                android:textSize="22sp" />
 
-                <!-- Card 1 Settings -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/card_background"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:layout_marginBottom="12dp">
+            <Button
+                android:id="@+id/btn_6"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_number"
+                android:text="6"
+                android:textColor="@color/text_white"
+                android:textSize="22sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="System Operation Switches"
-                        android:textColor="#1A237E"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="12dp" />
+            <Button
+                android:id="@+id/btn_subtract"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/btn_operator"
+                android:text="−"
+                android:textColor="@color/text_white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-                    <CheckBox
-                        android:id="@+id/cb_maintenance"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Maintenance Mode Active"
-                        android:layout_marginBottom="8dp" />
+        <!-- Row 4: [ 1 ] [ 2 ] [ 3 ] [ + ] -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
-                    <CheckBox
-                        android:id="@+id/cb_logs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Verbose Live Audit Logging"
-                        android:layout_marginBottom="8dp" />
+            <Button
+                android:id="@+id/btn_1"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_number"
+                android:text="1"
+                android:textColor="@color/text_white"
+                android:textSize="22sp" />
 
-                    <CheckBox
-                        android:id="@+id/cb_secure"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Force Secure Sockets Layer Encryption" />
-                </LinearLayout>
+            <Button
+                android:id="@+id/btn_2"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_number"
+                android:text="2"
+                android:textColor="@color/text_white"
+                android:textSize="22sp" />
 
-                <!-- Admin Info Card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/card_background"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:layout_marginBottom="12dp">
+            <Button
+                android:id="@+id/btn_3"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_number"
+                android:text="3"
+                android:textColor="@color/text_white"
+                android:textSize="22sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Administrative Authority Level"
-                        android:textColor="#212121"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp" />
+            <Button
+                android:id="@+id/btn_add"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/btn_operator"
+                android:text="+"
+                android:textColor="@color/text_white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Current Account: Owner/Super Administrator"
-                        android:textColor="#757575"
-                        android:textSize="12sp"
-                        android:layout_marginBottom="4dp" />
+        <!-- Row 5: [ Del ] [ 0 ] [ . ] [ = ] -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Privileges: Full System Write &amp; Access Controls"
-                        android:textColor="#757575"
-                        android:textSize="12sp" />
-                </LinearLayout>
+            <Button
+                android:id="@+id/btn_delete"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_action"
+                android:text="⌫"
+                android:textColor="@color/text_white"
+                android:textSize="20sp" />
 
-                <Button
-                    android:id="@+id/btn_save_settings"
-                    android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:background="@drawable/button_background"
-                    android:text="Save System Config State"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13sp" />
-            </LinearLayout>
-        </ScrollView>
-    </FrameLayout>
+            <Button
+                android:id="@+id/btn_0"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_number"
+                android:text="0"
+                android:textColor="@color/text_white"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/btn_decimal"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_number"
+                android:text="."
+                android:textColor="@color/text_white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_equals"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/btn_equals"
+                android:text="="
+                android:textColor="@color/text_white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 </LinearLayout>
