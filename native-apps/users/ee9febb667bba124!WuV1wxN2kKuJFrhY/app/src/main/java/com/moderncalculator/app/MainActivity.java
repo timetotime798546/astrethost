@@ -27,10 +27,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // INTENTIONAL COMPILATION ERROR ADDED BELOW
-        // This will prevent the compiler from building the app successfully
-        DELIBERATE_COMPILATION_ERROR_HERE : This syntax is completely invalid in Java and will cause javac to fail!
-
         // Clean premium formatting avoids scientific notation for normal decimals
         DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
         decimalFormat = new DecimalFormat("#.##########", symbols);
