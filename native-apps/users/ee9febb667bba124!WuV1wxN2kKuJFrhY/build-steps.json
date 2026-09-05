@@ -1,0 +1,90 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Define metadata for the How Are You application inside app-meta.json.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Build Dependencies and Java Version",
+      "description": "Configure app/build.gradle to target compileSdkVersion 34, AGP 8.3.2, and enforce strict Java 8 options.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Build Application Manifest File",
+      "description": "Setup AndroidManifest.xml referencing the launcher activity and application attributes safely.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Apply Strict Namespace Validations",
+      "description": "Verify schemas inside AndroidManifest.xml to ensure the Android package builds without namespace warnings.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Configure App Main Layout",
+      "description": "Construct activity_main.xml layout styling details to display an elegant greeting user interface.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement MainActivity Logic",
+      "description": "Author MainActivity.java cleanly using standard framework components without compilation bottlenecks.",
+      "files": [
+        "app/src/main/java/com/howareyou/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Define UI Theme Rules",
+      "description": "Connect Theme.Material.Light cleanly across resources for correct styling values.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Link Default Resource Assets",
+      "description": "Connect image references like @drawable/icon in AndroidManifest.xml correctly.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Validate Compile Checks",
+      "description": "Double check standard syntax and dependencies ensuring optimal Gradle runtime success.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building How Are You",
+      "description": "Perform final gradle build execution using assembleDebug commands safely.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
