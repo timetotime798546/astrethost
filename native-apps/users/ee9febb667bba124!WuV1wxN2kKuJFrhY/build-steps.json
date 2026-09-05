@@ -1,0 +1,95 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Identity and Architecture",
+      "description": "Establish basic package metadata under com.studentstudyplanner.app and define target Android SDK 34 specifications with full Java 8 compatibility.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Gradle Build Files",
+      "description": "Configure app/build.gradle using AGP 8.3.2 and Gradle 8.5. Define standard compilation properties and set Java source compatibility configurations.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Establish Android Manifest",
+      "description": "Configure AndroidManifest.xml with standard namespace validation, declare the application launcher, and register local alarm notification receiver permissions.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create SQLite Database Schema",
+      "description": "Create DatabaseHelper.java to manage tables for study subjects, planner tasks, and academic reminders with robust relational foreign keys.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Background Reminder System",
+      "description": "Create ReminderReceiver.java acting as a BroadcastReceiver to trigger system notifications for scheduled study times using AlarmManager.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/ReminderReceiver.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Clean Multi-Tab Planner Dashboard Layout",
+      "description": "Create activity_main.xml layout structure containing simple system-level navigation tabs to switch between Dashboard, Subjects, Tasks, and Reminders views.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Main Activity Navigation Framework",
+      "description": "Create the MainActivity.java layout switcher logic to alternate active views between different visual modes using traditional click events.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build Dynamic Progress Calculations & Charts",
+      "description": "Develop math and tracking algorithms inside MainActivity to compute dynamic study statistics, tasks ratios, and visual progress levels.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop Subjects Management Module",
+      "description": "Integrate interactive prompts inside the subjects tab to add custom study topics, rendering them dynamically inside list templates.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Formulate Tasks Management Logic",
+      "description": "Establish task item creation workflows complete with subject associations, date selections, checkbox completion flags, and SQLite writebacks.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Integrate Scheduler Alert Setup Dialogs",
+      "description": "Implement notification timing triggers on the Reminders page with simple native Date/Time picker dialogs linking alarms to planned review times.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Verify Code Compliance and Clean Memory Leaks",
+      "description": "Validate safe execution on all resource handles, dynamic database cursor recycling, and standard system style implementation overrides.",
+      "files": ["app/src/main/java/com/studentstudyplanner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Student Study Planner",
+      "description": "Trigger local compilation routines using Gradle to generate the production-ready application binary.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
