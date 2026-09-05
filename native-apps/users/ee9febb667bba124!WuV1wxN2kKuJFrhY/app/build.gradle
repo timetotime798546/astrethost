@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.nexuselite.app"
+    namespace "com.buildhealthchecker.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.nexuselite.app"
+        applicationId "com.buildhealthchecker.app"
 
         minSdkVersion 21
 

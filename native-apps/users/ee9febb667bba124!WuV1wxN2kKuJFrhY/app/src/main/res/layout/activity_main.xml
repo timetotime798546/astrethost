@@ -1,1211 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main_root"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC">
+    android:orientation="vertical"
+    android:background="#F5F6F8"
+    android:padding="16dp">
 
-    <!-- PERSISTENT TOP APP BAR -->
-    <RelativeLayout
-        android:id="@+id/top_bar"
+    <!-- Header -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:background="#FFFFFF"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:elevation="4dp"
-        android:layout_alignParentTop="true">
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"
+        android:elevation="2dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_centerVertical="true">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/top_bar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nexus Elite"
+                android:text="Build Health Checker"
+                android:textColor="#212121"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#0F172A" />
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/top_bar_subtitle"
+                android:id="@+id/tv_overall_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Welcome, Guest"
-                android:textSize="12sp"
-                android:textColor="#64748B" />
-        </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/profile_badge_click"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/bg_tab_active">
-
-            <TextView
-                android:id="@+id/profile_initials"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NE"
+                android:text="Status: Idle"
+                android:textColor="#1976D2"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:layout_centerInParent="true" />
-        </RelativeLayout>
-    </RelativeLayout>
-
-    <!-- MAIN CENTER PANELS CONTAINER -->
-    <FrameLayout
-        android:id="@+id/content_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation"
-        android:layout_below="@+id/top_bar">
-
-        <!-- PANEL 1: HOME PANEL -->
-        <ScrollView
-            android:id="@+id/panel_home"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:visibility="visible">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <!-- Dynamic Quick Search -->
-                <LinearLayout
-                    android:id="@+id/search_bar_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:background="@drawable/bg_search_light"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
-                    android:layout_marginBottom="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🔍 "
-                        android:textSize="16sp" />
-
-                    <EditText
-                        android:id="@+id/search_edit_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:hint="Search premium features..."
-                        android:textColorHint="#94A3B8"
-                        android:textColor="#0F172A"
-                        android:textSize="14sp"
-                        android:imeOptions="actionSearch"
-                        android:singleLine="true" />
-                </LinearLayout>
-
-                <!-- Dynamic Favorites Panel -->
-                <LinearLayout
-                    android:id="@+id/favorites_section"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="16dp"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:id="@+id/title_favorites"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="⭐ Your Starred Features"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#0F172A"
-                        android:layout_marginBottom="8dp" />
-
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <LinearLayout
-                            android:id="@+id/favorites_container"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal" />
-                    </HorizontalScrollView>
-                </LinearLayout>
-
-                <!-- Dynamic Recent Activity History -->
-                <LinearLayout
-                    android:id="@+id/history_section"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="16dp">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:id="@+id/title_history"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🕒 Recent Actions"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="#0F172A" />
-
-                        <TextView
-                            android:id="@+id/clear_history_btn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:text="Clear"
-                            android:textSize="12sp"
-                            android:textColor="#3B82F6"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
-
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <LinearLayout
-                            android:id="@+id/history_container"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal" />
-                    </HorizontalScrollView>
-                </LinearLayout>
-
-                <!-- Primary Feature Cards Grid -->
-                <TextView
-                    android:id="@+id/title_features_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🔥 Featured Portals"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="#0F172A"
-                    android:layout_marginBottom="12dp" />
-
-                <!-- Feature Card 1 -->
-                <RelativeLayout
-                    android:id="@+id/card_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_light"
-                    android:padding="16dp"
-                    android:layout_marginBottom="12dp">
-
-                    <TextView
-                        android:id="@+id/icon_p"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="👤"
-                        android:textSize="28sp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="16dp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_toRightOf="@+id/icon_p"
-                        android:layout_toLeftOf="@+id/fav_p"
-                        android:layout_centerVertical="true">
-
-                        <TextView
-                            android:id="@+id/txt_card_profile_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Personal Elite Profile"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="#0F172A" />
-
-                        <TextView
-                            android:id="@+id/txt_card_profile_desc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Customize your personal avatar, credentials, status"
-                            android:textSize="12sp"
-                            android:textColor="#64748B" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/fav_p"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:text="☆"
-                        android:textSize="20sp"
-                        android:textColor="#3B82F6" />
-                </RelativeLayout>
-
-                <!-- Feature Card 2 -->
-                <RelativeLayout
-                    android:id="@+id/card_notifications"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_light"
-                    android:padding="16dp"
-                    android:layout_marginBottom="12dp">
-
-                    <TextView
-                        android:id="@+id/icon_n"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🔔"
-                        android:textSize="28sp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="16dp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_toRightOf="@+id/icon_n"
-                        android:layout_toLeftOf="@+id/fav_n"
-                        android:layout_centerVertical="true">
-
-                        <TextView
-                            android:id="@+id/txt_card_notifications_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Notification Center"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="#0F172A" />
-
-                        <TextView
-                            android:id="@+id/txt_card_notifications_desc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="View current logs, alerts, active warnings"
-                            android:textSize="12sp"
-                            android:textColor="#64748B" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/fav_n"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:text="☆"
-                        android:textSize="20sp"
-                        android:textColor="#3B82F6" />
-                </RelativeLayout>
-
-                <!-- Feature Card 3 -->
-                <RelativeLayout
-                    android:id="@+id/card_goals"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_light"
-                    android:padding="16dp"
-                    android:layout_marginBottom="12dp">
-
-                    <TextView
-                        android:id="@+id/icon_g"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🎯"
-                        android:textSize="28sp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="16dp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_toRightOf="@+id/icon_g"
-                        android:layout_toLeftOf="@+id/fav_g"
-                        android:layout_centerVertical="true">
-
-                        <TextView
-                            android:id="@+id/txt_card_goals_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Interactive Tasks Tracker"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="#0F172A" />
-
-                        <TextView
-                            android:id="@+id/txt_card_goals_desc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Add real-time tasks, mark done, secure database"
-                            android:textSize="12sp"
-                            android:textColor="#64748B" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/fav_g"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:text="☆"
-                        android:textSize="20sp"
-                        android:textColor="#3B82F6" />
-                </RelativeLayout>
-
-                <!-- Feature Card 4 -->
-                <RelativeLayout
-                    android:id="@+id/card_diagnostics"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_light"
-                    android:padding="16dp"
-                    android:layout_marginBottom="12dp">
-
-                    <TextView
-                        android:id="@+id/icon_d"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="⚡"
-                        android:textSize="28sp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="16dp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_toRightOf="@+id/icon_d"
-                        android:layout_toLeftOf="@+id/fav_d"
-                        android:layout_centerVertical="true">
-
-                        <TextView
-                            android:id="@+id/txt_card_diagnostics_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="System Diagnostics"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="#0F172A" />
-
-                        <TextView
-                            android:id="@+id/txt_card_diagnostics_desc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Verify device architecture, system loads, cache sizes"
-                            android:textSize="12sp"
-                            android:textColor="#64748B" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/fav_d"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:text="☆"
-                        android:textSize="20sp"
-                        android:textColor="#3B82F6" />
-                </RelativeLayout>
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- PANEL 2: FEATURES PORTAL (ACTIVE GOALS TRACKER) -->
-        <ScrollView
-            android:id="@+id/panel_features"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/title_tasks_panel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Interactive Tasks Manager"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="#0F172A"
-                    android:layout_marginBottom="4dp" />
-
-                <TextView
-                    android:id="@+id/desc_tasks_panel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Set real-time objectives, clear completed actions."
-                    android:textSize="12sp"
-                    android:textColor="#64748B"
-                    android:layout_marginBottom="16dp" />
-
-                <!-- Task Creator -->
-                <LinearLayout
-                    android:id="@+id/task_input_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="16dp">
-
-                    <EditText
-                        android:id="@+id/task_edit_text"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_search_light"
-                        android:paddingLeft="12dp"
-                        android:paddingRight="12dp"
-                        android:hint="Create high priority task..."
-                        android:textColorHint="#94A3B8"
-                        android:textColor="#0F172A"
-                        android:textSize="14sp"
-                        android:singleLine="true" />
-
-                    <Button
-                        android:id="@+id/add_task_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="48dp"
-                        android:layout_marginLeft="8dp"
-                        android:background="@drawable/bg_button"
-                        android:text="ADD"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <!-- Empty State Tasks -->
-                <LinearLayout
-                    android:id="@+id/tasks_empty_state"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:visibility="visible">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="📝"
-                        android:textSize="48sp"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:id="@+id/txt_tasks_empty_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Your workspace is empty"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#0F172A" />
-
-                    <TextView
-                        android:id="@+id/txt_tasks_empty_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Add objectives to track your progress"
-                        android:textSize="12sp"
-                        android:textColor="#64748B" />
-                </LinearLayout>
-
-                <!-- Active Tasks Container -->
-                <LinearLayout
-                    android:id="@+id/tasks_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- PANEL 3: NOTIFICATION HUB -->
-        <ScrollView
-            android:id="@+id/panel_notifications"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp">
-
-                    <TextView
-                        android:id="@+id/title_noti_panel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="In-App Logs &amp; Notifications"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="#0F172A" />
-
-                    <TextView
-                        android:id="@+id/clear_noti_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:text="Clear All"
-                        android:textSize="12sp"
-                        android:textColor="#3B82F6"
-                        android:textStyle="bold" />
-                </RelativeLayout>
-
-                <!-- Notifications Empty State -->
-                <LinearLayout
-                    android:id="@+id/notifications_empty_state"
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="📭"
-                        android:textSize="48sp"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:id="@+id/txt_noti_empty_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Everything is caught up"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#0F172A" />
-
-                    <TextView
-                        android:id="@+id/txt_noti_empty_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Any incoming logs will be populated here"
-                        android:textSize="12sp"
-                        android:textColor="#64748B" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/notifications_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- PANEL 4: USER PROFILE -->
-        <ScrollView
-            android:id="@+id/panel_profile"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center_horizontal">
-
-                <!-- Profile Header Layout -->
-                <RelativeLayout
-                    android:id="@+id/profile_image_large_layout"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:background="@drawable/bg_tab_active"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp">
-
-                    <TextView
-                        android:id="@+id/profile_large_initials"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="NE"
-                        android:textSize="32sp"
-                        android:textStyle="bold"
-                        android:textColor="#FFFFFF"
-                        android:layout_centerInParent="true" />
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/display_profile_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nexus Client"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:textColor="#0F172A" />
-
-                <TextView
-                    android:id="@+id/display_profile_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="client@nexuselite.com"
-                    android:textSize="14sp"
-                    android:textColor="#64748B"
-                    android:layout_marginBottom="24dp" />
-
-                <!-- Profile Info / Form Card -->
-                <LinearLayout
-                    android:id="@+id/profile_info_card"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_light"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:layout_marginBottom="16dp">
-
-                    <TextView
-                        android:id="@+id/title_credentials"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Profile Credentials"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#0F172A"
-                        android:layout_marginBottom="16dp" />
-
-                    <TextView
-                        android:id="@+id/lbl_form_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Full Name"
-                        android:textSize="12sp"
-                        android:textColor="#64748B"
-                        android:layout_marginBottom="4dp" />
-
-                    <EditText
-                        android:id="@+id/edit_profile_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_search_light"
-                        android:paddingLeft="12dp"
-                        android:paddingRight="12dp"
-                        android:textColor="#0F172A"
-                        android:textSize="14sp"
-                        android:layout_marginBottom="12dp"
-                        android:singleLine="true" />
-
-                    <TextView
-                        android:id="@+id/lbl_form_email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Email Address"
-                        android:textSize="12sp"
-                        android:textColor="#64748B"
-                        android:layout_marginBottom="4dp" />
-
-                    <EditText
-                        android:id="@+id/edit_profile_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_search_light"
-                        android:paddingLeft="12dp"
-                        android:paddingRight="12dp"
-                        android:textColor="#0F172A"
-                        android:textSize="14sp"
-                        android:layout_marginBottom="16dp"
-                        android:singleLine="true" />
-
-                    <Button
-                        android:id="@+id/save_profile_btn"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_button"
-                        android:text="SAVE PROFILE CHANGES"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- PANEL 5: SETTINGS & TUNING -->
-        <ScrollView
-            android:id="@+id/panel_settings"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/title_settings_panel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Settings &amp; Preferences"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="#0F172A"
-                    android:layout_marginBottom="16dp" />
-
-                <!-- Config Card -->
-                <LinearLayout
-                    android:id="@+id/settings_card"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_light"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:layout_marginBottom="16dp">
-
-                    <!-- Theme Toggle -->
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_centerVertical="true">
-
-                            <TextView
-                                android:id="@+id/txt_opt_dark_mode"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Deep Dark Mode"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:textColor="#0F172A" />
-
-                            <TextView
-                                android:id="@+id/desc_opt_dark_mode"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Apply dark colors programmatically"
-                                android:textSize="11sp"
-                                android:textColor="#64748B" />
-                        </LinearLayout>
-
-                        <CheckBox
-                            android:id="@+id/switch_dark_mode"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true" />
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#E2E8F0"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp" />
-
-                    <!-- Sound Toggle -->
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_centerVertical="true">
-
-                            <TextView
-                                android:id="@+id/txt_opt_sounds"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Interactive System Sound"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:textColor="#0F172A" />
-
-                            <TextView
-                                android:id="@+id/desc_opt_sounds"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Play synthesized wave tones on interactions"
-                                android:textSize="11sp"
-                                android:textColor="#64748B" />
-                        </LinearLayout>
-
-                        <CheckBox
-                            android:id="@+id/switch_sounds"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true" />
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#E2E8F0"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp" />
-
-                    <!-- Animations Toggle -->
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_centerVertical="true">
-
-                            <TextView
-                                android:id="@+id/txt_opt_animations"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Smooth Transitions"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:textColor="#0F172A" />
-
-                            <TextView
-                                android:id="@+id/desc_opt_animations"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Animate screen loaders and cards"
-                                android:textSize="11sp"
-                                android:textColor="#64748B" />
-                        </LinearLayout>
-
-                        <CheckBox
-                            android:id="@+id/switch_animations"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true" />
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <!-- Action Card (Clear Cache) -->
-                <LinearLayout
-                    android:id="@+id/actions_card"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_light"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:layout_marginBottom="16dp">
-
-                    <TextView
-                        android:id="@+id/txt_cache_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="System Storage Utilities"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#0F172A"
-                        android:layout_marginBottom="4dp" />
-
-                    <TextView
-                        android:id="@+id/txt_cache_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Reset database cache, preferences, profile settings."
-                        android:textSize="11sp"
-                        android:textColor="#64748B"
-                        android:layout_marginBottom="12dp" />
-
-                    <Button
-                        android:id="@+id/clear_cache_btn"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_button"
-                        android:text="RESET APP CACHE"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <!-- About Card -->
-                <LinearLayout
-                    android:id="@+id/about_card"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_light"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:layout_marginBottom="32dp">
-
-                    <TextView
-                        android:id="@+id/txt_about_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="About Nexus Elite"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#0F172A"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:id="@+id/txt_about_body"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Version 1.0.0 (API 34 Support)\nBuilt with programmatic low-latency synthesizers and native Java. Theme engine renders components seamlessly with zero external runtime libraries."
-                        android:textSize="12sp"
-                        android:textColor="#64748B"
-                        android:lineSpacingMultiplier="1.2" />
-                </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
-    </FrameLayout>
-
-    <!-- PERSISTENT BOTTOM NAVIGATION BAR -->
-    <LinearLayout
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:orientation="horizontal"
-        android:background="#FFFFFF"
-        android:elevation="8dp"
-        android:layout_alignParentBottom="true">
-
-        <!-- Tab 1: Home -->
-        <LinearLayout
-            android:id="@+id/tab_home"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tab_home_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🏠"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tab_home_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home"
-                android:textSize="11sp"
-                android:textColor="#3B82F6"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- Tab 2: Features -->
-        <LinearLayout
-            android:id="@+id/tab_features"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tab_features_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🎯"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tab_features_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tasks"
-                android:textSize="11sp"
-                android:textColor="#64748B" />
-        </LinearLayout>
-
-        <!-- Tab 3: Notifications -->
-        <RelativeLayout
-            android:id="@+id/tab_notifications"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/tab_notifications_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🔔"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/tab_notifications_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Logs"
-                    android:textSize="11sp"
-                    android:textColor="#64748B" />
-            </LinearLayout>
-
-            <!-- Badge Count -->
-            <TextView
-                android:id="@+id/noti_badge"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:background="#EF4444"
-                android:text="3"
-                android:textColor="#FFFFFF"
-                android:textSize="9dp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginTop="8dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="12dp" />
-        </RelativeLayout>
-
-        <!-- Tab 4: Profile -->
-        <LinearLayout
-            android:id="@+id/tab_profile"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tab_profile_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="👤"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tab_profile_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Profile"
-                android:textSize="11sp"
-                android:textColor="#64748B" />
-        </LinearLayout>
-
-        <!-- Tab 5: Settings -->
-        <LinearLayout
-            android:id="@+id/tab_settings"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tab_settings_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="⚙️"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tab_settings_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Settings"
-                android:textSize="11sp"
-                android:textColor="#64748B" />
+                android:layout_marginTop="4dp" />
         </LinearLayout>
     </LinearLayout>
 
-    <!-- FULL SCREEN PREMIUM SPLASH OVERLAY -->
-    <RelativeLayout
-        android:id="@+id/splash_overlay"
+    <!-- Scrollable content -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_splash"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="visible">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_centerInParent="true">
+            android:orientation="vertical">
 
-            <!-- Elegant circular glow star frame logo -->
-            <RelativeLayout
-                android:id="@+id/splash_logo_container"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:background="@drawable/bg_tab_active"
-                android:layout_marginBottom="24dp">
+            <!-- App Meta Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="1dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="❖"
-                    android:textSize="54sp"
+                    android:text="Environment Context"
+                    android:textColor="#1976D2"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_pkg_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Package: com.buildhealthchecker.app"
+                    android:textColor="#555555"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_target_sdk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Target SDK: 34"
+                    android:textColor="#555555"
+                    android:textSize="13sp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:id="@+id/tv_gradle_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gradle: 8.5 | AGP: 8.3.2"
+                    android:textColor="#555555"
+                    android:textSize="13sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Diagnostic Checks Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="1dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diagnostic Status"
+                    android:textColor="#1976D2"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Check Item 1: Java Env -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Java Version"
+                        android:textColor="#333333"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/tv_java_version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Checking..."
+                        android:textColor="#FF9800"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Check Item 2: Android OS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Android OS Version"
+                        android:textColor="#333333"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/tv_os_version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Checking..."
+                        android:textColor="#FF9800"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Check Item 3: Memory -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Available Memory"
+                        android:textColor="#333333"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/tv_memory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Checking..."
+                        android:textColor="#FF9800"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Check Item 4: Manifest Verification -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Manifest Namespace"
+                        android:textColor="#333333"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/tv_namespace_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ready"
+                        android:textColor="#FF9800"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Verification Terminal Console -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#212121"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="1dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diagnostic Terminal Log"
+                    android:textColor="#4CAF50"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_terminal_log"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:gravity="bottom"
+                    android:scrollbars="vertical"
+                    android:text="Initializing verification suite...\nReady to run tests.\nClick run to begin system scan."
+                    android:textColor="#00FF00"
+                    android:fontFamily="monospace"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Action Button & Loader -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_run_diagnostics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#1976D2"
+                    android:text="Run Diagnostics Suite"
                     android:textColor="#FFFFFF"
-                    android:layout_centerInParent="true" />
+                    android:textStyle="bold" />
+
+                <ProgressBar
+                    android:id="@+id/pb_loading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone" />
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/splash_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NEXUS ELITE"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:letterSpacing="0.25"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/splash_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Precision Mobile Workstation"
-                android:textSize="12sp"
-                android:textColor="#94A3B8"
-                android:letterSpacing="0.1"
-                android:layout_marginBottom="32dp" />
-
-            <ProgressBar
-                android:id="@+id/splash_progress"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:indeterminate="true"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:id="@+id/splash_status_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Configuring synthetic audio track..."
-                android:textSize="11sp"
-                android:textColor="#94A3B8" />
         </LinearLayout>
-    </RelativeLayout>
-</RelativeLayout>
+    </ScrollView>
+</LinearLayout>
