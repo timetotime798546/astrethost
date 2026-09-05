@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -172,7 +173,7 @@ public class MainActivity extends Activity {
         params.setMargins(4, 4, 4, 4);
         btn.setLayoutParams(params);
         btn.setText(categoryName);
-        btn.setTextSize(12spToPx(11));
+        btn.setTextSize(11);
         btn.setPadding(16, 0, 16, 0);
 
         // Styling state: active/inactive state

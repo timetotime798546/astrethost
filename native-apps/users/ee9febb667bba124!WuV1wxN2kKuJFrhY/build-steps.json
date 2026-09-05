@@ -2,85 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Initialization",
-      "description": "Initialize standard project metadata, set app name to 'Notes Manager', and define the package name 'com.notesmanager.app'.",
-      "files": ["app-meta.json"],
+      "title": "Analyze Build Failures",
+      "description": "Inspect the build logs to locate resource linking and syntax issues in activity_main.xml and MainActivity.java.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Environment",
-      "description": "Configure the root and app level build.gradle files with AGP 8.3.2, Gradle 8.5, and SDK 34 specifications with strict Java 8 compatibility.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Create Android Manifest",
-      "description": "Define the AndroidManifest.xml file with package declarations, launcher MainActivity, and the system material light theme.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Design App Colors and Styles",
-      "description": "Create basic color definitions in XML resources for standard Material light palettes to use in headers, chips, and list elements.",
-      "files": ["app/src/main/res/values/colors.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Create Note Item Layout",
-      "description": "Design the note_item.xml layout which holds the title, details, category tag, timestamp, and action buttons for editing and deleting.",
-      "files": ["app/src/main/res/layout/note_item.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Create Main Activity Layout",
-      "description": "Design the main interface containing search, category selectors, the main notes ListView, and the overlay UI for editing/adding notes.",
+      "title": "Fix activity_main.xml width layout error",
+      "description": "Replace the invalid attribute value 'match_match' with 'match_parent' in activity_main.xml.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 3,
+      "title": "Fix activity_main.xml centering attributes",
+      "description": "Correct layout_centerY with layout_centerVertical in relative layout children within activity_main.xml.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Correct syntax error in MainActivity.java",
+      "description": "Resolve the '12spToPx' typo on the text size setting call inside MainActivity.java to ensure successful compilation.",
+      "files": ["app/src/main/java/com/notesmanager/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Validate layout alignment and padding",
+      "description": "Review layout margins, weights, padding, and alignments to ensure no other AAPT issues persist.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify resource references",
+      "description": "Ensure layout file references align with drawables and color resources without broken IDs.",
+      "files": [],
+      "status": "pending"
+    },
+    {
       "step": 7,
-      "title": "Implement SQLite Database Helper",
-      "description": "Create a robust built-in SQLiteOpenHelper in MainActivity to store, search, update, delete, and filter notes by category.",
+      "title": "Verify Java imports",
+      "description": "Ensure MainActivity.java uses correct class imports and standard Android system components.",
       "files": ["app/src/main/java/com/notesmanager/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement Notes Adapter",
-      "description": "Develop a standard BaseAdapter to dynamically populate note elements inside MainActivity, handling custom click events.",
-      "files": ["app/src/main/java/com/notesmanager/app/MainActivity.java"],
+      "title": "Check Manifest registrations",
+      "description": "Ensure AndroidManifest.xml uses the proper package namespace com.notesmanager.app and lists MainActivity.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Category Filtering",
-      "description": "Build dynamic category selector listeners using pre-defined categories like Work, Personal, Ideas, etc., to refine lists instantly.",
-      "files": ["app/src/main/java/com/notesmanager/app/MainActivity.java"],
+      "title": "Clean Build cache and assets",
+      "description": "Perform verification step to prepare for clean compiling after layout changes.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement Real-time Search",
-      "description": "Add TextWatcher to the search bar to live-filter existing notes across both titles and descriptions.",
-      "files": ["app/src/main/java/com/notesmanager/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Implement Add, Edit & Delete Logic",
-      "description": "Integrate SQLite dialog callbacks and overlay handlers for inserting new notes, modifying existing entries, or prompting deletion confirmations.",
-      "files": ["app/src/main/java/com/notesmanager/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building Notes Manager",
-      "description": "Trigger final compilation and assembling of the Notes Manager application with target system requirements.",
+      "description": "Launch compilation to generate a successful build of Notes Manager with target requirements.",
       "files": [],
       "status": "pending"
     }
