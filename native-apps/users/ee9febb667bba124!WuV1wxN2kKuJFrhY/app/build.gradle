@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.welcomeapp.app"
+    namespace "com.hellofailapp.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.welcomeapp.app"
+        applicationId "com.hellofailapp.app"
 
         minSdkVersion 21
 

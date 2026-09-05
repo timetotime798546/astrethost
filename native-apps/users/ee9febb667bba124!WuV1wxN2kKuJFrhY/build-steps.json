@@ -2,71 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize App Metadata",
-      "description": "Create the app-meta.json file defining the app name and the package structure for the project.",
-      "files": ["app-meta.json"],
+      "title": "Analyze Request and App Requirements",
+      "description": "Understand user request to build a minimalist Hello app with an intentional syntax error in MainActivity.java to force a build failure.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Tools and SDK Settings",
-      "description": "Set up the Gradle build script with compile/target SDK versions, package namespace, and Java 1.8 compatibility options.",
-      "files": ["app/build.gradle"],
+      "title": "Define Project Structure and Configuration",
+      "description": "Set up metadata and build files consistent with the requirements.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Application Manifest",
-      "description": "Define the AndroidManifest.xml specifying the entry point activity, icon resource, package name, and correct Android XML namespaces.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Configure Build Settings in Gradle",
+      "description": "Create the app build.gradle specifying compile and target SDKs as 34 and standard namespace configurations.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design Welcome User Interface",
-      "description": "Create a clean, centralized Linear Layout XML showing a 'Welcome' message with styling and spacing.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Create Application Manifest",
+      "description": "Write AndroidManifest.xml referencing the launcher Activity, correct themes, and launch filters.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Main Activity",
-      "description": "Create MainActivity.java class file implementing Android's base Activity subclass and lifecycle management.",
-      "files": ["app/src/main/java/com/welcomeapp/app/MainActivity.java"],
+      "title": "Design the Main Layout UI",
+      "description": "Write activity_main.xml layout to center-align the Hello message on the screen.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Introduce Intentional Syntax Error",
-      "description": "Modify MainActivity.java source code to include an explicit syntax error (broken token and missing statement terminator) to satisfy request requirements.",
-      "files": ["app/src/main/java/com/welcomeapp/app/MainActivity.java"],
+      "title": "Implement Main Activity Code with Intentional Syntax Error",
+      "description": "Implement MainActivity.java with a deliberate syntax error as explicitly requested by the user, causing the upcoming build to fail.",
+      "files": ["app/src/main/java/com/hellofailapp/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Verify Manifest Declarations",
-      "description": "Audit XML components inside AndroidManifest.xml to ensure all launch parameters match package requirements.",
+      "title": "Review Manifest Validation",
+      "description": "Confirm that manifest declarations align correctly with the package name space and required icon pathways.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Verify Target Directory Trees",
-      "description": "Double check standard project folders structure to ensure accurate source routing.",
-      "files": [],
+      "title": "Verify Target SDK Compatibility",
+      "description": "Ensure compilation configs meet standard SDK version 34 criteria.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Prepare Compilation Stack",
-      "description": "Perform dependency layout check before triggering Gradle compiler tools.",
+      "title": "Trigger Build Pipeline Validation",
+      "description": "Prepare local build assets for triggering code validation processes.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Building Welcome App",
-      "description": "Run assembly command where the build is expected to intentionally fail compilation inside MainActivity.java.",
+      "title": "Building Hello Fail App",
+      "description": "Execute gradle assembleDebug to run compilation. A failure is expected at the compileJava stage due to the introduced syntax error.",
       "files": [],
       "status": "pending"
     }
