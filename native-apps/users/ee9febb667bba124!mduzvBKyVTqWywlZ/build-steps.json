@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Establish 3D UI App Metadata Configurations",
+      "description": "Align configuration settings in app-meta.json for AC Resizer with package name com.acresizer.app.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Environment compatibility parameters",
+      "description": "Verify settings.gradle and root settings build configurations target Gradle 8.5.",
+      "files": ["settings.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Build Gradle level compilation script settings",
+      "description": "Verify Google & Maven Central repo pathways and register AGP 8.3.2 inside top-level build.gradle.",
+      "files": ["build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Inject dependencies and SDK properties inside app build.gradle",
+      "description": "Compile settings to targets compileSdk 34 and minSdk 21 with Java 1.8 compatibility options.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create custom 3D Physics Particle engine class",
+      "description": "Write ParticleBackgroundView.java to handle real-time background animated vector glow shapes utilizing low-overhead Canvas graphics operations.",
+      "files": ["app/src/main/java/com/acresizer/app/ParticleBackgroundView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Upgrade Manifest declaration properties",
+      "description": "Configure AndroidManifest.xml system declarations with permission bounds and package launch entry points.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Verify UI Custom layout drawables",
+      "description": "Validate background drawables such as card_bg.xml and button_bg.xml for standard controls rendering.",
+      "files": ["app/src/main/res/drawable/card_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Restructure Layout design to support interactive 3D UI components",
+      "description": "Revamp activity_main.xml to contain ParticleBackgroundView layer, 3D flippable card containers, and Red-Cyan stereoscopic filter triggers.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement stereoscopic calculations, tactile card tilt mechanics, and card flip logic inside MainActivity.java",
+      "description": "Program custom 3D touch tilt listeners, 180-degree flip view toggles, and direct color channel separation algorithm to achieve 3D rendering.",
+      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building AC Resizer",
+      "description": "Run assembly processes to execute build validations and generate final high-performance 3D-enhanced AC Resizer app.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
