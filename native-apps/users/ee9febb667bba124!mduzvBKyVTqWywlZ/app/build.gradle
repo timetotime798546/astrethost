@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.acresizer.app"
+    namespace "com.javawebserver.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.acresizer.app"
+        applicationId "com.javawebserver.app"
 
         minSdkVersion 21
 

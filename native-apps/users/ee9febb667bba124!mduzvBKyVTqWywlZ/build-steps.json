@@ -2,71 +2,116 @@
   "steps": [
     {
       "step": 1,
-      "title": "Establish App Metadata Configurations",
-      "description": "Align configuration settings in app-meta.json for AC Resizer with package name com.acresizer.app.",
-      "files": ["app-meta.json"],
-      "status": "completed"
+      "title": "Configure App Metadata",
+      "description": "Establish the root meta configuration defining dynamic app identity.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Environment compatibility parameters",
-      "description": "Verify settings.gradle and root settings build configurations target Gradle 8.5.",
-      "files": ["settings.gradle"],
-      "status": "completed"
+      "title": "Establish Project Build Path",
+      "description": "Establish standard gradle configurations compatible with Java 17, Gradle 8.5, and AGP 8.3.2.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
     },
     {
       "step": 3,
-      "title": "Build Gradle level compilation script settings",
-      "description": "Verify Google & Maven Central repo pathways and register AGP 8.3.2 inside top-level build.gradle.",
-      "files": ["build.gradle"],
-      "status": "completed"
+      "title": "Define Android Manifest",
+      "description": "Register application permissions, standard system themes, launcher entry, and specify clean manifest validation namespace.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
     },
     {
       "step": 4,
-      "title": "Inject dependencies and SDK properties inside app build.gradle",
-      "description": "Compile settings to targets compileSdk 34 and minSdk 21 with Java 1.8 compatibility options.",
-      "files": ["app/build.gradle"],
-      "status": "completed"
+      "title": "Design Color Palette",
+      "description": "Configure light Material style themes using basic native resource parameters.",
+      "files": [
+        "app/src/main/res/values/colors.xml"
+      ],
+      "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create custom 3D Physics Particle engine class",
-      "description": "Write ParticleBackgroundView.java to handle real-time background animated vector glow shapes utilizing low-overhead Canvas graphics operations.",
-      "files": ["app/src/main/java/com/acresizer/app/ParticleBackgroundView.java"],
-      "status": "completed"
+      "title": "Design String Resources",
+      "description": "Define localized parameters for UI elements, labels, buttons, and system messages.",
+      "files": [
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
     },
     {
       "step": 6,
-      "title": "Upgrade Manifest declaration properties",
-      "description": "Configure AndroidManifest.xml system declarations with permission bounds and package launch entry points.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "completed"
+      "title": "Build Main Layout Structure",
+      "description": "Define the user interface configuration mapping controls for the main server interface, logs terminal, dynamic files manager, and full-screen text editor.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
     },
     {
       "step": 7,
-      "title": "Verify UI Custom layout drawables",
-      "description": "Validate background drawables such as card_bg.xml and button_bg.xml for standard controls rendering.",
-      "files": ["app/src/main/res/drawable/card_bg.xml"],
-      "status": "completed"
+      "title": "Create Web Server Core Implementation",
+      "description": "Build asynchronous Java HTTP Multi-Threaded Server with dynamic file handler serving requested routes on port 3399.",
+      "files": [
+        "app/src/main/java/com/javawebserver/app/MainActivity.java"
+      ],
+      "status": "pending"
     },
     {
       "step": 8,
-      "title": "Restructure Layout design to support interactive 3D UI components",
-      "description": "Revamp activity_main.xml to contain ParticleBackgroundView layer, 3D flippable card containers, and Red-Cyan stereoscopic filter triggers.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "completed"
+      "title": "Implement Client Handler and Socket Pipeline",
+      "description": "Assemble individual request streams, clean URL resolution, and fast socket lifecycle management capable of handling 1000 concurrent loops.",
+      "files": [
+        "app/src/main/java/com/javawebserver/app/MainActivity.java"
+      ],
+      "status": "pending"
     },
     {
       "step": 9,
-      "title": "Fix Color reference compile issues and runtime permission crashes",
-      "description": "Remove the invalid Color.white(float) method call and secure runtime permission checks for API < 23 backward compatibility inside MainActivity.java.",
-      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
-      "status": "completed"
+      "title": "Implement Integrated File Manager Actions",
+      "description": "Develop native operations to list, open, create, and modify HTML, CSS, and JS files natively in the local system sandboxed root.",
+      "files": [
+        "app/src/main/java/com/javawebserver/app/MainActivity.java"
+      ],
+      "status": "pending"
     },
     {
       "step": 10,
-      "title": "Building AC Resizer",
-      "description": "Run assembly processes to execute build validations and generate final high-performance 3D-enhanced AC Resizer app.",
+      "title": "Configure Default Static Mockups",
+      "description": "Integrate code routines that auto-populate mock HTML, CSS, and JS templates on initialization to provide immediate demonstration.",
+      "files": [
+        "app/src/main/java/com/javawebserver/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Perform UI Compatibility Check",
+      "description": "Verify view layout flow using native Android UI elements and traditional system widgets.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Validate Thread Safety Control",
+      "description": "Verify UI post events logic printing logs continuously from dynamic Server background thread safely down onto main visual queue.",
+      "files": [
+        "app/src/main/java/com/javawebserver/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Java Web Server",
+      "description": "Execute the Android build system using Gradle to generate and verify package debug options.",
       "files": [],
       "status": "pending"
     }
