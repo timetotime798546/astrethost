@@ -663,7 +663,7 @@ public class MainActivity extends Activity {
             TextView txtDetails = (TextView) convertView.findViewById(android.R.id.text2);
 
             txtName.setText(file.getName());
-            txtName.setTextSize(16sp);
+            txtName.setTextSize(16);
             txtName.setTextColor(0xFF212121);
 
             long bytes = file.length();
