@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1565C0"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Error Fixer Pro"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Android App Troubleshooting and Tracking"
+            android:textColor="#BBDEFB"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- Navigation Tabs -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#E3F2FD">
+
+        <Button
+            android:id="@+id/btn_tab_troubleshoot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Trouble\nshoot"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="#1976D2"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_tab_analyzer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Log\nAnalyzer"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="#E3F2FD"
+            android:textColor="#1976D2" />
+
+        <Button
+            android:id="@+id/btn_tab_tracker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="My\nTracker"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="#E3F2FD"
+            android:textColor="#1976D2" />
+    </LinearLayout>
+
+    <!-- Content Containers -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- 1. Troubleshooter Container -->
+        <LinearLayout
+            android:id="@+id/layout_troubleshoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:visibility="visible">
+
+            <EditText
+                android:id="@+id/et_search_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search common error names or tags..."
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:textColor="#333333"
+                android:layout_marginBottom="8dp" />
+
+            <!-- List View of Errors -->
+            <ListView
+                android:id="@+id/lv_common_errors"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#E0E0E0"
+                android:dividerHeight="1dp" />
+
+            <!-- Error Detail Sub-View (Overlay) -->
+            <ScrollView
+                android:id="@+id/layout_error_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_detail_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="← BACK TO LIST"
+                        android:background="#CCCCCC"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#1565C0"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Root Cause Description:"
+                        android:textColor="#333333"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_cause"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#666666"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="16dp"
+                        android:lineSpacingMultiplier="1.1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="How to Fix (Standard Solution):"
+                        android:textColor="#333333"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_solution"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#2E7D32"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp"
+                        android:lineSpacingMultiplier="1.1"
+                        android:background="#E8F5E9"
+                        android:padding="12dp" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- 2. Log Analyzer Container -->
+        <ScrollView
+            android:id="@+id/layout_analyzer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Logcat &amp; Stacktrace Analyzer"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Paste your crash logs or stacktrace below. The analyzer will attempt to identify the exception type, location, and potential remedies."
+                    android:textColor="#666666"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="12dp" />
+
+                <EditText
+                    android:id="@+id/et_log_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:hint="paste logcat lines here..."
+                    android:gravity="top|left"
+                    android:background="#FFFFFF"
+                    android:padding="10dp"
+                    android:textSize="12sp"
+                    android:inputType="textMultiLine"
+                    android:textColor="#333333" />
+
+                <Button
+                    android:id="@+id/btn_analyze_log"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ANALYZE STACKTRACE"
+                    android:background="#1565C0"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Results Layout -->
+                <LinearLayout
+                    android:id="@+id/layout_analysis_results"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#E3F2FD"
+                    android:padding="16dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ANALYSIS REPORT"
+                        android:textColor="#1565C0"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/tv_analysis_summary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#C62828"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="10dp" />
+
+                    <TextView
+                        android:id="@+id/tv_analysis_solution"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#333333"
+                        android:textSize="13sp"
+                        android:lineSpacingMultiplier="1.1" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- 3. Bug Tracker Container -->
+        <LinearLayout
+            android:id="@+id/layout_tracker"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <!-- New Bug Form -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="1dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Log New Bug"
+                    android:textColor="#1565C0"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/et_bug_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Bug Title (e.g. Null pointer in detail screen)"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:background="#F5F5F5"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/et_bug_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Bug Description (e.g. Steps to reproduce, log file)"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:background="#F5F5F5"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Priority: "
+                        android:textSize="14sp"
+                        android:textColor="#555555" />
+
+                    <Spinner
+                        android:id="@+id/spinner_priority"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_save_bug"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SAVE BUG REPORT"
+                    android:background="#2E7D32"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logged App Bugs"
+                android:textColor="#333333"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp" />
+
+            <!-- Logged Bugs List -->
+            <ListView
+                android:id="@+id/lv_my_bugs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#E0E0E0"
+                android:dividerHeight="6dp" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
