@@ -1,0 +1,144 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Create app-meta.json file defining the app name and package name format.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Set Up Build System Environment",
+      "description": "Configure the AGP version, compilation parameters, and system build limits in app/build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Establish Android Manifest",
+      "description": "Set up application settings, relative launchers, standard material styling, and ensure correct schema declaration in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define Application Strings",
+      "description": "Set up general string assets in strings.xml for standardized use across configurations.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Establish Color Profile",
+      "description": "Create colors.xml containing specific color hex values for income elements, expense elements, and primary branding teal color.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Card Shape Layout",
+      "description": "Implement a drawable XML shape with bordered styling and subtle rounding to house clean overview blocks.",
+      "files": ["app/src/main/res/drawable/card_background.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Income Badge Style",
+      "description": "Establish a styled badge background for representing positive transactions with green elements.",
+      "files": ["app/src/main/res/drawable/badge_income.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Expense Badge Style",
+      "description": "Establish a styled badge background for representing cost items with soft red indicators.",
+      "files": ["app/src/main/res/drawable/badge_expense.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Primary Rounded Button Shape",
+      "description": "Design a reusable primary action button shape with teal coloring and rounded borders.",
+      "files": ["app/src/main/res/drawable/btn_primary.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design Application Dashboard and Tabs",
+      "description": "Develop a multi-view horizontal navigation layout containing a dynamic dashboard scrollview, transaction filters, and summaries in activity_main.xml.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Transaction List Element",
+      "description": "Construct list item rows to house category indicator badges, description text, timestamp, and numerical balance amounts in item_transaction.xml.",
+      "files": ["app/src/main/res/layout/item_transaction.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Design Dialog Transaction Editor Form",
+      "description": "Build an editing popup container in dialog_add_transaction.xml with fields for amount, dynamic categorization selectors, and calendar selector input.",
+      "files": ["app/src/main/res/layout/dialog_add_transaction.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Design Category Breakdown Report Rows",
+      "description": "Establish item_report_category.xml supporting layout percentage calculation bars utilizing relative visual weights.",
+      "files": ["app/src/main/res/layout/item_report_category.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Build SQL Local Database Manager",
+      "description": "Develop DatabaseHelper.java to set up internal SQL schemas for standard default classifications, tracking transactions, and computing analytics.",
+      "files": ["app/src/main/java/com/expensetracker/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Implement Base Navigation Logic",
+      "description": "Develop main setup lifecycle events, layout toggle helpers, and dynamic navigation click handlers in MainActivity.java.",
+      "files": ["app/src/main/java/com/expensetracker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Implement Transaction List Adaption",
+      "description": "Write a custom BaseAdapter inner class inside MainActivity.java supporting row populating, item identification, and transaction coloring rules.",
+      "files": ["app/src/main/java/com/expensetracker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Implement Popup Dialog Form Functionality",
+      "description": "Write custom handlers inside MainActivity.java to prompt dialog inputs, support custom dynamic category creations, and apply calendar selection overlays.",
+      "files": ["app/src/main/java/com/expensetracker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 18,
+      "title": "Implement Filters and Month Breakdowns",
+      "description": "Incorporate automated filter spinners on the History and Reports layout to partition transactions by month or grouping.",
+      "files": ["app/src/main/java/com/expensetracker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 19,
+      "title": "Implement Category Weight Progress Bar",
+      "description": "Construct mathematical layout scaling parameters that dynamically adjust category spending visual widths based on percentage totals.",
+      "files": ["app/src/main/java/com/expensetracker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 20,
+      "title": "Building Expense Tracker",
+      "description": "Assemble files and compile build environment parameters to generate an absolute APK application package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
