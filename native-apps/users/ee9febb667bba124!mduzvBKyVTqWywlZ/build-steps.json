@@ -37,68 +37,55 @@
     },
     {
       "step": 6,
-      "title": "Review Resource Background Drawables",
-      "description": "Maintain existing layout styles, button graphics, input card border stroke XML configurations.",
-      "files": [
-        "app/src/main/res/drawable/card_bg.xml",
-        "app/src/main/res/drawable/button_bg.xml",
-        "app/src/main/res/drawable/button_secondary_bg.xml",
-        "app/src/main/res/drawable/input_bg.xml",
-        "app/src/main/res/drawable/preset_button_bg.xml"
-      ],
+      "title": "Create Card Background Drawable",
+      "description": "Generate card_bg.xml drawable with custom radius corners, background solid color, and border stroke.",
+      "files": ["app/src/main/res/drawable/card_bg.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Update UI layout with AC Resizer Branding",
-      "description": "Revise activity_main.xml to incorporate updated header bars, title labels, sliders, and standard preset controls with AC Resizer styling.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Create Primary Button Background Drawable",
+      "description": "Generate button_bg.xml drawable with primary classic blue branding and corner radius shape attributes.",
+      "files": ["app/src/main/res/drawable/button_bg.xml"],
       "status": "pending"
     },
     {
       "step": 8,
+      "title": "Create Secondary Button Background Drawable",
+      "description": "Generate button_secondary_bg.xml with accent green coloration styling.",
+      "files": ["app/src/main/res/drawable/button_secondary_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Text Input Background Drawable",
+      "description": "Generate input_bg.xml with border outline stroke and rounded bounds for edit text fields.",
+      "files": ["app/src/main/res/drawable/input_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Create Preset Button Background Drawable",
+      "description": "Generate preset_button_bg.xml drawable for selection tiles with soft blue hues.",
+      "files": ["app/src/main/res/drawable/preset_button_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Verify activity_main.xml integration",
+      "description": "Ensure all layout reference assets link correctly to layout components and views.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
       "title": "Update Package and Class Imports in MainActivity.java",
       "description": "Refactor package declarations and title strings inside MainActivity.java to refer correctly to com.acresizer.app.",
       "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Implement Camera/EXIF Orientation Parsing",
-      "description": "Provide helper methods in MainActivity.java to read EXIF orientation from photo streams to avoid unintended portrait-to-landscape auto-rotations.",
-      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Develop Interactive Rotate Feature",
-      "description": "Handle real-time rotation operations on the source image and preview output layouts safely.",
-      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Build Dynamic App Theme Customizer",
-      "description": "Add support for custom dynamic themes (Classic Blue, Dark Slate, Forest Green, Royal Purple) with visual feedback.",
-      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Program Border & Outline Canvas Renderer",
-      "description": "Develop a precise border painter which overlays solid color borders inside the image bounding box.",
-      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
       "step": 13,
-      "title": "Code the Photo Enhancer Algorithm",
-      "description": "Apply contrast scaling factor matrixes and brightness levels using ColorFilters on the processed bitmap outputs.",
-      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
       "title": "Building AC Resizer",
       "description": "Execute gradle assembleDebug to build the final stable, upgraded AC Resizer APK.",
       "files": [],
