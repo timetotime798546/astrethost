@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.builddiagnosticsutility.app"
+    namespace "com.errorfixer.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.builddiagnosticsutility.app"
+        applicationId "com.errorfixer.app"
 
         minSdkVersion 21
 

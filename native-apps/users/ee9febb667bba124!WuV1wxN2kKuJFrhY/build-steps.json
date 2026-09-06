@@ -3,7 +3,7 @@
     {
       "step": 1,
       "title": "Define Project Specifications",
-      "description": "Establish key application credentials, namespace definition, and package name parameters for the Build Diagnostics Utility.",
+      "description": "Establish package metadata, standard Java 8 settings, and standard build properties for the Error Fixer application.",
       "files": [
         "app-meta.json"
       ],
@@ -11,8 +11,8 @@
     },
     {
       "step": 2,
-      "title": "Configure Build Settings",
-      "description": "Set up build.gradle compiling configuration for AGP 8.3.2, SDK Target 34, and Java 8 compatibility.",
+      "title": "Configure Gradle Environment",
+      "description": "Set up build.gradle matching the fixed runtime configuration environment: Gradle 8.5, AGP 8.3.2, compileSdkVersion 34, and minSdkVersion 21 with standard Java 8 compatibility.",
       "files": [
         "app/build.gradle"
       ],
@@ -20,8 +20,8 @@
     },
     {
       "step": 3,
-      "title": "Configure Application Manifest",
-      "description": "Set up AndroidManifest.xml with accurate namespace attributes, internet access privileges, and the standard launcher Activity registration.",
+      "title": "Develop Android Manifest Configuration",
+      "description": "Design the system manifest including namespace declarations, hardware access diagnostics, network permissions, custom light material theme, and setup main activity points.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -29,26 +29,26 @@
     },
     {
       "step": 4,
-      "title": "Create Reusable Card Drawable Layout",
-      "description": "Implement a clean card shape background XML drawable to visually separate different diagnostic categories.",
+      "title": "Design Application Header & Base Tabs Layout",
+      "description": "Formulate a sleek horizontal navigation tab structure inside the activity_main layout to alternate dynamically among multiple workspaces.",
       "files": [
-        "app/src/main/res/drawable/card_bg.xml"
+        "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Console Panel UI Drawable",
-      "description": "Build a dark, terminal-style console panel shape XML drawable for displaying mock system crash diagnostic logs.",
+      "title": "Integrate System Diagnostics Interface",
+      "description": "Implement structural cards within the user layout to present device attributes, operating system specifications, heap RAM tracking, and location permission metrics.",
       "files": [
-        "app/src/main/res/drawable/console_bg.xml"
+        "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Create Layout File",
-      "description": "Set up activity_main.xml as a multi-tab developer diagnostic interface incorporating nested system logs, test buttons, and system metrics panels.",
+      "title": "Formulate Error Dictionary Database List UI",
+      "description": "Add search functionality and a structured ListView to search and read diagnostic solutions for typical Android deployment errors.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -56,53 +56,108 @@
     },
     {
       "step": 7,
-      "title": "Initialize MainActivity Structure",
-      "description": "Establish class file architecture, package structure, and all diagnostic package imports in MainActivity.java.",
+      "title": "Integrate Crash Simulation Workspace UI",
+      "description": "Embed custom functional triggers to trigger runtime NullPointerExceptions, ArithmeticExceptions, and Custom exceptions safely to demo uncaught exception handling.",
       "files": [
-        "app/src/main/java/com/builddiagnosticsutility/app/MainActivity.java"
+        "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement Navigation Controls",
-      "description": "Add multi-tab screen state switching methods inside MainActivity to handle tabs dynamically without layout glitches.",
+      "title": "Initialize MainActivity Context Lifecycle",
+      "description": "Establish the main runtime activity package mapping for com.errorfixer.app and set up basic binding for components and system views.",
       "files": [
-        "app/src/main/java/com/builddiagnosticsutility/app/MainActivity.java"
+        "app/src/main/java/com/errorfixer/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement System Diagnostic Logic",
-      "description": "Add helper routines to calculate precise system statistics including runtime JVM metrics, memory thresholds, and disk storage.",
+      "title": "Code View Switching Mechanics",
+      "description": "Program standard visual switching controls to hide and show diagnostics, help encyclopedia lists, and simulation tabs dynamically on user selection.",
       "files": [
-        "app/src/main/java/com/builddiagnosticsutility/app/MainActivity.java"
+        "app/src/main/java/com/errorfixer/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement Network Ping Engine",
-      "description": "Add multi-threaded socket network ping execution routing to securely test live internet connectivity parameters.",
+      "title": "Implement System Hardware Information Evaluators",
+      "description": "Construct query blocks in Java to extract the active device build name, target Android SDK API, brand names, and allocated JVM memory parameters.",
       "files": [
-        "app/src/main/java/com/builddiagnosticsutility/app/MainActivity.java"
+        "app/src/main/java/com/errorfixer/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Implement Exception Sandbox Tester",
-      "description": "Add trigger routines for common developer errors (NullPointer, Arithmetic, IndexOutOfBound exceptions) and build a stacktrace formatter utility.",
+      "title": "Code Active Network Connection Validator",
+      "description": "Write ConnectivityManager inspectors to diagnose internet state, network medium, and feedback visual color state elements to the client.",
       "files": [
-        "app/src/main/java/com/builddiagnosticsutility/app/MainActivity.java"
+        "app/src/main/java/com/errorfixer/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Building Build Diagnostics Utility",
-      "description": "Assemble the completed diagnostic suite to verify target platform build capabilities.",
+      "title": "Incorporate Runtime Location Permissions Request Flow",
+      "description": "Incorporate run-time validation checks for platform target SDK rules, enabling manual runtime permission flow triggers.",
+      "files": [
+        "app/src/main/java/com/errorfixer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Create Common Error Encyclopedia Data",
+      "description": "Write and feed comprehensive dictionary entries on namespaces, OSM 418 tile blockages, Gradle mismatches, and theme failures into list objects.",
+      "files": [
+        "app/src/main/java/com/errorfixer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement List Filter Search Core Logic",
+      "description": "Develop TextWatcher listeners tied to the search field to filter the diagnostics list dynamically based on input.",
+      "files": [
+        "app/src/main/java/com/errorfixer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Write Custom Global Uncaught Exception Handling Engine",
+      "description": "Design an elegant error interceptor. On program crashes, save stack traces, bypass standard OS force-closes, and restart our Main activity containing precise troubleshooting diagnostics.",
+      "files": [
+        "app/src/main/java/com/errorfixer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Code Sandbox Intent Crash Restarter Dialogue UI",
+      "description": "Create automated checks on startup to detect crash parameters and display intercepted logs, error locations, and debugging tips to developers.",
+      "files": [
+        "app/src/main/java/com/errorfixer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Verify Java 8 Source & Android Standard Compliance",
+      "description": "Conduct full check ensuring no lambda rules, no androidx, and exact Android Manifest namespace values are fulfilled.",
+      "files": [
+        "app/src/main/AndroidManifest.xml",
+        "app/src/main/java/com/errorfixer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 18,
+      "title": "Building Error Fixer",
+      "description": "Run standard Gradle assemble debug task to compile resource libraries, class bindings, and output the diagnostics tool binary.",
       "files": [],
       "status": "pending"
     }

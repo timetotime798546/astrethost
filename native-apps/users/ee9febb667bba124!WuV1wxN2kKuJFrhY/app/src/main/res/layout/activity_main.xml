@@ -3,90 +3,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5">
+    android:background="#F5F6F8">
 
-    <!-- Top Application Bar -->
+    <!-- Header Panel -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#005A9C"
         android:orientation="vertical"
+        android:background="#2C3E50"
         android:padding="16dp">
-        
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Build Diagnostics"
+            android:text="Android Error Fixer"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Real-time Android Debugging &amp; Environment Diagnostics"
-            android:textColor="#E0E0E0"
+            android:text="Diagnostics, Debugging &amp; Troubleshooting Hub"
+            android:textColor="#BDC3C7"
             android:textSize="12sp"
-            android:layout_marginTop="4dp" />
+            android:layout_marginTop="2dp" />
     </LinearLayout>
 
-    <!-- Interactive Navigation Tabs -->
+    <!-- Horizontal Switcher Tabs -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#E0E0E0"
-        android:padding="2dp">
-
-        <Button
-            android:id="@+id/btn_tab_system"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="System Info"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:background="#FFFFFF"
-            android:textColor="#333333"
-            android:layout_margin="1dp" />
+        android:background="#34495E"
+        android:paddingBottom="2dp">
 
         <Button
             android:id="@+id/btn_tab_diagnostics"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Hardware"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:background="#E0E0E0"
-            android:textColor="#333333"
-            android:layout_margin="1dp" />
+            android:text="Diagnostics"
+            android:textColor="#FFFFFF"
+            android:background="#1ABC9C"
+            android:textSize="11sp"
+            android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btn_tab_sandbox"
+            android:id="@+id/btn_tab_guide"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Error Sandbox"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:background="#E0E0E0"
-            android:textColor="#333333"
-            android:layout_margin="1dp" />
+            android:text="Error Guide"
+            android:textColor="#CCCCCC"
+            android:background="#34495E"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn_tab_crash"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Crash Sandbox"
+            android:textColor="#CCCCCC"
+            android:background="#34495E"
+            android:textSize="11sp" />
     </LinearLayout>
 
-    <!-- Content Panel Areas -->
+    <!-- Workspaces Frame -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="12dp">
+        android:layout_weight="1">
 
-        <!-- TAB 1: System Info Layout -->
+        <!-- WORKSPACE 1: ACTIVE SYSTEM DIAGNOSTICS -->
         <ScrollView
-            android:id="@+id/scroll_system_info"
+            android:id="@+id/layout_diagnostics"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="12dp"
             android:visibility="visible">
 
             <LinearLayout
@@ -94,49 +89,221 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Environment Metrics"
-                    android:textColor="#333333"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
-
-                <!-- System Info Card -->
+                <!-- Build Specifications Info Card -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:background="@drawable/card_bg"
+                    android:background="#FFFFFF"
                     android:padding="16dp"
                     android:layout_marginBottom="12dp">
 
                     <TextView
-                        android:id="@+id/txt_system_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hardware &amp; OS Build"
+                        android:textColor="#2C3E50"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:id="@+id/txt_device_model"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Gathering environment details..."
-                        android:textColor="#444444"
+                        android:text="Model: Loading..."
+                        android:textColor="#555555"
                         android:textSize="14sp"
-                        android:lineSpacingMultiplier="1.2" />
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:id="@+id/txt_device_sdk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Android Version: Loading..."
+                        android:textColor="#555555"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:id="@+id/txt_device_brand"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Brand: Loading..."
+                        android:textColor="#555555"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/btn_refresh_sys"
+                <!-- Network State Card -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Refresh System Data"
-                    android:textColor="#FFFFFF"
-                    android:background="#005A9C" />
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Active Network Status"
+                        android:textColor="#2C3E50"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:id="@+id/txt_net_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Status: Inspecting..."
+                        android:textColor="#E67E22"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp" />
+
+                    <Button
+                        android:id="@+id/btn_test_net"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Force Connection Refresh"
+                        android:background="#3498DB"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp" />
+                </LinearLayout>
+
+                <!-- Memory and Runtime Parameters -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Allocated Heap Space"
+                        android:textColor="#2C3E50"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:id="@+id/txt_heap_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="JVM Allocation: Loading..."
+                        android:textColor="#555555"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:id="@+id/txt_heap_max"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="JVM Max Limit: Loading..."
+                        android:textColor="#555555"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Dynamic Permission Checks -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:padding="16dp"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sandbox Permission Diagnostics"
+                        android:textColor="#2C3E50"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Inspect or mock fine location permission status updates."
+                        android:textColor="#7F8C8D"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/txt_permission_state"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Fine Location: Loading..."
+                            android:textColor="#E67E22"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btn_req_permission"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Request"
+                            android:background="#2C3E50"
+                            android:textColor="#FFFFFF"
+                            android:textSize="10sp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
         </ScrollView>
 
-        <!-- TAB 2: Hardware Diagnostics Layout -->
-        <ScrollView
-            android:id="@+id/scroll_diagnostics"
+        <!-- WORKSPACE 2: SEARCHABLE ERROR ENCYCLOPEDIA -->
+        <LinearLayout
+            android:id="@+id/layout_guide"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/search_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Type keyword (e.g. manifest, traffic, 418)..."
+                android:padding="12dp"
+                android:background="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginBottom="10dp"
+                android:singleLine="true" />
+
+            <ListView
+                android:id="@+id/list_errors"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="#E0E0E0"
+                android:dividerHeight="1dp"
+                android:background="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- WORKSPACE 3: RUNTIME CRASH INTERCEPT SANDBOX -->
+        <ScrollView
+            android:id="@+id/layout_crash"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
             android:visibility="gone">
 
             <LinearLayout
@@ -144,223 +311,101 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Network Connectivity Suite"
-                    android:textColor="#333333"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
-
-                <!-- Connection Ping Card -->
+                <!-- Safe Exception Sandbox Info Card -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:background="@drawable/card_bg"
+                    android:background="#FFFFFF"
                     android:padding="16dp"
-                    android:layout_marginBottom="16dp">
+                    android:layout_marginBottom="12dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Internet Socket Ping Test"
-                        android:textColor="#005A9C"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:text="Crash Sandbox Settings"
+                        android:textColor="#D35400"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="6dp" />
 
                     <TextView
-                        android:id="@+id/txt_ping_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Uncaught runtime crashes normally close application views instantly. Toggle our custom Global Interceptor to capture these simulated logs and review crash traces automatically."
+                        android:textColor="#555555"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="12dp" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Status: Idle (Tap Run to execute socket diagnostic to 1.1.1.1)"
-                        android:textColor="#666666"
-                        android:textSize="13sp"
-                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Enable Custom Interceptor:"
+                            android:textColor="#2C3E50"
+                            android:textStyle="bold"
+                            android:textSize="13sp" />
+
+                        <CheckBox
+                            android:id="@+id/chk_interceptor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Simulated Fatal Events Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:padding="16dp"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Launch Simulated Crash Events"
+                        android:textColor="#C0392B"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
                         android:layout_marginBottom="12dp" />
 
                     <Button
-                        android:id="@+id/btn_run_ping"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Execute Network Ping"
-                        android:textColor="#FFFFFF"
-                        android:background="#008080" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Display Parameters"
-                    android:textColor="#333333"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
-
-                <!-- Screen Properties Card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/card_bg"
-                    android:padding="16dp"
-                    android:layout_marginBottom="16dp">
-
-                    <TextView
-                        android:id="@+id/txt_screen_info"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Measuring Screen..."
-                        android:textColor="#444444"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Onboard Device Sensors"
-                    android:textColor="#333333"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
-
-                <!-- Sensors Card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/card_bg"
-                    android:padding="16dp"
-                    android:layout_marginBottom="12dp">
-
-                    <TextView
-                        android:id="@+id/txt_sensors_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Listing physical sensors..."
-                        android:textColor="#444444"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- TAB 3: Error Simulator Sandbox Layout -->
-        <ScrollView
-            android:id="@+id/scroll_sandbox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Simulated Crash Sandbox"
-                    android:textColor="#333333"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="4dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Execute controlled operations to trigger exceptions. Inspect stack trace logs below in real-time."
-                    android:textColor="#666666"
-                    android:textSize="12sp"
-                    android:layout_marginBottom="12dp" />
-
-                <!-- Sandbox Buttons Grid -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="12dp">
-
-                    <Button
                         android:id="@+id/btn_trigger_npe"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Trigger NPE"
+                        android:text="Trigger NullPointerException"
+                        android:background="#C0392B"
                         android:textColor="#FFFFFF"
-                        android:background="#D32F2F"
-                        android:layout_marginRight="4dp"
-                        android:textSize="11sp" />
+                        android:layout_marginBottom="10dp" />
 
                     <Button
-                        android:id="@+id/btn_trigger_arith"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:id="@+id/btn_trigger_arithmetic"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Div / 0 Error"
+                        android:text="Trigger division by zero"
+                        android:background="#E67E22"
                         android:textColor="#FFFFFF"
-                        android:background="#D32F2F"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
-                        android:textSize="11sp" />
+                        android:layout_marginBottom="10dp" />
 
                     <Button
-                        android:id="@+id/btn_trigger_index"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:id="@+id/btn_trigger_oops"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Index Error"
-                        android:textColor="#FFFFFF"
-                        android:background="#D32F2F"
-                        android:layout_marginLeft="4dp"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="6dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Terminal Log Console"
-                        android:textColor="#333333"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <Button
-                        android:id="@+id/btn_clear_console"
-                        android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:text="Clear Log"
-                        android:textSize="11sp"
-                        android:background="#757575"
+                        android:text="Trigger Custom RuntimeException"
+                        android:background="#7F8C8D"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
 
-                <!-- Console Display Container -->
-                <ScrollView
-                    android:id="@+id/scroll_console_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="280dp"
-                    android:background="@drawable/console_bg"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:id="@+id/txt_console_output"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="[CONSOLE INITIALIZED SUCCESS]\nWaiting for error signals...\n"
-                        android:textColor="#00FF66"
-                        android:textSize="11sp"
-                        android:typeface="monospace" />
-                </ScrollView>
             </LinearLayout>
         </ScrollView>
+
     </FrameLayout>
 </LinearLayout>
