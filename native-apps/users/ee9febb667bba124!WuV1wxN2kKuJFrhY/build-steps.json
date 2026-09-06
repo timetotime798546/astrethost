@@ -2,116 +2,107 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Project Structure",
-      "description": "Establish basic folder hierarchy for the Classic Notes app.",
-      "files": [],
+      "title": "Define Project Specifications",
+      "description": "Establish key application credentials, namespace definition, and package name parameters for the Build Diagnostics Utility.",
+      "files": [
+        "app-meta.json"
+      ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure build.gradle",
-      "description": "Configure compilation parameters targetting SDK 34 and JVM compatibility.",
-      "files": ["app/build.gradle"],
+      "title": "Configure Build Settings",
+      "description": "Set up build.gradle compiling configuration for AGP 8.3.2, SDK Target 34, and Java 8 compatibility.",
+      "files": [
+        "app/build.gradle"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure AndroidManifest.xml",
-      "description": "Declare system Light Material themes, correct launcher activities, and the correct namespace context.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Configure Application Manifest",
+      "description": "Set up AndroidManifest.xml with accurate namespace attributes, internet access privileges, and the standard launcher Activity registration.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create Card UI Drawables",
-      "description": "Formulate rounded borders and background drawable assets for beautiful notes visualization.",
+      "title": "Create Reusable Card Drawable Layout",
+      "description": "Implement a clean card shape background XML drawable to visually separate different diagnostic categories.",
       "files": [
-        "app/src/main/res/drawable/note_card_bg.xml",
-        "app/src/main/res/drawable/category_badge_bg.xml"
+        "app/src/main/res/drawable/card_bg.xml"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Interactive Button Drawables",
-      "description": "Design custom shape drawables for FAB actions, Save controls, and Delete highlights.",
+      "title": "Create Console Panel UI Drawable",
+      "description": "Build a dark, terminal-style console panel shape XML drawable for displaying mock system crash diagnostic logs.",
       "files": [
-        "app/src/main/res/drawable/fab_bg.xml",
-        "app/src/main/res/drawable/btn_primary_bg.xml",
-        "app/src/main/res/drawable/btn_danger_bg.xml"
+        "app/src/main/res/drawable/console_bg.xml"
       ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Design Main Layout Layout",
-      "description": "Create the interface including custom filters, search elements, action layouts, and notes list views.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Create Layout File",
+      "description": "Set up activity_main.xml as a multi-tab developer diagnostic interface incorporating nested system logs, test buttons, and system metrics panels.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Design Note List Item Row",
-      "description": "Create custom list row template supporting card layouts, category labels, and summaries.",
-      "files": ["app/src/main/res/layout/note_list_item.xml"],
+      "title": "Initialize MainActivity Structure",
+      "description": "Establish class file architecture, package structure, and all diagnostic package imports in MainActivity.java.",
+      "files": [
+        "app/src/main/java/com/builddiagnosticsutility/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Design Note Editor View",
-      "description": "Establish form inputs for notes composition, spinner choices, and validation actions.",
-      "files": ["app/src/main/res/layout/activity_edit_note.xml"],
+      "title": "Implement Navigation Controls",
+      "description": "Add multi-tab screen state switching methods inside MainActivity to handle tabs dynamically without layout glitches.",
+      "files": [
+        "app/src/main/java/com/builddiagnosticsutility/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Create Note and Category Entities",
-      "description": "Write standard Java models representing records safely.",
+      "title": "Implement System Diagnostic Logic",
+      "description": "Add helper routines to calculate precise system statistics including runtime JVM metrics, memory thresholds, and disk storage.",
       "files": [
-        "app/src/main/java/com/classicnotes/app/Note.java",
-        "app/src/main/java/com/classicnotes/app/Category.java"
+        "app/src/main/java/com/builddiagnosticsutility/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement SQLite Helper Manager",
-      "description": "Design secure local storage database logic handling migrations, note mutations, category operations, and dynamic search SQL parameters.",
-      "files": ["app/src/main/java/com/classicnotes/app/DatabaseHelper.java"],
+      "title": "Implement Network Ping Engine",
+      "description": "Add multi-threaded socket network ping execution routing to securely test live internet connectivity parameters.",
+      "files": [
+        "app/src/main/java/com/builddiagnosticsutility/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Develop Custom NoteAdapter Module",
-      "description": "Write standard compliant ListView data adapter mapping custom queries straight to list view cells.",
-      "files": ["app/src/main/java/com/classicnotes/app/NoteAdapter.java"],
+      "title": "Implement Exception Sandbox Tester",
+      "description": "Add trigger routines for common developer errors (NullPointer, Arithmetic, IndexOutOfBound exceptions) and build a stacktrace formatter utility.",
+      "files": [
+        "app/src/main/java/com/builddiagnosticsutility/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Implement MainActivity Logic",
-      "description": "Connect Search watchers, category dropdown selectors, and popup alerts to facilitate full dynamic category management.",
-      "files": ["app/src/main/java/com/classicnotes/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Implement EditNoteActivity Logic",
-      "description": "Perform verification rules, date creation parsing, and note save/delete tasks.",
-      "files": ["app/src/main/java/com/classicnotes/app/EditNoteActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Verify Java 8 Compatibility",
-      "description": "Confirm language structures are fully compliant, utilizing pure native classes.",
-      "files": [],
-      "status": "pending"
-    },
-    {
-      "step": 15,
-      "title": "Building Classic Notes",
-      "description": "Compile Classic Notes cleanly using standard Gradle configurations.",
+      "title": "Building Build Diagnostics Utility",
+      "description": "Assemble the completed diagnostic suite to verify target platform build capabilities.",
       "files": [],
       "status": "pending"
     }

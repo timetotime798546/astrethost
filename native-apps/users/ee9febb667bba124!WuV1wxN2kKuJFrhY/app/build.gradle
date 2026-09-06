@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.classicnotes.app"
+    namespace "com.builddiagnosticsutility.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.classicnotes.app"
+        applicationId "com.builddiagnosticsutility.app"
 
         minSdkVersion 21
 
