@@ -11,8 +11,8 @@
     },
     {
       "step": 2,
-      "title": "Define Project Build Scripts",
-      "description": "Create the root build.gradle configurations matching Java 17, Gradle 8.5, and AGP 8.3.2 standards.",
+      "title": "Fix and Optimize Build Gradle Configurations",
+      "description": "Clean up unused external dependencies like NanoHTTPD and align configuration with strict build guidelines.",
       "files": [
         "app/build.gradle"
       ],
@@ -20,87 +20,24 @@
     },
     {
       "step": 3,
-      "title": "Configure Android Application Manifest",
-      "description": "Declare custom package properties, standard launch screen, and safe system themes within AndroidManifest.xml.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Construct Native User Interface Layout",
-      "description": "Design the graphical layout in activity_main.xml, defining Sound FX Pads, Synthesizer controls, progress loader, and the custom history listing.",
+      "title": "Correct Layout Resource Compilation Errors",
+      "description": "Resolve the XML rendering error in activity_main.xml by replacing the non-existent attribute android:layout_bottom with android:layout_marginBottom.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
+      "step": 4,
+      "title": "Verify Codebase Structure",
+      "description": "Double check AndroidManifest.xml package declarations, orientation locks, and system style hooks.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
       "step": 5,
-      "title": "Initialize UI Widgets and Event Callbacks",
-      "description": "Wire buttons, seekbars, checkbox settings, and text displays inside the MainActivity codebase.",
-      "files": [
-        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Develop Audio Synthesis Mathematical Oscillators",
-      "description": "Implement raw byte tone generation using continuous phase calculators to generate clean retro sounds (laser, siren, jump, coin).",
-      "files": [
-        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Establish Async AudioTrack Player Workers",
-      "description": "Write safe background threading processes to play generated sample bytes through native AudioTrack streams without pausing the main UI thread.",
-      "files": [
-        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Implement Simulated Audio Synthesis Loader Delay",
-      "description": "Create a modern visual circular progress bar and handler routine simulating audio rendering delay when requested by the user.",
-      "files": [
-        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Build Persistent Playback History Logging",
-      "description": "Develop automatic data persistence to save and read the playback history across restarts using SharedPreferences.",
-      "files": [
-        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Implement Dynamic History View Adapter",
-      "description": "Build layout generator functions in Java to render clean historical list rows featuring custom tone details and direct Replay trigger events.",
-      "files": [
-        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Verify State Cleansers",
-      "description": "Provide users with options to wipe preferences and completely reset the log container.",
-      "files": [
-        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building AudioFX Studio",
       "description": "Compiling resources, validating Java syntax compliance, and assembling final APK build output.",
       "files": [],
