@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Create application metadata configuration",
+      "description": "Generated app-meta.json configuration file containing the application name Photo Resizer Pro and target package com.photoresizerpro.app.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure project levels settings and dependencies",
+      "description": "Setup settings.gradle and root-level build.gradle to handle build plugins and target repository mirrors cleanly with AGP 8.3.2 and Gradle 8.5.",
+      "files": ["settings.gradle", "build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure module-level build tools and compile configuration",
+      "description": "Define build configurations under app/build.gradle setting compile and target SDK to 34, and specifying pure Java 8 compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design application manifest settings",
+      "description": "Setup AndroidManifest.xml declaring application settings, main entry point MainActivity, standard material theme, and external storage read/write permission guidelines.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Card Background Drawable",
+      "description": "Create custom rounded card background card_bg.xml for neat organization of controls and images.",
+      "files": ["app/src/main/res/drawable/card_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Primary Button Drawable",
+      "description": "Create custom primary button background button_bg.xml with modern professional deep blue gradient curves.",
+      "files": ["app/src/main/res/drawable/button_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Secondary Button Drawable",
+      "description": "Create custom secondary button background button_secondary_bg.xml for success/export functionalities.",
+      "files": ["app/src/main/res/drawable/button_secondary_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Input Box Background Drawable",
+      "description": "Create modern input outline design input_bg.xml for clean and professional editing text boxes.",
+      "files": ["app/src/main/res/drawable/input_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Preset Ratio Selector Drawable",
+      "description": "Create styled tag-style button outlines preset_button_bg.xml for instant sizing presets.",
+      "files": ["app/src/main/res/drawable/preset_button_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Develop User Interface Structure",
+      "description": "Construct high-fidelity activity_main.xml layout with structured layout cards, sliders, checkboxes, image preview views and loading screens styled with Hindi labels.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Photo Scaling and App Logic",
+      "description": "Develop complete logical structure inside MainActivity.java, managing gallery picking, automatic aspect ratio preservation, async execution, compression format options, and native MediaStore export.",
+      "files": ["app/src/main/java/com/photoresizerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Photo Resizer Pro",
+      "description": "Initiate automated gradle compilation to generate standard, stable debug APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
