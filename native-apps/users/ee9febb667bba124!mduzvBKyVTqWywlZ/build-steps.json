@@ -82,8 +82,8 @@
     },
     {
       "step": 12,
-      "title": "Build Application Controller (MainActivity.java)",
-      "description": "Write core calculation engine, simulated intro loader handler, ToneGenerator synthesized sounds, and local scrollable history drawer operations using clean Java 8 syntax.",
+      "title": "Fix Java Syntax Errors and Build MainActivity",
+      "description": "Correct invalid dimension unit suffixes in Java code for setTextSize calls, ensuring compatibility with standard Java compilation.",
       "files": ["app/src/main/java/com/sleekcalc/app/MainActivity.java"],
       "status": "pending"
     },

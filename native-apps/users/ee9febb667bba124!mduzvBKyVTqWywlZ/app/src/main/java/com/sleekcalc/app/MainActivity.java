@@ -216,7 +216,7 @@ public class MainActivity extends Activity {
             TextView emptyText = new TextView(MainActivity.this);
             emptyText.setText(getString(R.string.no_history));
             emptyText.setTextColor(getResources().getColor(R.color.text_sub));
-            emptyText.setTextSize(14sp);
+            emptyText.setTextSize(14);
             emptyText.setPadding(0, 16, 0, 0);
             listHistoryItems.addView(emptyText);
         } else {
@@ -231,7 +231,7 @@ public class MainActivity extends Activity {
                 TextView tvEntry = new TextView(MainActivity.this);
                 tvEntry.setText(historyEntry);
                 tvEntry.setTextColor(getResources().getColor(R.color.text_main));
-                tvEntry.setTextSize(16sp);
+                tvEntry.setTextSize(16);
 
                 View separator = new View(MainActivity.this);
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
