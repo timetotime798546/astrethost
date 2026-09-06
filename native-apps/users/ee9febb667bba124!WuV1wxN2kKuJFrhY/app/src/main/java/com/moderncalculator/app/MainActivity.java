@@ -173,7 +173,9 @@ public class MainActivity extends Activity {
                 loaderRing3DContainer.setCameraDistance(density * 8000);
                 loaderRing3DContainer.setRotationX(22f * (float) Math.sin(elapsed * 0.003));
                 loaderRing3DContainer.setRotationY(rotAngle);
-                loaderRing3DContainer.setRotationZ(-rotAngle * 0.5f);
+                // Fix View rotation on Z-axis: there is no setRotationZ method on View.
+                // Standard 2D rotation of a View represents rotation around the Z-axis.
+                loaderRing3DContainer.setRotation(-rotAngle * 0.5f);
 
                 // Inner core spinning in opposite directions
                 loaderInnerCore.setCameraDistance(density * 6000);
