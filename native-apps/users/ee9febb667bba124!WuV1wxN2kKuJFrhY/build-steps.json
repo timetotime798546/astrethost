@@ -2,8 +2,8 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define Application Metadata",
-      "description": "Establish the application name 'Nexus Elite' and setup the package name 'com.nexuselite.app' in the configuration metadata.",
+      "title": "Define App Specifications and Package Name",
+      "description": "Configure the app metadata details with package name 'com.moderncalculator.app' and name 'Modern Calculator'.",
       "files": [
         "app-meta.json"
       ],
@@ -11,8 +11,8 @@
     },
     {
       "step": 2,
-      "title": "Configure Build Settings",
-      "description": "Write build.gradle with correct SDK compliance, Target 34, Min SDK 21, and exact AGP configuration.",
+      "title": "Configure Gradle Build Script",
+      "description": "Set up build.gradle with correct compileSdk, minSdk, and targetSdk versions under Java 8 compliance.",
       "files": [
         "app/build.gradle"
       ],
@@ -20,8 +20,8 @@
     },
     {
       "step": 3,
-      "title": "Declare App Manifest",
-      "description": "Establish the AndroidManifest.xml referencing the launcher icon, setting up MainActivity, and declaring the proper layout scheme and namespace.",
+      "title": "Declare Application Manifest",
+      "description": "Define standard Android Manifest with launcher activity, landscape/portrait optimizations, and dark material theme.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -29,106 +29,80 @@
     },
     {
       "step": 4,
-      "title": "Resolve Launcher Asset Conflicts",
-      "description": "Ensure the system-provided 'icon.png' is used as the sole launcher asset, preventing resource merger collisions from legacy vector files.",
+      "title": "Configure Color Resources",
+      "description": "Specify beautiful theme colors in colors.xml for buttons (numeric, operator, special) and dark background.",
       "files": [
-        "app/build.gradle"
+        "app/src/main/res/values/colors.xml"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Generate Custom Styled Drawables",
-      "description": "Produce gorgeous background shape drawables for splash backgrounds, card components, buttons, active tabs, and navigation components.",
+      "title": "Configure String Resources",
+      "description": "Define the localization strings file containing the application name and key UI labels.",
       "files": [
-        "app/src/main/res/drawable/bg_splash.xml",
-        "app/src/main/res/drawable/bg_card_light.xml",
-        "app/src/main/res/drawable/bg_card_dark.xml",
-        "app/src/main/res/drawable/bg_button.xml",
-        "app/src/main/res/drawable/bg_search_light.xml",
-        "app/src/main/res/drawable/bg_search_dark.xml",
-        "app/src/main/res/drawable/bg_tab_active.xml"
+        "app/src/main/res/values/strings.xml"
       ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Establish Base Colors and Typography",
-      "description": "Configure light and dark color schemes, modern style constants, and text strings inside values folder.",
+      "title": "Create Numeric Button Background",
+      "description": "Create custom selector XML with modern rounded corners and highlight colors for pressing numeric buttons.",
       "files": [
-        "app/src/main/res/values/colors.xml",
-        "app/src/main/res/values/strings.xml",
-        "app/src/main/res/values/styles.xml"
+        "app/src/main/res/drawable/btn_numeric.xml"
       ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Design the Responsive Layout XML",
-      "description": "Structure the splash loader overlay, welcome headings, profile management system, in-app notifications hub, and bottom tab bar interfaces in activity_main.xml.",
+      "title": "Create Operator Button Background",
+      "description": "Create custom selector XML with standard warm accent colors for operators.",
+      "files": [
+        "app/src/main/res/drawable/btn_operator.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Special Button Background",
+      "description": "Create custom selector XML with light gray style for utility keys (Clear, Backspace, % etc.).",
+      "files": [
+        "app/src/main/res/drawable/btn_special.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Equal Button Background",
+      "description": "Create custom selector XML for the main action equals key styled in beautiful green.",
+      "files": [
+        "app/src/main/res/drawable/btn_equal.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design Modern User Interface Layout",
+      "description": "Create activity_main.xml layout styling display text boxes with horizontal scrolling and dynamic uniform grid keys.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 8,
-      "title": "Implement Synthesizer Sound System",
-      "description": "Develop low-latency programmatic audio track wave synthesizers for button clicks and the splash screen entry sound, storing preferences in SharedPreferences.",
-      "files": [
-        "app/src/main/java/com/nexuselite/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Develop Page View Controller and Tabs",
-      "description": "Implement interactive page management, bottom navigation actions, active indicators, and real-time animation transitions.",
-      "files": [
-        "app/src/main/java/com/nexuselite/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Integrate Favorites and History Trackers",
-      "description": "Build high-speed persistent caching using SharedPreferences to remember user's active favorites, recently viewed features, and interactions.",
-      "files": [
-        "app/src/main/java/com/nexuselite/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
       "step": 11,
-      "title": "Establish Dynamic Theme Engine",
-      "description": "Create runtime system to smoothly swap application-wide themes between dark/light and update visual styles across layout matrices without app reload.",
+      "title": "Implement Calculator Core Engine and Handlers",
+      "description": "Write MainActivity.java logic with event bindings, sign toggles, percent operations, and smart recursive descent parser.",
       "files": [
-        "app/src/main/java/com/nexuselite/app/MainActivity.java"
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Integrate Profile and In-App Notifications",
-      "description": "Implement editable user credentials form, profile card layouts, active notifications lists, and badges.",
-      "files": [
-        "app/src/main/java/com/nexuselite/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Perform Strict Verification and Polish",
-      "description": "Audit all source code for absolute Java 8 compatibility, remove lambdas, ensure complete namespace configuration, and check memory safety.",
-      "files": [
-        "app/src/main/java/com/nexuselite/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Building Nexus Elite",
-      "description": "Assemble and compile debug targets to build the high-performance application.",
+      "title": "Building Modern Calculator",
+      "description": "Compile the code with Gradle assembleDebug step to produce output artifact.",
       "files": [],
       "status": "pending"
     }
