@@ -1,0 +1,108 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Establish and verify app-meta.json configuration values for AC Resizer with the package name com.acresizer.app.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Verify settings.gradle",
+      "description": "Confirm root module inclusion configurations align with Gradle 8.5.",
+      "files": ["settings.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Establish Top-Level build.gradle",
+      "description": "Verify Google and Maven Central repositories with AGP 8.3.2 configurations.",
+      "files": ["build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure App Module build.gradle",
+      "description": "Ensure compilation configs target SDK 34, set the namespace and applicationId to com.acresizer.app, and declare Java 1.8 compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify Android Manifest Integration",
+      "description": "Validate AndroidManifest.xml package paths, application label for AC Resizer, launchers, and permissions inside valid Android namespace configurations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Review Resource Background Drawables",
+      "description": "Maintain existing layout styles, button graphics, input card border stroke XML configurations.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/button_bg.xml",
+        "app/src/main/res/drawable/button_secondary_bg.xml",
+        "app/src/main/res/drawable/input_bg.xml",
+        "app/src/main/res/drawable/preset_button_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Update UI layout with AC Resizer Branding",
+      "description": "Revise activity_main.xml to incorporate updated header bars, title labels, sliders, and standard preset controls with AC Resizer styling.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Update Package and Class Imports in MainActivity.java",
+      "description": "Refactor package declarations and title strings inside MainActivity.java to refer correctly to com.acresizer.app.",
+      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Camera/EXIF Orientation Parsing",
+      "description": "Provide helper methods in MainActivity.java to read EXIF orientation from photo streams to avoid unintended portrait-to-landscape auto-rotations.",
+      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Develop Interactive Rotate Feature",
+      "description": "Handle real-time rotation operations on the source image and preview output layouts safely.",
+      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Build Dynamic App Theme Customizer",
+      "description": "Add support for custom dynamic themes (Classic Blue, Dark Slate, Forest Green, Royal Purple) with visual feedback.",
+      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Program Border & Outline Canvas Renderer",
+      "description": "Develop a precise border painter which overlays solid color borders inside the image bounding box.",
+      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Code the Photo Enhancer Algorithm",
+      "description": "Apply contrast scaling factor matrixes and brightness levels using ColorFilters on the processed bitmap outputs.",
+      "files": ["app/src/main/java/com/acresizer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building AC Resizer",
+      "description": "Execute gradle assembleDebug to build the final stable, upgraded AC Resizer APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

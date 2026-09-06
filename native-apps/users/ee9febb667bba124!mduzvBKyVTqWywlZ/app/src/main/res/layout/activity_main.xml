@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainRootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F4F6">
+
+    <!-- Top Header Toolbar -->
+    <LinearLayout
+        android:id="@+id/headerBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#1E3A8A"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/txtHeaderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AC Resizer"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resize, compress, enhance and style your photos"
+            android:textColor="#93C5FD"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- Main Scrollable Body Container -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/actionBottomBar"
+        android:layout_below="@id/headerBar"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Card 0: Theme Selection Settings -->
+            <LinearLayout
+                android:id="@+id/themeCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/themeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="Select App Theme"
+                    android:textColor="#111827"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnThemeBlue"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Blue"
+                        android:textColor="#1E3A8A"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnThemeDark"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Dark"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnThemeGreen"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Green"
+                        android:textColor="#064E3B"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnThemePurple"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Purple"
+                        android:textColor="#4C1D95"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Card 1: Selected Photo Container / Display -->
+            <LinearLayout
+                android:id="@+id/cardInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/lblSelectedPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="Selected Photo"
+                    android:textColor="#111827"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:background="#E5E7EB">
+
+                    <ImageView
+                        android:id="@+id/originalImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:id="@+id/placeholderText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:text="Choose a photo from your Gallery\nto start resizing and formatting"
+                        android:textColor="#6B7280"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/originalInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#4B5563"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+
+                <!-- Rotate Input Option -->
+                <Button
+                    android:id="@+id/btnRotateInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/preset_button_bg"
+                    android:text="🔄 Rotate Input Photo (90°)"
+                    android:textColor="#1E3A8A"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <!-- Choose Photo Button -->
+                <Button
+                    android:id="@+id/btnSelectPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/button_bg"
+                    android:text="Choose Photo"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Card 2: Resize Controls -->
+            <LinearLayout
+                android:id="@+id/cardResize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/lblResizeSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="Resize Settings"
+                    android:textColor="#111827"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Side by side Width & Height input fields -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Width Input Box -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/lblWidth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Width (px)"
+                            android:textColor="#4B5563"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/widthInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/input_bg"
+                            android:hint="e.g. 1080"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="#111827" />
+                    </LinearLayout>
+
+                    <!-- Spacing / Separator symbol -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="12dp"
+                        android:text="✖"
+                        android:textColor="#9CA3AF"
+                        android:textSize="14sp" />
+
+                    <!-- Height Input Box -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/lblHeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Height (px)"
+                            android:textColor="#4B5563"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/heightInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/input_bg"
+                            android:hint="e.g. 1920"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="#111827" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Checkbox to maintain Aspect Ratio -->
+                <CheckBox
+                    android:id="@+id/maintainAspect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:checked="true"
+                    android:text="Maintain Aspect Ratio"
+                    android:textColor="#374151"
+                    android:textSize="13sp" />
+
+                <!-- Presets Quick Sizing Row -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="Quick Scales:"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/preset25"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="25%"
+                        android:textColor="#2563EB"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/preset50"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="50%"
+                        android:textColor="#2563EB"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/preset75"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="75%"
+                        android:textColor="#2563EB"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/preset100"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="100%"
+                        android:textColor="#2563EB"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Document Sizing Options -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="Standard Document Sizers:"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/presetPassport"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Passport Photo\n(350 x 450 px)"
+                        android:textColor="#1E3A8A"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/presetSignature"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Signature Size\n(300 x 100 px)"
+                        android:textColor="#1E3A8A"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="#E5E7EB" />
+
+                <!-- Export Formats Selection -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Choose Output Format:"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp" />
+
+                <RadioGroup
+                    android:id="@+id/formatRadioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioJpg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:checked="true"
+                        android:text="JPEG (.jpg)" />
+
+                    <RadioButton
+                        android:id="@+id/radioPng"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:text="PNG (.png)" />
+
+                    <RadioButton
+                        android:id="@+id/radioWebp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="WEBP (.webp)" />
+                </RadioGroup>
+
+                <!-- Compression Quality SeekBar -->
+                <LinearLayout
+                    android:id="@+id/qualityLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/qualityValText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Compression Quality: 85%"
+                        android:textColor="#4B5563"
+                        android:textSize="12sp" />
+
+                    <SeekBar
+                        android:id="@+id/qualitySeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:max="100"
+                        android:progress="85" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Card 2B: Photo Enhancer & Border Customizer -->
+            <LinearLayout
+                android:id="@+id/cardEnhancer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/enhancerTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="Photo Enhancer &amp; Border"
+                    android:textColor="#111827"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Brightness Slider -->
+                <TextView
+                    android:id="@+id/lblBrightness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Brightness: 0"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekBarBrightness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:max="200"
+                    android:progress="100" />
+
+                <!-- Contrast Slider -->
+                <TextView
+                    android:id="@+id/lblContrast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contrast: 1.0x"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekBarContrast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:max="150"
+                    android:progress="50" />
+
+                <!-- Quick Filters -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <Button
+                        android:id="@+id/btnEnhanceAuto"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="4dp"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Auto-Vibrant"
+                        android:textColor="#2563EB"
+                        android:textSize="11sp" />
+
+                    <Button
+                        android:id="@+id/btnEnhanceGray"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Grayscale"
+                        android:textColor="#2563EB"
+                        android:textSize="11sp" />
+
+                    <Button
+                        android:id="@+id/btnEnhanceReset"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="4dp"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Reset Filters"
+                        android:textColor="#2563EB"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E5E7EB"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Border Outline controls -->
+                <TextView
+                    android:id="@+id/lblBorderWidth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Border Width: 0 px"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekBarBorderWidth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:max="50"
+                    android:progress="0" />
+
+                <TextView
+                    android:id="@+id/lblBorderColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Border/Outline Color:"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="6dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnBorderWhite"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="White"
+                        android:textColor="#000000"
+                        android:textSize="10sp" />
+
+                    <Button
+                        android:id="@+id/btnBorderBlack"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Black"
+                        android:textColor="#000000"
+                        android:textSize="10sp" />
+
+                    <Button
+                        android:id="@+id/btnBorderRed"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Red"
+                        android:textColor="#EF4444"
+                        android:textSize="10sp" />
+
+                    <Button
+                        android:id="@+id/btnBorderBlue"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Blue"
+                        android:textColor="#3B82F6"
+                        android:textSize="10sp" />
+
+                    <Button
+                        android:id="@+id/btnBorderGold"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:background="@drawable/preset_button_bg"
+                        android:text="Gold"
+                        android:textColor="#D97706"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Card 3: Preview Output Resized Image -->
+            <LinearLayout
+                android:id="@+id/cardPreview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/lblResizedPreview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="Resized Preview"
+                    android:textColor="#111827"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="#F3F4F6">
+
+                    <ImageView
+                        android:id="@+id/resizedImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:id="@+id/resizedPlaceholderText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Resized image will appear here"
+                        android:textColor="#9CA3AF"
+                        android:textSize="13sp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/resizedInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#047857"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <!-- Rotate Output Option -->
+                <Button
+                    android:id="@+id/btnRotateOutput"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/preset_button_bg"
+                    android:text="🔄 Rotate Output Photo (90°)"
+                    android:textColor="#1E3A8A"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Action Controls -->
+    <LinearLayout
+        android:id="@+id/actionBottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Trigger Resize Action -->
+        <Button
+            android:id="@+id/btnResize"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button_bg"
+            android:enabled="false"
+            android:text="Resize Image"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <!-- Export Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1.2"
+                android:background="@drawable/button_secondary_bg"
+                android:enabled="false"
+                android:text="💾 Save to Gallery"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnShare"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="0.8"
+                android:background="@drawable/button_bg"
+                android:enabled="false"
+                android:text="🔗 Share Image"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Custom Async Progress Loading Overlay -->
+    <LinearLayout
+        android:id="@+id/progressOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
+
+        <TextView
+            android:id="@+id/progressMessageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Processing Image..."
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>
