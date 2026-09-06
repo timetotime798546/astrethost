@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.sonicwavelab.app"
+    namespace "com.audiofxstudio.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.sonicwavelab.app"
+        applicationId "com.audiofxstudio.app"
 
         minSdkVersion 21
 

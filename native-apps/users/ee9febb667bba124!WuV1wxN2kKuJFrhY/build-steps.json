@@ -2,8 +2,8 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure App Meta Data",
-      "description": "Establish the global metadata including name 'SonicWave Lab' and package namespace 'com.sonicwavelab.app'.",
+      "title": "Configure App Metadata",
+      "description": "Setting up the unique app name and package namespace for AudioFX Studio.",
       "files": [
         "app-meta.json"
       ],
@@ -11,8 +11,8 @@
     },
     {
       "step": 2,
-      "title": "Define Gradle Project Properties",
-      "description": "Define build configuration with SDK 34 compile target and Java 17 requirements.",
+      "title": "Define Project Build Scripts",
+      "description": "Create the root build.gradle configurations matching Java 17, Gradle 8.5, and AGP 8.3.2 standards.",
       "files": [
         "app/build.gradle"
       ],
@@ -20,8 +20,8 @@
     },
     {
       "step": 3,
-      "title": "Declare App Manifest and Permissions",
-      "description": "Establish proper application manifest structure with correct namespaces and launcher configuration.",
+      "title": "Configure Android Application Manifest",
+      "description": "Declare custom package properties, standard launch screen, and safe system themes within AndroidManifest.xml.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -29,99 +29,80 @@
     },
     {
       "step": 4,
-      "title": "Build Color Palettes & Styles Resources",
-      "description": "Design a clean Material theme, layout colors, neon accent tones, and styles for UI elements.",
-      "files": [
-        "app/src/main/res/values/colors.xml",
-        "app/src/main/res/values/styles.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Create Core Layout XML",
-      "description": "Design the main interface with SeekBars for filters, sound triggers, visualizer, dynamic history list, and full loader overlay.",
+      "title": "Construct Native User Interface Layout",
+      "description": "Design the graphical layout in activity_main.xml, defining Sound FX Pads, Synthesizer controls, progress loader, and the custom history listing.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 6,
-      "title": "Implement Interactive Sound Visualizer View",
-      "description": "Create custom SoundVisualizerView canvas class that renders live ripple rings and digital waves matching current synth settings.",
+      "step": 5,
+      "title": "Initialize UI Widgets and Event Callbacks",
+      "description": "Wire buttons, seekbars, checkbox settings, and text displays inside the MainActivity codebase.",
       "files": [
-        "app/src/main/java/com/sonicwavelab/app/SoundVisualizerView.java"
+        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Develop Audio Synthesis Mathematical Oscillators",
+      "description": "Implement raw byte tone generation using continuous phase calculators to generate clean retro sounds (laser, siren, jump, coin).",
+      "files": [
+        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Build SQLite Synth Logger",
-      "description": "Implement local database schema and helpers to record every generated synth sound, frequency settings, timestamp, and metadata.",
+      "title": "Establish Async AudioTrack Player Workers",
+      "description": "Write safe background threading processes to play generated sample bytes through native AudioTrack streams without pausing the main UI thread.",
       "files": [
-        "app/src/main/java/com/sonicwavelab/app/HistoryDatabaseHelper.java"
+        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement Core Audio Synth Engine",
-      "description": "Write custom low-latency PCM synthesizer using AudioTrack SDK API supporting real-time frequency modulations and dynamic sound presets.",
+      "title": "Implement Simulated Audio Synthesis Loader Delay",
+      "description": "Create a modern visual circular progress bar and handler routine simulating audio rendering delay when requested by the user.",
       "files": [
-        "app/src/main/java/com/sonicwavelab/app/MainActivity.java"
+        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Integrate Custom Loader & Animated Overlays",
-      "description": "Implement automated dynamic loading indicators to simulate complex DSP rendering and filter computations upon clicking sound triggers.",
+      "title": "Build Persistent Playback History Logging",
+      "description": "Develop automatic data persistence to save and read the playback history across restarts using SharedPreferences.",
       "files": [
-        "app/src/main/java/com/sonicwavelab/app/MainActivity.java"
+        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Wire Animation Framework and Button Scales",
-      "description": "Attach scaling touch-feedback and visual bounce animations onto control panels, buttons, and custom log rows.",
+      "title": "Implement Dynamic History View Adapter",
+      "description": "Build layout generator functions in Java to render clean historical list rows featuring custom tone details and direct Replay trigger events.",
       "files": [
-        "app/src/main/java/com/sonicwavelab/app/MainActivity.java"
+        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Integrate Dynamic Filter Listeners",
-      "description": "Set up SeekBars for frequency, duration, and echo to update real-time visual tags and synthesize customized waves on-the-fly.",
+      "title": "Verify State Cleansers",
+      "description": "Provide users with options to wipe preferences and completely reset the log container.",
       "files": [
-        "app/src/main/java/com/sonicwavelab/app/MainActivity.java"
+        "app/src/main/java/com/audiofxstudio/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Implement Synth Log Recycler & Dynamic Populator",
-      "description": "Write logic to dynamically inflate and populate custom history layouts with visual tags, dynamic timestamps, and quick play-back triggers.",
-      "files": [
-        "app/src/main/java/com/sonicwavelab/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Set Up Sound Termination Safety",
-      "description": "Ensure proper worker thread execution termination and system resource deallocation upon activity destruction or background pause states.",
-      "files": [
-        "app/src/main/java/com/sonicwavelab/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Building SonicWave Lab",
-      "description": "Compile the completed Android application targeting JDK 17, and output debug packages with dynamic assets fully synthesized.",
+      "title": "Building AudioFX Studio",
+      "description": "Compiling resources, validating Java syntax compliance, and assembling final APK build output.",
       "files": [],
       "status": "pending"
     }

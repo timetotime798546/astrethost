@@ -1,15 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sonicwavelab.app">
+    package="com.audiofxstudio.app">
 
     <application
         android:allowBackup="true"
+        android:label="AudioFX Studio"
         android:icon="@drawable/icon"
         android:roundIcon="@drawable/icon"
-        android:label="SonicWave Lab"
         android:theme="@android:style/Theme.Material.Light">
-        
         <activity
-            android:name="com.sonicwavelab.app.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
