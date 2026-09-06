@@ -1,0 +1,119 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project Structure",
+      "description": "Establish basic folder hierarchy for the Classic Notes app.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure build.gradle",
+      "description": "Configure compilation parameters targetting SDK 34 and JVM compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure AndroidManifest.xml",
+      "description": "Declare system Light Material themes, correct launcher activities, and the correct namespace context.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Card UI Drawables",
+      "description": "Formulate rounded borders and background drawable assets for beautiful notes visualization.",
+      "files": [
+        "app/src/main/res/drawable/note_card_bg.xml",
+        "app/src/main/res/drawable/category_badge_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Interactive Button Drawables",
+      "description": "Design custom shape drawables for FAB actions, Save controls, and Delete highlights.",
+      "files": [
+        "app/src/main/res/drawable/fab_bg.xml",
+        "app/src/main/res/drawable/btn_primary_bg.xml",
+        "app/src/main/res/drawable/btn_danger_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Main Layout Layout",
+      "description": "Create the interface including custom filters, search elements, action layouts, and notes list views.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Note List Item Row",
+      "description": "Create custom list row template supporting card layouts, category labels, and summaries.",
+      "files": ["app/src/main/res/layout/note_list_item.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Note Editor View",
+      "description": "Establish form inputs for notes composition, spinner choices, and validation actions.",
+      "files": ["app/src/main/res/layout/activity_edit_note.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Note and Category Entities",
+      "description": "Write standard Java models representing records safely.",
+      "files": [
+        "app/src/main/java/com/classicnotes/app/Note.java",
+        "app/src/main/java/com/classicnotes/app/Category.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement SQLite Helper Manager",
+      "description": "Design secure local storage database logic handling migrations, note mutations, category operations, and dynamic search SQL parameters.",
+      "files": ["app/src/main/java/com/classicnotes/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Develop Custom NoteAdapter Module",
+      "description": "Write standard compliant ListView data adapter mapping custom queries straight to list view cells.",
+      "files": ["app/src/main/java/com/classicnotes/app/NoteAdapter.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement MainActivity Logic",
+      "description": "Connect Search watchers, category dropdown selectors, and popup alerts to facilitate full dynamic category management.",
+      "files": ["app/src/main/java/com/classicnotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement EditNoteActivity Logic",
+      "description": "Perform verification rules, date creation parsing, and note save/delete tasks.",
+      "files": ["app/src/main/java/com/classicnotes/app/EditNoteActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Verify Java 8 Compatibility",
+      "description": "Confirm language structures are fully compliant, utilizing pure native classes.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Classic Notes",
+      "description": "Compile Classic Notes cleanly using standard Gradle configurations.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
