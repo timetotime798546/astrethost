@@ -1258,7 +1258,7 @@ public class MainActivity extends Activity {
     }
 
     private void checkPermissionAndSaveImage() {
-        if (android.os.Build.VERSION.SDK_INT <= 28) {
+        if (android.os.Build.VERSION.SDK_INT >= 23 && android.os.Build.VERSION.SDK_INT <= 28) {
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
                 return;
@@ -1453,7 +1453,6 @@ public class MainActivity extends Activity {
             case 3: // Forest Green Mode
                 headerColor = Color.parseColor("#064E3B");
                 bgColor = Color.parseColor("#F0FDF4");
-                cardColor = Color.white(0.12f); // Using solid colors
                 cardColor = Color.parseColor("#FFFFFF");
                 textColor = Color.parseColor("#111827");
                 subtextColor = Color.parseColor("#064E3B");
