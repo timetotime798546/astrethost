@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <!-- 3D base shadow layer (fully collapsed) -->
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="14dp" />
+                    <solid android:color="@color/btn_equal_shadow" />
+                </shape>
+            </item>
+            <!-- Lowered keycap face -->
+            <item android:top="4dp" android:bottom="1dp" android:left="1dp" android:right="1dp">
+                <shape android:shape="rectangle">
+                    <corners android:radius="13dp" />
+                    <gradient
+                        android:startColor="@color/btn_equal_pressed_top"
+                        android:endColor="@color/btn_equal_pressed_bottom"
+                        android:angle="270" />
+                    <stroke android:width="1dp" android:color="#7FF293" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <!-- 3D base shadow (extruded 3D depth) -->
+            <item android:top="4dp">
+                <shape android:shape="rectangle">
+                    <corners android:radius="14dp" />
+                    <solid android:color="@color/btn_equal_shadow" />
+                </shape>
+            </item>
+            <!-- Raised keycap face -->
+            <item android:bottom="6dp" android:left="1dp" android:right="1dp">
+                <shape android:shape="rectangle">
+                    <corners android:radius="13dp" />
+                    <gradient
+                        android:startColor="@color/btn_equal_normal_top"
+                        android:endColor="@color/btn_equal_normal_bottom"
+                        android:angle="270" />
+                    <stroke android:width="1.5dp" android:color="#96F8AA" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

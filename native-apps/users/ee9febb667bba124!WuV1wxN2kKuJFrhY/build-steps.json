@@ -1,0 +1,146 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define 3D Modern Calculator Configuration",
+      "description": "Establish target SDK 34 and apply the 3D application branding parameters.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure 3D Skeuomorphic Color Palette",
+      "description": "Define rich dual-tone gradients, glossy surfaces, and dark-extrusion shadow colors inside colors.xml.",
+      "files": [
+        "app/src/main/res/values/colors.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create 3D Beveled Screen Display Frame",
+      "description": "Design a custom recessed LCD display bezel drawable to provide simulated depth and a physical LCD feel.",
+      "files": [
+        "app/src/main/res/drawable/display_bg_3d.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Build 3D Skeuomorphic Numeric Button Selector",
+      "description": "Configure layer-lists to raise keycap faces with highlights and lower them dynamically on press.",
+      "files": [
+        "app/src/main/res/drawable/btn_numeric.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build 3D Skeuomorphic Operator Button Selector",
+      "description": "Create vivid orange 3D keycap structures for arithmetic actions.",
+      "files": [
+        "app/src/main/res/drawable/btn_operator.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build 3D Skeuomorphic Special Button Selector",
+      "description": "Design physical keycaps for accessory operations including backspaces and deletes.",
+      "files": [
+        "app/src/main/res/drawable/btn_special.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build 3D Skeuomorphic Equal Button Selector",
+      "description": "Set up highly touch-responsive green equal key with layered shadow extrusions.",
+      "files": [
+        "app/src/main/res/drawable/btn_equal.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Revamp Main Layout with Dynamic 3D Controls",
+      "description": "Implement interactive tilt adjustments, Gyro modes, beveled displays, and a tiltable keyboard layout wrapper.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Initialize Dynamic 3D Pitch and Yaw View Transformation",
+      "description": "Integrate setCameraDistance and setRotationX programmatics to transform flat UI into perspective-angled physical modules.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Manual 3D Perspective Tilt Adjustment",
+      "description": "Connect a slider Seekbar directly to matrix rotation parameters allowing realtime manual 3D view tilt.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Integrate Low-Pass Filtered Accelerometer 3D Engine",
+      "description": "Read hardware orientation sensors to produce dynamic holographic 3D tilt adjustments as the user tilts their physical device.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Establish 3D Mode State Controls and UI Bindings",
+      "description": "Add interactive state toggling to easily switch between retro flat style and fully interactive 3D perspective layouts.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Preserve Existing Low-Latency Sound System",
+      "description": "Verify tone generators to issue immediate auditory ticks as physical keys move downward.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Validate Dynamic Math Parser & Expression Layouts",
+      "description": "Ensure multi-layered parsing processes run correctly on evaluate requests.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Test Lifecycles and Activity Pauses",
+      "description": "Confirm orientation sensor registrations gracefully suspend during activity freezes.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building Modern Calculator",
+      "description": "Compile updated structures via Gradle assembleDebug step.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
