@@ -1,0 +1,109 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Initialization",
+      "description": "Establish the root architecture for AI File Companion utilizing Gradle 8.5 and Android Gradle Plugin 8.3.2.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Build Settings",
+      "description": "Configure compilation parameters targeting Android SDK 34 with standard Java 8 source/target compatibility rules.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure App Manifest",
+      "description": "Define permissions including INTERNET, register the launcher MainActivity, and apply the lightweight Material Light theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Develop Main User Interface Layout",
+      "description": "Build an absolute standard-SDK-compliant layout featuring custom navigation tabs, AI chat, file management layout, and API parameters.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Establish Base Activity Structure",
+      "description": "Initialize the Android lifecycle within MainActivity.java and link local variables to standard Android system widgets.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Navigation Tab Switching Logic",
+      "description": "Program standard visibility transitions among the AI Workspace, Saved Files vault, and API Settings screens.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build File Storage Core Engine",
+      "description": "Implement file creation, local stream persistence, modification, retrieval, and removal routines in internal storage.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Construct Interactive Files Adapter",
+      "description": "Craft an optimized standard BaseAdapter to display persistent files along with immediate options to view, modify, attach, or delete.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Program Interactive File Editor Pane",
+      "description": "Develop UI fields and validation mechanics allowing the user to create new document entities or update current ones instantly.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Integrate Dynamic Chat Rendering Flow",
+      "description": "Create a dynamically populated vertical layout supporting user text rendering, file attachment tags, and styled system response blocks.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Safe API Network Call Routine",
+      "description": "Design a strict background thread network worker using HttpURLConnection to interact with Gemini LLM APIs without blocking UI.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Embed Simulated AI Engine",
+      "description": "Equip the app with a local analytical processing system that reads attached file schemas and outputs dynamic diagnostic data if keys are absent.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Configure SharedPreferences Settings",
+      "description": "Incorporate key-value configurations to save custom API Keys and mode presets securely across app lifecycles.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Validate Namespace and Compilation Rules",
+      "description": "Run thorough syntax diagnostics to confirm compatibility with high-performance Java 8 runtime specifications.",
+      "files": ["app/src/main/AndroidManifest.xml", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building AI File Companion",
+      "description": "Perform full app package compilation into standard debuggable binary via Gradle command parameters.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
