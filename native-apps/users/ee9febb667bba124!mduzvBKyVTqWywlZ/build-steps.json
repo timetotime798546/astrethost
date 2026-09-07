@@ -1,0 +1,94 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Resource Load Failures",
+      "description": "Inspect the project's drawable resources and identify the target image filenames (asset_6a9f18319c82d and asset_6a9f1839db93c) and their fallback assets.",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Enforce Safe Dynamic Asset Retrieval",
+      "description": "Implement dynamic resource lookup inside ImageSandboxView to automatically scan for all available assets in drawable resources.",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Resolve Null Bitmap References",
+      "description": "Ensure beautiful procedural image placeholders are generated dynamically if any asset is corrupted or missing.",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Expose Asset Name Metadata",
+      "description": "Expose loaded asset names from ImageSandboxView to MainActivity to synchronize dynamic UI descriptions.",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java",
+        "app/src/main/java/com/picblendcompare/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Paint Reset Mechanism",
+      "description": "Enforce a strict state-reset in onDraw by resetting the alpha value of the Paint instance to prevent opacity carryover from Alpha Blend mode.",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Remove Forbidden Dependencies",
+      "description": "Strip out external dependencies like org.nanohttpd:nanohttpd in app/build.gradle to comply with standard native rules.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Maintain Strict Java 8 Compliance",
+      "description": "Verify and ensure all modifications in MainActivity and ImageSandboxView use traditional anonymous classes rather than lambda expressions or method references.",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java",
+        "app/src/main/java/com/picblendcompare/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Test Comparison Rendering",
+      "description": "Validate clipping math, rotation matrices, and overlay sliders with the newly loaded bitmaps.",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Android Manifest Compliance",
+      "description": "Confirm the correct XML namespace declaration and activity configurations are fully intact.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building PicBlend Compare",
+      "description": "Compile the updated project and assets using the Java 17 and AGP 8.3.2 pipeline to generate the debug APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
