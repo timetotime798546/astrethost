@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <!-- Header UI Title Label -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiny Counter"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="40dp" />
+
+    <!-- Core Numeric Display Textbox -->
+    <TextView
+        android:id="@+id/counterTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="110sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="48dp" />
+
+    <!-- Horizontal Stack for Incrementor Widgets -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="48dp">
+
+        <Button
+            android:id="@+id/btnDecrement"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="64dp"
+            android:text="-"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="0dp"
+            android:layout_weight="1.2"
+            android:layout_height="64dp"
+            android:text="Reset"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp" />
+
+        <Button
+            android:id="@+id/btnIncrement"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="64dp"
+            android:text="+"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp" />
+
+    </LinearLayout>
+
+    <!-- Theme Style Toggler Action Button -->
+    <Button
+        android:id="@+id/btnThemeToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dark Mode"
+        android:textSize="15sp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp" />
+
+</LinearLayout>
