@@ -552,7 +552,7 @@ public class MainActivity extends Activity {
     private View appendChatBubble(String speaker, String text, String attachment) {
         LinearLayout.LayoutParams containerParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.wrap_content
+                ViewGroup.LayoutParams.WRAP_CONTENT
         );
         containerParams.setMargins(0, 4, 0, 10);
 

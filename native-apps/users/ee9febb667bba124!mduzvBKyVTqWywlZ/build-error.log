@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: AI File Companion
 App ID: app_6a9e898b6b87a
-Build ID: 34108540026
-Time: 2026-09-07 15:25:21
+Build ID: 34109320122
+Time: 2026-09-07 15:34:04
 ==================================================
 
 ==================================================
@@ -31,23 +31,24 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 166538
-Extracted error characters: 30042
-File references detected: 243
+Original log characters: 164950
+Extracted error characters: 29836
+File references detected: 236
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
 ==================================================
 
+job-status: success
 token: ***
 
 ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2021) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:2245) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 Creating toolchains.xml for JDK version 17 from temurin
+(Use `node --trace-deprecation ...` to show where the warning was created)
 Writing to /home/runner/.m2/toolchains.xml
 
 Java configuration:
@@ -74,7 +75,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/15ade669-333e-45ba-b225-ce20b0ec96c1
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/7bfec1e7-e72e-4d75-947a-92749fc6809e
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/20.0/bin/sdkmanager --licenses
 Loading local repository...
@@ -189,6 +190,7 @@ PROJECT FILES
 ./app-meta.json
 ./app/build.gradle
 ./app/proguard-rules.pro
+./build-error.log
 ./build-steps.json
 ./build.gradle
 ./local.properties
@@ -225,34 +227,26 @@ Recommendation: remove package="com.aifilecompanion.app" from the source Android
 
 > Task :app:processDebugManifest
 > Task :app:mergeDebugShaders
+> Task :app:processDebugManifestForPackage
 > Task :app:compileDebugShaders NO-SOURCE
 > Task :app:generateDebugAssets UP-TO-DATE
 > Task :app:mergeDebugAssets
 > Task :app:compressDebugAssets
 > Task :app:processDebugJavaRes NO-SOURCE
-> Task :app:processDebugManifestForPackage
 > Task :app:checkDebugDuplicateClasses
 > Task :app:processDebugResources
 > Task :app:mergeDebugJavaResource
 > Task :app:desugarDebugFileDependencies
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!mduzvBKyVTqWywlZ/app/src/main/java/com/aifilecompanion/app/MainActivity.java:567: error: ')' expected
 
-label.setTextSize(12spToPx(11));
+/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!mduzvBKyVTqWywlZ/app/src/main/java/com/aifilecompanion/app/MainActivity.java:555: error: cannot find symbol
+ViewGroup.LayoutParams.wrap_content
 ^
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!mduzvBKyVTqWywlZ/app/src/main/java/com/aifilecompanion/app/MainActivity.java:567: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!mduzvBKyVTqWywlZ/app/src/main/java/com/aifilecompanion/app/MainActivity.java:574: error: ')' expected
-body.setTextSize(12spToPx(14));
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!mduzvBKyVTqWywlZ/app/src/main/java/com/aifilecompanion/app/MainActivity.java:574: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!mduzvBKyVTqWywlZ/app/src/main/java/com/aifilecompanion/app/MainActivity.java:585: error: ')' expected
-tag.setTextSize(12spToPx(11));
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!mduzvBKyVTqWywlZ/app/src/main/java/com/aifilecompanion/app/MainActivity.java:585: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!mduzvBKyVTqWywlZ/app/src/main/java/com/aifilecompanion/app/MainActivity.java:698: error: ')' expected
-btnAttach.setTextSize(10spToPx(11));
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!mduzvBKyVTqWywlZ/app/src/main/java/com/aifilecompanion/app/MainActivity.java:698: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!mduzvBKyVTqWywlZ/app/src/main/java/com/aifilecompanion/app/MainActivity.java:706: error: ')' expected
-btnOptions.setTextSize(10spToPx(14));
-/home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!mduzvBKyVTqWywlZ/app/src/main/java/com/aifilecompanion/app/MainActivity.java:706: error: ';' expected
-10 errors
+symbol:   variable wrap_content
+location: class LayoutParams
+Note: /home/runner/work/astrethost/astrethost/native-apps/users/ee9febb667bba124!mduzvBKyVTqWywlZ/app/src/main/java/com/aifilecompanion/app/MainActivity.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error
+> Task :app:compileDebugJavaWithJavac FAILED
 
 FAILURE: Build failed with an exception.
 
@@ -307,6 +301,7 @@ at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.
 at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:37)
 at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:46)
 at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:36)
+21 actionable tasks: 21 executed
 at org.gradle.jvm.toolchain.internal.DefaultToolchainJavaCompiler.execute(DefaultToolchainJavaCompiler.java:57)
 at org.gradle.api.tasks.compile.JavaCompile.lambda$createToolchainCompiler$3(JavaCompile.java:202)
 at org.gradle.api.internal.tasks.compile.CleaningJavaCompiler.execute(CleaningJavaCompiler.java:53)
@@ -316,11 +311,16 @@ at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(S
 at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:66)
 at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:52)
 at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.call(CompileJavaBuildOperationReportingCompiler.java:64)
-at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.c
-
-================ EXTRACTED LOG CONTINUED ================
-
-on.java:45)
+at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.call(CompileJavaBuildOperationReportingCompiler.java:48)
+at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler.execute(CompileJavaBuildOperationReportingCompiler.java:48)
+at org.gradle.api.tasks.compile.JavaCompile.performCompilation(JavaCompile.java:220)
+at org.gradle.api.tasks.compile.JavaCompile.performIncrementalCompilation(JavaCompile.java:161)
+at org.gradle.api.tasks.compile.JavaCompile.compile(JavaCompile.java:146)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.doExecute(IncrementalTaskAction.java:45)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
 at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.execute(IncrementalTaskAction.java:26)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
@@ -362,7 +362,6 @@ at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExec
 at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:36)
 at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:22)
 at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:91)
-> Task :app:compileDebugJavaWithJavac FAILED
 at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:55)
 at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:55)
 at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:37)
@@ -400,9 +399,10 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 26s
-21 actionable tasks: 21 executed
+BUILD FAILED in 25s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
 [36;1mrm -rf gradle-8.5[0m
+
+Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
