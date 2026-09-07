@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Codebase for Startup Crashes",
+      "description": "Analyze MainActivity and activity_main layout structure to detect potential runtime casting and UI thread crashes.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Refactor LayoutParams in Chat Generation",
+      "description": "Replace generic ViewGroup.LayoutParams with explicit LinearLayout.LayoutParams inside appendChatBubble to prevent layout pass exceptions.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Reconstruct dpToPx Conversion Method",
+      "description": "Redesign the dpToPx layout helper inside FileAdapter to accept an integer value to eliminate zero-multiplier sizing issues.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement RadioGroup Wrapper in Settings",
+      "description": "Add a structured RadioGroup around active engine RadioButtons to resolve multiple-checked state conflicts.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Clean Dependencies in Gradle Config",
+      "description": "Remove the unused NanoHTTPD external dependency to keep the build fully native and comply with local compilation restrictions.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify Context Bindings",
+      "description": "Verify context referencing in adapter and UI initialization methods to guarantee correct thread dispatching.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Review Layout Namespace Safety",
+      "description": "Inspect XML namespace values and ensure correct XML format for UI controls.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Test Local Sandbox Persistence",
+      "description": "Verify that local app preferences and directory files populate without throwing startup exceptions.",
+      "files": ["app/src/main/java/com/aifilecompanion/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Validate Launch Manifest Alignment",
+      "description": "Verify that the AndroidManifest namespace and main launcher filter align correctly with the build parameters.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building AI File Companion",
+      "description": "Compile the fixed application with Gradle to confirm the crash is fully resolved and the build completes successfully.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
