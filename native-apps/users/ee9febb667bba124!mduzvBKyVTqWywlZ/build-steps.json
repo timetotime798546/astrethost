@@ -1,0 +1,108 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Directory Structure",
+      "description": "Establish the standard Android application directory architecture matching Gradle targets.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Map Asset Resources",
+      "description": "Prepare the resources directory mapping uploads/assets/asset_6a9efd3f547c3.png and uploads/assets/asset_6a9efd696a0df.png to local drawable files.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Fallback Vector Drawables",
+      "description": "Generate asset_one.xml and asset_two.xml as robust compilation safeguards while assets are fully mapped.",
+      "files": [
+        "app/src/main/res/drawable/asset_one.xml",
+        "app/src/main/res/drawable/asset_two.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create System Theme & UI Shapes",
+      "description": "Configure clean standard UI card backgrounds and ripple button drawables with system themes.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/card_selected.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Establish Build Script Parameters",
+      "description": "Set compiler and build targets to Android SDK 34, AGP 8.3.2, Gradle 8.5, and enable strict Java 8 compilation compatibility.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Main Layout Architecture",
+      "description": "Establish the layout featuring dual-mode interfaces: an Interactive Canvas Studio and a Picture Memory Puzzle Game.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop Interactive Drag & Drop Logic",
+      "description": "Implement gesture-based workspace mechanics to select, move, scale, rotate, and fade stickers on the Canvas.",
+      "files": [
+        "app/src/main/java/com/creativestudio/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Memory Match Logic",
+      "description": "Build the randomized card shuffling algorithm and matching state machine in MainActivity.java to puzzle with the asset icons.",
+      "files": [
+        "app/src/main/java/com/creativestudio/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Configure App Manifest Requirements",
+      "description": "Integrate package details, set screen orientations, and specify launch-ready entry points.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Verify Java 8 Constraints",
+      "description": "Validate that no lambda syntax or streams are present in source files, replacing them with traditional anonymous inner classes.",
+      "files": [
+        "app/src/main/java/com/creativestudio/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Review Android Namespace Authenticity",
+      "description": "Double check standard XML namespaces inside layout structures and AndroidManifest configurations.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Creative Studio",
+      "description": "Run native build tool instructions to pack, assemble, and optimize debug apk output.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

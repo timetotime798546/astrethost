@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FAFAFA">
+
+    <!-- Header Navigation Tab Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#212121"
+        android:elevation="4dp"
+        android:padding="4dp">
+
+        <Button
+            android:id="@+id/tab_canvas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="STORY CANVAS"
+            android:textColor="#FFFFFF"
+            android:background="?android:attr/selectableItemBackground"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#424242" />
+
+        <Button
+            android:id="@+id/tab_game"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="MEMORY MATCH"
+            android:textColor="#B0BEC5"
+            android:background="?android:attr/selectableItemBackground"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- CONTENT CONTAINERS -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- TAB 1: CANVAS CREATOR WORKSPACE -->
+        <ScrollView
+            android:id="@+id/view_canvas_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Interactive Poster Editor"
+                    android:textSize="20sp"
+                    android:textColor="#212121"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Drag components, scale, rotate, customize text overlays"
+                    android:textSize="12sp"
+                    android:textColor="#757575"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- The Interactive Frame Canvas -->
+                <FrameLayout
+                    android:id="@+id/art_canvas"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:background="#ECEFF1"
+                    android:clipChildren="true"
+                    android:clipToPadding="true">
+
+                    <!-- Canvas Background Options (Default solid tint) -->
+                    <View
+                        android:id="@+id/canvas_background_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#D1C4E9"/>
+
+                    <!-- Sticker One (asset_one) -->
+                    <ImageView
+                        android:id="@+id/canvas_sticker_one"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/asset_one"
+                        android:layout_gravity="center"
+                        android:contentDescription="Sticker Left"
+                        android:padding="4dp"/>
+
+                    <!-- Sticker Two (asset_two) -->
+                    <ImageView
+                        android:id="@+id/canvas_sticker_two"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/asset_two"
+                        android:layout_gravity="center"
+                        android:contentDescription="Sticker Right"
+                        android:padding="4dp"/>
+
+                    <!-- Editable Overlay Text -->
+                    <TextView
+                        android:id="@+id/canvas_overlay_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TAP ME TO MOVE!"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:textSize="22sp"
+                        android:shadowColor="#000000"
+                        android:shadowDx="3"
+                        android:shadowDy="3"
+                        android:shadowRadius="3"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginBottom="20dp"
+                        android:padding="6dp" />
+
+                </FrameLayout>
+
+                <!-- Configuration Status -->
+                <TextView
+                    android:id="@+id/status_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Selected: Sticker One (Blue)"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#1976D2"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Control Console Grid -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="3"
+                    android:rowCount="4"
+                    android:alignmentMode="alignBounds"
+                    android:columnOrderPreserved="false"
+                    android:layout_gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/btn_select_one"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:text="Select Stk 1"
+                        android:textSize="11sp"
+                        android:layout_margin="2dp"/>
+
+                    <Button
+                        android:id="@+id/btn_select_two"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:text="Select Stk 2"
+                        android:textSize="11sp"
+                        android:layout_margin="2dp"/>
+
+                    <Button
+                        android:id="@+id/btn_select_text"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:text="Select Text"
+                        android:textSize="11sp"
+                        android:layout_margin="2dp"/>
+
+                    <Button
+                        android:id="@+id/btn_scale_up"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:text="Size +"
+                        android:layout_margin="2dp"/>
+
+                    <Button
+                        android:id="@+id/btn_scale_down"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:text="Size -"
+                        android:layout_margin="2dp"/>
+
+                    <Button
+                        android:id="@+id/btn_rotate_clockwise"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:text="Rotate"
+                        android:layout_margin="2dp"/>
+
+                    <Button
+                        android:id="@+id/btn_change_bg"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:text="Cycle Bg"
+                        android:textSize="11sp"
+                        android:layout_margin="2dp"/>
+
+                    <Button
+                        android:id="@+id/btn_edit_caption"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:text="Edit Text"
+                        android:textSize="11sp"
+                        android:layout_margin="2dp"/>
+
+                    <Button
+                        android:id="@+id/btn_reset_workspace"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:text="Reset Layout"
+                        android:textSize="11sp"
+                        android:textColor="#E53935"
+                        android:layout_margin="2dp"/>
+
+                </GridLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Opacity: "
+                        android:textSize="14sp"
+                        android:textColor="#333333" />
+
+                    <Button
+                        android:id="@+id/btn_alpha_low"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30%"
+                        android:textSize="11sp"
+                        android:layout_marginEnd="4dp" />
+
+                    <Button
+                        android:id="@+id/btn_alpha_mid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="70%"
+                        android:textSize="11sp"
+                        android:layout_marginEnd="4dp" />
+
+                    <Button
+                        android:id="@+id/btn_alpha_full"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100%"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- TAB 2: GAMEPLAY WORKSPACE (MATCH PUZZLE) -->
+        <ScrollView
+            android:id="@+id/view_game_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Asset Matching Game"
+                    android:textSize="20sp"
+                    android:textColor="#212121"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Find paired match combinations of core app assets"
+                    android:textSize="12sp"
+                    android:textColor="#757575"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Game Dashboard Metrics -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
+                    android:layout_marginBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MOVES"
+                            android:textSize="11sp"
+                            android:textColor="#616161" />
+
+                        <TextView
+                            android:id="@+id/game_text_moves"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#212121" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SCORE"
+                            android:textSize="11sp"
+                            android:textColor="#616161" />
+
+                        <TextView
+                            android:id="@+id/game_text_score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0/6"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#1B5E20" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BEST RECORD"
+                            android:textSize="11sp"
+                            android:textColor="#616161" />
+
+                        <TextView
+                            android:id="@+id/game_text_best"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#E65100" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Matching Game Grid -->
+                <!-- Programmatically generated cards go here or static cards setup -->
+                <GridLayout
+                    android:id="@+id/game_grid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="3"
+                    android:rowCount="4"
+                    android:alignmentMode="alignBounds"
+                    android:columnOrderPreserved="false"
+                    android:useDefaultMargins="true"
+                    android:layout_gravity="center">
+
+                    <!-- Card Buttons -->
+                    <ImageView android:id="@+id/card_0" android:layout_width="0dp" android:layout_height="70dp" android:layout_columnWeight="1" android:background="@drawable/card_bg" android:scaleType="fitCenter" android:padding="12dp" android:contentDescription="card" />
+                    <ImageView android:id="@+id/card_1" android:layout_width="0dp" android:layout_height="70dp" android:layout_columnWeight="1" android:background="@drawable/card_bg" android:scaleType="fitCenter" android:padding="12dp" android:contentDescription="card"/>
+                    <ImageView android:id="@+id/card_2" android:layout_width="0dp" android:layout_height="70dp" android:layout_columnWeight="1" android:background="@drawable/card_bg" android:scaleType="fitCenter" android:padding="12dp" android:contentDescription="card"/>
+                    
+                    <ImageView android:id="@+id/card_3" android:layout_width="0dp" android:layout_height="70dp" android:layout_columnWeight="1" android:background="@drawable/card_bg" android:scaleType="fitCenter" android:padding="12dp" android:contentDescription="card"/>
+                    <ImageView android:id="@+id/card_4" android:layout_width="0dp" android:layout_height="70dp" android:layout_columnWeight="1" android:background="@drawable/card_bg" android:scaleType="fitCenter" android:padding="12dp" android:contentDescription="card"/>
+                    <ImageView android:id="@+id/card_5" android:layout_width="0dp" android:layout_height="70dp" android:layout_columnWeight="1" android:background="@drawable/card_bg" android:scaleType="fitCenter" android:padding="12dp" android:contentDescription="card"/>
+                    
+                    <ImageView android:id="@+id/card_6" android:layout_width="0dp" android:layout_height="70dp" android:layout_columnWeight="1" android:background="@drawable/card_bg" android:scaleType="fitCenter" android:padding="12dp" android:contentDescription="card"/>
+                    <ImageView android:id="@+id/card_7" android:layout_width="0dp" android:layout_height="70dp" android:layout_columnWeight="1" android:background="@drawable/card_bg" android:scaleType="fitCenter" android:padding="12dp" android:contentDescription="card"/>
+                    <ImageView android:id="@+id/card_8" android:layout_width="0dp" android:layout_height="70dp" android:layout_columnWeight="1" android:background="@drawable/card_bg" android:scaleType="fitCenter" android:padding="12dp" android:contentDescription="card"/>
+                    
+                    <ImageView android:id="@+id/card_9" android:layout_width="0dp" android:layout_height="70dp" android:layout_columnWeight="1" android:background="@drawable/card_bg" android:scaleType="fitCenter" android:padding="12dp" android:contentDescription="card"/>
+                    <ImageView android:id="@+id/card_10" android:layout_width="0dp" android:layout_height="70dp" android:layout_columnWeight="1" android:background="@drawable/card_bg" android:scaleType="fitCenter" android:padding="12dp" android:contentDescription="card"/>
+                    <ImageView android:id="@+id/card_11" android:layout_width="0dp" android:layout_height="70dp" android:layout_columnWeight="1" android:background="@drawable/card_bg" android:scaleType="fitCenter" android:padding="12dp" android:contentDescription="card"/>
+
+                </GridLayout>
+
+                <Button
+                    android:id="@+id/btn_restart_game"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SHUFFLE &amp; RESTART"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#00897B"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+
+</LinearLayout>
