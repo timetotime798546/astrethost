@@ -564,14 +564,14 @@ public class MainActivity extends Activity {
         // Header / Identity Label
         TextView label = new TextView(this);
         label.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        label.setTextSize(12spToPx(11));
+        label.setTextSize(11);
         label.setTypeface(Typeface.DEFAULT_BOLD);
         label.setPadding(0, 0, 0, 4);
 
         // Message Body
         TextView body = new TextView(this);
         body.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        body.setTextSize(12spToPx(14));
+        body.setTextSize(14);
         body.setTextColor(Color.parseColor("#111827"));
 
         if ("User".equals(speaker)) {
@@ -582,7 +582,7 @@ public class MainActivity extends Activity {
             if (!attachment.isEmpty()) {
                 TextView tag = new TextView(this);
                 tag.setText("Attached document: " + attachment);
-                tag.setTextSize(12spToPx(11));
+                tag.setTextSize(11);
                 tag.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
                 tag.setTextColor(Color.parseColor("#0F766E"));
                 tag.setPadding(0, 4, 0, 4);
@@ -695,7 +695,7 @@ public class MainActivity extends Activity {
                 Button btnAttach = new Button(MainActivity.this);
                 btnAttach.setId(201);
                 btnAttach.setText("Link");
-                btnAttach.setTextSize(10spToPx(11));
+                btnAttach.setTextSize(11);
                 btnAttach.setLayoutParams(new LinearLayout.LayoutParams(60 * dpToPx(), 36 * dpToPx()));
                 btnAttach.setTextColor(Color.parseColor("#FFFFFF"));
                 btnAttach.setBackgroundColor(Color.parseColor("#10B981"));
@@ -703,7 +703,7 @@ public class MainActivity extends Activity {
                 Button btnOptions = new Button(MainActivity.this);
                 btnOptions.setId(202);
                 btnOptions.setText("⚙");
-                btnOptions.setTextSize(10spToPx(14));
+                btnOptions.setTextSize(14);
                 LinearLayout.LayoutParams optParams = new LinearLayout.LayoutParams(40 * dpToPx(), 36 * dpToPx());
                 optParams.setMargins(6 * dpToPx(), 0, 0, 0);
                 btnOptions.setLayoutParams(optParams);
