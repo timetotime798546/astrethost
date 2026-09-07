@@ -1,0 +1,102 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Metadata",
+      "description": "Configure the metadata inside app-meta.json including dynamic app name 'Creative Canvas' and package name 'com.creativecanvas.app'.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Environment",
+      "description": "Create the root and app-level Gradle build files targeting SDK 34, utilizing Gradle 8.5, and setting AGP to 8.3.2 with strict Java 8 compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Android Manifest",
+      "description": "Set up AndroidManifest.xml with correct package namespace, launcher configurations, and support for Material Light themes.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design App Interface Layout",
+      "description": "Create a multi-screen user interface structure in activity_main.xml featuring custom views, dynamic sliding puzzle grid, filter canvas, and custom toolbar views.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Main Navigation Framework",
+      "description": "Develop core screen-switching mechanisms in MainActivity.java to swap dynamically between Dashboard, Studio, and Puzzle views.",
+      "files": ["app/src/main/java/com/creativecanvas/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Integrate Native Assets",
+      "description": "Verify referencing of user-provided drawables asset_6a9f18319c82d and asset_6a9f1839db93c for visual preview and play canvas.",
+      "files": ["app/src/main/java/com/creativecanvas/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Art Filter Studio Logic",
+      "description": "Write fast-rendering color matrix adjustment logic in MainActivity.java for Grayscale, Sepia, Negative, and Sunlight effects.",
+      "files": ["app/src/main/java/com/creativecanvas/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Text overlay Controller",
+      "description": "Build high-resolution dynamic text layers overlaying the selected canvas images with custom scale and interactive color controls.",
+      "files": ["app/src/main/java/com/creativecanvas/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Build Image Slicing Logic for Puzzle",
+      "description": "Develop a dynamic runtime bitmap slicer that takes the chosen image asset and divides it into a clean 3x3 matrix block of puzzle tiles.",
+      "files": ["app/src/main/java/com/creativecanvas/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Develop 3x3 Sliding Board Mechanics",
+      "description": "Write game state engine to shuffle boards via solvable simulated movements, detect neighbor cell coordinates, and handle interactive slides.",
+      "files": ["app/src/main/java/com/creativecanvas/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Win Condition Detection",
+      "description": "Create game state verification loops in MainActivity to count moves, track match positions, and display celebration popups.",
+      "files": ["app/src/main/java/com/creativecanvas/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Add UI Styling and Polish",
+      "description": "Refine interface borders, modern buttons, custom backgrounds, responsive card selectors, and dynamic text previews.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Validate Java 8 Code Standards",
+      "description": "Perform safety checks on MainActivity.java to guarantee that no modern Lambdas, Streams, or method references are used.",
+      "files": ["app/src/main/java/com/creativecanvas/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Creative Canvas",
+      "description": "Compile, build and pack the entire package assets into a fully validated Android Debug APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
