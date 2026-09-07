@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.creativecanvas.app"
+    namespace "com.picblendcompare.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.creativecanvas.app"
+        applicationId "com.picblendcompare.app"
 
         minSdkVersion 21
 
