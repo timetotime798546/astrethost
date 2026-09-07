@@ -1,0 +1,111 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Crash on App Open",
+      "description": "Analyze the entry point of PicBlend Compare to trace potential layout inflation or view initialization crashes during MainActivity onCreate",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Enforce Robust Resource Decoding in Sandbox View",
+      "description": "Protect the bitmap loading stage with extensive try-catch blocks capturing any Throwable to guarantee safe start-up even when asset drawables are invalid, empty, or missing in the test environment",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Introduce Dimension Guarding in Bitmaps",
+      "description": "Ensure decoded images have valid non-zero dimensions before configuring draw buffers and layouts, fallback-rendering an custom auto-generated placeholder",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Defensively Create Back-up Placeholders",
+      "description": "Improve placeholder rendering methods with comprehensive failure traps to prevent rendering cycle failures on older OS configurations",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Avoid Division-by-Zero and NaN in Drawing Scales",
+      "description": "Add structural validations for width and height in drawFitImage scaling algorithms to eliminate Infinity or NaN floating-point divisions that crash Canvas rendering loops",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Recycled Bitmaps Guarding",
+      "description": "Validate if bitmaps are recycled before executing layout transformations or draw calls, preventing unexpected RuntimeExceptions",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Secure View References in MainActivity",
+      "description": "Incorporate defensive null pointer check safety guards across all view lookup nodes and button event registrations in MainActivity",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify Interface Synchronization Callbacks",
+      "description": "Audit the slider synchronization callbacks to prevent background thread feedback loops when swapping views or setting manual values",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Review Java 8 Compatibility Constraints",
+      "description": "Perform validation on Java files to verify the strict use of anonymous inner classes instead of modern lambdas or stream structures",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java",
+        "app/src/main/java/com/picblendcompare/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Remove External Third-Party Dependencies to Comply with Strict Android Native Rules",
+      "description": "Completely remove nanohttpd dependency in app/build.gradle to ensure compliance with strict native built-in SDK constraints and resolve target runtime class clashes",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Clean and Verify Resource Purity",
+      "description": "Perform validation of drawable resource references and configuration styling elements to prevent InflateException during startup",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building PicBlend Compare",
+      "description": "Verify the build config and compile the modified, crash-resistant version of PicBlend Compare securely",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
