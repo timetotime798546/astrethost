@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define App Metadata",
+      "description": "Configure the core application metadata, setting the name to 'Photo Resizer Pro' and creating the unique package namespace 'com.photoresizerpro.app'.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Settings",
+      "description": "Define compile target SDK, minimum SDK, target SDK versions, and strict Java 8 compilation compatibility properties in build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Android Manifest",
+      "description": "Set up application permissions, default theme, and define MainActivity as the primary launcher activity inside AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Main Application Layout",
+      "description": "Design the main interface with standard XML layouts, allowing users to pick images, adjust dimensions, toggle aspect ratios, choose formats, set quality, and trigger resizing.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Main Activity Setup",
+      "description": "Initialize main activity variables, locate views, bind initial action listeners, and prepare dynamic layout elements.",
+      "files": ["app/src/main/java/com/photoresizerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Image Loading Logic",
+      "description": "Develop safe asynchronous image loading from Uri to avoid OutOfMemory errors on large native camera or gallery images.",
+      "files": ["app/src/main/java/com/photoresizerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Dynamic Dimension Watchers",
+      "description": "Create aspect ratio calculations that dynamically synchronize the width and height inputs while respecting aspect ratio locks.",
+      "files": ["app/src/main/java/com/photoresizerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Develop Background Resizing Engine",
+      "description": "Implement standard Android Canvas and Matrix scaling operations running on a background worker thread for fast, high-quality image scaling.",
+      "files": ["app/src/main/java/com/photoresizerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Add Image Format and Quality Handling",
+      "description": "Integrate configuration adjustments for PNG, JPEG, and WEBP encoding along with compression quality slider values.",
+      "files": ["app/src/main/java/com/photoresizerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement MediaStore Save Routine",
+      "description": "Implement modern Android MediaStore logic to safely persist resized images into the public Photos directory/Gallery without storage permission warnings.",
+      "files": ["app/src/main/java/com/photoresizerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Image Sharing Integration",
+      "description": "Add sharing functionality that lets users instantly send resized images to communication and cloud apps via the standard system share sheet.",
+      "files": ["app/src/main/java/com/photoresizerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Photo Resizer Pro",
+      "description": "Assemble the project, check for XML validation rules, compile resources, and create the final high-performance debug package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
