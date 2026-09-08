@@ -1,0 +1,109 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Scope & Architecture",
+      "description": "Establish the 3D Calculator Pro architecture containing custom recursive-descent math parsers and physical 3D-beveled button elements.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Tools & Target SDK",
+      "description": "Set up build.gradle with target/compile SDK 34, Java 17 toolchain, and compatible legacy dependencies using pure Android SDK libraries.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Declare Application Manifest",
+      "description": "Establish launch capabilities, orientations, and custom hardware accelerations for fluid 3D transformations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Color Palette & Theme Configuration",
+      "description": "Define custom neon glowing accent parameters, mechanical shadow colors, and skeuomorphic gradients.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Develop Mechanical Number Keys 3D Drawable",
+      "description": "Construct state-list layer drawables with deep bevel offsets that realistically compress downwards during user interaction.",
+      "files": ["app/src/main/res/drawable/btn_3d_num.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Develop Operator Keys 3D Drawable",
+      "description": "Design physical-style amber keys for arithmetic operators with distinct tactile feedback shadows.",
+      "files": ["app/src/main/res/drawable/btn_3d_op.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop Action Keys 3D Drawable",
+      "description": "Create vivid warning-styled crimson actuators for delete and calculation reset events.",
+      "files": ["app/src/main/res/drawable/btn_3d_action.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Develop Scientific Keys 3D Drawable",
+      "description": "Develop modern deep cobalt keys representing complex scientific algorithms and algebraic operators.",
+      "files": ["app/src/main/res/drawable/btn_3d_sci.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop Mechanical Toggle Drawables",
+      "description": "Create active and inactive latching drawables for mechanical mode selectors.",
+      "files": ["app/src/main/res/drawable/btn_3d_toggle_active.xml", "app/src/main/res/drawable/btn_3d_toggle_inactive.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Develop Skeuomorphic LCD Glass Screen Drawable",
+      "description": "Configure multi-level layer stroke borders simulating a physical inset LCD screen with neon retro backlighting.",
+      "files": ["app/src/main/res/drawable/lcd_display_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Develop Main Metal Body Plate Texture",
+      "description": "Design an industrial brushed plate gradient representing the physical structural casing of the calculator.",
+      "files": ["app/src/main/res/drawable/calculator_body_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Design 3D Skeuomorphic Interface Markup",
+      "description": "Build an exhaustive structural layout including retro glowing LCD, status panels, and a hidden high-fidelity sliding drawer.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Scientific Evaluator and Parser Engine",
+      "description": "Write a pure mathematical compiler supporting parentheses, powers, roots, trigonometric, log, factorial, and constant configurations.",
+      "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement Tactical Response and Dynamic Interface Mechanics",
+      "description": "Connect mechanical button listeners, dynamic haptic vibrations, scientific layout sliders, and live local storage calculation logs.",
+      "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building 3D Calculator Pro",
+      "description": "Assemble the project compiler packages and test structural consistency.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

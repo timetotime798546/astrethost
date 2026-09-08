@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <!-- 3D Base Shadow Underneath (Thinner when pressed) -->
+            <item android:top="2dp">
+                <shape>
+                    <solid android:color="#282B2E" />
+                    <corners android:radius="10dp" />
+                </shape>
+            </item>
+            <!-- Mechanical Key Cap (Pressed offset down) -->
+            <item android:top="3dp" android:bottom="0dp" android:left="1dp" android:right="1dp">
+                <shape>
+                    <gradient 
+                        android:startColor="#DCE1E5" 
+                        android:endColor="#BAC0C5" 
+                        android:angle="270" />
+                    <corners android:radius="8dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <!-- 3D Base Shadow Underneath (Thicker shadow) -->
+            <item android:top="4dp">
+                <shape>
+                    <solid android:color="#1A1C1D" />
+                    <corners android:radius="10dp" />
+                </shape>
+            </item>
+            <!-- Mechanical Key Cap (Raised standard posture) -->
+            <item android:bottom="4dp" android:left="1dp" android:right="1dp">
+                <shape>
+                    <gradient 
+                        android:startColor="#FFFFFF" 
+                        android:endColor="#E1E6EB" 
+                        android:angle="270" />
+                    <corners android:radius="8dp" />
+                    <stroke android:width="1.5dp" android:color="#F7FAFC" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
