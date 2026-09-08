@@ -45,7 +45,7 @@
     {
       "step": 7,
       "title": "Configure Speech-To-Text Recognition System",
-      "description": "Implement android.speech.SpeechRecognizer with custom listeners to listen, process speech inputs, and change activity state visually.",
+      "description": "Implement android.speech.SpeechRecognizer with custom listeners to listen, process speech inputs, and change activity state visually, resolving the ERROR_TIMEOUT compilation error with ERROR_SPEECH_TIMEOUT.",
       "files": ["app/src/main/java/com/geminivoiceassistant/app/MainActivity.java"],
       "status": "pending"
     },

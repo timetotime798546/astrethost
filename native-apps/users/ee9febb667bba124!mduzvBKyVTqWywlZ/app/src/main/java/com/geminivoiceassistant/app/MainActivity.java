@@ -146,7 +146,7 @@ public class MainActivity extends Activity {
                         case SpeechRecognizer.ERROR_NO_MATCH:
                             errorMessage = "Sorry, couldn't hear that clearly.";
                             break;
-                        case SpeechRecognizer.ERROR_TIMEOUT:
+                        case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
                             errorMessage = "Listening timed out.";
                             break;
                     }
