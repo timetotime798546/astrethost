@@ -2,71 +2,36 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze Build Failure and Layout Typos",
-      "description": "Locate the invalid 'match_size' attribute value inside the primary UI layout file and verify standard resource specifications.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Analyze Build Failure in MainActivity.java",
+      "description": "Examine the compiler logs to find the unresolved symbol 'setTextStyle' on the TextView object.",
+      "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Correct layout_width Typo in activity_main.xml",
-      "description": "Replace the 'match_size' typo with the standard compatible 'match_parent' layout parameter.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Fix TextView Bold Styling Logic",
+      "description": "Replace the non-existent 'setTextStyle' call with 'setTypeface(null, Typeface.BOLD)' to ensure dynamic bold formatting compiles correctly.",
+      "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Fix Java Syntax Errors in MainActivity.java",
-      "description": "Resolve compile-time Java syntax errors where dimension unit suffix 'sp' was incorrectly used in dynamic setTextSize() calls.",
-      "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Ensure Clean Dependencies in build.gradle",
-      "description": "Remove unnecessary third-party network server dependencies to comply with strict offline compilation environments.",
+      "title": "Remove Unused External Dependencies in build.gradle",
+      "description": "Strip out the nanohttpd library implementation statement to conform to offline build compliance restrictions and clean the environment.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
-      "step": 5,
-      "title": "Verify Material Themes and Style Assets",
-      "description": "Validate the Material Light themes and verify colors are correctly integrated with LCD backlights.",
-      "files": ["app/src/main/res/values/colors.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Inspect 3D Bevel and Pressed Button Drawables",
-      "description": "Verify tactile mechanical button selectors simulate realistic 3D depth and displacement when pressed.",
-      "files": ["app/src/main/res/drawable/btn_3d_num.xml", "app/src/main/res/drawable/btn_3d_op.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Validate String Resources for 3D Calculator Pro",
-      "description": "Ensure application title configurations match app metadata exactly.",
-      "files": ["app/src/main/res/values/strings.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Assess SharedPreferences Formula Persistence",
-      "description": "Confirm math expression history arrays and Radian/Degree toggles persist properly across device configuration changes.",
+      "step": 4,
+      "title": "Validate Dynamic History Drawer Rendering",
+      "description": "Verify history items append, format, and load calculations back into active memory with accurate UI layouts.",
       "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Verify Layout Weights and Scrollable Viewports",
-      "description": "Ensure LCD scrollbars and mathematical symbol buttons render without overlap on portrait layouts.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
+      "step": 5,
       "title": "Building 3D Calculator Pro",
-      "description": "Execute gradle assembleDebug task with fixed skeuomorphic layouts and clean build parameters.",
+      "description": "Execute gradle assembleDebug to compile the project successfully into a debug APK.",
       "files": [],
       "status": "pending"
     }

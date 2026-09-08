@@ -445,7 +445,7 @@ public class MainActivity extends Activity {
             resView.setText(resultPart);
             resView.setTextColor(0xFF00FFCC);
             resView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-            resView.setTextStyle(android.graphics.Typeface.BOLD);
+            resView.setTypeface(null, android.graphics.Typeface.BOLD);
             resView.setPadding(0, 2, 0, 6);
 
             itemLayout.addView(eqView);
