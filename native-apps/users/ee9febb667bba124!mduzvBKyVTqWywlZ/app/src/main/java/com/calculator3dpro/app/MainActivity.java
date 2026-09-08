@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -419,7 +420,7 @@ public class MainActivity extends Activity {
             TextView emptyText = new TextView(this);
             emptyText.setText("No equations archived yet.");
             emptyText.setTextColor(0xFF888888);
-            emptyText.setTextSize(14sp);
+            emptyText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             emptyText.setPadding(0, 24, 0, 0);
             layoutHistoryEntries.addView(emptyText);
             return;
@@ -438,12 +439,12 @@ public class MainActivity extends Activity {
             TextView eqView = new TextView(this);
             eqView.setText(equationPart);
             eqView.setTextColor(0xFFAAAAAA);
-            eqView.setTextSize(14sp);
+            eqView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
 
             TextView resView = new TextView(this);
             resView.setText(resultPart);
             resView.setTextColor(0xFF00FFCC);
-            resView.setTextSize(18sp);
+            resView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
             resView.setTextStyle(android.graphics.Typeface.BOLD);
             resView.setPadding(0, 2, 0, 6);
 
@@ -524,11 +525,26 @@ public class MainActivity extends Activity {
             }
 
             double parseFactor() {
-                double x = parsePrimary();
+                double x = parseFactorialOrPrimary(); // Updated to ensure correct parsing priority
                 for (;;) {
                     if (consume('^')) x = Math.pow(x, parseFactor());
                     else return x;
                 }
+            }
+
+            double parseFactorialOrPrimary() {
+                double x = parsePrimary();
+                // Check post-operators (Percentage / Factorial)
+                for (;;) {
+                    if (consume('!')) {
+                        x = performFactorialCalculation(x);
+                    } else if (consume('%')) {
+                        x = x / 100.0;
+                    } else {
+                        break;
+                    }
+                }
+                return x;
             }
 
             double parsePrimary() {
@@ -575,14 +591,6 @@ public class MainActivity extends Activity {
                     }
                 } else {
                     throw new RuntimeException("Unexpected Entity: " + (char) ch);
-                }
-
-                // Check post-operators (Percentage / Factorial)
-                if (consume('!')) {
-                    x = performFactorialCalculation(x);
-                }
-                if (consume('%')) {
-                    x = x / 100.0;
                 }
 
                 return x;

@@ -2,71 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze and Inspect Build Error",
-      "description": "Examine the error log to pinpoint the invalid 'match_size' attribute value inside the primary UI layout file.",
-      "files": ["build-error.log"],
+      "title": "Analyze Build Failure and Layout Typos",
+      "description": "Locate the invalid 'match_size' attribute value inside the primary UI layout file and verify standard resource specifications.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Fix Layout Attributes in activity_main.xml",
-      "description": "Correct the 'match_size' attribute typo to 'match_parent' in the main layout configuration to comply with standard Android resource specifications.",
+      "title": "Correct layout_width Typo in activity_main.xml",
+      "description": "Replace the 'match_size' typo with the standard compatible 'match_parent' layout parameter.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Verify Color Configurations",
-      "description": "Ensure colors.xml is fully loaded and provides appropriate dark brushed metal base values and retro cyan LCD backlight accents.",
-      "files": ["app/src/main/res/values/colors.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Validate Skeuomorphic Button Drawables",
-      "description": "Verify layered 3D physical keys represent expected offsets, bevel colors, and compressed pressed states.",
-      "files": ["app/src/main/res/drawable/btn_3d_num.xml", "app/src/main/res/drawable/btn_3d_op.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Confirm Android Manifest Integrity",
-      "description": "Inspect launch permissions and confirm relative reference activities point to verified custom packages.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Evaluate Expression Processing Code",
-      "description": "Double-check mathematical parsing compiler handles percentage, factorial, parenthetical balancing, and implicit multiplication correctly.",
+      "title": "Fix Java Syntax Errors in MainActivity.java",
+      "description": "Resolve compile-time Java syntax errors where dimension unit suffix 'sp' was incorrectly used in dynamic setTextSize() calls.",
       "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 7,
-      "title": "Inspect Gradle Scripts compatibility",
-      "description": "Validate target versions, application namespace bindings, and compilation toolchains in build.gradle.",
+      "step": 4,
+      "title": "Ensure Clean Dependencies in build.gradle",
+      "description": "Remove unnecessary third-party network server dependencies to comply with strict offline compilation environments.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
+      "step": 5,
+      "title": "Verify Material Themes and Style Assets",
+      "description": "Validate the Material Light themes and verify colors are correctly integrated with LCD backlights.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Inspect 3D Bevel and Pressed Button Drawables",
+      "description": "Verify tactile mechanical button selectors simulate realistic 3D depth and displacement when pressed.",
+      "files": ["app/src/main/res/drawable/btn_3d_num.xml", "app/src/main/res/drawable/btn_3d_op.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Validate String Resources for 3D Calculator Pro",
+      "description": "Ensure application title configurations match app metadata exactly.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
       "step": 8,
-      "title": "Validate SharedPreferences Persistence",
-      "description": "Check that the UI properly loads mathematical formulas, degree/radian flags, and dynamic memory logs across lifecycles.",
+      "title": "Assess SharedPreferences Formula Persistence",
+      "description": "Confirm math expression history arrays and Radian/Degree toggles persist properly across device configuration changes.",
       "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Check Layout Viewports & Weights",
-      "description": "Verify layout weights properly stretch and compress scientific drawers on portrait screen orientations.",
+      "title": "Verify Layout Weights and Scrollable Viewports",
+      "description": "Ensure LCD scrollbars and mathematical symbol buttons render without overlap on portrait layouts.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building 3D Calculator Pro",
-      "description": "Execute the Gradle assembleDebug task with fixed skeuomorphic layouts and clean build parameters.",
+      "description": "Execute gradle assembleDebug task with fixed skeuomorphic layouts and clean build parameters.",
       "files": [],
       "status": "pending"
     }
