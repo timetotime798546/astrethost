@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Layout Structuring",
+      "description": "Evaluate the current activity_main.xml layout structure to accommodate a full-screen loading overlay via FrameLayout.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Incorporate FrameLayout Container",
+      "description": "Modify the root XML tag of activity_main.xml to FrameLayout to overlay loading views seamlessly over the operational UI.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Design Loader Screen UI Components",
+      "description": "Add an high-tech LCD themed loader container inside the layout XML containing booting text, progress trackers and custom segments.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Incorporate Built-in Audio Synthesizer Class",
+      "description": "Implement a custom programmatic AudioTrack synthesizer class (SynthSoundPool) in MainActivity to play offline synthetic sounds without external raw files.",
+      "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Loader Sequence & Blip Tones",
+      "description": "Define beautiful arpeggiating startup chimes and rapid loading step blip tones via procedural soundwave algorithms.",
+      "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Initialize Loader Handler in MainActivity",
+      "description": "Bind the loading layout elements in onCreate and boot up the dynamic background thread progress indicator loop.",
+      "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Link Mechanical Key Click Sound Effects",
+      "description": "Integrate short tactile mechanical click audio waves on numerical entries and decimal button interactions.",
+      "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Link Operator Key Sound Effects",
+      "description": "Attach lower-frequency distinctive mechanical sound tones to operator click listeners like add, subtract, multiply, and divide.",
+      "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Link System Action Controls Sound Effects",
+      "description": "Map specific synthetic dual frequencies to administrative system inputs like clear, backspace, brackets and equals.",
+      "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Smooth Transition Out of Loader",
+      "description": "Configure the handler post-delayed timers to dismiss the loader smoothly and launch the operational application with success chimes.",
+      "files": ["app/src/main/java/com/calculator3dpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Wipe Out External NanoHTTPD Dependency",
+      "description": "Clean dependencies from build.gradle ensuring strict compliance with offline built-in system standards.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building 3D Calculator Pro",
+      "description": "Execute gradle assembleDebug to compile the project successfully into a debug APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
