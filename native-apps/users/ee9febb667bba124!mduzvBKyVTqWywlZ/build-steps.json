@@ -7,7 +7,7 @@
       "files": [
         "app-meta.json"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 2,
@@ -16,7 +16,7 @@
       "files": [
         "build.gradle"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 3,
@@ -25,7 +25,7 @@
       "files": [
         "app/build.gradle"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 4,
@@ -34,7 +34,7 @@
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 5,
@@ -44,7 +44,7 @@
         "app/src/main/res/values/colors.xml",
         "app/src/main/res/values/strings.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 6,
@@ -53,7 +53,7 @@
       "files": [
         "app/src/main/res/drawable/card_bg.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 7,
@@ -63,7 +63,7 @@
         "app/src/main/res/drawable/button_primary.xml",
         "app/src/main/res/drawable/button_secondary.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 8,
@@ -72,12 +72,12 @@
       "files": [
         "app/src/main/res/drawable/edittext_bg.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 9,
-      "title": "Design Core Layout UI",
-      "description": "Build the complete interactive interface with image preview, crop tools, aspect selectors, and sliders.",
+      "title": "Design Core Layout UI & Fix Attributes",
+      "description": "Correct layout_width typo 'match_match' to 'match_parent' in ScrollView declaration.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
