@@ -1,0 +1,57 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Crash on Startup",
+      "description": "Inspect crash reports and code to identify potential crash vectors, including XML compilation issues and forbidden third-party dependency loading.",
+      "files": [
+        "app/build.gradle",
+        "app/src/main/res/drawable/panel_background.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Remove Forbidden External Dependencies",
+      "description": "Strip the non-compliant NanoHTTPD implementation from the build.gradle configuration to ensure clean, fully offline native compilation.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Correct XML Decimal Values",
+      "description": "Convert fractional stroke widths in XML drawable resources to robust integer values to prevent rendering parser crashes.",
+      "files": [
+        "app/src/main/res/drawable/panel_background.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Ensure Safe Canvas Clipping Overloads",
+      "description": "Refactor custom view rendering logic in ImageSandboxView to use standard float overloads for all canvas.clipRect and paint calls, ensuring seamless compatibility across different Android OS levels.",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/ImageSandboxView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify Null Safety on Startup",
+      "description": "Verify all UI controls, textures, and assets are checked for null safety upon initialization before updateMetadata gets called.",
+      "files": [
+        "app/src/main/java/com/picblendcompare/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Building PicBlend Compare",
+      "description": "Assemble the refined resources and native codebases using Java 17 and AGP 8.3.2.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
