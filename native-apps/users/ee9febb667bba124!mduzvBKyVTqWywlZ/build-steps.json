@@ -1,0 +1,139 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Specifications",
+      "description": "Establish basic project configurations, application identifier, and initial workspace requirements.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Root Build Script",
+      "description": "Configure the top-level build.gradle with correct Gradle and application version rules.",
+      "files": [
+        "build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Setup App Module Build Configurations",
+      "description": "Configure app/build.gradle with Android target SDK 34 and standard compiler settings.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Declare Manifest & Permissions",
+      "description": "Configure AndroidManifest.xml with appropriate permissions for loading, saving, and sharing images.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Color Palette & Theme Definitions",
+      "description": "Establish custom material colors, values, and styles for a professional styling experience.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Card Background Drawables",
+      "description": "Create reusable shape XML layouts for clean, rounded cards to match modern designs.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Action Button Background Drawables",
+      "description": "Build high-contrast modern rounded button layouts for primary and secondary tools.",
+      "files": [
+        "app/src/main/res/drawable/button_primary.xml",
+        "app/src/main/res/drawable/button_secondary.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Styled Input Field Drawables",
+      "description": "Construct clean, thin-bordered input backgrounds for standard numeric dimensions entry.",
+      "files": [
+        "app/src/main/res/drawable/edittext_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Core Layout UI",
+      "description": "Build the complete interactive interface with image preview, crop tools, aspect selectors, and sliders.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Initialize Activity & Controls Logic",
+      "description": "Create MainActivity.java, bind UI widgets, and configure the image import listeners.",
+      "files": [
+        "app/src/main/java/com/photoresizerpro/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Build Image Rotation Framework",
+      "description": "Implement efficient bitmap rotation calculations relative to image orientation vectors.",
+      "files": [
+        "app/src/main/java/com/photoresizerpro/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Develop Passport & Custom Presets Integrator",
+      "description": "Program real-time aspect updates corresponding to Selected preset spinners (US Passport, EU Passport, etc.).",
+      "files": [
+        "app/src/main/java/com/photoresizerpro/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Write Core Multi-format Image Compress Engine",
+      "description": "Write scale factor rendering routines to compress outputs into JPEG, PNG, or high-definition WEBP.",
+      "files": [
+        "app/src/main/java/com/photoresizerpro/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Build Media Store Saving & Sharing Routines",
+      "description": "Write public storage directory insert routines to allow instant gallery downloads and external shares.",
+      "files": [
+        "app/src/main/java/com/photoresizerpro/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Photo Resizer Pro",
+      "description": "Compile the entire Android project to assemble the debug APK version.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
