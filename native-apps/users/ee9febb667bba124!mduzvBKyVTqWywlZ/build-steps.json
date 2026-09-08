@@ -1,0 +1,146 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Application Metadata",
+      "description": "Establish the unique identity and package name structure for AetherCast EMF Sonifier to coordinate project-wide naming conventions.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Architecture",
+      "description": "Set up build.gradle with proper parameters matching target SDK 34, compiler specifications, and dependency exclusions.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Establish Android System Manifest",
+      "description": "Declare hardware feature requirements including the magnetometer sensor, custom launcher, and hardware vibrator feedback nodes.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Real-Time Vector Waveform Widget",
+      "description": "Program custom native Canvas drawing system (EMFVisualizerView.java) to chart three-dimensional raw magnetic vectors and historic flux waves.",
+      "files": [
+        "app/src/main/java/com/aethercastemfsonifier/app/EMFVisualizerView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Develop Audio Synthesis Core",
+      "description": "Construct pure Java-based raw 16-bit PCM AudioTrack oscillator engine inside MainActivity to synthesise frequency-modulated physical waves.",
+      "files": [
+        "app/src/main/java/com/aethercastemfsonifier/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Thread-Safe Sound Modulator",
+      "description": "Synthesize seamless frequency modifications using an isolated tracking phase loop to prevent audio pops and interface delays.",
+      "files": [
+        "app/src/main/java/com/aethercastemfsonifier/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Integrate Magnetometer State Machine",
+      "description": "Bind native SensorManager to poll the device's hardware magnetic sensor, extracting 3D vector coordinates for processing.",
+      "files": [
+        "app/src/main/java/com/aethercastemfsonifier/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Code Waveform Selector Mechanics",
+      "description": "Establish wave selector methods implementing Sine, Square, and Sawtooth hybrid raw physical audio waveforms.",
+      "files": [
+        "app/src/main/java/com/aethercastemfsonifier/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Construct Calibration Controls",
+      "description": "Incorporate base baseline zeroing and relative calibration features so environmental noise thresholds can be cancelled out dynamically.",
+      "files": [
+        "app/src/main/java/com/aethercastemfsonifier/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Write Adaptive Warning Alerts",
+      "description": "Program warning monitors that trigger vibration patterns and display flash indicators when magnetic bounds cross user thresholds.",
+      "files": [
+        "app/src/main/java/com/aethercastemfsonifier/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Session Logging Engine",
+      "description": "Create high-performance run logs tracking micro-Tesla spikes, average vectors, and chronological detection records.",
+      "files": [
+        "app/src/main/java/com/aethercastemfsonifier/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Layout Scientific User Dashboard",
+      "description": "Assemble a stylized, high-contrast, physical science telemetry screen displaying all digital measurements and control systems.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Assemble Interface Layout Hooks",
+      "description": "Bridge XML buttons, seeker components, text screens, and logs with matching Activity lifecycle states and events.",
+      "files": [
+        "app/src/main/java/com/aethercastemfsonifier/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Optimize System Memory & Lifecycle Safety",
+      "description": "Ensure sound oscillators and hardware sensors release instantly when user leaves application to protect target battery limits.",
+      "files": [
+        "app/src/main/java/com/aethercastemfsonifier/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Execute Integrity Checks",
+      "description": "Verify XML namespaces, confirm Java 8 structures, remove non-compatible framework elements, and check class declarations.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building AetherCast EMF Sonifier",
+      "description": "Perform build steps compiling resource structures and packaging binary output into complete APK build.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

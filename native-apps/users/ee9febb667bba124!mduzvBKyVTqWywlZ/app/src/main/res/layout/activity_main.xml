@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#0A0F14">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- HEADER SECTION -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AETHERCAST"
+                android:textColor="#00FFCC"
+                android:textSize="12sp"
+                android:letterSpacing="0.3"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EMF Sonifier &amp; Visualizer"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Real-time Electromagnetic Fields Audio Synthesizer"
+                android:textColor="#8899A6"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- MAIN TELEMETRY HUD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#121A24"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.8"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MAGNETIC FLUX DENSITY"
+                    android:textColor="#8899A6"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tv_total_emf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:textColor="#FF3B30"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="microTesla (µT)"
+                    android:textColor="#FF8800"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:orientation="vertical"
+                android:gravity="center_vertical|end">
+
+                <TextView
+                    android:id="@+id/tv_vector_x"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="X: 0.00 µT"
+                    android:textColor="#00FFCC"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace" />
+
+                <TextView
+                    android:id="@+id/tv_vector_y"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Y: 0.00 µT"
+                    android:textColor="#33B5E5"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace" />
+
+                <TextView
+                    android:id="@+id/tv_vector_z"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Z: 0.00 µT"
+                    android:textColor="#AA66CC"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- CUSTOM EMF VISUALIZATION VIEW -->
+        <com.aethercastemfsonifier.app.EMFVisualizerView
+            android:id="@+id/emf_visualizer_view"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="16dp"
+            android:background="#0E1721" />
+
+        <!-- OSCILLATOR CONTROLS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#121A24"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OSCILLATOR SYNTHESIS SETTINGS"
+                android:textColor="#00FFCC"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/btn_wave_sine"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="SINE"
+                    android:textSize="11sp"
+                    android:background="#0A0F14"
+                    android:textColor="#00FFCC"
+                    android:layout_marginRight="4dp" />
+
+                <Button
+                    android:id="@+id/btn_wave_square"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="SQUARE"
+                    android:textSize="11sp"
+                    android:background="#0A0F14"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginRight="4dp" />
+
+                <Button
+                    android:id="@+id/btn_wave_tri"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TRIANGLE"
+                    android:textSize="11sp"
+                    android:background="#0A0F14"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- SOUND AUDIO TOGGLE -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Sonification Feed Audio"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btn_audio_toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="START AUDIO"
+                    android:background="#FF8800"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- FREQUENCY RANGE CALIBRATOR -->
+            <TextView
+                android:id="@+id/tv_freq_multiplier_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Frequency Multiplier: 10x (200Hz - 1500Hz)"
+                android:textColor="#8899A6"
+                android:textSize="11sp"
+                android:layout_marginBottom="4dp" />
+
+            <SeekBar
+                android:id="@+id/sb_freq_multiplier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="30"
+                android:progress="10"
+                android:layout_marginBottom="12dp" />
+
+            <!-- SENSITIVITY CALIBRATOR -->
+            <TextView
+                android:id="@+id/tv_sensitivity_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gain Sensitivity: 1.0x"
+                android:textColor="#8899A6"
+                android:textSize="11sp"
+                android:layout_marginBottom="4dp" />
+
+            <SeekBar
+                android:id="@+id/sb_sensitivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="20" />
+        </LinearLayout>
+
+        <!-- THRESHOLD ALARM SYSTEM -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#121A24"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CRITICAL EMF THRESHOLD ALARM"
+                android:textColor="#FF3B30"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:id="@+id/tv_alarm_status"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Vibe / Screen Flash Alert: OFF"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/btn_alarm_toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ACTIVATE"
+                    android:background="#FF3B30"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_alarm_threshold_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Threshold Level: 120 µT"
+                android:textColor="#8899A6"
+                android:textSize="11sp"
+                android:layout_marginBottom="4dp" />
+
+            <SeekBar
+                android:id="@+id/sb_alarm_threshold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="500"
+                android:progress="120" />
+        </LinearLayout>
+
+        <!-- UTILITY ACTIONS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="12dp">
+
+            <Button
+                android:id="@+id/btn_zero_calibrate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ZERO CALIBRATE"
+                android:background="#2C3E50"
+                android:textColor="#FFFFFF"
+                android:layout_marginRight="8dp" />
+
+            <Button
+                android:id="@+id/btn_clear_log"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="RESET STATS"
+                android:background="#2C3E50"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- FIELD LOGGER / telemetry terminal -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#0E1721"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HISTORICAL ANOMALY TERMINAL"
+                android:textColor="#00FFCC"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_terminal_stats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Session started. No dynamic EMF spikes observed yet.\n"
+                android:textColor="#00FF88"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
