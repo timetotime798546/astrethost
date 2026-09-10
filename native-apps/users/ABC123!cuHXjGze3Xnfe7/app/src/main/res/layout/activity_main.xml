@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_match"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark">
+
+    <!-- Premium ToolBar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#0C0C10"
+        android:paddingHorizontal="16dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical">
+
+            <View
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:background="@color/accent_primary"
+                android:layout_marginEnd="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3D SHAPE STUDIO"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:background="@drawable/btn_bg"
+            android:text="RESET VIEW"
+            android:textColor="@color/accent_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="12dp" />
+    </RelativeLayout>
+
+    <!-- 3D Drawing Canvas Viewport -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:background="#0A0A0E">
+
+        <com.threedshapestudio.app.Shape3DView
+            android:id="@+id/shape_3d_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+            
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:text="Drag to Rotate · Pinch to Zoom"
+            android:textColor="#5A5A6D"
+            android:textSize="11sp" />
+    </FrameLayout>
+
+    <!-- Control Dashboard Panel -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:background="#0D0D12"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Card: Shape Picker -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="14dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SELECT GEOMETRY"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="10dp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_shape_cube"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="CUBE"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btn_shape_tetra"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="PYRAMID"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btn_shape_octa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="OCTAHEDRON"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btn_shape_prism"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="PRISM"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btn_shape_star"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="3D STAR"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <!-- Card: Color Presets -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="14dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MATERIAL SCHEME"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="10dp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_color_cyan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="CYAN"
+                            android:textColor="#00E5FF"
+                            android:textSize="11sp" />
+
+                        <Button
+                            android:id="@+id/btn_color_purple"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="PURPLE"
+                            android:textColor="#E040FB"
+                            android:textSize="11sp" />
+
+                        <Button
+                            android:id="@+id/btn_color_emerald"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="EMERALD"
+                            android:textColor="#00E676"
+                            android:textSize="11sp" />
+
+                        <Button
+                            android:id="@+id/btn_color_orange"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="LAVA"
+                            android:textColor="#FF3D00"
+                            android:textSize="11sp" />
+
+                        <Button
+                            android:id="@+id/btn_color_gold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:background="@drawable/btn_bg"
+                            android:text="GOLD"
+                            android:textColor="#FFEA00"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <!-- Card: Rotation & Shading Tuning -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="14dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LIGHTING &amp; SIZE CONTROLS"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="14dp" />
+
+                <!-- Scale Adjuster -->
+                <TextView
+                    android:id="@+id/lbl_scale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scale Multiplier: 100%"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seek_scale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:max="200"
+                    android:progress="100" />
+
+                <!-- Rotational Inertia Velocity -->
+                <TextView
+                    android:id="@+id/lbl_rotation_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Auto Spin Speed: 30%"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:layout_marginTop="8dp" />
+
+                <SeekBar
+                    android:id="@+id/seek_rotation_speed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:max="100"
+                    android:progress="30" />
+
+                <!-- Ambient Light Angle Yaw -->
+                <TextView
+                    android:id="@+id/lbl_light_x"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Light Orientation Pitch: 45°"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:layout_marginTop="8dp" />
+
+                <SeekBar
+                    android:id="@+id/seek_light_x"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:max="360"
+                    android:progress="45" />
+
+                <!-- Ambient Light Angle Pitch -->
+                <TextView
+                    android:id="@+id/lbl_light_y"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Light Orientation Yaw: 45°"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:layout_marginTop="8dp" />
+
+                <SeekBar
+                    android:id="@+id/seek_light_y"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:max="360"
+                    android:progress="45" />
+            </LinearLayout>
+
+            <!-- Card: Advanced Display Parameters -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RENDER PARAMETERS"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="12dp" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:rowCount="3"
+                    android:alignmentMode="alignBounds">
+
+                    <CheckBox
+                        android:id="@+id/chk_shading"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:text="Solid Shading"
+                        android:textColor="@color/text_primary"
+                        android:checked="true"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/chk_wireframe"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:text="Wireframe Lines"
+                        android:textColor="@color/text_primary"
+                        android:checked="true"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/chk_vertices"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:text="Vertex Dots"
+                        android:textColor="@color/text_primary"
+                        android:checked="true"
+                        android:textSize="12sp"
+                        android:layout_marginTop="10dp" />
+
+                    <CheckBox
+                        android:id="@+id/chk_auto_x"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:text="Spin Axis X"
+                        android:textColor="@color/text_primary"
+                        android:checked="true"
+                        android:textSize="12sp"
+                        android:layout_marginTop="10dp" />
+
+                    <CheckBox
+                        android:id="@+id/chk_auto_y"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:text="Spin Axis Y"
+                        android:textColor="@color/text_primary"
+                        android:checked="true"
+                        android:textSize="12sp"
+                        android:layout_marginTop="10dp" />
+                </GridLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

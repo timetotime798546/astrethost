@@ -1,0 +1,112 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Setup and Configuration",
+      "description": "Configure the project's build.gradle and target sdk configuration to ensure compatibility with Gradle 8.5 and Temurin 17.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Formulating App Manifest",
+      "description": "Setup the AndroidManifest.xml declaring the launcher Activity, standard dark theme, and portrait orientation constraint.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Establish Visual Style Resources",
+      "description": "Define high-contrast neon visual palette colors, modern dark canvas themes, and button dimension metrics in strings and colors resources.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Card Background Graphic Assets",
+      "description": "Design custom rounded corners drawables to act as layout cards for shape selectors and toggle configurations.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/btn_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Model 3D Math Entities",
+      "description": "Build lightweight, high-performance mathematical classes for managing 3D Vector coordinates, Face polygon indicators, and Model meshes.",
+      "files": [
+        "app/src/main/java/com/threedshapestudio/app/Shape3DView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Formulate 3D Geometric Primitives",
+      "description": "Code hard-coded vertex and face matrices for rendering dynamic models of Cubes, Pyramids, Octahedrons, Triangular Prisms, and 24-faced Stars.",
+      "files": [
+        "app/src/main/java/com/threedshapestudio/app/Shape3DView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Depth-Buffered Face Sorter",
+      "description": "Program the Painter's Algorithm sorting system to analyze average Z heights, rendering rear-facing faces first to prevent visual overlap artifacts.",
+      "files": [
+        "app/src/main/java/com/threedshapestudio/app/Shape3DView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Incorporate Dot Product Face Shading",
+      "description": "Formulate 3D vector mathematics utilizing normalized cross-products to render ambient and diffuse dynamic lighting on shape faces.",
+      "files": [
+        "app/src/main/java/com/threedshapestudio/app/Shape3DView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Embed Touch Inertia Rotations",
+      "description": "Implement drag movement gesture logic and pinch-to-zoom multi-touch handling for spinning and resizing meshes interactively.",
+      "files": [
+        "app/src/main/java/com/threedshapestudio/app/Shape3DView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Build Neon Control Console UI",
+      "description": "Assemble XML containing real-time rotation speed SeekBars, Light direction coordinates, toggles, and horizontal selector buttons.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Wire Main Activity Core Controller",
+      "description": "Program binding code in MainActivity.java to link SeekBars, switches, and geometry selection buttons directly with state controls.",
+      "files": [
+        "app/src/main/java/com/threedshapestudio/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building 3D Shape Studio",
+      "description": "Compile assets and execute tests on the custom rendering frame pipeline, confirming zero memory leaks and 60 FPS runtime performance.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
