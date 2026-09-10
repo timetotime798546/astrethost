@@ -1,0 +1,130 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define App Metadata",
+      "description": "Establish the application name 'Notes Master' and package name 'com.notesmaster.app' for configuration mapping.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure build.gradle",
+      "description": "Setup project dependencies, Android SDK target 34, min SDK 21, compilation options and namespaces using AGP 8.3.2 standards.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define App Permissions and Activity Registry",
+      "description": "Configure AndroidManifest.xml with proper package mappings, application labels, icons, launch activities, and Material Light system theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Database Helper Schema",
+      "description": "Design the DatabaseHelper SQLiteOpenHelper to manage persistent database table initialization for storing, querying, updating, and deleting note objects.",
+      "files": ["app/src/main/java/com/notesmaster/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Note Data Model",
+      "description": "Develop the pure Note Java model containing unique IDs, titles, descriptions, specific tags, and updated timestamps.",
+      "files": ["app/src/main/java/com/notesmaster/app/Note.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Card Background Shape Drawables",
+      "description": "Create standard XML shape styles for note cards featuring custom rounded corners and bordered surfaces.",
+      "files": ["app/src/main/res/drawable/note_card_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Tag Background Shape Drawables",
+      "description": "Establish XML shapes for custom category tag indicators on note items.",
+      "files": ["app/src/main/res/drawable/tag_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Floating Action Button Shape Drawables",
+      "description": "Implement rounded layout backgrounds mimicking circular FAB elements using vanilla XML custom shape styles.",
+      "files": ["app/src/main/res/drawable/fab_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Dashboard Layout",
+      "description": "Build the activity_main layout using standard SDK components including headers, real-time search editbox, category filters spinner, and the add note FAB.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Create Custom List Item Row Layout",
+      "description": "Develop custom note item layout to display individual title fields, categories, description snippets, date formatting, edit triggers, and delete buttons.",
+      "files": ["app/src/main/res/layout/list_item_note.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Note Dialog Interface Layout",
+      "description": "Establish dialog layout elements configuration including edit input textboxes for title, note content, category drop-down selector, and custom actions control panel.",
+      "files": ["app/src/main/res/layout/dialog_note.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Build Main Activity Dashboard Flow",
+      "description": "Initialize database records access, wire dynamic Search TextWatcher, establish Category Spinner adapter bindings, and handle active lists layout update.",
+      "files": ["app/src/main/java/com/notesmaster/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Custom Note List Adapter",
+      "description": "Create custom notes BaseAdapter mapping dataset rows to specific template XML views and configuring single item actions listeners.",
+      "files": ["app/src/main/java/com/notesmaster/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Add Interactive Dialog Flow Logic",
+      "description": "Implement unified dialog workflow in MainActivity for adding new records or editing selected existing entries containing user inputs verification logic.",
+      "files": ["app/src/main/java/com/notesmaster/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Incorporate SQLite Update & Insertion Queries",
+      "description": "Configure SQLite database writing processes using ContentValues for reliable transactional insertions and updating queries.",
+      "files": ["app/src/main/java/com/notesmaster/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Implement Item Deletion and Safety Checks",
+      "description": "Provide confirmation alerts before database entry removals, refreshing data displays upon success.",
+      "files": ["app/src/main/java/com/notesmaster/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Establish Real-Time Search & Category Filters",
+      "description": "Write filter calculations using standard loops for instant text and tag modifications without needing thread interruptions.",
+      "files": ["app/src/main/java/com/notesmaster/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 18,
+      "title": "Building Notes Master",
+      "description": "Perform full app compilation using Gradle 8.5, target SDK 34, verifying proper rendering and full functionality compatibility.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
