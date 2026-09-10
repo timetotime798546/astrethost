@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center_horizontal">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp" />
+
+        <!-- DYNAMIC HEADER WITH NEOBRUTALIST AUDIO TOGGLE CONTROL -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="INTERACTIVE 3D PROJECTION"
+                    android:textColor="#1E1B4B"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.2" />
+
+                <TextView
+                    android:id="@+id/tvWelcomeHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Good Day!"
+                    android:textColor="#312E81"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSoundToggle"
+                android:layout_width="120dp"
+                android:layout_height="38dp"
+                android:text="🔊 SOUND ON"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
+
+        <!-- 3D SHADED VIEWPORT CONTAINER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/card_3d_background"
+            android:padding="12dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SOLID 3D PERSPECTIVE RENDERING"
+                android:textColor="#4F46E5"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Active Shape Selector Controls inside Viewport -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="12dp">
+
+                <Button
+                    android:id="@+id/btnShapeCube"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="36dp"
+                    android:text="3D Cube"
+                    android:textSize="10sp"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:layout_marginRight="4dp" />
+
+                <Button
+                    android:id="@+id/btnShapePyramid"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="36dp"
+                    android:text="Pyramid"
+                    android:textSize="10sp"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:layout_marginRight="4dp" />
+
+                <Button
+                    android:id="@+id/btnShapeDiamond"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="36dp"
+                    android:text="Octahedron"
+                    android:textSize="10sp"
+                    android:textAllCaps="false"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Custom 3D Shaded View -->
+            <com.helloapp.app.Cube3DView
+                android:id="@+id/cube3DView"
+                android:layout_width="match_parent"
+                android:layout_height="210dp" />
+
+        </LinearLayout>
+
+        <!-- MAIN 3D CONTROL DASHBOARD CARD -->
+        <LinearLayout
+            android:id="@+id/cardContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_3d_background"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IDENTITY INPUT"
+                android:textColor="#4F46E5"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/etNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/input_3d_background"
+                android:hint="Enter your name here"
+                android:textColor="#0F172A"
+                android:textColorHint="#94A3B8"
+                android:textSize="14sp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CHOOSE ACTIVE ATMOSPHERE"
+                android:textColor="#4F46E5"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="8dp" />
+
+            <!-- 3D Selector Chips -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="22dp"
+                android:weightSum="3">
+
+                <Button
+                    android:id="@+id/btnVibeEnergetic"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="Energetic"
+                    android:textSize="11sp"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:layout_marginRight="6dp" />
+
+                <Button
+                    android:id="@+id/btnVibeCalm"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="Calm"
+                    android:textSize="11sp"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:layout_marginRight="6dp" />
+
+                <Button
+                    android:id="@+id/btnVibeInspire"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="Inspiring"
+                    android:textSize="11sp"
+                    android:textAllCaps="false"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/actionButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/button_3d"
+                android:text="Execute 3D Calculation"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:id="@+id/helloText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hello, Space Traveler!"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#1E1B4B"
+                android:gravity="center"
+                android:padding="4dp"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tvSubGreeting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alter controls above to render a fully custom environment greeting."
+                android:textColor="#64748B"
+                android:textSize="12sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- VOLUMETRIC WISDOM DRAWER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/wisdom_3d_background"
+            android:padding="16dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3D DEPTH WISDOM"
+                android:textColor="#F43F5E"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tvInspiration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="“The secret of getting ahead is getting started.” — Mark Twain"
+                android:textColor="#334155"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnRefreshWisdom"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="Next Projection"
+                android:textSize="11sp"
+                android:background="#00000000"
+                android:textColor="#8B5CF6"
+                android:textAllCaps="false"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by Hello 3D Physical Engine"
+            android:textColor="#94A3B8"
+            android:textSize="11sp"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+</ScrollView>

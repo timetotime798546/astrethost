@@ -1,0 +1,67 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze and Redesign 3D Projection Engine",
+      "description": "Establish multi-shape solid face models inside Cube3DView to replace simple wireframes with shaded geometric solids.",
+      "files": ["app/src/main/java/com/helloapp/app/Cube3DView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Build Dynamic Face and Vertex Matrix Logic",
+      "description": "Define coordinate matrices for Cube, Pyramid, and Octahedron solid geometries in Cube3DView.java.",
+      "files": ["app/src/main/java/com/helloapp/app/Cube3DView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Depth-Sorting (Painter's Algorithm)",
+      "description": "Order 3D rendering sequences dynamically so that back faces are rendered prior to front faces to avoid graphic occlusion issues.",
+      "files": ["app/src/main/java/com/helloapp/app/Cube3DView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Formulate Rotated Space Light Source & Shading Vectors",
+      "description": "Compute face normals using mathematical cross-product matrices in rotCoords, and derive realistic lighting gradients using dot product calculations.",
+      "files": ["app/src/main/java/com/helloapp/app/Cube3DView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Add Interactive Active Shape Switch Controls",
+      "description": "Revise activity_main.xml layout to incorporate stylish layout tabs allowing immediate switching between Cube, Pyramid, and Octahedron shapes.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Integrate Dynamic Card Tilt & Parallax Physics Engine",
+      "description": "Integrate real-time OnTouchListener inside MainActivity.java mapping touch offsets directly into translationX/Y and rotationX/Y coordinates on cardContainer.",
+      "files": ["app/src/main/java/com/helloapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Link Shape Buttons with Synthesizer and Active States",
+      "description": "Connect shape selector triggers to custom UI state styling, audio confirmations, and model invalidations in MainActivity.java.",
+      "files": ["app/src/main/java/com/helloapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Validate Java 8 Compatibility and Build",
+      "description": "Execute sanity check sweeps confirming zero Java 9 dependencies are used and verify proper manifest layout namespaces.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Building Hello App",
+      "description": "Compile, build and assemble Hello App using Gradle commands.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
