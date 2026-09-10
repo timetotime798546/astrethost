@@ -1,0 +1,147 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define application metadata",
+      "description": "Establish key configuration metadata such as app name and package namespace mapping.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Establish target build configurations",
+      "description": "Create build.gradle with compatible targetSdk, compileSdk, and Android Gradle Plugin versions.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Application Manifest",
+      "description": "Establish the application package structure, launcher activity, fixed portrait orientation, and system theme in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design number button selector style",
+      "description": "Create background drawable XML with pressed states for the numeric keys.",
+      "files": [
+        "app/src/main/res/drawable/button_number.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design operator button selector style",
+      "description": "Create drawable state list selectors specifically styled for primary mathematical operator keys.",
+      "files": [
+        "app/src/main/res/drawable/button_operator.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design action button selector style",
+      "description": "Create specialized custom styles for controls like Backspace, Clear, and Percent keys.",
+      "files": [
+        "app/src/main/res/drawable/button_action.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design equal button selector style",
+      "description": "Create distinctive bright color selector highlight for the evaluation button.",
+      "files": [
+        "app/src/main/res/drawable/button_equal.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create LCD display layout styling asset",
+      "description": "Design a clean display window surface drawable background.",
+      "files": [
+        "app/src/main/res/drawable/display_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create history panel background style",
+      "description": "Design overlay frame drawable styling to allow history computations logs to pop over nicely.",
+      "files": [
+        "app/src/main/res/drawable/history_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement responsive calculator layout file",
+      "description": "Construct activity_main.xml using responsive linear weighted grids supporting displays, buttons, history overlays and toggles.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Develop expression evaluation logic inside MainActivity",
+      "description": "Implement standard Java 8 recursive descent mathematical formula parsing engine within MainActivity.java.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Wire up UI bindings and click actions",
+      "description": "Establish bindings for each visual key, custom listener arrays, expression builder logic and backspace long click actions.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Program adaptive font display auto-sizing",
+      "description": "Write length-based text calculations inside screen view to prevent visual layout clipping on larger formulas.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Build localized calculation storage layers",
+      "description": "Utilize standard SharedPreferences API to save and reconstruct prior arithmetic outputs.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Validate namespaces and build setups",
+      "description": "Examine resources layout constraints, namespaces and build configurations for compatibility with compiler scripts.",
+      "files": [
+        "app/src/main/AndroidManifest.xml",
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building Modern Calculator",
+      "description": "Compile the code using gradle assembleDebug and package APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
