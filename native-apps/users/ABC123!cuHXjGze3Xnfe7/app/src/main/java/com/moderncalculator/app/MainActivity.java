@@ -260,7 +260,7 @@ public class MainActivity extends Activity {
             TextView emptyText = new TextView(this);
             emptyText.setText("No calculation logs found.");
             emptyText.setTextColor(Color.parseColor("#7E848C"));
-            emptyText.setTextSize(16spToPx(16));
+            emptyText.setTextSize(16);
             emptyText.setGravity(Gravity.CENTER);
             emptyText.setPadding(0, 40, 0, 0);
             historyItemsContainer.addView(emptyText);
@@ -278,7 +278,7 @@ public class MainActivity extends Activity {
             TextView logText = new TextView(this);
             logText.setText(historyItem);
             logText.setTextColor(Color.WHITE);
-            logText.setTextSize(18spToPx(18));
+            logText.setTextSize(18);
             logText.setGravity(Gravity.RIGHT);
 
             itemLayout.addView(logText);
@@ -306,10 +306,6 @@ public class MainActivity extends Activity {
             historyItemsContainer.addView(itemLayout);
             historyItemsContainer.addView(divider);
         }
-    }
-
-    private int spToPx(float sp) {
-        return (int) (sp * getResources().getDisplayMetrics().scaledDensity);
     }
 
     // Pure standard parser execution engine without dependency references
