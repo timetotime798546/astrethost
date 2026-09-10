@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bottom 3D solid rose shadow block -->
+    <item android:top="6dp" android:bottom="0dp" android:left="0dp" android:right="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FECDD3" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    <!-- Top card plate -->
+    <item android:top="0dp" android:bottom="6dp" android:left="0dp" android:right="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFF1F2" />
+            <corners android:radius="16dp" />
+            <stroke
+                android:width="2dp"
+                android:color="#FDA4AF" />
+        </shape>
+    </item>
+</layer-list>
