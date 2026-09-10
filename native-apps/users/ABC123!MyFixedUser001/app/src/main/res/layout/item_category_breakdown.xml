@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/card_bg"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:padding="12dp">
+
+    <!-- Category Color Marker -->
+    <View
+        android:id="@+id/view_cat_color"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:background="#8D6E63"
+        android:layout_marginRight="12dp" />
+
+    <!-- Category Label -->
+    <TextView
+        android:id="@+id/txt_cat_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Food"
+        android:textColor="#212121"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <!-- Percentage Share -->
+    <TextView
+        android:id="@+id/txt_cat_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.0%"
+        android:textColor="#757575"
+        android:textSize="14sp"
+        android:layout_marginRight="16dp" />
+
+    <!-- Absolute amount spent -->
+    <TextView
+        android:id="@+id/txt_cat_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textColor="#212121"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+</LinearLayout>

@@ -2,94 +2,117 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define Project Specifications",
-      "description": "Establish the exact Java 8 compatible layout and design, targeted for Android SDK 34 using Gradle 8.5.",
+      "title": "Define application metadata",
+      "description": "Establish metadata schema for Expense Tracker Pro containing the official package name com.expensetrackerpro.app inside app-meta.json.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure App Metadata",
-      "description": "Configure the workspace package structure as com.notesapp.app and app name to Notes Manager.",
-      "files": ["app-meta.json"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Establish Build Definitions",
-      "description": "Configure compilation and SDK bounds via app/build.gradle targeting standard compilation without non-SDK libraries.",
+      "title": "Establish build configurations",
+      "description": "Setup project parameters compatible with Gradle 8.5 and AGP 8.3.2 inside app/build.gradle targeting Android SDK level 34.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
-      "step": 4,
-      "title": "Configure Manifest Layout",
-      "description": "Create AndroidManifest.xml referencing MainActivity and setting up proper application launcher traits and theme.",
+      "step": 3,
+      "title": "Configure Application Manifest",
+      "description": "Formulate AndroidManifest.xml specifying launcher activities, standard material light UI styling, application metadata, and valid package descriptors.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
+      "step": 4,
+      "title": "Define Color Palette",
+      "description": "Implement colors.xml containing active green elements for income, vibrant red elements for expenses, and distinct modern category indicators.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
       "step": 5,
-      "title": "Establish Storage Architecture",
-      "description": "Design DatabaseHelper.java to manage the notes table, categories table, default values, and standard CRUD SQLite queries.",
-      "files": ["app/src/main/java/com/notesapp/app/DatabaseHelper.java"],
+      "title": "Define Localized Strings",
+      "description": "Add user-facing text variables inside strings.xml ensuring language variables match transaction operations.",
+      "files": ["app/src/main/res/values/strings.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Create User Interface Drawables",
-      "description": "Create xml layout shapes like rounded inputs, action-button layouts, category list cell styles, and custom card backgrounds.",
-      "files": [
-        "app/src/main/res/drawable/round_card.xml",
-        "app/src/main/res/drawable/fab_background.xml",
-        "app/src/main/res/drawable/badge_category.xml",
-        "app/src/main/res/drawable/input_background.xml"
-      ],
+      "title": "Implement Custom Card Backgrounds",
+      "description": "Create shape drawable card_bg.xml to produce rounded borders for transaction containers and summary dashboards.",
+      "files": ["app/src/main/res/drawable/card_bg.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Design Main Screen Layout",
-      "description": "Design activity_main.xml including a top title banner, a text search query box, a category selection filter spinner, and a full size ListView.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Design List Item Interface Layouts",
-      "description": "Formulate beautiful note_item.xml layouts with interactive inline editing and deleting configurations, complete with category indicators.",
-      "files": ["app/src/main/res/layout/note_item.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Create Editor & Management Layouts",
-      "description": "Construct modal layouts dialog_note.xml and dialog_categories.xml to edit detailed notes and manage categories in runtime lists.",
+      "title": "Implement Interactive Buttons Styling",
+      "description": "Provide custom drawables edit_text_bg.xml, button_bg.xml, and button_accent_bg.xml for streamlined button outlines.",
       "files": [
-        "app/src/main/res/layout/dialog_note.xml",
-        "app/src/main/res/layout/dialog_categories.xml",
-        "app/src/main/res/layout/category_item.xml"
+        "app/src/main/res/drawable/edit_text_bg.xml",
+        "app/src/main/res/drawable/button_bg.xml",
+        "app/src/main/res/drawable/button_accent_bg.xml"
       ],
       "status": "pending"
     },
     {
+      "step": 8,
+      "title": "Program SQLite Database Helper",
+      "description": "Create DatabaseHelper.java employing Android built-in SQL compilation systems to map transactions tables and record operations.",
+      "files": ["app/src/main/java/com/expensetrackerpro/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Construct Transaction Data Model",
+      "description": "Implement the core Transaction.java representation mapping types, dates, description, categories, and numerical totals.",
+      "files": ["app/src/main/java/com/expensetrackerpro/app/Transaction.java"],
+      "status": "pending"
+    },
+    {
       "step": 10,
-      "title": "Develop Main System Controller",
-      "description": "Implement MainActivity.java with fully custom note item adapters, dynamic search query filtration, category sorting filters, dialog managers, and database callbacks.",
-      "files": ["app/src/main/java/com/notesapp/app/MainActivity.java"],
+      "title": "Build Custom PieChartView Graphic Component",
+      "description": "Create PieChartView.java drawing responsive donut pie charts with descriptive inner labels and custom arc slices.",
+      "files": ["app/src/main/java/com/expensetrackerpro/app/PieChartView.java"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Validate Core Functionality",
-      "description": "Ensure perfect compile bounds, check for Android XML namespace validity, test lifecycle actions, and clear residual memory.",
-      "files": [],
+      "title": "Construct Main User Interface",
+      "description": "Create activity_main.xml layout structuring multi-tab dashboard layouts, history listings, reports tabs, and active tab triggers.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Building Notes Manager",
-      "description": "Initiate automated build generation for the Notes Manager APK targeting Android API Level 34.",
+      "title": "Design Dialog Insertion Screen",
+      "description": "Formulate dialog_add_transaction.xml incorporating category selectors, numeric inputs, calendar dialog triggers, and text notes.",
+      "files": ["app/src/main/res/layout/dialog_add_transaction.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Construct Transaction Row Items",
+      "description": "Create item_transaction.xml representing individual listings showing categorizations, color type lines, and deletion shortcuts.",
+      "files": ["app/src/main/res/layout/item_transaction.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Construct Report Categories Breakdowns",
+      "description": "Create item_category_breakdown.xml supporting individual list aggregates in report charts detailing relative percentage distributions.",
+      "files": ["app/src/main/res/layout/item_category_breakdown.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Develop Core Logic & Tab Controller",
+      "description": "Implement MainActivity.java tying local transactions database operations, data calculations, dynamic spinners, custom lists, filters, and reports.",
+      "files": ["app/src/main/java/com/expensetrackerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building Expense Tracker Pro",
+      "description": "Execute compile assembly, build resources, perform static analysis checks, verify namespaces, and complete build.",
       "files": [],
       "status": "pending"
     }
