@@ -2,117 +2,82 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define application metadata",
-      "description": "Establish metadata schema for Expense Tracker Pro containing the official package name com.expensetrackerpro.app inside app-meta.json.",
+      "title": "Establish Project Identity",
+      "description": "Initialize the application metadata and unique package identifier com.moderncalculator.app for the Modern Calculator project.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Establish build configurations",
-      "description": "Setup project parameters compatible with Gradle 8.5 and AGP 8.3.2 inside app/build.gradle targeting Android SDK level 34.",
-      "files": ["app/build.gradle"],
+      "title": "Configure Build Settings",
+      "description": "Define settings.gradle to configure the build scope and set the module directory mapping.",
+      "files": ["settings.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Application Manifest",
-      "description": "Formulate AndroidManifest.xml specifying launcher activities, standard material light UI styling, application metadata, and valid package descriptors.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Define Root Gradle configuration",
+      "description": "Set up root build.gradle to establish global project-level configurations and repository targets.",
+      "files": ["build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Define Color Palette",
-      "description": "Implement colors.xml containing active green elements for income, vibrant red elements for expenses, and distinct modern category indicators.",
-      "files": ["app/src/main/res/values/colors.xml"],
+      "title": "Configure App-Level Build Script",
+      "description": "Apply Android plugins, compile-time/target SDK 34 configurations, and standard Java 1.8 compatibility in app/build.gradle.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Define Localized Strings",
-      "description": "Add user-facing text variables inside strings.xml ensuring language variables match transaction operations.",
-      "files": ["app/src/main/res/values/strings.xml"],
+      "title": "Define App Manifest and Permissions",
+      "description": "Configure AndroidManifest.xml with the target package name, application theme, entry activity, and proper XML namespaces.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Custom Card Backgrounds",
-      "description": "Create shape drawable card_bg.xml to produce rounded borders for transaction containers and summary dashboards.",
-      "files": ["app/src/main/res/drawable/card_bg.xml"],
+      "title": "Generate Theme Styles",
+      "description": "Create custom styles.xml targeting system Material properties to enable an attractive full-screen dark aesthetic without dependency libraries.",
+      "files": ["app/src/main/res/values/styles.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Interactive Buttons Styling",
-      "description": "Provide custom drawables edit_text_bg.xml, button_bg.xml, and button_accent_bg.xml for streamlined button outlines.",
+      "title": "Design Round Ripple Drawables",
+      "description": "Develop stateful round-corner XML shape drawables to serve as interactive touch highlights for digit, operator, and action buttons.",
       "files": [
-        "app/src/main/res/drawable/edit_text_bg.xml",
-        "app/src/main/res/drawable/button_bg.xml",
-        "app/src/main/res/drawable/button_accent_bg.xml"
+        "app/src/main/res/drawable/btn_number_bg.xml",
+        "app/src/main/res/drawable/btn_operator_bg.xml",
+        "app/src/main/res/drawable/btn_function_bg.xml"
       ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Program SQLite Database Helper",
-      "description": "Create DatabaseHelper.java employing Android built-in SQL compilation systems to map transactions tables and record operations.",
-      "files": ["app/src/main/java/com/expensetrackerpro/app/DatabaseHelper.java"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Construct Transaction Data Model",
-      "description": "Implement the core Transaction.java representation mapping types, dates, description, categories, and numerical totals.",
-      "files": ["app/src/main/java/com/expensetrackerpro/app/Transaction.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Build Custom PieChartView Graphic Component",
-      "description": "Create PieChartView.java drawing responsive donut pie charts with descriptive inner labels and custom arc slices.",
-      "files": ["app/src/main/java/com/expensetrackerpro/app/PieChartView.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Construct Main User Interface",
-      "description": "Create activity_main.xml layout structuring multi-tab dashboard layouts, history listings, reports tabs, and active tab triggers.",
+      "title": "Construct XML UI Layout",
+      "description": "Create a fully scalable, balanced mathematical display and touch key arrangement inside activity_main.xml with clean spacing.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
-      "step": 12,
-      "title": "Design Dialog Insertion Screen",
-      "description": "Formulate dialog_add_transaction.xml incorporating category selectors, numeric inputs, calendar dialog triggers, and text notes.",
-      "files": ["app/src/main/res/layout/dialog_add_transaction.xml"],
+      "step": 9,
+      "title": "Implement Mathematical Evaluation Parser",
+      "description": "Implement a pure Java mathematical expression solver inside MainActivity.java conforming to operator precedence rules.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 13,
-      "title": "Construct Transaction Row Items",
-      "description": "Create item_transaction.xml representing individual listings showing categorizations, color type lines, and deletion shortcuts.",
-      "files": ["app/src/main/res/layout/item_transaction.xml"],
+      "step": 10,
+      "title": "Implement Calculator Interactive Logic",
+      "description": "Integrate click-handling click listeners, formatting algorithms, clear options, history displays, and input safety protections.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 14,
-      "title": "Construct Report Categories Breakdowns",
-      "description": "Create item_category_breakdown.xml supporting individual list aggregates in report charts detailing relative percentage distributions.",
-      "files": ["app/src/main/res/layout/item_category_breakdown.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 15,
-      "title": "Develop Core Logic & Tab Controller",
-      "description": "Implement MainActivity.java tying local transactions database operations, data calculations, dynamic spinners, custom lists, filters, and reports.",
-      "files": ["app/src/main/java/com/expensetrackerpro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 16,
-      "title": "Building Expense Tracker Pro",
-      "description": "Execute compile assembly, build resources, perform static analysis checks, verify namespaces, and complete build.",
+      "step": 11,
+      "title": "Building Modern Calculator",
+      "description": "Run compilation check and compile system tasks to build a release-ready debug package of Modern Calculator.",
       "files": [],
       "status": "pending"
     }

@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.ModernCalculator" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor">#121212</item>
+        <item name="android:navigationBarColor">#121212</item>
+        <item name="android:windowBackground">#121212</item>
+    </style>
+</resources>
