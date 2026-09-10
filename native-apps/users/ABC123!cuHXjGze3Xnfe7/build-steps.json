@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Structure and Configuration",
+      "description": "Initialize Hello App structure and register the metadata config.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create Build Steps Definition",
+      "description": "Define the detailed execution flow inside build-steps.json for Hello App.",
+      "files": ["build-steps.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure App Build Parameters",
+      "description": "Set compiler and build environment variables in build.gradle for package com.helloapp.app.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Establish App Manifest Details",
+      "description": "Define package com.helloapp.app and app components in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify XML Namespace Rules",
+      "description": "Ensure AndroidManifest.xml holds proper standard namespace definitions.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design App Main Layout",
+      "description": "Develop a simple RelativeLayout for greeting content inside activity_main.xml.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Main Activity Code",
+      "description": "Write MainActivity.java under com.helloapp.app to handle click event and greeting response.",
+      "files": ["app/src/main/java/com/helloapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Check Java 8 Compatibility",
+      "description": "Ensure the MainActivity implementation is strictly Java 8 compatible.",
+      "files": ["app/src/main/java/com/helloapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify No External Resource Dependencies",
+      "description": "Inspect components to confirm reliance only on default Android themes and system resources.",
+      "files": ["app/build.gradle", "app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Hello App",
+      "description": "Compile, build and assemble Hello App using Gradle commands.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
