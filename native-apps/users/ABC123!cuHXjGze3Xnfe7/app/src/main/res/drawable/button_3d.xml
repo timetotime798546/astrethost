@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed state: translates downwards, hiding the bottom 3D shadow layer -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <item android:top="6dp" android:bottom="0dp" android:left="0dp" android:right="0dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#5B21B6" />
+                    <corners android:radius="14dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <!-- Normal state: Raised top plate with real offset 3D structural shadow -->
+    <item>
+        <layer-list>
+            <!-- Shaded Bottom Depth Shadow Plate -->
+            <item android:top="6dp" android:bottom="0dp" android:left="0dp" android:right="0dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#4C1D95" />
+                    <corners android:radius="14dp" />
+                </shape>
+            </item>
+            <!-- Top Raised Interaction Plate -->
+            <item android:top="0dp" android:bottom="6dp" android:left="0dp" android:right="0dp">
+                <shape android:shape="rectangle">
+                    <gradient
+                        android:startColor="#8B5CF6"
+                        android:endColor="#7C3AED"
+                        android:angle="0" />
+                    <corners android:radius="14dp" />
+                    <stroke
+                        android:width="2dp"
+                        android:color="#4C1D95" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
