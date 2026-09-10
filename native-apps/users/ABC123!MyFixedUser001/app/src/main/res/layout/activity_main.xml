@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_width"
+    android:layout_height="match_parent"
+    android:background="#ECF0F1">
+
+    <!-- Header App Bar -->
+    <RelativeLayout
+        android:id="@+id/header_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#2C3E50"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/app_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/app_name"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_add_category_quick"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="#18BC9C"
+            android:text="+ Category"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+    </RelativeLayout>
+
+    <!-- LIST CONTAINER VIEW (Default State) -->
+    <LinearLayout
+        android:id="@+id/layout_list_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_bar"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!-- Search Bar and Category Filter Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- Search Field -->
+            <EditText
+                android:id="@+id/edit_search"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="#ECF0F1"
+                android:hint="@string/search_placeholder"
+                android:inputType="text"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="#2C3E50"
+                android:textSize="14sp" />
+
+            <!-- Category Filter Selector Layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Filter by: "
+                    android:textColor="#7F8C8D"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spinner_category_filter"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="6dp"
+                    android:background="#ECF0F1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Divider Line -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BDC3C7" />
+
+        <!-- Empty State Warning Layout -->
+        <TextView
+            android:id="@+id/txt_empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="24dp"
+            android:text="@string/empty_notes"
+            android:textColor="#7F8C8D"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <!-- Main Notes List -->
+        <ListView
+            android:id="@+id/notes_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#BDC3C7"
+            android:dividerHeight="1dp"
+            android:padding="6dp"
+            android:clipToPadding="false"
+            android:scrollbarStyle="outsideOverlay"/>
+    </LinearLayout>
+
+    <!-- FORM EDITOR CONTAINER VIEW (Hidden by default) -->
+    <LinearLayout
+        android:id="@+id/layout_form_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_bar"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txt_form_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_note"
+            android:textColor="#2C3E50"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Note Input Form Elements -->
+        <EditText
+            android:id="@+id/edit_note_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ECF0F1"
+            android:hint="@string/title_hint"
+            android:inputType="textCapSentences"
+            android:padding="12dp"
+            android:textColor="#2C3E50"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Select Note Category -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category_label"
+                android:textColor="#7F8C8D"
+                android:textStyle="bold"
+                android:layout_marginRight="8dp" />
+
+            <Spinner
+                android:id="@+id/spinner_note_category"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="#ECF0F1" />
+        </LinearLayout>
+
+        <!-- Detailed Note Content Input -->
+        <EditText
+            android:id="@+id/edit_note_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#ECF0F1"
+            android:gravity="top|left"
+            android:hint="@string/content_hint"
+            android:inputType="textMultiLine|textCapSentences"
+            android:padding="12dp"
+            android:textColor="#2C3E50"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Form Control Buttons layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_cancel_note"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#BDC3C7"
+                android:text="@string/cancel"
+                android:textColor="#2C3E50"
+                android:layout_marginRight="8dp"/>
+
+            <Button
+                android:id="@+id/btn_save_note"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#18BC9C"
+                android:text="@string/save"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Floating Action Button for Adding New Notes (Anchored to list state container) -->
+    <Button
+        android:id="@+id/fab_add_note"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="24dp"
+        android:background="#18BC9C"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

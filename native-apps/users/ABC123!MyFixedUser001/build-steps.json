@@ -1,0 +1,123 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define App Metadata and Configuration",
+      "description": "Configure application properties such as app name 'Smart Notes' and unique package identifier 'com.smartnotes.app' in app-meta.json.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Settings with Gradle",
+      "description": "Establish build configurations using Gradle 8.5 and AGP 8.3.2. Define compile and target SDK versions to 34 and min SDK to 21 with standard Java 8 compatibility settings.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Declare Application Manifest",
+      "description": "Configure the AndroidManifest.xml specifying 'com.smartnotes.app' as namespace, setting MainActivity as the launcher entry point, and enforcing the standard Material Light theme and icon reference.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define Theme Colors",
+      "description": "Create a color resources file containing material colors for primary elements, background highlights, borders, and text accents.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define Text String Resources",
+      "description": "Establish key-value string references for labels, placeholder texts, button captions, dialog alerts, and menu items to support scalable application labeling.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Establish the SQLite Database Schema",
+      "description": "Develop the DatabaseHelper helper class using native Android SQLite APIs to create, read, update, and delete notes and categories.",
+      "files": ["app/src/main/java/com/smartnotes/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Main Activity UI Layout",
+      "description": "Design user interfaces including a Dual-View system (List view & Form Editor view), featuring custom search box, category dropdown spinners, list visualizers, and control buttons.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Custom Notes List Item View Layout",
+      "description": "Formulate a custom list item layout detailing title, note snippet, timestamp, category tag, and integrated control buttons for quick modification or deletion.",
+      "files": ["app/src/main/res/layout/note_item.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Database Core Integration in MainActivity",
+      "description": "Initialize database adapters inside MainActivity, load default note categories (General, Personal, Work, Ideas) on the first boot up of the app, and prepare operational lists.",
+      "files": ["app/src/main/java/com/smartnotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Note Listing and Filtering Logic",
+      "description": "Add functionality inside MainActivity to populate the note list, filter list content programmatically based on the selected category spinner, and refresh listings dynamically.",
+      "files": ["app/src/main/java/com/smartnotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Search Real-Time Filter System",
+      "description": "Write a text watcher implementation targeting the search bar to query and filter list results instantly on key-press input events.",
+      "files": ["app/src/main/java/com/smartnotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Note Creation and Management Flow",
+      "description": "Integrate code logic to transition UI to the custom editor state on click of the action button, configure categories selector, validate blank forms, and write clean database inserts.",
+      "files": ["app/src/main/java/com/smartnotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Note Edit and Modification Logic",
+      "description": "Wire existing note records from lists back into the UI fields when clicking on lists, pre-select stored attributes, and process update callbacks.",
+      "files": ["app/src/main/java/com/smartnotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement Deletion Actions and Prompts",
+      "description": "Integrate interactive confirmation modals preventing accidental deletions, allowing users to safely purge note items instantly using localized handlers.",
+      "files": ["app/src/main/java/com/smartnotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Implement Category Creation Dynamic Dialogue",
+      "description": "Build an integrated dialog popup routine that allows users to instantly append custom categories to the global list and immediately update UI spinners dynamically.",
+      "files": ["app/src/main/java/com/smartnotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Review Java 8 and Manifest Validation Rules",
+      "description": "Execute an API compliance check to verify that no unsupported modern expressions (lambdas, method references) or invalid non-standard schemas exist across codebase.",
+      "files": ["app/src/main/AndroidManifest.xml", "app/src/main/java/com/smartnotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Building Smart Notes",
+      "description": "Initiate automated project building and validation using standard build tools.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
