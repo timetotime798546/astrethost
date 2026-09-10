@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Background premium dark -->
-    <color name="bg_dark">#0F0F11</color>
-    <color name="bg_display">#17171C</color>
+    <!-- Background and base neutral colors -->
+    <color name="bg_app">#F3F4F6</color>
+    <color name="bg_display">#FFFFFF</color>
+    <color name="text_primary">#1F2937</color>
+    <color name="text_secondary">#9CA3AF</color>
+    <color name="divider_line">#E5E7EB</color>
+
+    <!-- Interactive key custom gradients -->
+    <color name="btn_num_bg">#FFFFFF</color>
+    <color name="btn_num_text">#1F2937</color>
     
-    <!-- Keyboard/Button Text colors -->
-    <color name="text_white">#FFFFFF</color>
-    <color name="text_muted">#8A8A8F</color>
-    <color name="text_dark">#000000</color>
-    
-    <!-- Functional buttons: light grey -->
-    <color name="color_fn_normal">#A5A5A5</color>
-    <color name="color_fn_pressed">#D4D4D4</color>
-    
-    <!-- Numeric buttons: dark grey -->
-    <color name="color_num_normal">#2C2C2E</color>
-    <color name="color_num_pressed">#48484A</color>
-    
-    <!-- Operator buttons: glowing amber/orange -->
-    <color name="color_op_normal">#FF9F0A</color>
-    <color name="color_op_pressed">#FFB340</color>
+    <color name="btn_op_bg">#6366F1</color>
+    <color name="btn_op_text">#FFFFFF</color>
+
+    <color name="btn_eq_bg">#10B981</color>
+    <color name="btn_eq_text">#FFFFFF</color>
+
+    <color name="btn_clr_bg">#EF4444</color>
+    <color name="btn_clr_text">#FFFFFF</color>
+
+    <color name="btn_util_bg">#E5E7EB</color>
+    <color name="btn_util_text">#374151</color>
 </resources>

@@ -2,88 +2,144 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define Project Metadata",
-      "description": "Create the app-meta.json file defining the app name (Modern Calculator) and package name (com.moderncalculator.app).",
-      "files": ["app-meta.json"],
+      "title": "Establish Project Identity",
+      "description": "Defined dynamic package metadata: com.moderncalculator.app and app name: Modern Calculator.",
+      "files": [
+        "app-meta.json"
+      ],
       "status": "pending"
     },
     {
       "step": 2,
       "title": "Configure Build Environment",
-      "description": "Configure the root build.gradle file and the app's build.gradle with proper SDK versions (compileSdk 34, targetSdk 34, minSdk 21) and Gradle build setups matching standard Android configuration with no external dependencies.",
-      "files": ["app/build.gradle", "build.gradle", "settings.gradle"],
+      "description": "Set up app/build.gradle with Android Gradle Plugin 8.3.2, compile/target SDK 34, min SDK 21, and explicit Java 8 targets to ensure stable building.",
+      "files": [
+        "app/build.gradle"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Establish Android Manifest",
-      "description": "Create the AndroidManifest.xml file using the exact valid Android namespace 'http://schemas.android.com/apk/res/android' and defining standard launcher configurations using `@drawable/icon`.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Declare App Manifest and Permissions",
+      "description": "Generated AndroidManifest.xml declaring the launch activity, custom theme, custom icon resource, and default permissions.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design Color Schemes and Themes",
-      "description": "Define sleek premium material colors including slate black, dark grey, amber accent orange, and clean white to supply a modern dark aesthetic.",
-      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
+      "title": "Define Modern UI Color Palette",
+      "description": "Configured modern color tokens including deep indigo, bright coral red, fresh emerald, and soft backgrounds for dynamic design layouts.",
+      "files": [
+        "app/src/main/res/values/colors.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Design Round Button Background Drawables",
-      "description": "Create state selectors and rounded shapes for numeric buttons (dark gray), operators (vibrant orange), and functional buttons (light gray) to handle tactile feedback styling.",
+      "title": "Configure App Localization & Strings",
+      "description": "Added localized UI labels, dynamic history layout headings, button tags, and utility strings in strings.xml.",
       "files": [
-        "app/src/main/res/drawable/btn_number_normal.xml",
-        "app/src/main/res/drawable/btn_number_pressed.xml",
-        "app/src/main/res/drawable/btn_number.xml",
-        "app/src/main/res/drawable/btn_operator_normal.xml",
-        "app/src/main/res/drawable/btn_operator_pressed.xml",
-        "app/src/main/res/drawable/btn_operator.xml",
-        "app/src/main/res/drawable/btn_function_normal.xml",
-        "app/src/main/res/drawable/btn_function_pressed.xml",
-        "app/src/main/res/drawable/btn_function.xml"
+        "app/src/main/res/values/strings.xml"
       ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Design Display Layout Container",
-      "description": "Design a beautiful custom gradient or dark background panel with rounded bottom corners for the calculation screen.",
-      "files": ["app/src/main/res/drawable/bg_display.xml"],
+      "title": "Design Numeric Button Style",
+      "description": "Created premium ripple layout for numeric keys with subtle rounded corners and standard light grey/white background.",
+      "files": [
+        "app/src/main/res/drawable/btn_numeric.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Build UI Layout XML",
-      "description": "Implement a gorgeous, responsive, nested linear layout hierarchy matching pixel-perfect modern calculator spacing. Includes separate display lines for standard inputs and full operations history.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Design Operator Button Style",
+      "description": "Designed high-contrast, premium dark indigo button drawables to represent primary math operators.",
+      "files": [
+        "app/src/main/res/drawable/btn_operator.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Write Main Activity Logic",
-      "description": "Implement MainActivity.java with pure Java 8 compatible features. Construct state machine logic to process all mathematical operations including clear functions, percentages, backspace, negatives, floats, and safe divide checks.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "title": "Design Equal Button Style",
+      "description": "Created interactive emerald green button shape drawables for the core calculation activation state.",
+      "files": [
+        "app/src/main/res/drawable/btn_equal.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Button Interactions",
-      "description": "Wire up classic anonymous click listener interface actions for all interactive layout views to strictly support standard Java 8 rules.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "title": "Design Utility and Clear Buttons Style",
+      "description": "Structured modern custom red-coral gradient background styles for primary clear/all-clear buttons.",
+      "files": [
+        "app/src/main/res/drawable/btn_clear.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Verify Code Cleanliness",
-      "description": "Double check imports, clear empty configurations, ensure proper formatting parameters, and guarantee standard SDK components usage.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java", "app/src/main/AndroidManifest.xml"],
+      "title": "Design Display and Layout Panels",
+      "description": "Engineered custom rounded corner panel drawables for the calculator display screen and the history tray card.",
+      "files": [
+        "app/src/main/res/drawable/display_bg.xml",
+        "app/src/main/res/drawable/history_item_bg.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 11,
+      "title": "Create User Interface Layout",
+      "description": "Built interactive, modern, and adaptive UI inside activity_main.xml featuring dynamic display fields, calculation history drawer, and a structured, ergonomic keypad.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement High-Performance Expression Parser",
+      "description": "Created a lightweight mathematical expression parser utilizing recursive descent to process nested parenthesis, decimal arithmetic, percentage, and operator precedence safely.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Integrate Dynamic History Logic",
+      "description": "Programmed an inline history recorder and sliding overlay view that keeps track of past inputs and lets users tap a item to restore previous expressions.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement Smart Keyboard Input Rules",
+      "description": "Wrote intelligent helper algorithms to handle nested parenthesization, preventing multiple decimal points in a single term, and managing zero divisions cleanly.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Validate Namespace and Attribute Configurations",
+      "description": "Performed absolute verification of standard manifest schemes, layout resource bindings, and target API parameters.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
       "title": "Building Modern Calculator",
-      "description": "Perform build verification of the complete Modern Calculator application using gradle standard compilation commands.",
+      "description": "Trigger local gradle compiler wrapper to generate and output clean executable native Android debug binaries.",
       "files": [],
       "status": "pending"
     }
