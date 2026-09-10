@@ -1,0 +1,144 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define App Metadata",
+      "description": "Initialize app-meta.json with App Name: Notes Keeper and Package Name: com.noteskeeper.app",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Setup Project Structure and Gradle Build",
+      "description": "Configure the root build.gradle with proper repository links and Android Gradle Plugin 8.3.2.",
+      "files": ["build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Project Settings",
+      "description": "Create settings.gradle file to structure the modular project hierarchy and register the app module.",
+      "files": ["settings.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure App-Level Build Script",
+      "description": "Define compile SDK, Target SDK, namespace, and package application ID in app/build.gradle adhering strictly to compileSdk 34.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Configure Android Manifest",
+      "description": "Declare the system package, primary custom theme, launcher main activity, and custom drawable launcher icon references.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Card Design Drawable",
+      "description": "Create rounded rectangle shapes for note-display container cards in drawable resource folder.",
+      "files": ["app/src/main/res/drawable/card_background.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Tag Design Drawable",
+      "description": "Design pill-styled tag shapes to beautifully present the dynamically assigned category name inside cards.",
+      "files": ["app/src/main/res/drawable/tag_background.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Accent Button Drawable",
+      "description": "Define styled background XML to format full-width rounded primary action buttons at the bottom.",
+      "files": ["app/src/main/res/drawable/button_background.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Declare App Resources Strings",
+      "description": "Build localizable strings to configure names and titles across multiple displays and dialog views.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design Main Activity Layout",
+      "description": "Prepare user interface containing a search bar, a dynamic category-filtering Spinner, and a notes ListView.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Note Card Item Layout",
+      "description": "Implement standard list adapter layout with fields for title, body excerpt, date timestamp, category tag, and editing controls.",
+      "files": ["app/src/main/res/layout/note_item.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Design Dynamic Note Create/Edit Dialog",
+      "description": "Establish interactive form layout with inputs for Title, Content text, and Category selection spinner.",
+      "files": ["app/src/main/res/layout/dialog_add_note.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Design Category Creation Dialog",
+      "description": "Create small modular input form to dynamically expand classification categories.",
+      "files": ["app/src/main/res/layout/dialog_add_category.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Model Note Object",
+      "description": "Write a pure Java note model class containing entity fields for DB representation: ID, Title, Content, Category, and Creation Timestamp.",
+      "files": ["app/src/main/java/com/noteskeeper/app/Note.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Implement SQLite Database Operations",
+      "description": "Incorporate SQLite helper architecture offering seamless tables setup and robust APIs for note additions, upgrades, filters, and deletions.",
+      "files": ["app/src/main/java/com/noteskeeper/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Build Base List View Note Adapter",
+      "description": "Develop custom BaseAdapter mapping model parameters into structured note layouts and linking interaction triggers to MainActivity controls.",
+      "files": ["app/src/main/java/com/noteskeeper/app/NoteAdapter.java"],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Build Main Activity Flow and State Management",
+      "description": "Program initialization logic, UI mappings, spinner loaders, real-time search watchers, and click bindings.",
+      "files": ["app/src/main/java/com/noteskeeper/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 18,
+      "title": "Incorporate Dialog Handling & Form Logic",
+      "description": "Bind interactive custom dialog popups handling form validation, additions, updates, and delete verification routines.",
+      "files": ["app/src/main/java/com/noteskeeper/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 19,
+      "title": "Review Java 8 Syntax Compliance",
+      "description": "Inspect anonymous inner-class declarations ensuring zero lambda usages and maintaining robust older environment compilation.",
+      "files": ["app/src/main/java/com/noteskeeper/app/MainActivity.java", "app/src/main/java/com/noteskeeper/app/NoteAdapter.java"],
+      "status": "pending"
+    },
+    {
+      "step": 20,
+      "title": "Building Notes Keeper",
+      "description": "Initiate automated build process compiling dependencies, layouts, assets, and source components into the final dynamic APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
