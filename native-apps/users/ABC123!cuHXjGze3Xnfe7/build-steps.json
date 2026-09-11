@@ -2,85 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze and Plan 3D Rendering Architecture",
-      "description": "Design a highly-optimized, dependency-free 3D projection engine utilizing standard Android Canvas, coordinate matrices, and Painter's sorting algorithm.",
-      "files": ["app/src/main/java/com/threeddesignstudio/app/MainActivity.java"],
+      "title": "Analyze Project Dependencies",
+      "description": "Inspect build.gradle to ensure compliance with native constraints and remove non-essential external third-party dependencies.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Define Multi-Tab Workspace UI Layout",
-      "description": "Create a rich multi-control design layout in activity_main.xml featuring a dedicated 3D viewport, real-time parameters, color material sliders, and custom presets.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Upgrade Packaging Configuration",
+      "description": "Convert legacy packagingOptions block to modern Gradle 8.5 and AGP 8.3.2 compatible packaging specifications.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure App Metadata",
-      "description": "Create the app-meta.json file defining the application name and standard package structure identifiers.",
-      "files": ["app-meta.json"],
+      "title": "Clean Dependencies Block",
+      "description": "Purge nanohttpd compilation dependency to preserve a lightweight, safe local runtime sandbox using native Android APIs.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Implement 3D Coordinate Mathematical Structures",
-      "description": "Declare Vertex and Face structures in MainActivity to store 3D points, compute vectors, and handle polygons.",
-      "files": ["app/src/main/java/com/threeddesignstudio/app/MainActivity.java"],
+      "title": "Optimize TextToSpeech API Compatibility",
+      "description": "Refactor standard voice synthesizer calls in MainActivity to properly support API level 21+ method definitions.",
+      "files": ["app/src/main/java/com/alphabetexplorer/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Define 3D Mesh Presets Engine",
-      "description": "Build high-quality parametric wireframes and mesh presets for Cube, Pyramid, Triangular Prism, Cylinder, and UV Sphere.",
-      "files": ["app/src/main/java/com/threeddesignstudio/app/MainActivity.java"],
+      "title": "Improve Drawing Touch Interactions",
+      "description": "Implement standard performClick overrides on custom DrawingView components to satisfy touch accessibility requirements.",
+      "files": ["app/src/main/java/com/alphabetexplorer/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Perspective Projection and Scaling",
-      "description": "Apply perspective divisor projection formulas to map rotated 3D models accurately onto the 2D device screen space.",
-      "files": ["app/src/main/java/com/threeddesignstudio/app/MainActivity.java"],
+      "title": "Verify UI Component Layout Bindings",
+      "description": "Validate IDs and alignments in the activity main layout ensuring they match active views programmatic references.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Painter's Algorithm for Face Sorting",
-      "description": "Program back-to-front polygon depth sorting relative to camera location to resolve structural overlap and occlusion visual issues.",
-      "files": ["app/src/main/java/com/threeddesignstudio/app/MainActivity.java"],
+      "title": "Validate Manifest Namespace and Settings",
+      "description": "Double check the Android XML namespace, application properties, and initial activity configurations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Build Realistic Diffuse Lighting Shader",
-      "description": "Apply cross-product math to compute surface normals and calculate dynamic shading brightness under customized light source directions.",
-      "files": ["app/src/main/java/com/threeddesignstudio/app/MainActivity.java"],
+      "title": "Review Java 8 Language Specifications",
+      "description": "Verify the code is fully compatible with Java 8 specifications without modern lambdas or restricted API classes.",
+      "files": ["app/src/main/java/com/alphabetexplorer/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Design Drag and Rotate Touch Controller",
-      "description": "Implement gesture-driven rotate, pan, and transform events to allow users to intuitively rotate models on X and Y axes.",
-      "files": ["app/src/main/java/com/threeddesignstudio/app/MainActivity.java"],
+      "title": "Clean Build Caches",
+      "description": "Prepare the environment directories and build files for standard artifact assembly.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Develop 3D Project Serialization Engine",
-      "description": "Design dynamic saving and loading features in SharedPreferences to let users store custom shapes, scales, colors, and layouts.",
-      "files": ["app/src/main/java/com/threeddesignstudio/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Verify Manifest and Gradle Standards",
-      "description": "Ensure compilation configs align perfectly with targeted Android SDK 34 and compatible system theme definitions.",
-      "files": ["app/src/main/AndroidManifest.xml", "app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Building 3D Design Studio",
-      "description": "Run standard Gradle compiler processes to bundle resources, assemble debug classes, and create the finalized package installer.",
+      "title": "Building Alphabet Explorer",
+      "description": "Compile sources and build the final debug APK package structure.",
       "files": [],
       "status": "pending"
     }

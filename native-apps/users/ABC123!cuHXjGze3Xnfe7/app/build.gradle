@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.threeddesignstudio.app"
+    namespace "com.alphabetexplorer.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.threeddesignstudio.app"
+        applicationId "com.alphabetexplorer.app"
 
         minSdkVersion 21
 
