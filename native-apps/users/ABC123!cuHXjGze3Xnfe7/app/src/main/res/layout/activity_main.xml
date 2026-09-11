@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0F3F8">
+
+    <!-- Top Header Toolbar -->
+    <RelativeLayout
+        android:id="@+id/toolbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:background="#6C5CE7"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:elevation="6dp">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alphabet Explorer"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/toolbar_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score: 0"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <!-- Content Workspace -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp">
+
+        <!-- MODE 1: 3D Learn Grid View -->
+        <LinearLayout
+            android:id="@+id/container_learn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap a 3D block to explore phonics!"
+                android:textColor="#4A5568"
+                android:textSize="15sp"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:textStyle="bold"/>
+
+            <GridView
+                android:id="@+id/alphabet_grid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:numColumns="3"
+                android:verticalSpacing="16dp"
+                android:horizontalSpacing="16dp"
+                android:stretchMode="columnWidth"
+                android:clipToPadding="false"
+                android:paddingBottom="24dp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <!-- MODE 2: 3D Quiz Game View -->
+        <RelativeLayout
+            android:id="@+id/container_quiz"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <!-- Question Card in 3D -->
+            <LinearLayout
+                android:id="@+id/quiz_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/quiz_prompt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Identify the Letter"
+                    android:textColor="#4A5568"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/quiz_target_letter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A"
+                    android:textColor="#FF6B6B"
+                    android:textSize="100sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_quiz_listen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:text="🔊 Hear Phonics Again"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:layout_marginTop="8dp"
+                    style="?android:attr/borderlessButtonStyle"/>
+            </LinearLayout>
+
+            <!-- 3D Options Matrix -->
+            <GridLayout
+                android:id="@+id/quiz_options_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="8dp"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:alignmentMode="alignBounds">
+
+                <Button
+                    android:id="@+id/btn_option_1"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="A"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <Button
+                    android:id="@+id/btn_option_2"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="B"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <Button
+                    android:id="@+id/btn_option_3"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="C"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <Button
+                    android:id="@+id/btn_option_4"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="D"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    style="?android:attr/borderlessButtonStyle"/>
+            </GridLayout>
+        </RelativeLayout>
+
+        <!-- MODE 3: 3D Tracing View -->
+        <RelativeLayout
+            android:id="@+id/container_trace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/trace_instruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Trace inside the 3D Screen"
+                android:textColor="#4A5568"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="4dp"/>
+
+            <FrameLayout
+                android:id="@+id/trace_canvas_holder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/trace_controls"
+                android:layout_below="@id/trace_instruction"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="16dp"
+                android:background="#FFFFFF"
+                android:padding="6dp"/>
+
+            <!-- Tracing Action Block -->
+            <LinearLayout
+                android:id="@+id/trace_controls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="4dp">
+
+                <Button
+                    android:id="@+id/btn_trace_prev"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:text="◀ Prev"
+                    android:layout_weight="1"
+                    android:layout_marginRight="6dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <Button
+                    android:id="@+id/btn_trace_clear"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:text="🧹 Reset"
+                    android:layout_weight="1"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginLeft="6dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <Button
+                    android:id="@+id/btn_trace_next"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:text="Next ▶"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="6dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    style="?android:attr/borderlessButtonStyle"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- Dynamic 3D Detail Pop-up Card -->
+        <FrameLayout
+            android:id="@+id/detail_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#B31A202C"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:id="@+id/detail_card_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Header Close Trigger -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3D Phonics Card"
+                        android:textColor="#2D3748"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:layout_centerVertical="true"/>
+
+                    <Button
+                        android:id="@+id/btn_close_detail"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:text="✕"
+                        android:textSize="14sp"
+                        android:textColor="#E53E3E"
+                        android:textStyle="bold"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        style="?android:attr/borderlessButtonStyle"/>
+                </RelativeLayout>
+
+                <!-- 3D Display Elements -->
+                <TextView
+                    android:id="@+id/detail_letter_pair"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Aa"
+                    android:textColor="#6C5CE7"
+                    android:textSize="110sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:id="@+id/detail_word_phrase"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="A is for Apple"
+                    android:textColor="#2D3748"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp"/>
+
+                <!-- Hear audio trigger -->
+                <Button
+                    android:id="@+id/btn_speak_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="🔊 Play Interactive Phonics"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="20dp"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <!-- Sequential letter shifting -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btn_detail_prev"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="8dp"
+                        android:text="◀ Previous"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        style="?android:attr/borderlessButtonStyle"/>
+
+                    <Button
+                        android:id="@+id/btn_detail_next"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="8dp"
+                        android:text="Next ▶"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        style="?android:attr/borderlessButtonStyle"/>
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+    <!-- Bottom Navigation Bar (Tactile 3D Tabs) -->
+    <LinearLayout
+        android:id="@+id/bottom_nav_container"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:elevation="12dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <Button
+            android:id="@+id/nav_btn_learn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:text="📖 Learn"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/nav_btn_quiz"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:text="❓ Quiz"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/nav_btn_trace"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:text="✍️ Trace"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
+</LinearLayout>
