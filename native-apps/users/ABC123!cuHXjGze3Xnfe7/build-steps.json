@@ -2,92 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define Requirements",
-      "description": "Analyze user request to build 'How To Be Best' app and set up requirements.",
+      "title": "Analyze Build Failure",
+      "description": "Inspect the Gradle error log showing an XML stream syntax error on line 200 of activity_main.xml.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Create Meta Data Configuration",
-      "description": "Generate app-meta.json containing application name and package identifier.",
-      "files": ["app-meta.json"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Configure Color Resources",
-      "description": "Create colors.xml containing Material Light matching colors.",
-      "files": ["app/src/main/res/values/colors.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Set Up String Resources",
-      "description": "Create strings.xml containing localizable application content and guide texts.",
-      "files": ["app/src/main/res/values/strings.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Create Card Drawables",
-      "description": "Build custom drawable XML files for styled card containers.",
-      "files": ["app/src/main/res/drawable/card_background.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Create Button Drawables",
-      "description": "Create stylized XML shape templates for custom UI buttons.",
-      "files": ["app/src/main/res/drawable/button_background.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Design App Interface Layout",
-      "description": "Build modern and clean activity_main.xml layout with ScrollView, custom cards, and motivation section.",
+      "title": "Identify Root Cause",
+      "description": "Pinpoint the unescaped double quotes inside the android:text attribute of the footer TextView.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
-      "step": 8,
-      "title": "Configure Application Manifest",
-      "description": "Establish AndroidManifest.xml structure, specifying launch activity, permissions, and native Material theme.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "step": 3,
+      "title": "Repair Layout XML Syntax",
+      "description": "Modify activity_main.xml to use proper XML entity escaping (&quot;) for quotes within attribute values.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Configure Gradle Build Environment",
-      "description": "Configure build.gradle to ensure strict compatibility with AGP 8.3.2 and Gradle 8.5.",
+      "step": 4,
+      "title": "Optimize Build Dependencies",
+      "description": "Remove unused third-party NanoHTTPD dependency from build.gradle to ensure safe and lightweight compilation.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
-      "step": 10,
-      "title": "Implement Main Activity Logic",
-      "description": "Write MainActivity.java to support guide categorization, interactive motivational quotes, and advice rendering.",
+      "step": 5,
+      "title": "Verify Layout Integrity",
+      "description": "Ensure the revised XML layout is completely well-formed and can be compiled correctly by AAPT.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Validate Java Code",
+      "description": "Ensure MainActivity.java has no broken imports or unresolved references and remains Java 8 compatible.",
       "files": ["app/src/main/java/com/howtobebest/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 11,
-      "title": "Verify Code Compliance",
-      "description": "Confirm Java 8 compatibility and ensure no prohibited external dependencies are loaded.",
+      "step": 7,
+      "title": "Verify Manifest Settings",
+      "description": "Confirm AndroidManifest.xml continues to refer to the correct namespace and package settings.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Clean Build Cache",
+      "description": "Perform checks to clean temporary artifacts and intermediate resource caches.",
       "files": [],
       "status": "pending"
     },
     {
-      "step": 12,
-      "title": "Validate Manifest Namespaces",
-      "description": "Perform namespace validation checks on AndroidManifest.xml for compliance with compiler guidelines.",
+      "step": 9,
+      "title": "Verify Build Compatibility",
+      "description": "Ensure build tools compile code to match target SDK 34 and JVM compatibility.",
       "files": [],
       "status": "pending"
     },
     {
-      "step": 13,
+      "step": 10,
       "title": "Building How To Be Best",
-      "description": "Assemble debug APK containing clean assets and source code.",
+      "description": "Run final project assembly to generate the corrected debug APK build without errors.",
       "files": [],
       "status": "pending"
     }
