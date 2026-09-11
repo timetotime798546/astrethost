@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- Header bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#004D40"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age Calculator Pro"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Navigation Scroll Tabs -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="#00796B">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_tab_age"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="Age Calc"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+
+            <Button
+                android:id="@+id/btn_tab_compare"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="Compare"
+                android:textColor="#B2DFDB"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+
+            <Button
+                android:id="@+id/btn_tab_date"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="Date Calc"
+                android:textColor="#B2DFDB"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+
+            <Button
+                android:id="@+id/btn_tab_profiles"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="Saved DOBs"
+                android:textColor="#B2DFDB"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+
+            <Button
+                android:id="@+id/btn_tab_leap"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="Leap Year"
+                android:textColor="#B2DFDB"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Frame for content cards -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- ================= PANEL 1: MAIN AGE CALCULATOR ================= -->
+        <ScrollView
+            android:id="@+id/panel_age_calc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Inputs block -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:elevation="2dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date of Birth"
+                        android:textColor="#004D40"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/btn_dob_picker"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="16dp"
+                        android:gravity="left|center_vertical"
+                        android:background="?android:attr/editTextBackground"
+                        android:paddingLeft="12dp"
+                        android:textColor="#212121"
+                        android:text="Select Date of Birth" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Target Date (Today)"
+                        android:textColor="#004D40"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/btn_target_picker"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="16dp"
+                        android:gravity="left|center_vertical"
+                        android:background="?android:attr/editTextBackground"
+                        android:paddingLeft="12dp"
+                        android:textColor="#212121"
+                        android:text="Today" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+
+                        <Button
+                            android:id="@+id/btn_calculate_age"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#00796B"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold"
+                            android:text="Calculate"
+                            android:layout_marginRight="8dp" />
+
+                        <Button
+                            android:id="@+id/btn_clear_age"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#757575"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold"
+                            android:text="Clear" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Results Output Block -->
+                <LinearLayout
+                    android:id="@+id/layout_age_results"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <!-- Standard Age Display -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#004D40"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:gravity="center"
+                        android:elevation="3dp"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CURRENT AGE"
+                            android:textColor="#B2DFDB"
+                            android:textStyle="bold"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/txt_result_exact_age"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="25 Years, 4 Months, 12 Days"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold"
+                            android:textSize="22sp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <!-- Next Birthday Card -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:elevation="2dp"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NEXT BIRTHDAY"
+                            android:textColor="#FFA000"
+                            android:textStyle="bold"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/txt_result_next_birthday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Remaining: 7 Months, 18 Days"
+                            android:textColor="#212121"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginTop="6dp" />
+
+                        <TextView
+                            android:id="@+id/txt_result_next_weekday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Weekday: Thursday"
+                            android:textColor="#757575"
+                            android:textSize="14sp"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <!-- Total Stats Grid Card -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:elevation="2dp"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TOTAL SUMMARY"
+                            android:textColor="#00796B"
+                            android:textStyle="bold"
+                            android:textSize="13sp"
+                            android:layout_marginBottom="12dp" />
+
+                        <!-- Rows for Stats -->
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:stretchColumns="1">
+
+                            <TableRow android:padding="4dp">
+                                <TextView android:text="Total Years" android:textColor="#757575" android:textSize="14sp" />
+                                <TextView android:id="@+id/stat_years" android:text="0" android:textColor="#212121" android:textStyle="bold" android:textSize="14sp" android:gravity="right" />
+                            </TableRow>
+                            <TableRow android:padding="4dp">
+                                <TextView android:text="Total Months" android:textColor="#757575" android:textSize="14sp" />
+                                <TextView android:id="@+id/stat_months" android:text="0" android:textColor="#212121" android:textStyle="bold" android:textSize="14sp" android:gravity="right" />
+                            </TableRow>
+                            <TableRow android:padding="4dp">
+                                <TextView android:text="Total Weeks" android:textColor="#757575" android:textSize="14sp" />
+                                <TextView android:id="@+id/stat_weeks" android:text="0" android:textColor="#212121" android:textStyle="bold" android:textSize="14sp" android:gravity="right" />
+                            </TableRow>
+                            <TableRow android:padding="4dp">
+                                <TextView android:text="Total Days" android:textColor="#757575" android:textSize="14sp" />
+                                <TextView android:id="@+id/stat_days" android:text="0" android:textColor="#212121" android:textStyle="bold" android:textSize="14sp" android:gravity="right" />
+                            </TableRow>
+                            <TableRow android:padding="4dp">
+                                <TextView android:text="Total Hours" android:textColor="#757575" android:textSize="14sp" />
+                                <TextView android:id="@+id/stat_hours" android:text="0" android:textColor="#212121" android:textStyle="bold" android:textSize="14sp" android:gravity="right" />
+                            </TableRow>
+                            <TableRow android:padding="4dp">
+                                <TextView android:text="Total Minutes" android:textColor="#757575" android:textSize="14sp" />
+                                <TextView android:id="@+id/stat_minutes" android:text="0" android:textColor="#212121" android:textStyle="bold" android:textSize="14sp" android:gravity="right" />
+                            </TableRow>
+                            <TableRow android:padding="4dp">
+                                <TextView android:text="Total Seconds" android:textColor="#757575" android:textSize="14sp" />
+                                <TextView android:id="@+id/stat_seconds" android:text="0" android:textColor="#212121" android:textStyle="bold" android:textSize="14sp" android:gravity="right" />
+                            </TableRow>
+                        </TableLayout>
+
+                    </LinearLayout>
+
+                    <!-- Save profile button -->
+                    <Button
+                        android:id="@+id/btn_save_calculated_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFA000"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:text="Save to Birthdays List"
+                        android:layout_marginBottom="24dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ================= PANEL 2: COMPARE AGE ================= -->
+        <ScrollView
+            android:id="@+id/panel_compare"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:elevation="2dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="First Person Name"
+                        android:textColor="#004D40"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/edt_compare_p1_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Name (e.g. Alice)"
+                        android:layout_marginBottom="12dp"
+                        android:inputType="textCapWords" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="First Person DOB"
+                        android:textColor="#004D40"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/btn_compare_p1_dob"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="left|center_vertical"
+                        android:background="?android:attr/editTextBackground"
+                        android:paddingLeft="12dp"
+                        android:textColor="#212121"
+                        android:text="Select First DOB" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Second Person Name"
+                        android:textColor="#004D40"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/edt_compare_p2_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Name (e.g. Bob)"
+                        android:layout_marginBottom="12dp"
+                        android:inputType="textCapWords" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Second Person DOB"
+                        android:textColor="#004D40"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/btn_compare_p2_dob"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="left|center_vertical"
+                        android:background="?android:attr/editTextBackground"
+                        android:paddingLeft="12dp"
+                        android:textColor="#212121"
+                        android:text="Select Second DOB" />
+
+                    <Button
+                        android:id="@+id/btn_compare_action"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00796B"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:text="Compare Difference" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_compare_results"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:elevation="2dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="COMPARISON RESULT"
+                        android:textColor="#004D40"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="10dp" />
+
+                    <TextView
+                        android:id="@+id/txt_compare_statement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alice is older than Bob."
+                        android:textColor="#212121"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:id="@+id/txt_compare_diff_exact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Difference: 2 Years, 1 Month, 5 Days"
+                        android:textColor="#00796B"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ================= PANEL 3: DATE CALCULATOR (ADD / SUBTRACT) ================= -->
+        <ScrollView
+            android:id="@+id/panel_date_calc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:elevation="2dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Base Date"
+                        android:textColor="#004D40"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/btn_datecalc_base"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="16dp"
+                        android:gravity="left|center_vertical"
+                        android:background="?android:attr/editTextBackground"
+                        android:paddingLeft="12dp"
+                        android:textColor="#212121"
+                        android:text="Select Base Date" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_datecalc_operation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+
+                        <RadioButton
+                            android:id="@+id/rb_add"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Add (+)"
+                            android:checked="true" />
+
+                        <RadioButton
+                            android:id="@+id/rb_subtract"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Subtract (-)" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Enter Values"
+                        android:textColor="#004D40"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- Fields layout -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <EditText
+                            android:id="@+id/edt_calc_years"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Years"
+                            android:inputType="number"
+                            android:gravity="center" />
+
+                        <EditText
+                            android:id="@+id/edt_calc_months"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Months"
+                            android:inputType="number"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+
+                        <EditText
+                            android:id="@+id/edt_calc_weeks"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Weeks"
+                            android:inputType="number"
+                            android:gravity="center" />
+
+                        <EditText
+                            android:id="@+id/edt_calc_days"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Days"
+                            android:inputType="number"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_datecalc_action"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00796B"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:text="Calculate Date" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_datecalc_results"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:elevation="2dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CALCULATED DATE"
+                        android:textColor="#004D40"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/txt_datecalc_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wednesday, December 25, 2024"
+                        android:textColor="#212121"
+                        android:textStyle="bold"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ================= PANEL 4: SAVED PROFILES ================= -->
+        <LinearLayout
+            android:id="@+id/panel_profiles"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Family &amp; Friends DOB List"
+                    android:textColor="#004D40"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btn_profiles_add_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:background="#00796B"
+                    android:textColor="#FFFFFF"
+                    android:text="+ Add"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_profiles_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="64dp"
+                android:text="No profile dates saved yet.\nAdd family and friends to monitor birthdays!"
+                android:textColor="#757575"
+                android:gravity="center" />
+
+            <ListView
+                android:id="@+id/list_saved_profiles"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="#E0E0E0"
+                android:dividerHeight="8dp"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+
+        <!-- ================= PANEL 5: LEAP YEAR CHECKER ================= -->
+        <ScrollView
+            android:id="@+id/panel_leap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:elevation="2dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Leap Year Checker"
+                        android:textColor="#004D40"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <EditText
+                        android:id="@+id/edt_leap_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Year (e.g. 2024)"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:layout_marginBottom="16dp" />
+
+                    <Button
+                        android:id="@+id/btn_check_leap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00796B"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:text="Check Year" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_leap_results"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:elevation="2dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:id="@+id/txt_leap_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2024 IS a Leap Year!"
+                        android:textColor="#004D40"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:id="@+id/txt_leap_explanation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Explanation"
+                        android:textColor="#757575"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+</LinearLayout>
