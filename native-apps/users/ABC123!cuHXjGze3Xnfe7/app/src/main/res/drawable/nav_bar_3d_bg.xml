@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Top Bevel Highlight -->
+    <item>
+        <shape>
+            <solid android:color="#E2E8F0" />
+        </shape>
+    </item>
+    <!-- White bar surface pushed down to show the bevel -->
+    <item android:top="3dp">
+        <shape>
+            <solid android:color="#FFFFFF" />
+        </shape>
+    </item>
+</layer-list>

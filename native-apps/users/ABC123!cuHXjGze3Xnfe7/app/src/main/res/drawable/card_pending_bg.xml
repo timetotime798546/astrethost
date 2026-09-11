@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Outer 3D Extrusion Shadow Layer -->
+    <item android:top="4dp" android:left="1dp" android:right="1dp">
+        <shape>
+            <solid android:color="#FECDD3" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    <!-- Top Tactile Surface -->
+    <item android:bottom="4dp" android:left="1dp" android:right="1dp">
+        <shape>
+            <solid android:color="#FFF1F2" />
+            <corners android:radius="16dp" />
+            <stroke android:width="1.5dp" android:color="#FDA4AF" />
+        </shape>
+    </item>
+</layer-list>
