@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.moderncalculator.app"
+    namespace "com.studyplannerpro.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.moderncalculator.app"
+        applicationId "com.studyplannerpro.app"
 
         minSdkVersion 21
 

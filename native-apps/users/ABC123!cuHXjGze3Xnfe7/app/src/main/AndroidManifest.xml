@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.moderncalculator.app">
+<manifest xmlns:android="http://schemas.github.com/apk/res/android"
+    package="com.studyplannerpro.app">
+
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Material.Light"
         android:icon="@drawable/icon"
-        android:roundIcon="@drawable/icon"
-        android:label="Modern Calculator"
-        android:supportsRtl="true"
-        android:theme="@android:style/Theme.Material.NoActionBar">
+        android:roundIcon="@drawable/icon">
         
         <activity
-            android:name="com.moderncalculator.app.MainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver 
+            android:name=".ReminderReceiver" 
+            android:exported="true" />
+            
     </application>
 </manifest>

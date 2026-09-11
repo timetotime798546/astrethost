@@ -2,101 +2,99 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define App Specifications and Architecture for Modern Calculator",
-      "description": "Establish key requirements for the high-end dark calculator, unit converter, and calculation history log.",
+      "title": "Initialize Project Structure for Study Planner Pro",
+      "description": "Establish directories and files structure for the Study Planner Pro Android app.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Android Build Environment (Gradle 8.5 & AGP 8.3.2)",
-      "description": "Set up project-level configurations adhering to target SDK 34 and Java 17 requirements.",
+      "title": "Configure Gradle Build Files",
+      "description": "Apply AGP 8.3.2, Gradle 8.5, target SDK 34, and set compile targets to Java 8.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Set Up Android Application Manifest with Proper Launch Configuration",
-      "description": "Formulate AndroidManifest.xml with correct package names, launch actions, and custom hardware acceleration flags.",
+      "title": "Design Application Manifest",
+      "description": "Setup AndroidManifest.xml with system services, alarm scheduling, local notifications, and specify MainActivity.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design Custom Sleek Dark Theme Color Palette",
-      "description": "Define deep rich dark charcoal background hues and vibrant active blue, orange, and light-grey accent color values.",
-      "files": ["app/src/main/res/values/colors.xml"],
+      "title": "Implement Color and String Resource Schemes",
+      "description": "Define the visual color scheme (bg_main, text_primary, text_secondary, color_primary, etc.) and application titles.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Rounded Button & Card Selector Drawables for Calculator UI",
-      "description": "Design sleek modern rounded XML selectors with active pressed states for number, operator, and action keys.",
-      "files": [
-        "app/src/main/res/drawable/btn_number.xml",
-        "app/src/main/res/drawable/btn_number_pressed.xml",
-        "app/src/main/res/drawable/btn_number_selector.xml",
-        "app/src/main/res/drawable/btn_operator.xml",
-        "app/src/main/res/drawable/btn_operator_pressed.xml",
-        "app/src/main/res/drawable/btn_operator_selector.xml",
-        "app/src/main/res/drawable/btn_special.xml",
-        "app/src/main/res/drawable/btn_special_pressed.xml",
-        "app/src/main/res/drawable/btn_special_selector.xml",
-        "app/src/main/res/drawable/btn_equal.xml",
-        "app/src/main/res/drawable/btn_equal_pressed.xml",
-        "app/src/main/res/drawable/btn_equal_selector.xml",
-        "app/src/main/res/drawable/tab_bg.xml",
-        "app/src/main/res/drawable/tab_item_selected.xml",
-        "app/src/main/res/drawable/card_bg.xml"
-      ],
+      "title": "Create Modern Card and Button Backgrounds",
+      "description": "Design visual state rounded drawables for buttons, fields and layout containers using custom vectors.",
+      "files": ["app/src/main/res/drawable/card_bg.xml", "app/src/main/res/drawable/button_primary.xml", "app/src/main/res/drawable/button_secondary.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Modern Segmented Tab Bar for Layout Navigation",
-      "description": "Create horizontal layout controls representing elegant segment tabs: Calculator, Converter, and History.",
+      "title": "Build Main Activity User Interface Layout",
+      "description": "Create activity_main.xml consisting of dynamic Tab screens (Dashboard, Subjects list, Tasks list, Study timer).",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Develop Responsive Layouts for Calculator, Unit Converter, and History Panels",
-      "description": "Build high-performance, non-overlapping layouts styled optimally with custom card margins and elegant spacing.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Create Subject List Row Layout",
+      "description": "Formulate item_subject.xml with customizable visual indicators and clear deletion actions.",
+      "files": ["app/src/main/res/layout/item_subject.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement Robust Mathematical Expression Parser in Java",
-      "description": "Write a highly precise recursive descent parser in MainActivity supporting brackets, operator precedence, fractions, and percentage values.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "title": "Create Task List Row Layout",
+      "description": "Design item_task.xml holding status checks, priority tags, date labels, and title description fields.",
+      "files": ["app/src/main/res/layout/item_task.xml"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Program Unit Converter Engine Supporting Length, Temperature, and Weight",
-      "description": "Build responsive math conversions mapping various measurement systems in real-time.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "title": "Design Subject Addition Dialog",
+      "description": "Construct dialog_add_subject.xml with subject title forms and customizable color schemes.",
+      "files": ["app/src/main/res/layout/dialog_add_subject.xml"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Build SharedPreferences History Storage and Retrieval Logic",
-      "description": "Integrate persistence routines to save previous calculation results and reload them dynamically on demand.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "title": "Design Task Addition Dialog",
+      "description": "Construct dialog_add_task.xml with text inputs, relative selectors, and scheduling switches.",
+      "files": ["app/src/main/res/layout/dialog_add_task.xml"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Implement Haptic Feedback, State Restoration, and User Interactions",
-      "description": "Hook up keyboard vibration cues, clear input indicators, dialog boxes, and visual transitions.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "title": "Implement SQLite Study Database Manager",
+      "description": "Develop DatabaseHelper.java to manage tables for Subjects, Tasks and logged study intervals.",
+      "files": ["app/src/main/java/com/studyplannerpro/app/DatabaseHelper.java"],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Building Modern Calculator",
-      "description": "Compile, validate package layout, assemble source binaries, and test execution integrity.",
+      "title": "Develop Alarm Notification Broadcast Receiver",
+      "description": "Create ReminderReceiver.java to capture alarm schedules and launch user background notifications.",
+      "files": ["app/src/main/java/com/studyplannerpro/app/ReminderReceiver.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Study Focus Timer and Multi-Tab Navigation",
+      "description": "Complete MainActivity.java with interactive focus clocks, stats summaries, and state-retaining list adapters.",
+      "files": ["app/src/main/java/com/studyplannerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Study Planner Pro",
+      "description": "Launch exact Gradle build routines to package and test the complete Study Planner Pro application.",
       "files": [],
       "status": "pending"
     }
