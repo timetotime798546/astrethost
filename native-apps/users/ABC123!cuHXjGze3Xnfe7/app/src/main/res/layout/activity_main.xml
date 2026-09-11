@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_main"
+    android:padding="12dp">
+
+    <!-- Premium Custom Top Segmented Tab Control -->
+    <LinearLayout
+        android:id="@+id/segmented_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="@drawable/tab_bg"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/tab_calculator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Calculator"
+            android:textColor="@color/text_white"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:background="@drawable/tab_item_selected"/>
+
+        <TextView
+            android:id="@+id/tab_converter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Converter"
+            android:textColor="@color/text_grey"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:background="@android:color/transparent"/>
+
+        <TextView
+            android:id="@+id/tab_history"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="History"
+            android:textColor="@color/text_grey"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+    <!-- Master Screen Container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- PANEL 1: STANDARD CALCULATOR -->
+        <LinearLayout
+            android:id="@+id/layout_calculator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <!-- LCD Display Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="bottom|end"
+                android:padding="16dp"
+                android:background="@color/bg_display"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tv_formula"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/text_grey"
+                    android:textSize="22sp"
+                    android:gravity="end"
+                    android:ellipsize="start"
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:id="@+id/tv_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/text_white"
+                    android:textSize="50sp"
+                    android:textStyle="bold"
+                    android:gravity="end"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="2"
+                    android:ellipsize="end"/>
+            </LinearLayout>
+
+            <!-- Keypad Rows -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Row 1: C, ( ), %, / -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+                    <Button android:id="@+id/btn_clear" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="C" android:textColor="@color/text_white" android:textSize="22sp" android:background="@drawable/btn_special_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_bracket" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="( )" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_special_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_percent" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="%" android:textColor="@color/text_white" android:textSize="22sp" android:background="@drawable/btn_special_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_divide" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="÷" android:textColor="@color/text_white" android:textSize="26sp" android:textStyle="bold" android:background="@drawable/btn_operator_selector" style="?android:attr/borderlessButtonStyle" />
+                </LinearLayout>
+
+                <!-- Row 2: 7, 8, 9, x -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+                    <Button android:id="@+id/btn_7" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="7" android:textColor="@color/text_white" android:textSize="24sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_8" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="8" android:textColor="@color/text_white" android:textSize="24sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_9" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="9" android:textColor="@color/text_white" android:textSize="24sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_multiply" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="×" android:textColor="@color/text_white" android:textSize="26sp" android:textStyle="bold" android:background="@drawable/btn_operator_selector" style="?android:attr/borderlessButtonStyle" />
+                </LinearLayout>
+
+                <!-- Row 3: 4, 5, 6, - -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+                    <Button android:id="@+id/btn_4" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="4" android:textColor="@color/text_white" android:textSize="24sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_5" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="5" android:textColor="@color/text_white" android:textSize="24sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_6" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="6" android:textColor="@color/text_white" android:textSize="24sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_subtract" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="−" android:textColor="@color/text_white" android:textSize="26sp" android:textStyle="bold" android:background="@drawable/btn_operator_selector" style="?android:attr/borderlessButtonStyle" />
+                </LinearLayout>
+
+                <!-- Row 4: 1, 2, 3, + -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+                    <Button android:id="@+id/btn_1" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="1" android:textColor="@color/text_white" android:textSize="24sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_2" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="2" android:textColor="@color/text_white" android:textSize="24sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_3" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="3" android:textColor="@color/text_white" android:textSize="24sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_add" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="+" android:textColor="@color/text_white" android:textSize="26sp" android:textStyle="bold" android:background="@drawable/btn_operator_selector" style="?android:attr/borderlessButtonStyle" />
+                </LinearLayout>
+
+                <!-- Row 5: +/-, 0, ., = -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+                    <Button android:id="@+id/btn_toggle_sign" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="+/−" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_0" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="0" android:textColor="@color/text_white" android:textSize="24sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_dot" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="." android:textColor="@color/text_white" android:textSize="24sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle" />
+                    <Button android:id="@+id/btn_equals" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="5dp" android:text="=" android:textColor="@color/text_white" android:textSize="28sp" android:textStyle="bold" android:background="@drawable/btn_equal_selector" style="?android:attr/borderlessButtonStyle" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!-- PANEL 2: UNIT CONVERTER -->
+        <LinearLayout
+            android:id="@+id/layout_converter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Dynamic Category selector -->
+            <LinearLayout
+                android:id="@+id/btn_select_category"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@drawable/card_bg"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tv_active_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Length Converter"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  ▼"
+                    android:textColor="@color/text_grey"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Conversion Display Cards -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <!-- Input Unit Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/card_bg"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp">
+
+                    <LinearLayout
+                        android:id="@+id/btn_select_from_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="4dp">
+                        <TextView
+                            android:id="@+id/tv_from_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Meters (m)"
+                            android:textColor="@color/text_grey"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" ▼"
+                            android:textColor="@color/text_grey"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_converter_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|end"
+                        android:text="1"
+                        android:textColor="@color/text_white"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:ellipsize="end"/>
+                </LinearLayout>
+
+                <!-- Real-time Transition Swap Icon -->
+                <ImageView
+                    android:id="@+id/btn_swap_units"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_sort_by_size"
+                    android:tint="@color/accent_blue"
+                    android:background="@drawable/btn_number_selector"
+                    android:padding="6dp"
+                    android:contentDescription="Swap Units" />
+
+                <!-- Output Unit Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/card_bg"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp">
+
+                    <LinearLayout
+                        android:id="@+id/btn_select_to_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="4dp">
+                        <TextView
+                            android:id="@+id/tv_to_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Feet (ft)"
+                            android:textColor="@color/accent_blue"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" ▼"
+                            android:textColor="@color/accent_blue"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_converter_output"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|end"
+                        android:text="3.28084"
+                        android:textColor="@color/accent_blue"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:ellipsize="end"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Offline Converter Dedicated Keypad -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+                    <Button android:id="@+id/conv_btn_7" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="7" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle"/>
+                    <Button android:id="@+id/conv_btn_8" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="8" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle"/>
+                    <Button android:id="@+id/conv_btn_9" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="9" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle"/>
+                    <Button android:id="@+id/conv_btn_backspace" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="⌫" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_special_selector" style="?android:attr/borderlessButtonStyle"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+                    <Button android:id="@+id/conv_btn_4" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="4" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle"/>
+                    <Button android:id="@+id/conv_btn_5" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="5" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle"/>
+                    <Button android:id="@+id/conv_btn_6" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="6" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle"/>
+                    <Button android:id="@+id/conv_btn_clear" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="C" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_special_selector" style="?android:attr/borderlessButtonStyle"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+                    <Button android:id="@+id/conv_btn_1" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="1" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle"/>
+                    <Button android:id="@+id/conv_btn_2" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="2" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle"/>
+                    <Button android:id="@+id/conv_btn_3" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="3" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle"/>
+                    <Button android:id="@+id/conv_btn_toggle_sign" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="±" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_special_selector" style="?android:attr/borderlessButtonStyle"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+                    <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"/>
+                    <Button android:id="@+id/conv_btn_0" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="0" android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle"/>
+                    <Button android:id="@+id/conv_btn_dot" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:text="." android:textColor="@color/text_white" android:textSize="20sp" android:background="@drawable/btn_number_selector" style="?android:attr/borderlessButtonStyle"/>
+                    <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!-- PANEL 3: CALCULATION HISTORY -->
+        <LinearLayout
+            android:id="@+id/layout_history"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Recent Logs"
+                    android:textColor="@color/text_white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btn_clear_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CLEAR ALL"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:padding="8dp"/>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ScrollView
+                    android:id="@+id/scroll_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/ll_history_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </ScrollView>
+
+                <TextView
+                    android:id="@+id/tv_empty_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="No calculations yet"
+                    android:textColor="@color/text_grey"
+                    android:textSize="16sp"
+                    android:visibility="visible" />
+            </FrameLayout>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
