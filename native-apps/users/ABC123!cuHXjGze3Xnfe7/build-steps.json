@@ -2,109 +2,138 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Setup and Configuration",
-      "description": "Configure the project's build.gradle and target sdk configuration to ensure compatibility with Gradle 8.5 and Temurin 17.",
-      "files": [
-        "app/build.gradle"
-      ],
+      "title": "Planning Study Planner Pro",
+      "description": "Outline requirements, data relationships, tab layout architecture, and statistic analytics engines.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Formulating App Manifest",
-      "description": "Setup the AndroidManifest.xml declaring the launcher Activity, standard dark theme, and portrait orientation constraint.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
+      "title": "Configuring Gradle & Environment",
+      "description": "Aligning target configurations to JDK 17, SDK 34, AGP 8.3.2, and Gradle 8.5 compatibility.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Establish Visual Style Resources",
-      "description": "Define high-contrast neon visual palette colors, modern dark canvas themes, and button dimension metrics in strings and colors resources.",
-      "files": [
-        "app/src/main/res/values/colors.xml",
-        "app/src/main/res/values/strings.xml"
-      ],
+      "title": "Creating Application Metadata",
+      "description": "Setting up app-meta.json to reference Study Planner Pro and package namespace com.studyplannerpro.app.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create Card Background Graphic Assets",
-      "description": "Design custom rounded corners drawables to act as layout cards for shape selectors and toggle configurations.",
-      "files": [
-        "app/src/main/res/drawable/card_bg.xml",
-        "app/src/main/res/drawable/btn_bg.xml"
-      ],
+      "title": "Designing Application Manifest",
+      "description": "Configuring native package properties, application theme properties, and registering MainActivity as single launch gate.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Model 3D Math Entities",
-      "description": "Build lightweight, high-performance mathematical classes for managing 3D Vector coordinates, Face polygon indicators, and Model meshes.",
+      "title": "Coding UI Styled Shapes",
+      "description": "Developing robust shape drawables for modern card wrappers, bordered input margins, and flat tab structures.",
       "files": [
-        "app/src/main/java/com/threedshapestudio/app/Shape3DView.java"
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/btn_primary.xml",
+        "app/src/main/res/drawable/btn_accent.xml",
+        "app/src/main/res/drawable/edittext_bg.xml"
       ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Formulate 3D Geometric Primitives",
-      "description": "Code hard-coded vertex and face matrices for rendering dynamic models of Cubes, Pyramids, Octahedrons, Triangular Prisms, and 24-faced Stars.",
-      "files": [
-        "app/src/main/java/com/threedshapestudio/app/Shape3DView.java"
-      ],
+      "title": "Establishing SQLite Tables Setup",
+      "description": "Authoring DatabaseHelper.java to host persistent entities for Courses/Subjects and Study Tasks with foreign key integrity.",
+      "files": ["app/src/main/java/com/studyplannerpro/app/DatabaseHelper.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Depth-Buffered Face Sorter",
-      "description": "Program the Painter's Algorithm sorting system to analyze average Z heights, rendering rear-facing faces first to prevent visual overlap artifacts.",
+      "title": "Creating Model Classes",
+      "description": "Creating lightweight entity structures representing custom Course/Subject profiles and associated academic tasks.",
       "files": [
-        "app/src/main/java/com/threedshapestudio/app/Shape3DView.java"
+        "app/src/main/java/com/studyplannerpro/app/Subject.java",
+        "app/src/main/java/com/studyplannerpro/app/Task.java"
       ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Incorporate Dot Product Face Shading",
-      "description": "Formulate 3D vector mathematics utilizing normalized cross-products to render ambient and diffuse dynamic lighting on shape faces.",
+      "title": "Designing Layout Row Templates",
+      "description": "Implementing XML UI layouts representing subjects inside list and task objects containing checkboxes, due alerts and action states.",
       "files": [
-        "app/src/main/java/com/threedshapestudio/app/Shape3DView.java"
+        "app/src/main/res/layout/subject_item.xml",
+        "app/src/main/res/layout/task_item.xml"
       ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Embed Touch Inertia Rotations",
-      "description": "Implement drag movement gesture logic and pinch-to-zoom multi-touch handling for spinning and resizing meshes interactively.",
-      "files": [
-        "app/src/main/java/com/threedshapestudio/app/Shape3DView.java"
-      ],
+      "title": "Creating Custom Task Popups",
+      "description": "Crafting popup layout for adding study tasks, integrating priority levels, hours estimators, calendars, and subjects.",
+      "files": ["app/src/main/res/layout/dialog_add_task.xml"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Build Neon Control Console UI",
-      "description": "Assemble XML containing real-time rotation speed SeekBars, Light direction coordinates, toggles, and horizontal selector buttons.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
+      "title": "Assembling Main UI Wireframe",
+      "description": "Building activity_main.xml providing persistent Indigo toolbar, multiple FrameLayout containers, and bottom tab structures.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Wire Main Activity Core Controller",
-      "description": "Program binding code in MainActivity.java to link SeekBars, switches, and geometry selection buttons directly with state controls.",
-      "files": [
-        "app/src/main/java/com/threedshapestudio/app/MainActivity.java"
-      ],
+      "title": "Implementing Interactive Navigation Engine",
+      "description": "Coding click listener hooks inside MainActivity to switch visible container layouts and dynamically highlight active tabs.",
+      "files": ["app/src/main/java/com/studyplannerpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Building 3D Shape Studio",
-      "description": "Compile assets and execute tests on the custom rendering frame pipeline, confirming zero memory leaks and 60 FPS runtime performance.",
+      "title": "Developing Dashboard Statistics Engine",
+      "description": "Implementing overall progress calculators, hours counting metrics, and conditional indicator bars for outstanding academic burdens.",
+      "files": ["app/src/main/java/com/studyplannerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Wiring Course/Subject Registrations",
+      "description": "Adding data handling constraints to validate subject code patterns, insert records, and populate local adapters dynamically.",
+      "files": ["app/src/main/java/com/studyplannerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Adding Date Picker Interactivity",
+      "description": "Binding native Calendar view and DatePickerDialog dialogs to input prompts for streamlined task scheduling.",
+      "files": ["app/src/main/java/com/studyplannerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Coding Dynamic Filters",
+      "description": "Wiring dropdown selection listeners for filters to execute customized database query parameters.",
+      "files": ["app/src/main/java/com/studyplannerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Integrating Task Checklist States",
+      "description": "Writing status toggle triggers inside adapters to instantly record completions in SQLite and update dashboard ratios.",
+      "files": ["app/src/main/java/com/studyplannerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Eliminating ListView Scroll Collisions",
+      "description": "Programming programmatically-inflated layouts inside Dashboard container to bypass native scrolling conflicts perfectly.",
+      "files": ["app/src/main/java/com/studyplannerpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 18,
+      "title": "Building Study Planner Pro",
+      "description": "Compiling and assembling final package assets into active distribution using standard Gradle assembly parameters.",
       "files": [],
       "status": "pending"
     }

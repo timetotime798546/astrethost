@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.threedshapestudio.app"
+    namespace "com.studyplannerpro.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.threedshapestudio.app"
+        applicationId "com.studyplannerpro.app"
 
         minSdkVersion 21
 
