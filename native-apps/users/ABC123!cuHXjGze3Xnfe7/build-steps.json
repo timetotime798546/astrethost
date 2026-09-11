@@ -1,0 +1,98 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Planning Study Planner Pro UI Upgrades",
+      "description": "Establish a pristine indigo-slate and rose color scheme with gorgeous 16dp rounded card interfaces and enhanced visual hierarchy.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Updating Custom Drawables and Card Backgrounds",
+      "description": "Refine premium visual cards with thinner elegant strokes and modernized soft curves.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/btn_primary.xml",
+        "app/src/main/res/drawable/btn_accent.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Creating Custom Themed Stat Card Backgrounds",
+      "description": "Design unique tinted backdrops with sleek contrasting borders for Subjects, Pending, Completed, and Hours cards.",
+      "files": [
+        "app/src/main/res/drawable/card_subjects_bg.xml",
+        "app/src/main/res/drawable/card_pending_bg.xml",
+        "app/src/main/res/drawable/card_completed_bg.xml",
+        "app/src/main/res/drawable/card_hours_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Creating Sophisticated Badge Backgrounds",
+      "description": "Formulate sleek high, medium, and low priority indicators with professional, subtle background hues.",
+      "files": [
+        "app/src/main/res/drawable/badge_high.xml",
+        "app/src/main/res/drawable/badge_medium.xml",
+        "app/src/main/res/drawable/badge_low.xml",
+        "app/src/main/res/drawable/badge_subject.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Defining State Lists and Outline Drawables",
+      "description": "Configure polished edit text backgrounds and sleek warning outline shapes.",
+      "files": [
+        "app/src/main/res/drawable/edittext_bg.xml",
+        "app/src/main/res/drawable/btn_outline_accent.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Developing Bottom Navigation Pill Shape",
+      "description": "Craft a sleek active tab indicator background shape for seamless fluid bottom switching.",
+      "files": ["app/src/main/res/drawable/nav_active_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Beautifying Primary Main Activity Screen",
+      "description": "Revamp activity_main.xml layout to feature premium typography, high contrast stats layout, and modern progress indicators.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Redesigning Subject Grid and Row Layouts",
+      "description": "Update the course list item to showcase high contrast text, balanced padding, and streamlined action triggers.",
+      "files": ["app/src/main/res/layout/subject_item.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Redesigning Task Item Layout and Checkboxes",
+      "description": "Evolve academic tasks visually with precise icon styling, bold headers, and structured spacing.",
+      "files": ["app/src/main/res/layout/task_item.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Polishing Dialog View and Controls",
+      "description": "Restructure task scheduler input form dialogs to feature clear label guidance and stylish fields.",
+      "files": ["app/src/main/res/layout/dialog_add_task.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Study Planner Pro",
+      "description": "Compile the polished, high-fidelity user interface configurations into an executable Android application artifact.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

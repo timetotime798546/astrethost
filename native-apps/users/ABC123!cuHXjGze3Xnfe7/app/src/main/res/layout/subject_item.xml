@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/card_bg"
+    android:elevation="1dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/subject_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CS-101"
+            android:textColor="#4F46E5"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:background="@drawable/badge_subject"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp" />
+
+        <TextView
+            android:id="@+id/subject_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Computer Science"
+            android:textColor="#0F172A"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_delete_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:text="🗑️ Delete"
+        android:textSize="12sp"
+        android:textColor="#F43F5E"
+        android:background="@drawable/btn_outline_accent"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"/>
+</LinearLayout>
