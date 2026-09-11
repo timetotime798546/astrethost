@@ -2,66 +2,66 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define Application Metadata",
-      "description": "Create the app-meta.json file defining 'Hi How To Do' and namespace 'com.hihowtodo.app'.",
-      "files": ["app-meta.json"],
-      "status": "pending"
+      "title": "Analyze Build Log",
+      "description": "Inspect the compilation error log to locate the exact syntax issue causing the AAPT2 compiler crash.",
+      "files": ["build-error.log"],
+      "status": "completed"
     },
     {
       "step": 2,
-      "title": "Configure Build Environment",
-      "description": "Set up build.gradle with targetSdkVersion 34, AGP 8.3.2, and Gradle 8.5 compatibility settings.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
+      "title": "Define Application Metadata",
+      "description": "Verify and validate the app-meta.json file defining 'Hi How To Do' and the namespace 'com.hihowtodo.app'.",
+      "files": ["app-meta.json"],
+      "status": "completed"
     },
     {
       "step": 3,
-      "title": "Declare Application Manifest",
-      "description": "Configure AndroidManifest.xml with correct launcher Activity details, theme references, and the valid Android namespace.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
+      "title": "Clean Build Environment Dependencies",
+      "description": "Optimize build.gradle by removing unneeded, rule-violating third-party nanohttpd dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "completed"
     },
     {
       "step": 4,
-      "title": "Create Screen Background Asset",
-      "description": "Design a smooth gradient background XML drawable for the application layout.",
-      "files": ["app/src/main/res/drawable/screen_background.xml"],
-      "status": "pending"
+      "title": "Fix Main Layout XML Dimensions",
+      "description": "Correct the invalid 'match_match' dimension typo on the ScrollView container in activity_main.xml to 'match_parent'.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "completed"
     },
     {
       "step": 5,
-      "title": "Create Card Container Asset",
-      "description": "Design a rounded corner card container XML drawable to hold our content beautifully.",
-      "files": ["app/src/main/res/drawable/card_background.xml"],
-      "status": "pending"
+      "title": "Streamline App Manifest",
+      "description": "Clean up source AndroidManifest.xml by removing the redundant legacy package attribute and verifying standard namespaces.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "completed"
     },
     {
       "step": 6,
-      "title": "Create Button Style Background",
-      "description": "Design a custom colored interactive button XML background drawable with rounded corners.",
-      "files": ["app/src/main/res/drawable/button_background.xml"],
-      "status": "pending"
+      "title": "Verify Custom Drawable Backgrounds",
+      "description": "Ensure the layout elements point to existing custom resources such as screen and card backgrounds.",
+      "files": ["app/src/main/res/drawable/screen_background.xml", "app/src/main/res/drawable/card_background.xml"],
+      "status": "completed"
     },
     {
       "step": 7,
-      "title": "Implement Main Layout Interface",
-      "description": "Create activity_main.xml using safe system components, ScrollView, modern spacing, and visual cues for 'Hi! How to do?'.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
+      "title": "Verify Button Styles",
+      "description": "Ensure interactive buttons can correctly render the rounded corner background style.",
+      "files": ["app/src/main/res/drawable/button_background.xml"],
+      "status": "completed"
     },
     {
       "step": 8,
-      "title": "Implement MainActivity Logic",
-      "description": "Write MainActivity.java using standard Java 8 syntax (no lambdas) to manage interactive state, display daily how-to tips, and handle click events.",
+      "title": "Validate Main Activity Actions",
+      "description": "Verify MainActivity logic compiles cleanly under strict Java 8 environments with standard view initialization.",
       "files": ["app/src/main/java/com/hihowtodo/app/MainActivity.java"],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 9,
       "title": "Verify Manifest & Layout Namespaces",
-      "description": "Validate that all XML files strictly use correct android schemas to guarantee success of compiling stages.",
+      "description": "Confirm all XML layout schemas match official Android resources guidelines.",
       "files": ["app/src/main/AndroidManifest.xml", "app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 10,
