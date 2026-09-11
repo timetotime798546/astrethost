@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F3F4F6">
+
+    <!-- Premium Custom Top Header -->
+    <RelativeLayout
+        android:id="@+id/header_bar"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="#1E293B"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/app_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="3D Design Studio"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_reset_view"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="#334155"
+            android:text="🔄 Reset View"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            style="?android:attr/borderlessButtonStyle" />
+    </RelativeLayout>
+
+    <!-- Interactive 3D Viewport Area -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#0F172A">
+
+        <!-- Custom 3D Projector View Canvas -->
+        <FrameLayout
+            android:id="@+id/viewport_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Overlay HUD Display Information -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="12dp"
+            android:background="#80000000"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/hud_shape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shape: Cube"
+                android:textColor="#10B981"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/hud_stats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Vertices: 8 | Faces: 6"
+                android:textColor="#94A3B8"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/hud_rotation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Rot X: 45° | Y: 45°"
+                android:textColor="#94A3B8"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Floating Quick Viewmode Shading Selector -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="12dp"
+            android:background="#CC1E293B"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <Button
+                android:id="@+id/btn_mode_solid"
+                android:layout_width="56dp"
+                android:layout_height="32dp"
+                android:background="#10B981"
+                android:text="Solid"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/btn_mode_wire"
+                android:layout_width="56dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="2dp"
+                android:background="#334155"
+                android:text="Wire"
+                android:textColor="#94A3B8"
+                android:textSize="10sp"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/btn_mode_points"
+                android:layout_width="56dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="2dp"
+                android:background="#334155"
+                android:text="Points"
+                android:textColor="#94A3B8"
+                android:textSize="10sp"
+                style="?android:attr/borderlessButtonStyle" />
+        </LinearLayout>
+
+        <!-- Dynamic Rotation / Drag Helper Overlay -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            android:text="👆 Swipe to Rotate Design | Pinch / Slide to Scale"
+            android:textColor="#64748B"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <!-- Workspace Control Dashboard Tabs Selector -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#E2E8F0"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/tab_shapes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="🧊 Shapes"
+            android:textColor="#0F172A"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="#F1F5F9"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/tab_colors"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="🎨 Materials"
+            android:textColor="#64748B"
+            android:textSize="12sp"
+            android:background="#E2E8F0"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/tab_transforms"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="📐 Dimensions"
+            android:textColor="#64748B"
+            android:textSize="12sp"
+            android:background="#E2E8F0"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/tab_projects"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="💾 Save"
+            android:textColor="#64748B"
+            android:textSize="12sp"
+            android:background="#E2E8F0"
+            style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
+
+    <!-- Multi-Panel Control Deck Container -->
+    <FrameLayout
+        android:id="@+id/deck_container"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="#FFFFFF"
+        android:padding="16dp">
+
+        <!-- PANEL 1: Shapes Presets selection -->
+        <LinearLayout
+            android:id="@+id/panel_shapes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select 3D Mesh Primitive"
+                android:textColor="#475569"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:rowCount="2">
+
+                <Button
+                    android:id="@+id/btn_shape_cube"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="#10B981"
+                    android:text="Cube"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <Button
+                    android:id="@+id/btn_shape_pyramid"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="#E2E8F0"
+                    android:text="Pyramid"
+                    android:textColor="#1E293B"
+                    android:textSize="12sp"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <Button
+                    android:id="@+id/btn_shape_prism"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="#E2E8F0"
+                    android:text="Prism"
+                    android:textColor="#1E293B"
+                    android:textSize="12sp"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <Button
+                    android:id="@+id/btn_shape_cylinder"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="#E2E8F0"
+                    android:text="Cylinder"
+                    android:textColor="#1E293B"
+                    android:textSize="12sp"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <Button
+                    android:id="@+id/btn_shape_sphere"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="#E2E8F0"
+                    android:text="Sphere"
+                    android:textColor="#1E293B"
+                    android:textSize="12sp"
+                    style="?android:attr/borderlessButtonStyle"/>
+            </GridLayout>
+        </LinearLayout>
+
+        <!-- PANEL 2: Color Palette and Material Settings -->
+        <LinearLayout
+            android:id="@+id/panel_colors"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Color &amp; Material Options"
+                android:textColor="#475569"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Colors Horizontal List -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:scrollbars="none"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:id="@+id/palette_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical" />
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/txt_stroke_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Line Thickness: 4 px"
+                android:textColor="#475569"
+                android:textSize="11sp"/>
+
+            <SeekBar
+                android:id="@+id/seek_stroke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:max="16"
+                android:progress="4"/>
+        </LinearLayout>
+
+        <!-- PANEL 3: Scaling, Light Projection and Translation -->
+        <ScrollView
+            android:id="@+id/panel_transforms"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_scale_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Model Scale: 1.0x"
+                    android:textColor="#475569"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+                <SeekBar
+                    android:id="@+id/seek_scale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="100"
+                    android:progress="40"/>
+
+                <TextView
+                    android:id="@+id/txt_light_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Light Direction: 45°"
+                    android:textColor="#475569"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+                <SeekBar
+                    android:id="@+id/seek_light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="360"
+                    android:progress="45"/>
+
+                <TextView
+                    android:id="@+id/txt_depth_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Camera Distance: 4.0"
+                    android:textColor="#475569"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+                <SeekBar
+                    android:id="@+id/seek_camera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="100"
+                    android:progress="40"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- PANEL 4: Save & Load Design Projects -->
+        <LinearLayout
+            android:id="@+id/panel_projects"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save Your 3D Masterpiece"
+                android:textColor="#475569"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edt_project_name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#F1F5F9"
+                    android:hint="Design Name"
+                    android:textColor="#1E293B"
+                    android:textSize="13sp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:singleLine="true" />
+
+                <Button
+                    android:id="@+id/btn_save_project"
+                    android:layout_width="86dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:background="#10B981"
+                    android:text="Save"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    style="?android:attr/borderlessButtonStyle" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Load Project Preset:"
+                android:textColor="#64748B"
+                android:textSize="11sp"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/saved_projects_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical" />
+            </HorizontalScrollView>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
