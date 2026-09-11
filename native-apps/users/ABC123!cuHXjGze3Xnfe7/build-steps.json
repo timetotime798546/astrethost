@@ -2,99 +2,22 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Project Structure for Study Planner Pro",
-      "description": "Establish directories and files structure for the Study Planner Pro Android app.",
-      "files": ["app-meta.json"],
-      "status": "pending"
-    },
-    {
-      "step": 2,
-      "title": "Configure Gradle Build Files",
-      "description": "Apply AGP 8.3.2, Gradle 8.5, target SDK 34, and set compile targets to Java 8.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Design Application Manifest",
-      "description": "Setup AndroidManifest.xml with system services, alarm scheduling, local notifications, and specify MainActivity.",
+      "title": "Identify XML Namespace Error",
+      "description": "Inspected the AndroidManifest.xml file and detected an invalid xmlns:android namespace URL pointing to 'schemas.github.com' instead of 'schemas.android.com'.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
-      "step": 4,
-      "title": "Implement Color and String Resource Schemes",
-      "description": "Define the visual color scheme (bg_main, text_primary, text_secondary, color_primary, etc.) and application titles.",
-      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
+      "step": 2,
+      "title": "Correct AndroidManifest.xml Schema URL",
+      "description": "Modified the xmlns:android attribute in the root <manifest> element to the standard 'http://schemas.android.com/apk/res/android' namespace.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
-      "step": 5,
-      "title": "Create Modern Card and Button Backgrounds",
-      "description": "Design visual state rounded drawables for buttons, fields and layout containers using custom vectors.",
-      "files": ["app/src/main/res/drawable/card_bg.xml", "app/src/main/res/drawable/button_primary.xml", "app/src/main/res/drawable/button_secondary.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Build Main Activity User Interface Layout",
-      "description": "Create activity_main.xml consisting of dynamic Tab screens (Dashboard, Subjects list, Tasks list, Study timer).",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Create Subject List Row Layout",
-      "description": "Formulate item_subject.xml with customizable visual indicators and clear deletion actions.",
-      "files": ["app/src/main/res/layout/item_subject.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Create Task List Row Layout",
-      "description": "Design item_task.xml holding status checks, priority tags, date labels, and title description fields.",
-      "files": ["app/src/main/res/layout/item_task.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Design Subject Addition Dialog",
-      "description": "Construct dialog_add_subject.xml with subject title forms and customizable color schemes.",
-      "files": ["app/src/main/res/layout/dialog_add_subject.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Design Task Addition Dialog",
-      "description": "Construct dialog_add_task.xml with text inputs, relative selectors, and scheduling switches.",
-      "files": ["app/src/main/res/layout/dialog_add_task.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Implement SQLite Study Database Manager",
-      "description": "Develop DatabaseHelper.java to manage tables for Subjects, Tasks and logged study intervals.",
-      "files": ["app/src/main/java/com/studyplannerpro/app/DatabaseHelper.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Develop Alarm Notification Broadcast Receiver",
-      "description": "Create ReminderReceiver.java to capture alarm schedules and launch user background notifications.",
-      "files": ["app/src/main/java/com/studyplannerpro/app/ReminderReceiver.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Implement Study Focus Timer and Multi-Tab Navigation",
-      "description": "Complete MainActivity.java with interactive focus clocks, stats summaries, and state-retaining list adapters.",
-      "files": ["app/src/main/java/com/studyplannerpro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
+      "step": 3,
       "title": "Building Study Planner Pro",
-      "description": "Launch exact Gradle build routines to package and test the complete Study Planner Pro application.",
+      "description": "Trigger the Gradle build system using the correct Android namespace to package the APK successfully.",
       "files": [],
       "status": "pending"
     }
