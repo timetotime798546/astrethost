@@ -791,7 +791,7 @@ public class MainActivity extends Activity {
 
             text1.setText(profile.name + " (" + dateDisplayFormat.format(dob.getTime()) + ")");
             text1.setTextColor(Color.parseColor("#004D40"));
-            text1.setTextSize(16sp());
+            text1.setTextSize(sp());
 
             text2.setText("Age: " + ageStr + "\nNext Birthday: " + daysRemaining + " days left");
             text2.setPadding(0, 4, 0, 4);
