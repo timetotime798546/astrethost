@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:keepScreenOn="true"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Center layout to perfectly center modern digital clock elements -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Display Time -->
+        <TextView
+            android:id="@+id/timeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00:00"
+            android:textColor="#00FF00"
+            android:textSize="64sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            android:gravity="center" />
+
+        <!-- Display Date -->
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Monday, January 01, 2024"
+            android:textColor="#00FF00"
+            android:textSize="20sp"
+            android:typeface="monospace"
+            android:gravity="center" />
+
+        <!-- Quick visual tooltip helper -->
+        <TextView
+            android:id="@+id/hintTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="[ Tap background to show/hide menu | Long press for full screen ]"
+            android:textColor="#333333"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:typeface="monospace" />
+
+    </LinearLayout>
+
+    <!-- Bottom Controls Panel -->
+    <LinearLayout
+        android:id="@+id/controlsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="#1C1C1E"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnToggleFormat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:textSize="11sp"
+            android:text="12/24H" />
+
+        <Button
+            android:id="@+id/btnToggleSeconds"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:textSize="11sp"
+            android:text="Seconds" />
+
+        <Button
+            android:id="@+id/btnChangeTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:textSize="11sp"
+            android:text="Color" />
+
+        <Button
+            android:id="@+id/btnToggleFullscreen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:textSize="11sp"
+            android:text="Immersive" />
+
+    </LinearLayout>
+
+</RelativeLayout>
