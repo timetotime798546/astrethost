@@ -58,9 +58,9 @@ public class NoteDatabaseHelper extends SQLiteOpenHelper {
 
     private void insertStarterNote(SQLiteDatabase db, String title, String content, String category) {
         ContentValues values = new ContentValues();
-        values.values.put(COLUMN_TITLE, title);
-        values.values.put(COLUMN_CONTENT, content);
-        values.values.put(COLUMN_CATEGORY, category);
+        values.put(COLUMN_TITLE, title);
+        values.put(COLUMN_CONTENT, content);
+        values.put(COLUMN_CATEGORY, category);
         db.insert(TABLE_NAME, null, values);
     }
 }
