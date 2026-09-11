@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
     private LinearLayout upcomingTasksContainer;
     private TextView tvNoUpcoming;
     private Button btnQuickAddTask;
+    private TextView tvStudyQuote;
 
     // --- Subjects Tab UI ---
     private EditText etSubjectCode, etSubjectName;
@@ -61,6 +62,18 @@ public class MainActivity extends Activity {
     private ListView tasksListView;
     private TextView tvNoTasks;
 
+    // Premium Study Quotes Array
+    private static final String[] STUDY_QUOTES = {
+        "\"The secret of getting ahead is getting started.\"",
+        "\"Success is the sum of small efforts, repeated day in and day out.\"",
+        "\"It always seems impossible until it's done.\"",
+        "\"Believe you can and you're halfway there.\"",
+        "\"Focus on being productive instead of busy.\"",
+        "\"Don't wish it were easier. Wish you were better.\"",
+        "\"Your mind is for having ideas, not holding them.\"",
+        "\"There is no substitute for hard work.\""
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +85,12 @@ public class MainActivity extends Activity {
         setupNavigation();
         setupSubjectsTab();
         setupTasksTab();
+
+        // Select a dynamic inspiring study quote on launch
+        if (tvStudyQuote != null) {
+            int index = (int) (Math.random() * STUDY_QUOTES.length);
+            tvStudyQuote.setText(STUDY_QUOTES[index]);
+        }
 
         // Load Default Tab (Dashboard)
         switchTab("dashboard");
@@ -102,6 +121,7 @@ public class MainActivity extends Activity {
         upcomingTasksContainer = findViewById(R.id.upcoming_tasks_container);
         tvNoUpcoming = findViewById(R.id.tv_no_upcoming);
         btnQuickAddTask = findViewById(R.id.btn_quick_add_task);
+        tvStudyQuote = findViewById(R.id.tv_study_quote);
 
         // Subjects Tab Views
         etSubjectCode = findViewById(R.id.et_subject_code);
@@ -601,7 +621,7 @@ public class MainActivity extends Activity {
             tvSubject.setBackgroundResource(R.drawable.badge_subject);
             tvSubject.setTextColor(0xFF4F46E5); // Brand Indigo Text Color
 
-            // Assign proper priority color properties
+            // Assign proper priority color properties with visual upgrades
             if (task.getPriority().equalsIgnoreCase("High")) {
                 tvPriority.setBackgroundResource(R.drawable.badge_high);
                 tvPriority.setTextColor(0xFFE11D48); // Rose-600

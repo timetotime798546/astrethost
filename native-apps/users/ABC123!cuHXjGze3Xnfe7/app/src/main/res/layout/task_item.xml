@@ -7,8 +7,8 @@
     android:gravity="center_vertical"
     android:background="@drawable/card_bg"
     android:elevation="1dp"
-    android:layout_marginTop="6dp"
-    android:layout_marginBottom="8dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="6dp"
     android:layout_marginLeft="4dp"
     android:layout_marginRight="4dp">
 
@@ -16,7 +16,7 @@
         android:id="@+id/task_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="12dp"
         android:buttonTint="#4F46E5" />
 
     <LinearLayout
@@ -38,9 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:gravity="center_vertical"
-            android:flexWrap="wrap">
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/task_subject"
@@ -62,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="📅 Oct 25"
-                android:textColor="#F43F5E"
+                android:textColor="#E11D48"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 android:layout_marginRight="6dp"/>
@@ -96,10 +95,10 @@
     <Button
         android:id="@+id/btn_delete_task"
         android:layout_width="wrap_content"
-        android:layout_height="38dp"
+        android:layout_height="36dp"
         android:text="🗑️"
         android:textSize="14sp"
-        android:textColor="#F43F5E"
+        android:textColor="#EF4444"
         android:background="@drawable/btn_outline_accent"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"

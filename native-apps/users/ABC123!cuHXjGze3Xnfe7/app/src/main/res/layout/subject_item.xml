@@ -7,8 +7,8 @@
     android:gravity="center_vertical"
     android:background="@drawable/card_bg"
     android:elevation="1dp"
-    android:layout_marginTop="6dp"
-    android:layout_marginBottom="8dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="6dp"
     android:layout_marginLeft="4dp"
     android:layout_marginRight="4dp">
 
@@ -27,10 +27,10 @@
             android:textStyle="bold"
             android:textSize="12sp"
             android:background="@drawable/badge_subject"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp" />
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
 
         <TextView
             android:id="@+id/subject_name"
@@ -46,10 +46,10 @@
     <Button
         android:id="@+id/btn_delete_subject"
         android:layout_width="wrap_content"
-        android:layout_height="38dp"
+        android:layout_height="36dp"
         android:text="🗑️ Delete"
         android:textSize="12sp"
-        android:textColor="#F43F5E"
+        android:textColor="#EF4444"
         android:background="@drawable/btn_outline_accent"
         android:paddingLeft="14dp"
         android:paddingRight="14dp"/>
