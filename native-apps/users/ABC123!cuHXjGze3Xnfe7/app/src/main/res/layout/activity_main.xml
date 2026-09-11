@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="#1E1E1E"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Photo Editor Pro"
+            android:textColor="#00ADB5"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_import"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginRight="8dp"
+            android:background="#2D2D2D"
+            android:text="Import"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="#00ADB5"
+            android:text="Save"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- Main Editor Canvas Area -->
+    <com.photoeditorpro.app.PhotoEditView
+        android:id="@+id/photo_edit_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/control_panel"
+        android:layout_below="@id/header"
+        android:layout_margin="16dp" />
+
+    <!-- Control & Tool Area -->
+    <LinearLayout
+        android:id="@+id/control_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tab_bar"
+        android:background="#1E1E1E"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Tab 1: Filters Layout -->
+        <LinearLayout
+            android:id="@+id/tab_filters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Presets &amp; Filters:"
+                android:textColor="#888888"
+                android:textSize="12sp"
+                android:layout_marginBottom="4dp"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/filter_buttons_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <!-- Tab 2: Adjustments Layout -->
+        <LinearLayout
+            android:id="@+id/tab_adjustments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Brightness -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Brightness"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp" />
+
+                <SeekBar
+                    android:id="@+id/seek_brightness"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="200"
+                    android:progress="100" />
+
+                <TextView
+                    android:id="@+id/txt_brightness_val"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="0"
+                    android:textColor="#00ADB5"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- Contrast -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Contrast"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp" />
+
+                <SeekBar
+                    android:id="@+id/seek_contrast"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="150"
+                    android:progress="50" />
+
+                <TextView
+                    android:id="@+id/txt_contrast_val"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="1.0"
+                    android:textColor="#00ADB5"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Tab 3: Paint Brush Layout -->
+        <LinearLayout
+            android:id="@+id/tab_paint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Toggle & Actions -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <Button
+                    android:id="@+id/btn_toggle_draw"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1.5"
+                    android:background="#2D2D2D"
+                    android:text="Enable Paint"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp" />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp" />
+
+                <Button
+                    android:id="@+id/btn_undo"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:background="#2D2D2D"
+                    android:text="Undo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp" />
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="1dp" />
+
+                <Button
+                    android:id="@+id/btn_redo"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:background="#2D2D2D"
+                    android:text="Redo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Brush Size -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Brush Size"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp" />
+
+                <SeekBar
+                    android:id="@+id/seek_brush_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="100"
+                    android:progress="15" />
+
+                <TextView
+                    android:id="@+id/txt_brush_size_val"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="15"
+                    android:textColor="#00ADB5"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- Dynamic Color Palette Picker -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/brush_colors_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="#121212"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/tab_btn_filters"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#1E1E1E"
+            android:text="Filters"
+            android:textColor="#00ADB5" />
+
+        <Button
+            android:id="@+id/tab_btn_adjustments"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#121212"
+            android:text="Adjust"
+            android:textColor="#888888" />
+
+        <Button
+            android:id="@+id/tab_btn_paint"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#121212"
+            android:text="Paint"
+            android:textColor="#888888" />
+    </LinearLayout>
+</RelativeLayout>
