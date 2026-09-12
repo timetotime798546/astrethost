@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Application Metadata",
+      "description": "Establish the application name (GiggleBox) and corresponding package name (com.gigglebox.app) inside the app metadata file.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Project Environment",
+      "description": "Define standard compatible Android configuration including target SDK 34, min SDK 21, and appropriate build tools in build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define Android Manifest",
+      "description": "Create AndroidManifest.xml declaring application permissions, launcher MainActivity, default portrait orientation, and explicit icon resource references.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Set Up Custom Colors",
+      "description": "Define vibrant, bright funny-themed colors (yellows, bright oranges, energetic blues) in colors.xml resource file.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Configure Application Strings",
+      "description": "Populate strings.xml with UI labels, funny initial jokes, excuses, instructions, and interactive alert contents.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Card Background Shapes",
+      "description": "Generate dynamic shape drawables to render beautifully rounded corners, custom gradients, and soft outlines without requiring external layout libraries.",
+      "files": ["app/src/main/res/drawable/card_bg.xml", "app/src/main/res/drawable/button_bg.xml", "app/src/main/res/drawable/cracked_pattern.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build UI Layout XML",
+      "description": "Design a highly-interactive, responsive layout featuring multiple modular custom cards: Dad Jokes, Excuse Generator, Sound Board, and Prank Screen Activator.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Synthesized Sound System",
+      "description": "Develop a custom realtime PCM signal generator in MainActivity.java to play unique procedural audio (Laser, Bounce, Raspberries) via standard AudioTrack class.",
+      "files": ["app/src/main/java/com/gigglebox/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Dad Joke and Excuse Generator Logic",
+      "description": "Write arrays of custom funny content, randomize logic, and clipboard-copy features within MainActivity.java utilizing classic Java 8 programming patterns.",
+      "files": ["app/src/main/java/com/gigglebox/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Dynamic Glass Prank Canvas Overlay",
+      "description": "Code a fully interactive fullscreen Dialog in Java that draws high-fidelity custom broken-glass procedural vectors dynamically on a Canvas, triggering a hilarious vibration and crack effect.",
+      "files": ["app/src/main/java/com/gigglebox/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Verify Code Compatibility",
+      "description": "Ensure absolute compilation safety with Java 8 rules (anonymous inner classes instead of modern lambdas) and confirm standard SDK components.",
+      "files": ["app/src/main/java/com/gigglebox/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building GiggleBox",
+      "description": "Trigger local gradle compilation check using native build wrappers to compile resources and execute Java verification successfully.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
