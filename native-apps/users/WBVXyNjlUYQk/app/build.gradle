@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.donkeyworld.app"
+    namespace "com.homecontrol.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.donkeyworld.app"
+        applicationId "com.homecontrol.app"
 
         minSdkVersion 21
 

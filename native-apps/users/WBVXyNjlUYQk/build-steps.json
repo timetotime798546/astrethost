@@ -2,71 +2,113 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure project metadata",
-      "description": "Define the unique app name 'Donkey World' and package name 'com.donkeyworld.app' to initialize custom builds.",
+      "title": "Configure App Meta and Identity",
+      "description": "Establish metadata including package name com.homecontrol.app and app name Home Control",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Establish strict build environment",
-      "description": "Configure build.gradle to use JDK 17, target Android SDK 34, compile SDK 34, and use standard non-AndroidX native components.",
-      "files": ["app/build.gradle"],
+      "title": "Create Step Roadmap",
+      "description": "Configure the systematic build roadmaps for the home automation control system",
+      "files": ["build-steps.json"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Set up standard manifest structure",
-      "description": "Declare package name, launcher activity, single screen orientation, and link app icons to standard drawables.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Set Up Android Build Configuration",
+      "description": "Configure build.gradle with proper compilation and execution details using AGP 8.3.2 and SDK 34",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design user interface layout",
-      "description": "Create activity_main.xml containing a responsive header, frame layout for dynamic screen switching, and styled tab navigation buttons.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Define Manifest Security and Components",
+      "description": "Configure AndroidManifest.xml with application entry point, valid standard theme and system configurations",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create facts screen engine",
-      "description": "Implement fact carousel logic inside MainActivity, presenting precompiled engaging facts about donkeys.",
-      "files": ["app/src/main/java/com/donkeyworld/app/MainActivity.java"],
+      "title": "Establish Color Palette",
+      "description": "Create the color scheme inside colors.xml for dark blues, security success greens, alert reds, and dashboard backgrounds",
+      "files": ["app/src/main/res/values/colors.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Develop Donkey bray synthesizer",
-      "description": "Use AudioTrack API to synthetically generate distinct 'Hee' and 'Haw' audio frequencies programmatically.",
-      "files": ["app/src/main/java/com/donkeyworld/app/MainActivity.java"],
+      "title": "Establish Typography and Strings",
+      "description": "Set primary app label definitions inside strings.xml for the smart home dashboard system",
+      "files": ["app/src/main/res/values/strings.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Donkey clicker game",
-      "description": "Program click handlers, dynamic ascii animation, carrot point counter, and levelling system for interactive donkey care.",
-      "files": ["app/src/main/java/com/donkeyworld/app/MainActivity.java"],
+      "title": "Design Card Elements Style",
+      "description": "Create rounded rectangle layout wrappers inside card_bg.xml to host separate dashboard sensors/actuators widgets",
+      "files": ["app/src/main/res/drawable/card_bg.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Incorporate persistent game storage",
-      "description": "Implement SharedPreferences storage to persist carrot progress, levels, and unlocked facts across app relaunches.",
-      "files": ["app/src/main/java/com/donkeyworld/app/MainActivity.java"],
+      "title": "Design Navigation Button Elements Style",
+      "description": "Create primary button drawable style definitions inside button_bg.xml",
+      "files": ["app/src/main/res/drawable/button_bg.xml"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Validate layout styling and resources",
-      "description": "Verify system Material theme compatibility, safe color variables, and pure Java-8 backward compatibility features.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Design Secondary Button Elements Style",
+      "description": "Create secondary outline button drawable style definitions inside button_bg_secondary.xml",
+      "files": ["app/src/main/res/drawable/button_bg_secondary.xml"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Building Donkey World",
-      "description": "Assemble debug APK with optimal configurations for target mobile devices.",
+      "title": "Design Thermostat Circle Widget Style",
+      "description": "Create background radial shape inside circle_temp_bg.xml to display the interactive target climate temperature",
+      "files": ["app/src/main/res/drawable/circle_temp_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Main Layout Interface XML",
+      "description": "Construct dashboard UI with climate, security camera, light levels, dynamic logs, and tab switcher UI items",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Live Feed Visual Simulation",
+      "description": "Program custom self-contained CameraView.java drawing scanning matrix grids and dynamic video feed graphics using standard 2D canvas drawing",
+      "files": ["app/src/main/java/com/homecontrol/app/CameraView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Develop MainActivity Control Code",
+      "description": "Bind layout components, manage climate variables, switch states, slider progressions, dynamic status changes and log entries",
+      "files": ["app/src/main/java/com/homecontrol/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Validate Java 8 Code Syntax",
+      "description": "Review MainActivity.java and CameraView.java to guarantee pure Java 8 standard syntax compatible with our compilers",
+      "files": ["app/src/main/java/com/homecontrol/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Confirm AndroidManifest Setup",
+      "description": "Validate absolute xml package pointers, standard namespace properties and configuration structures",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building Home Control",
+      "description": "Compile the smart home dashboard automation solution into the debug APK binary target structure",
       "files": [],
       "status": "pending"
     }

@@ -3,333 +3,476 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F9F6F0">
+    android:background="#F8F9FA">
 
-    <!-- Top Toolbar Header -->
+    <!-- Header bar -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:background="#5D4037"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:elevation="4dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#2196F3"
+        android:padding="16dp">
 
         <TextView
-            android:id="@+id/appTitle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Donkey World 🐴"
+            android:text="Home Control"
             android:textColor="#FFFFFF"
-            android:textSize="20dp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/levelBadge"
+            android:id="@+id/tvHeaderStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#8D6E63"
-            android:textColor="#FFFFFF"
-            android:text="Level 1"
-            android:textSize="14dp"
-            android:textStyle="bold"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp" />
+            android:text="System Secure | Temp: 72°F"
+            android:textColor="#E0F2F1"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
     </LinearLayout>
 
-    <!-- Main Container Layout with tab structures -->
-    <FrameLayout
+    <!-- Room Filter Switchers -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="#FFFFFF"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnFilterAll"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="All Devices"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_bg"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_marginRight="8dp"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnFilterLiving"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Living Room"
+                android:textColor="#333333"
+                android:background="@drawable/button_bg_secondary"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_marginRight="8dp"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnFilterBackyard"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Backyard"
+                android:textColor="#333333"
+                android:background="@drawable/button_bg_secondary"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Content Scroll -->
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:padding="12dp"
+        android:clipToPadding="false">
 
-        <!-- SCREEN 1: CLICKER GAME (FEED THE DONKEY) -->
-        <ScrollView
-            android:id="@+id/layoutGame"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <!-- Card 1: Smart Thermostat (LIVING ROOM) -->
             <LinearLayout
+                android:id="@+id/cardThermostat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp"
-                android:gravity="center_horizontal">
+                android:background="@drawable/card_bg"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Feed Your Donkey Companion"
-                    android:textColor="#3E2723"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp" />
-
-                <!-- ASCII Visual Representation of Donkey -->
-                <TextView
-                    android:id="@+id/asciiDonkey"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="  ,\\_,\n  (O.O)\n  (   )\n  -\"-\"-"
-                    android:textColor="#5D4037"
-                    android:textSize="42dp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="#EFEBE9"
-                    android:padding="24dp" />
-
-                <!-- Tap Button to Feed -->
-                <Button
-                    android:id="@+id/btnFeedDonkey"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🥕 Feed Donkey a Carrot"
-                    android:textSize="16dp"
-                    android:padding="16dp"
-                    android:background="#E65100"
-                    android:textColor="#FFFFFF"
+                    android:text="Smart Thermostat"
+                    android:textColor="#212121"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <!-- Feeding Progress Tracker -->
-                <TextView
-                    android:id="@+id/textStats"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Carrots Fed: 0"
-                    android:textColor="#3E2723"
-                    android:textSize="16dp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="16dp"/>
-
-                <ProgressBar
-                    android:id="@+id/feedingProgress"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="240dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:max="10"
-                    android:progress="0" />
-
-                <TextView
-                    android:id="@+id/evolutionStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Feed 10 times to Level Up!"
-                    android:textColor="#795548"
-                    android:textSize="12dp"
-                    android:layout_marginTop="5dp" />
-
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- SCREEN 2: DONKEY SOUNDBOARD -->
-        <ScrollView
-            android:id="@+id/layoutSounds"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp"
-                android:gravity="center_horizontal">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Donkey Bray Simulator"
-                    android:textColor="#3E2723"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
+                    android:text="Living Room Climate"
+                    android:textColor="#757575"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="12dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Experience synthetic generated vocalizations"
-                    android:textColor="#795548"
-                    android:textSize="14dp"
-                    android:layout_marginBottom="24dp"
-                    android:gravity="center" />
-
-                <!-- Sound Buttons -->
-                <Button
-                    android:id="@+id/btnBrayClassic"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:padding="16dp"
-                    android:text="📢 Classic Bray (Hee-Haw)"
-                    android:background="#8D6E63"
-                    android:textColor="#FFFFFF" />
+                    android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/btnBrayExcited"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:padding="16dp"
-                    android:text="⚡ Excited Rapid Bray"
-                    android:background="#8D6E63"
-                    android:textColor="#FFFFFF" />
+                    <!-- Temp Indicator Circle -->
+                    <LinearLayout
+                        android:id="@+id/layoutTempCircle"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/circle_temp_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="16dp">
 
-                <Button
-                    android:id="@+id/btnBraySleepy"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:padding="16dp"
-                    android:text="💤 Low Groggy Bray"
-                    android:background="#8D6E63"
-                    android:textColor="#FFFFFF" />
+                        <TextView
+                            android:id="@+id/tvCurrentTemp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="72°F"
+                            android:textColor="#2196F3"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Note: Sounds are synthetically generated directly using raw frequency modulators over standard Android audio channels."
-                    android:textColor="#8D6E63"
-                    android:textSize="11dp"
-                    android:gravity="center"
-                    android:layout_marginTop="20dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Target"
+                            android:textColor="#757575"
+                            android:textSize="10sp" />
+                    </LinearLayout>
 
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- SCREEN 3: DONKEY FACTS & INFORMATION -->
-        <ScrollView
-            android:id="@+id/layoutFacts"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fascinating Donkey Facts"
-                    android:textColor="#3E2723"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="15dp" />
-
-                <!-- Facts Card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#FFFFFF"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:elevation="2dp"
-                    android:layout_marginBottom="16dp">
-
-                    <TextView
-                        android:id="@+id/textFactIndex"
+                    <!-- Control Buttons -->
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Fact #1"
-                        android:textColor="#E65100"
-                        android:textStyle="bold"
-                        android:textSize="12dp" />
+                        android:orientation="vertical"
+                        android:layout_toRightOf="@id/layoutTempCircle"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center">
 
-                    <TextView
-                        android:id="@+id/textFactContent"
+                        <Button
+                            android:id="@+id/btnTempUp"
+                            android:layout_width="120dp"
+                            android:layout_height="38dp"
+                            android:text="Increase (+)"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/button_bg"
+                            android:layout_marginBottom="8dp"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btnTempDown"
+                            android:layout_width="120dp"
+                            android:layout_height="38dp"
+                            android:text="Decrease (-)"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/button_bg"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- Card 2: Smart Lights (LIVING ROOM) -->
+            <LinearLayout
+                android:id="@+id/cardLights"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Main Lights"
+                            android:textColor="#212121"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Living Room System"
+                            android:textColor="#757575"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <Switch
+                        android:id="@+id/switchLights"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:checked="true" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutLightControl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="16dp">
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Donkeys have incredibly strong memories. They can recognize areas and other donkeys they have not seen for up to 25 years."
-                        android:textColor="#3E2723"
-                        android:textSize="16dp" />
+                        android:layout_marginBottom="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Brightness Level"
+                            android:textColor="#212121"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvLightBrightness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="80%"
+                            android:textColor="#2196F3"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:layout_alignParentRight="true" />
+
+                    </RelativeLayout>
+
+                    <SeekBar
+                        android:id="@+id/seekBarBrightness"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="80" />
 
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/btnNextFact"
+            </LinearLayout>
+
+            <!-- Card 3: Smart Lock (BACKYARD) -->
+            <LinearLayout
+                android:id="@+id/cardLock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Main Entrance Lock"
+                            android:textColor="#212121"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Security Node A-1"
+                            android:textColor="#757575"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <Switch
+                        android:id="@+id/switchLock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:checked="true" />
+
+                </RelativeLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="🎲 Next Donkey Fact"
-                    android:background="#5D4037"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginBottom="24dp" />
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical">
 
-                <!-- Donkey Anatomy & Care Guideline Section -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Security Status: "
+                        android:textColor="#757575"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvLockStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SECURE &amp; LOCKED"
+                        android:textColor="#4CAF50"
+                        android:textStyle="bold"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Card 4: Backyard Camera (BACKYARD) -->
+            <LinearLayout
+                android:id="@+id/cardCamera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Care Guidelines"
-                    android:textColor="#3E2723"
-                    android:textSize="16dp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
+                    android:text="Backyard Security Cam"
+                    android:textColor="#212121"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="• Diet: Mainly barley straw, hay, and fresh clean grass in controlled proportions. Too much rich food makes donkeys ill!\n\n• Companionship: Donkeys are highly social herd animals and can develop severe depression if kept solitary without animal companionship.\n\n• Grooming: Regular hoof care from a professional farrier every 6-10 weeks is critical."
-                    android:textColor="#5D4037"
-                    android:textSize="14dp"
-                    android:lineSpacingMultiplier="1.2" />
+                    android:text="Live feed monitoring system"
+                    android:textColor="#757575"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Custom view for Camera Stream -->
+                <com.homecontrol.app.CameraView
+                    android:id="@+id/cameraView"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginBottom="12dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btnCameraTrigger"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="Simulate Alert"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/button_bg"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:textSize="11sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbMotionAlerts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Motion Detection"
+                        android:checked="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:textSize="11sp" />
+
+                </RelativeLayout>
 
             </LinearLayout>
-        </ScrollView>
 
-    </FrameLayout>
+            <!-- Card 5: System Log Panel -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="16dp"
+                android:layout_marginBottom="24dp">
 
-    <!-- Bottom Tab Navigation -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:orientation="horizontal"
-        android:background="#EFEBE9"
-        android:elevation="8dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
 
-        <Button
-            android:id="@+id/tabFeed"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="🌾 Feed"
-            android:background="#D7CCC8"
-            android:textColor="#3E2723"
-            android:textStyle="bold"
-            android:textSize="12dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="System Activity Logs"
+                        android:textColor="#212121"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/tabSounds"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="🔊 Sounds"
-            android:background="#EFEBE9"
-            android:textColor="#5D4037"
-            android:textStyle="bold"
-            android:textSize="12dp" />
+                    <TextView
+                        android:id="@+id/btnClearLogs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CLEAR"
+                        android:textColor="#2196F3"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:clickable="true"
+                        android:focusable="true" />
 
-        <Button
-            android:id="@+id/tabFacts"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="📚 Facts"
-            android:background="#EFEBE9"
-            android:textColor="#5D4037"
-            android:textStyle="bold"
-            android:textSize="12dp" />
+                </RelativeLayout>
 
-    </LinearLayout>
+                <!-- Scrollable Logs list -->
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:background="#FAFAFA"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:id="@+id/layoutLogsContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        
+                        <!-- Dynamic logs go here -->
+
+                    </LinearLayout>
+                </ScrollView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
