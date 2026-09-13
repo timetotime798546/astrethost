@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.schoolcompanion.app"
+    namespace "com.pencilsketchstudio.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.schoolcompanion.app"
+        applicationId "com.pencilsketchstudio.app"
 
         minSdkVersion 21
 
