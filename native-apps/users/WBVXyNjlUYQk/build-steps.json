@@ -2,71 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define Project Metadata",
-      "description": "Configure the core application metadata including app name 'Monkey Fun' and unique bundle package ID 'com.monkeyfun.app' to initialize development environment parameters.",
+      "title": "Configure project metadata",
+      "description": "Define the unique app name 'Donkey World' and package name 'com.donkeyworld.app' to initialize custom builds.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Establish Build Script Parameters",
-      "description": "Create root and module build.gradle configurations targeting compileSdkVersion 34, specifying AGP version 8.3.2, and enabling Java 8 compatibility configurations.",
+      "title": "Establish strict build environment",
+      "description": "Configure build.gradle to use JDK 17, target Android SDK 34, compile SDK 34, and use standard non-AndroidX native components.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Manifest Attributes",
-      "description": "Implement AndroidManifest.xml referencing the launcher activity MainActivity, setting customized hardware-accelerated modes, and declaring direct app icons.",
+      "title": "Set up standard manifest structure",
+      "description": "Declare package name, launcher activity, single screen orientation, and link app icons to standard drawables.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Develop Interactive UI Layout Structure",
-      "description": "Create activity_main.xml containing a vertical orientation split into a tropical-styled header, a multi-panel frame display for navigation panels, and a custom footer tab navigator.",
+      "title": "Design user interface layout",
+      "description": "Create activity_main.xml containing a responsive header, frame layout for dynamic screen switching, and styled tab navigation buttons.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Incorporate Dynamic Audio Synthesis Engine",
-      "description": "Construct pure Java-based AudioTrack synthesizer inside MainActivity to programmatically output distinct monkey noises (screeches, chatters, howl growls, catch alerts) without external media assets.",
-      "files": ["app/src/main/java/com/monkeyfun/app/MainActivity.java"],
+      "title": "Create facts screen engine",
+      "description": "Implement fact carousel logic inside MainActivity, presenting precompiled engaging facts about donkeys.",
+      "files": ["app/src/main/java/com/donkeyworld/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Program Catch the Banana Game Loop",
-      "description": "Design an interactive Custom View inside MainActivity executing a real-time game loop via Handler, processing banana spawning physics, drag-to-catch controls, and collision detection.",
-      "files": ["app/src/main/java/com/monkeyfun/app/MainActivity.java"],
+      "title": "Develop Donkey bray synthesizer",
+      "description": "Use AudioTrack API to synthetically generate distinct 'Hee' and 'Haw' audio frequencies programmatically.",
+      "files": ["app/src/main/java/com/donkeyworld/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Vector Canvas Cartoon Rendering",
-      "description": "Write advanced low-level Canvas draw commands in MainActivity to draw cartoon-like monkey characters (head, mask, eyes, ears, smile) and bananas from basic geometric arcs and paint colors.",
-      "files": ["app/src/main/java/com/monkeyfun/app/MainActivity.java"],
+      "title": "Implement Donkey clicker game",
+      "description": "Program click handlers, dynamic ascii animation, carrot point counter, and levelling system for interactive donkey care.",
+      "files": ["app/src/main/java/com/donkeyworld/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Integrate Monkey Facts Carousel Logic",
-      "description": "Populate an indexed facts library database and implement responsive transitions allowing users to scroll, view, and read fun educational trivia details regarding monkeys.",
-      "files": ["app/src/main/java/com/monkeyfun/app/MainActivity.java"],
+      "title": "Incorporate persistent game storage",
+      "description": "Implement SharedPreferences storage to persist carrot progress, levels, and unlocked facts across app relaunches.",
+      "files": ["app/src/main/java/com/donkeyworld/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Initialize Preference Storage Integration",
-      "description": "Create local storage link via SharedPreferences in MainActivity to store and load player scores, ensuring persistence of the high score record across application reboots.",
-      "files": ["app/src/main/java/com/monkeyfun/app/MainActivity.java"],
+      "title": "Validate layout styling and resources",
+      "description": "Verify system Material theme compatibility, safe color variables, and pure Java-8 backward compatibility features.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Building Monkey Fun",
-      "description": "Compile the complete 'Monkey Fun' application source tree, verifying layout integrity, programmatic sound parameters, canvas loops, and build system configuration.",
+      "title": "Building Donkey World",
+      "description": "Assemble debug APK with optimal configurations for target mobile devices.",
       "files": [],
       "status": "pending"
     }

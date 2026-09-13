@@ -3,339 +3,333 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFEE6">
+    android:background="#F9F6F0">
 
-    <!-- App Header Bar -->
+    <!-- Top Toolbar Header -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="64dp"
         android:background="#5D4037"
-        android:gravity="center"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:elevation="4dp">
 
         <TextView
-            android:id="@+id/app_title"
+            android:id="@+id/appTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Donkey World 🐴"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/levelBadge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🍌 MONKEY PLAYHOUSE 🐒"
-            android:textColor="#FFEB3B"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:background="#8D6E63"
+            android:textColor="#FFFFFF"
+            android:text="Level 1"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
     </LinearLayout>
 
-    <!-- Main Content Area containing mutually exclusive panels -->
+    <!-- Main Container Layout with tab structures -->
     <FrameLayout
-        android:id="@+id/main_content_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <!-- Panel 1: Catch the Banana Game -->
-        <LinearLayout
-            android:id="@+id/panel_game"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="visible">
-
-            <!-- Game Stats Bar -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#8D6E63"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:id="@+id/txt_score"
-                    android:layout_width="0dp"
-                    android:layout_weight="1.2"
-                    android:layout_height="wrap_content"
-                    android:text="Score: 0"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txt_lives"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="Lives: ❤️❤️❤️"
-                    android:textColor="#FFCDD2"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-
-                <TextView
-                    android:id="@+id/txt_highscore"
-                    android:layout_width="0dp"
-                    android:layout_weight="1.2"
-                    android:layout_height="wrap_content"
-                    android:text="Best: 0"
-                    android:textColor="#FFEB3B"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:gravity="right" />
-            </LinearLayout>
-
-            <!-- Container that dynamically holds the Monkey Game Canvas View -->
-            <FrameLayout
-                android:id="@+id/game_canvas_wrapper"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#D1F2D9" />
-        </LinearLayout>
-
-        <!-- Panel 2: Monkey Soundboard -->
+        <!-- SCREEN 1: CLICKER GAME (FEED THE DONKEY) -->
         <ScrollView
-            android:id="@+id/panel_sounds"
+            android:id="@+id/layoutGame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            android:padding="16dp">
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:padding="20dp"
                 android:gravity="center_horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Monkey Sound Synthesizer"
-                    android:textColor="#5D4037"
-                    android:textSize="22sp"
+                    android:text="Feed Your Donkey Companion"
+                    android:textColor="#3E2723"
+                    android:textSize="18dp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="6dp" />
+                    android:layout_marginBottom="10dp" />
 
+                <!-- ASCII Visual Representation of Donkey -->
                 <TextView
+                    android:id="@+id/asciiDonkey"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Press icons below to play real-time synthesized monkey vocalizations!"
-                    android:textColor="#7D665E"
-                    android:textSize="13sp"
+                    android:text="  ,\\_,\n  (O.O)\n  (   )\n  -\"-\"-"
+                    android:textColor="#5D4037"
+                    android:textSize="42dp"
+                    android:textStyle="bold"
                     android:gravity="center"
-                    android:layout_marginBottom="20dp" />
-
-                <Button
-                    android:id="@+id/btn_sound_screech"
-                    android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:text="🐵 Chimpanzee Screech"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:background="#8D6E63"
-                    android:layout_marginBottom="12dp"
-                    android:textAllCaps="false" />
-
-                <Button
-                    android:id="@+id/btn_sound_chatter"
-                    android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:text="🦧 Marmoset Chatter"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:background="#8D6E63"
-                    android:layout_marginBottom="12dp"
-                    android:textAllCaps="false" />
-
-                <Button
-                    android:id="@+id/btn_sound_howl"
-                    android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:text="📣 Howler Monkey Roar"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:background="#8D6E63"
-                    android:layout_marginBottom="12dp"
-                    android:textAllCaps="false" />
-
-                <Button
-                    android:id="@+id/btn_sound_gibbon"
-                    android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:text="🎶 Gibbon Melodic Call"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:background="#8D6E63"
-                    android:layout_marginBottom="12dp"
-                    android:textAllCaps="false" />
-
-                <Button
-                    android:id="@+id/btn_sound_drum"
-                    android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:text="🥁 Jungle Chest Drumming"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:background="#8D6E63"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
-                    android:textAllCaps="false" />
+                    android:background="#EFEBE9"
+                    android:padding="24dp" />
+
+                <!-- Tap Button to Feed -->
+                <Button
+                    android:id="@+id/btnFeedDonkey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🥕 Feed Donkey a Carrot"
+                    android:textSize="16dp"
+                    android:padding="16dp"
+                    android:background="#E65100"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <!-- Feeding Progress Tracker -->
+                <TextView
+                    android:id="@+id/textStats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Carrots Fed: 0"
+                    android:textColor="#3E2723"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"/>
+
+                <ProgressBar
+                    android:id="@+id/feedingProgress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:max="10"
+                    android:progress="0" />
+
+                <TextView
+                    android:id="@+id/evolutionStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Feed 10 times to Level Up!"
+                    android:textColor="#795548"
+                    android:textSize="12dp"
+                    android:layout_marginTop="5dp" />
+
             </LinearLayout>
         </ScrollView>
 
-        <!-- Panel 3: Fun Monkey Facts -->
-        <LinearLayout
-            android:id="@+id/panel_facts"
+        <!-- SCREEN 2: DONKEY SOUNDBOARD -->
+        <ScrollView
+            android:id="@+id/layoutSounds"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="24dp"
             android:visibility="gone">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Did You Know?"
-                android:textColor="#5D4037"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="24dp" />
-
-            <!-- Fact Card -->
             <LinearLayout
-                android:id="@+id/card_fact_container"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:gravity="center"
                 android:padding="20dp"
-                android:layout_marginBottom="24dp"
-                android:elevation="6dp">
+                android:gravity="center_horizontal">
 
                 <TextView
-                    android:id="@+id/txt_fact_emoji"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="💡"
-                    android:textSize="48sp"
-                    android:layout_marginBottom="16dp" />
+                    android:text="Donkey Bray Simulator"
+                    android:textColor="#3E2723"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
 
                 <TextView
-                    android:id="@+id/txt_fact_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Experience synthetic generated vocalizations"
+                    android:textColor="#795548"
+                    android:textSize="14dp"
+                    android:layout_marginBottom="24dp"
+                    android:gravity="center" />
+
+                <!-- Sound Buttons -->
+                <Button
+                    android:id="@+id/btnBrayClassic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Monkeys use rocks to crack open shells and hard fruits!"
-                    android:textColor="#5D4037"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
+                    android:layout_marginBottom="12dp"
+                    android:padding="16dp"
+                    android:text="📢 Classic Bray (Hee-Haw)"
+                    android:background="#8D6E63"
+                    android:textColor="#FFFFFF" />
 
-            <!-- Card Navigation Buttons -->
+                <Button
+                    android:id="@+id/btnBrayExcited"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:padding="16dp"
+                    android:text="⚡ Excited Rapid Bray"
+                    android:background="#8D6E63"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/btnBraySleepy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:padding="16dp"
+                    android:text="💤 Low Groggy Bray"
+                    android:background="#8D6E63"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Note: Sounds are synthetically generated directly using raw frequency modulators over standard Android audio channels."
+                    android:textColor="#8D6E63"
+                    android:textSize="11dp"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- SCREEN 3: DONKEY FACTS & INFORMATION -->
+        <ScrollView
+            android:id="@+id/layoutFacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fascinating Donkey Facts"
+                    android:textColor="#3E2723"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="15dp" />
+
+                <!-- Facts Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:elevation="2dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/textFactIndex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fact #1"
+                        android:textColor="#E65100"
+                        android:textStyle="bold"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/textFactContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Donkeys have incredibly strong memories. They can recognize areas and other donkeys they have not seen for up to 25 years."
+                        android:textColor="#3E2723"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
 
                 <Button
-                    android:id="@+id/btn_fact_prev"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:text="◀ Previous"
+                    android:id="@+id/btnNextFact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🎲 Next Donkey Fact"
+                    android:background="#5D4037"
                     android:textColor="#FFFFFF"
-                    android:layout_marginRight="8dp" />
+                    android:layout_marginBottom="24dp" />
 
-                <Button
-                    android:id="@+id/btn_fact_next"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:text="Next ▶"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginLeft="8dp" />
+                <!-- Donkey Anatomy & Care Guideline Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Care Guidelines"
+                    android:textColor="#3E2723"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Diet: Mainly barley straw, hay, and fresh clean grass in controlled proportions. Too much rich food makes donkeys ill!\n\n• Companionship: Donkeys are highly social herd animals and can develop severe depression if kept solitary without animal companionship.\n\n• Grooming: Regular hoof care from a professional farrier every 6-10 weeks is critical."
+                    android:textColor="#5D4037"
+                    android:textSize="14dp"
+                    android:lineSpacingMultiplier="1.2" />
+
             </LinearLayout>
-        </LinearLayout>
+        </ScrollView>
+
     </FrameLayout>
 
-    <!-- Navigation Footer Bar -->
+    <!-- Bottom Tab Navigation -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="#4E342E"
+        android:layout_height="56dp"
         android:orientation="horizontal"
-        android:padding="4dp">
+        android:background="#EFEBE9"
+        android:elevation="8dp">
 
-        <LinearLayout
-            android:id="@+id/btn_nav_game"
+        <Button
+            android:id="@+id/tabFeed"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
+            android:text="🌾 Feed"
+            android:background="#D7CCC8"
+            android:textColor="#3E2723"
+            android:textStyle="bold"
+            android:textSize="12dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🎮"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/lbl_nav_game"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Play Game"
-                android:textColor="#FFEB3B"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btn_nav_sounds"
+        <Button
+            android:id="@+id/tabSounds"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
+            android:text="🔊 Sounds"
+            android:background="#EFEBE9"
+            android:textColor="#5D4037"
+            android:textStyle="bold"
+            android:textSize="12dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="📢"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/lbl_nav_sounds"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Soundboard"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btn_nav_facts"
+        <Button
+            android:id="@+id/tabFacts"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
+            android:text="📚 Facts"
+            android:background="#EFEBE9"
+            android:textColor="#5D4037"
+            android:textStyle="bold"
+            android:textSize="12dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="💡"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/lbl_nav_facts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Facts"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp" />
-        </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.monkeyfun.app"
+    namespace "com.donkeyworld.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.monkeyfun.app"
+        applicationId "com.donkeyworld.app"
 
         minSdkVersion 21
 
