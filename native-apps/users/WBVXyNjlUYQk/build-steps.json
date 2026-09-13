@@ -1,0 +1,106 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define App Specifications and Package Name",
+      "description": "Configure metadata inside app-meta.json for Notes Master app using unique package 'com.notesmaster.app'.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Establish Gradle Settings Configuration",
+      "description": "Define root project settings in settings.gradle with central dependency repositories.",
+      "files": ["settings.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Root Build Gradle",
+      "description": "Set up top-level build script specifying the exact Android Gradle Plugin (AGP) version 8.3.2.",
+      "files": ["build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure App-Level Build Gradle",
+      "description": "Set compiler configurations targeting SDK 34 and Java 1.8 compatibility options with no external dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Android Manifest Layout",
+      "description": "Define launcher intents, permissions, and set default Material Light system theme without AndroidX namespaces.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Note Entity Class",
+      "description": "Establish the standard POJO class Note to store identifiers, title, content, custom category, and timestamp values.",
+      "files": ["app/src/main/java/com/notesmaster/app/Note.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build SQLite Database Helper",
+      "description": "Develop DatabaseHelper to manage local tables, schema creations, pre-populating dummy starter notes and categories.",
+      "files": ["app/src/main/java/com/notesmaster/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design App Main Layout Screen",
+      "description": "Build layout containing toolbar, quick Category creation triggers, Search edit field, Filter spinner, Empty state view, and FAB.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Note Row Item Template",
+      "description": "Draft list row view to clearly display titles, categories, description snippets, date-times, and dynamic deletion action button.",
+      "files": ["app/src/main/res/layout/note_item.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design Dialog Layout for Note Form",
+      "description": "Implement customized popup inputs allowing user title text entry, multi-line content typing, and choosing dynamic categories.",
+      "files": ["app/src/main/res/layout/dialog_note.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Dialog Layout for Custom Categories",
+      "description": "Implement compact input template allowing creation of custom unique categories.",
+      "files": ["app/src/main/res/layout/dialog_category.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Standard custom Adapter for Notes",
+      "description": "Create NoteAdapter extending BaseAdapter linking dataset records directly to layout UI component targets.",
+      "files": ["app/src/main/java/com/notesmaster/app/NoteAdapter.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Develop Main Logic and Event Handlers",
+      "description": "Implement Note filtering, real-time TextWatcher search, edit click triggers, delete confirmation logic, and dialog interactions in MainActivity.",
+      "files": ["app/src/main/java/com/notesmaster/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Verify Namespaces and Manifest Integrity",
+      "description": "Double check all xmlns declarations and verify that launcher activities match strict Java target frameworks.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Notes Master"
+    }
+  ]
+}
