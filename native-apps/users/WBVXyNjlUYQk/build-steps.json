@@ -2,99 +2,106 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze simple app requirements and plan layout",
-      "description": "Design a clean, lightweight interactive clicker and quote app called Simple Joy.",
+      "title": "Analyze and Plan Modern Calculator Requirements",
+      "description": "Design an interactive, feature-rich calculator with custom dark/light theme capabilities and expression parsing.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 2,
       "title": "Create application metadata configuration in app-meta.json",
-      "description": "Set up metadata file at the root containing app_name and package_name.",
+      "description": "Define app_name and package_name variables specifically for Modern Calculator.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure build.gradle with Gradle 8.5 and SDK 34",
-      "description": "Set up build environment with target SDK 34, min SDK 21, and compatible plugins.",
-      "files": ["app/build.gradle"],
+      "title": "Configure top-level build.gradle dependencies",
+      "description": "Establish target SDK 34, Android Gradle Plugin 8.3.2, and repository options.",
+      "files": ["build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create AndroidManifest.xml with correct namespace",
-      "description": "Configure permissions, application tag, main activity, and standard material theme without AndroidX dependency.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Configure settings.gradle with target project structure",
+      "description": "Include the app module within the root gradle compilation tree.",
+      "files": ["settings.gradle"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Design the UI layout in activity_main.xml",
-      "description": "Create an elegant user interface using LinearLayout, ScrollView, custom buttons, card-like displays, and TextView elements.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Implement MainActivity.java lifecycle and initialization",
-      "description": "Set up the Java package structure and class implementation for com.simplejoy.app.",
-      "files": ["app/src/main/java/com/simplejoy/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Implement clicker counter state logic",
-      "description": "Add an interactive click counter that increments when the main action button is pressed.",
-      "files": ["app/src/main/java/com/simplejoy/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Implement dynamic inspirational quote generator",
-      "description": "Store a selection of uplifting and simple quotes, displaying a new one upon interactive clicks.",
-      "files": ["app/src/main/java/com/simplejoy/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Implement dynamic background color changer",
-      "description": "Enable users to switch between delightful preset color palettes dynamically to make the app interactive and fun.",
-      "files": ["app/src/main/java/com/simplejoy/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Implement click counter reset options",
-      "description": "Add logic to reset click statistics and the background palette back to defaults.",
-      "files": ["app/src/main/java/com/simplejoy/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Ensure strict Java 8 compatibility",
-      "description": "Ensure the app uses anonymous inner classes for click events instead of lambdas or modern streams.",
-      "files": ["app/src/main/java/com/simplejoy/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Verify namespace validation and formatting",
-      "description": "Check AndroidManifest.xml and activity layouts to guarantee perfect standard-compliant XML attributes.",
-      "files": ["app/src/main/AndroidManifest.xml", "app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Validate build setup cleanliness",
-      "description": "Confirm that no AndroidX, material, or external gradle dependencies are used, preventing compilation errors.",
+      "title": "Configure app/build.gradle with build settings",
+      "description": "Configure the core app environment including target and min SDK, and ensure Java 8 compliance.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
+      "step": 6,
+      "title": "Create AndroidManifest.xml and verify namespace",
+      "description": "Validate system attributes using standard namespaces and point launch intents directly to MainActivity.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design layout xml with a beautiful, responsive key layout",
+      "description": "Construct activity_main.xml layout with structured vertical displays, operation pads, and theme toggling controllers.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement core UI elements and layout binding",
+      "description": "Write standard native bindings inside MainActivity.java referencing all digit pads, display monitors, and control buttons.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop mathematical expression parser engine",
+      "description": "Write a lightweight, robust custom math evaluator in pure Java 8 to compute multi-operator formulas.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement input processing logic",
+      "description": "Build state management mechanisms to handle numeric inputs, operations, parentheses, backspacing, and input clear options.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement interactive light/dark UI themes",
+      "description": "Establish dynamic theme changes that alter layout backgrounds, display colors, and button styling programmatically.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement mathematical history memory log",
+      "description": "Add continuous calculation memory tracking and present logs directly to display screens.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Apply Java 8 compiler validation checks",
+      "description": "Ensure no lambdas, streams, or un-supported components compile within the code structure.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
       "step": 14,
-      "title": "Building Simple Joy",
-      "description": "Kick off the automated debug compilation task using Gradle 8.5 to generate the final APK.",
+      "title": "Verify final XML syntax and asset references",
+      "description": "Double check the validity of Android system resources, icon settings, and attribute layouts.",
+      "files": ["app/src/main/res/layout/activity_main.xml", "app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Modern Calculator",
+      "description": "Compile the complete package using Gradle 8.5 assemble commands to deliver the final functional APK.",
       "files": [],
       "status": "pending"
     }
