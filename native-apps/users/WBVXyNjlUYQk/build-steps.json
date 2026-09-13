@@ -1,0 +1,110 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Initialization",
+      "description": "Configure metadata for the School Companion app, defining the application name and base package structure to ensure clean environment setup.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Gradle Build Configuration",
+      "description": "Setup app/build.gradle to target Android SDK 34, run on Java 17 toolchain, and configure Android Gradle Plugin 8.3.2 without third-party dependencies.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Manifest and Security Setup",
+      "description": "Define AndroidManifest.xml containing application configuration, launching activity, and theme attributes targeting the built-in Material theme.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "UI Dashboard Layout Design",
+      "description": "Create activity_main.xml layout employing a modern tab-less navigation design using pure Android Views, allowing seamless switching between Schedule, Tasks, GPA, and Notes.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Main Activity Shell Setup",
+      "description": "Create MainActivity.java file with standard lifecycle callbacks, initialization routines, and view referencing structures.",
+      "files": [
+        "app/src/main/java/com/schoolcompanion/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Navigation Controller Implementation",
+      "description": "Develop navigation engine using vanilla Android Buttons and View visibility states to manage application tabs dynamically without heavy view-pager libraries.",
+      "files": [
+        "app/src/main/java/com/schoolcompanion/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Schedule Manager Implementation",
+      "description": "Build the Class Schedule system supporting dynamic class addition, displaying schedules by weekday, and locally caching items using Android SharedPreferences and built-in JSON parsing.",
+      "files": [
+        "app/src/main/java/com/schoolcompanion/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Assignment Task Tracker",
+      "description": "Implement Task/Assignment tracker letting users add, complete, and delete assignments dynamically. Handled inside SharedPreferences for robust offline data persistence.",
+      "files": [
+        "app/src/main/java/com/schoolcompanion/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "GPA Calculator Engine",
+      "description": "Build dynamic GPA calculator tab allowing users to add course names, letter grades, and credits, converting them immediately to standard 4.0 GPA points programmatically.",
+      "files": [
+        "app/src/main/java/com/schoolcompanion/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "School Notepad Feature",
+      "description": "Incorporate class notes module enabling prompt creation, storage, and retrieval of multi-line class notes to prevent losing vital school information.",
+      "files": [
+        "app/src/main/java/com/schoolcompanion/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Java 8 Quality and Compatibility Audit",
+      "description": "Verify code strictly employs anonymous inner classes and standard collections, omitting any Java 9+ features or lambda expressions to ensure 100% build compatibility.",
+      "files": [
+        "app/src/main/java/com/schoolcompanion/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building School Companion",
+      "description": "Initiate compilation, assemble resources, compile layout files, process source code, and package the executable Android Application Package (APK).",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

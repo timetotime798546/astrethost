@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_match"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F6FA">
+
+    <!-- App Custom Toolbar Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#2E3A59"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="School Companion"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Custom Navigation Tabs (Pure Android SDK compatibility) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <Button
+            android:id="@+id/btn_tab_schedule"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="Schedule"
+            android:textAllCaps="false"
+            android:textColor="#2E3A59"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_tab_tasks"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="Tasks"
+            android:textAllCaps="false"
+            android:textColor="#7F8C8D"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_tab_gpa"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="GPA"
+            android:textAllCaps="false"
+            android:textColor="#7F8C8D"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_tab_notes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="Notes"
+            android:textAllCaps="false"
+            android:textColor="#7F8C8D"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- Active Tab Indicator Line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#BDC3C7" />
+
+    <!-- Frame Content Container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- ==================== TAB 1: SCHEDULE ==================== -->
+        <ScrollView
+            android:id="@+id/container_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Class Schedule"
+                    android:textColor="#2E3A59"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Add Class Form -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:padding="12dp"
+                    android:elevation="2dp"
+                    android:layout_marginBottom="16dp">
+
+                    <EditText
+                        android:id="@+id/et_class_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:hint="Class Name (e.g. Mathematics)"
+                        android:textSize="14sp"
+                        android:background="@android:drawable/editbox_background"
+                        android:paddingLeft="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:inputType="textCapWords" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp"
+                        android:weightSum="2">
+
+                        <Spinner
+                            android:id="@+id/spinner_class_day"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:layout_marginRight="4dp" />
+
+                        <EditText
+                            android:id="@+id/et_class_time"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:hint="Time (e.g. 09:30 AM)"
+                            android:textSize="14sp"
+                            android:background="@android:drawable/editbox_background"
+                            android:paddingLeft="8dp"
+                            android:layout_marginLeft="4dp"
+                            android:inputType="text" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/et_class_room"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:hint="Room/Location (e.g. Room 302)"
+                        android:textSize="14sp"
+                        android:background="@android:drawable/editbox_background"
+                        android:paddingLeft="8dp"
+                        android:layout_marginBottom="10dp"
+                        android:inputType="textCapWords" />
+
+                    <Button
+                        android:id="@+id/btn_add_class"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="#2E3A59"
+                        android:text="Add to Schedule"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Classes"
+                    android:textColor="#2E3A59"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Dynamic Schedule Container -->
+                <LinearLayout
+                    android:id="@+id/layout_schedule_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ==================== TAB 2: TASKS/ASSIGNMENTS ==================== -->
+        <ScrollView
+            android:id="@+id/container_tasks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Homework / Task"
+                    android:textColor="#2E3A59"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Add Task Form -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:padding="12dp"
+                    android:elevation="2dp"
+                    android:layout_marginBottom="16dp">
+
+                    <EditText
+                        android:id="@+id/et_task_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:hint="Assignment Title (e.g. Read Chapter 5)"
+                        android:textSize="14sp"
+                        android:background="@android:drawable/editbox_background"
+                        android:paddingLeft="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:inputType="textCapSentences" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp"
+                        android:weightSum="2">
+
+                        <EditText
+                            android:id="@+id/et_task_subject"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:hint="Subject (e.g. History)"
+                            android:textSize="14sp"
+                            android:background="@android:drawable/editbox_background"
+                            android:paddingLeft="8dp"
+                            android:layout_marginRight="4dp"
+                            android:inputType="textCapWords" />
+
+                        <EditText
+                            android:id="@+id/et_task_due"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:hint="Due Date (e.g. Friday)"
+                            android:textSize="14sp"
+                            android:background="@android:drawable/editbox_background"
+                            android:paddingLeft="8dp"
+                            android:layout_marginLeft="4dp"
+                            android:inputType="text" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_add_task"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="#2E3A59"
+                        android:text="Add Task"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pending Assignments"
+                    android:textColor="#2E3A59"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Dynamic Tasks Container -->
+                <LinearLayout
+                    android:id="@+id/layout_tasks_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ==================== TAB 3: GPA CALCULATOR ==================== -->
+        <ScrollView
+            android:id="@+id/container_gpa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- GPA Summary card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#2E3A59"
+                    android:padding="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your Semester GPA"
+                        android:textColor="#BDC3C7"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_gpa_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.00"
+                        android:textColor="#FFFFFF"
+                        android:textSize="48sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Course Grade"
+                    android:textColor="#2E3A59"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Add Course GPA Form -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:padding="12dp"
+                    android:elevation="2dp"
+                    android:layout_marginBottom="16dp">
+
+                    <EditText
+                        android:id="@+id/et_course_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:hint="Course Name (e.g. Physics)"
+                        android:textSize="14sp"
+                        android:background="@android:drawable/editbox_background"
+                        android:paddingLeft="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:inputType="textCapWords" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginRight="4dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Grade"
+                                android:textSize="10sp"
+                                android:textColor="#7F8C8D" />
+                            <Spinner
+                                android:id="@+id/spinner_gpa_grade"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="4dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Credits"
+                                android:textSize="10sp"
+                                android:textColor="#7F8C8D" />
+                            <Spinner
+                                android:id="@+id/spinner_gpa_credits"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_add_course"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="#2E3A59"
+                        android:text="Add Course"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Course List"
+                    android:textColor="#2E3A59"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Dynamic Course List -->
+                <LinearLayout
+                    android:id="@+id/layout_course_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ==================== TAB 4: PERSONAL NOTES ==================== -->
+        <ScrollView
+            android:id="@+id/container_notes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quick School Notes"
+                    android:textColor="#2E3A59"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Add Note Form -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:padding="12dp"
+                    android:elevation="2dp"
+                    android:layout_marginBottom="16dp">
+
+                    <EditText
+                        android:id="@+id/et_note_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:hint="Note Title (e.g. Project Ideas)"
+                        android:textSize="14sp"
+                        android:background="@android:drawable/editbox_background"
+                        android:paddingLeft="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:inputType="textCapSentences" />
+
+                    <EditText
+                        android:id="@+id/et_note_body"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:hint="Type details here..."
+                        android:textSize="14sp"
+                        android:background="@android:drawable/editbox_background"
+                        android:gravity="top|left"
+                        android:padding="8dp"
+                        android:layout_marginBottom="10dp"
+                        android:inputType="textMultiLine"
+                        android:scrollbars="vertical" />
+
+                    <Button
+                        android:id="@+id/btn_add_note"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="#2E3A59"
+                        android:text="Save Note"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Saved Notes"
+                    android:textColor="#2E3A59"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Dynamic Notes Container -->
+                <LinearLayout
+                    android:id="@+id/layout_notes_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</LinearLayout>
