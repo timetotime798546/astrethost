@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.notesmaster.app"
+    namespace "com.randomizerpro.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.notesmaster.app"
+        applicationId "com.randomizerpro.app"
 
         minSdkVersion 21
 
