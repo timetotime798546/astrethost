@@ -2,85 +2,103 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure App Metadata",
-      "description": "Define unique app name 'Uniq' and target package 'com.uniq.app' within app-meta.json for standard deployment.",
+      "title": "Define SoundScape Studio architecture",
+      "description": "Establish the project layout and core requirements for real-time stereophonic sound synthesis using only pure Java Android SDK APIs.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Setup Build Configuration",
-      "description": "Configure build.gradle with proper Android SDK (34) compliance, Java 17 compatibility environment, and dependencies-free build target.",
+      "title": "Configure Build Tools & Gradle",
+      "description": "Set up build.gradle with proper compilation options, setting targetSdkVersion to 34, AGP to 8.3.2, and enabling Java 8 compatibility.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Create Android Manifest",
-      "description": "Declare AndroidManifest.xml, matching packaging, launcher configurations, and system Theme.Material.Light settings.",
+      "title": "Create Native Android Manifest",
+      "description": "Configure the AndroidManifest.xml file, ensuring correct namespace definition, defining application permissions, orientation settings, and launcher metadata.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design App Colors & Theme resources",
-      "description": "Set up clean material styling, colors, margins, and branding specifications in values assets.",
-      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
+      "title": "Establish Dark Synth Colors",
+      "description": "Create standard Android XML resources for colors, setting a highly-immersive futuristic Dark Synth style palette.",
+      "files": ["app/src/main/res/values/colors.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Build Main Interface Layout",
-      "description": "Create a fully functional multi-tab interactive layout inside activity_main.xml including Deduplicator, Comparison Diff, and Generator components.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Develop Premium UI Backgrounds",
+      "description": "Build custom state drawables for buttons, active gradients, and card backgrounds to deliver a responsive, physical feel to standard layouts.",
+      "files": [
+        "app/src/main/res/drawable/card_background.xml",
+        "app/src/main/res/drawable/button_active.xml",
+        "app/src/main/res/drawable/button_inactive.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Develop Tab Handling System",
-      "description": "Program custom tab state toggling dynamically between modules (Deduplicate, List Compare, and Unique Generator) using clean View state alterations.",
-      "files": ["app/src/main/java/com/uniq/app/MainActivity.java"],
+      "title": "Design SoundWaveVisualizer View",
+      "description": "Create a custom Android View component designed to render interactive dual-channel waveforms utilizing custom Paint, Canvas, and animation triggers.",
+      "files": ["app/src/main/java/com/soundscapestudio/app/SoundWaveVisualizer.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Deduplicator Engine",
-      "description": "Code string tokenizer, case-insensitive mapping, item trimming, alpha/numeric sorting, and duplication frequencies calculation.",
-      "files": ["app/src/main/java/com/uniq/app/MainActivity.java"],
+      "title": "Design Premium Studio Layout",
+      "description": "Assemble activity_main.xml layout inside a ScrollView, laying out preset selection buttons, precise SeekBars for carrier/beat tuners, mixing control panels, and sleep timer.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement List Comparison Diff Engine",
-      "description": "Create high-performance algorithms to identify unique entities from List A, unique entities from List B, common items, and general union.",
-      "files": ["app/src/main/java/com/uniq/app/MainActivity.java"],
+      "title": "Implement Continuous Audio Synthesizer",
+      "description": "Write high-fidelity math formulas inside SoundScape Studio synthesis loop using phase accumulation to enable smooth frequency sweeps.",
+      "files": ["app/src/main/java/com/soundscapestudio/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Unique Random Generator",
-      "description": "Construct randomized password, character key, and bounded number generation logics maintaining zero repetitions.",
-      "files": ["app/src/main/java/com/uniq/app/MainActivity.java"],
+      "title": "Implement Rain and Ocean FX Modulators",
+      "description": "Embed noise filters and low-frequency oscillation math models to simulate rain patters and wave sweeps without audio files.",
+      "files": ["app/src/main/java/com/soundscapestudio/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Integrate System Clipboard and Share Intent Services",
-      "description": "Allow copying outputs to standard device clipboard with notifications and native sharing of filtered results.",
-      "files": ["app/src/main/java/com/uniq/app/MainActivity.java"],
+      "title": "Create Preset Configuration System",
+      "description": "Program pre-defined brainwave settings (Focus, Deep Meditation, Deep Sleep, High Alert, Schumann Resonance) and wire them to quick-selection triggers.",
+      "files": ["app/src/main/java/com/soundscapestudio/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Validation and Code Cleanup",
-      "description": "Strict compliance validation with Java 8 limitations, verifying omission of stream APIs, lambda functions, or external packages.",
-      "files": ["app/src/main/java/com/uniq/app/MainActivity.java"],
+      "title": "Develop Automatic Sleep Timer with Fade-out",
+      "description": "Write background countdown task using handler callbacks to slowly adjust master sound gain down over the final 15 seconds before auto-shutoff.",
+      "files": ["app/src/main/java/com/soundscapestudio/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Building Uniq",
-      "description": "Execute native Android Gradle compiler system to build high-performance clean application.",
+      "title": "Incorporate Educational Dialog",
+      "description": "Provide a clean native dialog explaining Binaural physics, brainwave levels (Alpha, Beta, Delta, Gamma, Theta), and mandatory stereo headwear guidelines.",
+      "files": ["app/src/main/java/com/soundscapestudio/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Review Java 8 and Thread Safety",
+      "description": "Validate that there are no lambda functions, stream APIs, or unsafe variable access between the rendering main UI and the audio production thread.",
+      "files": ["app/src/main/java/com/soundscapestudio/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building SoundScape Studio",
+      "description": "Compile raw source files, layouts, and resource scripts into a fully debuggable APK.",
       "files": [],
       "status": "pending"
     }

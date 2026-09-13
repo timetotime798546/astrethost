@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.uniq.app"
+    namespace "com.soundscapestudio.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.uniq.app"
+        applicationId "com.soundscapestudio.app"
 
         minSdkVersion 21
 

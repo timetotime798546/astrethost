@@ -1,587 +1,442 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_match"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#F8FAFC">
+    android:background="@color/background_dark"
+    android:fillViewport="true">
 
-    <!-- Header Toolbar -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#0F172A"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <TextView
-            android:layout_width="0dp"
+        <!-- Title / Header Panel -->
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Uniq • Deduplicator &amp; Tools"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            android:layout_marginBottom="16dp">
 
-    <!-- Top Tabs -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal"
-        android:background="#020617">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentStart="true">
 
-        <Button
-            android:id="@+id/btn_tab_dedup"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/tab_dedup"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:background="?android:attr/selectableItemBackground"
-            android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SoundScape Studio"
+                    android:textColor="@color/text_white"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_tab_compare"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/tab_compare"
-            android:textColor="#80FFFFFF"
-            android:textSize="12sp"
-            android:background="?android:attr/selectableItemBackground" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Binaural Synthesizer &amp; Noise Generator"
+                    android:textColor="@color/text_gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_tab_gen"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/tab_generate"
-            android:textColor="#80FFFFFF"
-            android:textSize="12sp"
-            android:background="?android:attr/selectableItemBackground" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/btn_info"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:background="@drawable/button_inactive"
+                android:text="?"
+                android:textColor="@color/accent_blue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
-    <!-- Tab Contents in ScrollView -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true">
+        <!-- Visualizer view -->
+        <com.soundscapestudio.app.SoundWaveVisualizer
+            android:id="@+id/wave_visualizer"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginBottom="20dp" />
 
+        <!-- Quick State Presets -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
 
-            <!-- ================== TAB 1: DEDUPLICATOR ================== -->
-            <LinearLayout
-                android:id="@+id/layout_dedup"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BRAINWAVE TARGET PRESETS"
+                android:textColor="@color/accent_green"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="12dp" />
+
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="visible">
+                android:scrollbars="none">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Paste Input List Below:"
-                    android:textColor="#1E293B"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="6dp" />
-
-                <EditText
-                    android:id="@+id/et_dedup_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:background="@android:drawable/edit_text"
-                    android:gravity="top|left"
-                    android:hint="apple\nbanana\napple\norange\nbanana\n(Items separated by line or delimiter)"
-                    android:padding="10dp"
-                    android:textSize="14sp"
-                    android:inputType="textMultiLine"
-                    android:scrollbars="vertical" />
-
-                <!-- Delimiter Selector -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Separator: "
-                        android:textColor="#1E293B"
-                        android:textSize="13sp" />
-
-                    <Spinner
-                        android:id="@+id/spinner_dedup_delimiter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp" />
-                </LinearLayout>
-
-                <!-- Options checkboxes -->
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:columnCount="2"
-                    android:rowCount="2"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp">
-
-                    <CheckBox
-                        android:id="@+id/cb_dedup_case"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ignore Case"
-                        android:textSize="13sp" />
-
-                    <CheckBox
-                        android:id="@+id/cb_dedup_trim"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Trim Spaces"
-                        android:checked="true"
-                        android:textSize="13sp" />
-
-                    <CheckBox
-                        android:id="@+id/cb_dedup_sort"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sort A-Z"
-                        android:textSize="13sp" />
-
-                    <CheckBox
-                        android:id="@+id/cb_dedup_freq"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Show Frequency"
-                        android:textSize="13sp" />
-                </GridLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="16dp">
+                    android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/btn_dedup_run"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="Filter Unique"
-                        android:background="#2563EB"
-                        android:textColor="#FFFFFF" />
-
-                    <Button
-                        android:id="@+id/btn_dedup_clear"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="8dp"
-                        android:text="Clear"
-                        android:background="#64748B"
-                        android:textColor="#FFFFFF" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- ================== TAB 2: LIST COMPARER ================== -->
-            <LinearLayout
-                android:id="@+id/layout_compare"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="List A:"
-                    android:textColor="#1E293B"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="4dp" />
-
-                <EditText
-                    android:id="@+id/et_compare_a"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="@android:drawable/edit_text"
-                    android:gravity="top|left"
-                    android:hint="A1\nA2\nA3"
-                    android:padding="8dp"
-                    android:textSize="14sp"
-                    android:inputType="textMultiLine" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="List B:"
-                    android:textColor="#1E293B"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="4dp" />
-
-                <EditText
-                    android:id="@+id/et_compare_b"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="@android:drawable/edit_text"
-                    android:gravity="top|left"
-                    android:hint="A2\nA3\nA4"
-                    android:padding="8dp"
-                    android:textSize="14sp"
-                    android:inputType="textMultiLine" />
-
-                <!-- Comparison Operation Selector -->
-                <RadioGroup
-                    android:id="@+id/rg_compare_op"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp">
-
-                    <RadioButton
-                        android:id="@+id/rb_only_a"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Unique to List A only (A - B)"
-                        android:checked="true"
-                        android:textSize="13sp" />
-
-                    <RadioButton
-                        android:id="@+id/rb_only_b"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Unique to List B only (B - A)"
-                        android:textSize="13sp" />
-
-                    <RadioButton
-                        android:id="@+id/rb_intersect"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Common items (Intersection of A &amp; B)"
-                        android:textSize="13sp" />
-
-                    <RadioButton
-                        android:id="@+id/rb_union"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="All unique merged (Union of A &amp; B)"
-                        android:textSize="13sp" />
-                </RadioGroup>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="16dp">
-
-                    <Button
-                        android:id="@+id/btn_compare_run"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="Compare Lists"
-                        android:background="#2563EB"
-                        android:textColor="#FFFFFF" />
-
-                    <Button
-                        android:id="@+id/btn_compare_clear"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="8dp"
-                        android:text="Clear"
-                        android:background="#64748B"
-                        android:textColor="#FFFFFF" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- ================== TAB 3: UNIQUE GENERATOR ================== -->
-            <LinearLayout
-                android:id="@+id/layout_gen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Unique Generator Mode:"
-                    android:textColor="#1E293B"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="6dp" />
-
-                <Spinner
-                    android:id="@+id/spinner_gen_type"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp" />
-
-                <!-- Config layout for Numbers -->
-                <LinearLayout
-                    android:id="@+id/panel_gen_numbers"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="visible">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:layout_width="80dp"
-                            android:layout_height="wrap_content"
-                            android:text="Min range:"
-                            android:textSize="13sp"/>
-
-                        <EditText
-                            android:id="@+id/et_num_min"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:inputType="numberSigned"
-                            android:text="1"
-                            android:textSize="14sp"/>
-
-                        <TextView
-                            android:layout_width="80dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:text="Max range:"
-                            android:textSize="13sp"/>
-
-                        <EditText
-                            android:id="@+id/et_num_max"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:inputType="numberSigned"
-                            android:text="100"
-                            android:textSize="14sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:text="Count to Gen:"
-                            android:textSize="13sp"/>
-
-                        <EditText
-                            android:id="@+id/et_num_count"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:text="10"
-                            android:textSize="14sp"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Config layout for Passwords/Strings -->
-                <LinearLayout
-                    android:id="@+id/panel_gen_strings"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:layout_width="110dp"
-                            android:layout_height="wrap_content"
-                            android:text="String Length:"
-                            android:textSize="13sp"/>
-
-                        <EditText
-                            android:id="@+id/et_str_len"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:text="12"
-                            android:textSize="14sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:layout_width="110dp"
-                            android:layout_height="wrap_content"
-                            android:text="Count to Gen:"
-                            android:textSize="13sp"/>
-
-                        <EditText
-                            android:id="@+id/et_str_count"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:text="5"
-                            android:textSize="14sp"/>
-                    </LinearLayout>
-
-                    <GridLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:columnCount="2"
-                        android:layout_marginBottom="8dp">
-
-                        <CheckBox
-                            android:id="@+id/cb_str_upper"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Uppercase (A-Z)"
-                            android:checked="true"
-                            android:textSize="12sp"/>
-
-                        <CheckBox
-                            android:id="@+id/cb_str_lower"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lowercase (a-z)"
-                            android:checked="true"
-                            android:textSize="12sp"/>
-
-                        <CheckBox
-                            android:id="@+id/cb_str_digits"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Numbers (0-9)"
-                            android:checked="true"
-                            android:textSize="12sp"/>
-
-                        <CheckBox
-                            android:id="@+id/cb_str_special"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Symbols (!@#$)"
-                            android:checked="false"
-                            android:textSize="12sp"/>
-                    </GridLayout>
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btn_gen_run"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Generate Unique Set"
-                    android:background="#2563EB"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="16dp" />
-            </LinearLayout>
-
-            <!-- ================== COMMON RESULTS PANEL ================== -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:padding="12dp"
-                android:layout_marginTop="8dp"
-                android:elevation="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="6dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Output Log / Results:"
-                        android:textColor="#1E293B"
-                        android:textSize="14sp"
+                        android:id="@+id/btn_preset_focus"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/button_active"
+                        android:text="Focus\n(15Hz)"
+                        android:textColor="@color/text_white"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/tv_status_info"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Empty"
-                        android:textColor="#2563EB"
-                        android:textStyle="bold"
-                        android:textSize="12sp" />
+                    <Button
+                        android:id="@+id/btn_preset_meditation"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/button_inactive"
+                        android:text="Meditate\n(6Hz)"
+                        android:textColor="@color/text_white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_preset_sleep"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/button_inactive"
+                        android:text="Deep Sleep\n(2.5Hz)"
+                        android:textColor="@color/text_white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_preset_gamma"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/button_inactive"
+                        android:text="Gamma Alert\n(40Hz)"
+                        android:textColor="@color/text_white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_preset_schumann"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/button_inactive"
+                        android:text="Schumann\n(7.83Hz)"
+                        android:textColor="@color/text_white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
 
-                <EditText
-                    android:id="@+id/et_output"
-                    android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:background="@android:drawable/edit_text"
-                    android:gravity="top|left"
-                    android:hint="Unified clean results will print here..."
-                    android:padding="10dp"
-                    android:textSize="14sp"
-                    android:inputType="textMultiLine"
-                    android:editable="false"
-                    android:focusable="false"
-                    android:scrollbars="vertical" />
+        <!-- Binaural Waves Fine-Tuner -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
 
-                <!-- Action Toolbar for Results -->
-                <LinearLayout
-                    android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SYNTHESIZER FINE TUNING"
+                android:textColor="@color/accent_blue"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="14dp" />
+
+            <!-- Carrier Frequency -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+                <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp"
-                    android:gravity="right">
+                    android:layout_weight="1"
+                    android:text="Carrier (Base Pitch)"
+                    android:textColor="@color/text_white"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/tv_carrier_val"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="250 Hz"
+                    android:textColor="@color/accent_blue"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <SeekBar
+                android:id="@+id/sb_carrier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:max="900"
+                android:progress="150" />
 
-                    <Button
-                        android:id="@+id/btn_action_copy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Copy Output"
-                        android:textSize="12sp"
-                        android:background="#0F172A"
-                        android:textColor="#FFFFFF"
-                        android:layout_marginRight="8dp" />
+            <!-- Beat Frequency -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Beat Frequency (Difference)"
+                    android:textColor="@color/text_white"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/tv_beat_val"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15.0 Hz"
+                    android:textColor="@color/accent_green"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <SeekBar
+                android:id="@+id/sb_beat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="490"
+                android:progress="140" />
+        </LinearLayout>
 
-                    <Button
-                        android:id="@+id/btn_action_share"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Share Output"
-                        android:textSize="12sp"
-                        android:background="#0F172A"
-                        android:textColor="#FFFFFF" />
-                </LinearLayout>
+        <!-- Dynamic FX Mixer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STUDIO MIXER"
+                android:textColor="@color/accent_blue"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="14dp" />
+
+            <!-- Wave Volume -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Binaural Beats Volume"
+                    android:textColor="@color/text_white"
+                    android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/tv_vol_binaural"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50%"
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
+            <SeekBar
+                android:id="@+id/sb_vol_binaural"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:max="100"
+                android:progress="50" />
+
+            <!-- Soft Rain -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Procedural Soft Rain"
+                    android:textColor="@color/text_white"
+                    android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/tv_vol_rain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20%"
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
+            <SeekBar
+                android:id="@+id/sb_vol_rain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:max="100"
+                android:progress="20" />
+
+            <!-- Ocean waves -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Synthesized Ocean Surf"
+                    android:textColor="@color/text_white"
+                    android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/tv_vol_ocean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20%"
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
+            <SeekBar
+                android:id="@+id/sb_vol_ocean"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="20" />
+        </LinearLayout>
+
+        <!-- Sleep Timer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="FADE-OUT SLEEP TIMER"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08" />
+                <TextView
+                    android:id="@+id/tv_timer_countdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Off"
+                    android:textColor="@color/accent_green"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_timer_off"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/button_active"
+                    android:text="Off"
+                    android:textColor="@color/text_white"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_timer_15"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/button_inactive"
+                    android:text="15m"
+                    android:textColor="@color/text_white"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_timer_30"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/button_inactive"
+                    android:text="30m"
+                    android:textColor="@color/text_white"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_timer_60"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_inactive"
+                    android:text="60m"
+                    android:textColor="@color/text_white"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+
+        <!-- Master Play / Trigger controls -->
+        <Button
+            android:id="@+id/btn_play_pause"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/button_active"
+            android:text="ACTIVATE SYNTHESIS ENGINE"
+            android:textColor="@color/text_white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="⚠ Use stereo headphones for binaural effect"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+</ScrollView>
