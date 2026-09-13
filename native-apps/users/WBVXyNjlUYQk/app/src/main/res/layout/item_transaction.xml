@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:layout_marginBottom="8dp">
+
+    <!-- Circular Badge -->
+    <TextView
+        android:id="@+id/tv_badge"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_circle"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="F" />
+
+    <!-- Details Column -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="8dp">
+
+        <TextView
+            android:id="@+id/tv_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grocery Shopping"
+            android:textColor="#212121"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/tv_item_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Food • 2024-10-25"
+            android:textColor="#757575"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- Amount Column -->
+    <TextView
+        android:id="@+id/tv_item_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-$12.50"
+        android:textColor="#F44336"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginRight="12dp" />
+
+    <!-- Delete Button -->
+    <Button
+        android:id="@+id/btn_item_delete"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:text="×"
+        android:textColor="#9E9E9E"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="0dp" />
+
+</LinearLayout>
