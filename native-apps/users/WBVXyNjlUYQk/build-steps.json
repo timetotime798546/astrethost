@@ -2,103 +2,85 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define SoundScape Studio architecture",
-      "description": "Establish the project layout and core requirements for real-time stereophonic sound synthesis using only pure Java Android SDK APIs.",
+      "title": "Initialize ZenHabit project files",
+      "description": "Configure the core structure of the ZenHabit application, setting up package pathways and directories.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Tools & Gradle",
-      "description": "Set up build.gradle with proper compilation options, setting targetSdkVersion to 34, AGP to 8.3.2, and enabling Java 8 compatibility.",
+      "title": "Configure build environment",
+      "description": "Set up build.gradle with Gradle 8.5, AGP 8.3.2, SDK 34, and compile configurations for Java 1.8.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Create Native Android Manifest",
-      "description": "Configure the AndroidManifest.xml file, ensuring correct namespace definition, defining application permissions, orientation settings, and launcher metadata.",
+      "title": "Generate Android Manifest",
+      "description": "Write AndroidManifest.xml with proper activity registration, launchers, and standard Material Light theme specifications.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Establish Dark Synth Colors",
-      "description": "Create standard Android XML resources for colors, setting a highly-immersive futuristic Dark Synth style palette.",
-      "files": ["app/src/main/res/values/colors.xml"],
+      "title": "Build Button custom drawables",
+      "description": "Produce modern rounded-corner teal visual components for modernizing all interactive touch targets.",
+      "files": ["app/src/main/res/drawable/button_background.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Develop Premium UI Backgrounds",
-      "description": "Build custom state drawables for buttons, active gradients, and card backgrounds to deliver a responsive, physical feel to standard layouts.",
-      "files": [
-        "app/src/main/res/drawable/card_background.xml",
-        "app/src/main/res/drawable/button_active.xml",
-        "app/src/main/res/drawable/button_inactive.xml"
-      ],
+      "title": "Build Card background drawables",
+      "description": "Produce fine solid backgrounds with light borders to build card structures inside dynamic lists.",
+      "files": ["app/src/main/res/drawable/card_background.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Design SoundWaveVisualizer View",
-      "description": "Create a custom Android View component designed to render interactive dual-channel waveforms utilizing custom Paint, Canvas, and animation triggers.",
-      "files": ["app/src/main/java/com/soundscapestudio/app/SoundWaveVisualizer.java"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Design Premium Studio Layout",
-      "description": "Assemble activity_main.xml layout inside a ScrollView, laying out preset selection buttons, precise SeekBars for carrier/beat tuners, mixing control panels, and sleep timer.",
+      "title": "Construct Dashboard Layout",
+      "description": "Write activity_main.xml layout structure featuring native tabs, habit tracker scrolls, pomodoro custom components, and mood entries.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 7,
+      "title": "Create Habit data representation",
+      "description": "Build Habit.java helper class to map titles, active streaks, goals, and categories safely in system memory.",
+      "files": ["app/src/main/java/com/zenhabit/app/Habit.java"],
+      "status": "pending"
+    },
+    {
       "step": 8,
-      "title": "Implement Continuous Audio Synthesizer",
-      "description": "Write high-fidelity math formulas inside SoundScape Studio synthesis loop using phase accumulation to enable smooth frequency sweeps.",
-      "files": ["app/src/main/java/com/soundscapestudio/app/MainActivity.java"],
+      "title": "Implement Custom Canvas Timer visualizer",
+      "description": "Build CustomTimerVisualizerView.java running custom scaling rings that emulate smooth human deep breathing animations.",
+      "files": ["app/src/main/java/com/zenhabit/app/CustomTimerVisualizerView.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Rain and Ocean FX Modulators",
-      "description": "Embed noise filters and low-frequency oscillation math models to simulate rain patters and wave sweeps without audio files.",
-      "files": ["app/src/main/java/com/soundscapestudio/app/MainActivity.java"],
+      "title": "Implement Native Canvas Chart renderer",
+      "description": "Construct CustomChartView.java plotting continuous multi-point mood values over 7 days onto custom canvas margins.",
+      "files": ["app/src/main/java/com/zenhabit/app/CustomChartView.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Create Preset Configuration System",
-      "description": "Program pre-defined brainwave settings (Focus, Deep Meditation, Deep Sleep, High Alert, Schumann Resonance) and wire them to quick-selection triggers.",
-      "files": ["app/src/main/java/com/soundscapestudio/app/MainActivity.java"],
+      "title": "Program MainActivity controller logic",
+      "description": "Write core interactive logic mapping tabs, loading SharedPreferences data, and responding to state modifications.",
+      "files": ["app/src/main/java/com/zenhabit/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Develop Automatic Sleep Timer with Fade-out",
-      "description": "Write background countdown task using handler callbacks to slowly adjust master sound gain down over the final 15 seconds before auto-shutoff.",
-      "files": ["app/src/main/java/com/soundscapestudio/app/MainActivity.java"],
+      "title": "Verify Java 8 target compilation",
+      "description": "Scan files to ensure no multi-line lambdas or target API incompatibility is present, preserving compile environment integrity.",
+      "files": ["app/src/main/java/com/zenhabit/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Incorporate Educational Dialog",
-      "description": "Provide a clean native dialog explaining Binaural physics, brainwave levels (Alpha, Beta, Delta, Gamma, Theta), and mandatory stereo headwear guidelines.",
-      "files": ["app/src/main/java/com/soundscapestudio/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Review Java 8 and Thread Safety",
-      "description": "Validate that there are no lambda functions, stream APIs, or unsafe variable access between the rendering main UI and the audio production thread.",
-      "files": ["app/src/main/java/com/soundscapestudio/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Building SoundScape Studio",
-      "description": "Compile raw source files, layouts, and resource scripts into a fully debuggable APK.",
+      "title": "Building ZenHabit",
+      "description": "Finalize assembly processes compiling production layout, custom rendering components, and storage pipelines.",
       "files": [],
       "status": "pending"
     }

@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.soundscapestudio.app"
+    namespace "com.zenhabit.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.soundscapestudio.app"
+        applicationId "com.zenhabit.app"
 
         minSdkVersion 21
 
