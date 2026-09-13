@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.teacherassistant.app"
+    namespace "com.tukonhaibhai.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.teacherassistant.app"
+        applicationId "com.tukonhaibhai.app"
 
         minSdkVersion 21
 
