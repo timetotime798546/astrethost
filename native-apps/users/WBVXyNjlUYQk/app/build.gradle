@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.cosmicdefender.app"
+    namespace "com.cosmicdodger.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.cosmicdefender.app"
+        applicationId "com.cosmicdodger.app"
 
         minSdkVersion 21
 

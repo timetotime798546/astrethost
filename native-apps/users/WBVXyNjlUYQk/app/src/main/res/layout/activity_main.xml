@@ -1,246 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootContainer"
+    android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#050510">
 
-    <!-- The custom game view placeholder -->
-    <FrameLayout
-        android:id="@+id/gameViewContainer"
+    <!-- Custom Render Canvas -->
+    <com.cosmicdodger.app.GameView
+        android:id="@+id/game_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- MAIN MENU OVERLAY -->
-    <LinearLayout
-        android:id="@+id/mainMenuLayout"
+    <!-- In-Game UI Overlay Display -->
+    <RelativeLayout
+        android:id="@+id/hud_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="24dp"
-        android:background="#DD030310"
-        android:visibility="visible">
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:visibility="gone">
 
         <TextView
-            android:id="@+id/titleText"
+            android:id="@+id/tv_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="COSMIC\nDEFENDER"
+            android:text="SCORE: 0"
             android:textColor="#00FFFF"
-            android:textSize="42sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/tv_lives"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LIVES: ❤❤❤"
+            android:textColor="#FF3B70"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <!-- Welcome Menu Screen overlay -->
+    <LinearLayout
+        android:id="@+id/start_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="#ED03030A">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COSMIC DODGER"
+            android:textColor="#00FFFF"
+            android:textSize="38sp"
             android:textStyle="bold"
             android:gravity="center"
-            android:shadowColor="#00A8FF"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="15"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shoot incoming obstacles &amp; collect gold stars!"
+            android:textColor="#9E9EB2"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_marginBottom="32dp" />
+
+        <TextView
+            android:id="@+id/tv_start_high_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HIGH SCORE: 0"
+            android:textColor="#FFD700"
+            android:textSize="21sp"
             android:layout_marginBottom="40dp" />
 
         <Button
-            android:id="@+id/btnStart"
-            android:layout_width="240dp"
+            android:id="@+id/btn_start"
+            android:layout_width="210dp"
             android:layout_height="60dp"
-            android:text="LAUNCH MISSION"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#0088FF"
-            android:textSize="18sp"
+            android:text="LAUNCH GAME"
+            android:textSize="17sp"
             android:textStyle="bold"
-            android:layout_marginBottom="16dp" />
+            android:textColor="#000000"
+            android:backgroundTint="#00FFFF" />
 
-        <Button
-            android:id="@+id/btnHighScores"
-            android:layout_width="240dp"
-            android:layout_height="60dp"
-            android:text="HIGH SCORES"
-            android:textColor="#00FFFF"
-            android:backgroundTint="#203060"
-            android:textSize="16sp"
-            android:layout_marginBottom="16dp" />
-
-        <Button
-            android:id="@+id/btnHowToPlay"
-            android:layout_width="240dp"
-            android:layout_height="60dp"
-            android:text="HOW TO PLAY"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#203060"
-            android:textSize="16sp"
-            android:layout_marginBottom="16dp" />
-
-        <Button
-            android:id="@+id/btnSoundToggle"
-            android:layout_width="240dp"
-            android:layout_height="60dp"
-            android:text="SOUND: ON"
-            android:textColor="#FFAA00"
-            android:backgroundTint="#203060"
-            android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Slide screen horizontally to navigate • Shoots lasers automatically"
+            android:textColor="#626277"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_marginTop="40dp" />
     </LinearLayout>
 
-    <!-- INSTRUCTIONS / HOW TO PLAY OVERLAY -->
+    <!-- Game Over overlay Screen -->
     <LinearLayout
-        android:id="@+id/howToPlayLayout"
+        android:id="@+id/game_over_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center"
-        android:padding="32dp"
-        android:background="#F5050510"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="#F50B0615"
         android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MISSION BRIEFING"
-            android:textColor="#00FFFF"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="24dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="1. Drag your finger at the bottom of the screen to move your Fighter Ship.\n\n2. Your ship automatically fires plasma blasters at oncoming asteroid waves and hostile alien scouts.\n\n3. Collect power-ups to upgrade your defense:\n   • GREEN ORB: Multishort Booster\n   • SHIELD: Dynamic Protection Shield\n   • EXTRA LIFE: Restores 1 health point.\n\n4. Avoid direct contact with incoming hazards!"
-            android:textColor="#E0E0E0"
-            android:textSize="16sp"
-            android:lineSpacingMultiplier="1.2"
-            android:layout_marginBottom="32dp" />
-
-        <Button
-            android:id="@+id/btnBackFromHow"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
-            android:text="BACK TO MENU"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#0088FF"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <!-- HIGH SCORES OVERLAY -->
-    <LinearLayout
-        android:id="@+id/highScoreLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="32dp"
-        android:background="#F5050510"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LEADERBOARD"
-            android:textColor="#FFCC00"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="24dp" />
-
-        <LinearLayout
-            android:id="@+id/scoreListContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="32dp">
-            <!-- Programmatically populated lists will appear here -->
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnBackFromScores"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
-            android:text="BACK TO MENU"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#0088FF"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <!-- GAME OVER OVERLAY -->
-    <LinearLayout
-        android:id="@+id/gameOverLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="32dp"
-        android:background="#EE100505"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MISSION FAILED"
-            android:textColor="#FF3333"
+            android:text="CRASH DETECTED"
+            android:textColor="#FF3B3B"
             android:textSize="36sp"
             android:textStyle="bold"
-            android:shadowColor="#FF0000"
-            android:shadowRadius="10"
             android:layout_marginBottom="16dp" />
 
         <TextView
-            android:id="@+id/txtFinalScore"
+            android:id="@+id/tv_final_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="FINAL SCORE: 00000"
+            android:text="FINAL SCORE: 0"
             android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:layout_marginBottom="24dp" />
-
-        <TextView
-            android:id="@+id/txtNewHighScoreMsg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NEW RECORD ACHIEVED!"
-            android:textColor="#00FF88"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:visibility="gone"
+            android:textSize="24sp"
             android:layout_marginBottom="8dp" />
 
-        <EditText
-            android:id="@+id/edtPlayerName"
-            android:layout_width="240dp"
+        <TextView
+            android:id="@+id/tv_game_over_high_score"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="ENTER PILOT CALLSIGN"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#88FFFFFF"
-            android:gravity="center"
-            android:singleLine="true"
-            android:maxLength="10"
-            android:backgroundTint="#00FFFF"
-            android:visibility="gone"
-            android:layout_marginBottom="24dp" />
+            android:text="BEST RECORD: 0"
+            android:textColor="#FFD700"
+            android:textSize="19sp"
+            android:layout_marginBottom="40dp" />
 
         <Button
-            android:id="@+id/btnSaveScore"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
-            android:text="SAVE RECORD"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#00FF88"
-            android:textSize="14sp"
-            android:visibility="gone"
-            android:layout_marginBottom="12dp" />
-
-        <Button
-            android:id="@+id/btnRestart"
-            android:layout_width="220dp"
-            android:layout_height="55dp"
+            android:id="@+id/btn_restart"
+            android:layout_width="210dp"
+            android:layout_height="60dp"
             android:text="RETRY MISSION"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#0088FF"
-            android:textSize="16sp"
+            android:textSize="17sp"
             android:textStyle="bold"
-            android:layout_marginBottom="12dp" />
-
-        <Button
-            android:id="@+id/btnQuitMenu"
-            android:layout_width="220dp"
-            android:layout_height="55dp"
-            android:text="MAIN MENU"
-            android:textColor="#CCCCCC"
-            android:backgroundTint="#333333"
-            android:textSize="15sp" />
+            android:textColor="#000000"
+            android:backgroundTint="#FF3B70" />
     </LinearLayout>
+
 </FrameLayout>

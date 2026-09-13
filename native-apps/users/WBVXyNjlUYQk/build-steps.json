@@ -2,78 +2,78 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define Project Structure & Metadata",
-      "description": "Establish the application core configuration, metadata parameters, and project-wide package identifier com.cosmicdefender.app.",
+      "title": "Analyze and Define Specifications",
+      "description": "Formulate mechanics for 'Cosmic Dodger', a dynamic 2D retro space dodging and shooting game featuring score progression, lives, collectibles, particle explosions, and immersive arcade-style retro feedback.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Environment",
-      "description": "Create the Gradle build file app/build.gradle defining target SDK 34, min SDK 21, and compiler options using Java 8 compatibility.",
-      "files": ["app/build.gradle"],
+      "title": "Set up Root Level Settings Gradle Configuration",
+      "description": "Configure settings.gradle for AGP 8.3.2 compatibility. Standardize maven resource resolving strategies and set up root modules.",
+      "files": ["settings.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Design Android Manifest",
-      "description": "Establish application permissions, lock landscape/portrait orientation, declare MainActivity, and apply standard Material Light theme under namespace http://schemas.android.com/apk/res/android.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Configure Root Level Gradle Rules",
+      "description": "Establish standard Android Application plugin definitions using version 8.3.2 to run on Gradle 8.5.",
+      "files": ["build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Implement Retro Audio Engine",
-      "description": "Implement a fully native, latency-free, synthesized Audio Synthesis class using AudioTrack for shooting, explosion, and powerup sounds without external assets.",
-      "files": ["app/src/main/java/com/cosmicdefender/app/MainActivity.java"],
+      "title": "Implement App Level build.gradle Build Rules",
+      "description": "Apply compilation SDK targets (34), set dynamic packaging identifiers (com.cosmicdodger.app), and force strictly safe Java 1.8 compatibility parameters.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Entity Models & Logic",
-      "description": "Build internal entity structures for Player, Lasers, Meteors, Powerups, and dynamic Particle Sparks for advanced explosions.",
-      "files": ["app/src/main/java/com/cosmicdefender/app/MainActivity.java"],
+      "title": "Design Android Application Manifest File",
+      "description": "Ensure accurate XML namespace resolving, specify screen orientation lock to portrait layout parameters, handle launcher registration, and link standard Material.NoActionBar theme rules.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Develop Parallax Starfield & Rendering Engine",
-      "description": "Implement multi-layered parallax star arrays scrolling at varied relative speeds, drawn dynamically on the canvas.",
-      "files": ["app/src/main/java/com/cosmicdefender/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Integrate Physics and Collision Detection",
-      "description": "Code custom circle/rectangle mathematical collision detection to handle laser-meteor hits, player damage, shield depletion, and powerup collections.",
-      "files": ["app/src/main/java/com/cosmicdefender/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Construct High-Performance SurfaceView Game Loop",
-      "description": "Engineer a stable, low-latency, background thread-driven game rendering loop handling smooth 60fps canvas drawings, frame delays, and touch gesture interactions.",
-      "files": ["app/src/main/java/com/cosmicdefender/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Design Custom Game UI Overlays",
-      "description": "Create activity_main.xml to declare clean screens for high scores, user instructions, credits, the Main Menu overlay, and game status displays.",
+      "title": "Design Interactive Game Viewport XML UI Overlay",
+      "description": "Create activity_main.xml layout nesting the customized hardware accelerated GameView, customized Start Menu, HUD readout layouts, and GameOver triggers.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 7,
+      "title": "Develop Game Controller Activity logic",
+      "description": "Construct MainActivity.java to bind active XML components, establish save configurations for best-record persisting, and route engine callbacks.",
+      "files": ["app/src/main/java/com/cosmicdodger/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Core Custom Game Engine",
+      "description": "Develop GameView.java setting up the customized scrolling stars background array, projectile lists, asteroids entities, gold collection targets, and visual screen shake algorithms.",
+      "files": ["app/src/main/java/com/cosmicdodger/app/GameView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Integrate Native Sound Synthesis & Rendering UI Engine",
+      "description": "Integrate low-latency audio using Android platform ToneGenerator loops, and write Canvas draw commands mapping detailed asteroid craters and modern spacecraft designs.",
+      "files": ["app/src/main/java/com/cosmicdodger/app/GameView.java"],
+      "status": "pending"
+    },
+    {
       "step": 10,
-      "title": "Establish Persistent Score Storage",
-      "description": "Incorporate SharedPreferences within MainActivity to store, fetch, and display historical player scores, keeping the arcade retro flame alive.",
-      "files": ["app/src/main/java/com/cosmicdefender/app/MainActivity.java"],
+      "title": "Verify Java 8 Compiler & Build System Integrations",
+      "description": "Re-evaluate anonymous internal definitions, make sure lambdas or unauthorized syntax properties are avoided, and proceed with asset packing pipelines.",
+      "files": ["app/src/main/java/com/cosmicdodger/app/MainActivity.java", "app/src/main/java/com/cosmicdodger/app/GameView.java"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Building Cosmic Defender",
-      "description": "Compile the entire Android package, bundle local resources, verify Java 8 compatibility, build logic layouts, and generate the final debugging package.",
+      "title": "Building Cosmic Dodger",
+      "description": "Trigger final APK compilation assembly, generate debug builds, and output compiled installation deliverables.",
       "files": [],
       "status": "pending"
     }
