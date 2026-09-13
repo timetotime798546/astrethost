@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.homecontrol.app"
+    namespace "com.simplecalculator.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.homecontrol.app"
+        applicationId "com.simplecalculator.app"
 
         minSdkVersion 21
 

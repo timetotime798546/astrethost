@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.homecontrol.app">
+    package="com.simplecalculator.app">
 
     <application
         android:allowBackup="true"
-        android:label="Home Control"
+        android:label="Simple Calculator"
         android:icon="@drawable/icon"
         android:roundIcon="@drawable/icon"
         android:theme="@android:style/Theme.Material.Light">
         
         <activity
-            android:name="com.homecontrol.app.MainActivity"
-            android:exported="true">
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
