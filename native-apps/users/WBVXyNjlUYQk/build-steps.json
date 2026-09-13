@@ -2,99 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Setup Project Metadata",
-      "description": "Initialize app-meta.json with the application name 'Magic Spellbook' and package name 'com.magicspellbook.app'.",
-      "files": ["app-meta.json"],
+      "title": "Analyze and Classify Build Error",
+      "description": "Identify that 'bg_obsidian' is defined both as a color resource in colors.xml and mistakenly inside strings.xml, causing a duplicate resource merger failure.",
+      "files": ["app/src/main/res/values/strings.xml", "app/src/main/res/values/colors.xml"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Environment",
-      "description": "Create the app/build.gradle script matching standard SDK 34 specifications, Gradle 8.5, and AGP 8.3.2 configuration.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Declare Application Manifest",
-      "description": "Configure AndroidManifest.xml with the correct namespace, launch intent filters, standard theme, and permissions like vibration.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Define Color Resources",
-      "description": "Establish standard mystical themes in colors.xml using Deep Obsidian, Mystical Violet, Glowing Cyan, and Golden Amber.",
-      "files": ["app/src/main/res/values/colors.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Define String Resources",
-      "description": "Define textual content for magical spell descriptions, potion ingredients, Oracle answers, and UI instructions in strings.xml.",
+      "title": "Resolve Duplicate Resources",
+      "description": "Remove the duplicate color resource declaration for 'bg_obsidian' from strings.xml to allow seamless resource merging.",
       "files": ["app/src/main/res/values/strings.xml"],
       "status": "pending"
     },
     {
+      "step": 3,
+      "title": "Inspect MainActivity Java Errors",
+      "description": "Find and remove the undeclared non-SDK reference 'ScrollViewWrapper' in MainActivity.java to ensure correct Java compilation.",
+      "files": ["app/src/main/java/com/magicspellbook/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Clean Dependencies in build.gradle",
+      "description": "Remove third-party NanoHTTPD dependency from app build.gradle to ensure compliance with native SDK dependency rules.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify Java 8 Source Compatibility",
+      "description": "Ensure MainActivity.java uses standard Java 8 inner classes and callback mechanisms.",
+      "files": ["app/src/main/java/com/magicspellbook/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
       "step": 6,
-      "title": "Develop Interactive Magic View",
-      "description": "Implement MagicWandView.java, a custom drawing canvas that spawns sparkling, fading star particles on finger swipe using standard Canvas APIs.",
-      "files": ["app/src/main/java/com/magicspellbook/app/MagicWandView.java"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Design Mystic User Interface",
-      "description": "Develop activity_main.xml with a beautiful tab-based layout separating the Spellbook, Potion Brewer, and Oracle Room.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Program Dynamic Sound Generator",
-      "description": "Develop a real-time native audio synthesizer in MainActivity using AudioTrack to create perfect magical pitch-sweeps programmatically.",
-      "files": ["app/src/main/java/com/magicspellbook/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Implement Magic Oracle Logic",
-      "description": "Program the Interactive Magic Oracle inside MainActivity to respond to shaking motions and screen taps with animated fades and vibration.",
-      "files": ["app/src/main/java/com/magicspellbook/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Program Potion Brewing Simulation",
-      "description": "Implement potion ingredient-mixing algorithm matching colors dynamically and unlocking unique potion results.",
-      "files": ["app/src/main/java/com/magicspellbook/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Implement Gesture Shake Listener",
-      "description": "Connect the accelerometer sensor to detect wand swings/shakes, triggering screen flashes and magical sound sweeps.",
-      "files": ["app/src/main/java/com/magicspellbook/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Validate Java 8 Compatibility",
-      "description": "Perform rigorous checks to ensure only Java 8 features (anonymous classes, simple loops) are utilized.",
-      "files": ["app/src/main/java/com/magicspellbook/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Verify Manifest Declarations",
-      "description": "Validate that xmlns:android points strictly to http://schemas.android.com/apk/res/android and activity elements are fully linked.",
+      "title": "Validate Manifest Configuration",
+      "description": "Confirm correct XML package namespaces, activity names, and intent filters in AndroidManifest.xml.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
-      "step": 14,
+      "step": 7,
+      "title": "Verify MagicWandView Drawing Operations",
+      "description": "Confirm canvas painting coordinates, particle physics loops, and standard redrawing methods work correctly.",
+      "files": ["app/src/main/java/com/magicspellbook/app/MagicWandView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Validate Layout Elements and IDs",
+      "description": "Ensure layout and ID declarations in activity_main.xml perfectly match MainActivity binding calls.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Confirm Resource Color Codes",
+      "description": "Validate colors.xml contains correct hexadecimal values for the mystical interface aesthetic.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
       "title": "Building Magic Spellbook",
-      "description": "Trigger final compilation and assembling of the Magic Spellbook debug binary using Gradle.",
+      "description": "Assemble and compile the debug APK of the Magic Spellbook application with standard Gradle tools.",
       "files": [],
       "status": "pending"
     }

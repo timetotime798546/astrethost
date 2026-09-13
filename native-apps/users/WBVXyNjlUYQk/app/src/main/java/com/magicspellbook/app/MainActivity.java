@@ -26,7 +26,6 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     // Tab Views
     private LinearLayout layoutTabWand;
-    private ScrollViewWrapper layoutTabSpells; // Will cast layout dynamically safely
     private View layoutTabSpellsRaw;
     private LinearLayout layoutTabPotion;
     private LinearLayout layoutTabOracle;
