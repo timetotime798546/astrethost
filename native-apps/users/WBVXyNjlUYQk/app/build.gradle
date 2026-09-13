@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.simplecalculator.app"
+    namespace "com.uniq.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.simplecalculator.app"
+        applicationId "com.uniq.app"
 
         minSdkVersion 21
 

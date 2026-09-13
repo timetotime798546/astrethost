@@ -2,141 +2,85 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Initialization",
-      "description": "Initialize the Simple Calculator project structure, creating root files and setting up the target package com.simplecalculator.app.",
+      "title": "Configure App Metadata",
+      "description": "Define unique app name 'Uniq' and target package 'com.uniq.app' within app-meta.json for standard deployment.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Build Configuration",
-      "description": "Set up app/build.gradle configured for Java 17, Gradle 8.5, and Android target SDK 34 without external dependencies.",
+      "title": "Setup Build Configuration",
+      "description": "Configure build.gradle with proper Android SDK (34) compliance, Java 17 compatibility environment, and dependencies-free build target.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Manifest Declaration",
-      "description": "Register MainActivity in the AndroidManifest.xml and establish the app name and launch icon references.",
+      "title": "Create Android Manifest",
+      "description": "Declare AndroidManifest.xml, matching packaging, launcher configurations, and system Theme.Material.Light settings.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Resource Definition",
-      "description": "Add default colors and application configuration string values in colors.xml and strings.xml.",
+      "title": "Design App Colors & Theme resources",
+      "description": "Set up clean material styling, colors, margins, and branding specifications in values assets.",
       "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Layout Initialization",
-      "description": "Create activity_main.xml using a full screen vertical LinearLayout parent as a structure for the UI components.",
+      "title": "Build Main Interface Layout",
+      "description": "Create a fully functional multi-tab interactive layout inside activity_main.xml including Deduplicator, Comparison Diff, and Generator components.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Display Area UI",
-      "description": "Implement the screen output layouts containing current expression history and result TextView fields with modern alignment.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Develop Tab Handling System",
+      "description": "Program custom tab state toggling dynamically between modules (Deduplicate, List Compare, and Unique Generator) using clean View state alterations.",
+      "files": ["app/src/main/java/com/uniq/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Button Row 1 Layout",
-      "description": "Establish the first row consisting of standard control keys: Clear, Backspace, Percentage, and Division in the UI.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Implement Deduplicator Engine",
+      "description": "Code string tokenizer, case-insensitive mapping, item trimming, alpha/numeric sorting, and duplication frequencies calculation.",
+      "files": ["app/src/main/java/com/uniq/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Button Row 2 Layout",
-      "description": "Add row two keys consisting of digits 7, 8, 9, and the Multiplication operator button.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Implement List Comparison Diff Engine",
+      "description": "Create high-performance algorithms to identify unique entities from List A, unique entities from List B, common items, and general union.",
+      "files": ["app/src/main/java/com/uniq/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Button Row 3 Layout",
-      "description": "Configure row three buttons housing numeric targets 4, 5, 6, and the Subtraction operator button.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Implement Unique Random Generator",
+      "description": "Construct randomized password, character key, and bounded number generation logics maintaining zero repetitions.",
+      "files": ["app/src/main/java/com/uniq/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Button Row 4 Layout",
-      "description": "Create the row four UI components incorporating digits 1, 2, 3, and the Addition operator button.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Integrate System Clipboard and Share Intent Services",
+      "description": "Allow copying outputs to standard device clipboard with notifications and native sharing of filtered results.",
+      "files": ["app/src/main/java/com/uniq/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Button Row 5 Layout",
-      "description": "Formulate the final button row providing the Sign Toggle button, Zero key, Decimal point, and Equals operator button.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Validation and Code Cleanup",
+      "description": "Strict compliance validation with Java 8 limitations, verifying omission of stream APIs, lambda functions, or external packages.",
+      "files": ["app/src/main/java/com/uniq/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "MainActivity Layout Integration",
-      "description": "Review and unify the entire layout file to ensure uniform weights, margins, sizes, and proper button proportions.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Logical State Setup",
-      "description": "Write initial controller properties within MainActivity.java to keep track of current states, typed values, and operands.",
-      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Digit Tapping Handlers",
-      "description": "Develop high-performing digit listener loops to route tapped digits into the input buffer securely and update UI screens dynamically.",
-      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 15,
-      "title": "Decimal Point Handlers",
-      "description": "Handle formatting rules for decimal entry, preventing users from adding multiple dots in any single operand sequence.",
-      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 16,
-      "title": "Operator Click Logic",
-      "description": "Establish sequence listeners on mathematical operands to evaluate active equations on subsequent operand triggers safely.",
-      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 17,
-      "title": "Equation Evaluation Engine",
-      "description": "Write core execution switch-cases inside MainActivity.java to parse results of plus, minus, multiply, and division operations.",
-      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 18,
-      "title": "Clear and Backspace Features",
-      "description": "Integrate responsive callbacks to wipe current inputs entirely or pop singular characters off the current buffer stack.",
-      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 19,
-      "title": "Edge Case Handling and Formatting",
-      "description": "Secure safe floating decimal point division, catch division by zero limits gracefully, and trim raw values.",
-      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 20,
-      "title": "Building Simple Calculator",
-      "description": "Consolidate and compile files to generate a clean, release-ready Simple Calculator Android APK.",
+      "title": "Building Uniq",
+      "description": "Execute native Android Gradle compiler system to build high-performance clean application.",
       "files": [],
       "status": "pending"
     }
