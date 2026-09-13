@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFEE6">
+
+    <!-- App Header Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#5D4037"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/app_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🍌 MONKEY PLAYHOUSE 🐒"
+            android:textColor="#FFEB3B"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Main Content Area containing mutually exclusive panels -->
+    <FrameLayout
+        android:id="@+id/main_content_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Panel 1: Catch the Banana Game -->
+        <LinearLayout
+            android:id="@+id/panel_game"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <!-- Game Stats Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#8D6E63"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/txt_score"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.2"
+                    android:layout_height="wrap_content"
+                    android:text="Score: 0"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_lives"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Lives: ❤️❤️❤️"
+                    android:textColor="#FFCDD2"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/txt_highscore"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.2"
+                    android:layout_height="wrap_content"
+                    android:text="Best: 0"
+                    android:textColor="#FFEB3B"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="right" />
+            </LinearLayout>
+
+            <!-- Container that dynamically holds the Monkey Game Canvas View -->
+            <FrameLayout
+                android:id="@+id/game_canvas_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#D1F2D9" />
+        </LinearLayout>
+
+        <!-- Panel 2: Monkey Soundboard -->
+        <ScrollView
+            android:id="@+id/panel_sounds"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Monkey Sound Synthesizer"
+                    android:textColor="#5D4037"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Press icons below to play real-time synthesized monkey vocalizations!"
+                    android:textColor="#7D665E"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp" />
+
+                <Button
+                    android:id="@+id/btn_sound_screech"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:text="🐵 Chimpanzee Screech"
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:background="#8D6E63"
+                    android:layout_marginBottom="12dp"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_sound_chatter"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:text="🦧 Marmoset Chatter"
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:background="#8D6E63"
+                    android:layout_marginBottom="12dp"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_sound_howl"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:text="📣 Howler Monkey Roar"
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:background="#8D6E63"
+                    android:layout_marginBottom="12dp"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_sound_gibbon"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:text="🎶 Gibbon Melodic Call"
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:background="#8D6E63"
+                    android:layout_marginBottom="12dp"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_sound_drum"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:text="🥁 Jungle Chest Drumming"
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:background="#8D6E63"
+                    android:layout_marginBottom="20dp"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Panel 3: Fun Monkey Facts -->
+        <LinearLayout
+            android:id="@+id/panel_facts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="24dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Did You Know?"
+                android:textColor="#5D4037"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Fact Card -->
+            <LinearLayout
+                android:id="@+id/card_fact_container"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="20dp"
+                android:layout_marginBottom="24dp"
+                android:elevation="6dp">
+
+                <TextView
+                    android:id="@+id/txt_fact_emoji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💡"
+                    android:textSize="48sp"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:id="@+id/txt_fact_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Monkeys use rocks to crack open shells and hard fruits!"
+                    android:textColor="#5D4037"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!-- Card Navigation Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_fact_prev"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="◀ Previous"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginRight="8dp" />
+
+                <Button
+                    android:id="@+id/btn_fact_next"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="Next ▶"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginLeft="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Navigation Footer Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#4E342E"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <LinearLayout
+            android:id="@+id/btn_nav_game"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎮"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lbl_nav_game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Play Game"
+                android:textColor="#FFEB3B"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_nav_sounds"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📢"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lbl_nav_sounds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soundboard"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_nav_facts"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💡"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lbl_nav_facts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Facts"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
