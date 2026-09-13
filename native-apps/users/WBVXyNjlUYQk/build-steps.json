@@ -1,0 +1,144 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define application meta-data and packaging structures",
+      "description": "Create the app-meta.json configurations and package namespace.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure standard Gradle scripts with Java 8 compatibility",
+      "description": "Configure build.gradle compatibility parameters matching Gradle 8.5, AGP 8.3.2, and targeting SDK 34 without any third-party external libraries.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Establish manifest with proper namespaces and system themes",
+      "description": "Configure AndroidManifest.xml with system-wide light material themes, relative activity mapping, and launcher registration, referencing custom @drawable/icon.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement the SQLite local database manager",
+      "description": "Develop a high-fidelity SQLite Open Helper to persist Students, Attendance sheets, Grades, and Lesson Plans.",
+      "files": [
+        "app/src/main/java/com/teacherassistant/app/DbHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create helper data models",
+      "description": "Create basic class wrappers for students, assignments, attendance logs, and lessons to enable smooth type conversions.",
+      "files": [
+        "app/src/main/java/com/teacherassistant/app/Models.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design the main screen layout with high-fidelity native widgets",
+      "description": "Develop a multi-tabbed interface in XML using clean system components, sub-section containers, ScrollViews, and bottom controls.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build dynamic student list row designs",
+      "description": "Design an elegant item row for the Student Directory showing dynamic values.",
+      "files": [
+        "app/src/main/res/layout/item_student.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build grading row designs",
+      "description": "Create the row structures representing dynamic scores and input fields per student for grades entry.",
+      "files": [
+        "app/src/main/res/layout/item_grade.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Build attendance row layouts",
+      "description": "Create structured item rows with custom switch mechanics for marking presents vs absences.",
+      "files": [
+        "app/src/main/res/layout/item_attendance.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Build lesson card item layouts",
+      "description": "Draft cards representing lesson outlines, due times, and statuses.",
+      "files": [
+        "app/src/main/res/layout/item_lesson.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement student registration & visualization logic",
+      "description": "Code the java routines inside MainActivity for adding students and viewing statistics dynamically.",
+      "files": [
+        "app/src/main/java/com/teacherassistant/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement interactive attendance tracking logic",
+      "description": "Write code for configuring calendars, committing bulk attendance rows, and rendering checklists dynamically in Java.",
+      "files": [
+        "app/src/main/java/com/teacherassistant/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Build assignment management & score inputs logic",
+      "description": "Incorporate assignment creation dialogs, loading dynamic inputs, computing averages and saving database entries.",
+      "files": [
+        "app/src/main/java/com/teacherassistant/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Design and deploy the Lesson Planner component logic",
+      "description": "Incorporate notes, topic title checklists, status changes, and lesson listing methods in SQLite.",
+      "files": [
+        "app/src/main/java/com/teacherassistant/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Verify execution safety and compile project configuration",
+      "description": "Run strict diagnostics verifying Android SDK dependencies.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building Teacher Assistant",
+      "description": "Final check to compile and generate output using gradle.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

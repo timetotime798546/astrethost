@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_index"
+    android:layout_height="match_parent"
+    android:background="#F5F6FA">
+
+    <!-- Header Block -->
+    <RelativeLayout
+        android:id="@+id/header_bar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="#2C3E50"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Teacher Assistant"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_action_add"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="#27AE60"
+            android:text="+ Add"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Navigation Tabs -->
+    <LinearLayout
+        android:id="@+id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <LinearLayout
+            android:id="@+id/tab_students"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="#EAECEE"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:id="@+id/text_tab_students"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Students"
+                android:textColor="#2C3E50"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_attendance"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:id="@+id/text_tab_attendance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attendance"
+                android:textColor="#7F8C8D"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_grades"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:id="@+id/text_tab_grades"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gradebook"
+                android:textColor="#7F8C8D"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_lessons"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:id="@+id/text_tab_lessons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Planner"
+                android:textColor="#7F8C8D"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Main Dynamic Frame -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/tab_bar"
+        android:layout_below="@id/header_bar">
+
+        <!-- 1. STUDENTS CONTAINER -->
+        <RelativeLayout
+            android:id="@+id/container_students"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/tv_student_stats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ECF0F1"
+                android:padding="12dp"
+                android:text="Total Students: 0"
+                android:textColor="#34495E"
+                android:textStyle="italic" />
+
+            <ListView
+                android:id="@+id/lv_students"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tv_student_stats"
+                android:divider="#BDC3C7"
+                android:dividerHeight="1dp" />
+        </RelativeLayout>
+
+        <!-- 2. ATTENDANCE CONTAINER -->
+        <RelativeLayout
+            android:id="@+id/container_attendance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/layout_att_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#ECF0F1"
+                android:padding="10dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_attendance_date"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Date: 2023-10-24"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#2C3E50" />
+
+                <Button
+                    android:id="@+id/btn_change_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Pick Date"
+                    android:background="#2980B9"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:layout_marginRight="8dp"/>
+
+                <Button
+                    android:id="@+id/btn_save_attendance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Save Attendance"
+                    android:background="#27AE60"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lv_attendance"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/layout_att_header"
+                android:divider="#BDC3C7"
+                android:dividerHeight="1dp" />
+        </RelativeLayout>
+
+        <!-- 3. GRADEBOOK CONTAINER -->
+        <RelativeLayout
+            android:id="@+id/container_grades"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/layout_grade_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#ECF0F1"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Assignment: "
+                        android:textColor="#2C3E50"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spinner_assignments"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/btn_new_assignment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="+ New Task"
+                        android:background="#2980B9"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tv_assignment_details"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Max score: -"
+                        android:textColor="#7F8C8D" />
+
+                    <Button
+                        android:id="@+id/btn_save_grades"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="Save Scores"
+                        android:background="#27AE60"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lv_grades"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/layout_grade_header"
+                android:divider="#BDC3C7"
+                android:dividerHeight="1dp" />
+        </RelativeLayout>
+
+        <!-- 4. PLANNER CONTAINER -->
+        <RelativeLayout
+            android:id="@+id/container_lessons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <ListView
+                android:id="@+id/lv_lessons"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#BDC3C7"
+                android:dividerHeight="1dp" />
+        </RelativeLayout>
+
+    </FrameLayout>
+</RelativeLayout>

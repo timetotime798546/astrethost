@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF"
+    android:layout_marginBottom="8dp"
+    android:elevation="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_lesson_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lesson Title"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#2C3E50" />
+
+        <TextView
+            android:id="@+id/tv_lesson_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Date: Oct 24, 2023"
+            android:textSize="12sp"
+            android:textColor="#7F8C8D" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_lesson_notes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Lesson goals and notes about presentation details, checklist objectives..."
+        android:textSize="14sp"
+        android:textColor="#34495E" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_lesson_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#F39C12"
+            android:textColor="#FFFFFF"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="Status: Draft"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_toggle_lesson"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="#2980B9"
+            android:text="Mark Finished"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:layout_marginRight="8dp"/>
+
+        <Button
+            android:id="@+id/btn_delete_lesson"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="#C0392B"
+            android:text="Delete"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp" />
+    </LinearLayout>
+</LinearLayout>
