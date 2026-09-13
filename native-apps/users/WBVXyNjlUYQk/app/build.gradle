@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.zenhabit.app"
+    namespace "com.threedclock.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.zenhabit.app"
+        applicationId "com.threedclock.app"
 
         minSdkVersion 21
 

@@ -2,85 +2,180 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize ZenHabit project files",
-      "description": "Configure the core structure of the ZenHabit application, setting up package pathways and directories.",
-      "files": ["app-meta.json"],
+      "title": "Define 3D Clock Requirements and Design Specs",
+      "description": "Establish key aesthetic goals including real-time perspective rendering, user drag gestures, and physical accelerometer tilt integration.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure build environment",
-      "description": "Set up build.gradle with Gradle 8.5, AGP 8.3.2, SDK 34, and compile configurations for Java 1.8.",
-      "files": ["app/build.gradle"],
+      "title": "Configure Build System & Compatibility Settings",
+      "description": "Set up build.gradle with target SDK 34, JDK 17, and AGP 8.3.2 parameters matching compilation pipelines perfectly.",
+      "files": [
+        "app/build.gradle"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Generate Android Manifest",
-      "description": "Write AndroidManifest.xml with proper activity registration, launchers, and standard Material Light theme specifications.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Define App Namespaces and Permissions",
+      "description": "Configure AndroidManifest.xml with system vibrator permissions and lock activity to portrait orientation for a refined user experience.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Build Button custom drawables",
-      "description": "Produce modern rounded-corner teal visual components for modernizing all interactive touch targets.",
-      "files": ["app/src/main/res/drawable/button_background.xml"],
+      "title": "Create Metallic App Background Asset",
+      "description": "Formulate a sleek radial dark gradient background styling representing futuristic technical glass overlays.",
+      "files": [
+        "app/src/main/res/drawable/bg_app.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Build Card background drawables",
-      "description": "Produce fine solid backgrounds with light borders to build card structures inside dynamic lists.",
-      "files": ["app/src/main/res/drawable/card_background.xml"],
+      "title": "Establish Glassmorphic Dashboard Containers",
+      "description": "Design an elegant semi-transparent layout shape with high-contrast glowing rims representing premium dashboard cards.",
+      "files": [
+        "app/src/main/res/drawable/bg_dashboard.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Construct Dashboard Layout",
-      "description": "Write activity_main.xml layout structure featuring native tabs, habit tracker scrolls, pomodoro custom components, and mood entries.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Design Toggle Navigation Tab States",
+      "description": "Generate drawable selectors and background borders to signal selected navigation modes visually.",
+      "files": [
+        "app/src/main/res/drawable/btn_tab_normal.xml",
+        "app/src/main/res/drawable/btn_tab_active.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Create Habit data representation",
-      "description": "Build Habit.java helper class to map titles, active streaks, goals, and categories safely in system memory.",
-      "files": ["app/src/main/java/com/zenhabit/app/Habit.java"],
+      "title": "Design Interactive Custom Theme Selector Styles",
+      "description": "Create selector shapes supporting dynamic glowing highlight outlines for the active dial customization skin.",
+      "files": [
+        "app/src/main/res/drawable/btn_theme_select.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement Custom Canvas Timer visualizer",
-      "description": "Build CustomTimerVisualizerView.java running custom scaling rings that emulate smooth human deep breathing animations.",
-      "files": ["app/src/main/java/com/zenhabit/app/CustomTimerVisualizerView.java"],
+      "title": "Build Action and Navigation Controls Drawables",
+      "description": "Design clean gradient button drawables for Start, Pause, and Reset chronograph mechanisms.",
+      "files": [
+        "app/src/main/res/drawable/btn_action.xml",
+        "app/src/main/res/drawable/btn_action_secondary.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Native Canvas Chart renderer",
-      "description": "Construct CustomChartView.java plotting continuous multi-point mood values over 7 days onto custom canvas margins.",
-      "files": ["app/src/main/java/com/zenhabit/app/CustomChartView.java"],
+      "title": "Construct Dashboard Activity Main Layout",
+      "description": "Structure the main user interface with standard relative layouts, encapsulating header, primary clock rendering viewport, and dashboard cards.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Program MainActivity controller logic",
-      "description": "Write core interactive logic mapping tabs, loading SharedPreferences data, and responding to state modifications.",
-      "files": ["app/src/main/java/com/zenhabit/app/MainActivity.java"],
+      "title": "Create Core 3D Clock Rendering View",
+      "description": "Create the custom Clock3DView class with robust Canvas setups and standard Camera/Matrix perspective transformations.",
+      "files": [
+        "app/src/main/java/com/threedclock/app/Clock3DView.java"
+      ],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Verify Java 8 target compilation",
-      "description": "Scan files to ensure no multi-line lambdas or target API incompatibility is present, preserving compile environment integrity.",
-      "files": ["app/src/main/java/com/zenhabit/app/MainActivity.java"],
+      "title": "Implement 3D Depth Extrusion Layers",
+      "description": "Formulate consecutive mathematical ring drawing routines in Clock3DView, offsetting layers based on projection factors to build an extruded 3D bevel.",
+      "files": [
+        "app/src/main/java/com/threedclock/app/Clock3DView.java"
+      ],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Building ZenHabit",
-      "description": "Finalize assembly processes compiling production layout, custom rendering components, and storage pipelines.",
+      "title": "Implement Dynamic 3D Shadow Cast Projection",
+      "description": "Introduce secondary canvas drawing vectors shifting dropshadows in the exact opposite direction of simulated light sources.",
+      "files": [
+        "app/src/main/java/com/threedclock/app/Clock3DView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Circular Dial Setting Gestures",
+      "description": "Incorporate custom mathematical touch mechanics translating radial user swipes into precise minute coordinates for Timer mode.",
+      "files": [
+        "app/src/main/java/com/threedclock/app/Clock3DView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Formulate Visual Style Themes",
+      "description": "Build theme palettes supporting distinct rim gradients, dials, steampunk rotating gears, tick sweeps, and roman numeral maps.",
+      "files": [
+        "app/src/main/java/com/threedclock/app/Clock3DView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Integrate Physical Accelerometer Inertia Physics",
+      "description": "Bind hardware sensor listeners inside MainActivity, translating gravitational pull into fluid 3D parallax shifts.",
+      "files": [
+        "app/src/main/java/com/threedclock/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Implement Precision Chronograph Logic",
+      "description": "Configure stopwatch sweep calculations and sub-dial high frequency millisecond hands displaying rapid mechanical rotations.",
+      "files": [
+        "app/src/main/java/com/threedclock/app/Clock3DView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Implement Wedge Timer Sweep Logic",
+      "description": "Write count down sweep wedges filling inner dial sectors with vibrant glowing progress matrices.",
+      "files": [
+        "app/src/main/java/com/threedclock/app/Clock3DView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 18,
+      "title": "Harmonize Interactive Main Thread Callbacks",
+      "description": "Synchronize Clock3DView ticks, callback hooks, dashboard digital readouts, and haptic triggers within MainActivity.",
+      "files": [
+        "app/src/main/java/com/threedclock/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 19,
+      "title": "Perform Strict Compilation Compatibility Validations",
+      "description": "Analyze Java files for syntax rules, validating complete package alignment, correct namespaces, and strict Java 8 structures.",
+      "files": [
+        "app/src/main/AndroidManifest.xml",
+        "app/src/main/java/com/threedclock/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 20,
+      "title": "Building 3D Clock",
+      "description": "Execute final build verification checks and package files into the final distribution ready structure.",
       "files": [],
       "status": "pending"
     }
