@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Schedule Appointment"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#00796B"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Patient Name:"
+            android:textSize="12sp"
+            android:textColor="#757575" />
+
+        <Spinner
+            android:id="@+id/sp_appt_patient_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/et_appt_patient_name_manual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Or enter manual name..."
+            android:inputType="textPersonName"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date &amp; Time:"
+            android:textSize="12sp"
+            android:textColor="#757575"
+            android:layout_marginBottom="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <Button
+                android:id="@+id/btn_appt_pick_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Set Date"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_appt_pick_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Set Time"
+                android:textSize="12sp"
+                android:layout_marginLeft="8dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_appt_date_time_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not selected"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/et_appt_purpose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Purpose (e.g. Consultation, Vaccination, Regular Checkup)"
+            android:inputType="text"
+            android:layout_marginBottom="12dp" />
+    </LinearLayout>
+</ScrollView>
