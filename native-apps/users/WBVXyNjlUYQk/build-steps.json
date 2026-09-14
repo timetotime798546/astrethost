@@ -2,105 +2,106 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define application architecture and directory outline",
-      "description": "Establish the project structure, resource directories, package boundaries, and local SQLite data models for Study Planner.",
-      "files": [
-        "app-meta.json"
-      ],
+      "title": "Define App Metadata",
+      "description": "Configure the metadata for Tiny Counter including its package name com.tinycounter.app.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Gradle project build specifications",
-      "description": "Establish proper compilation limits, SDK targets (34), and dependency definitions strictly using Android SDK native classes.",
-      "files": [
-        "app/build.gradle"
-      ],
+      "title": "Configure Build Environment",
+      "description": "Clean up app's build.gradle, updating packaging configurations and removing external/third-party dependencies to ensure full compliance with the strict offline environment.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Establish application Manifest and permission controls",
-      "description": "Declare permissions for alarm scheduling, boot receiver, runtime notifications, and launch activities.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
+      "title": "Define Android Manifest",
+      "description": "Set up AndroidManifest.xml with standard namespace declarations and launcher activity.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Define UI theme constants and localization strings",
-      "description": "Set color palettes (Indigo primaries, pastel alerts) and strings resources used throughout active modules.",
-      "files": [
-        "app/src/main/res/values/colors.xml",
-        "app/src/main/res/values/strings.xml"
-      ],
+      "title": "Design main user interface",
+      "description": "Build modern minimalist layout with clean alignment for displaying and editing the count value.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Develop dynamic styling resource backgrounds",
-      "description": "Generate modern XML drawables for card layouts, state indicators, interactive custom buttons, and action panels.",
-      "files": [
-        "app/src/main/res/drawable/card_background.xml",
-        "app/src/main/res/drawable/button_background.xml",
-        "app/src/main/res/drawable/tab_selected.xml",
-        "app/src/main/res/drawable/tab_unselected.xml",
-        "app/src/main/res/drawable/border_accent.xml"
-      ],
+      "title": "Initialize Counter Text View",
+      "description": "Add the numeric display area with high-contrast text sizing to view counts clearly.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Design user interactive dialog dialogs interfaces",
-      "description": "Develop functional dialog views allowing creation and updating of Subject entities, Task requirements, and custom notification Reminders.",
-      "files": [
-        "app/src/main/res/layout/dialog_subject.xml",
-        "app/src/main/res/layout/dialog_task.xml",
-        "app/src/main/res/layout/dialog_reminder.xml"
-      ],
+      "title": "Implement Click Controls",
+      "description": "Incorporate increment, decrement, and clear action controls in the XML template layout.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Create primary view panel screen structure",
-      "description": "Formulate main layout with tab control elements and four sub-views: Dashboard view, Subject manager, Task compiler, and Reminder planner.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
+      "title": "Create Main Activity File",
+      "description": "Write MainActivity.java in package com.tinycounter.app utilizing basic Android SDK classes.",
+      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Build local persistence Database framework",
-      "description": "Program StudyDatabaseHelper using built-in Android SQLite SDK to reliably execute relational schemas for academic tracker metrics.",
-      "files": [
-        "app/src/main/java/com/studyplanner/app/StudyDatabaseHelper.java"
-      ],
+      "title": "Initialize Activity Views",
+      "description": "Bind layout components using standard findViewById API references inside onCreate.",
+      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement background Reminder alarms receiver listener",
-      "description": "Set up BroadcastReceiver executing system alert notifications on custom channel trigger times.",
-      "files": [
-        "app/src/main/java/com/studyplanner/app/ReminderReceiver.java"
-      ],
+      "title": "Wire Listener Actions",
+      "description": "Add Java 8 compatible anonymous inner classes for the touch listener clicks.",
+      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Build dynamic user views populator core logic",
-      "description": "Construct dynamic Java 8 layout constructors creating visual metrics, checklist behaviors, stats, and dialogs.",
-      "files": [
-        "app/src/main/java/com/studyplanner/app/MainActivity.java"
-      ],
+      "title": "Build Increment Logic",
+      "description": "Implement the calculation logic to safely add positive numbers to current state.",
+      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Building Study Planner",
-      "description": "Initiate build environment assembly via Android Gradle build manager debug targets.",
+      "title": "Build Decrement Logic",
+      "description": "Implement calculation limits allowing subtraction of numbers and basic state boundaries.",
+      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Reset State",
+      "description": "Provide user-friendly feedback dialogs or quick state cleanups restoring standard settings to zero.",
+      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Restore Saved State",
+      "description": "Add dynamic lifecycle handling to recover and retain screen orientations values securely using onSaveInstanceState.",
+      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Manifest and Namespace Verification",
+      "description": "Validate the XML elements and check the strict root attribute schemas for compliance.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Tiny Counter",
+      "description": "Assemble the completed package using the Java 17 and Gradle 8.5 target environments.",
       "files": [],
       "status": "pending"
     }

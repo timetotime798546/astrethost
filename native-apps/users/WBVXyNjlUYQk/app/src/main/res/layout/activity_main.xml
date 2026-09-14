@@ -1,422 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_match"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background_light">
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#F5F5F5">
 
-    <!-- Premium Custom Top Toolbar -->
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiny Counter"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#212121"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keep count of whatever you want!"
+        android:textSize="14sp"
+        android:textColor="#757575"
+        android:layout_marginBottom="48dp" />
+
+    <TextView
+        android:id="@+id/counter_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        android:textColor="#1976D2"
+        android:layout_marginBottom="48dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:background="@color/primary"
-        android:orientation="vertical"
-        android:gravity="center_vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/toolbar_subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your dynamic academic command center"
-            android:textColor="#D1C4E9"
-            android:textSize="12sp" />
-    </LinearLayout>
-
-    <!-- Main Dynamic Frame -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="12dp">
-
-        <!-- PANEL 1: DASHBOARD -->
-        <ScrollView
-            android:id="@+id/panel_dashboard"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Overall Progress Metric Card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/card_background"
-                    android:padding="16dp"
-                    android:layout_marginBottom="12dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Overall Academic Progress"
-                        android:textStyle="bold"
-                        android:textColor="@color/text_dark"
-                        android:textSize="16sp" />
-
-                    <ProgressBar
-                        android:id="@+id/dashboard_progress_bar"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="24dp"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginBottom="6dp"
-                        android:progressDrawable="@android:drawable/progress_horizontal"
-                        android:max="100" />
-
-                    <TextView
-                        android:id="@+id/dashboard_progress_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% Tasks Completed"
-                        android:textColor="@color/text_muted"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-                <!-- Dynamic Quick Stats Row -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="12dp">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/card_background"
-                        android:padding="12dp"
-                        android:layout_marginRight="6dp">
-
-                        <TextView
-                            android:id="@+id/stat_subjects_count"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Subjects"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_muted" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/card_background"
-                        android:padding="12dp"
-                        android:layout_marginLeft="6dp"
-                        android:layout_marginRight="6dp">
-
-                        <TextView
-                            android:id="@+id/stat_tasks_pending"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/priority_high" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Pending Tasks"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_muted" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/card_background"
-                        android:padding="12dp"
-                        android:layout_marginLeft="6dp">
-
-                        <TextView
-                            android:id="@+id/stat_reminders_active"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/priority_low" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Alarms"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_muted" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Inspirational Focus Card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/border_accent"
-                    android:padding="14dp"
-                    android:layout_marginBottom="12dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Focus Tip of the Day"
-                        android:textColor="@color/accent"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/focus_quote_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="@string/motivational_tip"
-                        android:textColor="@color/text_dark"
-                        android:textSize="14sp"
-                        android:fontStyle="italic" />
-                </LinearLayout>
-
-                <!-- Action Button Trigger Row -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginBottom="12dp">
-
-                    <Button
-                        android:id="@+id/dash_quick_task_btn"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Quick-Add Target Task"
-                        android:background="@drawable/button_background"
-                        android:textColor="@color/white" />
-                </LinearLayout>
-
-                <!-- Upcoming Focus items List -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Urgent Study Priorities"
-                    android:textColor="@color/text_dark"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:layout_marginBottom="8dp" />
-
-                <LinearLayout
-                    android:id="@+id/dashboard_tasks_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- PANEL 2: SUBJECTS -->
-        <ScrollView
-            android:id="@+id/panel_subjects"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btn_add_subject"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/add_subject"
-                    android:background="@drawable/button_background"
-                    android:textColor="@color/white"
-                    android:layout_marginBottom="12dp" />
-
-                <LinearLayout
-                    android:id="@+id/subjects_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- PANEL 3: TASKS -->
-        <ScrollView
-            android:id="@+id/panel_tasks"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btn_add_task"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/add_task"
-                    android:background="@drawable/button_background"
-                    android:textColor="@color/white"
-                    android:layout_marginBottom="12dp" />
-
-                <!-- Filters Layout -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="12dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Filter priority: "
-                        android:textColor="@color/text_muted"
-                        android:textSize="13sp"
-                        android:layout_gravity="center_vertical" />
-
-                    <Spinner
-                        android:id="@+id/spinner_task_filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tasks_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- PANEL 4: REMINDERS -->
-        <ScrollView
-            android:id="@+id/panel_reminders"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btn_add_reminder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/add_reminder"
-                    android:background="@drawable/button_background"
-                    android:textColor="@color/white"
-                    android:layout_marginBottom="12dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Active system study alarms set below:"
-                    android:textColor="@color/text_muted"
-                    android:textSize="12sp"
-                    android:layout_marginBottom="8dp" />
-
-                <LinearLayout
-                    android:id="@+id/reminders_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </LinearLayout>
-        </ScrollView>
-    </FrameLayout>
-
-    <!-- Navigation Tab Bar -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:padding="4dp">
+        android:layout_marginBottom="24dp">
 
-        <TextView
-            android:id="@+id/tab_dashboard"
+        <Button
+            android:id="@+id/btn_decrement"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/dashboard"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:layout_margin="2dp"
-            android:background="@drawable/tab_selected" />
+            android:text="-"
+            android:textSize="30sp"
+            android:textColor="#FFFFFF"
+            android:background="#D32F2F"
+            android:layout_marginRight="12dp" />
 
-        <TextView
-            android:id="@+id/tab_subjects"
+        <Button
+            android:id="@+id/btn_increment"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/subjects"
-            android:textColor="@color/text_dark"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:layout_margin="2dp"
-            android:background="@drawable/tab_unselected" />
+            android:text="+"
+            android:textSize="30sp"
+            android:textColor="#FFFFFF"
+            android:background="#388E3C"
+            android:layout_marginLeft="12dp" />
 
-        <TextView
-            android:id="@+id/tab_tasks"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/tasks"
-            android:textColor="@color/text_dark"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:layout_margin="2dp"
-            android:background="@drawable/tab_unselected" />
-
-        <TextView
-            android:id="@+id/tab_reminders"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/reminders"
-            android:textColor="@color/text_dark"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:layout_margin="2dp"
-            android:background="@drawable/tab_unselected" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Reset"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:background="#757575" />
+
 </LinearLayout>
