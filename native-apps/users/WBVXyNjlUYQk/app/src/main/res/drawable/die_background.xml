@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bottom Bevel / Drop Shadow -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#25000000" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    <!-- Main Die Frame -->
+    <item android:bottom="4dp" android:left="1dp" android:right="1dp" android:top="1dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#FFFFFF"
+                android:endColor="#F4F4F6"
+                android:angle="270" />
+            <stroke
+                android:width="2.5dp"
+                android:color="#1A1A24" />
+            <corners android:radius="14dp" />
+        </shape>
+    </item>
+</layer-list>
