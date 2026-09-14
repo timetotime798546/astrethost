@@ -1,0 +1,122 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Initialization",
+      "description": "Initialize standard Android directory structure and set package name com.multiutilitysuite.app for Multi Utility Suite.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Environment",
+      "description": "Setup app/build.gradle configured with AGP 8.3.2, compileSdkVersion 34, and Java 8 code compatibility.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Manifest",
+      "description": "Write AndroidManifest.xml defining correct layout, platform requirements, and main launcher activity with system themes.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Button Graphics",
+      "description": "Create background shape resources in drawables to styling UI buttons with soft teal/amber color highlights.",
+      "files": [
+        "app/src/main/res/drawable/button_background.xml",
+        "app/src/main/res/drawable/button_calc_number.xml",
+        "app/src/main/res/drawable/button_calc_operator.xml",
+        "app/src/main/res/drawable/button_calc_clear.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Display Graphic",
+      "description": "Create calculator display panel background drawable with custom rounded corners and stroke properties.",
+      "files": [
+        "app/src/main/res/drawable/display_background.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Main Layout XML",
+      "description": "Create layout_main.xml including bottom navigation views and separate layout modules for Calculator, Stopwatch, Notes, and Converter.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Navigation Controls",
+      "description": "Program standard bottom tab click listeners in MainActivity.java using pure standard Android SDK views.",
+      "files": [
+        "app/src/main/java/com/multiutilitysuite/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Code Calculator Functionality",
+      "description": "Implement complete responsive layout event handling for numbers, arithmetic operators, decimal values, and logic calculations.",
+      "files": [
+        "app/src/main/java/com/multiutilitysuite/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Code Stopwatch & Countdown Logic",
+      "description": "Implement Handler-based stopwatch counting with precision laps feature, plus standard Android CountDownTimer utility integration.",
+      "files": [
+        "app/src/main/java/com/multiutilitysuite/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Code Notepad Engine",
+      "description": "Design local SQLite-free persistence storage inside SharedPreferences to add, list, and delete custom text notes dynamically.",
+      "files": [
+        "app/src/main/java/com/multiutilitysuite/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Code Measurement Converter",
+      "description": "Implement math logic for Length, Weight, and Temperature spinner selections with dynamic unit conversion formulas.",
+      "files": [
+        "app/src/main/java/com/multiutilitysuite/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Verify Java 8 Standard Compatibility",
+      "description": "Ensure no lambdas, method references, or Java 9+ features are used inside MainActivity.java implementation.",
+      "files": [
+        "app/src/main/java/com/multiutilitysuite/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Multi Utility Suite",
+      "description": "Assemble final release APK using system Gradle configurations.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
