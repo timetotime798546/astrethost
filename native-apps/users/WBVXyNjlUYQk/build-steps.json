@@ -1,0 +1,101 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Metadata",
+      "description": "Assert and configure application metadata for Retro Brick Breaker including app name and package namespace.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Redesign UI Overlay Layout Architecture",
+      "description": "Rebuild activity_main.xml to replace full-screen blockers with floating retro glassmorphic cards and polished monospace guides over the active background view.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Drifting Space Starfield background",
+      "description": "Program a high-performance custom particle array representing a drifting, twinkling synthwave star system drifting over the background canvas.",
+      "files": [
+        "app/src/main/java/com/retrobrickbreaker/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Scrolling Matrix Grid Decoration",
+      "description": "Code moving horizontal background line trackers inside GameView rendering cycles to build an active vector horizon parallax effect.",
+      "files": [
+        "app/src/main/java/com/retrobrickbreaker/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build Multi-ball Neon Trails",
+      "description": "Implement history arrays on Ball trackers to calculate and draw fading motion trailing segments on high-speed canvas movements.",
+      "files": [
+        "app/src/main/java/com/retrobrickbreaker/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Program Dynamic Emitter Particles",
+      "description": "Architect a dedicated physical particle emitter triggered on brick hit or breakage to spray vibrant, fading neon colors matching the struck brick's style.",
+      "files": [
+        "app/src/main/java/com/retrobrickbreaker/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Impact Screen Shake Engine",
+      "description": "Incorporate translation shake matrices on the canvas drawing routines triggered by life-loss, brick breaks, and critical state occurrences.",
+      "files": [
+        "app/src/main/java/com/retrobrickbreaker/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Stylize Specular Bricks & Tube-Neon Paddle",
+      "description": "Enhance canvas draw rules with gloss top reflections, multi-hit strength labels, and multi-layered glow borders on the retro paddle controller.",
+      "files": [
+        "app/src/main/java/com/retrobrickbreaker/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Connect Interactive Power-Up Identifiers",
+      "description": "Update power-up renderings with dynamic custom symbols corresponding to wide paddle, extra health, slow-motion, and splits.",
+      "files": [
+        "app/src/main/java/com/retrobrickbreaker/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Create State-List Programmatic Selectors",
+      "description": "Configure state list drawables in MainActivity.java to bind rounded, glowing custom retro gradients with responsive pressed states for all buttons.",
+      "files": [
+        "app/src/main/java/com/retrobrickbreaker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Retro Brick Breaker",
+      "description": "Compile final debug executable build checking complete backward Java 8 compatibility and standard AGP rules.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
