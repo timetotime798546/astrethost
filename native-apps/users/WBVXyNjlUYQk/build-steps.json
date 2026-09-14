@@ -65,8 +65,8 @@
     },
     {
       "step": 10,
-      "title": "Implement ToneGenerator Audio and Accelerometer Engine",
-      "description": "Implement MainActivity mechanics to capture physically shaken device events, synthesizer chime audio feedback, and ingredient brewing recipe matrices.",
+      "title": "Fix MainActivity ToneGenerator Reference",
+      "description": "Modify MainActivity to use correct and verified ToneGenerator alert constants for chime audio feedback, resolving build compilation issues.",
       "files": ["app/src/main/java/com/magiccompanion/app/MainActivity.java"],
       "status": "pending"
     },

@@ -292,7 +292,7 @@ public class MainActivity extends Activity implements SensorEventListener {
                     } else if (type == 5) {
                         tg.startTone(ToneGenerator.TONE_CDMA_LOW_L, 400);
                         Thread.sleep(400);
-                        tg.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_SIGNAL, 250);
+                        tg.startTone(ToneGenerator.TONE_CDMA_ALERT_NETWORK_LITE, 250);
                     }
                     tg.release();
                 } catch (Exception e) {
