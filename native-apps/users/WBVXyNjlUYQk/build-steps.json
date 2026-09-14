@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Establish basic project configuration and package namespace for com.retrocarracer.app.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Setup Android Build Environment",
+      "description": "Configure the root build.gradle and the app-level build.gradle with strict Java 17 and AGP 8.3.2 specifications, enabling Java 8 source/target compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define Android Manifest",
+      "description": "Create AndroidManifest.xml under the com.retrocarracer.app package, specifying portrait orientation and full-screen material theme behavior without third-party dependencies.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Main Layout XML",
+      "description": "Establish the XML layout with the custom GameView placeholder, control buttons, scoring dashboard, and overlay container layouts for the Start and Game Over screens.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Sound and Haptics Helper",
+      "description": "Construct simple sound effect generation utility classes using the Android SDK SoundPool or ToneGenerator to simulate retro engine noises and crash sound alerts.",
+      "files": ["app/src/main/java/com/retrocarracer/app/SoundManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Game Entities",
+      "description": "Create data modeling structures and rendering definitions for obstacles (enemy cars, oil slicks) and collectible items (gold coins) on the scrolling roadway.",
+      "files": ["app/src/main/java/com/retrocarracer/app/GameEntity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop Game Canvas Rendering Engine",
+      "description": "Implement the core 2D graphics render pipeline inside GameView.java, drawing the grass borders, asphalt road, moving lane markers, player car, and animated obstacles.",
+      "files": ["app/src/main/java/com/retrocarracer/app/GameView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Collision Detection Logic",
+      "description": "Write advanced physics and bounding-box collision detection routines inside the GameView game-loop, managing safe/unsafe states and tracking score increments.",
+      "files": ["app/src/main/java/com/retrocarracer/app/GameView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Connect Controller Inputs",
+      "description": "Attach click and touch event handlers to Retro Car Racer UI controls, implementing smooth horizontal steering physics with acceleration and friction coefficients.",
+      "files": ["app/src/main/java/com/retrocarracer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Save High Scores and User Progress",
+      "description": "Configure SharedPreferences storage queries to persist the highest achieved retro racing score and display it directly on the main dashboard and game over screen.",
+      "files": ["app/src/main/java/com/retrocarracer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Perform Cleanups & Code Review",
+      "description": "Double check standard imports, remove modern Java lambda usages to maintain strict Java 8 compatibility, and verify manifest attributes.",
+      "files": ["app/src/main/java/com/retrocarracer/app/MainActivity.java", "app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Retro Car Racer",
+      "description": "Compile, build, and assemble the final application packages cleanly using the unified Gradle assembler toolchain.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

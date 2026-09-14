@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E2322">
+
+    <!-- The Game View Panel -->
+    <com.retrocarracer.app.GameView
+        android:id="@+id/game_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Top Dashboard Overlay -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SCORE: 0"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:id="@+id/tv_high_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HI-SCORE: 0"
+            android:textColor="#FFEB3B"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <!-- Bottom Controls Overlay -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="20dp"
+        android:background="#55000000">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Left Button -->
+            <Button
+                android:id="@+id/btn_left"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:text="◀ STEER LEFT"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#E91E63" />
+
+            <!-- Right Button -->
+            <Button
+                android:id="@+id/btn_right"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:text="STEER RIGHT ▶"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#2196F3" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Start Game Menu Screen Overlay -->
+    <LinearLayout
+        android:id="@+id/layout_start_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E61A1D20"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="30dp"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RETRO CAR RACER"
+            android:textColor="#FF3D00"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Avoid incoming obstacles and gather golden coins. Increase your speeds to set high scores!"
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginBottom="30dp" />
+
+        <Button
+            android:id="@+id/btn_start_game"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:text="START RACE"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="#4CAF50" />
+    </LinearLayout>
+
+    <!-- Game Over Screen Overlay -->
+    <LinearLayout
+        android:id="@+id/layout_game_over"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2261313"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="30dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CRASHED!"
+            android:textColor="#FF1744"
+            android:textSize="45sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/tv_final_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FINAL SCORE: 0"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:id="@+id/tv_final_high_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEW RECORD SET!"
+            android:textColor="#FFEB3B"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="40dp" />
+
+        <Button
+            android:id="@+id/btn_restart"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:text="TRY AGAIN"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="#FF9800" />
+    </LinearLayout>
+</RelativeLayout>
