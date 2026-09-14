@@ -1,0 +1,413 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#120c1f">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:background="#1a112e"
+        android:gravity="center"
+        android:elevation="4dp"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/txt_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✨ Wizard's Grimoire ✨"
+            android:textColor="#f5f2eb"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Main Content Container -->
+    <FrameLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layout_tabs"
+        android:layout_below="@id/layout_header">
+
+        <!-- Module 1: Magic Wand -->
+        <RelativeLayout
+            android:id="@+id/module_wand"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <com.magiccompanion.app.MagicWandView
+                android:id="@+id/wand_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!-- Spell Selection HUD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true"
+                android:background="#d90b061c"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Choose Active Spell"
+                    android:textColor="#a19cb0"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <Button
+                            android:id="@+id/btn_spell_lumos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lumos"
+                            android:textColor="#ffffff"
+                            android:background="@android:color/transparent"
+                            android:layout_marginRight="8dp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btn_spell_incendio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Incendio"
+                            android:textColor="#ff5522"
+                            android:background="@android:color/transparent"
+                            android:layout_marginRight="8dp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btn_spell_glacius"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Glacius"
+                            android:textColor="#55ccff"
+                            android:background="@android:color/transparent"
+                            android:layout_marginRight="8dp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btn_spell_alohomora"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Alohomora"
+                            android:textColor="#55ffaa"
+                            android:background="@android:color/transparent"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tap, drag, and wave your wand on screen!"
+                    android:textColor="#837e96"
+                    android:textSize="11sp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- Module 2: Alchemy Cauldron -->
+        <RelativeLayout
+            android:id="@+id/module_cauldron"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/txt_alchemy_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alchemical Cauldron"
+                android:textColor="#f5f2eb"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/txt_alchemy_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select two ingredients to brew a magical potion"
+                android:textColor="#a19cb0"
+                android:textSize="12sp"
+                android:layout_below="@id/txt_alchemy_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Ingredients Selector -->
+            <LinearLayout
+                android:id="@+id/layout_ingredient_spinners"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/txt_alchemy_subtitle"
+                android:layout_marginBottom="16dp"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginRight="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ingredient 1"
+                        android:textColor="#d4b2ff"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+
+                    <Spinner
+                        android:id="@+id/spinner_ingredient1"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@android:color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ingredient 2"
+                        android:textColor="#d4b2ff"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+
+                    <Spinner
+                        android:id="@+id/spinner_ingredient2"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@android:color/white" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Brew button -->
+            <Button
+                android:id="@+id/btn_brew"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout_ingredient_spinners"
+                android:layout_centerHorizontal="true"
+                android:text="🔮 Brew Potion"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="#5a2ca8"
+                android:textColor="#ffffff"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Cauldron Anim View -->
+            <com.magiccompanion.app.CauldronView
+                android:id="@+id/cauldron_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/btn_brew"
+                android:layout_above="@+id/layout_potion_result"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Result Display -->
+            <LinearLayout
+                android:id="@+id/layout_potion_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                android:background="#23173d"
+                android:padding="12dp"
+                android:gravity="center"
+                android:visibility="invisible">
+
+                <TextView
+                    android:id="@+id/txt_result_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BREWING COMPLETE!"
+                    android:textColor="#ffd700"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_potion_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Elixir of Life"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:id="@+id/txt_potion_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Grants immortality and heals all wounds."
+                    android:textColor="#c5c2d1"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- Module 3: Oracle -->
+        <RelativeLayout
+            android:id="@+id/module_oracle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/txt_oracle_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The Wizard's Oracle"
+                android:textColor="#f5f2eb"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/txt_oracle_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ask a question inside your mind, then shake your phone or tap the glass..."
+                android:textColor="#a19cb0"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_below="@id/txt_oracle_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp" />
+
+            <com.magiccompanion.app.EightBallView
+                android:id="@+id/oracle_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/txt_oracle_subtitle"
+                android:layout_above="@+id/layout_oracle_instructions" />
+
+            <LinearLayout
+                android:id="@+id/layout_oracle_instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/txt_shake_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✨ PHYSICAL SHAKE SENSOR ACTIVE ✨"
+                    android:textColor="#d4b2ff"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+    </FrameLayout>
+
+    <!-- Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/layout_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="#1a112e"
+        android:weightSum="3"
+        android:elevation="8dp">
+
+        <LinearLayout
+            android:id="@+id/tab_wand"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#2d1e4d"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/txt_tab_wand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🪄 Wand"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_cauldron"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/txt_tab_cauldron"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🧪 Cauldron"
+                android:textColor="#a19cb0"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_oracle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/txt_tab_oracle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔮 Oracle"
+                android:textColor="#a19cb0"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
