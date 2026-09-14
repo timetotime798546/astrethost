@@ -3,105 +3,92 @@
     {
       "step": 1,
       "title": "Define App Metadata",
-      "description": "Configure the metadata for Tiny Counter including its package name com.tinycounter.app.",
-      "files": ["app-meta.json"],
+      "description": "Configure the core app metadata including the package name com.expensetracker.app and the app label in app-meta.json.",
+      "files": [
+        "app-meta.json"
+      ],
       "status": "pending"
     },
     {
       "step": 2,
       "title": "Configure Build Environment",
-      "description": "Clean up app's build.gradle, updating packaging configurations and removing external/third-party dependencies to ensure full compliance with the strict offline environment.",
-      "files": ["app/build.gradle"],
+      "description": "Clean up Gradle dependencies by removing external third-party dependencies to ensure full compliance with the strict built-in SDK rule.",
+      "files": [
+        "app/build.gradle"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
       "title": "Define Android Manifest",
-      "description": "Set up AndroidManifest.xml with standard namespace declarations and launcher activity.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "description": "Verify AndroidManifest.xml namespace references and export attributes correctly.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design main user interface",
-      "description": "Build modern minimalist layout with clean alignment for displaying and editing the count value.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Review Resource Styles",
+      "description": "Validate shape styling and circle badging configurations in drawable resources.",
+      "files": [
+        "app/src/main/res/drawable/shape_card.xml",
+        "app/src/main/res/drawable/shape_button.xml",
+        "app/src/main/res/drawable/shape_circle.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Initialize Counter Text View",
-      "description": "Add the numeric display area with high-contrast text sizing to view counts clearly.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Review Main Dashboard Layout",
+      "description": "Validate structural integrity of activity_main.xml layout elements.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Click Controls",
-      "description": "Incorporate increment, decrement, and clear action controls in the XML template layout.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Review Sub layouts and Dialog XML templates",
+      "description": "Validate dialog layout and dynamic items used inside transaction history lists.",
+      "files": [
+        "app/src/main/res/layout/dialog_add_transaction.xml",
+        "app/src/main/res/layout/item_category_report.xml",
+        "app/src/main/res/layout/item_transaction.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Create Main Activity File",
-      "description": "Write MainActivity.java in package com.tinycounter.app utilizing basic Android SDK classes.",
-      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
+      "title": "Fix SQLite Connection and Cursor Leaks",
+      "description": "Incorporate robust try-finally blocks inside MainActivity.java SQLiteOpenHelper database operations to safely close cursors and avoid leaking system resources.",
+      "files": [
+        "app/src/main/java/com/expensetracker/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Initialize Activity Views",
-      "description": "Bind layout components using standard findViewById API references inside onCreate.",
-      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
+      "title": "Apply Safe String and Null Safety Checks",
+      "description": "Enhance text display mechanics with null-safe fallbacks for transaction notes and expense categories, avoiding potential runtime NullPointerExceptions.",
+      "files": [
+        "app/src/main/java/com/expensetracker/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Wire Listener Actions",
-      "description": "Add Java 8 compatible anonymous inner classes for the touch listener clicks.",
-      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
+      "title": "Verify UI and State Machine Operations",
+      "description": "Sanitize month navigations and custom category spinner state updates to ensure responsive calculations.",
+      "files": [
+        "app/src/main/java/com/expensetracker/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Build Increment Logic",
-      "description": "Implement the calculation logic to safely add positive numbers to current state.",
-      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Build Decrement Logic",
-      "description": "Implement calculation limits allowing subtraction of numbers and basic state boundaries.",
-      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Implement Reset State",
-      "description": "Provide user-friendly feedback dialogs or quick state cleanups restoring standard settings to zero.",
-      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Restore Saved State",
-      "description": "Add dynamic lifecycle handling to recover and retain screen orientations values securely using onSaveInstanceState.",
-      "files": ["app/src/main/java/com/tinycounter/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Manifest and Namespace Verification",
-      "description": "Validate the XML elements and check the strict root attribute schemas for compliance.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 15,
-      "title": "Building Tiny Counter",
-      "description": "Assemble the completed package using the Java 17 and Gradle 8.5 target environments.",
+      "title": "Building Expense Tracker",
+      "description": "Compile the fixed package using the target build profile and standard JDK 17 environment.",
       "files": [],
       "status": "pending"
     }

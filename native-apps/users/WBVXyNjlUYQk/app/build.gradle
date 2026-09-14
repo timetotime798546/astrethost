@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.tinycounter.app"
+    namespace "com.expensetracker.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.tinycounter.app"
+        applicationId "com.expensetracker.app"
 
         minSdkVersion 21
 
