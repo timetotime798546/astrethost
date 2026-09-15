@@ -1,0 +1,99 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Establish the application package name and display name for Charging Voice Alert inside app-meta.json.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Establish Build Environment",
+      "description": "Setup app/build.gradle using AGP 8.3.2, Gradle 8.5, and SDK 34 compatibility rules without external dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement App Colors and Style Resources",
+      "description": "Create color definitions and core theme style declarations based on Material design in standard colors.xml and themes.xml.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/themes.xml",
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Build Main Activity User Interface Layout",
+      "description": "Construct activity_main.xml layout with battery levels, status indicators, start/stop buttons, alert preference switches, and battery settings information.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Declare Application Manifest Requirements",
+      "description": "Establish proper permissions including foreground services, boot capabilities, and dynamic notification actions inside AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Boot Completion Broadcast Receiver",
+      "description": "Implement BootReceiver.java to automatically restore the foreground battery monitoring service upon device reboot if enabled.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/BootReceiver.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Background Foreground Monitor Service",
+      "description": "Develop ChargingMonitorService.java to handle background lifecycle operations and start persistent status notifications.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/ChargingMonitorService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Integrate Battery Broadcast State Monitor",
+      "description": "Create dynamic battery broadcast handlers inside the background service to continuously capture power states, percentages, and transitions.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/ChargingMonitorService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Integrate Native Text-To-Speech Interface",
+      "description": "Build voice synthesis algorithms using Android TextToSpeech to deliver Hindi-friendly spoken alerts safely without duplicates.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/ChargingMonitorService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Develop Main Controller Interface Logic",
+      "description": "Complete MainActivity.java implementation linking interactive UI actions, shared preferences status updating, and battery optimization redirection.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Handle Dynamic Notification Permission",
+      "description": "Write permission checks inside MainActivity for API level 33+ devices to allow posting required active service notifications.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Verify State Handling Rules",
+      "description": "Confirm execution of speech queue constraints, power plug status updates, and session state reset transitions.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Charging Voice Alert",
+      "description": "Trigger compilation, clean build validation, resource linking, and APK generation.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
