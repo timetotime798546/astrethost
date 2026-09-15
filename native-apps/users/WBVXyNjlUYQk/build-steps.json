@@ -1,0 +1,84 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Verify App Metadata Configuration",
+      "description": "Establish the exact package namespace and metadata layout for Charging Voice Alert.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Update Main Layout XML Structure",
+      "description": "Add text configuration fields in activity_main.xml for Owner Name and custom speech template strings.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Custom Input Bindings in MainActivity",
+      "description": "Wire EditText controls to state fields and bind save actions to persist owner details and alerts directly to SharedPreferences.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Adapt TTS Broadcast Signals to User-Defined Templates",
+      "description": "Revise Voice Alerts handler triggers in ChargingMonitorService to prepend customized owner names safely.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/ChargingMonitorService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Suppress Owner Name on Percentage Updates",
+      "description": "Ensure the dynamic text formatter excludes the owner name parameter entirely when announcing battery increments.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/ChargingMonitorService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Resolve Dynamic Broadcast Receiver Runtime Safety",
+      "description": "Implement RECEIVER_NOT_EXPORTED flag check inside MainActivity for custom battery update actions on target API 33+ devices.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Resolve Foreground Service Start Crashes",
+      "description": "Modify the service call to use startForeground with the specialUse type argument dynamically on Android 14+.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/ChargingMonitorService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify Native Text-to-Speech Engine Fallbacks",
+      "description": "Verify safe asynchronous initialization and language fallback checks for Hindi-language custom user-entered templates.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/ChargingMonitorService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Boot Receiver Configuration",
+      "description": "Verify boot completion handler behavior for seamless automatic background monitoring restoration on reboot.",
+      "files": ["app/src/main/java/com/chargingvoicealert/app/BootReceiver.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Verify Android Theme and Color Styling",
+      "description": "Verify XML layouts and styles use standard Material Light themes and reliable asset definitions.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/themes.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Charging Voice Alert",
+      "description": "Compile the verified code and custom configurations into the final production-ready APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
