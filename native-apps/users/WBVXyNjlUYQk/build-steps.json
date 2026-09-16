@@ -2,18 +2,18 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze existing Simple Clicker structure and prepare 3D upgrade path",
-      "description": "Evaluate current XML layout, styles, and MainActivity patterns to replace flat UI counter displays with real-time interactive 3D graphics rendering.",
+      "title": "Analyze and outline Simple Clicker 3D transition requirements",
+      "description": "Establish a full-screen, purely 3D interactive user interface by migrating all dashboard panels, control buttons, step-selection toggles, and statistics modules directly onto an immersive, dynamically shaded, real-time custom 3D Canvas view.",
       "files": [
-        "app/build.gradle",
+        "app/src/main/java/com/simpleclicker/app/ThreeDCanvasView.java",
         "app/src/main/java/com/simpleclicker/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Clean up unauthorized external web-server dependencies",
-      "description": "Purge non-essential libraries such as nanohttpd to enforce the standard SDK-only compilation rules of the build system.",
+      "title": "Clean build configuration and remove external dependencies",
+      "description": "Remove the unused NanoHTTPD library from the gradle configurations, lock compiler target and compatibility settings to Java 8, and confirm SDK 34 standards.",
       "files": [
         "app/build.gradle"
       ],
@@ -21,116 +21,107 @@
     },
     {
       "step": 3,
-      "title": "Define 3D coordinate geometry vertex maps in ThreeDObjectView",
-      "description": "Create a fully custom coordinate map with 8 standard 3D vertices representing the corners of a spatial cube model.",
-      "files": [
-        "app/src/main/java/com/simpleclicker/app/ThreeDObjectView.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Set up 3D face mappings for the 6 polygons",
-      "description": "Create indexed point paths representing the individual faces of our custom 3D tally cube, aligning textures and coordinates to face upright when fronting the camera.",
-      "files": [
-        "app/src/main/java/com/simpleclicker/app/ThreeDObjectView.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Implement standard trigonometric 3D rotation equations",
-      "description": "Write standard mathematical transformations to rotate vertices around the spatial Pitch (X) and Yaw (Y) axes based on automatic triggers or gesture dynamics.",
-      "files": [
-        "app/src/main/java/com/simpleclicker/app/ThreeDObjectView.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Implement Painter's algorithm face depth sorting",
-      "description": "Build sorting logic to calculate average Z-depth of each face and sort them back-to-front dynamically for accurate overlaps without visual glitches.",
-      "files": [
-        "app/src/main/java/com/simpleclicker/app/ThreeDObjectView.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Incorporate real-time directional lighting calculations",
-      "description": "Calculate dynamic 3D surface normals to establish real-time face light shading based on current coordinate rotation angles.",
-      "files": [
-        "app/src/main/java/com/simpleclicker/app/ThreeDObjectView.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Set up 3D perspective projection onto the 2D Viewport canvas",
-      "description": "Utilize Matrix.setPolyToPoly in conjunction with perspective division to translate 3D coordinates onto flat screens smoothly.",
-      "files": [
-        "app/src/main/java/com/simpleclicker/app/ThreeDObjectView.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Implement drag-to-rotate interaction physics",
-      "description": "Capture drag gestures on the canvas to update rotation angles dynamically, adding custom friction momentum upon finger release.",
-      "files": [
-        "app/src/main/java/com/simpleclicker/app/ThreeDObjectView.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Implement spring physics squeeze scale on tap",
-      "description": "Create a satisfying physical spring-mass simulation that visually depresses and rebounds the 3D cube when a click is executed.",
-      "files": [
-        "app/src/main/java/com/simpleclicker/app/ThreeDObjectView.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Integrate responsive state coloring inside ThreeDObjectView",
-      "description": "Draw crisp tally values directly on the 3D cube face and update the base canvas palette when high scores or negative values are reached.",
-      "files": [
-        "app/src/main/java/com/simpleclicker/app/ThreeDObjectView.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Update activity_main.xml layout with the custom 3D Viewport",
-      "description": "Replace static typography with the custom ThreeDObjectView layout block, sizing coordinates and padding structures cleanly.",
+      "title": "Construct fully 3D interactive viewport container",
+      "description": "Simplify the core layout to a single high-performance FrameLayout containing the full-screen interactive ThreeDCanvasView widget.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 13,
-      "title": "Refactor MainActivity logic to support the interactive 3D canvas",
-      "description": "Link touch listeners, count callbacks, high score updates, and vibration triggers perfectly between MainActivity controller and ThreeDObjectView.",
+      "step": 4,
+      "title": "Develop 3D spatial geometry definitions",
+      "description": "Define mathematical coordinates and index structures to render complex cuboid bodies alongside the custom dual-cone rotating gemstone in the virtual world.",
+      "files": [
+        "app/src/main/java/com/simpleclicker/app/ThreeDCanvasView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement multi-object 3D transformation matrices",
+      "description": "Code matrix transformations including scale, rotation, translation, and global perspective projections to map individual 3D objects to screen spaces.",
+      "files": [
+        "app/src/main/java/com/simpleclicker/app/ThreeDCanvasView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Formulate global Painter's Algorithm depth sorting",
+      "description": "Combine and sort every single polygon face from all distinct world objects in a unified descending order by average camera Z depth to prevent visual intersection clipping.",
+      "files": [
+        "app/src/main/java/com/simpleclicker/app/ThreeDCanvasView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Write real-time Flat Lambertian Shading and Wireframe outlines",
+      "description": "Calculate face surface normal vectors to estimate real-time diffuse illumination relative to a virtual directional light source, applying highlights on borders to emphasize geometric depth.",
+      "files": [
+        "app/src/main/java/com/simpleclicker/app/ThreeDCanvasView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build dynamic 3D Perspective Text Overlay system",
+      "description": "Calculate text bounds and draw beautifully anti-aliased dashboard labels directly centered over projected 3D coordinates, resizing and tilting proportionally with Z depth.",
+      "files": [
+        "app/src/main/java/com/simpleclicker/app/ThreeDCanvasView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement individual Mass-Spring-Damper elasticity loops",
+      "description": "Program independent physics equations on all interactive 3D blocks to simulate realistic squishing, bouncing, and physical recoil on user contact.",
+      "files": [
+        "app/src/main/java/com/simpleclicker/app/ThreeDCanvasView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Program 3D raycast click hit-testing",
+      "description": "Develop 2D proximity raycast thresholds based on depth-scaled projection bounds to precisely identify which 3D virtual button is pressed.",
+      "files": [
+        "app/src/main/java/com/simpleclicker/app/ThreeDCanvasView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Add holistic drag tilt environment controllers",
+      "description": "Map raw vertical and horizontal drag events on the canvas background to adjust camera viewpoint rotation matrices, enabling an amazing holographic tilt perspective.",
+      "files": [
+        "app/src/main/java/com/simpleclicker/app/ThreeDCanvasView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Bind virtual callbacks to MainActivity data states",
+      "description": "Configure the UI callback listeners inside MainActivity to update shared preferences, tally milestones, and trigger haptic events upon receiving interactions from the 3D canvas.",
       "files": [
         "app/src/main/java/com/simpleclicker/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 14,
-      "title": "Verify application attributes, package labels, and platform orientation",
-      "description": "Adjust android:label values in the manifest to match Simple Clicker 3D, and secure proper XML namespaces.",
+      "step": 13,
+      "title": "Perform manifest namespace and configuration validation",
+      "description": "Confirm appropriate namespace definitions, activity configurations, and orientation locks inside AndroidManifest.xml.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 15,
+      "step": 14,
       "title": "Building Simple Clicker 3D",
-      "description": "Execute gradle assembleDebug to compile Java structures, apply resources, and assemble the final application package.",
+      "description": "Compile the entire 3D-only interactive platform through the default build sequence to ensure flawless compatibility.",
       "files": [],
       "status": "pending"
     }
