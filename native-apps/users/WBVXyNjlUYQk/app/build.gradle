@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.appdebuggerdiagnostictool.app"
+    namespace "com.nativeimagetextreplacer.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.appdebuggerdiagnostictool.app"
+        applicationId "com.nativeimagetextreplacer.app"
 
         minSdkVersion 21
 

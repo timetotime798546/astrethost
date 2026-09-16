@@ -2,85 +2,68 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze User Request and Define App Scope",
-      "description": "Determined that the user wants to debug or fix errors. Since no source files were supplied, we build a diagnostic/debugger utility to inspect system metrics, check logcats, run permission checks, verify network state, and simulate handled/unhandled exceptions to assist in troubleshooting.",
-      "files": [],
-      "status": "pending"
-    },
-    {
-      "step": 2,
-      "title": "Define App Metadata",
-      "description": "Configure the unique application name 'App Debugger & Diagnostic Tool' and the package name 'com.appdebuggerdiagnostictool.app' within app-meta.json.",
+      "title": "Configure App Meta Info",
+      "description": "Verify and align app-meta.json with app name 'Native Image Text Replacer' and package 'com.nativeimagetextreplacer.app'.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
-      "step": 3,
-      "title": "Establish Build Environment Properties",
-      "description": "Set up build environment matching AGP 8.3.2, Gradle 8.5, target SDK 34, compile SDK 34, and Java 17 toolchain.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Configure Application Manifest",
-      "description": "Create AndroidManifest.xml with proper namespace, permissions (Internet, Network State, Read Logs), custom application themes, and launch activity with drawable icon configuration.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Design the Main Layout UI",
-      "description": "Build layout structure using a clean, native TabHost or ScrollView layout with sections for System Info, Live Logs, Network & Storage Diagnostic tests, and a Crash Sandbox.",
+      "step": 2,
+      "title": "Correct Layout Directory Placement",
+      "description": "Ensure the fully-featured activity_main.xml layout resides correctly inside app/src/main/res/layout/ with all mode buttons and container panels.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 3,
+      "title": "Add R Import to MainActivity",
+      "description": "Add explicit import of com.nativeimagetextreplacer.app.R in MainActivity.java to guarantee symbol visibility during compilation.",
+      "files": ["app/src/main/java/com/nativeimagetextreplacer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Validate Resource IDs",
+      "description": "Verify that all 13 missing IDs such as btn_mode_text and panel_brush_mode are successfully declared in the updated layout file.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify Model Integrations",
+      "description": "Check TextBlock, BrushStroke, and ImageOverlay models for compatibility with the clean brush sweeps and text edits.",
+      "files": [
+        "app/src/main/java/com/nativeimagetextreplacer/app/TextBlock.java",
+        "app/src/main/java/com/nativeimagetextreplacer/app/BrushStroke.java",
+        "app/src/main/java/com/nativeimagetextreplacer/app/ImageOverlay.java"
+      ],
+      "status": "pending"
+    },
+    {
       "step": 6,
-      "title": "Implement MainActivity Initialization",
-      "description": "Set up the Java 8 class, initialize view components, hook up action buttons, and define clean, native tab or segment navigation.",
-      "files": ["app/src/main/java/com/appdebuggerdiagnostictool/app/MainActivity.java"],
+      "title": "Check EditorView Touch Event Pipeline",
+      "description": "Ensure coordinate mapping and drawing layers render seamlessly across active editing modes.",
+      "files": ["app/src/main/java/com/nativeimagetextreplacer/app/EditorView.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Develop System Information Collector",
-      "description": "Code custom utility methods to read detailed build information (Android OS version, Model, Manufacturer, Build Fingerprint) and display it formatted in the UI.",
-      "files": ["app/src/main/java/com/appdebuggerdiagnostictool/app/MainActivity.java"],
+      "title": "Validate Manifest and Theme Setup",
+      "description": "Ensure AndroidManifest.xml correctly links the package namespace and default Light Material theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement Live Logcat Reader",
-      "description": "Write a process executor that runs 'logcat -d', parses recent logs, filters system debug prints, and displays them inside an interactive scrollable console.",
-      "files": ["app/src/main/java/com/appdebuggerdiagnostictool/app/MainActivity.java"],
+      "title": "Verify Gradle Configurations",
+      "description": "Verify that target SDK and compatible toolchains align perfectly with standard build environment.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Add Dynamic Permission & Network Tester",
-      "description": "Build tests for checking network reachability (DNS / Pings), querying Active Network details, and checking dynamic runtime permission state.",
-      "files": ["app/src/main/java/com/appdebuggerdiagnostictool/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Create Storage Test & Crash Sandbox",
-      "description": "Incorporate local write/read safety test to identify storage read-only errors and custom Crash Handler that intercepts application uncaught exceptions to safely present a debug summary dialog instead of hard-crashing.",
-      "files": ["app/src/main/java/com/appdebuggerdiagnostictool/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Conduct Build Readiness Review",
-      "description": "Validate the Java files against strict Java 8 compatibility, check resource ID matchings, and verify overall manifest compliance.",
-      "files": ["app/src/main/AndroidManifest.xml", "app/src/main/java/com/appdebuggerdiagnostictool/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Building App Debugger & Diagnostic Tool",
-      "description": "Assemble and compile the clean, functional debugging and diagnostic helper application.",
+      "title": "Building Native Image Text Replacer",
+      "description": "Compile the code using Gradle 8.5 with AGP 8.3.2 inside the Temurin 17 Java environment.",
       "files": [],
       "status": "pending"
     }

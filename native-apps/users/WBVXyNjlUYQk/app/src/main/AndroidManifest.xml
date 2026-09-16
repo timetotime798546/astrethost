@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.appdebuggerdiagnostictool.app">
-
-    <!-- Diagnostic app permissions -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
+    package="com.nativeimagetextreplacer.app">
 
     <application
         android:allowBackup="true"
-        android:label="App Debugger &amp; Diagnostic Tool"
         android:icon="@drawable/icon"
         android:roundIcon="@drawable/icon"
+        android:label="Native Image Text Replacer"
         android:theme="@android:style/Theme.Material.Light">
-        
         <activity
             android:name=".MainActivity"
             android:exported="true">
