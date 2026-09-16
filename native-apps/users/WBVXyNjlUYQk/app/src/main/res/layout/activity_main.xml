@@ -3,158 +3,207 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F6F8">
+    android:background="#F5F5F5">
 
-    <!-- Top Action Bar -->
-    <RelativeLayout
+    <!-- Header bar -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:elevation="4dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
-
+        android:layout_height="wrap_content"
+        android:background="#2196F3"
+        android:orientation="vertical"
+        android:padding="16dp">
+        
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="Text Replacer V10"
-            android:textColor="#212121"
-            android:textSize="18sp"
+            android:text="App Debugger &amp; Diagnostic Tool"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             android:textStyle="bold" />
+            
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Troubleshoot errors, view logs, and inspect metrics"
+            android:textColor="#E0E0E0"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
 
+    <!-- Navigation Tabs -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="#1E88E5">
+        
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:orientation="horizontal">
-
+            
             <Button
-                android:id="@+id/btn_load"
-                style="?android:attr/buttonStyleSmall"
+                android:id="@+id/btn_tab_system"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:layout_marginRight="8dp"
-                android:background="#E1F5FE"
-                android:text="Load Image"
-                android:textColor="#0288D1"
-                android:textSize="12sp"
+                android:layout_height="wrap_content"
+                android:text="SYSTEM INFO"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btn_save"
-                style="?android:attr/buttonStyleSmall"
+                android:id="@+id/btn_tab_logcat"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:background="#0288D1"
-                android:text="Save PNG"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
+                android:layout_height="wrap_content"
+                android:text="LOGCAT"
+                android:textColor="#B0BEC5"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_tab_diagnostics"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TESTS"
+                android:textColor="#B0BEC5"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_tab_sandbox"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CRASH SANDBOX"
+                android:textColor="#B0BEC5"
                 android:textStyle="bold" />
         </LinearLayout>
-    </RelativeLayout>
+    </HorizontalScrollView>
 
-    <!-- Main Workspace (Editor View) -->
+    <!-- Main Dynamic Content Frame -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#E0E0E0"
-        android:padding="8dp">
-
-        <com.nativeimagetextreplacer.app.EditorView
-            android:id="@+id/editor_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout>
-
-    <!-- Word Selector & Block Actions Area -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:elevation="8dp"
-        android:orientation="vertical"
         android:padding="12dp">
 
-        <!-- Detected Words Horizontal Chip List -->
-        <LinearLayout
+        <!-- Tab 1: System Info -->
+        <ScrollView
+            android:id="@+id/view_system"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_height="match_parent"
+            android:visibility="visible">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Detected:"
-                android:textColor="#757575"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:layout_marginRight="8dp"/>
+                android:orientation="vertical">
 
-            <HorizontalScrollView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:scrollbars="none">
-
-                <LinearLayout
-                    android:id="@+id/detected_chips_container"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" />
-            </HorizontalScrollView>
+                    android:text="Device Specifications"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
 
-            <Button
-                android:id="@+id/btn_add_box"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:background="#E8F5E9"
-                android:text="+ Add Box"
-                android:textColor="#2E7D32"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="8dp"/>
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/txt_system_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:padding="12dp"
+                    android:textColor="#424242"
+                    android:textSize="13sp"
+                    android:fontFamily="monospace"
+                    android:elevation="1dp" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#E0E0E0"
-            android:layout_marginBottom="8dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Runtime Details"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp" />
 
-        <!-- Control / Style Panel (Dynamic based on Selection) -->
+                <TextView
+                    android:id="@+id/txt_runtime_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:padding="12dp"
+                    android:textColor="#424242"
+                    android:textSize="13sp"
+                    android:fontFamily="monospace"
+                    android:elevation="1dp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Tab 2: Logcat Console -->
         <LinearLayout
-            android:id="@+id/panel_no_selection"
+            android:id="@+id/view_logcat"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No text area selected"
-                android:textColor="#9E9E9E"
-                android:textSize="14sp" />
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tap any text block on the image to edit / replace it"
-                android:textColor="#BDBDBD"
-                android:textSize="12sp"
-                android:layout_marginTop="4dp" />
+                <EditText
+                    android:id="@+id/edt_logcat_filter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Filter logs (e.g. Activity, Error)..."
+                    android:textSize="14sp"
+                    android:inputType="text" />
+
+                <Button
+                    android:id="@+id/btn_refresh_logcat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Refresh"
+                    android:textSize="12sp" />
+                
+                <Button
+                    android:id="@+id/btn_clear_logcat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clear Screen"
+                    android:textSize="12sp"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#1E1E1E"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/txt_logcat_output"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#00FF00"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:text="No logs gathered yet. Tap Refresh." />
+            </ScrollView>
         </LinearLayout>
 
+        <!-- Tab 3: Diagnostics / Tests -->
         <ScrollView
-            android:id="@+id/panel_selection"
+            android:id="@+id/view_diagnostics"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="match_parent"
             android:visibility="gone">
 
             <LinearLayout
@@ -162,271 +211,226 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- Text Input & Helper Chips -->
+                <!-- Network Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Network Connectivity Diagnostic"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <EditText
-                        android:id="@+id/et_replacement"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@android:drawable/edit_text"
-                        android:hint="Enter Replacement Text (Hindi / Eng)"
-                        android:paddingLeft="8dp"
-                        android:singleLine="true"
-                        android:textSize="14sp" />
+                    android:layout_marginBottom="8dp">
 
                     <Button
-                        android:id="@+id/btn_replace_apply"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="8dp"
-                        android:background="#388E3C"
-                        android:text="Replace"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <!-- Translation Helper Chips -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="6dp">
-
-                    <TextView
+                        android:id="@+id/btn_run_network_test"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Quick:"
+                        android:text="Run Network Check"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/txt_network_status"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="12dp"
+                        android:text="Not tested"
                         android:textColor="#757575"
-                        android:textSize="11sp"
-                        android:layout_marginRight="4dp"/>
-
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbars="none">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <Button
-                                android:id="@+id/chip_hi_1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="28dp"
-                                android:layout_marginRight="4dp"
-                                android:background="#F5F5F5"
-                                android:text="नमस्ते"
-                                android:textColor="#424242"
-                                android:textSize="10sp" />
-
-                            <Button
-                                android:id="@+id/chip_hi_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="28dp"
-                                android:layout_marginRight="4dp"
-                                android:background="#F5F5F5"
-                                android:text="धन्यवाद"
-                                android:textColor="#424242"
-                                android:textSize="10sp" />
-
-                            <Button
-                                android:id="@+id/chip_hi_3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="28dp"
-                                android:layout_marginRight="4dp"
-                                android:background="#F5F5F5"
-                                android:text="स्वागत है"
-                                android:textColor="#424242"
-                                android:textSize="10sp" />
-
-                            <Button
-                                android:id="@+id/chip_en_1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="28dp"
-                                android:layout_marginRight="4dp"
-                                android:background="#F5F5F5"
-                                android:text="REPLACED"
-                                android:textColor="#424242"
-                                android:textSize="10sp" />
-
-                            <Button
-                                android:id="@+id/chip_en_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="28dp"
-                                android:background="#F5F5F5"
-                                android:text="NEW TEXT"
-                                android:textColor="#424242"
-                                android:textSize="10sp" />
-                        </LinearLayout>
-                    </HorizontalScrollView>
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
-                <!-- Styling Controls: Font Size, Bold, Alignment -->
+                <TextView
+                    android:id="@+id/txt_network_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:padding="8dp"
+                    android:textSize="12sp"
+                    android:textColor="#616161"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Storage Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Storage Performance Test"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginBottom="8dp">
 
-                    <TextView
+                    <Button
+                        android:id="@+id/btn_run_storage_test"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Size:"
-                        android:textColor="#555555"
+                        android:text="Run Storage Test"
                         android:textSize="12sp" />
 
-                    <SeekBar
-                        android:id="@+id/sb_text_size"
+                    <TextView
+                        android:id="@+id/txt_storage_status"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:max="150" />
-
-                    <Button
-                        android:id="@+id/btn_bold"
-                        android:layout_width="40dp"
-                        android:layout_height="32dp"
-                        android:layout_marginRight="4dp"
-                        android:background="#EEEEEE"
-                        android:text="B"
-                        android:textColor="#212121"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="12dp"
+                        android:text="Not tested"
+                        android:textColor="#757575"
                         android:textStyle="bold"
-                        android:textSize="12sp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="#EEEEEE"
-                        android:padding="2dp">
-
-                        <Button
-                            android:id="@+id/btn_align_left"
-                            android:layout_width="32dp"
-                            android:layout_height="28dp"
-                            android:background="#FFFFFF"
-                            android:text="L"
-                            android:textColor="#212121"
-                            android:textSize="10sp" />
-
-                        <Button
-                            android:id="@+id/btn_align_center"
-                            android:layout_width="32dp"
-                            android:layout_height="28dp"
-                            android:background="#EEEEEE"
-                            android:text="C"
-                            android:textColor="#212121"
-                            android:textSize="10sp" />
-
-                        <Button
-                            android:id="@+id/btn_align_right"
-                            android:layout_width="32dp"
-                            android:layout_height="28dp"
-                            android:background="#EEEEEE"
-                            android:text="R"
-                            android:textColor="#212121"
-                            android:textSize="10sp" />
-                    </LinearLayout>
+                        android:textSize="14sp" />
                 </LinearLayout>
 
-                <!-- Color Palettes -->
-                <!-- Text Color Palette -->
-                <LinearLayout
+                <TextView
+                    android:id="@+id/txt_storage_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="10dp">
+                    android:background="#FFFFFF"
+                    android:padding="8dp"
+                    android:textSize="12sp"
+                    android:textColor="#616161"
+                    android:layout_marginBottom="16dp" />
 
-                    <TextView
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:text="Text Color:"
-                        android:textColor="#555555"
-                        android:textSize="11sp" />
+                <!-- Permissions Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manifest Permissions Checklist"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
 
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbars="none">
-
-                        <LinearLayout
-                            android:id="@+id/container_text_colors"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal" />
-                    </HorizontalScrollView>
-                </LinearLayout>
-
-                <!-- Background Color Palette -->
-                <LinearLayout
+                <TextView
+                    android:id="@+id/txt_permission_checklist"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="8dp">
+                    android:background="#FFFFFF"
+                    android:padding="12dp"
+                    android:textSize="13sp"
+                    android:fontFamily="monospace"
+                    android:textColor="#424242" />
 
-                    <TextView
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:text="Bg Color:"
-                        android:textColor="#555555"
-                        android:textSize="11sp" />
-
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbars="none">
-
-                        <LinearLayout
-                            android:id="@+id/container_bg_colors"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal" />
-                    </HorizontalScrollView>
-                </LinearLayout>
-
-                <!-- Reset & Delete Block buttons -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_horizontal"
-                    android:layout_marginTop="12dp">
-
-                    <Button
-                        android:id="@+id/btn_reset_block"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="32dp"
-                        android:layout_marginRight="16dp"
-                        android:background="#CFD8DC"
-                        android:text="Reset Original"
-                        android:textColor="#37474F"
-                        android:textSize="11sp" />
-
-                    <Button
-                        android:id="@+id/btn_delete_block"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="32dp"
-                        android:background="#FFEBEE"
-                        android:text="Delete Block"
-                        android:textColor="#C62828"
-                        android:textSize="11sp" />
-                </LinearLayout>
             </LinearLayout>
         </ScrollView>
-    </LinearLayout>
+
+        <!-- Tab 4: Sandbox & Error Simulator -->
+        <ScrollView
+            android:id="@+id/view_sandbox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Error Simulation Sandbox"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Test how standard exceptions and crashes act on Android. We intercept crashes below so they display in a diagnostics dialog rather than just silently exiting the app!"
+                    android:textColor="#757575"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Trigger handled error -->
+                <Button
+                    android:id="@+id/btn_trigger_handled_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Simulate Handled Exception (Try/Catch)"
+                    android:backgroundTint="#4CAF50"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Trigger null pointer -->
+                <Button
+                    android:id="@+id/btn_trigger_npe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trigger NullPointerException (Interception)"
+                    android:backgroundTint="#F44336"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Trigger index out of bounds -->
+                <Button
+                    android:id="@+id/btn_trigger_oob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trigger IndexOutOfBoundsException"
+                    android:backgroundTint="#FF9800"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Trigger arithmetic exception -->
+                <Button
+                    android:id="@+id/btn_trigger_div_zero"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trigger Division by Zero"
+                    android:backgroundTint="#E91E63"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Interception Log Panel -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Last Exception Caught State"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:id="@+id/txt_sandbox_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ECEFF1"
+                    android:padding="12dp"
+                    android:text="No exception caught in this session."
+                    android:textColor="#37474F"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+
+    <!-- App status bar -->
+    <TextView
+        android:id="@+id/txt_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#37474F"
+        android:padding="8dp"
+        android:text="App Status: Diagnostic Engine Online"
+        android:textColor="#ECEFF1"
+        android:textSize="11sp"
+        android:gravity="center" />
+
 </LinearLayout>
