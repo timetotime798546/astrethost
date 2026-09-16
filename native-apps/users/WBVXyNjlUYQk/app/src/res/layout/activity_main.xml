@@ -55,6 +55,99 @@
         </LinearLayout>
     </RelativeLayout>
 
+    <!-- OCR Control Panel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:elevation="2dp"
+        android:layout_marginBottom="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <Spinner
+                android:id="@+id/spinner_ocr_mode"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btn_ocr_action"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:background="#FF9800"
+                android:text="Run OCR"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Offline download status indicator -->
+        <LinearLayout
+            android:id="@+id/layout_offline_download"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="6dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_download_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bilingual Offline Data: Missing (Hindi + Eng)"
+                android:textColor="#C62828"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btn_download_data"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:background="#ECEFF1"
+                android:text="Download Data"
+                android:textColor="#37474F"
+                android:textSize="10sp"
+                android:layout_marginLeft="6dp" />
+        </LinearLayout>
+
+        <!-- OCR progress state indicator -->
+        <LinearLayout
+            android:id="@+id/layout_ocr_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="6dp"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/ocr_progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:max="100" />
+
+            <TextView
+                android:id="@+id/tv_ocr_progress_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Processing OCR..."
+                android:textColor="#0288D1"
+                android:textSize="11sp"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+    </LinearLayout>
+
     <!-- Main Workspace (Editor View) -->
     <FrameLayout
         android:layout_width="match_parent"

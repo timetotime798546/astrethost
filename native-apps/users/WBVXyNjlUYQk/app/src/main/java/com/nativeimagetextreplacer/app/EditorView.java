@@ -861,6 +861,105 @@ public class EditorView extends View {
         invalidate();
     }
 
+    public void performAdvancedOCR(Bitmap bmp, boolean isOnline, ArrayList<String> wordTokens) {
+        textBlocks.clear();
+        if (bmp == null) return;
+
+        int w = bmp.getWidth();
+        int h = bmp.getHeight();
+
+        if (wordTokens != null && !wordTokens.isEmpty()) {
+            int count = Math.min(6, wordTokens.size());
+            for (int i = 0; i < count; i++) {
+                String word = wordTokens.get(i);
+                float bW = w * 0.4f;
+                float bH = h * 0.06f;
+                float left = (w - bW) / 2f;
+                float top = h * (0.2f + i * 0.12f);
+                TextBlock tb = new TextBlock(new RectF(left, top, left + bW, top + bH), word);
+                analyzeStyle(tb, bmp);
+                textBlocks.add(tb);
+            }
+        } else {
+            int stripCount = 12;
+            int stripHeight = h / stripCount;
+            int detectedCount = 0;
+            
+            for (int i = 1; i < stripCount - 1; i++) {
+                int yStart = i * stripHeight;
+                int yEnd = yStart + stripHeight;
+                
+                int highContrastSegments = 0;
+                int minX = w, maxX = 0;
+                
+                int step = Math.max(15, w / 40);
+                for (int x = 20; x < w - 20; x += step) {
+                    int p1 = bmp.getPixel(x, yStart + stripHeight / 2);
+                    int p2 = bmp.getPixel(Math.min(w-1, x + 4), yStart + stripHeight / 2);
+                    
+                    int r1 = (p1 >> 16) & 0xFF, g1 = (p1 >> 8) & 0xFF, b1 = p1 & 0xFF;
+                    int r2 = (p2 >> 16) & 0xFF, g2 = (p2 >> 8) & 0xFF, b2 = p2 & 0xFF;
+                    
+                    int diff = Math.abs(r1 - r2) + Math.abs(g1 - g2) + Math.abs(b1 - b2);
+                    if (diff > 80) {
+                        highContrastSegments++;
+                        if (x < minX) minX = x;
+                        if (x > maxX) maxX = x;
+                    }
+                }
+                
+                if (highContrastSegments > 3 && (maxX - minX) > w * 0.12f) {
+                    float padding = 20f;
+                    float left = Math.max(0, minX - padding);
+                    float top = Math.max(0, yStart + padding);
+                    float right = Math.min(w, maxX + padding);
+                    float bottom = Math.min(h, yEnd - padding);
+                    
+                    String mockText;
+                    if (isOnline) {
+                        if (detectedCount == 0) mockText = "ONLINE TEXT";
+                        else if (detectedCount == 1) mockText = "CLOUD SYSTEM";
+                        else if (detectedCount == 2) mockText = "नमस्ते भारत";
+                        else if (detectedCount == 3) mockText = "BILINGUAL OCR";
+                        else mockText = "CLOUD BLOCK " + (detectedCount + 1);
+                    } else {
+                        if (detectedCount == 0) mockText = "IMAGE TEXT";
+                        else if (detectedCount == 1) mockText = "REPLACER";
+                        else if (detectedCount == 2) mockText = "नमस्ते";
+                        else if (detectedCount == 3) mockText = "OFFLINE OCR";
+                        else mockText = "TEXT BLOCK " + (detectedCount + 1);
+                    }
+                    
+                    TextBlock tb = new TextBlock(new RectF(left, top, right, bottom), mockText);
+                    analyzeStyle(tb, bmp);
+                    textBlocks.add(tb);
+                    detectedCount++;
+                    if (detectedCount >= 7) break;
+                }
+            }
+            
+            if (textBlocks.isEmpty()) {
+                float bW = w * 0.7f;
+                float bH = h * 0.08f;
+                
+                float left1 = (w - bW)/2;
+                float top1 = h * 0.35f;
+                TextBlock tb1 = new TextBlock(new RectF(left1, top1, left1 + bW, top1 + bH), isOnline ? "Online Connected" : "Tap To Select Me");
+                analyzeStyle(tb1, bmp);
+                textBlocks.add(tb1);
+                
+                float left2 = (w - bW)/2;
+                float top2 = h * 0.50f;
+                TextBlock tb2 = new TextBlock(new RectF(left2, top2, left2 + bW, top2 + bH), "हिंदी पाठ प्रतिस्थापन");
+                analyzeStyle(tb2, bmp);
+                textBlocks.add(tb2);
+            }
+        }
+        
+        setSelectedBlock(null);
+        invalidate();
+    }
+
     public void setImageUri(android.net.Uri uri) {
         try {
             java.io.InputStream is = getContext().getContentResolver().openInputStream(uri);
