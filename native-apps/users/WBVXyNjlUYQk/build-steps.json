@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Meta Info",
+      "description": "Initialize app-meta.json with app name 'Native Image Text Replacer' and package 'com.nativeimagetextreplacer.app'.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define TextBlock Model",
+      "description": "Model class representing coordinate blocks, original detected text, and replacement styles.",
+      "files": ["app/src/main/java/com/nativeimagetextreplacer/app/TextBlock.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create BrushStroke Model",
+      "description": "Model class representing points, dynamically calculated background colors, and radius for the Brush Remover tool.",
+      "files": ["app/src/main/java/com/nativeimagetextreplacer/app/BrushStroke.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create ImageOverlay Model",
+      "description": "Model class holding external overlay bitmaps and their coordinate bounds within the main image canvas.",
+      "files": ["app/src/main/java/com/nativeimagetextreplacer/app/ImageOverlay.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Natural Background Reconstruction Algorithm",
+      "description": "Develop surrounding pixel sampling logic within EditorView to reconstruct canvas backgrounds dynamically when brushing.",
+      "files": ["app/src/main/java/com/nativeimagetextreplacer/app/EditorView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Multi-Layer Canvas Rendering Pipeline",
+      "description": "Construct dynamic painting pipeline drawing the original image, brushed layers, replacement patches, and image overlays sequentially.",
+      "files": ["app/src/main/java/com/nativeimagetextreplacer/app/EditorView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Add Interactive Image Overlay Gestures",
+      "description": "Incorporate corner handles detection and touch translation to allow moving, resizing, and deleting overlaid images.",
+      "files": ["app/src/main/java/com/nativeimagetextreplacer/app/EditorView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Drag & Drop Drop States",
+      "description": "Program Drag & Drop behavior with real-time updates and touch-down coordinates mapping for newly loaded overlay images.",
+      "files": ["app/src/main/java/com/nativeimagetextreplacer/app/EditorView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Mode Switcher and Control UI XML",
+      "description": "Create activity_main.xml layout with mode buttons for Text Editor, Brush Clean, and Image Overlays, along with specialized seekbars.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Wire Main Activity View Controller",
+      "description": "Bind new toggle widgets, brush controllers, and file picks in MainActivity, using strict Java 8 compatible anonymous listeners.",
+      "files": ["app/src/main/java/com/nativeimagetextreplacer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement High-Resolution Composite PNG Saver",
+      "description": "Construct low-level bitmap generator combining background, brushed paths, blocks, and overlays without rendering UI handles.",
+      "files": ["app/src/main/java/com/nativeimagetextreplacer/app/EditorView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Native Image Text Replacer",
+      "description": "Compile the code using Gradle 8.5 with AGP 8.3.2 inside the Temurin 17 Java environment.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
