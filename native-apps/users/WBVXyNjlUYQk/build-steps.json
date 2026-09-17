@@ -1,0 +1,116 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Meta Data",
+      "description": "Establish the exact application name 'Focus Timer' and map it to the package identifier 'com.focustimer.app' inside app-meta.json.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Gradle Build Environment",
+      "description": "Configure build.gradle with target and compile SDK 34, min SDK 21, Java 8 compatibility, using Gradle 8.5 and Android Gradle Plugin 8.3.2. Ensure zero third-party dependencies are added to keep compilation clean and purely native.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Establish Android Manifest & Permissions",
+      "description": "Create AndroidManifest.xml referencing the correct namespace, custom package, and standard lightweight material light theme with no action bar, avoiding AndroidX dependencies.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Circular Progress Canvas View",
+      "description": "Develop a high-performance custom CircularProgressView canvas class using native standard 2D graphics Paint and Arc calculations. This custom view renders the running focus status programmatically with zero dependencies.",
+      "files": [
+        "app/src/main/java/com/focustimer/app/CircularProgressView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Premium Design Style Selectors",
+      "description": "Develop card XML shapes, accent and secondary flat button states, and preset rounded capsule selection drawables with precise focused/unfocused primary colors.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/button_accent.xml",
+        "app/src/main/res/drawable/button_secondary.xml",
+        "app/src/main/res/drawable/preset_button_bg.xml",
+        "app/src/main/res/drawable/circle_green.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Dynamic Text Selectors",
+      "description": "Build high-contrast XML color state lists so texts dynamically adapt to selected states inside active presets and custom tabs.",
+      "files": [
+        "app/src/main/res/drawable/preset_button_text_color.xml",
+        "app/src/main/res/drawable/tab_button_bg.xml",
+        "app/src/main/res/drawable/tab_button_text_color.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Main Activity UI Structure",
+      "description": "Develop the primary layout activity_main.xml featuring three distinct modular screens (Timer, History, Settings) toggled cleanly by a modern bottom tab bar navigation panel.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Focus Completion Overlay Layout",
+      "description": "Design an elegant custom dialog layout dialog_complete.xml that renders on completion of focus periods with positive reinforcement and custom illustrations.",
+      "files": [
+        "app/src/main/res/layout/dialog_complete.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Main Activity Controller",
+      "description": "Program the complete functional backend in MainActivity.java. Establish robust, leak-proof countdown handles, active/paused layout state-switches, and state preservation upon configuration rotation.",
+      "files": [
+        "app/src/main/java/com/focustimer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Local History Logging System",
+      "description": "Integrate robust SharedPreferences serialization logic to store, parse, and filter completed focus entries by timestamp. Show clear performance metrics, daily totals, and logs dynamically.",
+      "files": [
+        "app/src/main/java/com/focustimer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Native Beep Sound fallback",
+      "description": "Verify RingtoneManager notification resources and implement standard native ToneGenerator beep system fallbacks inside focus termination triggers.",
+      "files": [
+        "app/src/main/java/com/focustimer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Focus Timer",
+      "description": "Initiate absolute validation of native compilation paths, manifest properties and layout alignments to assemble the final APK successfully.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
