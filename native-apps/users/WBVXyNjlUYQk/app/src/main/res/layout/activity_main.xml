@@ -326,7 +326,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- EXPANDED ADVANCED LAB PANEL (Auto-Pulse, Waveform, Goal Targets) -->
+    <!-- EXPANDED ADVANCED LAB PANEL (Continuous Auto-Pulse Tempo & Waveform) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -340,59 +340,86 @@
             android:textColor="#475569"
             android:textSize="9sp"
             android:textStyle="bold"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="6dp"
             android:letterSpacing="0.1" />
 
+        <!-- Continuous Tempo BPM Slider Panel -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btn_lab_autopulse"
+                android:layout_width="85dp"
+                android:layout_height="36dp"
+                android:text="PULSE: OFF"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="6dp" />
+
+            <SeekBar
+                android:id="@+id/bpm_seekbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="570"
+                android:progress="90" />
+
+            <TextView
+                android:id="@+id/bpm_text_display"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="120 BPM"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:layout_marginStart="6dp" />
+        </LinearLayout>
+
+        <!-- Lab Feature Modulators Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_lab_autopulse"
-                android:layout_width="0dp"
-                android:layout_height="38dp"
-                android:layout_weight="1.2"
-                android:text="PULSE: OFF"
-                android:textColor="#FFFFFF"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                android:layout_marginEnd="4dp" />
-
-            <Button
                 android:id="@+id/btn_lab_waveform"
                 android:layout_width="0dp"
                 android:layout_height="38dp"
-                android:layout_weight="1.1"
+                android:layout_weight="1"
                 android:text="WAVE: SINE"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp"
                 android:textStyle="bold"
-                android:layout_marginEnd="2dp"
-                android:layout_marginStart="2dp" />
+                android:layout_marginEnd="3dp" />
 
             <Button
                 android:id="@+id/btn_lab_pitch"
                 android:layout_width="0dp"
                 android:layout_height="38dp"
-                android:layout_weight="0.9"
+                android:layout_weight="1"
                 android:text="PITCH: MID"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp"
                 android:textStyle="bold"
-                android:layout_marginEnd="2dp"
-                android:layout_marginStart="2dp" />
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp" />
 
             <Button
                 android:id="@+id/btn_lab_goal"
                 android:layout_width="0dp"
                 android:layout_height="38dp"
-                android:layout_weight="1.1"
+                android:layout_weight="1.2"
                 android:text="GOAL: NONE"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp"
                 android:textStyle="bold"
-                android:layout_marginStart="4dp" />
+                android:layout_marginStart="3dp" />
         </LinearLayout>
     </LinearLayout>
 

@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.SeekBar;
 import java.util.Random;
 
 public class MainActivity extends Activity {
@@ -44,7 +45,8 @@ public class MainActivity extends Activity {
     // Advanced Synthesizer lab parameters
     private String synthWaveform = "sine"; // "sine", "square", "triangle"
     private String synthPitch = "mid"; // "bass", "mid", "treble"
-    private int autoPulseMode = 0; // 0: OFF, 1: 1Hz (1s), 2: 2Hz (0.5s), 3: 5Hz (0.2s)
+    private int autoPulseMode = 0; // 0: OFF, 1: ON (dynamically regulated by currentBpm)
+    private int currentBpm = 120; // Dynamic continuous tempo (30 BPM - 600 BPM)
 
     // Combo & Dynamic Musical Arpeggiator Variables
     private int currentCombo = 0;
@@ -76,6 +78,10 @@ public class MainActivity extends Activity {
     private TextView tapActionSublabel;
     private TextView highScoreBadge;
     private TextView comboMultiplierBadge;
+    
+    // Continuous Tempo controller views
+    private SeekBar bpmSeekBar;
+    private TextView bpmTextDisplay;
 
     // Channels
     private Button btnChan0;
@@ -114,6 +120,7 @@ public class MainActivity extends Activity {
     private static final String KEY_SYNTH_WAVEFORM = "synth_waveform";
     private static final String KEY_SYNTH_PITCH = "synth_pitch";
     private static final String KEY_AUTO_PULSE = "auto_pulse_mode";
+    private static final String KEY_CURRENT_BPM = "current_bpm_val";
 
     // Dynamic Color definitions for themed UI components
     private int activeThemeColor;
@@ -157,6 +164,9 @@ public class MainActivity extends Activity {
         tapActionSublabel = (TextView) findViewById(R.id.tap_action_sublabel);
         highScoreBadge = (TextView) findViewById(R.id.high_score_badge);
         comboMultiplierBadge = (TextView) findViewById(R.id.combo_multiplier_badge);
+        
+        bpmSeekBar = (SeekBar) findViewById(R.id.bpm_seekbar);
+        bpmTextDisplay = (TextView) findViewById(R.id.bpm_text_display);
 
         btnChan0 = (Button) findViewById(R.id.btn_chan_0);
         btnChan1 = (Button) findViewById(R.id.btn_chan_1);
@@ -186,6 +196,11 @@ public class MainActivity extends Activity {
         synthWaveform = prefs.getString(KEY_SYNTH_WAVEFORM, "sine");
         synthPitch = prefs.getString(KEY_SYNTH_PITCH, "mid");
         autoPulseMode = prefs.getInt(KEY_AUTO_PULSE, 0);
+        
+        currentBpm = prefs.getInt(KEY_CURRENT_BPM, 120);
+        if (currentBpm < 30 || currentBpm > 600) {
+            currentBpm = 120;
+        }
 
         for (int i = 0; i < 3; i++) {
             counterValues[i] = prefs.getInt(KEY_COUNT_PREFIX + i, 0);
@@ -207,6 +222,33 @@ public class MainActivity extends Activity {
         // Render Loaded State Parameters
         updateDisplayMetrics();
         applyTheme();
+
+        // Bind Continuous BPM SeekBar controller
+        bpmSeekBar.setMax(570); // 30 BPM to 600 BPM (progress + 30)
+        bpmSeekBar.setProgress(currentBpm - 30);
+        bpmTextDisplay.setText(currentBpm + " BPM");
+        
+        bpmSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                currentBpm = progress + 30;
+                bpmTextDisplay.setText(currentBpm + " BPM");
+                if (autoPulseMode > 0) {
+                    startAutoPulseIfEnabled();
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
+                editor.putInt(KEY_CURRENT_BPM, currentBpm);
+                editor.apply();
+                logEvent("Tempo regulated to " + currentBpm + " BPM");
+            }
+        });
 
         // Bind Touch Events for Channel Switchers
         btnChan0.setOnClickListener(new View.OnClickListener() {
@@ -371,9 +413,7 @@ public class MainActivity extends Activity {
             @Override
             public void run() {
                 triggerAutoPulseTick();
-                long delay = 1000;
-                if (autoPulseMode == 2) delay = 500;
-                if (autoPulseMode == 3) delay = 200;
+                long delay = 60000 / currentBpm;
                 autoPulseHandler.postDelayed(this, delay);
             }
         };
@@ -487,7 +527,11 @@ public class MainActivity extends Activity {
     }
 
     private void cycleAutoPulseMode() {
-        autoPulseMode = (autoPulseMode + 1) % 4;
+        if (autoPulseMode == 0) {
+            autoPulseMode = 1;
+        } else {
+            autoPulseMode = 0;
+        }
         
         SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
         editor.putInt(KEY_AUTO_PULSE, autoPulseMode);
@@ -498,17 +542,14 @@ public class MainActivity extends Activity {
         updateDisplayMetrics();
         applyTheme();
 
-        String status = "OFF";
-        if (autoPulseMode == 1) status = "1 Hz";
-        if (autoPulseMode == 2) status = "2 Hz";
-        if (autoPulseMode == 3) status = "5 Hz";
+        String status = (autoPulseMode > 0) ? "ACTIVE (" + currentBpm + " BPM)" : "OFF";
         logEvent("Automation pulse set to: " + status);
     }
 
     private void startAutoPulseIfEnabled() {
         autoPulseHandler.removeCallbacks(autoPulseRunnable);
         if (autoPulseMode > 0) {
-            long delay = autoPulseMode == 1 ? 1000 : (autoPulseMode == 2 ? 500 : 200);
+            long delay = 60000 / currentBpm;
             autoPulseHandler.postDelayed(autoPulseRunnable, delay);
         }
     }
@@ -714,10 +755,7 @@ public class MainActivity extends Activity {
         btnHaptic.setText("SOUND: " + (soundEnabled ? "ON" : "OFF"));
         btnActionSoundPreset.setText("SND: " + getPresetName(currentSoundPreset));
         
-        String pulseBtnText = "PULSE: OFF";
-        if (autoPulseMode == 1) pulseBtnText = "PULSE: 1Hz";
-        if (autoPulseMode == 2) pulseBtnText = "PULSE: 2Hz";
-        if (autoPulseMode == 3) pulseBtnText = "PULSE: 5Hz";
+        String pulseBtnText = (autoPulseMode > 0) ? "PULSE: ON" : "PULSE: OFF";
         btnLabAutoPulse.setText(pulseBtnText);
 
         btnLabWaveform.setText("WAVE: " + synthWaveform.toUpperCase());
@@ -872,6 +910,14 @@ public class MainActivity extends Activity {
         tapActionLabel.setTextColor(textPrimary);
         tapActionSublabel.setTextColor(accentText);
         comboMultiplierBadge.setTextColor(accentText);
+        bpmTextDisplay.setTextColor(textPrimary);
+        
+        // Dynamically style continuous BPM seekbar elements
+        if (android.os.Build.VERSION.SDK_INT >= 21) {
+            bpmSeekBar.setThumbTintList(android.content.res.ColorStateList.valueOf(activeThemeColor));
+            bpmSeekBar.setProgressTintList(android.content.res.ColorStateList.valueOf(activeThemeColor));
+            bpmSeekBar.setProgressBackgroundTintList(android.content.res.ColorStateList.valueOf(textSecondary));
+        }
 
         // Style the active mode selectors with smooth vertical gradients
         setButtonStyle(btnStep1, activeSteps[currentChannelIndex] == 1 ? activeBtnStart : inactiveBtnStart, activeSteps[currentChannelIndex] == 1 ? activeBtnEnd : inactiveBtnEnd, activeSteps[currentChannelIndex] == 1);

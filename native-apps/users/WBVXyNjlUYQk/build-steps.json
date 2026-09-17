@@ -30,7 +30,7 @@
     {
       "step": 4,
       "title": "Extend User Interface layout XML",
-      "description": "Integrate the combo_multiplier_badge TextView inside the central tapping layout of activity_main.xml.",
+      "description": "Integrate the combo_multiplier_badge TextView inside the central tapping layout of activity_main.xml and add the new continuous BPM seekbar controller.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -39,7 +39,7 @@
     {
       "step": 5,
       "title": "Bind Combo Badging Components",
-      "description": "Lookup and reference the newly integrated combo multiplier badge view during the activity onCreate lifecycle phase.",
+      "description": "Lookup and reference the newly integrated combo multiplier badge view and the continuous BPM seekbar during the activity onCreate lifecycle phase.",
       "files": [
         "app/src/main/java/com/simpletapcounter/app/MainActivity.java"
       ],
@@ -84,7 +84,7 @@
     {
       "step": 10,
       "title": "Style Combo Indicator Badges",
-      "description": "Harmonize the badge text color inside the applyTheme execution path to transition cleanly alongside ambient neon gradients.",
+      "description": "Harmonize the badge text color inside the applyTheme execution path to transition cleanly alongside ambient neon gradients, and apply active theme tints to the BPM seekbar dynamically.",
       "files": [
         "app/src/main/java/com/simpletapcounter/app/MainActivity.java"
       ],
