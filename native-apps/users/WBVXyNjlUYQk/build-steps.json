@@ -1,0 +1,86 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Validate Project and Package Structure",
+      "description": "Inspected task manager project meta-data ensuring package namespaces match com.personaltaskmanager.app perfectly.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Clean Gradle Script",
+      "description": "Refactored build.gradle to compile strictly with Java 8 standards, targeting Android SDK 34, and removing forbidden external dependencies (such as nanohttpd).",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Verify Manifest Configurations",
+      "description": "Ensured correct xmlns:android schema and validated launcher intents and themes inside the AndroidManifest.xml file.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Establish Offline SQLite Database Helper",
+      "description": "Reviewed offline SQL helper schema for handling robust persistence of task parameters.",
+      "files": ["app/src/main/java/com/personaltaskmanager/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Review Task Data Model",
+      "description": "Checked plain Java POJO structures representing structured Task variables.",
+      "files": ["app/src/main/java/com/personaltaskmanager/app/Task.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Fix Layout Nested Scroll Conflicts",
+      "description": "Refactored activity_main.xml to resolve nested ScrollView-inside-ListView performance bugs. Shifted layout to a clean RelativeLayout wrapping a vertically weighted view hierarchy with a native scrolling ListView.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Refactor Dynamic Task Adapter",
+      "description": "Replaced the custom verbose ListAdapter implementation in MainActivity with standard BaseAdapter. This correctly handles dataset observers and resolves critical update/sync bugs.",
+      "files": ["app/src/main/java/com/personaltaskmanager/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify Color Resources",
+      "description": "Confirmed correct theme parameters and standard hex values are correctly initialized.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Drawable Shapes & Badges",
+      "description": "Assured card shapes, button resources, and dynamic high/medium/low priority badges render properly.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/badge_high.xml",
+        "app/src/main/res/drawable/badge_medium.xml",
+        "app/src/main/res/drawable/badge_low.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Ensure Java 8 Compilation Guardrails",
+      "description": "Enforced strict Java 8 features avoiding lambdas, functional references, or streams in event handlers.",
+      "files": ["app/src/main/java/com/personaltaskmanager/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Personal Task Manager",
+      "description": "Assemble and compile debug APK with AGP 8.3.2 and Gradle 8.5 to confirm zero warnings and build complete successfully.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

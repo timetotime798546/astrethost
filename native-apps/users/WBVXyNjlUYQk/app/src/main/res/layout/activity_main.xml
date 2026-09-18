@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F9FA">
+
+    <!-- Top Action Header Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#1A73E8"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+        <Button
+            android:id="@+id/btn_header_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="←"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text_header_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Task Manager"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp" />
+    </LinearLayout>
+
+    <!-- Main Screens Container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- SCREEN 1: DASHBOARD & TASK LIST CONTAINER -->
+        <RelativeLayout
+            android:id="@+id/layout_screen_dashboard_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <!-- Content Area: Dashboard and Task List -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_above="@+id/layout_search_filter_bar"
+                android:layout_alignParentTop="true">
+
+                <!-- Dashboard Panel -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="8dp">
+
+                    <!-- Dashboard Title -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dashboard Status"
+                        android:textColor="#202124"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- Dashboard 2x2 grid stats -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="8dp">
+
+                            <!-- Total -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/card_bg"
+                                android:orientation="vertical"
+                                android:padding="10dp"
+                                android:layout_marginRight="4dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Tasks"
+                                    android:textColor="#5F6368"
+                                    android:textSize="11sp" />
+                                <TextView
+                                    android:id="@+id/stat_total"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="#1A73E8"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="2dp" />
+                            </LinearLayout>
+
+                            <!-- Today -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/card_bg"
+                                android:orientation="vertical"
+                                android:padding="10dp"
+                                android:layout_marginLeft="4dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Due Today"
+                                    android:textColor="#5F6368"
+                                    android:textSize="11sp" />
+                                <TextView
+                                    android:id="@+id/stat_today"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="#FFC107"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="2dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <!-- Pending -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/card_bg"
+                                android:orientation="vertical"
+                                android:padding="10dp"
+                                android:layout_marginRight="4dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pending"
+                                    android:textColor="#5F6368"
+                                    android:textSize="11sp" />
+                                <TextView
+                                    android:id="@+id/stat_pending"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="#D93025"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="2dp" />
+                            </LinearLayout>
+
+                            <!-- Completed -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/card_bg"
+                                android:orientation="vertical"
+                                android:padding="10dp"
+                                android:layout_marginLeft="4dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Completed"
+                                    android:textColor="#5F6368"
+                                    android:textSize="11sp" />
+                                <TextView
+                                    android:id="@+id/stat_completed"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="#1E8E3E"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="2dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Tasks List Title -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Task Registry"
+                    android:textColor="#202124"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Tasks Scrollable Container (ListView is weighted to occupy remaining space cleanly without nested scrolling bugs) -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:id="@+id/text_empty_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No tasks registered yet.\nTap '+' below to add one!"
+                        android:textColor="#5F6368"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:layout_marginTop="40dp"
+                        android:visibility="gone" />
+
+                    <ListView
+                        android:id="@+id/listview_tasks"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:divider="@null"
+                        android:dividerHeight="0dp"
+                        android:scrollbars="vertical" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- Search and Filter Panel (aligned to bottom of main screen) -->
+            <LinearLayout
+                android:id="@+id/layout_search_filter_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:layout_alignParentBottom="true"
+                android:elevation="8dp">
+
+                <!-- Search Input Row -->
+                <EditText
+                    android:id="@+id/edit_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:hint="Search task title..."
+                    android:textColor="#202124"
+                    android:textSize="14sp"
+                    android:background="@drawable/card_bg"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:singleLine="true"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Filter Mode Selection Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Filter: "
+                        android:textSize="13sp"
+                        android:textColor="#5F6368" />
+
+                    <!-- Horizontal Scroll representing dynamic tabs -->
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/filter_btn_all"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:text="All"
+                                android:textSize="11sp"
+                                android:textColor="#FFFFFF"
+                                android:background="@drawable/button_primary"
+                                android:layout_marginRight="4dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp" />
+
+                            <Button
+                                android:id="@+id/filter_btn_pending"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:text="Pending"
+                                android:textSize="11sp"
+                                android:textColor="#202124"
+                                android:background="@drawable/button_secondary"
+                                android:layout_marginRight="4dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp" />
+
+                            <Button
+                                android:id="@+id/filter_btn_completed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:text="Completed"
+                                android:textSize="11sp"
+                                android:textColor="#202124"
+                                android:background="@drawable/button_secondary"
+                                android:layout_marginRight="4dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp" />
+
+                            <Button
+                                android:id="@+id/filter_btn_high"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:text="High Priority"
+                                android:textSize="11sp"
+                                android:textColor="#202124"
+                                android:background="@drawable/button_secondary"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp" />
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Floating Action Button (FAB) -->
+            <Button
+                android:id="@+id/btn_add_task_fab"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:text="+"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:background="@drawable/fab_bg"
+                android:layout_above="@id/layout_search_filter_bar"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="6dp" />
+        </RelativeLayout>
+
+        <!-- SCREEN 2: ADD / EDIT TASK SCREEN -->
+        <ScrollView
+            android:id="@+id/layout_screen_add_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_add_edit_screen_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Create New Task"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#202124"
+                    android:layout_marginBottom="20dp" />
+
+                <!-- Title Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Task Title *"
+                    android:textColor="#5F6368"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <EditText
+                    android:id="@+id/edit_task_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:hint="e.g. Pay bills"
+                    android:textColor="#202124"
+                    android:textSize="15sp"
+                    android:background="@drawable/card_bg"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:singleLine="true"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Description Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textColor="#5F6368"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <EditText
+                    android:id="@+id/edit_task_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:hint="Provide optional details here..."
+                    android:textColor="#202124"
+                    android:textSize="15sp"
+                    android:background="@drawable/card_bg"
+                    android:padding="12dp"
+                    android:gravity="top|left"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Priority Spinner -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Priority Level"
+                    android:textColor="#5F6368"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <!-- Styled custom layout block representing dropdown -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@drawable/card_bg"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:layout_marginBottom="16dp">
+
+                    <Spinner
+                        android:id="@+id/spinner_task_priority"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null" />
+                </LinearLayout>
+
+                <!-- Due Date Input Selection -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Due Date"
+                    android:textColor="#5F6368"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="30dp">
+
+                    <TextView
+                        android:id="@+id/text_selected_date"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="2023-11-20"
+                        android:textColor="#202124"
+                        android:textSize="15sp"
+                        android:background="@drawable/card_bg"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp" />
+
+                    <Button
+                        android:id="@+id/btn_pick_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Select Date"
+                        android:textColor="#202124"
+                        android:textSize="12sp"
+                        android:background="@drawable/button_secondary"
+                        android:layout_marginLeft="8dp" />
+                </LinearLayout>
+
+                <!-- Save and Cancel Actions -->
+                <Button
+                    android:id="@+id/btn_save_task"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Save Task"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/button_primary"
+                    android:layout_marginBottom="10dp" />
+
+                <Button
+                    android:id="@+id/btn_cancel_add_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Cancel"
+                    android:textColor="#202124"
+                    android:textSize="16sp"
+                    android:background="@drawable/button_secondary"
+                    android:layout_marginBottom="30dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- SCREEN 3: TASK DETAIL SCREEN -->
+        <ScrollView
+            android:id="@+id/layout_screen_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Task Details"
+                    android:textSize="14sp"
+                    android:textColor="#5F6368"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp" />
+
+                <!-- Dynamic priority badge on details screen -->
+                <TextView
+                    android:id="@+id/detail_priority_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HIGH PRIORITY"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginBottom="14dp" />
+
+                <!-- Dynamic Title text -->
+                <TextView
+                    android:id="@+id/detail_task_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Write detailed specifications"
+                    android:textColor="#202124"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Due Date Row details -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="24dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Due Date: "
+                        android:textColor="#5F6368"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/detail_due_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2023-11-25"
+                        android:textColor="#202124"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="14dp"
+                        android:background="#DADCE0"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status: "
+                        android:textColor="#5F6368"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/detail_status_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pending"
+                        android:textColor="#D93025"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Description Block details -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DESCRIPTION"
+                    android:textColor="#5F6368"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:id="@+id/detail_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="This is an extended detailed explanation."
+                    android:textColor="#202124"
+                    android:textSize="15sp"
+                    android:lineSpacingMultiplier="1.25"
+                    android:background="@drawable/card_bg"
+                    android:padding="14dp"
+                    android:layout_marginBottom="32dp" />
+
+                <!-- Action Button Block details -->
+                <Button
+                    android:id="@+id/btn_detail_complete"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Mark as Completed"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/button_success"
+                    android:layout_marginBottom="10dp" />
+
+                <Button
+                    android:id="@+id/btn_detail_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Edit Details"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/button_primary"
+                    android:layout_marginBottom="10dp" />
+
+                <Button
+                    android:id="@+id/btn_detail_delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Delete Task"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/button_danger"
+                    android:layout_marginBottom="10dp" />
+
+                <Button
+                    android:id="@+id/btn_detail_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Back to Dashboard"
+                    android:textColor="#202124"
+                    android:textSize="15sp"
+                    android:background="@drawable/button_secondary"
+                    android:layout_marginBottom="30dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+</LinearLayout>
