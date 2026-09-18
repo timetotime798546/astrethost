@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze and identify crash causes",
+      "description": "Examine the runtime behavior under Android 14 (API 34) which enforces export flags on BroadcastReceivers and strict foreground service declarations.",
+      "files": ["app/src/main/java/com/harmonyplayer/app/MainActivity.java", "app/src/main/java/com/harmonyplayer/app/MusicService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Modify dynamic BroadcastReceiver registration",
+      "description": "Implement explicit Context.RECEIVER_NOT_EXPORTED flags for SDK >= 33 to prevent SecurityException crashes on startup.",
+      "files": ["app/src/main/java/com/harmonyplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Update Foreground Service type declaration",
+      "description": "Define ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK in startForeground for API level 29+ to satisfy modern Android target SDK 34 rules.",
+      "files": ["app/src/main/java/com/harmonyplayer/app/MusicService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Clean build dependencies in build.gradle",
+      "description": "Remove the unused external nanohttpd library from app/build.gradle to comply with pure-SDK rules and avoid compilation bloating.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Fortify Media Query scan results",
+      "description": "Enhance cursor data lookup in scanLocalSongs to protect against -1 column indices and invalid media items on modern devices.",
+      "files": ["app/src/main/java/com/harmonyplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify UI lifecycle safety for progress dialogs",
+      "description": "Add isFinishing() and isDestroyed() guards before manipulating the ProgressDialog instances on background thread completion.",
+      "files": ["app/src/main/java/com/harmonyplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Add exception handling wrapper for broadcast unregistration",
+      "description": "Protect unregisterReceiver dynamic calls with try-catch blocks to prevent crashes on abnormal app exits.",
+      "files": ["app/src/main/java/com/harmonyplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Double-check Manifest namespaces and configuration",
+      "description": "Verify system-wide settings, permissions, and service declarations remain completely standard.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify metadata synchronization under app-meta.json",
+      "description": "Confirm metadata consistency is correctly established across all configuration files.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Harmony Player",
+      "description": "Assemble debug compilation to produce the safe, crash-free APK target.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

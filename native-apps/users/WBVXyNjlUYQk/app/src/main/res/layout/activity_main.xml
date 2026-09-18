@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/player_bg">
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <LinearLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:background="#111827"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:id="@+id/nav_library"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground">
+            <TextView
+                android:id="@+id/txt_nav_library"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📁 Library"
+                android:textColor="#3B82F6"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_player"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground">
+            <TextView
+                android:id="@+id/txt_nav_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎵 Player"
+                android:textColor="#9CA3AF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_effects"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground">
+            <TextView
+                android:id="@+id/txt_nav_effects"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ FX Studio"
+                android:textColor="#9CA3AF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- MAIN CONTENT VIEW CONTAINERS -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/navigation_bar">
+
+        <!-- SECTION 1: LIBRARY -->
+        <LinearLayout
+            android:id="@+id/container_library"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Harmony Library"
+                android:textColor="#F3F4F6"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 synthesized premium loop tracks + scanned local tracks"
+                android:textColor="#9CA3AF"
+                android:textSize="12sp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- SEARCH BAR -->
+            <EditText
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/round_card"
+                android:hint="🔍 Search songs..."
+                android:textColorHint="#4B5563"
+                android:textColor="#FFFFFF"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:maxLines="1"
+                android:inputType="text"
+                android:layout_marginBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <Button
+                    android:id="@+id/btn_all_songs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="All Songs"
+                    android:background="@drawable/round_card"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginRight="4dp" />
+                <Button
+                    android:id="@+id/btn_fav_songs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="❤ Favorites"
+                    android:background="@drawable/round_card"
+                    android:textColor="#9CA3AF"
+                    android:layout_marginLeft="4dp" />
+            </LinearLayout>
+
+            <!-- PLAYLIST LISTVIEW -->
+            <ListView
+                android:id="@+id/song_listview"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="#1E293B"
+                android:dividerHeight="1dp" />
+        </LinearLayout>
+
+        <!-- SECTION 2: PLAYER -->
+        <LinearLayout
+            android:id="@+id/container_player"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center_horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/lbl_now_playing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NOW PLAYING"
+                android:textColor="#3B82F6"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.2"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp" />
+
+            <!-- GORGEOUS VISUALIZER -->
+            <com.harmonyplayer.app.VisualizerView
+                android:id="@+id/player_visualizer"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_marginBottom="32dp" />
+
+            <!-- SONG INFO -->
+            <TextView
+                android:id="@+id/player_song_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Song Selected"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:gravity="center"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/player_song_artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please select a track to start"
+                android:textColor="#9CA3AF"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_marginBottom="24dp" />
+
+            <!-- FAVORITE SWITCH BUTTON -->
+            <Button
+                android:id="@+id/btn_toggle_fav"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="❤ Add to Favorites"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/round_card"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:layout_marginBottom="24dp" />
+
+            <!-- PROGRESS BAR CONTROLS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <TextView
+                    android:id="@+id/player_time_current"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0:00"
+                    android:textColor="#9CA3AF"
+                    android:textSize="11sp" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+                <TextView
+                    android:id="@+id/player_time_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0:00"
+                    android:textColor="#9CA3AF"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/player_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@android:drawable/progress_horizontal"
+                android:thumb="@drawable/thumb_design"
+                android:layout_marginBottom="32dp" />
+
+            <!-- PLAYBACK ROW -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="32dp">
+
+                <Button
+                    android:id="@+id/btn_prev"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="⏮"
+                    android:textSize="18sp"
+                    android:textColor="#FFFFFF"
+                    android:background="?android:attr/selectableItemBackground" />
+
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="1dp" />
+
+                <Button
+                    android:id="@+id/btn_play"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:text="▶"
+                    android:textSize="22sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/play_button_bg" />
+
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="1dp" />
+
+                <Button
+                    android:id="@+id/btn_next"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="⏭"
+                    android:textSize="18sp"
+                    android:textColor="#FFFFFF"
+                    android:background="?android:attr/selectableItemBackground" />
+            </LinearLayout>
+
+            <!-- SLEEP TIMER CARD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_card"
+                android:orientation="vertical"
+                android:padding="12dp">
+                <TextView
+                    android:id="@+id/lbl_sleep_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💤 Sleep Timer: Off"
+                    android:textColor="#3B82F6"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/btn_timer_5"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:text="5m"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:background="?android:attr/selectableItemBackground" />
+                    <Button
+                        android:id="@+id/btn_timer_15"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:text="15m"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:background="?android:attr/selectableItemBackground" />
+                    <Button
+                        android:id="@+id/btn_timer_30"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:text="30m"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:background="?android:attr/selectableItemBackground" />
+                    <Button
+                        android:id="@+id/btn_timer_off"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:text="Reset"
+                        android:textSize="10sp"
+                        android:textColor="#EF4444"
+                        android:background="?android:attr/selectableItemBackground" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- SECTION 3: EFFECTS -->
+        <LinearLayout
+            android:id="@+id/container_effects"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FX Studio"
+                android:textColor="#F3F4F6"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Simulated premium frequency equalizer studio"
+                android:textColor="#9CA3AF"
+                android:textSize="12sp"
+                android:layout_marginBottom="24dp" />
+
+            <!-- EQUALIZER BOARD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_card"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Equalizer Presets"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- PRESET CHIPS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+                    <Button
+                        android:id="@+id/btn_preset_flat"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:text="Flat"
+                        android:textSize="11sp"
+                        android:textColor="#FFFFFF"
+                        android:background="?android:attr/selectableItemBackground" />
+                    <Button
+                        android:id="@+id/btn_preset_bass"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:text="Bass Boost"
+                        android:textSize="11sp"
+                        android:textColor="#FFFFFF"
+                        android:background="?android:attr/selectableItemBackground" />
+                    <Button
+                        android:id="@+id/btn_preset_vocal"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:text="Vocal"
+                        android:textSize="11sp"
+                        android:textColor="#FFFFFF"
+                        android:background="?android:attr/selectableItemBackground" />
+                    <Button
+                        android:id="@+id/btn_preset_electronic"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:text="Electro"
+                        android:textSize="11sp"
+                        android:textColor="#FFFFFF"
+                        android:background="?android:attr/selectableItemBackground" />
+                </LinearLayout>
+
+                <!-- SLIDER 1: BASS -->
+                <TextView
+                    android:id="@+id/lbl_eq_bass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sub Bass Boost: +0dB"
+                    android:textColor="#9CA3AF"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp" />
+                <SeekBar
+                    android:id="@+id/eq_bass_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="30"
+                    android:progress="15"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- SLIDER 2: TREBLE -->
+                <TextView
+                    android:id="@+id/lbl_eq_treble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="High Treble Clarity: +0dB"
+                    android:textColor="#9CA3AF"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp" />
+                <SeekBar
+                    android:id="@+id/eq_treble_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="30"
+                    android:progress="15"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- SLIDER 3: VOCALS -->
+                <TextView
+                    android:id="@+id/lbl_eq_vocals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vocal Mid Presence: +0dB"
+                    android:textColor="#9CA3AF"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp" />
+                <SeekBar
+                    android:id="@+id/eq_vocals_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="30"
+                    android:progress="15"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- SLIDER 4: REVERB -->
+                <TextView
+                    android:id="@+id/lbl_eq_reverb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stage Reverb Depth: Off"
+                    android:textColor="#9CA3AF"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp" />
+                <SeekBar
+                    android:id="@+id/eq_reverb_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="10"
+                    android:progress="0" />
+            </LinearLayout>
+
+            <!-- RE-GENERATE BUTTON -->
+            <Button
+                android:id="@+id/btn_regenerate_synths"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="🔄 Regenerate Synth Loops"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/round_card" />
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>
