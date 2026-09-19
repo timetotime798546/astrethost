@@ -2,107 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze User Requirements",
-      "description": "Establish technical specifications including SQLite tables, dashboard UI requirements, and Java 8 syntax compatibility.",
+      "title": "Analyze Build Failure",
+      "description": "Inspect the compilation log to identify the Android resource linking error caused by invalid XML attributes.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Environment",
-      "description": "Generate build.gradle with correct SDK compile version 34, min SDK 21, and empty external dependencies to ensure strict local compilation.",
-      "files": ["app/build.gradle"],
+      "title": "Locate Layout XML Error",
+      "description": "Examine activity_main.xml and locate the root LinearLayout containing the incorrect width layout attribute 'match_match'.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Establish Application Manifest",
-      "description": "Define package structure, standard material styles, launcher activity, and declare all sub-activities for navigation in AndroidManifest.xml.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Fix Main Activity Layout Width",
+      "description": "Correct 'match_match' to 'match_parent' in the layout_width attribute of activity_main.xml to resolve AAPT compiler errors.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create Color and Style Resource Files",
-      "description": "Write values XML files to customize primary colors, accents, and overall light theme components.",
-      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml"],
+      "title": "Validate Remaining Layouts",
+      "description": "Scan and confirm that other project XML layout files utilize correct dimension and enumeration values.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement SQLite Database Helper",
-      "description": "Develop DatabaseHelper.java to manage 'products' and 'sales' SQL tables, including aggregate functions for dashboard and reports.",
-      "files": ["app/src/main/java/com/inventorysalesmanager/app/DatabaseHelper.java"],
+      "title": "Verify Color Resources",
+      "description": "Validate colors.xml to verify correct color naming and hex code notations.",
+      "files": ["app/src/main/res/values/colors.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Define Domain Model Classes",
-      "description": "Write Product and Sale entity Java classes to model inventory data structures.",
-      "files": [
-        "app/src/main/java/com/inventorysalesmanager/app/Product.java",
-        "app/src/main/java/com/inventorysalesmanager/app/Sale.java"
-      ],
+      "title": "Verify Application Themes",
+      "description": "Ensure style definitions conform to the system material guidelines and compile under native standards.",
+      "files": ["app/src/main/res/values/styles.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Build Dashboard View and Controller",
-      "description": "Implement MainActivity and activity_main.xml to render beautiful summary metrics (stock, today's revenue, low stock alert) with intuitive menu tiles.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml",
-        "app/src/main/java/com/inventorysalesmanager/app/MainActivity.java"
-      ],
+      "title": "Validate SQLite Schema and Queries",
+      "description": "Review DatabaseHelper.java implementation to prevent potential syntax errors during local compilation.",
+      "files": ["app/src/main/java/com/inventorysalesmanager/app/DatabaseHelper.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Create Product Administration UI",
-      "description": "Create ProductListActivity, AddEditProductActivity, and their associated XML files to display inventory lists, handle searching, and execute creation/update forms.",
-      "files": [
-        "app/src/main/res/layout/activity_product_list.xml",
-        "app/src/main/res/layout/activity_add_edit_product.xml",
-        "app/src/main/res/layout/product_list_item.xml",
-        "app/src/main/java/com/inventorysalesmanager/app/ProductListActivity.java",
-        "app/src/main/java/com/inventorysalesmanager/app/AddEditProductActivity.java"
-      ],
+      "title": "Verify Manifest Declarations",
+      "description": "Verify namespace, application themes, standard activity paths, and launcher activity setups.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Create Product Detail Statistics Screen",
-      "description": "Design and write ProductDetailActivity.java to show an overall performance breakdown, stock status, and custom transactional charts for individual products.",
-      "files": [
-        "app/src/main/res/layout/activity_product_detail.xml",
-        "app/src/main/java/com/inventorysalesmanager/app/ProductDetailActivity.java"
-      ],
+      "title": "Inspect Gradle Configurations",
+      "description": "Confirm that app/build.gradle matches the SDK compile target 34, compile options, and namespace setup.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Create Sales Ledger UI and Cart Action",
-      "description": "Build SalesActivity to provide spinner-based inventory selection, automatic price calculations, stock capacity checks, and lists of transactions today.",
-      "files": [
-        "app/src/main/res/layout/activity_sales.xml",
-        "app/src/main/res/layout/sale_list_item.xml",
-        "app/src/main/java/com/inventorysalesmanager/app/SalesActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Develop Advanced Analytical Reports",
-      "description": "Implement ReportsActivity to display performance analytics, best-selling product lists, low-stock warnings, and basic daily sales history.",
-      "files": [
-        "app/src/main/res/layout/activity_reports.xml",
-        "app/src/main/java/com/inventorysalesmanager/app/ReportsActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building Inventory & Sales Manager",
-      "description": "Compile the complete Java native solution to generate a standard, bug-free, and deployable APK.",
+      "description": "Run the Gradle debug compilation sequence to assemble a stable, verified, and bug-free APK.",
       "files": [],
       "status": "pending"
     }
