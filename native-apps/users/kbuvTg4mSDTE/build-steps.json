@@ -51,69 +51,76 @@
     },
     {
       "step": 8,
+      "title": "Fix Java Compilation Syntax Errors",
+      "description": "Correct invalid 'sp' dimension literals inside setTextSize calls to native Java floating-point numbers.",
+      "files": ["app/src/main/java/com/smartbusinessmanager/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
       "title": "Implement Dashboard Stats Calculator",
       "description": "Code business analytics methods querying outstanding balances, sales/expenses totals, profit, low-stock count, and latest logs.",
       "files": ["app/src/main/java/com/smartbusinessmanager/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 9,
+      "step": 10,
       "title": "Create Product Inventory System",
       "description": "Write product management features allowing addition, SKU setup, category matching, editing, deleting, and automatic stock alerts.",
       "files": ["app/src/main/java/com/smartbusinessmanager/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 10,
+      "step": 11,
       "title": "Develop Customer Ledger System",
       "description": "Code ledger tools capturing phone numbers, addresses, sales histories, paid ratios, and outstanding bills.",
       "files": ["app/src/main/java/com/smartbusinessmanager/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 11,
+      "step": 12,
       "title": "Implement Interactive Sales Cart Engine",
       "description": "Program interactive cart controls that check inventory limits, apply custom discounts or taxes, and handle sales lists.",
       "files": ["app/src/main/java/com/smartbusinessmanager/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 12,
+      "step": 13,
       "title": "Develop Invoice Generation & Stock Depletion Engine",
       "description": "Program checkout engines generating custom invoice previews, committing DB entries, and reducing product stock quantities.",
       "files": ["app/src/main/java/com/smartbusinessmanager/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 13,
+      "step": 14,
       "title": "Create Expense Records Tracker",
       "description": "Write methods to register operational bills, categorize expenses, track dates, and aggregate daily/monthly totals.",
       "files": ["app/src/main/java/com/smartbusinessmanager/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 14,
+      "step": 15,
       "title": "Write Custom Canvas Chart Data Binders",
       "description": "Construct reporting algorithms feeding sales indicators and operational overheads to the CustomChartView.",
       "files": ["app/src/main/java/com/smartbusinessmanager/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 15,
+      "step": 16,
       "title": "Implement Global Search and Notifications",
       "description": "Code search terms matches for items, shoppers, sales, and bills, with popups summarizing critical operations.",
       "files": ["app/src/main/java/com/smartbusinessmanager/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 16,
+      "step": 17,
       "title": "Create Configuration Settings Controller",
       "description": "Write operational variables configurations like currency symbols, tax rates, business titles, and dark-mode toggles.",
       "files": ["app/src/main/java/com/smartbusinessmanager/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 17,
+      "step": 18,
       "title": "Building Smart Business Manager Pro",
       "description": "Perform sanity audits on XML schemas and trigger the final build verification for Smart Business Manager Pro.",
       "files": [],

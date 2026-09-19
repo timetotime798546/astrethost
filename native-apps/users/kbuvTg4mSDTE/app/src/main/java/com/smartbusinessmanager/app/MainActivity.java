@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -435,14 +436,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 tvLogLeft.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.2f));
                 tvLogLeft.setText(inv + " - " + (cust == null ? "Walk-in Guest" : cust));
                 tvLogLeft.setTextColor(confDarkTheme ? Color.WHITE : Color.BLACK);
-                tvLogLeft.setTextSize(13sp);
+                tvLogLeft.setTextSize(13f);
 
                 TextView tvLogRight = new TextView(this);
                 tvLogRight.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 0.8f));
                 tvLogRight.setText(confCurrency + String.format(Locale.US, "%.2f", total) + (rem > 0 ? " (Due)" : ""));
                 tvLogRight.setTextColor(rem > 0 ? 0xFFD84315 : 0xFF2E7D32);
                 tvLogRight.setGravity(Gravity.END);
-                tvLogRight.setTextSize(13sp);
+                tvLogRight.setTextSize(13f);
 
                 itemRow.addView(tvLogLeft);
                 itemRow.addView(tvLogRight);
@@ -457,7 +458,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             logsCursor.close();
         } else {
             TextView emptyText = new TextView(this);
-            emptyText.setText("No invoices recorded yet");
+            emptyText.setText("No transactions added today.");
             emptyText.setPadding(16, 24, 16, 24);
             emptyText.setGravity(Gravity.CENTER);
             emptyText.setTextColor(Color.GRAY);
@@ -515,19 +516,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 TextView tvHeader = new TextView(this);
                 tvHeader.setText(pName + " (" + pSku + ")");
-                tvHeader.setTextSize(15sp);
+                tvHeader.setTextSize(15f);
                 tvHeader.setTextColor(confDarkTheme ? Color.WHITE : Color.BLACK);
                 tvHeader.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
 
                 TextView tvMeta = new TextView(this);
                 tvMeta.setText("Cat: " + pCat + " | Buy: " + confCurrency + String.format(Locale.US, "%.2f", pPurchase) + " | Sell: " + confCurrency + String.format(Locale.US, "%.2f", pSelling));
-                tvMeta.setTextSize(13sp);
+                tvMeta.setTextSize(13f);
                 tvMeta.setTextColor(confDarkTheme ? 0xFFB0BEC5 : 0xFF555555);
                 tvMeta.setPadding(0, 4, 0, 4);
 
                 TextView tvStockCount = new TextView(this);
                 tvStockCount.setText("In Stock: " + pStock + " (Alert Threshold: " + pMinStock + ")");
-                tvStockCount.setTextSize(13sp);
+                tvStockCount.setTextSize(13f);
                 tvStockCount.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
                 if (pStock <= pMinStock) {
                     tvStockCount.setTextColor(0xFFD84315);
@@ -543,7 +544,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 Button btnAddStock = new Button(this);
                 btnAddStock.setText("Add Stock");
-                btnAddStock.setTextSize(11sp);
+                btnAddStock.setTextSize(11f);
                 btnAddStock.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -553,7 +554,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 Button btnEdit = new Button(this);
                 btnEdit.setText("Edit");
-                btnEdit.setTextSize(11sp);
+                btnEdit.setTextSize(11f);
                 btnEdit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -563,7 +564,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 Button btnDelete = new Button(this);
                 btnDelete.setText("Delete");
-                btnDelete.setTextSize(11sp);
+                btnDelete.setTextSize(11f);
                 btnDelete.setTextColor(Color.RED);
                 btnDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -801,13 +802,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 TextView tvName = new TextView(this);
                 tvName.setText(cName);
-                tvName.setTextSize(15sp);
+                tvName.setTextSize(15f);
                 tvName.setTextColor(confDarkTheme ? Color.WHITE : Color.BLACK);
                 tvName.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
 
                 TextView tvContact = new TextView(this);
                 tvContact.setText("📞: " + cPhone + "  |  📍: " + cAddr);
-                tvContact.setTextSize(13sp);
+                tvContact.setTextSize(13f);
                 tvContact.setTextColor(confDarkTheme ? 0xFFB0BEC5 : 0xFF555555);
                 tvContact.setPadding(0, 4, 0, 4);
 
@@ -815,7 +816,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 tvStats.setText("Cumulative Purchases: " + confCurrency + String.format(Locale.US, "%.2f", purchaseTotal));
                 tvStats.append("  |  ");
                 tvStats.append("Dues: " + confCurrency + String.format(Locale.US, "%.2f", unpaidBalance));
-                tvStats.setTextSize(13sp);
+                tvStats.setTextSize(13f);
                 tvStats.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
                 tvStats.setTextColor(unpaidBalance > 0 ? 0xFFC62828 : 0xFF2E7D32);
 
@@ -826,7 +827,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 Button btnHistory = new Button(this);
                 btnHistory.setText("Invoices");
-                btnHistory.setTextSize(11sp);
+                btnHistory.setTextSize(11f);
                 btnHistory.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -836,7 +837,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 Button btnEdit = new Button(this);
                 btnEdit.setText("Edit");
-                btnEdit.setTextSize(11sp);
+                btnEdit.setTextSize(11f);
                 btnEdit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -846,7 +847,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 Button btnDelete = new Button(this);
                 btnDelete.setText("Delete");
-                btnDelete.setTextSize(11sp);
+                btnDelete.setTextSize(11f);
                 btnDelete.setTextColor(Color.RED);
                 btnDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -958,7 +959,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 TextView item = new TextView(this);
                 item.setPadding(0, 8, 0, 8);
-                item.setTextSize(13sp);
+                item.setTextSize(13f);
                 item.setText(inv + " (" + dt + ") - Total: " + confCurrency + String.format(Locale.US, "%.2f", tot) + " | Balance: " + confCurrency + String.format(Locale.US, "%.2f", rem));
                 item.setTextColor(rem > 0 ? 0xFFC62828 : 0xFF2E7D32);
                 parent.addView(item);
@@ -1091,18 +1092,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                     TextView tvInvNo = new TextView(this);
                     tvInvNo.setText("Invoice: " + sInv + " | Customer: " + (clientName == null ? "Walk-In" : clientName));
-                    tvInvNo.setTextSize(14sp);
+                    tvInvNo.setTextSize(14f);
                     tvInvNo.setTextColor(confDarkTheme ? Color.WHITE : Color.BLACK);
                     tvInvNo.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
 
                     TextView tvDetails = new TextView(this);
                     tvDetails.setText("Date: " + sDate + "  |  Grand Total: " + confCurrency + String.format(Locale.US, "%.2f", sTotal));
-                    tvDetails.setTextSize(13sp);
+                    tvDetails.setTextSize(13f);
                     tvDetails.setTextColor(confDarkTheme ? 0xFFB0BEC5 : 0xFF555555);
                     tvDetails.setPadding(0, 4, 0, 4);
 
                     TextView tvStatus = new TextView(this);
-                    tvStatus.setTextSize(13sp);
+                    tvStatus.setTextSize(13f);
                     tvStatus.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
                     if (sRemaining > 0) {
                         tvStatus.setText("Outstanding Debt: " + confCurrency + String.format(Locale.US, "%.2f", sRemaining));
@@ -1118,7 +1119,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                     Button btnShowReceipt = new Button(this);
                     btnShowReceipt.setText("View Invoice / Receipt");
-                    btnShowReceipt.setTextSize(10sp);
+                    btnShowReceipt.setTextSize(10f);
                     btnShowReceipt.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -1129,7 +1130,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     Button btnCancelInvoice = new Button(this);
                     btnCancelInvoice.setText("Refund / Cancel");
                     btnCancelInvoice.setTextColor(Color.RED);
-                    btnCancelInvoice.setTextSize(10sp);
+                    btnCancelInvoice.setTextSize(10f);
                     btnCancelInvoice.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -1184,14 +1185,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
             TextView info = new TextView(this);
             info.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
             info.setText(item.name + "\n" + item.qty + " units x " + confCurrency + String.format(Locale.US, "%.2f", item.sellingPrice));
-            info.setTextSize(13sp);
+            info.setTextSize(13f);
             info.setTextColor(confDarkTheme ? Color.WHITE : Color.BLACK);
 
             TextView sumPrice = new TextView(this);
             sumPrice.setText(confCurrency + String.format(Locale.US, "%.2f", item.sellingPrice * item.qty));
             sumPrice.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
             sumPrice.setTextColor(confDarkTheme ? Color.WHITE : Color.BLACK);
-            sumPrice.setTextSize(13sp);
+            sumPrice.setTextSize(13f);
             sumPrice.setPadding(8, 0, 8, 0);
 
             Button rm = new Button(this);
@@ -1459,21 +1460,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         TextView tvInvTitle = new TextView(this);
         tvInvTitle.setText(confBusinessName);
-        tvInvTitle.setTextSize(18sp);
+        tvInvTitle.setTextSize(18f);
         tvInvTitle.setTextColor(Color.BLACK);
         tvInvTitle.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
         tvInvTitle.setGravity(Gravity.CENTER);
 
         TextView tvInvSub = new TextView(this);
         tvInvSub.setText("Proprietor: " + confOwnerName + "\nPhone: " + confPhone + "\n" + date);
-        tvInvSub.setTextSize(11sp);
+        tvInvSub.setTextSize(11f);
         tvInvSub.setTextColor(Color.GRAY);
         tvInvSub.setGravity(Gravity.CENTER);
         tvInvSub.setPadding(0, 0, 0, 16);
 
         TextView tvBillDetails = new TextView(this);
         tvBillDetails.setText("Invoice Reference: " + inv + "\nBilled Client: " + (cName == null ? "Walk-In Cash Ledger" : cName + " (" + cPhone + ")"));
-        tvBillDetails.setTextSize(13sp);
+        tvBillDetails.setTextSize(13f);
         tvBillDetails.setTextColor(Color.DKGRAY);
         tvBillDetails.setPadding(0, 4, 0, 12);
 
@@ -1486,7 +1487,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         itemsHeading.setText("Line Items Breakdown:");
         itemsHeading.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
         itemsHeading.setTextColor(Color.BLACK);
-        itemsHeading.setTextSize(13sp);
+        itemsHeading.setTextSize(13f);
         layout.addView(itemsHeading);
 
         Cursor itemCursor = db.rawQuery("SELECT p.name, si.quantity, si.price FROM sale_items si JOIN products p ON si.product_id = p.id WHERE si.sale_id = ?", new String[]{String.valueOf(saleId)});
@@ -1495,7 +1496,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 TextView itemRow = new TextView(this);
                 itemRow.setText("• " + itemCursor.getString(0) + " (Qty: " + itemCursor.getInt(1) + ") @ " + confCurrency + String.format(Locale.US, "%.2f", itemCursor.getDouble(2)));
                 itemRow.setTextColor(Color.BLACK);
-                itemRow.setTextSize(12sp);
+                itemRow.setTextSize(12f);
                 layout.addView(itemRow);
             }
             itemCursor.close();
@@ -1504,7 +1505,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         // Aggregate financial summaries dynamically
         TextView financeDetails = new TextView(this);
         financeDetails.setPadding(0, 12, 0, 0);
-        financeDetails.setTextSize(13sp);
+        financeDetails.setTextSize(13f);
         financeDetails.setTextColor(Color.BLACK);
         financeDetails.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
         financeDetails.setText("----------------------------------------------\n" +
@@ -1600,18 +1601,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 TextView tvHeader = new TextView(this);
                 tvHeader.setText(cat + " - " + confCurrency + String.format(Locale.US, "%.2f", amount));
-                tvHeader.setTextSize(14sp);
+                tvHeader.setTextSize(14f);
                 tvHeader.setTextColor(confDarkTheme ? Color.WHITE : Color.BLACK);
                 tvHeader.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
 
                 TextView tvDesc = new TextView(this);
                 tvDesc.setText("Date: " + date + "\nMemo: " + desc);
-                tvDesc.setTextSize(13sp);
+                tvDesc.setTextSize(13f);
                 tvDesc.setTextColor(confDarkTheme ? 0xFFB0BEC5 : 0xFF555555);
 
                 Button btnDelete = new Button(this);
                 btnDelete.setText("Clear Record");
-                btnDelete.setTextSize(9sp);
+                btnDelete.setTextSize(9f);
                 btnDelete.setTextColor(Color.RED);
                 btnDelete.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 36));
                 btnDelete.setOnClickListener(new View.OnClickListener() {
