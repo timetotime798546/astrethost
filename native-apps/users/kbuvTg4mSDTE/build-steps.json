@@ -12,7 +12,7 @@
     {
       "step": 2,
       "title": "Define Project Build Settings",
-      "description": "Configure the app/build.gradle to target Android SDK 34 using Java 8 compiler options and Gradle 8.5 compatibility settings.",
+      "description": "Configure the app/build.gradle to target Android SDK 34 using Java 8 compiler options and Gradle 8.5 compatibility settings, and remove third-party dependencies.",
       "files": [
         "app/build.gradle"
       ],
@@ -21,7 +21,7 @@
     {
       "step": 3,
       "title": "Establish Android Manifest",
-      "description": "Define standard system capabilities and declare Android Internet permissions in AndroidManifest.xml.",
+      "description": "Define standard system capabilities, declare Android Internet permissions in AndroidManifest.xml, and remove deprecated inline package attributes.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -30,7 +30,7 @@
     {
       "step": 4,
       "title": "Design Main Activity Layout",
-      "description": "Create the user interface layout in activity_main.xml with input fields for target email, subject, text body, action buttons, progress indicators, and an interactive connection logging screen.",
+      "description": "Create the user interface layout in activity_main.xml with input fields, progress indicators, action buttons, and correct layout_width values to prevent AAPT compilation failures.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
