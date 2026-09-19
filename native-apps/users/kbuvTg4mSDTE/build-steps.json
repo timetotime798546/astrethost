@@ -1,0 +1,96 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure project settings and Gradle properties",
+      "description": "Establish build settings, repository declarations, and global Gradle properties compatible with AGP 8.3.2 and Gradle 8.5.",
+      "files": ["settings.gradle", "gradle.properties", "build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure app level dependencies and Android environment",
+      "description": "Configure compile SDK, target SDK, namespace and source compatibility parameters for Java 17 / compile SDK 34.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define application manifest and activities",
+      "description": "Declare the application configurations, theme styling, icon resources, and MainActivity inside AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create color resources and application themes",
+      "description": "Define consistent professional branding using deep blue primary and accent colors within colors.xml and themes.xml.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/themes.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define string resources for multi-language support",
+      "description": "Populate strings.xml with localizable names, labels, confirmation prompts, and example queries.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create modular custom background drawables",
+      "description": "Create shape XML files for styling headers, inputs, buttons, and material cards natively without external UI toolkits.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/button_primary.xml",
+        "app/src/main/res/drawable/button_secondary.xml",
+        "app/src/main/res/drawable/button_accent.xml",
+        "app/src/main/res/drawable/input_bg.xml",
+        "app/src/main/res/drawable/success_badge.xml",
+        "app/src/main/res/drawable/error_badge.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design multi-screen responsive XML layout",
+      "description": "Compose dynamic sub-screen containers inside activity_main.xml to host the Dashboard, Database Manager, SQL Editor, Table Data Browsers, and Settings screens.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement SQL Statement Parser",
+      "description": "Implement SqlParser.java to reliably split multiple semicolon-separated SQL commands while skipping semicolons in quoted literals, and isolate statement types.",
+      "files": ["app/src/main/java/com/sqlmanager/app/SqlParser.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create persistent global history database helper",
+      "description": "Build SystemDbHelper.java to save and retrieve query history entries, status outcomes, execution times, and target database connections.",
+      "files": ["app/src/main/java/com/sqlmanager/app/SystemDbHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement core database management activity business logic",
+      "description": "Program MainActivity.java to bind UI components, handle user lifecycle actions, manage local database files, execute operations transactionally, and catch SQLite exceptions safely.",
+      "files": ["app/src/main/java/com/sqlmanager/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Perform app functional integration tests and compile error fixes",
+      "description": "Verify system functions including fixing any Java compilation errors related to incorrect dimension unit suffixes in code.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building SQL Database Manager",
+      "description": "Perform clean assembly compilation of the project to generate the final debug APK using standard Gradle toolchains.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
