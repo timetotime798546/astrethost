@@ -1,0 +1,123 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Application Metadata",
+      "description": "Establish the Simple Calculator project information including package definition com.simplecalculator.app.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Set Up Android Build System",
+      "description": "Set compiler and build environment configurations targetting Android SDK 34 and Java 8 compatibility inside build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define Android Manifest Settings",
+      "description": "Establish the application package, define MainActivity, map launch intent, and bind application drawable icons inside AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Responsive Layout UI",
+      "description": "Draft a lightweight nested LinearLayout structure to establish standard screen compatibility for digital keypad buttons and outputs.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Formula and Result Panels",
+      "description": "Add UI labels representing currently built expressions and evaluation outputs, featuring proper scrolling and alignment values.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Construct Calculator Keys Grid",
+      "description": "Build numeric, operator, and action buttons within a clean structured linear row setup with equalized visual weights.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Initialize MainActivity Class",
+      "description": "Declare the com.simplecalculator.app namespace and structure the controller with listener registrations.",
+      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Button Interactions",
+      "description": "Bind click listeners to views using standard compatible Java 8 architecture.",
+      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Write Numerical Appending Engine",
+      "description": "Design character typing limits, initial state zero handling, and dynamic expression appending controls.",
+      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Develop Decimal State Controller",
+      "description": "Integrate intelligent decimal checking logic allowing only single dot notations in currently typed float parts.",
+      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Create Operator Insertion Rules",
+      "description": "Implement checks prevents consecutive operators from breaking formula syntax by replacing symbols in-place.",
+      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Code Backspace and Eraser System",
+      "description": "Build clearing commands resetting state models and backspace logic trimming inputs.",
+      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Expression Parser",
+      "description": "Code recursive-descent math expression analyzer handling order of operations like multi-div before plus-minus.",
+      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Write Division Safety Protocols",
+      "description": "Add zero divisor logic checks returning 'Error' immediately to prevent crashes.",
+      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Polish Number Formatting Output",
+      "description": "Integrate DecimalFormat truncating long trailing floating fractions for pristine aesthetics on final outputs.",
+      "files": ["app/src/main/java/com/simplecalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Validate Android Resource Schemas",
+      "description": "Perform sanity audits verifying valid Android-namespace and layout resource paths across source files.",
+      "files": ["app/src/main/AndroidManifest.xml", "app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Building Simple Calculator",
+      "description": "Verify build completeness and compile the Simple Calculator project.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
