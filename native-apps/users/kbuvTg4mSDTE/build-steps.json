@@ -2,104 +2,69 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Initialization",
-      "description": "Configure the core Android project settings using Gradle 8.5, target SDK 34, and compile SDK 34.",
-      "files": ["settings.gradle", "build.gradle", "app/build.gradle"],
+      "title": "Analyze Build Log Failure",
+      "description": "Read and identify the precise location of the attribute linking error in the layout resources.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Manifest Permissions",
-      "description": "Add required internet access, foreground service permissions, and foreground service special use annotations inside AndroidManifest.xml.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Inspect Activity Layout Structure",
+      "description": "Open and inspect the XML structure of activity_main.xml to find references to layout_centerY.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Create Modern Card Background Drawables",
-      "description": "Define standard custom shape layout drawables with rounded corners and light outlines to match native Material light styles.",
-      "files": ["app/src/main/res/drawable/card_background.xml"],
+      "title": "Correct Header Bar Layout Alignment",
+      "description": "Replace the incorrect 'android:layout_centerY' attribute with the standard 'android:layout_centerVertical' attribute on the header title.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create Custom Interaction Button Styles",
-      "description": "Design custom shape drawables for action and control buttons (Start/Stop/Copy/Open) to deliver a polished flat UI interface.",
-      "files": ["app/src/main/res/drawable/button_primary.xml", "app/src/main/res/drawable/button_secondary.xml"],
+      "title": "Inspect Input Field Attributes",
+      "description": "Verify port input text element and make sure its gravity, alignment, and spacing are standardized.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Design Activity UI Layout",
-      "description": "Create the main screen UI containing input widgets for ports, connectivity state cards, setup controllers, and an integrated dark terminal log console.",
+      "title": "Validate Console ScrollView",
+      "description": "Ensure nested scrollable elements inside the main activity layout have proper heights and layout weights.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Local Server Connectivity Checker",
-      "description": "Develop thread-isolated socket verification algorithms to test port 127.0.0.1 connectivity prior to tunnel initiation.",
-      "files": ["app/src/main/java/com/localservertunnel/app/MainActivity.java"],
+      "title": "Verify Manifest Definitions",
+      "description": "Ensure xmlns:android namespace is exactly configured to 'http://schemas.android.com/apk/res/android' inside AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Define Architecture-Specific Binary Setup Utility",
-      "description": "Build an execution-safe helper to parse platform architectures (ARM64, ARM, AMD64) and connect to official cloudflared release assets.",
-      "files": ["app/src/main/java/com/localservertunnel/app/MainActivity.java"],
+      "title": "Check Foreground Service Type",
+      "description": "Verify the TunnelService declaration conforms to Android 14's specialUse background execution specifications.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Create Tunnel Service Core",
-      "description": "Establish standard Foreground Service structure with customized states and lifecycle triggers to handle native command execution in the background.",
-      "files": ["app/src/main/java/com/localservertunnel/app/TunnelService.java"],
+      "title": "Verify Java API Compatibility",
+      "description": "Verify MainActivity.java compilation parameters and run-time permission logic are safe for SDK levels 21 to 34.",
+      "files": ["app/src/main/java/com/localservertunnel/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Set Up Foreground Notification Channel",
-      "description": "Configure the Oreo-compatible Android Notification Channel and persistent service alerts with integrated tunnel actions for Stop operations.",
-      "files": ["app/src/main/java/com/localservertunnel/app/TunnelService.java"],
+      "title": "Validate Gradle Dependencies",
+      "description": "Confirm that the top-level build.gradle and app-level build.gradle are correctly synchronized and do not introduce external conflicts.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement Native Process Execution Controller",
-      "description": "Configure ProcessBuilder pipeline and reader loops to execute local binaries and dynamically extract trycloudflare URLs from live log streams.",
-      "files": ["app/src/main/java/com/localservertunnel/app/TunnelService.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Develop Intent Broadcast Handlers",
-      "description": "Add dynamic status and terminal log broadcast receivers to maintain synchronized, responsive layout states in the Activity.",
-      "files": ["app/src/main/java/com/localservertunnel/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Implement Security Safeguards and Permission Inquiries",
-      "description": "Incorporate run-time Android 13+ Notification requests and execute binary compatibility warning messages for Android 10+ file execution constraints.",
-      "files": ["app/src/main/java/com/localservertunnel/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Integrate Native Action Controllers",
-      "description": "Configure clipboard copy tools and external system browser redirect actions for live web validation.",
-      "files": ["app/src/main/java/com/localservertunnel/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Enable Settings Persistence",
-      "description": "Store selected port adjustments in SharedPreferences databases to support instant context recovery upon application restarts.",
-      "files": ["app/src/main/java/com/localservertunnel/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 15,
       "title": "Building Local Server Tunnel",
       "description": "Compile the entire Android project, generating a deployable APK via Gradle build operations.",
       "files": [],
