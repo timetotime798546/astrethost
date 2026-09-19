@@ -2,71 +2,87 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze Build Failure",
-      "description": "Inspect the compilation log to identify the Android resource linking error caused by invalid XML attributes.",
-      "files": [],
+      "title": "Analyze Build Error",
+      "description": "Inspect the compilation log to locate the symbol lookup error in ReportsActivity.java.",
+      "files": [
+        "app/src/main/java/com/inventorysalesmanager/app/ReportsActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Locate Layout XML Error",
-      "description": "Examine activity_main.xml and locate the root LinearLayout containing the incorrect width layout attribute 'match_match'.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Fix Layout Content View",
+      "description": "Modify ReportsActivity.java to replace the invalid reflective check on R.style with a standard layout resource reference.",
+      "files": [
+        "app/src/main/java/com/inventorysalesmanager/app/ReportsActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Fix Main Activity Layout Width",
-      "description": "Correct 'match_match' to 'match_parent' in the layout_width attribute of activity_main.xml to resolve AAPT compiler errors.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Verify Style Constants",
+      "description": "Confirm that style XML layouts do not have reflective Java bindings to avoid future build breaks.",
+      "files": [
+        "app/src/main/res/values/styles.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Validate Remaining Layouts",
-      "description": "Scan and confirm that other project XML layout files utilize correct dimension and enumeration values.",
-      "files": [],
+      "title": "Validate Activity Layout",
+      "description": "Ensure the layout file activity_reports.xml is correctly referenced and contains standard view groups.",
+      "files": [
+        "app/src/main/res/layout/activity_reports.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Verify Color Resources",
-      "description": "Validate colors.xml to verify correct color naming and hex code notations.",
-      "files": ["app/src/main/res/values/colors.xml"],
+      "title": "Check Database Helper Integration",
+      "description": "Confirm DatabaseHelper reports methods are properly linked to ReportsActivity query requests.",
+      "files": [
+        "app/src/main/java/com/inventorysalesmanager/app/DatabaseHelper.java"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Verify Application Themes",
-      "description": "Ensure style definitions conform to the system material guidelines and compile under native standards.",
-      "files": ["app/src/main/res/values/styles.xml"],
+      "title": "Check Java 8 Compatibility",
+      "description": "Ensure no Java 9+ features or modern syntax structures are used in the modified Java source code.",
+      "files": [
+        "app/src/main/java/com/inventorysalesmanager/app/ReportsActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Validate SQLite Schema and Queries",
-      "description": "Review DatabaseHelper.java implementation to prevent potential syntax errors during local compilation.",
-      "files": ["app/src/main/java/com/inventorysalesmanager/app/DatabaseHelper.java"],
+      "title": "Verify Manifest Definitions",
+      "description": "Confirm ReportsActivity remains registered with standard styles in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Verify Manifest Declarations",
-      "description": "Verify namespace, application themes, standard activity paths, and launcher activity setups.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Validate Companion Activities",
+      "description": "Scan other custom activities like MainActivity, SalesActivity, and AddEditProductActivity to ensure no matching style references exist.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Inspect Gradle Configurations",
-      "description": "Confirm that app/build.gradle matches the SDK compile target 34, compile options, and namespace setup.",
-      "files": ["app/build.gradle"],
+      "title": "Check Gradle Settings",
+      "description": "Verify namespace, SDK settings, compile targets, and Java compile options in build.gradle.",
+      "files": [
+        "app/build.gradle"
+      ],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building Inventory & Sales Manager",
-      "description": "Run the Gradle debug compilation sequence to assemble a stable, verified, and bug-free APK.",
+      "description": "Trigger the Gradle compilation framework to assemble the application without compile issues.",
       "files": [],
       "status": "pending"
     }

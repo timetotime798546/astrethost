@@ -28,7 +28,7 @@ public class ReportsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.style.AppTheme.class.getDeclaredFields().length > 0 ? R.layout.activity_reports : R.layout.activity_reports);
+        setContentView(R.layout.activity_reports);
 
         dbHelper = new DatabaseHelper(this);
 
