@@ -1,0 +1,101 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Establish basic app structure, package names, and environment declarations inside app-meta.json.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Project Build Settings",
+      "description": "Configure the app/build.gradle to target Android SDK 34 using Java 8 compiler options and Gradle 8.5 compatibility settings.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Establish Android Manifest",
+      "description": "Define standard system capabilities and declare Android Internet permissions in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Main Activity Layout",
+      "description": "Create the user interface layout in activity_main.xml with input fields for target email, subject, text body, action buttons, progress indicators, and an interactive connection logging screen.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design SMTP Settings Dialog Layout",
+      "description": "Build an input dialog interface in dialog_settings.xml supporting host, port, SMTP credentials (email address, secure app password), and SSL protocol toggles.",
+      "files": [
+        "app/src/main/res/layout/dialog_settings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement SmtpListener Interface",
+      "description": "Define the SmtpListener callback interface inside MainActivity to capture interactive SMTP negotiation stages and failures.",
+      "files": [
+        "app/src/main/java/com/gmailsmtpmailer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build Low-Level Native SMTP Client Socket",
+      "description": "Construct SmtpClient.java using standard Java SSLSocketFactory and Raw Socket stream controls to run authentic SMTP protocol exchange with Gmail servers without third-party dependencies.",
+      "files": [
+        "app/src/main/java/com/gmailsmtpmailer/app/SmtpClient.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement MainActivity Initialization",
+      "description": "Setup views inside MainActivity.java and read initial configuration parameters from SharedPreferences.",
+      "files": [
+        "app/src/main/java/com/gmailsmtpmailer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Integrate Settings Save and Load Framework",
+      "description": "Integrate persistent SharedPreferences mechanisms inside MainActivity settings dialog to manage user SMTP configs seamlessly.",
+      "files": [
+        "app/src/main/java/com/gmailsmtpmailer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Background Thread Dispatch and Logs Display",
+      "description": "Construct execution triggers in MainActivity to dispatch SMTP commands safely on background worker threads and continuously print status responses to the live console scroll view.",
+      "files": [
+        "app/src/main/java/com/gmailsmtpmailer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Gmail SMTP Mailer",
+      "description": "Validate build files and initialize compilation targeting the correct platform build requirements.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SMTP Server Configuration"
+            android:textColor="#1A202C"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SMTP Server Host (e.g., smtp.gmail.com)"
+            android:textColor="#4A5568"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/etHost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EDF2F7"
+            android:hint="smtp.gmail.com"
+            android:padding="10dp"
+            android:textColor="#2D3748"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SMTP Port (SSL default is 465)"
+            android:textColor="#4A5568"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etPort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EDF2F7"
+            android:hint="465"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textColor="#2D3748"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp" />
+
+        <CheckBox
+            android:id="@+id/cbUseSsl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Use SSL/TLS Connection"
+            android:textColor="#4A5568"
+            android:textSize="13sp"
+            android:checked="true"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gmail Address (Sender)"
+            android:textColor="#4A5568"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EDF2F7"
+            android:hint="example@gmail.com"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="#2D3748"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App Password"
+            android:textColor="#4A5568"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(Do not use main password. Set up a 16-character App Password in Google security settings.)"
+            android:textColor="#718096"
+            android:textSize="10sp"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EDF2F7"
+            android:hint="abcd efgh ijkl mnop"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="#2D3748"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#CBD5E0"
+                android:text="Cancel"
+                android:textColor="#2D3748"
+                android:layout_marginRight="8dp"/>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#1E88E5"
+                android:text="Save Settings"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
