@@ -1,0 +1,95 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Setup App Meta",
+      "description": "Defined app_name as CashSnap and package_name as com.cashsnap.app.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Environment",
+      "description": "Configured app/build.gradle with Android SDK compileSdkVersion 34, targetSdkVersion 34, and Java 1.8 compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define App Manifest",
+      "description": "Created AndroidManifest.xml with appropriate launch activity, title, and theme configuration matching strict requirements.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Local SQLite Database Helper",
+      "description": "Built ExpenseDbHelper.java to manage core CRUD operations, date-based expense queries, and summary analytics.",
+      "files": ["app/src/main/java/com/cashsnap/app/ExpenseDbHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build Custom PieChartView",
+      "description": "Implemented custom PieChartView.java class extending android.view.View to render spending category charts with standard canvas drawing.",
+      "files": ["app/src/main/java/com/cashsnap/app/PieChartView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design App UI Layout",
+      "description": "Created layout/activity_main.xml with clean bottom navigation layout containing Home, Add, History, and Charts panels.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop Navigation Logic",
+      "description": "Implemented interactive bottom navigation transitions inside MainActivity.java using click listeners and view visibilities.",
+      "files": ["app/src/main/java/com/cashsnap/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Analytics Summary",
+      "description": "Programmed SQL queries in MainActivity.java to automatically calculate totals spent today, this week, and this month.",
+      "files": ["app/src/main/java/com/cashsnap/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Integrate Search and Filter Engine",
+      "description": "Coded real-time query searching and category-wise spinner filtering in MainActivity.java.",
+      "files": ["app/src/main/java/com/cashsnap/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design CSV Export Utility",
+      "description": "Engineered multi-platform compatible export system in MainActivity.java using MediaStore and public/internal writing to save transaction history as a CSV spreadsheet.",
+      "files": ["app/src/main/java/com/cashsnap/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Add Date Selection Dialog",
+      "description": "Integrated an elegant Android DatePickerDialog inside the add transaction form.",
+      "files": ["app/src/main/java/com/cashsnap/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Perform Strict Java 8 Compliance Validation",
+      "description": "Ensured use of anonymous inner classes instead of modern lambdas to guarantee target compilation stability.",
+      "files": ["app/src/main/java/com/cashsnap/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building CashSnap",
+      "description": "Assemble the application build and run diagnostic testing parameters.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
