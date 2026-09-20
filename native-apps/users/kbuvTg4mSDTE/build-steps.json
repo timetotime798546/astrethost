@@ -1,0 +1,109 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Establish Project Identity",
+      "description": "Configure the Smart Khata app metadata, package name 'com.smartkhata.app', and application identifier.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create Build Configuration",
+      "description": "Configure the app's build.gradle with proper compile and target SDK versions (34) matching JDK 17 environment constraints.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define App Theme & Colors",
+      "description": "Configure light-themed custom color resources (blue primary, greens, reds) and styles to support a premium look and feel.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Card & Button Drawables",
+      "description": "Create rounded shape XML drawables for card backgrounds, buttons, pill badges, and input elements.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/button_primary.xml",
+        "app/src/main/res/drawable/button_accent.xml",
+        "app/src/main/res/drawable/button_jama.xml",
+        "app/src/main/res/drawable/button_udhaar.xml",
+        "app/src/main/res/drawable/search_bg.xml",
+        "app/src/main/res/drawable/badge_jama.xml",
+        "app/src/main/res/drawable/badge_udhaar.xml",
+        "app/src/main/res/drawable/dialog_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Configure App Manifest",
+      "description": "Set up AndroidManifest.xml declaring correct package, launcher activities, standard Material Light theme, and launcher icon hooks.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Set Up Database Schema",
+      "description": "Create SQLite database open helper to manage persistent tables for Customers and Transactions with cascading deletes on customer deletion.",
+      "files": ["app/src/main/java/com/smartkhata/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Modern App Main Layout",
+      "description": "Implement a full layout supporting Splash Loader screen, Bottom Navigation bar, Home/Dashboard section, Customers list, Transactions list, and Settings.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Dialog Layouts",
+      "description": "Build high-fidelity custom dialogue input fields for Adding Customer, Recording Udhaar/Jama, and editing shop credentials.",
+      "files": [
+        "app/src/main/res/layout/dialog_add_customer.xml",
+        "app/src/main/res/layout/dialog_add_transaction.xml",
+        "app/src/main/res/layout/dialog_settings_profile.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Build Dynamic List Item Layouts",
+      "description": "Design visual templates for customer rows with beautiful circle letter avatars and transaction rows with clear transaction pill types.",
+      "files": ["app/src/main/res/layout/item_customer.xml", "app/src/main/res/layout/item_transaction.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Develop Main Application Logic",
+      "description": "Implement MainActivity.java implementing view switches, database interactions, dynamic lists, sound synthetic alerts, and state management.",
+      "files": ["app/src/main/java/com/smartkhata/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Configure Demo Data Injector",
+      "description": "Write and hook a mock data populator inside DatabaseHelper to enrich the initial view with illustrative transactions for a beautiful demonstration.",
+      "files": ["app/src/main/java/com/smartkhata/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Integrate WhatsApp Intent Reminder",
+      "description": "Program the SMS fallback and external WhatsApp Intent dispatcher inside the customer profiles with custom pre-filled polite reminder messages.",
+      "files": ["app/src/main/java/com/smartkhata/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Smart Khata",
+      "description": "Invoke gradle command to compile source, validate layout assets, link SQLite, and produce the final APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

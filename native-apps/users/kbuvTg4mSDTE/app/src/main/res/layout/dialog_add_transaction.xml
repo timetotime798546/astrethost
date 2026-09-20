@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_bg"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tx_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Record Udhaar"
+        android:textColor="@color/udhaar_red"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Amount (₹) *"
+        android:textColor="@color/text_dark"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/edit_amount"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="@drawable/search_bg"
+        android:textColor="@color/text_dark"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Optional Note / Remarks"
+        android:textColor="@color/text_dark"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/edit_tx_note"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="e.g. Milk, Rice, Online transfer, etc."
+        android:inputType="text"
+        android:padding="10dp"
+        android:background="@drawable/search_bg"
+        android:textColor="@color/text_dark"
+        android:layout_marginBottom="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btn_tx_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            style="?android:attr/borderlessButtonStyle"
+            android:textColor="@color/text_muted"
+            android:layout_marginRight="10dp" />
+
+        <Button
+            android:id="@+id/btn_tx_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Record"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_primary"
+            android:paddingHorizontal="20dp" />
+    </LinearLayout>
+</LinearLayout>
