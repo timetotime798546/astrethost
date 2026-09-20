@@ -545,13 +545,13 @@ public class MainActivity extends Activity {
             TextView categoryHeader = new TextView(MainActivity.this);
             categoryHeader.setText(category + " - " + date);
             categoryHeader.setTextColor(0xFF212121);
-            categoryHeader.setTextSize(15sp);
+            categoryHeader.setTextSize(15.0f);
             categoryHeader.setTypeface(null, Typeface.BOLD);
 
             TextView noteText = new TextView(MainActivity.this);
             noteText.setText(note);
             noteText.setTextColor(0xFF757575);
-            noteText.setTextSize(13sp);
+            noteText.setTextSize(13.0f);
 
             textDetails.addView(categoryHeader);
             textDetails.addView(noteText);
@@ -560,14 +560,14 @@ public class MainActivity extends Activity {
             TextView amountText = new TextView(MainActivity.this);
             amountText.setText(String.format(Locale.US, "-$%.2f", amount));
             amountText.setTextColor(0xFFC62828);
-            amountText.setTextSize(16sp);
+            amountText.setTextSize(16.0f);
             amountText.setTypeface(null, Typeface.BOLD);
             amountText.setPadding(16, 0, 24, 0);
 
             // Deletion listener handle
             TextView deleteButton = new TextView(MainActivity.this);
             deleteButton.setText("🗑️");
-            deleteButton.setTextSize(18sp);
+            deleteButton.setTextSize(18.0f);
             deleteButton.setPadding(12, 12, 12, 12);
             deleteButton.setClickable(true);
             deleteButton.setFocusable(true);

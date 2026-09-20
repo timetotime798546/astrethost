@@ -79,13 +79,20 @@
     },
     {
       "step": 12,
+      "title": "Fix Java Syntax Compilation Errors",
+      "description": "Corrected the invalid 'sp' unit suffixes in java code on text view size declarations to direct float inputs.",
+      "files": ["app/src/main/java/com/cashsnap/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
       "title": "Perform Strict Java 8 Compliance Validation",
       "description": "Ensured use of anonymous inner classes instead of modern lambdas to guarantee target compilation stability.",
       "files": ["app/src/main/java/com/cashsnap/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 13,
+      "step": 14,
       "title": "Building CashSnap",
       "description": "Assemble the application build and run diagnostic testing parameters.",
       "files": [],
