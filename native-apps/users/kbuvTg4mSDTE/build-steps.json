@@ -1,0 +1,110 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Establish App Meta-Configuration",
+      "description": "Establish the application meta descriptor containing app name 'Notes Master' and package identifier 'com.notesmaster.app'.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Multi-Project settings.gradle",
+      "description": "Establish workspace structure by defining the base application module location.",
+      "files": ["settings.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Setup Project Root build.gradle",
+      "description": "Configure the top-level repository resolution and declare Android Gradle Plugin 8.3.2 dependencies.",
+      "files": ["build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure App Build Parameters",
+      "description": "Establish the compilation dependencies, target SDK, and Java 8 support settings in app/build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Configure Manifest and System Themes",
+      "description": "Create AndroidManifest.xml under correct namespace referencing launcher MainActivity and Material Theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Modern Card and Capsule Drawables",
+      "description": "Define layout backgrounds, active/inactive category chip styles, input borders, and badge shapes.",
+      "files": [
+        "app/src/main/res/drawable/note_card_bg.xml",
+        "app/src/main/res/drawable/chip_active.xml",
+        "app/src/main/res/drawable/chip_inactive.xml",
+        "app/src/main/res/drawable/button_bg.xml",
+        "app/src/main/res/drawable/button_secondary_bg.xml",
+        "app/src/main/res/drawable/input_bg.xml",
+        "app/src/main/res/drawable/badge_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Application Layout",
+      "description": "Build layout including search bar, horizontal category scroll selector, lists, and empty state widgets.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Interactive Note Dialog Layout",
+      "description": "Design modular dialog layout for entering note details, selecting categories, and saving content.",
+      "files": ["app/src/main/res/layout/dialog_note.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create List Row Item Layout",
+      "description": "Design custom row layout displaying card styling, timestamp, category badge, and control buttons.",
+      "files": ["app/src/main/res/layout/item_note.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Configure App Strings",
+      "description": "Establish app names and string values within localized resource files.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement SQLite Database Engine",
+      "description": "Implement DatabaseHelper class in Java for full notes CRUD operations (Create, Read, Update, Delete) with SQLite.",
+      "files": ["app/src/main/java/com/notesmaster/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Model Data Structures",
+      "description": "Define the Note model class to hold structural attributes of the notes.",
+      "files": ["app/src/main/java/com/notesmaster/app/Note.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement App Logic and Dialog Integrations",
+      "description": "Develop main application logic including listing, filtering by category, filtering by search query, dialog setups, and CRUD listeners.",
+      "files": ["app/src/main/java/com/notesmaster/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Notes Master",
+      "description": "Assemble, compile, and build Notes Master application using Gradle.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
