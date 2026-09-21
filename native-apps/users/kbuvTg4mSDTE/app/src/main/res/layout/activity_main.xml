@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#090D16"
+    android:padding="16dp">
+
+    <!-- Header Panel with Title and History Toggle -->
+    <LinearLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Modern Calculator"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_toggle_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📜 History"
+            android:textSize="12sp"
+            android:textColor="#FFFFFF"
+            android:background="#1E293B"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <!-- Calculator Display Card -->
+    <LinearLayout
+        android:id="@+id/display_card"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_below="@id/header_layout"
+        android:background="@drawable/display_bg"
+        android:orientation="vertical"
+        android:gravity="bottom|end"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
+
+        <!-- Expression/Formula display -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tv_formula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#94A3B8"
+                android:textSize="18sp"
+                android:singleLine="true" />
+        </HorizontalScrollView>
+
+        <!-- Current Output/Result display -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tv_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:singleLine="true" />
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <!-- Main Content Panel containing both Keypad and overlapping History panel -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/display_card">
+
+        <!-- Keyboard Panel -->
+        <LinearLayout
+            android:id="@+id/keyboard_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Horizontal Scrollable Advanced Operations Panel -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/advanced_lbl"
+                    android:textColor="#6366F1"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- Adv Buttons -->
+                        <Button android:id="@+id/btn_sin" android:layout_width="70dp" android:layout_height="38dp" android:text="sin" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="12sp" android:textAllCaps="false"/>
+                        <Button android:id="@+id/btn_cos" android:layout_width="70dp" android:layout_height="38dp" android:text="cos" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="12sp" android:textAllCaps="false"/>
+                        <Button android:id="@+id/btn_tan" android:layout_width="70dp" android:layout_height="38dp" android:text="tan" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="12sp" android:textAllCaps="false"/>
+                        <Button android:id="@+id/btn_sqrt" android:layout_width="70dp" android:layout_height="38dp" android:text="√" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="14sp" android:textAllCaps="false"/>
+                        <Button android:id="@+id/btn_pow" android:layout_width="70dp" android:layout_height="38dp" android:text="^" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="14sp" android:textAllCaps="false"/>
+                        <Button android:id="@+id/btn_sqr" android:layout_width="70dp" android:layout_height="38dp" android:text="x²" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="12sp" android:textAllCaps="false"/>
+                        <Button android:id="@+id/btn_recip" android:layout_width="70dp" android:layout_height="38dp" android:text="1/x" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="12sp" android:textAllCaps="false"/>
+                        <Button android:id="@+id/btn_ln" android:layout_width="70dp" android:layout_height="38dp" android:text="ln" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="12sp" android:textAllCaps="false"/>
+                        <Button android:id="@+id/btn_log" android:layout_width="70dp" android:layout_height="38dp" android:text="log" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="12sp" android:textAllCaps="false"/>
+                        <Button android:id="@+id/btn_pi" android:layout_width="70dp" android:layout_height="38dp" android:text="π" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="14sp" android:textAllCaps="false"/>
+                        <Button android:id="@+id/btn_e" android:layout_width="70dp" android:layout_height="38dp" android:text="e" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="14sp" android:textAllCaps="false"/>
+                        <Button android:id="@+id/btn_open_paren" android:layout_width="70dp" android:layout_height="38dp" android:text="(" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="14sp" android:textAllCaps="false"/>
+                        <Button android:id="@+id/btn_close_paren" android:layout_width="70dp" android:layout_height="38dp" android:text=")" android:textColor="#A5B4FC" android:background="@drawable/btn_advanced" android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:textSize="14sp" android:textAllCaps="false"/>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <!-- Standard Keyboard Rows -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- Row 1: C, Backspace, %, ÷ -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <Button android:id="@+id/btn_clear" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="C" android:textColor="#FFFFFF" android:background="@drawable/btn_action" android:textSize="20sp" android:textStyle="bold" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_backspace" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="⌫" android:textColor="#FFFFFF" android:background="@drawable/btn_action" android:textSize="18sp" android:textStyle="bold" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_percent" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="%" android:textColor="#FFFFFF" android:background="@drawable/btn_action" android:textSize="18sp" android:textStyle="bold" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_divide" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="÷" android:textColor="#FFFFFF" android:background="@drawable/btn_operator" android:textSize="24sp" android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <!-- Row 2: 7, 8, 9, × -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <Button android:id="@+id/btn_7" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="7" android:textColor="#FFFFFF" android:background="@drawable/btn_numeric" android:textSize="22sp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_8" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="8" android:textColor="#FFFFFF" android:background="@drawable/btn_numeric" android:textSize="22sp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_9" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="9" android:textColor="#FFFFFF" android:background="@drawable/btn_numeric" android:textSize="22sp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_multiply" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="×" android:textColor="#FFFFFF" android:background="@drawable/btn_operator" android:textSize="24sp" android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <!-- Row 3: 4, 5, 6, - -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <Button android:id="@+id/btn_4" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="4" android:textColor="#FFFFFF" android:background="@drawable/btn_numeric" android:textSize="22sp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_5" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="5" android:textColor="#FFFFFF" android:background="@drawable/btn_numeric" android:textSize="22sp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_6" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="6" android:textColor="#FFFFFF" android:background="@drawable/btn_numeric" android:textSize="22sp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_subtract" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="-" android:textColor="#FFFFFF" android:background="@drawable/btn_operator" android:textSize="24sp" android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <!-- Row 4: 1, 2, 3, + -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <Button android:id="@+id/btn_1" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="1" android:textColor="#FFFFFF" android:background="@drawable/btn_numeric" android:textSize="22sp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_2" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="2" android:textColor="#FFFFFF" android:background="@drawable/btn_numeric" android:textSize="22sp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_3" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="3" android:textColor="#FFFFFF" android:background="@drawable/btn_numeric" android:textSize="22sp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_add" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="+" android:textColor="#FFFFFF" android:background="@drawable/btn_operator" android:textSize="24sp" android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <!-- Row 5: +/-, 0, ., = -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button android:id="@+id/btn_plus_minus" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="+/-" android:textColor="#FFFFFF" android:background="@drawable/btn_numeric" android:textSize="18sp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_0" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="0" android:textColor="#FFFFFF" android:background="@drawable/btn_numeric" android:textSize="22sp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_decimal" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="." android:textColor="#FFFFFF" android:background="@drawable/btn_numeric" android:textSize="22sp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    <Button android:id="@+id/btn_equals" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="=" android:textColor="#FFFFFF" android:background="@drawable/btn_operator" android:textSize="24sp" android:textStyle="bold"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- History Sliding Panel overlay. Hidden by default. -->
+        <LinearLayout
+            android:id="@+id/history_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#1E293B"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/history_title"
+                    android:textColor="#F1F5F9"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_clear_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/history_clear"
+                    android:textSize="11sp"
+                    android:textColor="#EF4444"
+                    android:background="#0F172A"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/history_list_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Dynamic historical content in MainActivity.java -->
+                </LinearLayout>
+            </ScrollView>
+
+            <Button
+                android:id="@+id/btn_close_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Close History"
+                android:textColor="#FFFFFF"
+                android:background="#020617"
+                android:layout_marginTop="12dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,93 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Establish App Meta-Configuration",
+      "description": "Establish the application meta descriptor containing app name 'Modern Calculator' and package identifier 'com.moderncalculator.app'.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create Base Build Scripts",
+      "description": "Initialize standard top-level and settings Gradle configuration scripts tailored for AGP 8.3.2.",
+      "files": ["settings.gradle", "build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Module Build Properties",
+      "description": "Configure the app's build.gradle script with compileSdkVersion 34, targetSdkVersion 34, and dependencies restricted to platform SDK.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Establish Manifest Permissions and Declarations",
+      "description": "Create AndroidManifest.xml declaring correct namespace, launcher activity MainActivity, and portrait orientations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define Color Resources and Styling Guides",
+      "description": "Establish styling themes using default Material styles with deep obsidian dark backgrounds and crisp accents.",
+      "files": ["app/src/main/res/values/styles.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Custom Button Drawables",
+      "description": "Design sleek drawable selectors with rounded shapes, gradients, and subtle hover/click responses for different button categories.",
+      "files": [
+        "app/src/main/res/drawable/btn_numeric.xml",
+        "app/src/main/res/drawable/btn_operator.xml",
+        "app/src/main/res/drawable/btn_action.xml",
+        "app/src/main/res/drawable/btn_advanced.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Glassmorphic Calculator Display Layout",
+      "description": "Design an elegant dual-row display with small gray history tracking and large bold live characters with shadow effects.",
+      "files": ["app/src/main/res/drawable/display_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Sliding Scientific Panel",
+      "description": "Set up a horizontal scrolling container for math functions including Sin, Cos, Tan, Log, exponents, and constants.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop Recursive Descent Math Evaluator",
+      "description": "Write a pure-Java mathematical parser executing BODMAS/PEMDAS precedence, handling parentheses, trigonometric operations, roots, powers, and logs.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Coordinate State Machine and Input Handlers",
+      "description": "Implement backspace parsing, error handling, infinite divisions checks, parenthesis balancing, and live formula validation.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Calculation History Logging",
+      "description": "Create local session-based persistent memory arrays to let users click historical formulas to restore them for recalculation.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Modern Calculator",
+      "description": "Assemble, compile, and package the complete Modern Calculator application using Gradle debug tasks.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
