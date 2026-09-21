@@ -90,10 +90,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1. Grant Microphone and Screen Overlay permissions if requested.\n2. Enable the service in Settings.\n3. A blue floating microphone icon will appear.\n4. Drag the mic anywhere. Tap it to start voice control."
+                android:text="@string/how_to_use"
                 android:textColor="#333333"
                 android:textSize="14sp"
-                android:lineSpacingMultiplier="1.2"
                 android:layout_marginBottom="12dp" />
 
             <View
@@ -105,7 +104,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SUPPORTED COMMANDS (ENGLISH &amp; HINDI)"
+                android:text="SUPPORTED COMMANDS"
                 android:textColor="#757575"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -114,10 +113,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="• \"Open YouTube\" / \"YouTube kholo\"\n• \"Search YouTube for Android app builder\"\n• \"Click Search\"\n• \"Type Hello World\"\n• \"Scroll Down\" / \"Scroll Up\"\n• \"Go Back\" / \"Go Home\""
+                android:text="@string/supported_commands"
                 android:textColor="#424242"
-                android:textSize="13sp"
-                android:lineSpacingMultiplier="1.2" />
+                android:textSize="13sp" />
         </LinearLayout>
 
         <!-- Installed Launcher Apps Card -->
@@ -140,7 +138,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Say 'Open [App Name]' to launch any of these apps:"
+                android:text="Say 'Open [App Name]' to launch:"
                 android:textColor="#757575"
                 android:textSize="12sp"
                 android:layout_marginBottom="8dp" />

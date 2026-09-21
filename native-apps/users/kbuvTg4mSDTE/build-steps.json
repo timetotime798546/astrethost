@@ -2,94 +2,74 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initializing metadata for Voice Control Assistant app",
-      "description": "Create the app-meta.json configuration carrying app identification properties.",
-      "files": ["app-meta.json"],
-      "status": "pending"
-    },
-    {
-      "step": 2,
-      "title": "Constructing root workspace and repository configurations",
-      "description": "Establish the standard multi-module build environment matching Gradle 8.5 and Temurin 17.",
-      "files": ["build.gradle", "settings.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Establishing App Module dependencies and plugin configurations",
-      "description": "Configure compilation properties in app/build.gradle matching SDK 34, AGP 8.3.2, and Java 8 language standard levels.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Declaring Android Permissions and Service Manifest descriptors",
-      "description": "Set up app capabilities inside AndroidManifest.xml requiring BIND_ACCESSIBILITY_SERVICE, RECORD_AUDIO, and QUERY_ALL_PACKAGES.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Formulating Accessibility Service static metadata config",
-      "description": "Establish accessibility feedback flags, service types, and event monitors in the XML configurations folder.",
-      "files": ["app/src/main/res/xml/accessibility_service_config.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Designing custom background and floating button circle shapes",
-      "description": "Draft multiple shape definitions mapping background cards and active/inactive microphone circle drawables.",
-      "files": [
-        "app/src/main/res/drawable/app_bg.xml",
-        "app/src/main/res/drawable/card_bg.xml",
-        "app/src/main/res/drawable/circle_default.xml",
-        "app/src/main/res/drawable/circle_listening.xml",
-        "app/src/main/res/drawable/status_bg.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Designing MainActivity configuration and user guides interface",
-      "description": "Build layout configurations in activity_main.xml displaying step instructions, system integration tests, and application registers.",
+      "title": "Parse build logs",
+      "description": "Analyze the ASTRETHOST build failure log to isolate the exact XML parsing exception in activity_main.xml.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
-      "step": 8,
-      "title": "Configuring interactive micro bubble floating views",
-      "description": "Build floating_mic_layout.xml holding drag-friendly controllers and voice recognition overlays.",
+      "step": 2,
+      "title": "Inspect activity_main.xml structure",
+      "description": "Check for unclosed tags, malformed element names, and quote formatting issues around line 117.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Fix TextView tags syntax",
+      "description": "Rewrite the target TextView tag with valid attribute declarations and standard XML self-closing tags.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Clean activity layout constraints",
+      "description": "Verify general linear layout nesting and scrolling view properties are properly formed and aligned.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Inspect strings.xml values",
+      "description": "Confirm the string resources inside strings.xml do not introduce unescaped quotes or invalid string literals.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Review floating mic view components",
+      "description": "Verify floating_mic_layout.xml attributes to prevent resource compiler conflicts.",
       "files": ["app/src/main/res/layout/floating_mic_layout.xml"],
       "status": "pending"
     },
     {
+      "step": 7,
+      "title": "Verify service XML schema",
+      "description": "Validate accessibility_service_config.xml features and permission attributes.",
+      "files": ["app/src/main/res/xml/accessibility_service_config.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Validate Manifest registration",
+      "description": "Confirm correct class paths for MainActivity and VoiceAccessibilityService with proper namespace mappings.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
       "step": 9,
-      "title": "Defining application localization values and styling metrics",
-      "description": "Write values profiles governing light material system parameters.",
+      "title": "Perform static code validation",
+      "description": "Verify imports and components reference valid resources before assembly runs.",
       "files": [
-        "app/src/main/res/values/strings.xml",
-        "app/src/main/res/values/styles.xml"
+        "app/src/main/java/com/voicecontrolassistant/app/MainActivity.java",
+        "app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"
       ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Structuring MainActivity logic and Permission controller workflows",
-      "description": "Create MainActivity.java to verify permission status flags, launch accessibility dashboard configurations, and list installed applications.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Implementing VoiceAccessibilityService engine",
-      "description": "Implement the core AccessibilityService running real-time overlay elements, speech interpreters, and window layout managers.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building Voice Control Assistant",
-      "description": "Execute compilation commands and run verification sequences to produce the complete app bundle package.",
+      "description": "Trigger the Gradle environment assembly process to build the corrected package successfully.",
       "files": [],
       "status": "pending"
     }

@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Voice Control Assistant</string>
     <string name="accessibility_description">Enables control of apps via spoken commands. Translates voice commands directly to navigation gestures, clicks, scrolls, and text typing.</string>
+    <string name="how_to_use">1. Grant Microphone and Screen Overlay permissions if requested.\n2. Enable the service in Settings.\n3. A blue floating microphone icon will appear.\n4. Drag the mic anywhere. Tap it to start voice control.</string>
+    <string name="supported_commands">• \"Open YouTube\" / \"YouTube kholo\"\n• \"Search YouTube for Android app builder\"\n• \"Click Search\"\n• \"Type Hello World\"\n• \"Scroll Down\" / \"Scroll Up\"\n• \"Go Back\" / \"Go Home\"</string>
 </resources>
