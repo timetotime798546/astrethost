@@ -1,0 +1,93 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Establish App Meta-Configuration",
+      "description": "Establish the application meta descriptor containing app name 'Voice Control Assistant' and package identifier 'com.voicecontrolassistant.app'.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Setup Main Gradle Configuration",
+      "description": "Configure settings.gradle to register the module and build.gradle with proper AGP 8.3.2 configuration.",
+      "files": ["settings.gradle", "build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Module Build Tooling",
+      "description": "Configure compile/target SDK version 34 and Java 8 compatibility options inside app/build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define XML Drawables for AI Orb States",
+      "description": "Create background gradients for the modern breathing AI orb: Default, Listening, Processing, and Error states.",
+      "files": [
+        "app/src/main/res/drawable/circle_default.xml",
+        "app/src/main/res/drawable/circle_listening.xml",
+        "app/src/main/res/drawable/circle_processing.xml",
+        "app/src/main/res/drawable/circle_error.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Floating AI Orb Layout",
+      "description": "Design an elegant custom UI overlay in floating_mic_layout.xml, combining text indicators and an animated glowing outer ripple.",
+      "files": ["app/src/main/res/layout/floating_mic_layout.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Configure App Main Layout UI",
+      "description": "Construct activity_main.xml to showcase real service status, permissions panel, usage guidelines, and detected apps.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Declare System Permissions and Services",
+      "description": "Register QUERY_ALL_PACKAGES, RECORD_AUDIO, and SYSTEM_ALERT_WINDOW inside AndroidManifest.xml alongside the Accessibility Service.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Configure Accessibility Service Rules",
+      "description": "Register required capabilities like window state retrieval, flag report view IDs, and interactive view permissions inside accessibility_service_config.xml.",
+      "files": ["app/src/main/res/xml/accessibility_service_config.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement App Main Dashboard Controller",
+      "description": "Add dynamic overlay/microphone permission checks, real accessibility status updates, and live-detected launcher app listing to MainActivity.java.",
+      "files": ["app/src/main/java/com/voicecontrolassistant/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Build AI Orb Controller & Speech Engine",
+      "description": "Implement continuous 10-minute speech recognition sessions, status transitions, and dynamic native pulsing animations.",
+      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Optimize Voice Typing and Submit Pipeline",
+      "description": "Refine the typing mechanism to automatically submit searched content, bypass voice inputs/mic click loops, perform IME-level action routing, and verify screen changes.",
+      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Voice Control Assistant",
+      "description": "Initiate assembly and compilation of Voice Control Assistant into its final debug distribution.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
