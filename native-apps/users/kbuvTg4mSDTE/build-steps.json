@@ -4,112 +4,144 @@
       "step": 1,
       "title": "Verify App Meta-Configuration",
       "description": "Ensure the application name 'Voice Control Assistant' and package 'com.voicecontrolassistant.app' are correctly declared inside meta file.",
-      "files": ["app-meta.json"],
+      "files": [
+        "app-meta.json"
+      ],
       "status": "pending"
     },
     {
       "step": 2,
       "title": "Configure Accessibility Service Viewport Rules",
       "description": "Establish target configurations for inspecting screen UI tree elements, checking class IDs, and performing clicks.",
-      "files": ["app/src/main/res/xml/accessibility_service_config.xml"],
+      "files": [
+        "app/src/main/res/xml/accessibility_service_config.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
       "title": "Add Hardware and API Permissions in AndroidManifest",
       "description": "Configure RECORD_AUDIO, SYSTEM_ALERT_WINDOW, and CAMERA permissions to support background assistant services.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
       "title": "Establish local storage key-value configuration",
       "description": "Develop and verify settings configuration UI so users can select models and store their Gemini API Keys securely locally.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
       "title": "Set up settings persistence in MainActivity",
       "description": "Write Local SharedPreferences code inside MainActivity to retrieve and display customized Gemini variables cleanly.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/MainActivity.java"],
+      "files": [
+        "app/src/main/java/com/voicecontrolassistant/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
       "title": "Initialize SpeechRecognizer with dual language localization",
       "description": "Initialize a SpeechRecognizer listener and bind it to intercept speech inputs and direct them directly to the interpretation system.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "files": [
+        "app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
       "title": "Integrate Floating Assistant Mic UI layer",
       "description": "Integrate floating window layouts and custom animations to show current listening, processing, and idle status orbs.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "files": [
+        "app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
       "title": "Establish secure network communication routines with Gemini",
       "description": "Create standard HttpURLConnection procedures inside a separate execution thread to make network connections to Gemini generateContent endpoint.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "files": [
+        "app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
       "title": "Develop robust Gemini JSON output cleaner",
       "description": "Develop automated cleansing filters that extract strict JSON block structures by parsing the content from the first brace to the last.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "files": [
+        "app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Implement multi-action schema parsing and robust validation",
       "description": "Extract raw JSON commands array and validate every single command parameter before adding them to the sequential execution queue.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "files": [
+        "app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 11,
       "title": "Fix Search, Type and Submit Pipeline",
-      "description": "Map Gemini natural language search actions directly into the actual editable text fields and automate enter/submit clicks.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "description": "Map Gemini natural language search actions directly into the actual editable text fields and automate enter/submit clicks by eliminating invalid compilation targets like ACTION_IME_ACTION.",
+      "files": [
+        "app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 12,
       "title": "Construct Sequential Non-Blocking Command Queue",
       "description": "Design an executing loop that runs sequential actions step-by-step, completely waiting for UI layout states before triggering subsequent events.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "files": [
+        "app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 13,
       "title": "Incorporate Robust UI State Polling and Retries",
       "description": "Develop UI polling logic to perform retry attempts when rendering delays occur, preventing execution crashes on slow devices.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "files": [
+        "app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 14,
       "title": "Prevent Race Conditions & Queue Overlaps",
       "description": "Add safety logic to clean and abort running queues whenever a new voice command triggers mid-execution.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "files": [
+        "app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 15,
       "title": "Integrate Strict Debug Logging & Performance Tracking",
       "description": "Expose full verbose logs to print USER TEXT, GEMINI COMMAND COUNT, individual commands, active executions, completions, and failures.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "files": [
+        "app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 16,
       "title": "Verify Native Accessibility Fallbacks and Dialogs",
       "description": "Implement global gesture handlers for System Home, Back, Volume, and Flashlight adjustments.",
-      "files": ["app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"],
+      "files": [
+        "app/src/main/java/com/voicecontrolassistant/app/VoiceAccessibilityService.java"
+      ],
       "status": "pending"
     },
     {

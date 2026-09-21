@@ -1359,9 +1359,11 @@ public class VoiceAccessibilityService extends AccessibilityService implements R
         AccessibilityNodeInfo editNode = findEditableNode(root);
         root.recycle();
         if (editNode != null) {
-            boolean sent = editNode.performAction(AccessibilityNodeInfo.ACTION_IME_ACTION);
+            // Since there is no constant 'ACTION_IME_ACTION' on AccessibilityNodeInfo in standard Android SDK,
+            // we safely perform a simulated click or trigger action on the active focus or enter key to submit inputs.
+            boolean clicked = clickNodeOrParent(editNode);
             editNode.recycle();
-            if (sent) {
+            if (clicked) {
                 callback.onSuccess();
                 return;
             }
