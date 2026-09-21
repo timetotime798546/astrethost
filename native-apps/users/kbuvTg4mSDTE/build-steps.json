@@ -2,85 +2,78 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Android Project Structure",
-      "description": "Create basic folder hierarchy and set up initial configuration files for 'Quiz Card Creator'.",
-      "files": ["app-meta.json"],
+      "title": "Analyze and Classify Build Failure",
+      "description": "Review the build logs and identify layout resource errors and illegal external dependencies.",
+      "files": ["build-error.log"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Gradle Build Environment",
-      "description": "Configure 'app/build.gradle' targeting compile SDK 34, AGP 8.3.2, and Gradle 8.5 with strict Java 8 compatibility settings.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Establish Android Manifest & Permissions",
-      "description": "Configure 'AndroidManifest.xml' with necessary storage permissions and register 'MainActivity' with appropriate launch intent-filters.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Design Application Layout",
-      "description": "Create 'activity_main.xml' featuring a live 16:9 interactive preview container, customizable controller widgets, text edit fields, and action buttons.",
+      "title": "Correct Layout Resource Dimensions",
+      "description": "Fix layout_width typo in activity_main.xml, ensuring all dimensions are set to valid standard attributes.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 3,
+      "title": "Remove Unused Prohibited Dependencies",
+      "description": "Clean app/build.gradle by removing nanohttpd external dependency to adhere to SDK-only rules.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Validate Android Manifest Namespace",
+      "description": "Verify the correct Android schemas namespace declaration in the AndroidManifest.xml file.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
       "step": 5,
-      "title": "Construct Question Data Structure",
-      "description": "Define internal 'Question' model class with fields for text content, custom themes, options, and text sizing styling.",
-      "files": ["app/src/main/java/com/quizcardcreator/app/MainActivity.java"],
+      "title": "Verify Application Icon Configuration",
+      "description": "Confirm launcher icons point to the correct drawable/icon path instead of mipmaps.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement SharedPreferences Persistent Storage",
-      "description": "Write custom serialization logic utilizing Android standard JSONObject/JSONArray to persist current quiz cards into local storage.",
+      "title": "Check Java Compilation Text Sizes",
+      "description": "Ensure text dimensions in MainActivity.java are initialized with standard integer points.",
       "files": ["app/src/main/java/com/quizcardcreator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Design 16:9 Canvas Graphics Renderer",
-      "description": "Develop dynamic Canvas painting logic that handles complex linear gradients, overlay shapes, custom margins, and styled dynamic rounded pill backgrounds.",
+      "title": "Enforce Java 8 Compatibility",
+      "description": "Review Java source code to ensure that no lambda expressions or streams are utilized.",
       "files": ["app/src/main/java/com/quizcardcreator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement Text Wrapping Engine",
-      "description": "Utilize built-in Android 'StaticLayout' to reliably auto-wrap long quiz questions on the high-definition 1280x720 graphic canvas.",
+      "title": "Audit Shared Preferences Storage",
+      "description": "Verify JSON serialization parameters for saving and loading custom cards locally.",
       "files": ["app/src/main/java/com/quizcardcreator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Integrate Real-time WYSIWYG Editor Preview",
-      "description": "Connect TextWatchers and styling selectors to instantly paint and display the generated 16:9 bitmap live on the screen.",
+      "title": "Verify PDF Document Export Engine",
+      "description": "Ensure graphics drawing methods and PDF page specifications are optimized for target environment.",
       "files": ["app/src/main/java/com/quizcardcreator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Build Image Gallery Exporter",
-      "description": "Write MediaStore insertion routine allowing seamless direct writing of the 16:9 PNG graphic files directly to Pictures/QuizCardPro on Android 5.0 to 14.",
-      "files": ["app/src/main/java/com/quizcardcreator/app/MainActivity.java"],
+      "title": "Synchronize Build Environment Parameters",
+      "description": "Verify compile SDK, target SDK, and build tools match Gradle environment settings.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Develop PDF Merge Compiler",
-      "description": "Leverage native 'android.graphics.pdf.PdfDocument' framework to dynamically bundle all created 16:9 cards as individual high-quality pages in a single output PDF document.",
-      "files": ["app/src/main/java/com/quizcardcreator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building Quiz Card Creator",
-      "description": "Verify namespace parameters, execute compile sequence, pack assets, and construct the final debug APK package.",
+      "description": "Execute the debug compilation build cycle using gradle assembleDebug and generate the final package.",
       "files": [],
       "status": "pending"
     }

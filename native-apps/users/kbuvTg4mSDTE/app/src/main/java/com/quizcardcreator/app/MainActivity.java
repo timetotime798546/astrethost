@@ -347,7 +347,7 @@ public class MainActivity extends Activity {
             btn.setText(FONT_SIZE_LABELS[i]);
             btn.setGravity(Gravity.CENTER);
             btn.setPadding(8, 12, 8, 12);
-            btn.setTextSize(14sp);
+            btn.setTextSize(14); // Corrected from 14sp to standard integer
             btn.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
 
             if (currentDraft.fontSizeIndex == i) {
@@ -729,7 +729,7 @@ public class MainActivity extends Activity {
             TextView placeholder = new TextView(this);
             placeholder.setText("No questions added yet. Construct using builder form above.");
             placeholder.setTextColor(0xFF90A4AE);
-            placeholder.setTextSize(14sp);
+            placeholder.setTextSize(14); // Corrected from 14sp to standard integer
             placeholder.setGravity(Gravity.CENTER);
             placeholder.setPadding(0, 30, 0, 30);
             questionsListLayout.addView(placeholder);
@@ -772,7 +772,7 @@ public class MainActivity extends Activity {
             titleText.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
             titleText.setText("Card #" + (i + 1) + " - " + THEME_NAMES[q.themeIndex] + " (Size: " + FONT_SIZE_LABELS[q.fontSizeIndex] + ")");
             titleText.setTextColor(0xFF37474F);
-            titleText.setTextSize(13sp);
+            titleText.setTextSize(13); // Corrected from 13sp to standard integer
             titleText.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
             metaRow.addView(titleText);
 
@@ -782,7 +782,7 @@ public class MainActivity extends Activity {
             TextView qPreviewText = new TextView(this);
             qPreviewText.setText(q.questionText);
             qPreviewText.setTextColor(0xFF546E7A);
-            qPreviewText.setTextSize(14sp);
+            qPreviewText.setTextSize(14); // Corrected from 14sp to standard integer
             qPreviewText.setSingleLine(true);
             qPreviewText.setEllipsize(android.text.TextUtils.TruncateAt.END);
             qPreviewText.setPadding(0, dpToPx(6), 0, dpToPx(10));
@@ -796,7 +796,7 @@ public class MainActivity extends Activity {
             // Save individual item image button
             Button itemImageBtn = new Button(this);
             itemImageBtn.setText("Save Image");
-            itemImageBtn.setTextSize(11sp);
+            itemImageBtn.setTextSize(11); // Corrected from 11sp to standard integer
             itemImageBtn.setBackgroundColor(0xFF90A4AE);
             itemImageBtn.setTextColor(Color.WHITE);
             LinearLayout.LayoutParams btnImgParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, dpToPx(34));
@@ -814,7 +814,7 @@ public class MainActivity extends Activity {
             // Edit button
             Button itemEditBtn = new Button(this);
             itemEditBtn.setText("Edit");
-            itemEditBtn.setTextSize(11sp);
+            itemEditBtn.setTextSize(11); // Corrected from 11sp to standard integer
             itemEditBtn.setBackgroundColor(0xFF0288D1);
             itemEditBtn.setTextColor(Color.WHITE);
             LinearLayout.LayoutParams btnEditParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, dpToPx(34));
@@ -835,7 +835,7 @@ public class MainActivity extends Activity {
             // Delete button
             Button itemDeleteBtn = new Button(this);
             itemDeleteBtn.setText("Delete");
-            itemDeleteBtn.setTextSize(11sp);
+            itemDeleteBtn.setTextSize(11); // Corrected from 11sp to standard integer
             itemDeleteBtn.setBackgroundColor(0xFFD32F2F);
             itemDeleteBtn.setTextColor(Color.WHITE);
             itemDeleteBtn.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, dpToPx(34)));
