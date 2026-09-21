@@ -72,9 +72,11 @@ public class VoiceAccessibilityService extends AccessibilityService implements R
     private List<ParsedAction> pendingActions = new ArrayList<>();
     private int currentStepIndex = 0;
     private boolean isExecutingQueue = false;
+    private int currentQueueSessionId = 0;
 
     static class ParsedAction {
         String actionType; // OPEN, CLICK, TYPE, SCROLL_DOWN, SCROLL_UP, BACK, HOME, SUBMIT, VOLUME_UP, VOLUME_DOWN, TORCH_ON, TORCH_OFF, RESTART_PHONE, WAIT
+        String originalAction = "";
         String target = "";
         String query = "";
         String rawText = "";
@@ -83,6 +85,7 @@ public class VoiceAccessibilityService extends AccessibilityService implements R
         public String toString() {
             return "ParsedAction{" +
                     "actionType='" + actionType + '\'' +
+                    ", originalAction='" + originalAction + '\'' +
                     ", target='" + target + '\'' +
                     ", query='" + query + '\'' +
                     '}';
@@ -111,12 +114,25 @@ public class VoiceAccessibilityService extends AccessibilityService implements R
         }
     };
 
+    private void cancelRunningQueue() {
+        currentQueueSessionId++;
+        pendingActions.clear();
+        currentStepIndex = 0;
+        isExecutingQueue = false;
+    }
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null && intent.hasExtra("COMMAND_TEXT")) {
-            String text = intent.getStringExtra("COMMAND_TEXT");
+            final String text = intent.getStringExtra("COMMAND_TEXT");
             Log.d(TAG, "Executing text command from Intent: " + text);
-            processCommandWithGemini(text);
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    cancelRunningQueue();
+                    processCommandWithGemini(text);
+                }
+            });
         }
         return super.onStartCommand(intent, flags, startId);
     }
@@ -542,14 +558,20 @@ public class VoiceAccessibilityService extends AccessibilityService implements R
 
         ArrayList<String> matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
         if (matches != null && !matches.isEmpty()) {
-            String recognizedText = matches.get(0);
+            final String recognizedText = matches.get(0);
             displayFloatingStatus("\"" + recognizedText + "\"");
 
             if (handleConversationalGreetings(recognizedText)) {
                 return;
             }
 
-            processCommandWithGemini(recognizedText);
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    cancelRunningQueue();
+                    processCommandWithGemini(recognizedText);
+                }
+            });
         } else {
             if (!isSpeaking) {
                 startSpeechRecognizerListening();
@@ -649,9 +671,6 @@ public class VoiceAccessibilityService extends AccessibilityService implements R
         return false;
     }
 
-    /**
-     * Integrates Gemini API interpreter to translate natural language into Android Commands
-     */
     private void processCommandWithGemini(final String recognizedText) {
         final SharedPreferences prefs = getSharedPreferences("VoiceControlPrefs", Context.MODE_PRIVATE);
         final String apiKey = prefs.getString("gemini_api_key", "").trim();
@@ -686,139 +705,134 @@ public class VoiceAccessibilityService extends AccessibilityService implements R
             @Override
             public void run() {
                 try {
-                    // Safe execution start. Cancel any overlapping queue immediately to prevent race conditions.
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            pendingActions.clear();
-                            currentStepIndex = 0;
-                            isExecutingQueue = false;
-                            displayFloatingStatus("Converting command...");
-                        }
-                    });
-
                     String response = makeGeminiCall(apiKey, finalModel, recognizedText);
                     final String cleanedResponse = cleanGeminiResponse(response);
 
-                    Log.d(TAG, "USER TEXT: " + recognizedText);
-                    Log.d(TAG, "Gemini Response Raw: " + response);
-                    Log.d(TAG, "Gemini Response Cleaned: " + cleanedResponse);
-
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            displayFloatingStatus("Preparing Android actions...");
-                        }
-                    });
+                            try {
+                                Log.d(TAG, "USER TEXT: " + recognizedText);
+                                displayFloatingStatus("Preparing Android actions...");
 
-                    // Parse JSON correctly containing 'commands' list
-                    JSONObject json = new JSONObject(cleanedResponse);
-                    if (json.has("error") && "UNSUPPORTED_COMMAND".equals(json.getString("error"))) {
-                        throw new IllegalArgumentException("UNSUPPORTED_COMMAND");
-                    }
+                                JSONObject json = new JSONObject(cleanedResponse);
+                                if (json.has("error") && "UNSUPPORTED_COMMAND".equals(json.getString("error"))) {
+                                    throw new IllegalArgumentException("UNSUPPORTED_COMMAND");
+                                }
 
-                    if (!json.has("commands")) {
-                        Log.e(TAG, "GEMINI COMMAND ARRAY MISSING");
-                        throw new IllegalArgumentException("Missing commands array");
-                    }
+                                if (!json.has("commands")) {
+                                    Log.e(TAG, "GEMINI COMMAND ARRAY MISSING");
+                                    throw new IllegalArgumentException("Missing commands array");
+                                }
 
-                    JSONArray commands = json.getJSONArray("commands");
-                    Log.d(TAG, "GEMINI COMMAND COUNT: " + commands.length());
+                                JSONArray commands = json.getJSONArray("commands");
+                                Log.d(TAG, "GEMINI COMMAND COUNT: " + commands.length());
 
-                    final List<ParsedAction> actions = new ArrayList<>();
+                                final List<ParsedAction> actions = new ArrayList<>();
 
-                    for (int i = 0; i < commands.length(); i++) {
-                        JSONObject cmd = commands.getJSONObject(i);
-                        String actionName = cmd.getString("action");
-                        Log.d(TAG, "COMMAND " + (i + 1) + ": " + cmd.toString());
+                                for (int i = 0; i < commands.length(); i++) {
+                                    JSONObject cmd = commands.getJSONObject(i);
+                                    String actionName = cmd.optString("action", "");
 
-                        ParsedAction parsed = new ParsedAction();
-                        parsed.rawText = recognizedText;
+                                    if (actionName.isEmpty()) {
+                                        Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND");
+                                        continue;
+                                    }
 
-                        // Normalize and safely map Gemini JSON properties to system internal executors
-                        if ("OPEN_APP".equals(actionName)) {
-                            parsed.actionType = "OPEN";
-                            parsed.target = cmd.optString("app", "");
-                            if (parsed.target.isEmpty()) {
-                                Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND (OPEN_APP missing app)");
-                                continue;
-                            }
-                        } else if ("OPEN_CHAT".equals(actionName)) {
-                            parsed.actionType = "CLICK";
-                            parsed.target = cmd.optString("contact", "");
-                            if (parsed.target.isEmpty()) {
-                                Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND (OPEN_CHAT missing contact)");
-                                continue;
-                            }
-                        } else if ("TYPE_MESSAGE".equals(actionName)) {
-                            parsed.actionType = "TYPE";
-                            parsed.query = cmd.optString("text", "");
-                            if (parsed.query.isEmpty()) {
-                                Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND (TYPE_MESSAGE missing text)");
-                                continue;
-                            }
-                        } else if ("SEND_MESSAGE".equals(actionName)) {
-                            parsed.actionType = "SUBMIT";
-                        } else if ("TYPE_TEXT".equals(actionName) || "SEARCH".equals(actionName)) {
-                            parsed.actionType = "TYPE";
-                            parsed.query = cmd.optString("text", cmd.optString("query", ""));
-                            if (parsed.query.isEmpty()) {
-                                Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND (TYPE_TEXT/SEARCH missing input text)");
-                                continue;
-                            }
-                        } else if ("SUBMIT".equals(actionName) || "ENTER".equals(actionName)) {
-                            parsed.actionType = "SUBMIT";
-                        } else if ("CLICK".equals(actionName)) {
-                            parsed.actionType = "CLICK";
-                            parsed.target = cmd.optString("target", "");
-                            if (parsed.target.isEmpty()) {
-                                Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND (CLICK missing target)");
-                                continue;
-                            }
-                        } else if ("SCROLL".equals(actionName)) {
-                            String dir = cmd.optString("direction", "DOWN").toUpperCase();
-                            parsed.actionType = "UP".equals(dir) ? "SCROLL_UP" : "SCROLL_DOWN";
-                        } else if ("BACK".equals(actionName)) {
-                            parsed.actionType = "BACK";
-                        } else if ("HOME".equals(actionName)) {
-                            parsed.actionType = "HOME";
-                        } else if ("VOLUME_UP".equals(actionName)) {
-                            parsed.actionType = "VOLUME_UP";
-                        } else if ("VOLUME_DOWN".equals(actionName)) {
-                            parsed.actionType = "VOLUME_DOWN";
-                        } else if ("TORCH_ON".equals(actionName)) {
-                            parsed.actionType = "TORCH_ON";
-                        } else if ("TORCH_OFF".equals(actionName)) {
-                            parsed.actionType = "TORCH_OFF";
-                        } else if ("RESTART_PHONE".equals(actionName)) {
-                            parsed.actionType = "RESTART_PHONE";
-                        } else if ("WAIT".equals(actionName)) {
-                            parsed.actionType = "WAIT";
-                            parsed.target = String.valueOf(cmd.optInt("duration", 1000));
-                        } else {
-                            Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND (" + actionName + ")");
-                            continue;
-                        }
+                                    ParsedAction parsed = new ParsedAction();
+                                    parsed.rawText = recognizedText;
+                                    parsed.originalAction = actionName;
 
-                        actions.add(parsed);
-                    }
+                                    boolean isValid = true;
 
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (actions.isEmpty()) {
-                                handleParsingFailure("Empty commands list");
-                            } else {
-                                pendingActions = actions;
-                                currentStepIndex = 0;
-                                isExecutingQueue = true;
-                                executeNextActionSequence();
+                                    if ("OPEN_APP".equals(actionName)) {
+                                        parsed.actionType = "OPEN";
+                                        parsed.target = cmd.optString("app", "");
+                                        if (parsed.target.isEmpty()) {
+                                            Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND");
+                                            isValid = false;
+                                        }
+                                    } else if ("OPEN_CHAT".equals(actionName)) {
+                                        parsed.actionType = "CLICK";
+                                        parsed.target = cmd.optString("contact", "");
+                                        if (parsed.target.isEmpty()) {
+                                            Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND");
+                                            isValid = false;
+                                        }
+                                    } else if ("TYPE_MESSAGE".equals(actionName)) {
+                                        parsed.actionType = "TYPE";
+                                        parsed.query = cmd.optString("text", "");
+                                        if (parsed.query.isEmpty()) {
+                                            Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND");
+                                            isValid = false;
+                                        }
+                                    } else if ("SEND_MESSAGE".equals(actionName)) {
+                                        parsed.actionType = "SUBMIT";
+                                    } else if ("TYPE_TEXT".equals(actionName) || "SEARCH".equals(actionName)) {
+                                        parsed.actionType = "TYPE";
+                                        parsed.query = cmd.optString("text", cmd.optString("query", ""));
+                                        if (parsed.query.isEmpty()) {
+                                            Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND");
+                                            isValid = false;
+                                        }
+                                    } else if ("SUBMIT".equals(actionName) || "ENTER".equals(actionName)) {
+                                        parsed.actionType = "SUBMIT";
+                                    } else if ("CLICK".equals(actionName)) {
+                                        parsed.actionType = "CLICK";
+                                        parsed.target = cmd.optString("target", "");
+                                        if (parsed.target.isEmpty()) {
+                                            Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND");
+                                            isValid = false;
+                                        }
+                                    } else if ("SCROLL".equals(actionName)) {
+                                        String dir = cmd.optString("direction", "DOWN").toUpperCase();
+                                        parsed.actionType = "UP".equals(dir) ? "SCROLL_UP" : "SCROLL_DOWN";
+                                    } else if ("BACK".equals(actionName)) {
+                                        parsed.actionType = "BACK";
+                                    } else if ("HOME".equals(actionName)) {
+                                        parsed.actionType = "HOME";
+                                    } else if ("VOLUME_UP".equals(actionName)) {
+                                        parsed.actionType = "VOLUME_UP";
+                                    } else if ("VOLUME_DOWN".equals(actionName)) {
+                                        parsed.actionType = "VOLUME_DOWN";
+                                    } else if ("TORCH_ON".equals(actionName)) {
+                                        parsed.actionType = "TORCH_ON";
+                                    } else if ("TORCH_OFF".equals(actionName)) {
+                                        parsed.actionType = "TORCH_OFF";
+                                    } else if ("RESTART_PHONE".equals(actionName)) {
+                                        parsed.actionType = "RESTART_PHONE";
+                                    } else if ("WAIT".equals(actionName)) {
+                                        parsed.actionType = "WAIT";
+                                        parsed.target = String.valueOf(cmd.optInt("duration", 1000));
+                                    } else {
+                                        Log.e(TAG, "COMMAND FAILED: INVALID_COMMAND");
+                                        isValid = false;
+                                    }
+
+                                    if (isValid) {
+                                        String paramVal = !parsed.target.isEmpty() ? parsed.target : parsed.query;
+                                        Log.d(TAG, "COMMAND " + (i + 1) + ": " + actionName + (paramVal.isEmpty() ? "" : " " + paramVal));
+                                        actions.add(parsed);
+                                    }
+                                }
+
+                                if (actions.isEmpty()) {
+                                    handleParsingFailure("Empty commands list");
+                                } else {
+                                    pendingActions = actions;
+                                    currentStepIndex = 0;
+                                    isExecutingQueue = true;
+                                    executeNextActionSequence();
+                                }
+                            } catch (Exception parseEx) {
+                                Log.e(TAG, "JSON parsing error", parseEx);
+                                handleParsingFailure(parseEx.getMessage());
                             }
                         }
                     });
 
                 } catch (final Exception e) {
-                    Log.e(TAG, "Gemini interpretation or verification failure", e);
+                    Log.e(TAG, "Gemini network communication failure", e);
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
@@ -841,7 +855,6 @@ public class VoiceAccessibilityService extends AccessibilityService implements R
         if (input == null) return "";
         String text = input.trim();
         
-        // Secure extract of first JSON block from brace boundaries
         int firstBrace = text.indexOf('{');
         int lastBrace = text.lastIndexOf('}');
         if (firstBrace != -1 && lastBrace != -1 && lastBrace > firstBrace) {
@@ -1026,37 +1039,49 @@ public class VoiceAccessibilityService extends AccessibilityService implements R
         final ParsedAction action = pendingActions.get(currentStepIndex);
         final int stepNum = currentStepIndex + 1;
         final int total = pendingActions.size();
+        final int sessionId = currentQueueSessionId;
 
         displayFloatingStatus("Action " + stepNum + "/" + total + ": " + action.actionType);
-        Log.d(TAG, "EXECUTING: " + action.actionType + " " + (!action.target.isEmpty() ? action.target : action.query));
+        Log.d(TAG, "EXECUTING: " + action.originalAction);
 
         speakActionAnnouncement(action);
 
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Poll/Retry layout checking up to 10 attempts (each 500ms apart) for active UI loading
+                if (sessionId != currentQueueSessionId) {
+                    return;
+                }
                 executeActionWithRetry(action, 1, 10, new ActionCallback() {
                     @Override
                     public void onSuccess() {
-                        Log.d(TAG, "COMMAND COMPLETED: " + action.actionType);
+                        if (sessionId != currentQueueSessionId) {
+                            Log.d(TAG, "Ignoring old queue callback onSuccess");
+                            return;
+                        }
+                        Log.d(TAG, "COMMAND COMPLETED: " + action.originalAction);
                         currentStepIndex++;
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                executeNextActionSequence();
+                                if (sessionId == currentQueueSessionId) {
+                                    executeNextActionSequence();
+                                }
                             }
                         }, 800);
                     }
 
                     @Override
                     public void onFailure(String errorMsg) {
-                        Log.d(TAG, "COMMAND FAILED: " + action.actionType + " - Reason: " + errorMsg);
+                        if (sessionId != currentQueueSessionId) {
+                            Log.d(TAG, "Ignoring old queue callback onFailure");
+                            return;
+                        }
+                        Log.d(TAG, "COMMAND FAILED: " + action.originalAction);
                         displayFloatingStatus("Action failed: " + errorMsg);
                         setOrbState("error");
                         speakErrorResponse(action);
-                        pendingActions.clear();
-                        isExecutingQueue = false;
+                        cancelRunningQueue();
                         returnOrbToReadyDelayed();
                     }
                 });
@@ -1065,21 +1090,29 @@ public class VoiceAccessibilityService extends AccessibilityService implements R
     }
 
     private void executeActionWithRetry(final ParsedAction action, final int attempt, final int maxAttempts, final ActionCallback callback) {
+        final int sessionId = currentQueueSessionId;
         executeActionInternal(action, new ActionCallback() {
             @Override
             public void onSuccess() {
-                callback.onSuccess();
+                if (sessionId == currentQueueSessionId) {
+                    callback.onSuccess();
+                }
             }
 
             @Override
             public void onFailure(final String errorMsg) {
+                if (sessionId != currentQueueSessionId) {
+                    return;
+                }
                 if (attempt < maxAttempts) {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            executeActionWithRetry(action, attempt + 1, maxAttempts, callback);
+                            if (sessionId == currentQueueSessionId) {
+                                executeActionWithRetry(action, attempt + 1, maxAttempts, callback);
+                            }
                         }
-                    }, 500); // 500ms delay wait between UI polls
+                    }, 500);
                 } else {
                     callback.onFailure(errorMsg);
                 }
@@ -1323,7 +1356,6 @@ public class VoiceAccessibilityService extends AccessibilityService implements R
             }
         }
 
-        // Action IME Fallback when no visible click button is detected on viewport
         AccessibilityNodeInfo editNode = findEditableNode(root);
         root.recycle();
         if (editNode != null) {
