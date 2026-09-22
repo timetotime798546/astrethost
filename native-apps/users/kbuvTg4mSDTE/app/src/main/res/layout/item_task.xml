@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/card_bg"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp"
+    android:gravity="center_vertical">
+
+    <CheckBox
+        android:id="@+id/cb_task_complete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_task_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Complete Calculus Homework"
+            android:textColor="#212121"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:id="@+id/tv_task_subject_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Math"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:background="#2196F3"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_marginRight="8dp" />
+
+            <TextView
+                android:id="@+id/tv_task_due"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Due: 12 Oct"
+                android:textColor="#757575"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Reminder schedule info -->
+        <TextView
+            android:id="@+id/tv_task_reminder_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⏰ Reminder: 10:00 AM"
+            android:textColor="#F57C00"
+            android:textSize="11sp"
+            android:layout_marginTop="2dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_delete_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="✕"
+        android:textColor="#9E9E9E"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true" />
+</LinearLayout>
