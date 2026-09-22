@@ -1,402 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#F9F9FB">
+    android:fillViewport="true"
+    android:background="#F5F5F5">
 
-    <!-- Top Toolbar Header -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:background="#1976D2"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Simple Counter"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp" />
 
         <TextView
-            android:id="@+id/tv_header_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Study Planner Pro"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btn_action_add"
             android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:text="+ ADD"
-            android:textColor="#1976D2"
+            android:layout_height="wrap_content"
+            android:text="A beautiful, lightweight counter app"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:layout_marginBottom="40dp" />
+
+        <!-- Counter Box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:background="#FFFFFF"
-            android:textSize="13sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <!-- Main View Switcher Container -->
-    <FrameLayout
-        android:id="@+id/view_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <!-- 1. DASHBOARD VIEW -->
-        <ScrollView
-            android:id="@+id/layout_dashboard"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible"
-            android:padding="16dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Overall Progress Card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/card_bg"
-                    android:padding="16dp"
-                    android:layout_marginBottom="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="OVERALL STUDY PROGRESS"
-                        android:textColor="#757575"
-                        android:textSize="11sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:id="@+id/tv_overall_percentage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0%"
-                            android:textColor="#1976D2"
-                            android:textSize="36sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tv_overall_fraction"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=" (0 of 0 tasks done)"
-                            android:textColor="#616161"
-                            android:textSize="14sp"
-                            android:layout_marginLeft="10dp" />
-                    </LinearLayout>
-
-                    <ProgressBar
-                        android:id="@+id/pb_overall_progress"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="12dp"
-                        android:progress="0"
-                        android:max="100" />
-                </LinearLayout>
-
-                <!-- Quick Statistics Row -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="16dp">
-
-                    <!-- Subjects Count Card -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:background="@drawable/card_bg"
-                        android:padding="16dp"
-                        android:layout_marginRight="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="SUBJECTS"
-                            android:textColor="#757575"
-                            android:textSize="11sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tv_stat_subjects"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="#212121"
-                            android:textSize="28sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <!-- Pending Tasks Card -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:background="@drawable/card_bg"
-                        android:padding="16dp"
-                        android:layout_marginLeft="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="PENDING TASKS"
-                            android:textColor="#757575"
-                            android:textSize="11sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tv_stat_pending"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="#E53935"
-                            android:textSize="28sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Quick Actions Guide -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/card_bg"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="STUDYING GUIDELINES"
-                        android:textColor="#757575"
-                        android:textSize="11sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="• Add your current academic subjects in the Subjects tab."
-                        android:textColor="#424242"
-                        android:textSize="13sp"
-                        android:layout_marginBottom="6dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="• Create pending homework, exams, or projects in Tasks tab."
-                        android:textColor="#424242"
-                        android:textSize="13sp"
-                        android:layout_marginBottom="6dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="• Configure precise alarms/reminders to receive local alerts."
-                        android:textColor="#424242"
-                        android:textSize="13sp"
-                        android:layout_marginBottom="6dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="• Complete tasks to improve overall tracking scores."
-                        android:textColor="#424242"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- 2. SUBJECTS VIEW -->
-        <LinearLayout
-            android:id="@+id/layout_subjects"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone"
-            android:padding="16dp">
+            android:elevation="4dp"
+            android:padding="32dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center">
 
             <TextView
+                android:id="@+id/tv_counter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="YOUR SUBJECTS"
-                android:textColor="#212121"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp" />
-
-            <TextView
-                android:id="@+id/tv_empty_subjects"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/no_subjects"
-                android:textColor="#9E9E9E"
-                android:gravity="center"
-                android:layout_marginTop="30dp"
-                android:textSize="14sp" />
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:id="@+id/container_subjects"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <!-- Dynamic child items populated via script -->
-                </LinearLayout>
-            </ScrollView>
-        </LinearLayout>
-
-        <!-- 3. TASKS VIEW -->
-        <LinearLayout
-            android:id="@+id/layout_tasks"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone"
-            android:padding="16dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="12dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="PLANNER TASKS"
-                    android:textColor="#212121"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <Spinner
-                    android:id="@+id/spinner_task_filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tv_empty_tasks"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/no_tasks"
-                android:textColor="#9E9E9E"
-                android:gravity="center"
-                android:layout_marginTop="30dp"
-                android:textSize="14sp" />
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:id="@+id/container_tasks"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <!-- Dynamic child items populated via script -->
-                </LinearLayout>
-            </ScrollView>
-        </LinearLayout>
-
-    </FrameLayout>
-
-    <!-- Bottom Navigation Bar Layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:orientation="horizontal"
-        android:elevation="8dp"
-        android:gravity="center_vertical"
-        android:strokeWidth="1dp"
-        android:strokeColor="#E0E0E0">
-
-        <!-- Dashboard Tab -->
-        <LinearLayout
-            android:id="@+id/tab_dashboard"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="@drawable/tab_selected_bg">
-
-            <TextView
-                android:id="@+id/tv_tab_dashboard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dashboard"
-                android:textColor="#1976D2"
-                android:textSize="12sp"
+                android:text="0"
+                android:textSize="80sp"
+                android:textColor="#3F51B5"
                 android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- Subjects Tab -->
-        <LinearLayout
-            android:id="@+id/tab_subjects"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
 
             <TextView
-                android:id="@+id/tv_tab_subjects"
+                android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Subjects"
-                android:textColor="#757575"
-                android:textSize="12sp" />
+                android:text="Click buttons below to count"
+                android:textSize="14sp"
+                android:textColor="#9E9E9E"
+                android:layout_marginTop="8dp" />
         </LinearLayout>
 
-        <!-- Tasks Tab -->
+        <!-- Controls -->
         <LinearLayout
-            android:id="@+id/tab_tasks"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btn_decrement"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="-"
+                android:textSize="28sp"
+                android:textColor="#FFFFFF"
+                android:background="#F44336"
+                android:layout_marginRight="8dp" />
+
+            <Button
+                android:id="@+id/btn_increment"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1.5"
+                android:text="+"
+                android:textSize="28sp"
+                android:textColor="#FFFFFF"
+                android:background="#4CAF50"
+                android:layout_marginLeft="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="RESET"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:background="#E0E0E0"
+                android:layout_marginRight="8dp" />
+
+            <Button
+                android:id="@+id/btn_step"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="STEP: 1"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:background="#3F51B5"
+                android:layout_marginLeft="8dp" />
+        </LinearLayout>
+
+        <!-- Extras card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
 
             <TextView
-                android:id="@+id/tv_tab_tasks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tasks"
-                android:textColor="#757575"
-                android:textSize="12sp" />
+                android:text="Counter Notes"
+                android:textStyle="bold"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/et_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Type custom notes for this session..."
+                android:textSize="14sp"
+                android:background="#F9F9F9"
+                android:padding="12dp"
+                android:maxLines="3"
+                android:gravity="top"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save Note &amp; State"
+                android:textSize="12sp"
+                android:background="#009688"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
+
+        <!-- Log / History -->
+        <TextView
+            android:id="@+id/tv_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="History: Start"
+            android:textColor="#757575"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp" />
 
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

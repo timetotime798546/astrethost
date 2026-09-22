@@ -2,159 +2,78 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure App Meta and Package Declaration",
-      "description": "Establish package metadata with the name 'Study Planner Pro' and package namespace 'com.studyplannerpro.app'.",
-      "files": [
-        "app-meta.json"
-      ],
+      "title": "Define App Metadata",
+      "description": "Configure the name and package of Simple Counter inside app-meta.json.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Set Up Project Build Scripts and Environment",
-      "description": "Create base build configuration targeting Android API Level 34 with Java 17 toolchain compatibility and Java 8 source code settings.",
-      "files": [
-        "build.gradle",
-        "app/build.gradle",
-        "settings.gradle"
-      ],
+      "title": "Configure Build Environment",
+      "description": "Establish build settings with Gradle 8.5, Android Gradle Plugin 8.3.2, and Target SDK 34.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Declare Application Manifest and Permissions",
-      "description": "Configure AndroidManifest.xml with system notification, post-notification, and exact alarm permissions, registering the main activity and reminder receiver.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
+      "title": "Create Android Manifest",
+      "description": "Create AndroidManifest.xml declaring package namespace, app icon references, and standard material themes.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Design App Theme and Brand Identity Colors",
-      "description": "Configure clean material style attributes, coloring primary fields, accents, and custom visual layers for optimal readability.",
-      "files": [
-        "app/src/main/res/values/styles.xml",
-        "app/src/main/res/values/strings.xml"
-      ],
+      "title": "Design Core Counter Layout",
+      "description": "Create the main activity UI structure using standard Android layouts like ScrollView, LinearLayout, TextView, and Buttons.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Styling Drawables and UI Background Shapes",
-      "description": "Formulate custom XML assets to style task cards, input dialog fields, rounded tabs, and progressive indicators.",
-      "files": [
-        "app/src/main/res/drawable/card_bg.xml",
-        "app/src/main/res/drawable/button_primary.xml",
-        "app/src/main/res/drawable/input_field_bg.xml"
-      ],
+      "title": "Establish MainActivity Package Structure",
+      "description": "Initialize the Java class structure for com.simplecounter.app.MainActivity.",
+      "files": ["app/src/main/java/com/simplecounter/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Create Bottom Navigation Tab Selection Styles",
-      "description": "Construct state selectors to control button UI switching, highlighting active tabs inside the planner interface.",
-      "files": [
-        "app/src/main/res/drawable/tab_selected_bg.xml"
-      ],
+      "title": "Initialize UI Widgets & Lifecycle",
+      "description": "Bind layout components like TextViews and Buttons dynamically inside MainActivity's onCreate method.",
+      "files": ["app/src/main/java/com/simplecounter/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Develop Interactive Activity Main Layout Hierarchy",
-      "description": "Produce complex single-activity structural container holding distinct tab blocks for Dashboard, Subject list, and Task view details.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
+      "title": "Implement State Restoration",
+      "description": "Utilize SharedPreferences to restore previous counter values, note states, and custom step settings on startup.",
+      "files": ["app/src/main/java/com/simplecounter/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Construct Custom Item Rendering XML Templates",
-      "description": "Develop reusable layout layouts to represent task rows and subject cards with interactive completion controls.",
-      "files": [
-        "app/src/main/res/layout/item_subject.xml",
-        "app/src/main/res/layout/item_task.xml"
-      ],
+      "title": "Develop Counter Logic",
+      "description": "Write event listeners for the decrement and increment buttons using strictly Java 8 compatible anonymous inner classes.",
+      "files": ["app/src/main/java/com/simplecounter/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Create Add Dialog Interface Forms",
-      "description": "Establish quick overlays prompting inputs for subjects name, color highlights, task titles, and scheduling parameters.",
-      "files": [
-        "app/src/main/res/layout/dialog_add_subject.xml",
-        "app/src/main/res/layout/dialog_add_task.xml"
-      ],
+      "title": "Implement Variable Step Increments",
+      "description": "Create logic to toggle and cycle through different jump levels (1, 5, 10, 50, 100) on counter buttons.",
+      "files": ["app/src/main/java/com/simplecounter/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement Notification Broadcast Reminder Receiver",
-      "description": "Program ReminderReceiver.java using system notifications manager to sound notification events upon target scheduled periods.",
-      "files": [
-        "app/src/main/java/com/studyplannerpro/app/ReminderReceiver.java"
-      ],
+      "title": "Set Up Persistent Autosave",
+      "description": "Save state data inside onPause to prevent losing counter info during configuration changes or background context switches.",
+      "files": ["app/src/main/java/com/simplecounter/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Implement Data Serialization and JSON Storage Manager",
-      "description": "Code persistent operations using SharedPreferences with parsing functions converting state datasets back and forth into readable models.",
-      "files": [
-        "app/src/main/java/com/studyplannerpro/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Write Tab Control Interface Toggling Mechanics",
-      "description": "Configure action clicks to dynamic visibility switch blocks between dashboard insights, tasks, and subjects tables.",
-      "files": [
-        "app/src/main/java/com/studyplannerpro/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Integrate Interactive Dialog Modal Trigger Interfaces",
-      "description": "Implement alerts to construct objects using user-input validation, updating lists on storage completions.",
-      "files": [
-        "app/src/main/java/com/studyplannerpro/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Develop Progress Analytics and Dashboard Trackers",
-      "description": "Build real-time arithmetic calculations reporting task execution statistics by category, populating current performance percentages dynamically.",
-      "files": [
-        "app/src/main/java/com/studyplannerpro/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 15,
-      "title": "Implement Task Completion Toggles and List Handlers",
-      "description": "Program callbacks update item status when checked, resetting overall progress and tracking dashboards instantly.",
-      "files": [
-        "app/src/main/java/com/studyplannerpro/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 16,
-      "title": "Integrate AlarmManager Reminder Registration Pipelines",
-      "description": "Incorporate local AlarmManager pending triggers scheduling alerts corresponding directly with customized tasks timings settings.",
-      "files": [
-        "app/src/main/java/com/studyplannerpro/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 17,
-      "title": "Building Study Planner Pro",
-      "description": "Build, compile, and package the complete planner app using default system parameters via gradle instructions.",
+      "title": "Building Simple Counter",
+      "description": "Execute final build verification tasks and package the debug application APK.",
       "files": [],
       "status": "pending"
     }
