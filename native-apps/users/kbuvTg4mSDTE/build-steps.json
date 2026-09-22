@@ -1,0 +1,110 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Properties and Metadata",
+      "description": "Establish package details, application name 'Luxe Light', and basic build environment parameters inside app-meta.json.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure System Gradle Build Settings",
+      "description": "Set up app/build.gradle with compile/target SDK version 34, min SDK 21, and establish system namespaces without third-party dependencies.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Declare Application Manifest & Hardware Features",
+      "description": "Set up AndroidManifest.xml with appropriate system namespace, camera permission declarations, and material dark configuration.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Establish Theme Palette Values",
+      "description": "Formulate custom application colors in colors.xml, establishing premium dark, golden accent, blue highlight, and neutral tones.",
+      "files": [
+        "app/src/main/res/values/colors.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create User Interface Copy Resources",
+      "description": "Draft standard label strings in strings.xml for the Luxe Light control dashboard, screen light settings, and party disco panel.",
+      "files": [
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Rounded Inactive Power Button Drawable",
+      "description": "Draft custom XML vector-shape drawable 'btn_round_off' to create the elegant dim state of the primary power button.",
+      "files": [
+        "app/src/main/res/drawable/btn_round_off.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Glowing Active Power Button Drawable",
+      "description": "Draft custom XML vector-shape drawable 'btn_round_on' representing the radiant active torch state.",
+      "files": [
+        "app/src/main/res/drawable/btn_round_on.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Construct Dark Panel Cards",
+      "description": "Establish a sleek curved layout surface using card_background.xml drawable configuration.",
+      "files": [
+        "app/src/main/res/drawable/card_background.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Build UI Control Layout Configuration",
+      "description": "Assemble activity_main.xml layout structure. Implement bottom tab navigation structure, torch interface, screen brightness options, and party system panel.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Code Flashlight & Screen Light Functionality",
+      "description": "Program MainActivity.java using the Camera2 API for flash operations. Implement multi-tab switching, adjustable strobe speeds, SOS sequencing, screen dimming, and synced disco loop.",
+      "files": [
+        "app/src/main/java/com/luxelight/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Verify Java 8 Source & Android Integration",
+      "description": "Inspect and sanitize source code to ensure strict anonymous inner class utilization and correct layout integrations.",
+      "files": [
+        "app/src/main/java/com/luxelight/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Luxe Light",
+      "description": "Execute local Gradle build framework using 'gradle assembleDebug' script to output the finished program file.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
