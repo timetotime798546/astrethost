@@ -287,14 +287,14 @@ public class MainActivity extends Activity {
 
                 TextView tvTitle = new TextView(this);
                 tvTitle.setText(title);
-                tvTitle.setTextSize(16sp);
+                tvTitle.setTextSize(16f);
                 tvTitle.setTypeface(null, Typeface.BOLD);
                 tvTitle.setTextColor(Color.parseColor("#212121"));
                 tvTitle.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
 
                 TextView tvTag = new TextView(this);
                 tvTag.setText(categoryName);
-                tvTag.setTextSize(10sp);
+                tvTag.setTextSize(10f);
                 tvTag.setPadding(8, 4, 8, 4);
                 tvTag.setTextColor(Color.WHITE);
                 tvTag.setBackgroundColor(Color.parseColor("#3F51B5"));
@@ -310,7 +310,7 @@ public class MainActivity extends Activity {
                     preview = preview.substring(0, 100) + "...";
                 }
                 tvBody.setText(preview);
-                tvBody.setTextSize(13sp);
+                tvBody.setTextSize(13f);
                 tvBody.setTextColor(Color.parseColor("#616161"));
                 tvBody.setPadding(0, 8, 0, 12);
 
@@ -321,7 +321,7 @@ public class MainActivity extends Activity {
 
                 Button btnEdit = new Button(this);
                 btnEdit.setText("Edit");
-                btnEdit.setTextSize(11sp);
+                btnEdit.setTextSize(11f);
                 btnEdit.setTextColor(Color.parseColor("#3F51B5"));
                 btnEdit.setBackgroundColor(Color.parseColor("#E8EAF6"));
                 btnEdit.setMinWidth(60);
@@ -339,7 +339,7 @@ public class MainActivity extends Activity {
 
                 Button btnDelete = new Button(this);
                 btnDelete.setText("Delete");
-                btnDelete.setTextSize(11sp);
+                btnDelete.setTextSize(11f);
                 btnDelete.setTextColor(Color.WHITE);
                 btnDelete.setBackgroundColor(Color.parseColor("#F44336"));
                 btnDelete.setMinWidth(60);
@@ -386,13 +386,13 @@ public class MainActivity extends Activity {
 
                 TextView tvName = new TextView(this);
                 tvName.setText(name);
-                tvName.setTextSize(14sp);
+                tvName.setTextSize(14f);
                 tvName.setTextColor(Color.BLACK);
                 tvName.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
 
                 Button btnDelete = new Button(this);
                 btnDelete.setText("Delete");
-                btnDelete.setTextSize(10sp);
+                btnDelete.setTextSize(10f);
                 btnDelete.setBackgroundColor(Color.parseColor("#F44336"));
                 btnDelete.setTextColor(Color.WHITE);
 
