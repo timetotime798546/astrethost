@@ -2,88 +2,48 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Setup & Directory Initialization",
-      "description": "Initialize the Android Gradle project with structural resources, matching targeted compile & target SDK 34 specifications.",
-      "files": ["app-meta.json"],
+      "title": "Analyze and Classify Build Issue",
+      "description": "Analyze the build-error.log and identify invalid layout attributes causing AAPT resource linking failure.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Settings",
-      "description": "Configure the app's build.gradle with compatible Android Gradle Plugin (AGP) 8.3.2, Gradle 8.5, and proper Java 1.8 compatibility parameters.",
-      "files": ["app/build.gradle"],
+      "title": "Fix Layout Attributes in activity_main.xml",
+      "description": "Correct invalid 'android:layout_centerY' attributes to the standard 'android:layout_centerVertical' in RelativeLayout.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Establish Android Manifest",
-      "description": "Create the AndroidManifest.xml referencing the application launcher, correct package namespace, default orientation, and correct application theme details.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Optimize Layout Margins & Padding",
+      "description": "Replace modern horizontal/vertical layout properties with universally compatible margin and padding parameters to ensure full backward compatibility down to SDK 21.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create Color Scheme and Value Resources",
-      "description": "Establish standard layout themes, color templates (slate colors, vibrant secondary accent indicators, soft whites), and dimensional paddings.",
-      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml"],
+      "title": "Refactor Gradle Build Configurations",
+      "description": "Remove unnecessary third-party dependencies to ensure strict compliance with native SDK specifications and clean up build configurations.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Design Button Background Drawables",
-      "description": "Implement modern rounded-rectangle shapes with modern dynamic state-selector overlays for clicks and active selections.",
-      "files": [
-        "app/src/main/res/drawable/btn_number.xml",
-        "app/src/main/res/drawable/btn_operator.xml",
-        "app/src/main/res/drawable/btn_action.xml",
-        "app/src/main/res/drawable/btn_clear.xml"
-      ],
+      "title": "Verify UI Theme Compatibility",
+      "description": "Verify the styles and standard material light theme references match standard system constraints.",
+      "files": ["app/src/main/res/values/styles.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Construct Scrollable History Item Layout",
-      "description": "Develop a dedicated XML view template for calculating/rendering list records in the calculation history tracker.",
-      "files": ["app/src/main/res/layout/item_history.xml"],
+      "title": "Confirm AndroidManifest Properties",
+      "description": "Validate launcher activity definition, orientation locks, dynamic icon setup, and workspace application namespace properties.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Design Main Calculator Layout UI",
-      "description": "Design a highly responsive, pixel-perfect calculator keyboard interface with high-contrast display regions, live dynamic preview, and toggleable calculation history panel.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Implement High-Performance Parser Engine",
-      "description": "Build a robust, custom mathematical parser supporting standard order of operations (MDAS) with error handling to avoid relying on external dependencies.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Code UI Binding & Click Listener Handlers",
-      "description": "Connect UI calculator keys to click triggers, wire haptic vibratory clicks for responsive modern hardware feedback, and manage input validation rules.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Implement Calculation History Storage Log",
-      "description": "Add dynamic history panel interaction allowing users to view previous entries, retrieve history items, and load expressions directly back to calculation screen.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Verification & Layout Optimization Check",
-      "description": "Run strict UI alignment checks on low-density screen targets, verify character overflows, and optimize output sizing dynamically.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building Modern Calculator",
       "description": "Assemble and build the final executable debug APK with Gradle task pipeline.",
       "files": [],
