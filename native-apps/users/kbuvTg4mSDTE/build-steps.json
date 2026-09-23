@@ -1,0 +1,128 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Establish Application Metadata",
+      "description": "Configure core definitions including application name 'Offline AI Mind' and consistent package layout 'com.offlineaimind.app'.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Environment",
+      "description": "Establish the project configuration in build.gradle using AGP 8.3.2, Gradle 8.5, and SDK 34 specifications, restricting external dependencies.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Declare Application Manifest",
+      "description": "Set up AndroidManifest.xml with standard material theme definitions, launcher configuration, and correct schema namespace configuration.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create User Chat Bubble Drawable",
+      "description": "Design an elegant custom shape drawable to serve as the user message bubble in the conversation engine.",
+      "files": [
+        "app/src/main/res/drawable/bg_bubble_user.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create AI Chat Bubble Drawable",
+      "description": "Design an elegant custom shape drawable to serve as the local cognitive core message bubble.",
+      "files": [
+        "app/src/main/res/drawable/bg_bubble_ai.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Primary Action Buttons Styling",
+      "description": "Craft responsive action buttons with specific color states to support consistent button feedback across the app views.",
+      "files": [
+        "app/src/main/res/drawable/btn_primary.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Edit Text Background Style",
+      "description": "Define stroke and solid fill styling for smooth, visible user input elements across all modules.",
+      "files": [
+        "app/src/main/res/drawable/et_background.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Construct Main Layout Interface",
+      "description": "Create activity_main.xml featuring custom top navigation, interactive core layout containers, text controllers, list hubs, and image displays.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement MainActivity Initialization",
+      "description": "Program java initialization steps, programmatic tab swapping mechanics, and user session controls in Java 8 compatible format.",
+      "files": [
+        "app/src/main/java/com/offlineaimind/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Develop Conversational NLP Core",
+      "description": "Code local lexicon matching logic, built-in responses, automated basic arithmetic calculators, and smart default fallbacks.",
+      "files": [
+        "app/src/main/java/com/offlineaimind/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Integrate Dynamic Synapse Brain Editor",
+      "description": "Implement SharedPreferences persistence to support local knowledge base teaching, adding user training definitions, and removing rules dynamically.",
+      "files": [
+        "app/src/main/java/com/offlineaimind/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Build Procedural Generative Art Generator",
+      "description": "Develop the math-hash seeded visual art canvas renderer that draws symmetric retro pixels dynamically based on keywords.",
+      "files": [
+        "app/src/main/java/com/offlineaimind/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Build Offline Sentiment Analysis Tool",
+      "description": "Implement the offline text analysis model to track emotional context using raw scoring algorithms.",
+      "files": [
+        "app/src/main/java/com/offlineaimind/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Offline AI Mind",
+      "description": "Compile the entire Android project offline executable to verify full performance with no third-party libraries.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
