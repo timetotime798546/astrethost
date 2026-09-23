@@ -1,0 +1,102 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Initialization",
+      "description": "Configure build script parameters, namespace definitions, target compile SDK versions, and base configuration templates.",
+      "files": [
+        "app/build.gradle",
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Manifest and System Properties",
+      "description": "Create high-performance AndroidManifest.xml definitions containing application launchers, custom standard Material theme integrations, and safe permission definitions.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Local Storage Framework",
+      "description": "Implement local database handler schemas via SQLiteOpenHelper to store student subjects, tasks, priorities, due dates, timer details, and reminders securely.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Formulate Main UI View Architecture",
+      "description": "Create custom layout structures containing interactive study timers, progress statistics, list containers, detail templates, and navigation bars.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Navigation View Controllers",
+      "description": "Program custom layout switches for the dynamic tab layout to switch seamlessly between Subjects, Tasks, Timer, and Progress views.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Integrate Subject Management Systems",
+      "description": "Add functional routines to register new fields of study, list current registered courses, and delete unwanted subject fields along with their dependencies.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Integrate Task Allocation Mechanics",
+      "description": "Design interactive inputs for assignment titles, subject spinners, date selection calendars, and priority level managers.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Program Dynamic Pomodoro Study Clock",
+      "description": "Engineer active countdown state machines configured to manage continuous concentration loops with custom alerts and complete resume/pause features.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Build Quick Study Reminders Manager",
+      "description": "Implement simple reminder list with clock settings to keep continuous revision tracks.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Establish Real-Time Progress Visualizers",
+      "description": "Program statistical formulas that evaluate current completeness scores per subject alongside generalized work-item calculations.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Student Study Planner",
+      "description": "Execute Gradle compilation process, verify package assembly, optimize dependencies, and prepare the final executable package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
