@@ -1,0 +1,101 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze User Error Report",
+      "description": "Inspect reported database or cursor crash logs in Student Study Planner.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Diagnose SQLite Connection Lifecycle",
+      "description": "Identify premature db.close() invocations within DatabaseHelper write, update, and delete methods which cause attempt to re-open closed database errors.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Refactor Database Write Queries",
+      "description": "Remove redundant manual database connection closing calls inside insertion helper methods to prevent locking active cursor datasets.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Refactor Database Update & Delete Operations",
+      "description": "Adjust task status updates and deletion methods to preserve the shared SQLite database connection throughout the Activity lifecycle.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Enhance Cursor Access Safety",
+      "description": "Replace getColumnIndexOrThrow with safer getColumnIndex lookups to protect against layout rendering interruptions.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Improve Task Selection Spinner Integrity",
+      "description": "Add index boundary verification inside filterSpinner to prevent any IndexOutOfBoundsException when resetting filters.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Validate Layout Element Binding",
+      "description": "Confirm layout XML views and container structures align cleanly with layout IDs inside MainActivity.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Streamline Countdown Timer and Ringtone Resources",
+      "description": "Verify concentration Pomodoro state variables are correctly initialized and released on activity destruction.",
+      "files": [
+        "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Android Manifest Definitions",
+      "description": "Ensure launch intent-filters, correct Android namespace configuration, and screen orientations are set properly.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Compile Clean-Up Tests",
+      "description": "Run diagnostic compilations of updated Java resource adapters, list containers, and progress visualizers.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Student Study Planner",
+      "description": "Trigger final Gradle compilation process to verify package assembly and build the crash-free executable.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
