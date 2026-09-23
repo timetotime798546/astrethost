@@ -1,0 +1,111 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Clean Project Environment Initialization",
+      "description": "Initialize build-level script parameters, namespace definitions, and targeted SDK parameters for Smart Notes.",
+      "files": [
+        "app/build.gradle",
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Manifest Declarations",
+      "description": "Define layout orientations, primary hardware permissions, and entry point actions inside the AndroidManifest file.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Establish SQLite Notes Database",
+      "description": "Implement local storage structure for Notes and Categories, writing search and update routines inside the DatabaseHelper class.",
+      "files": [
+        "app/src/main/java/com/smartnotes/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Unified Single-Activity UI Layout",
+      "description": "Formulate a structural UI layout split into List Mode, Note Editor Mode, and Category Management popups within standard Material themes.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Program Main Application Controller Hookup",
+      "description": "Initialize layout view references, click triggers, and core state management properties inside MainActivity.",
+      "files": [
+        "app/src/main/java/com/smartnotes/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Seed Default Categories System",
+      "description": "Populate localized category rows with 'Personal', 'Work', 'Ideas', and 'Uncategorized' tags during application database creation.",
+      "files": [
+        "app/src/main/java/com/smartnotes/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Dynamic Category Loading",
+      "description": "Write adaptive Spinner populate helpers that render user-created lists of categories into dropdown select layouts.",
+      "files": [
+        "app/src/main/java/com/smartnotes/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Dynamic Custom Notes Render engine",
+      "description": "Write standard-view creation loops that dynamically inflate note rows with Title, Category Tag, text excerpts, edit options, and delete options.",
+      "files": [
+        "app/src/main/java/com/smartnotes/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Integrate Real-Time Search Filtering",
+      "description": "Bind a custom TextWatcher listener onto the search bar to support instant text queries cross-filtering with Category selectors.",
+      "files": [
+        "app/src/main/java/com/smartnotes/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Integrate Create and Edit Forms Manager",
+      "description": "Formulate input field validation, category assignments, and database UPDATE vs INSERT routing switches when saving notes.",
+      "files": [
+        "app/src/main/java/com/smartnotes/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Configure Note Deletion Workflows",
+      "description": "Write secure database delete hooks connected to direct delete dialog triggers complete with quick list updates and visual notifications.",
+      "files": [
+        "app/src/main/java/com/smartnotes/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Smart Notes",
+      "description": "Execute Gradle compilation processes, compile custom Java files, verify local packages assets, and prepare debugging builds.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
