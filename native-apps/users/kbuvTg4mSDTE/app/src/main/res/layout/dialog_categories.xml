@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Manage Categories"
+        android:textColor="@color/primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="14dp" />
+
+    <!-- Add Category Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="14dp">
+
+        <EditText
+            android:id="@+id/etNewCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="New Category Name"
+            android:padding="10dp"
+            android:background="#F1F2F6"
+            android:textSize="14sp"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/btnAddCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:textColor="#FFFFFF"
+            android:background="@color/accent"
+            android:layout_marginLeft="8dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Existing Categories:"
+        android:textColor="#4A5568"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="6dp" />
+
+    <!-- List of Categories with scroll -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="#F8FAFC"
+        android:layout_marginBottom="14dp"
+        android:padding="6dp">
+
+        <LinearLayout
+            android:id="@+id/layoutCategoryList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- Filled dynamically -->
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnCloseCategories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Close"
+        android:textColor="#FFFFFF"
+        android:background="@color/primary" />
+</LinearLayout>

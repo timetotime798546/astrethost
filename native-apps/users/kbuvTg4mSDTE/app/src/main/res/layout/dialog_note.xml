@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Note"
+        android:textColor="@color/primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="14dp" />
+
+    <EditText
+        android:id="@+id/etNoteTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        android:padding="10dp"
+        android:background="#F1F2F6"
+        android:textSize="15sp"
+        android:layout_marginBottom="12dp"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/etNoteContent"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:hint="Write something..."
+        android:padding="10dp"
+        android:gravity="top"
+        android:background="#F1F2F6"
+        android:textSize="14sp"
+        android:layout_marginBottom="12dp"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Category:"
+        android:textColor="#4A5568"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <Spinner
+        android:id="@+id/spinnerCategory"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="14dp"
+        android:background="#F1F2F6" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Note Color:"
+        android:textColor="#4A5568"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="6dp" />
+
+    <!-- Color selector buttons container -->
+    <LinearLayout
+        android:id="@+id/layoutColors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+
+        <Button
+            android:id="@+id/color0"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@color/note_white"
+            android:layout_margin="3dp" />
+        <Button
+            android:id="@+id/color1"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@color/note_pink"
+            android:layout_margin="3dp" />
+        <Button
+            android:id="@+id/color2"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@color/note_orange"
+            android:layout_margin="3dp" />
+        <Button
+            android:id="@+id/color3"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@color/note_yellow"
+            android:layout_margin="3dp" />
+        <Button
+            android:id="@+id/color4"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@color/note_green"
+            android:layout_margin="3dp" />
+        <Button
+            android:id="@+id/color5"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@color/note_blue"
+            android:layout_margin="3dp" />
+        <Button
+            android:id="@+id/color6"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@color/note_purple"
+            android:layout_margin="3dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/btnCancelNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textColor="#7F8C8D"
+            android:background="@null"
+            android:layout_marginRight="8dp" />
+
+        <Button
+            android:id="@+id/btnSaveNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:textColor="#FFFFFF"
+            android:background="@color/accent" />
+    </LinearLayout>
+</LinearLayout>
