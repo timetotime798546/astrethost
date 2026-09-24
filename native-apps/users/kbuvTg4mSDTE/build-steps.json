@@ -2,92 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Initialization",
-      "description": "Initialize the Android project directory structure for Popeen Voice Assistant.",
-      "files": ["app-meta.json"],
+      "title": "Analyze Resource Conflict",
+      "description": "Inspect the build failure caused by duplicate @drawable/icon resources between icon.png and icon.xml.",
+      "files": ["build-steps.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build System",
-      "description": "Configure the app-level build.gradle for Java 8 compatibility, target SDK level 34, and remove conflicting external dependencies.",
-      "files": ["app/build.gradle"],
+      "title": "Verify App Metadata",
+      "description": "Verify that app-meta.json maintains the exact app name and package name for Popeen Voice Assistant.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Define App Manifest",
-      "description": "Set up AndroidManifest.xml with background service declarations, required permissions for audio and foreground microphone, and receiver for system boot completion.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Clean Duplicate Icon Resources",
+      "description": "Remove the conflicting icon.xml vector resource to ensure only the required PNG icon at app/src/main/res/drawable/icon.png is merged.",
+      "files": ["app/src/main/res/drawable/icon.png"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Define App Resources",
-      "description": "Create modern light material application color themes, text resources, and interface dimensions inside XML files.",
-      "files": ["app/src/main/res/values/strings.xml", "app/src/main/res/values/colors.xml"],
+      "title": "Validate Manifest Icon References",
+      "description": "Ensure AndroidManifest.xml correctly references @drawable/icon for android:icon and android:roundIcon.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Card & Button Backgrounds",
-      "description": "Create custom shape drawables for modern card backgrounds, active primary actions, and danger actions.",
-      "files": ["app/src/main/res/drawable/card_background.xml", "app/src/main/res/drawable/btn_primary.xml", "app/src/main/res/drawable/btn_danger.xml"],
+      "title": "Verify Build Configuration",
+      "description": "Ensure app/build.gradle and root build.gradle configurations are compatible with Gradle 8.5 and AGP 8.3.2.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Design App Layout",
-      "description": "Design a clean native XML layout for MainActivity containing start/stop buttons, spinner language selector, auto-start switches, and status displays.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Validate Voice Assistant Service & Components",
+      "description": "Check VoiceAssistantService, BootReceiver, and PreferencesHelper to ensure intact voice recognition logic.",
+      "files": ["app/src/main/java/com/popeen/app/VoiceAssistantService.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Preferences Helper",
-      "description": "Create PreferencesHelper to persist key application configurations like speech language preferences and system auto-boot permissions.",
-      "files": ["app/src/main/java/com/popeen/app/PreferencesHelper.java"],
+      "title": "Verify UI Layout and Resources",
+      "description": "Confirm activity_main.xml and XML resource files render properly without resource collisions.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement Boot Completed Receiver",
-      "description": "Implement BootReceiver to start the foreground voice service immediately when the Android system boots, if the feature is enabled.",
-      "files": ["app/src/main/java/com/popeen/app/BootReceiver.java"],
+      "title": "Validate Resource Merge Process",
+      "description": "Ensure all drawables, colors, strings, and layout resources merge cleanly without duplicates during packaging.",
+      "files": ["app/src/main/res/drawable/icon.png"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Foreground Voice Assistant Service",
-      "description": "Create VoiceAssistantService with a persistent notification containing states and controls to process background recordings safely.",
-      "files": ["app/src/main/java/com/popeen/app/VoiceAssistantService.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Incorporate Speech Recognition Engine",
-      "description": "Develop continuous speech loop flow that handles alternate wake phrases, single commands, error tolerance recovery, and strict state transitions.",
-      "files": ["app/src/main/java/com/popeen/app/VoiceAssistantService.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Integrate Multi-language Local Time Parser and TextToSpeech",
-      "description": "Incorporate a multi-language local time speaker using standard calendar APIs and clean utterance callbacks to start recognition after assistant finishes speaking.",
-      "files": ["app/src/main/java/com/popeen/app/VoiceAssistantService.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Implement MainActivity Controller",
-      "description": "Connect UI handlers in MainActivity with runtime permissions, setup language and auto-boot selectors, and bind Status receivers for live telemetry.",
+      "title": "Execute Pre-Build Checks",
+      "description": "Confirm Java 8 compatibility and syntax across all source files in com.popeen.app.",
       "files": ["app/src/main/java/com/popeen/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 13,
+      "step": 10,
       "title": "Building Popeen Voice Assistant",
-      "description": "Assemble, compile, and build the final executable debug APK for Popeen Voice Assistant.",
+      "description": "Assemble and build the debug APK for Popeen Voice Assistant using Gradle.",
       "files": [],
       "status": "pending"
     }

@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Popeen Voice Assistant
 App ID: app_6ab4e7ee12d09
-Build ID: 35979188257
-Time: 2026-09-24 05:07:13
+Build ID: 35988298039
+Time: 2026-09-24 06:38:30
 ==================================================
 
 ==================================================
@@ -31,8 +31,8 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 163710
-Extracted error characters: 27121
+Original log characters: 163730
+Extracted error characters: 27140
 File references detected: 202
 ==================================================
 
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2043) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2253) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/e0f64e22-7928-4676-9aa4-0e6eb2f2db73
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/f1aaec5e-8671-40b5-b190-fab2a94e641f
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -189,6 +189,7 @@ PROJECT FILES
 ./app-meta.json
 ./app/build.gradle
 ./app/proguard-rules.pro
+./build-error.log
 ./build-steps.json
 ./build.gradle
 ./local.properties
@@ -212,14 +213,15 @@ Daemon will be stopped at the end of the build
 > Task :app:generateDebugResValues
 > Task :app:mapDebugSourceSetPaths
 > Task :app:generateDebugResources
-ERROR: [drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.xml [drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.png: Resource and asset merger: Duplicate resources
+ERROR: [drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.png [drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.xml: Resource and asset merger: Duplicate resources
 
 > Task :app:mergeDebugResources FAILED
+
 FAILURE: Build failed with an exception.
 
-6 actionable tasks: 6 executed
 Execution failed for task ':app:mergeDebugResources'.
-> [drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.xml	[drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.png: Error: Duplicate resources
+> [drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.png	[drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.xml: Error: Duplicate resources
+6 actionable tasks: 6 executed
 
 * Try:
 > Run with --info or --debug option to get more log output.
@@ -260,7 +262,7 @@ at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultP
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
 at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-Caused by: com.android.build.gradle.tasks.ResourceException: [drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.xml	[drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.png: Error: Duplicate resources
+Caused by: com.android.build.gradle.tasks.ResourceException: [drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.png	[drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.xml: Error: Duplicate resources
 at com.android.build.gradle.tasks.MergeResources.doFullTaskAction(MergeResources.kt:291)
 at com.android.build.gradle.tasks.MergeResources.doTaskAction(MergeResources.kt:320)
 at com.android.build.gradle.internal.tasks.NewIncrementalTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:69)
@@ -348,7 +350,7 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47
 at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
-Caused by: [drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.xml	[drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.png: Error: Duplicate resources
+Caused by: [drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.png	[drawable/icon] /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/res/drawable/icon.xml: Error: Duplicate resources
 at com.android.ide.common.resources.DataSet.checkItems(DataSet.java:512)
 at com.android.ide.common.resources.DataSet.loadFromFiles(DataSet.java:273)
 at com.android.ide.common.resources.DataSet.loadFromFiles(DataSet.java:243)
@@ -356,7 +358,7 @@ at com.android.build.gradle.tasks.MergeResources$doFullTaskAction$1$1$1.invoke(M
 at com.android.build.gradle.tasks.MergeResources.doFullTaskAction(MergeResources.kt:235)
 ... 127 more
 
-BUILD FAILED in 19s
+BUILD FAILED in 24s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
