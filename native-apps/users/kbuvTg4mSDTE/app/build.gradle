@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.animmagic.app"
+    namespace "com.quicknotes.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.animmagic.app"
+        applicationId "com.quicknotes.app"
 
         minSdkVersion 21
 

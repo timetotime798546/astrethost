@@ -2,99 +2,106 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define Project Identity",
-      "description": "Configure application Metadata, selecting the package identifier com.animmagic.app and app label AnimMagic.",
+      "title": "Define Project Metadata",
+      "description": "Establish basic project structural details including package identifier and app label.",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Architecture",
-      "description": "Create the root build.gradle configurations targeting Android SDK 34, specifying AGP 8.3.2, Gradle 8.5, and enabling Java 8 compatibility configurations.",
+      "title": "Configure Build Settings",
+      "description": "Set up Gradle file specifying target compile options and build attributes.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Design Manifest Specifications",
-      "description": "Configure AndroidManifest.xml mapping, targeting custom Material themes, setting standard launcher intents, and declaring portrait locks for UI stability.",
+      "title": "Configure App Manifest",
+      "description": "Create AndroidManifest.xml outlining default themes, launchers, and components.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Establish Master UI Layout",
-      "description": "Define the activity_main.xml file with custom top-header tabs, control configurations, custom scroll groups, and dynamic container layouts.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Establish Color Resources",
+      "description": "Formulate custom hex color attributes mapping standard UI themes.",
+      "files": ["app/src/main/res/values/colors.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Vector Drawing Models",
-      "description": "Program standard data wrappers for drawing strokes capturing individual Path values, Paint colors, and drawing widths for precision vector calculations.",
-      "files": ["app/src/main/java/com/animmagic/app/MainActivity.java"],
+      "title": "Define String Resources",
+      "description": "Create key strings used inside components, buttons, fields, and descriptions.",
+      "files": ["app/src/main/res/values/strings.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Touch Canvas Controller",
-      "description": "Create the Flipbook drawing canvas module programmatically tracking Touch gestures, active coordinate drawings, and path updates.",
-      "files": ["app/src/main/java/com/animmagic/app/MainActivity.java"],
+      "title": "Draw circular Floating Action Button design template",
+      "description": "Create shape drawable resource defining circular backgrounds for standard buttons.",
+      "files": ["app/src/main/res/drawable/fab_background.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Establish Onion Skin Rendering Layers",
-      "description": "Program custom drawing loops rendering past animations transparently in the background, matching precise onion skin standard mechanics.",
-      "files": ["app/src/main/java/com/animmagic/app/MainActivity.java"],
+      "title": "Draw Note Card container background",
+      "description": "Create card-like background drawable style for cleaner note entry visuals.",
+      "files": ["app/src/main/res/drawable/card_background.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Build Frame Playback Engines",
-      "description": "Construct high performance playback cycles inside dynamic background threads using custom handlers and adjustable playback Framerates (FPS).",
-      "files": ["app/src/main/java/com/animmagic/app/MainActivity.java"],
+      "title": "Create note list item XML configuration",
+      "description": "Draft individual note item layout showcasing titles, categories, custom controls, and timestamps.",
+      "files": ["app/src/main/res/layout/note_item.xml"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Assemble Physics Canvas Engines",
-      "description": "Implement interactive particle engines generating beautiful falling sandboxes, complete with customizable gravity constants and collision points.",
-      "files": ["app/src/main/java/com/animmagic/app/MainActivity.java"],
+      "title": "Build input edit dialog layouts",
+      "description": "Generate dynamic overlay view configurations enabling note creation or editing properties.",
+      "files": ["app/src/main/res/layout/dialog_note.xml"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement Preset Tween Evaluators",
-      "description": "Implement classical Object animations, setting up translation indices, custom scales, rotation sets, and fade capabilities.",
-      "files": ["app/src/main/java/com/animmagic/app/MainActivity.java"],
+      "title": "Structure Main Screen interface",
+      "description": "Establish main activity views binding toolbars, list boxes, categories spinners, and inputs.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Integrate Core Action Listeners",
-      "description": "Establish action buttons binding frame updates, canvas deletions, sliders configuration modifications, and dynamic interface switches.",
-      "files": ["app/src/main/java/com/animmagic/app/MainActivity.java"],
+      "title": "Formulate Note Data Entity object class",
+      "description": "Design properties representing note identifier values, content body, timestamps, and classifications.",
+      "files": ["app/src/main/java/com/quicknotes/app/Note.java"],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Optimize Drawing Memory Allocation",
-      "description": "Validate and build memory-efficient vector deep clones to preserve drawing fidelity during intensive timeline playbacks without creating OOM loops.",
-      "files": ["app/src/main/java/com/animmagic/app/MainActivity.java"],
+      "title": "Establish SQLite Database operations class",
+      "description": "Build helper class targeting table operations like reads, writes, deletes, updates, and listings.",
+      "files": ["app/src/main/java/com/quicknotes/app/NotesDbHelper.java"],
       "status": "pending"
     },
     {
       "step": 13,
-      "title": "Validate Namespace Integrity",
-      "description": "Verify XML layouts, standard schemas, and manifest namespaces to ensure strict build environmental compliance.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Design Adapter implementation layer",
+      "description": "Assemble list binding algorithms feeding database note models directly to custom UI items.",
+      "files": ["app/src/main/java/com/quicknotes/app/NoteAdapter.java"],
       "status": "pending"
     },
     {
       "step": 14,
-      "title": "Building AnimMagic",
-      "description": "Trigger final compilation routines creating the standalone AnimMagic package.",
+      "title": "Construct primary Activity operations loop",
+      "description": "Implement Main class orchestrating lists, searches, custom dialog creations, updates, and deletes.",
+      "files": ["app/src/main/java/com/quicknotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building QuickNotes",
+      "description": "Assemble and build the application module into a debug APK environment.",
       "files": [],
       "status": "pending"
     }
