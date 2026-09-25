@@ -1,0 +1,110 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Voice Service Lifecycle Issues",
+      "description": "Inspect the root cause of the rapid mic on/off loops and clicking sound effects in the VoiceAssistantService configuration.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Introduce Reusable Speech Recognizer Pattern",
+      "description": "Adjust SpeechRecognizer initialization behavior to strictly reuse a single long-lived instance throughout the service runtime.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Eliminate Runtime Recreate Operations",
+      "description": "Refactor error recovery handlers so they avoid calling destroy() and recreate() during recognition failures, eradicating the repeated beep sounds.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Incorporate Strict Recognition State Tracking",
+      "description": "Introduce an isListening state field and use it to block duplicate or overlapping SpeechRecognizer.startListening() requests.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Configure Callback Filtering During Speaking States",
+      "description": "Establish absolute state-guard boundaries inside VoiceAssistantService's RecognitionListener to discard incoming callbacks while TTS speech is active.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Asynchronous Error Bypass Guard",
+      "description": "Design an ignoreNextError flag to correctly trap and skip transient ERROR_CLIENT errors generated from active thread cancellations.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Refine Listening Delays and Schedules",
+      "description": "Adjust scheduleListening to execute with safe debounced pauses (e.g. 1200ms-2000ms) specifically after processing errors.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Maintain Session Countdown Expiration State",
+      "description": "Preserve automatic fallback controls to gracefully return the service to WAKE_WORD_LISTENING mode upon active 10-minute session timeout.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Offline Utility Integrations",
+      "description": "Confirm flashlight, alarm, timer, device info, volume control, and calculator operations remain fully compatible with updated state handlers.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Validate Java 8 Language Constraints",
+      "description": "Confirm all event declarations utilize traditional anonymous inner classes without lambdas to guarantee compiler compatibility.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Verify Background Service Permissions",
+      "description": "Crosscheck FOREGROUND_SERVICE_MICROPHONE manifest specifications and confirm foreground channels deploy accurately.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Popeen Voice Assistant",
+      "description": "Verify application stability and finalize resource compilation inside target SDK 34 specifications.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
