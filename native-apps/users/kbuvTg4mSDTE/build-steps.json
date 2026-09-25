@@ -1,0 +1,170 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Android Project Structure",
+      "description": "Set up the basic directory structure and configuration for a new Android application.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Application Metadata",
+      "description": "Specify the application name and package identifier in the app-meta.json file.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Build Scripts",
+      "description": "Set up the project-level and app-level build.gradle files with correct SDK versions and dependencies.",
+      "files": [
+        "build.gradle",
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define Data Models for Subjects and Tasks",
+      "description": "Create Java classes (Subject.java, Task.java) to represent study subjects and individual tasks with their properties.",
+      "files": [
+        "app/src/main/java/com/studentplanner/app/models/Subject.java",
+        "app/src/main/java/com/studentplanner/app/models/Task.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement SQLite Database Helper",
+      "description": "Develop a DatabaseHelper class to manage SQLite database creation, upgrades, and CRUD operations for subjects and tasks.",
+      "files": [
+        "app/src/main/java/com/studentplanner/app/data/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Main Activity Layout (Subject List)",
+      "description": "Create the XML layout for MainActivity, which will display a list of study subjects and an 'Add Subject' button.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop Subject List Item Layout and Adapter",
+      "description": "Create a layout for individual subject items and an ArrayAdapter to bind Subject objects to the ListView.",
+      "files": [
+        "app/src/main/res/layout/item_subject.xml",
+        "app/src/main/java/com/studentplanner/app/adapters/SubjectAdapter.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Main Activity Logic",
+      "description": "Write the Java code for MainActivity to display subjects, handle adding new subjects, and navigate to task lists.",
+      "files": [
+        "app/src/main/java/com/studentplanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Add/Edit Subject Activity Layout",
+      "description": "Create the XML layout for an activity to add new subjects or edit existing ones.",
+      "files": [
+        "app/src/main/res/layout/activity_add_subject.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Add/Edit Subject Activity Logic",
+      "description": "Develop the Java code for AddSubjectActivity to handle user input, save subjects to the database, and update the UI.",
+      "files": [
+        "app/src/main/java/com/studentplanner/app/activities/AddSubjectActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Task List Activity Layout",
+      "description": "Create the XML layout for TaskListActivity, showing tasks for a selected subject and an 'Add Task' button.",
+      "files": [
+        "app/src/main/res/layout/activity_task_list.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Develop Task List Item Layout and Adapter",
+      "description": "Create a layout for individual task items and an ArrayAdapter to bind Task objects to the ListView, including progress tracking UI.",
+      "files": [
+        "app/src/main/res/layout/item_task.xml",
+        "app/src/main/java/com/studentplanner/app/adapters/TaskAdapter.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Task List Activity Logic",
+      "description": "Write the Java code for TaskListActivity to display tasks, mark tasks as complete, and navigate to add/edit tasks.",
+      "files": [
+        "app/src/main/java/com/studentplanner/app/activities/TaskListActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Design Add/Edit Task Activity Layout",
+      "description": "Create the XML layout for an activity to add new tasks or edit existing ones, including fields for due date and reminders.",
+      "files": [
+        "app/src/main/res/layout/activity_add_task.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Implement Add/Edit Task Activity Logic",
+      "description": "Develop the Java code for AddTaskActivity to handle user input, save tasks with due dates, and schedule reminders.",
+      "files": [
+        "app/src/main/java/com/studentplanner/app/activities/AddTaskActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Implement Reminder Notification System",
+      "description": "Create a BroadcastReceiver and helper methods to schedule and deliver notifications for upcoming tasks.",
+      "files": [
+        "app/src/main/java/com/studentplanner/app/notifications/ReminderReceiver.java",
+        "app/src/main/java/com/studentplanner/app/notifications/NotificationHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Update Android Manifest and Resources",
+      "description": "Add all necessary activities, permissions (notifications, boot completed), and define app strings and colors.",
+      "files": [
+        "app/src/main/AndroidManifest.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 18,
+      "title": "Building Student Study Planner",
+      "description": "Compile the application resources and Java code into an installable APK package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

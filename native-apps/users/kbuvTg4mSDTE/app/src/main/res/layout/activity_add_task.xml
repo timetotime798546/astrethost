@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/background_material_light">
+
+    <TextView
+        android:id="@+id/add_task_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_task"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_dark_material_light"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/task_title_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/task_title_hint"
+        android:inputType="textCapSentences"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/task_description_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/task_description_hint"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:gravity="top|left"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/task_due_date_label"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_primary_light"
+            android:layout_marginRight="8dp" />
+        <Button
+            android:id="@+id/due_date_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="24dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/task_due_time_label"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_primary_light"
+            android:layout_marginRight="8dp" />
+        <Button
+            android:id="@+id/due_time_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Time"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/save_task_button"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_task" />
+
+</LinearLayout>
