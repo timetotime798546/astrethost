@@ -1,0 +1,84 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project Structure",
+      "description": "Set up the basic directory structure for an Android project.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define App Metadata",
+      "description": "Configure the app name and package name in app-meta.json.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Build Settings",
+      "description": "Set up Gradle build script with SDK versions and dependencies.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Declare App Components in Manifest",
+      "description": "Register the main activity in AndroidManifest.xml, setting permissions if any and app icon/theme.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Main Layout",
+      "description": "Create the XML layout file for the MainActivity.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement MainActivity Logic",
+      "description": "Write the Java code for the main activity to handle UI and basic functionality.",
+      "files": [
+        "app/src/main/java/com/singlejavaapp/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Sync Gradle Project",
+      "description": "Open the project in Android Studio and let Gradle sync to download dependencies and set up the build environment.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build Debug APK",
+      "description": "Compile and assemble the debug version of the application package.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Install on Device/Emulator",
+      "description": "Install the generated APK onto an Android device or emulator for testing.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Single Java App",
+      "description": "The final step of building the Android application.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
