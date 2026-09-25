@@ -1,0 +1,110 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze SpeechRecognizer Lifecycle Requirements",
+      "description": "Inspect voice assistant speech listening behavior during the 10-minute active session to address beep sounds and restart timing.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Optimize SpeechRecognizer Instance Reuse Logic",
+      "description": "Prevent duplicate SpeechRecognizer initialization by reusing a single shared instance throughout the service lifecycle.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Microphone Muted State Handlers",
+      "description": "Add a dedicated stopSpeechListening method to cancel speech identification safely without calling destroy() unnecessarily.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Add Session Expiry Validation Controls",
+      "description": "Ensure the active 10-minute countdown session expiration properly transitions the engine state back to WAKE_WORD_LISTENING.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Introduce Delayed Restart Mechanisms",
+      "description": "Establish scheduleListening delays to execute restarts sequentially only after the active recognition lifecycle completes.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Resolve Repeated System Beep Triggers",
+      "description": "Utilize debounced retry parameters to prevent rapid mic on/off loops and noisy rapid system beep alerts.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Synchronize TTS Speaking callbacks with Mic Active State",
+      "description": "Configure TextToSpeech callbacks to stop speech listening during utterance playback and resume listening strictly on completion.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Preserve Voice Command Features and Settings",
+      "description": "Ensure all offline utilities like flashlight toggle, battery readout, volume tuning, settings, and alarms remain fully preserved.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Android Manifest Integration Configurations",
+      "description": "Confirm foreground service permissions and speech intent configuration query selectors comply with target platform settings.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Perform Resource Verification against Layout XML",
+      "description": "Validate localized string configurations and confirm interface elements render diagnostic states accurately.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Test Voice Service Event Broadcast Mechanisms",
+      "description": "Verify broadcast updates dynamically update the MainActivity log monitors and active countdown values.",
+      "files": [
+        "app/src/main/java/com/popeen/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Popeen Voice Assistant",
+      "description": "Verify application stability and finalize resource compilation inside target SDK 34 specifications.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
