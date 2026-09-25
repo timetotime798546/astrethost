@@ -1,0 +1,110 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Language Detection Requirements",
+      "description": "Examine user's requests to dynamically detect spoken Hindi, English, and Hinglish/Roman Hindi commands in Popeen Voice Assistant.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Formulate Hinglish & Hindi Keyword Dictionary",
+      "description": "Establish a set of core Roman Hindi/Hinglish vocabulary tokens to assist the classifier in identifying non-English speech patterns.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement isHindiLanguage Classifier",
+      "description": "Create a specialized language analyzer verifying both Devanagari Unicode bounds and Roman Hindi token occurrences.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Refactor User Command Router",
+      "description": "Intercept command intents inside processUserCommand to evaluate the input language dynamically prior to selecting responses.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Adapt Time Response for Hindi and English",
+      "description": "Enable speakTimeResponse to accept the command's spoken language classification, mapping appropriate localized expressions.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Adapt Unsupported Response for Localization",
+      "description": "Optimize speakUnsupportedResponse with contextual translation blocks for synchronized text rendering and speech playback.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Enhance speakDirectly with Locale Overloads",
+      "description": "Implement an overloaded speakDirectly method accepting dynamic Locale instances for granular speech engine control.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Integrate TTS Language Availability Verification",
+      "description": "Call textToSpeech.isLanguageAvailable(locale) before every speak operation to confirm engine support.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Safe Graceful Fallbacks",
+      "description": "Create exception-safe structures mapping back to English (India) if specialized Hindi engines are unavailable or fail.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Preserve Session Lifecycle and Settings Compatibility",
+      "description": "Verify that wake word detection, 10-minute active sessions, error restarts, and main preference fallbacks are maintained.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Verify Java 8 Language Specifications",
+      "description": "Check that all code modifications adhere to standard Java 8 guidelines, retaining backward-compatible structures.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Popeen Voice Assistant",
+      "description": "Launch target Gradle validation sequence to verify functional compilation and deployment configurations.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
