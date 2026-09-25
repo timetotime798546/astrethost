@@ -1,0 +1,110 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Voice Assistant Service Upgrade Requirements",
+      "description": "Examine the specifications to expand Popeen Voice Assistant with comprehensive offline utilities, local memory, follow-up state, and rich command integration.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Integrate Battery and Charger Status Monitoring",
+      "description": "Implement battery level and charging intent receivers to answer battery-specific assistant queries in real time.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Integrate Android Flashlight Controls",
+      "description": "Utilize CameraManager API to enable torch on/off operations securely with full runtime handling.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Integrate Native Sound AudioManager Volume Updates",
+      "description": "Incorporate audio manager commands to dynamically raise, lower, mute, or specify sound percentages.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Alarm and Timer Intent Parsers",
+      "description": "Add natural hour, minute, and second matching filters to start standard system alarms and countdown timers.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Local Calculator Command Parser",
+      "description": "Build an isolated mathematical calculation parser supporting addition, subtraction, division, multiplication, and percentage values.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Add Application Launcher and Settings Shortcuts",
+      "description": "Resolve target packages dynamically for Chrome, WhatsApp, settings, YouTube, and system settings screens.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Incorporate Persistent Contextual Memory",
+      "description": "Configure SharedPreferences variables to support custom username recording, recalling, and removal actions.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Configure Dynamic Command Routing & Follow-up Context",
+      "description": "Route spoken strings against matching rules and preserve previous queries to support relative conversation follow-ups.",
+      "files": [
+        "app/src/main/java/com/popeen/app/VoiceAssistantService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Refactor Layout into a Modern Personal Assistant Interface",
+      "description": "Redesign activity_main.xml to present structured feature guides, mic activity, logs, and a dynamic session timer.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Update MainActivity logic for Visual States & Session Countdown",
+      "description": "Provide automatic visual countdown displays, last command monitors, and touch to activate features.",
+      "files": [
+        "app/src/main/java/com/popeen/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Popeen Voice Assistant",
+      "description": "Execute Gradle verification parameters to validate Java 8 compatibility and ensure build targets build properly.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
