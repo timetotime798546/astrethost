@@ -1,1 +1,265 @@
-\npackage com.studentplanner.app.data;\n\nimport android.content.ContentValues;\nimport android.content.Context;\nimport android.database.Cursor;\nimport android.database.sqlite.SQLiteDatabase;\nimport android.database.sqlite.SQLiteOpenHelper;\n\nimport com.studentplanner.app.models.Subject;\nimport com.studentplanner.app.models.Task;\n\nimport java.util.ArrayList;\nimport java.util.List;\n\npublic class DatabaseHelper extends SQLiteOpenHelper {\n\n    private static final int DATABASE_VERSION = 1;\n    private static final String DATABASE_NAME = \"study_planner_db\";\n\n    // Subjects table\n    private static final String TABLE_SUBJECTS = \"subjects\";\n    private static final String KEY_SUBJECT_ID = \"id\";\n    private static final String KEY_SUBJECT_NAME = \"name\";\n\n    // Tasks table\n    private static final String TABLE_TASKS = \"tasks\";\n    private static final String KEY_TASK_ID = \"id\";\n    private static final String KEY_TASK_SUBJECT_ID = \"subject_id\";\n    private static final String KEY_TASK_TITLE = \"title\";\n    private static final String KEY_TASK_DESCRIPTION = \"description\";\n    private static final String KEY_TASK_DUE_DATE = \"due_date\"; // Stored as Unix timestamp (milliseconds)\n    private static final String KEY_TASK_IS_COMPLETED = \"is_completed\"; // 0 for false, 1 for true\n\n    public DatabaseHelper(Context context) {\n        super(context, DATABASE_NAME, null, DATABASE_VERSION);\n    }\n\n    @Override\n    public void onCreate(SQLiteDatabase db) {\n        String CREATE_SUBJECTS_TABLE = \"CREATE TABLE \" + TABLE_SUBJECTS + \"(\"\n                + KEY_SUBJECT_ID + \" INTEGER PRIMARY KEY AUTOINCREMENT,\"\n                + KEY_SUBJECT_NAME + \" TEXT NOT NULL UNIQUE\" + \")\";\n        db.execSQL(CREATE_SUBJECTS_TABLE);\n\n        String CREATE_TASKS_TABLE = \"CREATE TABLE \" + TABLE_TASKS + \"(\"\n                + KEY_TASK_ID + \" INTEGER PRIMARY KEY AUTOINCREMENT,\"\n                + KEY_TASK_SUBJECT_ID + \" INTEGER NOT NULL,\"\n                + KEY_TASK_TITLE + \" TEXT NOT NULL,\"\n                + KEY_TASK_DESCRIPTION + \" TEXT,\"\n                + KEY_TASK_DUE_DATE + \" INTEGER,\"\n                + KEY_TASK_IS_COMPLETED + \" INTEGER DEFAULT 0,\"\n                + \"FOREIGN KEY(\" + KEY_TASK_SUBJECT_ID + \") REFERENCES \" + TABLE_SUBJECTS + \"(\" + KEY_SUBJECT_ID + \") ON DELETE CASCADE\" + \")\";\n        db.execSQL(CREATE_TASKS_TABLE);\n    }\n\n    @Override\n    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {\n        db.execSQL(\"DROP TABLE IF EXISTS \" + TABLE_TASKS);\n        db.execSQL(\"DROP TABLE IF EXISTS \" + TABLE_SUBJECTS);\n        onCreate(db);\n    }\n\n    @Override\n    public void onOpen(SQLiteDatabase db) {\n        super.onOpen(db);\n        if (!db.isReadOnly()) {\n            // Enable foreign key constraints\n            db.execSQL(\"PRAGMA foreign_keys = ON;\");\n        }\n    }\n\n    // --- Subject operations ---\n\n    public long addSubject(Subject subject) {\n        SQLiteDatabase db = this.getWritableDatabase();\n        ContentValues values = new ContentValues();\n        values.put(KEY_SUBJECT_NAME, subject.getName());\n        long id = db.insert(TABLE_SUBJECTS, null, values);\n        db.close();\n        return id;\n    }\n\n    public Subject getSubject(int id) {\n        SQLiteDatabase db = this.getReadableDatabase();\n        Cursor cursor = db.query(TABLE_SUBJECTS, new String[]{KEY_SUBJECT_ID,\n                        KEY_SUBJECT_NAME}, KEY_SUBJECT_ID + \"=?\",\n                new String[]{String.valueOf(id)}, null, null, null, null);\n        if (cursor != null)\n            cursor.moveToFirst();\n\n        Subject subject = new Subject(Integer.parseInt(cursor.getString(0)),\n                cursor.getString(1));\n        cursor.close();\n        db.close();\n        return subject;\n    }\n\n    public ArrayList<Subject> getAllSubjects() {\n        ArrayList<Subject> subjectList = new ArrayList<Subject>();\n        String selectQuery = \"SELECT * FROM \" + TABLE_SUBJECTS + \" ORDER BY \" + KEY_SUBJECT_NAME + \" ASC\";\n\n        SQLiteDatabase db = this.getReadableDatabase();\n        Cursor cursor = db.rawQuery(selectQuery, null);\n\n        if (cursor.moveToFirst()) {\n            do {\n                Subject subject = new Subject();\n                subject.setId(Integer.parseInt(cursor.getString(0)));\n                subject.setName(cursor.getString(1));\n                subjectList.add(subject);\n            } while (cursor.moveToNext());\n        }\n        cursor.close();\n        db.close();\n        return subjectList;\n    }\n\n    public int updateSubject(Subject subject) {\n        SQLiteDatabase db = this.getWritableDatabase();\n        ContentValues values = new ContentValues();\n        values.put(KEY_SUBJECT_NAME, subject.getName());\n        int rowsAffected = db.update(TABLE_SUBJECTS, values, KEY_SUBJECT_ID + \" = ?\",\n                new String[]{String.valueOf(subject.getId())});\n        db.close();\n        return rowsAffected;\n    }\n\n    public void deleteSubject(Subject subject) {\n        SQLiteDatabase db = this.getWritableDatabase();\n        db.delete(TABLE_SUBJECTS, KEY_SUBJECT_ID + \" = ?\",\n                new String[]{String.valueOf(subject.getId())});\n        db.close();\n    }\n\n    public int getSubjectCount() {\n        String countQuery = \"SELECT * FROM \" + TABLE_SUBJECTS;\n        SQLiteDatabase db = this.getReadableDatabase();\n        Cursor cursor = db.rawQuery(countQuery, null);\n        int count = cursor.getCount();\n        cursor.close();\n        db.close();\n        return count;\n    }\n\n    public int getTaskCountForSubject(int subjectId) {\n        String countQuery = \"SELECT COUNT(*) FROM \" + TABLE_TASKS + \" WHERE \" + KEY_TASK_SUBJECT_ID + \" = \" + subjectId;\n        SQLiteDatabase db = this.getReadableDatabase();\n        Cursor cursor = db.rawQuery(countQuery, null);\n        int count = 0;\n        if (cursor.moveToFirst()) {\n            count = cursor.getInt(0);\n        }\n        cursor.close();\n        db.close();\n        return count;\n    }\n\n    // --- Task operations ---\n\n    public long addTask(Task task) {\n        SQLiteDatabase db = this.getWritableDatabase();\n        ContentValues values = new ContentValues();\n        values.put(KEY_TASK_SUBJECT_ID, task.getSubjectId());\n        values.put(KEY_TASK_TITLE, task.getTitle());\n        values.put(KEY_TASK_DESCRIPTION, task.getDescription());\n        values.put(KEY_TASK_DUE_DATE, task.getDueDateMillis());\n        values.put(KEY_TASK_IS_COMPLETED, task.isCompleted() ? 1 : 0);\n        long id = db.insert(TABLE_TASKS, null, values);\n        db.close();\n        return id;\n    }\n\n    public Task getTask(int id) {\n        SQLiteDatabase db = this.getReadableDatabase();\n        Cursor cursor = db.query(TABLE_TASKS, new String[]{KEY_TASK_ID,\n                        KEY_TASK_SUBJECT_ID, KEY_TASK_TITLE, KEY_TASK_DESCRIPTION,\n                        KEY_TASK_DUE_DATE, KEY_TASK_IS_COMPLETED}, KEY_TASK_ID + \"=?\",\n                new String[]{String.valueOf(id)}, null, null, null, null);\n        if (cursor != null)\n            cursor.moveToFirst();\n\n        Task task = new Task(\n                Integer.parseInt(cursor.getString(0)),\n                Integer.parseInt(cursor.getString(1)),\n                cursor.getString(2),\n                cursor.getString(3),\n                Long.parseLong(cursor.getString(4)),\n                Integer.parseInt(cursor.getString(5))\n        );\n        cursor.close();\n        db.close();\n        return task;\n    }\n\n    public ArrayList<Task> getTasksBySubject(int subjectId) {\n        ArrayList<Task> taskList = new ArrayList<Task>();\n        String selectQuery = \"SELECT * FROM \" + TABLE_TASKS + \" WHERE \" + KEY_TASK_SUBJECT_ID + \" = \" + subjectId +\n                             \" ORDER BY \" + KEY_TASK_IS_COMPLETED + \" ASC, \" + KEY_TASK_DUE_DATE + \" ASC\";\n\n        SQLiteDatabase db = this.getReadableDatabase();\n        Cursor cursor = db.rawQuery(selectQuery, null);\n\n        if (cursor.moveToFirst()) {\n            do {\n                Task task = new Task();\n                task.setId(Integer.parseInt(cursor.getString(0)));\n                task.setSubjectId(Integer.parseInt(cursor.getString(1)));\n                task.setTitle(cursor.getString(2));\n                task.setDescription(cursor.getString(3));\n                task.setDueDateMillis(Long.parseLong(cursor.getString(4)));\n                task.setCompleted(Integer.parseInt(cursor.getString(5)) == 1);\n                taskList.add(task);\n            } while (cursor.moveToNext());\n        }\n        cursor.close();\n        db.close();\n        return taskList;\n    }\n\n    public ArrayList<Task> getAllIncompleteTasks() {\n        ArrayList<Task> taskList = new ArrayList<Task>();\n        String selectQuery = \"SELECT * FROM \" + TABLE_TASKS + \" WHERE \" + KEY_TASK_IS_COMPLETED + \" = 0\" +\n                             \" ORDER BY \" + KEY_TASK_DUE_DATE + \" ASC\";\n\n        SQLiteDatabase db = this.getReadableDatabase();\n        Cursor cursor = db.rawQuery(selectQuery, null);\n\n        if (cursor.moveToFirst()) {\n            do {\n                Task task = new Task();\n                task.setId(Integer.parseInt(cursor.getString(0)));\n                task.setSubjectId(Integer.parseInt(cursor.getString(1)));\n                task.setTitle(cursor.getString(2));\n                task.setDescription(cursor.getString(3));\n                task.setDueDateMillis(Long.parseLong(cursor.getString(4)));\n                task.setCompleted(Integer.parseInt(cursor.getString(5)) == 1);\n                taskList.add(task);\n            } while (cursor.moveToNext());\n        }\n        cursor.close();\n        db.close();\n        return taskList;\n    }\n\n    public int updateTask(Task task) {\n        SQLiteDatabase db = this.getWritableDatabase();\n        ContentValues values = new ContentValues();\n        values.put(KEY_TASK_SUBJECT_ID, task.getSubjectId());\n        values.put(KEY_TASK_TITLE, task.getTitle());\n        values.put(KEY_TASK_DESCRIPTION, task.getDescription());\n        values.put(KEY_TASK_DUE_DATE, task.getDueDateMillis());\n        values.put(KEY_TASK_IS_COMPLETED, task.isCompleted() ? 1 : 0);\n        int rowsAffected = db.update(TABLE_TASKS, values, KEY_TASK_ID + \" = ?\",\n                new String[]{String.valueOf(task.getId())});\n        db.close();\n        return rowsAffected;\n    }\n\n    public void deleteTask(Task task) {\n        SQLiteDatabase db = this.getWritableDatabase();\n        db.delete(TABLE_TASKS, KEY_TASK_ID + \" = ?\",\n                new String[]{String.valueOf(task.getId())});\n        db.close();\n    }\n}\n\n
+package com.studentplanner.app.data;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import com.studentplanner.app.models.Subject;
+import com.studentplanner.app.models.Task;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DatabaseHelper extends SQLiteOpenHelper {
+
+    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "study_planner_db";
+
+    // Subjects table
+    private static final String TABLE_SUBJECTS = "subjects";
+    private static final String KEY_SUBJECT_ID = "id";
+    private static final String KEY_SUBJECT_NAME = "name";
+
+    // Tasks table
+    private static final String TABLE_TASKS = "tasks";
+    private static final String KEY_TASK_ID = "id";
+    private static final String KEY_TASK_SUBJECT_ID = "subject_id";
+    private static final String KEY_TASK_TITLE = "title";
+    private static final String KEY_TASK_DESCRIPTION = "description";
+    private static final String KEY_TASK_DUE_DATE = "due_date"; // Stored as Unix timestamp (milliseconds)
+    private static final String KEY_TASK_IS_COMPLETED = "is_completed"; // 0 for false, 1 for true
+
+    public DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String CREATE_SUBJECTS_TABLE = "CREATE TABLE " + TABLE_SUBJECTS + "("
+                + KEY_SUBJECT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + KEY_SUBJECT_NAME + " TEXT NOT NULL UNIQUE" + ")";
+        db.execSQL(CREATE_SUBJECTS_TABLE);
+
+        String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_TASKS + "("
+                + KEY_TASK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + KEY_TASK_SUBJECT_ID + " INTEGER NOT NULL,"
+                + KEY_TASK_TITLE + " TEXT NOT NULL,"
+                + KEY_TASK_DESCRIPTION + " TEXT,"
+                + KEY_TASK_DUE_DATE + " INTEGER,"
+                + KEY_TASK_IS_COMPLETED + " INTEGER DEFAULT 0,"
+                + "FOREIGN KEY(" + KEY_TASK_SUBJECT_ID + ") REFERENCES " + TABLE_SUBJECTS + "(" + KEY_SUBJECT_ID + ") ON DELETE CASCADE" + ")";
+        db.execSQL(CREATE_TASKS_TABLE);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TASKS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SUBJECTS);
+        onCreate(db);
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+        if (!db.isReadOnly()) {
+            // Enable foreign key constraints
+            db.execSQL("PRAGMA foreign_keys = ON;");
+        }
+    }
+
+    // --- Subject operations ---
+
+    public long addSubject(Subject subject) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_SUBJECT_NAME, subject.getName());
+        long id = db.insert(TABLE_SUBJECTS, null, values);
+        db.close();
+        return id;
+    }
+
+    public Subject getSubject(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_SUBJECTS, new String[]{KEY_SUBJECT_ID,
+                        KEY_SUBJECT_NAME}, KEY_SUBJECT_ID + "=?",
+                new String[]{String.valueOf(id)}, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        Subject subject = new Subject(Integer.parseInt(cursor.getString(0)),
+                cursor.getString(1));
+        cursor.close();
+        db.close();
+        return subject;
+    }
+
+    public ArrayList<Subject> getAllSubjects() {
+        ArrayList<Subject> subjectList = new ArrayList<Subject>();
+        String selectQuery = "SELECT * FROM " + TABLE_SUBJECTS + " ORDER BY " + KEY_SUBJECT_NAME + " ASC";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Subject subject = new Subject();
+                subject.setId(Integer.parseInt(cursor.getString(0)));
+                subject.setName(cursor.getString(1));
+                subjectList.add(subject);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return subjectList;
+    }
+
+    public int updateSubject(Subject subject) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_SUBJECT_NAME, subject.getName());
+        int rowsAffected = db.update(TABLE_SUBJECTS, values, KEY_SUBJECT_ID + " = ?",
+                new String[]{String.valueOf(subject.getId())});
+        db.close();
+        return rowsAffected;
+    }
+
+    public void deleteSubject(Subject subject) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_SUBJECTS, KEY_SUBJECT_ID + " = ?",
+                new String[]{String.valueOf(subject.getId())});
+        db.close();
+    }
+
+    public int getSubjectCount() {
+        String countQuery = "SELECT * FROM " + TABLE_SUBJECTS;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+        cursor.close();
+        db.close();
+        return count;
+    }
+
+    public int getTaskCountForSubject(int subjectId) {
+        String countQuery = "SELECT COUNT(*) FROM " + TABLE_TASKS + " WHERE " + KEY_TASK_SUBJECT_ID + " = " + subjectId;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = 0;
+        if (cursor.moveToFirst()) {
+            count = cursor.getInt(0);
+        }
+        cursor.close();
+        db.close();
+        return count;
+    }
+
+    // --- Task operations ---
+
+    public long addTask(Task task) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_TASK_SUBJECT_ID, task.getSubjectId());
+        values.put(KEY_TASK_TITLE, task.getTitle());
+        values.put(KEY_TASK_DESCRIPTION, task.getDescription());
+        values.put(KEY_TASK_DUE_DATE, task.getDueDateMillis());
+        values.put(KEY_TASK_IS_COMPLETED, task.isCompleted() ? 1 : 0);
+        long id = db.insert(TABLE_TASKS, null, values);
+        db.close();
+        return id;
+    }
+
+    public Task getTask(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_TASKS, new String[]{KEY_TASK_ID,
+                        KEY_TASK_SUBJECT_ID, KEY_TASK_TITLE, KEY_TASK_DESCRIPTION,
+                        KEY_TASK_DUE_DATE, KEY_TASK_IS_COMPLETED}, KEY_TASK_ID + "=?",
+                new String[]{String.valueOf(id)}, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        Task task = new Task(
+                Integer.parseInt(cursor.getString(0)),
+                Integer.parseInt(cursor.getString(1)),
+                cursor.getString(2),
+                cursor.getString(3),
+                Long.parseLong(cursor.getString(4)),
+                Integer.parseInt(cursor.getString(5))
+        );
+        cursor.close();
+        db.close();
+        return task;
+    }
+
+    public ArrayList<Task> getTasksBySubject(int subjectId) {
+        ArrayList<Task> taskList = new ArrayList<Task>();
+        String selectQuery = "SELECT * FROM " + TABLE_TASKS + " WHERE " + KEY_TASK_SUBJECT_ID + " = " + subjectId +
+                             " ORDER BY " + KEY_TASK_IS_COMPLETED + " ASC, " + KEY_TASK_DUE_DATE + " ASC";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Task task = new Task();
+                task.setId(Integer.parseInt(cursor.getString(0)));
+                task.setSubjectId(Integer.parseInt(cursor.getString(1)));
+                task.setTitle(cursor.getString(2));
+                task.setDescription(cursor.getString(3));
+                task.setDueDateMillis(Long.parseLong(cursor.getString(4)));
+                task.setCompleted(Integer.parseInt(cursor.getString(5)) == 1);
+                taskList.add(task);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return taskList;
+    }
+
+    public ArrayList<Task> getAllIncompleteTasks() {
+        ArrayList<Task> taskList = new ArrayList<Task>();
+        String selectQuery = "SELECT * FROM " + TABLE_TASKS + " WHERE " + KEY_TASK_IS_COMPLETED + " = 0" +
+                             " ORDER BY " + KEY_TASK_DUE_DATE + " ASC";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Task task = new Task();
+                task.setId(Integer.parseInt(cursor.getString(0)));
+                task.setSubjectId(Integer.parseInt(cursor.getString(1)));
+                task.setTitle(cursor.getString(2));
+                task.setDescription(cursor.getString(3));
+                task.setDueDateMillis(Long.parseLong(cursor.getString(4)));
+                task.setCompleted(Integer.parseInt(cursor.getString(5)) == 1);
+                taskList.add(task);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return taskList;
+    }
+
+    public int updateTask(Task task) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_TASK_SUBJECT_ID, task.getSubjectId());
+        values.put(KEY_TASK_TITLE, task.getTitle());
+        values.put(KEY_TASK_DESCRIPTION, task.getDescription());
+        values.put(KEY_TASK_DUE_DATE, task.getDueDateMillis());
+        values.put(KEY_TASK_IS_COMPLETED, task.isCompleted() ? 1 : 0);
+        int rowsAffected = db.update(TABLE_TASKS, values, KEY_TASK_ID + " = ?",
+                new String[]{String.valueOf(task.getId())});
+        db.close();
+        return rowsAffected;
+    }
+
+    public void deleteTask(Task task) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_TASKS, KEY_TASK_ID + " = ?",
+                new String[]{String.valueOf(task.getId())});
+        db.close();
+    }
+}

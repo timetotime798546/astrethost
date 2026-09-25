@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.app.studentstudyplanner"
+    namespace "com.studentplanner.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.app.studentstudyplanner"
+        applicationId "com.studentplanner.app"
 
         minSdkVersion 21
 

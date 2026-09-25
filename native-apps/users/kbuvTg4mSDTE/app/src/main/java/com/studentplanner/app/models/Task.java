@@ -1,1 +1,78 @@
-\npackage com.studentplanner.app.models;\n\npublic class Task {\n    private int id;\n    private int subjectId;\n    private String title;\n    private String description;\n    private long dueDateMillis; // Unix timestamp in milliseconds\n    private int isCompleted; // 0 for false, 1 for true\n\n    public Task() {\n    }\n\n    public Task(int subjectId, String title, String description, long dueDateMillis, int isCompleted) {\n        this.subjectId = subjectId;\n        this.title = title;\n        this.description = description;\n        this.dueDateMillis = dueDateMillis;\n        this.isCompleted = isCompleted;\n    }\n\n    public Task(int id, int subjectId, String title, String description, long dueDateMillis, int isCompleted) {\n        this.id = id;\n        this.subjectId = subjectId;\n        this.title = title;\n        this.description = description;\n        this.dueDateMillis = dueDateMillis;\n        this.isCompleted = isCompleted;\n    }\n\n    public int getId() {\n        return id;\n    }\n\n    public void setId(int id) {\n        this.id = id;\n    }\n\n    public int getSubjectId() {\n        return subjectId;\n    }\n\n    public void setSubjectId(int subjectId) {\n        this.subjectId = subjectId;\n    }\n\n    public String getTitle() {\n        return title;\n    }\n\n    public void setTitle(String title) {\n        this.title = title;\n    }\n\n    public String getDescription() {\n        return description;\n    }\n\n    public void setDescription(String description) {\n        this.description = description;\n    }\n\n    public long getDueDateMillis() {\n        return dueDateMillis;\n    }\n\n    public void setDueDateMillis(long dueDateMillis) {\n        this.dueDateMillis = dueDateMillis;\n    }\n\n    public boolean isCompleted() {\n        return isCompleted == 1;\n    }\n\n    public void setCompleted(boolean completed) {\n        isCompleted = completed ? 1 : 0;\n    }\n}\n\n
+package com.studentplanner.app.models;
+
+public class Task {
+    private int id;
+    private int subjectId;
+    private String title;
+    private String description;
+    private long dueDateMillis; // Unix timestamp in milliseconds
+    private int isCompleted; // 0 for false, 1 for true
+
+    public Task() {
+    }
+
+    public Task(int subjectId, String title, String description, long dueDateMillis, int isCompleted) {
+        this.subjectId = subjectId;
+        this.title = title;
+        this.description = description;
+        this.dueDateMillis = dueDateMillis;
+        this.isCompleted = isCompleted;
+    }
+
+    public Task(int id, int subjectId, String title, String description, long dueDateMillis, int isCompleted) {
+        this.id = id;
+        this.subjectId = subjectId;
+        this.title = title;
+        this.description = description;
+        this.dueDateMillis = dueDateMillis;
+        this.isCompleted = isCompleted;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(int subjectId) {
+        this.subjectId = subjectId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public long getDueDateMillis() {
+        return dueDateMillis;
+    }
+
+    public void setDueDateMillis(long dueDateMillis) {
+        this.dueDateMillis = dueDateMillis;
+    }
+
+    public boolean isCompleted() {
+        return isCompleted == 1;
+    }
+
+    public void setCompleted(boolean completed) {
+        isCompleted = completed ? 1 : 0;
+    }
+}

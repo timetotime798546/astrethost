@@ -1,1 +1,34 @@
-\npackage com.studentplanner.app.models;\n\npublic class Subject {\n    private int id;\n    private String name;\n\n    public Subject() {\n    }\n\n    public Subject(String name) {\n        this.name = name;\n    }\n\n    public Subject(int id, String name) {\n        this.id = id;\n        this.name = name;\n    }\n\n    public int getId() {\n        return id;\n    }\n\n    public void setId(int id) {\n        this.id = id;\n    }\n\n    public String getName() {\n        return name;\n    }\n\n    public void setName(String name) {\n        this.name = name;\n    }\n}\n\n
+package com.studentplanner.app.models;
+
+public class Subject {
+    private int id;
+    private String name;
+
+    public Subject() {
+    }
+
+    public Subject(String name) {
+        this.name = name;
+    }
+
+    public Subject(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}

@@ -1,1 +1,81 @@
-\npackage com.studentplanner.app.activities;\n\nimport android.app.Activity;\nimport android.os.Bundle;\nimport android.view.View;\nimport android.widget.Button;\nimport android.widget.EditText;\nimport android.widget.Toast;\n\nimport com.studentplanner.app.R;\nimport com.studentplanner.app.data.DatabaseHelper;\nimport com.studentplanner.app.models.Subject;\n\npublic class AddSubjectActivity extends Activity {\n\n    private EditText subjectNameEditText;\n    private Button saveSubjectButton;\n    private DatabaseHelper dbHelper;\n    private int subjectId = -1; // -1 for new subject, otherwise editing existing\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_add_subject);\n\n        dbHelper = new DatabaseHelper(this);\n\n        subjectNameEditText = findViewById(R.id.subject_name_edit_text);\n        saveSubjectButton = findViewById(R.id.save_subject_button);\n\n        // Check if editing an existing subject\n        Bundle extras = getIntent().getExtras();\n        if (extras != null && extras.containsKey(\"subject_id\")) {\n            subjectId = extras.getInt(\"subject_id\");\n            String subjectName = extras.getString(\"subject_name\");\n            subjectNameEditText.setText(subjectName);\n            saveSubjectButton.setText(R.string.edit_subject);\n            setTitle(R.string.edit_subject); // Set activity title\n        } else {\n            setTitle(R.string.title_activity_add_subject); // Set activity title for new subject\n        }\n\n        saveSubjectButton.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View v) {\n                saveSubject();\n            }\n        });\n    }\n\n    private void saveSubject() {\n        String name = subjectNameEditText.getText().toString().trim();\n\n        if (name.isEmpty()) {\n            Toast.makeText(this, \"Subject name cannot be empty.\", Toast.LENGTH_SHORT).show();\n            return;\n        }\n\n        if (subjectId == -1) {\n            // Add new subject\n            Subject newSubject = new Subject(name);\n            long id = dbHelper.addSubject(newSubject);\n            if (id > 0) {\n                setResult(RESULT_OK);\n                finish();\n            } else {\n                Toast.makeText(this, \"Failed to add subject. Name might already exist.\", Toast.LENGTH_SHORT).show();\n            }\n        } else {\n            // Update existing subject\n            Subject existingSubject = new Subject(subjectId, name);\n            int rowsAffected = dbHelper.updateSubject(existingSubject);\n            if (rowsAffected > 0) {\n                setResult(RESULT_OK);\n                finish();\n            } else {\n                Toast.makeText(this, \"Failed to update subject.\", Toast.LENGTH_SHORT).show();\n            }\n        }\n    }\n}\n\n
+package com.studentplanner.app.activities;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.studentplanner.app.R;
+import com.studentplanner.app.data.DatabaseHelper;
+import com.studentplanner.app.models.Subject;
+
+public class AddSubjectActivity extends Activity {
+
+    private EditText subjectNameEditText;
+    private Button saveSubjectButton;
+    private DatabaseHelper dbHelper;
+    private int subjectId = -1; // -1 for new subject, otherwise editing existing
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_subject);
+
+        dbHelper = new DatabaseHelper(this);
+
+        subjectNameEditText = findViewById(R.id.subject_name_edit_text);
+        saveSubjectButton = findViewById(R.id.save_subject_button);
+
+        // Check if editing an existing subject
+        Bundle extras = getIntent().getExtras();
+        if (extras != null && extras.containsKey("subject_id")) {
+            subjectId = extras.getInt("subject_id");
+            String subjectName = extras.getString("subject_name");
+            subjectNameEditText.setText(subjectName);
+            saveSubjectButton.setText(R.string.edit_subject);
+            setTitle(R.string.edit_subject); // Set activity title
+        } else {
+            setTitle(R.string.title_activity_add_subject); // Set activity title for new subject
+        }
+
+        saveSubjectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveSubject();
+            }
+        });
+    }
+
+    private void saveSubject() {
+        String name = subjectNameEditText.getText().toString().trim();
+
+        if (name.isEmpty()) {
+            Toast.makeText(this, "Subject name cannot be empty.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (subjectId == -1) {
+            // Add new subject
+            Subject newSubject = new Subject(name);
+            long id = dbHelper.addSubject(newSubject);
+            if (id > 0) {
+                setResult(RESULT_OK);
+                finish();
+            } else {
+                Toast.makeText(this, "Failed to add subject. Name might already exist.", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            // Update existing subject
+            Subject existingSubject = new Subject(subjectId, name);
+            int rowsAffected = dbHelper.updateSubject(existingSubject);
+            if (rowsAffected > 0) {
+                setResult(RESULT_OK);
+                finish();
+            } else {
+                Toast.makeText(this, "Failed to update subject.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+}

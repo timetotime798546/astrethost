@@ -1,1 +1,46 @@
-\npackage com.studentplanner.app.adapters;\n\nimport android.content.Context;\nimport android.view.LayoutInflater;\nimport android.view.View;\nimport android.view.ViewGroup;\nimport android.widget.ArrayAdapter;\nimport android.widget.TextView;\n\nimport com.studentplanner.app.R;\nimport com.studentplanner.app.data.DatabaseHelper;\nimport com.studentplanner.app.models.Subject;\n\nimport java.util.ArrayList;\n\npublic class SubjectAdapter extends ArrayAdapter<Subject> {\n\n    private final ArrayList<Subject> subjects;\n    private final Context context;\n    private final DatabaseHelper dbHelper;\n\n    public SubjectAdapter(Context context, ArrayList<Subject> subjects, DatabaseHelper dbHelper) {\n        super(context, 0, subjects);\n        this.context = context;\n        this.subjects = subjects;\n        this.dbHelper = dbHelper;\n    }\n\n    @Override\n    public View getView(int position, View convertView, ViewGroup parent) {\n        if (convertView == null) {\n            convertView = LayoutInflater.from(context).inflate(R.layout.item_subject, parent, false);\n        }\n\n        Subject currentSubject = subjects.get(position);\n\n        TextView subjectNameTextView = convertView.findViewById(R.id.subject_name_text_view);\n        TextView subjectTaskCountTextView = convertView.findViewById(R.id.subject_task_count_text_view);\n\n        subjectNameTextView.setText(currentSubject.getName());\n        int taskCount = dbHelper.getTaskCountForSubject(currentSubject.getId());\n        subjectTaskCountTextView.setText(taskCount + \" tasks\");\n\n        return convertView;\n    }\n}\n\n
+package com.studentplanner.app.adapters;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import com.studentplanner.app.R;
+import com.studentplanner.app.data.DatabaseHelper;
+import com.studentplanner.app.models.Subject;
+
+import java.util.ArrayList;
+
+public class SubjectAdapter extends ArrayAdapter<Subject> {
+
+    private final ArrayList<Subject> subjects;
+    private final Context context;
+    private final DatabaseHelper dbHelper;
+
+    public SubjectAdapter(Context context, ArrayList<Subject> subjects, DatabaseHelper dbHelper) {
+        super(context, 0, subjects);
+        this.context = context;
+        this.subjects = subjects;
+        this.dbHelper = dbHelper;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_subject, parent, false);
+        }
+
+        Subject currentSubject = subjects.get(position);
+
+        TextView subjectNameTextView = convertView.findViewById(R.id.subject_name_text_view);
+        TextView subjectTaskCountTextView = convertView.findViewById(R.id.subject_task_count_text_view);
+
+        subjectNameTextView.setText(currentSubject.getName());
+        int taskCount = dbHelper.getTaskCountForSubject(currentSubject.getId());
+        subjectTaskCountTextView.setText(taskCount + " tasks");
+
+        return convertView;
+    }
+}

@@ -1,1 +1,44 @@
-\npackage com.studentplanner.app.notifications;\n\nimport android.content.BroadcastReceiver;\nimport android.content.Context;\nimport android.content.Intent;\nimport android.os.Build;\nimport android.widget.Toast;\n\nimport com.studentplanner.app.data.DatabaseHelper;\nimport com.studentplanner.app.models.Task;\n\nimport java.util.ArrayList;\n\npublic class ReminderReceiver extends BroadcastReceiver {\n    @Override\n    public void onReceive(Context context, Intent intent) {\n        if (intent == null || intent.getAction() == null) {\n            return;\n        }\n\n        if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {\n            // Reschedule all incomplete tasks after reboot\n            DatabaseHelper dbHelper = new DatabaseHelper(context);\n            ArrayList<Task> incompleteTasks = dbHelper.getAllIncompleteTasks();\n            for (int i = 0; i < incompleteTasks.size(); i++) {\n                Task task = incompleteTasks.get(i);\n                if (task.getDueDateMillis() > System.currentTimeMillis()) { // Only reschedule future tasks\n                    NotificationHelper.scheduleReminder(context, task);\n                }\n            }\n            Toast.makeText(context, \"Study Planner reminders re-scheduled.\", Toast.LENGTH_LONG).show();\n        } else if (\"com.studentplanner.app.ACTION_REMINDER\".equals(intent.getAction())) {\n            int taskId = intent.getIntExtra(\"task_id\", -1);\n            if (taskId != -1) {\n                DatabaseHelper dbHelper = new DatabaseHelper(context);\n                Task task = dbHelper.getTask(taskId);\n                if (task != null && !task.isCompleted()) { // Only show reminder if task is not completed\n                    String subjectName = dbHelper.getSubject(task.getSubjectId()).getName();\n                    NotificationHelper.showNotification(context, task, subjectName);\n                }\n            }\n        }\n    }\n}\n\n
+package com.studentplanner.app.notifications;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.widget.Toast;
+
+import com.studentplanner.app.data.DatabaseHelper;
+import com.studentplanner.app.models.Task;
+
+import java.util.ArrayList;
+
+public class ReminderReceiver extends BroadcastReceiver {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        if (intent == null || intent.getAction() == null) {
+            return;
+        }
+
+        if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+            // Reschedule all incomplete tasks after reboot
+            DatabaseHelper dbHelper = new DatabaseHelper(context);
+            ArrayList<Task> incompleteTasks = dbHelper.getAllIncompleteTasks();
+            for (int i = 0; i < incompleteTasks.size(); i++) {
+                Task task = incompleteTasks.get(i);
+                if (task.getDueDateMillis() > System.currentTimeMillis()) { // Only reschedule future tasks
+                    NotificationHelper.scheduleReminder(context, task);
+                }
+            }
+            Toast.makeText(context, "Study Planner reminders re-scheduled.", Toast.LENGTH_LONG).show();
+        } else if ("com.studentplanner.app.ACTION_REMINDER".equals(intent.getAction())) {
+            int taskId = intent.getIntExtra("task_id", -1);
+            if (taskId != -1) {
+                DatabaseHelper dbHelper = new DatabaseHelper(context);
+                Task task = dbHelper.getTask(taskId);
+                if (task != null && !task.isCompleted()) { // Only show reminder if task is not completed
+                    String subjectName = dbHelper.getSubject(task.getSubjectId()).getName();
+                    NotificationHelper.showNotification(context, task, subjectName);
+                }
+            }
+        }
+    }
+}

@@ -1,1 +1,35 @@
-\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"wrap_content\"\n    android:orientation=\"vertical\"\n    style=\"@style/CardViewStyle\"\n    android:clickable=\"true\"\n    android:focusable=\"true\"\n    android:background=\"?android:attr/selectableItemBackground\">\n\n    <TextView\n        android:id=\"@+id/task_title_text_view\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:textStyle=\"bold\"\n        android:textSize=\"18sp\"\n        android:textColor=\"@color/text_color_primary_light\"\n        android:paddingBottom=\"4dp\" />\n\n    <TextView\n        android:id=\"@+id/task_due_date_text_view\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:textSize=\"14sp\"\n        android:textColor=\"@color/text_color_secondary_light\"\n        android:paddingBottom=\"4dp\" />\n\n    <TextView\n        android:id=\"@+id/task_status_text_view\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:textSize=\"14sp\"\n        android:textStyle=\"italic\" />\n\n</LinearLayout>\n\n
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    style="@style/CardViewStyle"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/task_title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@color/text_color_primary_light"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/task_due_date_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/text_color_secondary_light"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/task_status_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="italic" />
+
+</LinearLayout>

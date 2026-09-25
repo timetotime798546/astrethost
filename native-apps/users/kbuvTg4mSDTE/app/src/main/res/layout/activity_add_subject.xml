@@ -1,1 +1,35 @@
-\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    android:padding=\"16dp\"\n    android:background=\"@color/background_material_light\">\n\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/title_activity_add_subject\"\n        android:textSize=\"24sp\"\n        android:textStyle=\"bold\"\n        android:textColor=\"@color/primary_dark_material_light\"\n        android:layout_marginBottom=\"16dp\" />\n\n    <EditText\n        android:id=\"@+id/subject_name_edit_text\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:hint=\"@string/subject_name_hint\"\n        android:inputType=\"textCapWords\"\n        android:padding=\"12dp\"\n        android:background=\"@android:drawable/editbox_background\"\n        android:layout_marginBottom=\"16dp\" />\n\n    <Button\n        android:id=\"@+id/save_subject_button\"\n        style=\"@style/ButtonStyle\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/save_subject\" />\n\n</LinearLayout>\n\n
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/background_material_light">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_add_subject"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_dark_material_light"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/subject_name_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/subject_name_hint"
+        android:inputType="textCapWords"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/save_subject_button"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_subject" />
+
+</LinearLayout>

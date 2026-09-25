@@ -1,1 +1,34 @@
-\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    android:padding=\"16dp\"\n    android:background=\"@color/background_material_light\">\n\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/title_activity_main\"\n        android:textSize=\"24sp\"\n        android:textStyle=\"bold\"\n        android:textColor=\"@color/primary_dark_material_light\"\n        android:layout_marginBottom=\"16dp\" />\n\n    <ListView\n        android:id=\"@+id/subject_list_view\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"0dp\"\n        android:layout_weight=\"1\"\n        android:divider=\"@android:color/transparent\"\n        android:dividerHeight=\"8dp\"\n        android:layout_marginBottom=\"16dp\" />\n\n    <Button\n        android:id=\"@+id/add_subject_button\"\n        style=\"@style/ButtonStyle\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"@string/add_subject\" />\n\n</LinearLayout>\n\n
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/background_material_light">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_main"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_dark_material_light"
+        android:layout_marginBottom="16dp" />
+
+    <ListView
+        android:id="@+id/subject_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/add_subject_button"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_subject" />
+
+</LinearLayout>
