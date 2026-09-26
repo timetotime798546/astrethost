@@ -1,1 +1,61 @@
-\npackage com.notescategoriesapp.app;\n\npublic class Note {\n    private long id;\n    private String title;\n    private String content;\n    private String category;\n    private long timestamp;\n\n    public Note() {\n        // Default constructor\n    }\n\n    public Note(long id, String title, String content, String category, long timestamp) {\n        this.id = id;\n        this.title = title;\n        this.content = content;\n        this.category = category;\n        this.timestamp = timestamp;\n    }\n\n    public long getId() {\n        return id;\n    }\n\n    public void setId(long id) {\n        this.id = id;\n    }\n\n    public String getTitle() {\n        return title;\n    }\n\n    public void setTitle(String title) {\n        this.title = title;\n    }\n\n    public String getContent() {\n        return content;\n    }\n\n    public void setContent(String content) {\n        this.content = content;\n    }\n\n    public String getCategory() {\n        return category;\n    }\n\n    public void setCategory(String category) {\n        this.category = category;\n    }\n\n    public long getTimestamp() {\n        return timestamp;\n    }\n\n    public void setTimestamp(long timestamp) {\n        this.timestamp = timestamp;\n    }\n}\n\n
+package com.notescategoriesapp.app;
+
+public class Note {
+    private long id;
+    private String title;
+    private String content;
+    private String category;
+    private long timestamp;
+
+    public Note() {
+        // Default constructor
+    }
+
+    public Note(long id, String title, String content, String category, long timestamp) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.timestamp = timestamp;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+}

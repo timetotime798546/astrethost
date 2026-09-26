@@ -1,1 +1,202 @@
-\npackage com.notescategoriesapp.app;\n\nimport android.content.ContentValues;\nimport android.content.Context;\nimport android.database.Cursor;\nimport android.database.sqlite.SQLiteDatabase;\nimport android.database.sqlite.SQLiteOpenHelper;\n\nimport java.util.ArrayList;\nimport java.util.HashSet;\nimport java.util.List;\nimport java.util.Set;\n\npublic class NoteDatabaseHelper extends SQLiteOpenHelper {\n\n    private static final String DATABASE_NAME = \"notes_db\";\n    private static final int DATABASE_VERSION = 1;\n\n    public static final String TABLE_NOTES = \"notes\";\n    public static final String COLUMN_ID = \"_id\";\n    public static final String COLUMN_TITLE = \"title\";\n    public static final String COLUMN_CONTENT = \"content\";\n    public static final String COLUMN_CATEGORY = \"category\";\n    public static final String COLUMN_TIMESTAMP = \"timestamp\";\n\n    private static final String CREATE_TABLE_NOTES =\n            \"CREATE TABLE \" + TABLE_NOTES + \"(\" +\n                    COLUMN_ID + \" INTEGER PRIMARY KEY AUTOINCREMENT,\" +\n                    COLUMN_TITLE + \" TEXT,\" +\n                    COLUMN_CONTENT + \" TEXT,\" +\n                    COLUMN_CATEGORY + \" TEXT,\" +\n                    COLUMN_TIMESTAMP + \" INTEGER\" +\n                    \")\";\n\n    public NoteDatabaseHelper(Context context) {\n        super(context, DATABASE_NAME, null, DATABASE_VERSION);\n    }\n\n    @Override\n    public void onCreate(SQLiteDatabase db) {\n        db.execSQL(CREATE_TABLE_NOTES);\n    }\n\n    @Override\n    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {\n        db.execSQL(\"DROP TABLE IF EXISTS \" + TABLE_NOTES);\n        onCreate(db);\n    }\n\n    public long addNote(Note note) {\n        SQLiteDatabase db = this.getWritableDatabase();\n        ContentValues values = new ContentValues();\n        values.put(COLUMN_TITLE, note.getTitle());\n        values.put(COLUMN_CONTENT, note.getContent());\n        values.put(COLUMN_CATEGORY, note.getCategory());\n        values.put(COLUMN_TIMESTAMP, System.currentTimeMillis());\n\n        long id = db.insert(TABLE_NOTES, null, values);\n        db.close();\n        return id;\n    }\n\n    public Note getNote(long id) {\n        SQLiteDatabase db = this.getReadableDatabase();\n        Cursor cursor = db.query(TABLE_NOTES,\n                new String[]{COLUMN_ID, COLUMN_TITLE, COLUMN_CONTENT, COLUMN_CATEGORY, COLUMN_TIMESTAMP},\n                COLUMN_ID + \"=?\",\n                new String[]{String.valueOf(id)}, null, null, null, null);\n\n        Note note = null;\n        if (cursor != null) {\n            if (cursor.moveToFirst()) {\n                note = new Note(\n                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)),\n                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE)),\n                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT)),\n                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CATEGORY)),\n                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_TIMESTAMP))\n                );\n            }\n            cursor.close();\n        }\n        db.close();\n        return note;\n    }\n\n    public List<Note> getAllNotes() {\n        List<Note> notes = new ArrayList<Note>();\n        String selectQuery = \"SELECT * FROM \" + TABLE_NOTES;\n        SQLiteDatabase db = this.getWritableDatabase();\n        Cursor cursor = db.rawQuery(selectQuery, null);\n\n        if (cursor.moveToFirst()) {\n            do {\n                Note note = new Note(\n                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)),\n                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE)),\n                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT)),\n                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CATEGORY)),\n                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_TIMESTAMP))\n                );\n                notes.add(note);\n            } while (cursor.moveToNext());\n        }\n        cursor.close();\n        db.close();\n        return notes;\n    }\n\n    public int updateNote(Note note) {\n        SQLiteDatabase db = this.getWritableDatabase();\n        ContentValues values = new ContentValues();\n        values.put(COLUMN_TITLE, note.getTitle());\n        values.put(COLUMN_CONTENT, note.getContent());\n        values.put(COLUMN_CATEGORY, note.getCategory());\n        values.put(COLUMN_TIMESTAMP, System.currentTimeMillis()); // Update timestamp on modification\n\n        int rowsAffected = db.update(TABLE_NOTES, values, COLUMN_ID + \" = ?\",\n                new String[]{String.valueOf(note.getId())});\n        db.close();\n        return rowsAffected;\n    }\n\n    public void deleteNote(long id) {\n        SQLiteDatabase db = this.getWritableDatabase();\n        db.delete(TABLE_NOTES, COLUMN_ID + \" = ?\",\n                new String[]{String.valueOf(id)});\n        db.close();\n    }\n\n    public List<Note> searchNotes(String query) {\n        List<Note> notes = new ArrayList<Note>();\n        SQLiteDatabase db = this.getReadableDatabase();\n        Cursor cursor = db.query(TABLE_NOTES,\n                new String[]{COLUMN_ID, COLUMN_TITLE, COLUMN_CONTENT, COLUMN_CATEGORY, COLUMN_TIMESTAMP},\n                COLUMN_TITLE + \" LIKE ? OR \" + COLUMN_CONTENT + \" LIKE ?\",\n                new String[]{\"%\" + query + \"%\", \"%\" + query + \"%\"},\n                null, null, null);\n\n        if (cursor.moveToFirst()) {\n            do {\n                Note note = new Note(\n                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)),\n                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE)),\n                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT)),\n                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CATEGORY)),\n                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_TIMESTAMP))\n                );\n                notes.add(note);\n            } while (cursor.moveToNext());\n        }\n        cursor.close();\n        db.close();\n        return notes;\n    }\n\n    public List<Note> getNotesByCategory(String category) {\n        List<Note> notes = new ArrayList<Note>();\n        SQLiteDatabase db = this.getReadableDatabase();\n        Cursor cursor = db.query(TABLE_NOTES,\n                new String[]{COLUMN_ID, COLUMN_TITLE, COLUMN_CONTENT, COLUMN_CATEGORY, COLUMN_TIMESTAMP},\n                COLUMN_CATEGORY + \" = ?\",\n                new String[]{category},\n                null, null, null);\n\n        if (cursor.moveToFirst()) {\n            do {\n                Note note = new Note(\n                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)),\n                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE)),\n                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT)),\n                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CATEGORY)),\n                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_TIMESTAMP))\n                );\n                notes.add(note);\n            } while (cursor.moveToNext());\n        }\n        cursor.close();\n        db.close();\n        return notes;\n    }\n\n    public List<String> getAllCategories() {\n        List<String> categories = new ArrayList<String>();\n        SQLiteDatabase db = this.getReadableDatabase();\n        Cursor cursor = db.query(true, TABLE_NOTES,\n                new String[]{COLUMN_CATEGORY},\n                null, null, null, null, COLUMN_CATEGORY + \" ASC\", null);\n\n        if (cursor.moveToFirst()) {\n            do {\n                String category = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CATEGORY));\n                if (category != null && !category.trim().isEmpty()) {\n                    categories.add(category);\n                }\n            } while (cursor.moveToNext());\n        }\n        cursor.close();\n        db.close();\n        return categories;\n    }\n}\n\n
+package com.notescategoriesapp.app;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class NoteDatabaseHelper extends SQLiteOpenHelper {
+
+    private static final String DATABASE_NAME = "notes_db";
+    private static final int DATABASE_VERSION = 1;
+
+    public static final String TABLE_NOTES = "notes";
+    public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_TITLE = "title";
+    public static final String COLUMN_CONTENT = "content";
+    public static final String COLUMN_CATEGORY = "category";
+    public static final String COLUMN_TIMESTAMP = "timestamp";
+
+    private static final String CREATE_TABLE_NOTES =
+            "CREATE TABLE " + TABLE_NOTES + "(" +
+                    COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    COLUMN_TITLE + " TEXT," +
+                    COLUMN_CONTENT + " TEXT," +
+                    COLUMN_CATEGORY + " TEXT," +
+                    COLUMN_TIMESTAMP + " INTEGER" +
+                    ")";
+
+    public NoteDatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(CREATE_TABLE_NOTES);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTES);
+        onCreate(db);
+    }
+
+    public long addNote(Note note) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_TITLE, note.getTitle());
+        values.put(COLUMN_CONTENT, note.getContent());
+        values.put(COLUMN_CATEGORY, note.getCategory());
+        values.put(COLUMN_TIMESTAMP, System.currentTimeMillis());
+
+        long id = db.insert(TABLE_NOTES, null, values);
+        db.close();
+        return id;
+    }
+
+    public Note getNote(long id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NOTES,
+                new String[]{COLUMN_ID, COLUMN_TITLE, COLUMN_CONTENT, COLUMN_CATEGORY, COLUMN_TIMESTAMP},
+                COLUMN_ID + "=?",
+                new String[]{String.valueOf(id)}, null, null, null, null);
+
+        Note note = null;
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                note = new Note(
+                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CATEGORY)),
+                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_TIMESTAMP))
+                );
+            }
+            cursor.close();
+        }
+        db.close();
+        return note;
+    }
+
+    public List<Note> getAllNotes() {
+        List<Note> notes = new ArrayList<Note>();
+        String selectQuery = "SELECT * FROM " + TABLE_NOTES;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Note note = new Note(
+                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CATEGORY)),
+                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_TIMESTAMP))
+                );
+                notes.add(note);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return notes;
+    }
+
+    public int updateNote(Note note) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_TITLE, note.getTitle());
+        values.put(COLUMN_CONTENT, note.getContent());
+        values.put(COLUMN_CATEGORY, note.getCategory());
+        values.put(COLUMN_TIMESTAMP, System.currentTimeMillis()); // Update timestamp on modification
+
+        int rowsAffected = db.update(TABLE_NOTES, values, COLUMN_ID + " = ?",
+                new String[]{String.valueOf(note.getId())});
+        db.close();
+        return rowsAffected;
+    }
+
+    public void deleteNote(long id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NOTES, COLUMN_ID + " = ?",
+                new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public List<Note> searchNotes(String query) {
+        List<Note> notes = new ArrayList<Note>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NOTES,
+                new String[]{COLUMN_ID, COLUMN_TITLE, COLUMN_CONTENT, COLUMN_CATEGORY, COLUMN_TIMESTAMP},
+                COLUMN_TITLE + " LIKE ? OR " + COLUMN_CONTENT + " LIKE ?",
+                new String[]{"%" + query + "%", "%" + query + "%"},
+                null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Note note = new Note(
+                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CATEGORY)),
+                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_TIMESTAMP))
+                );
+                notes.add(note);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return notes;
+    }
+
+    public List<Note> getNotesByCategory(String category) {
+        List<Note> notes = new ArrayList<Note>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NOTES,
+                new String[]{COLUMN_ID, COLUMN_TITLE, COLUMN_CONTENT, COLUMN_CATEGORY, COLUMN_TIMESTAMP},
+                COLUMN_CATEGORY + " = ?",
+                new String[]{category},
+                null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Note note = new Note(
+                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CATEGORY)),
+                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_TIMESTAMP))
+                );
+                notes.add(note);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return notes;
+    }
+
+    public List<String> getAllCategories() {
+        List<String> categories = new ArrayList<String>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(true, TABLE_NOTES,
+                new String[]{COLUMN_CATEGORY},
+                null, null, null, null, COLUMN_CATEGORY + " ASC", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                String category = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CATEGORY));
+                if (category != null && !category.trim().isEmpty()) {
+                    categories.add(category);
+                }
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return categories;
+    }
+}

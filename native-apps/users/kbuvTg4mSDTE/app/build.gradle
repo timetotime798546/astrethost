@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.app.notescategoriesapp"
+    namespace "com.notescategoriesapp.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.app.notescategoriesapp"
+        applicationId "com.notescategoriesapp.app"
 
         minSdkVersion 21
 

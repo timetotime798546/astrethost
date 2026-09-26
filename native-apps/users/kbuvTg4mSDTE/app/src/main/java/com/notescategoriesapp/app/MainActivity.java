@@ -1,1 +1,214 @@
-\npackage com.notescategoriesapp.app;\n\nimport android.app.AlertDialog;\nimport android.content.DialogInterface;\nimport android.content.Intent;\nimport android.os.Bundle;\nimport android.app.Activity;\nimport android.view.LayoutInflater;\nimport android.view.Menu;\nimport android.view.MenuInflater;\nimport android.view.MenuItem;\nimport android.view.View;\nimport android.widget.AdapterView;\nimport android.widget.ArrayAdapter;\nimport android.widget.EditText;\nimport android.widget.ListView;\nimport android.widget.Toast;\n\nimport java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.Comparator;\nimport java.util.HashSet;\nimport java.util.List;\nimport java.util.Set;\n\npublic class MainActivity extends Activity {\n\n    private ListView noteListView;\n    private NoteDatabaseHelper db;\n    private NoteAdapter noteAdapter;\n    private List<Note> currentNotes;\n\n    private static final int REQUEST_CODE_ADD_NOTE = 1;\n    private static final int REQUEST_CODE_EDIT_NOTE = 2;\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_main);\n\n        noteListView = (ListView) findViewById(R.id.noteListView);\n        db = new NoteDatabaseHelper(this);\n\n        currentNotes = new ArrayList<Note>();\n        noteAdapter = new NoteAdapter(this, currentNotes);\n        noteListView.setAdapter(noteAdapter);\n\n        noteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {\n            @Override\n            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {\n                Note selectedNote = (Note) parent.getItemAtPosition(position);\n                Intent intent = new Intent(MainActivity.this, NoteDetailActivity.class);\n                intent.putExtra(\"note_id\", selectedNote.getId());\n                startActivityForResult(intent, REQUEST_CODE_EDIT_NOTE);\n            }\n        });\n\n        loadNotes();\n    }\n\n    @Override\n    protected void onResume() {\n        super.onResume();\n        loadNotes(); // Refresh the list when returning to MainActivity\n    }\n\n    private void loadNotes() {\n        currentNotes.clear();\n        currentNotes.addAll(db.getAllNotes());\n        sortNotesByMostRecent();\n        noteAdapter.notifyDataSetChanged();\n    }\n\n    private void sortNotesByMostRecent() {\n        Collections.sort(currentNotes, new Comparator<Note>() {\n            @Override\n            public int compare(Note n1, Note n2) {\n                // Sort in descending order of timestamp (most recent first)\n                return Long.compare(n2.getTimestamp(), n1.getTimestamp());\n            }\n        });\n    }\n\n    @Override\n    public boolean onCreateOptionsMenu(Menu menu) {\n        MenuInflater inflater = getMenuInflater();\n        inflater.inflate(R.menu.main_menu, menu);\n        return true;\n    }\n\n    @Override\n    public boolean onOptionsItemSelected(MenuItem item) {\n        int id = item.getItemId();\n        if (id == R.id.action_add_note) {\n            Intent intent = new Intent(MainActivity.this, NoteDetailActivity.class);\n            startActivityForResult(intent, REQUEST_CODE_ADD_NOTE);\n            return true;\n        } else if (id == R.id.action_search) {\n            showSearchDialog();\n            return true;\n        } else if (id == R.id.action_filter_category) {\n            showCategoryFilterDialog();\n            return true;\n        } else if (id == R.id.action_show_all_notes) {\n            loadNotes(); // Show all notes\n            Toast.makeText(MainActivity.this, \"Showing all notes\", Toast.LENGTH_SHORT).show();\n            return true;\n        }\n        return super.onOptionsItemSelected(item);\n    }\n\n    private void showSearchDialog() {\n        AlertDialog.Builder builder = new AlertDialog.Builder(this);\n        builder.setTitle(\"Search Notes\");\n\n        LayoutInflater inflater = getLayoutInflater();\n        View dialogView = inflater.inflate(R.layout.dialog_search, null);\n        final EditText searchEditText = (EditText) dialogView.findViewById(R.id.search_edit_text);\n        builder.setView(dialogView);\n\n        builder.setPositiveButton(\"Search\", new DialogInterface.OnClickListener() {\n            @Override\n            public void onClick(DialogInterface dialog, int which) {\n                String query = searchEditText.getText().toString();\n                if (query.isEmpty()) {\n                    Toast.makeText(MainActivity.this, \"Please enter a search term\", Toast.LENGTH_SHORT).show();\n                    return;\n                }\n                searchNotes(query);\n            }\n        });\n        builder.setNegativeButton(\"Cancel\", new DialogInterface.OnClickListener() {\n            @Override\n            public void onClick(DialogInterface dialog, int which) {\n                dialog.cancel();\n            }\n        });\n        builder.show();\n    }\n\n    private void searchNotes(String query) {\n        currentNotes.clear();\n        currentNotes.addAll(db.searchNotes(query));\n        sortNotesByMostRecent();\n        noteAdapter.notifyDataSetChanged();\n        if (currentNotes.isEmpty()) {\n            Toast.makeText(MainActivity.this, \"No notes found for '\" + query + \"'\", Toast.LENGTH_SHORT).show();\n        } else {\n            Toast.makeText(MainActivity.this, \"Found \" + currentNotes.size() + \" notes\", Toast.LENGTH_SHORT).show();\n        }\n    }\n\n    private void showCategoryFilterDialog() {\n        final List<String> categories = db.getAllCategories();\n        if (categories.isEmpty()) {\n            Toast.makeText(MainActivity.this, \"No categories found\", Toast.LENGTH_SHORT).show();\n            return;\n        }\n        // Add \"All Categories\" option\n        categories.add(0, \"All Categories\");\n\n        final ArrayAdapter<String> categoryAdapter = new ArrayAdapter<String>(\n            this,\n            android.R.layout.simple_list_item_1,\n            categories\n        );\n\n        AlertDialog.Builder builder = new AlertDialog.Builder(this);\n        builder.setTitle(\"Filter by Category\");\n        builder.setAdapter(categoryAdapter, new DialogInterface.OnClickListener() {\n            @Override\n            public void onClick(DialogInterface dialog, int which) {\n                String selectedCategory = categories.get(which);\n                if (\"All Categories\".equals(selectedCategory)) {\n                    loadNotes();\n                    Toast.makeText(MainActivity.this, \"Showing all notes\", Toast.LENGTH_SHORT).show();\n                } else {\n                    filterNotesByCategory(selectedCategory);\n                    Toast.makeText(MainActivity.this, \"Filtered by '\" + selectedCategory + \"'\", Toast.LENGTH_SHORT).show();\n                }\n                dialog.dismiss();\n            }\n        });\n        builder.setNegativeButton(\"Cancel\", new DialogInterface.OnClickListener() {\n            @Override\n            public void onClick(DialogInterface dialog, int which) {\n                dialog.cancel();\n            }\n        });\n        builder.show();\n    }\n\n    private void filterNotesByCategory(String category) {\n        currentNotes.clear();\n        currentNotes.addAll(db.getNotesByCategory(category));\n        sortNotesByMostRecent();\n        noteAdapter.notifyDataSetChanged();\n        if (currentNotes.isEmpty()) {\n            Toast.makeText(MainActivity.this, \"No notes found in category '\" + category + \"'\", Toast.LENGTH_SHORT).show();\n        }\n    }\n\n    @Override\n    protected void onActivityResult(int requestCode, int resultCode, Intent data) {\n        super.onActivityResult(requestCode, resultCode, data);\n        if (resultCode == RESULT_OK) {\n            loadNotes(); // Reload notes if an update or addition occurred\n            Toast.makeText(this, \"Note saved!\", Toast.LENGTH_SHORT).show();\n        } else if (resultCode == NoteDetailActivity.RESULT_NOTE_DELETED) {\n            loadNotes();\n            Toast.makeText(this, \"Note deleted!\", Toast.LENGTH_SHORT).show();\n        }\n    }\n}\n\n
+package com.notescategoriesapp.app;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class MainActivity extends Activity {
+
+    private ListView noteListView;
+    private NoteDatabaseHelper db;
+    private NoteAdapter noteAdapter;
+    private List<Note> currentNotes;
+
+    private static final int REQUEST_CODE_ADD_NOTE = 1;
+    private static final int REQUEST_CODE_EDIT_NOTE = 2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        noteListView = (ListView) findViewById(R.id.noteListView);
+        db = new NoteDatabaseHelper(this);
+
+        currentNotes = new ArrayList<Note>();
+        noteAdapter = new NoteAdapter(this, currentNotes);
+        noteListView.setAdapter(noteAdapter);
+
+        noteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Note selectedNote = (Note) parent.getItemAtPosition(position);
+                Intent intent = new Intent(MainActivity.this, NoteDetailActivity.class);
+                intent.putExtra("note_id", selectedNote.getId());
+                startActivityForResult(intent, REQUEST_CODE_EDIT_NOTE);
+            }
+        });
+
+        loadNotes();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadNotes(); // Refresh the list when returning to MainActivity
+    }
+
+    private void loadNotes() {
+        currentNotes.clear();
+        currentNotes.addAll(db.getAllNotes());
+        sortNotesByMostRecent();
+        noteAdapter.notifyDataSetChanged();
+    }
+
+    private void sortNotesByMostRecent() {
+        Collections.sort(currentNotes, new Comparator<Note>() {
+            @Override
+            public int compare(Note n1, Note n2) {
+                // Sort in descending order of timestamp (most recent first)
+                return Long.compare(n2.getTimestamp(), n1.getTimestamp());
+            }
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_add_note) {
+            Intent intent = new Intent(MainActivity.this, NoteDetailActivity.class);
+            startActivityForResult(intent, REQUEST_CODE_ADD_NOTE);
+            return true;
+        } else if (id == R.id.action_search) {
+            showSearchDialog();
+            return true;
+        } else if (id == R.id.action_filter_category) {
+            showCategoryFilterDialog();
+            return true;
+        } else if (id == R.id.action_show_all_notes) {
+            loadNotes(); // Show all notes
+            Toast.makeText(MainActivity.this, "Showing all notes", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void showSearchDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Search Notes");
+
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_search, null);
+        final EditText searchEditText = (EditText) dialogView.findViewById(R.id.search_edit_text);
+        builder.setView(dialogView);
+
+        builder.setPositiveButton("Search", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String query = searchEditText.getText().toString();
+                if (query.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please enter a search term", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                searchNotes(query);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
+
+    private void searchNotes(String query) {
+        currentNotes.clear();
+        currentNotes.addAll(db.searchNotes(query));
+        sortNotesByMostRecent();
+        noteAdapter.notifyDataSetChanged();
+        if (currentNotes.isEmpty()) {
+            Toast.makeText(MainActivity.this, "No notes found for '" + query + "'", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(MainActivity.this, "Found " + currentNotes.size() + " notes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void showCategoryFilterDialog() {
+        final List<String> categories = db.getAllCategories();
+        if (categories.isEmpty()) {
+            Toast.makeText(MainActivity.this, "No categories found", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        // Add "All Categories" option
+        categories.add(0, "All Categories");
+
+        final ArrayAdapter<String> categoryAdapter = new ArrayAdapter<String>(
+            this,
+            android.R.layout.simple_list_item_1,
+            categories
+        );
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Filter by Category");
+        builder.setAdapter(categoryAdapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String selectedCategory = categories.get(which);
+                if ("All Categories".equals(selectedCategory)) {
+                    loadNotes();
+                    Toast.makeText(MainActivity.this, "Showing all notes", Toast.LENGTH_SHORT).show();
+                } else {
+                    filterNotesByCategory(selectedCategory);
+                    Toast.makeText(MainActivity.this, "Filtered by '" + selectedCategory + "'", Toast.LENGTH_SHORT).show();
+                }
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
+
+    private void filterNotesByCategory(String category) {
+        currentNotes.clear();
+        currentNotes.addAll(db.getNotesByCategory(category));
+        sortNotesByMostRecent();
+        noteAdapter.notifyDataSetChanged();
+        if (currentNotes.isEmpty()) {
+            Toast.makeText(MainActivity.this, "No notes found in category '" + category + "'", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            loadNotes(); // Reload notes if an update or addition occurred
+            Toast.makeText(this, "Note saved!", Toast.LENGTH_SHORT).show();
+        } else if (resultCode == NoteDetailActivity.RESULT_NOTE_DELETED) {
+            loadNotes();
+            Toast.makeText(this, "Note deleted!", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
