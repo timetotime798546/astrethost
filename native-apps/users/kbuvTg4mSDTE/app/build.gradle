@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.app.splashactivity"
+    namespace "com.moderncalculator.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.app.splashactivity"
+        applicationId "com.moderncalculator.app"
 
         minSdkVersion 21
 
