@@ -1,0 +1,72 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Build Error",
+      "description": "The build error log indicates an 'Incorrect package' attribute found in the AndroidManifest.xml file, stating that setting the namespace via the package attribute is no longer supported.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Locate AndroidManifest.xml",
+      "description": "Identify the primary AndroidManifest.xml file located at `app/src/main/AndroidManifest.xml` where the deprecated 'package' attribute needs to be removed.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Remove Deprecated Package Attribute",
+      "description": "Edit the `AndroidManifest.xml` file to remove the `package=\"com.studyplanner.app\"` attribute from the `<manifest>` root tag. The package name is now defined in `app/build.gradle` via the `namespace` property.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Verify build.gradle Namespace",
+      "description": "Confirm that the `app/build.gradle` file correctly defines the application's namespace using the `namespace` property, ensuring consistency with the intended package name.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Check Java Package Declarations",
+      "description": "Ensure all Java source files (e.g., MainActivity.java) correctly declare their package using `package com.studyplanner.app;` which aligns with the namespace defined in `build.gradle`.",
+      "files": [
+        "app/src/main/java/com/studyplanner/app/MainActivity.java",
+        "app/src/main/java/com/studyplanner/app/SubjectsActivity.java",
+        "app/src/main/java/com/studyplanner/app/TasksActivity.java",
+        "app/src/main/java/com/studyplanner/app/RemindersActivity.java",
+        "app/src/main/java/com/studyplanner/app/ProgressActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Clean Build Cache",
+      "description": "Before attempting a new build, clean the Gradle build cache to ensure that any old build artifacts that might conflict with the manifest change are removed.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Synchronize Gradle Project",
+      "description": "After modifying the `AndroidManifest.xml` and verifying `build.gradle`, synchronize the Gradle project to apply the changes to the build configuration.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Building Study Planner",
+      "description": "Initiate the build process for the Study Planner application to generate the debug APK after applying the necessary fixes to the manifest.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
