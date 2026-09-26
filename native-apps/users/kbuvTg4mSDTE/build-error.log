@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Notes Categorized
 App ID: app_6ab790d6eb59d
-Build ID: 36233556606
-Time: 2026-09-26 05:43:10
+Build ID: 36233892495
+Time: 2026-09-26 05:49:42
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 167238
-Extracted error characters: 29341
-File references detected: 235
+Original log characters: 167453
+Extracted error characters: 29556
+File references detected: 239
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2313) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2045) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/3142e834-a23d-4f54-a4e0-a7c4bc5cdd43
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/d6daeb7b-64c8-4a0d-bfe2-c23a2a9b46bb
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -209,8 +209,8 @@ Daemon will be stopped at the end of the build
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :app:javaPreCompileDebug
-> Task :app:checkDebugAarMetadata
 > Task :app:generateDebugResValues
+> Task :app:checkDebugAarMetadata
 > Task :app:mapDebugSourceSetPaths
 > Task :app:generateDebugResources
 > Task :app:packageDebugResources
@@ -224,23 +224,28 @@ Daemon will be stopped at the end of the build
 > Task :app:compileDebugShaders NO-SOURCE
 > Task :app:generateDebugAssets UP-TO-DATE
 > Task :app:mergeDebugAssets
-> Task :app:processDebugManifestForPackage
 > Task :app:compressDebugAssets
 > Task :app:processDebugJavaRes NO-SOURCE
 > Task :app:checkDebugDuplicateClasses
-> Task :app:processDebugResources
 > Task :app:mergeDebugJavaResource
 > Task :app:desugarDebugFileDependencies
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/notescategorized/app/NoteStorage.java:104: error: ')' expected
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeExtDexDebug
+> Task :app:mergeLibDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:processDebugResources
+> Task :app:validateSigningDebug
 
-> Task :app:compileDebugJavaWithJavac FAILED
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/notescategorized/app/NoteStorage.java:104: error: ')' expected
 String categoriesJsonString = sharedPreferences.getString(KEY_CATEGORIES, "["All", "Uncategorized"]");
 ^
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/notescategorized/app/NoteStorage.java:104: error: ';' expected
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/notescategorized/app/NoteStorage.java:104: error: not a statement
-21 actionable tasks: 21 executed
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/notescategorized/app/NoteStorage.java:161: error: class, interface, or enum expected
-[2026-09-26 05:41:34] [INFO]
+> Task :app:compileDebugJavaWithJavac FAILED
+[2026-09-26 05:48:08] [INFO]
 5 errors
 
 FAILURE: Build failed with an exception.
@@ -288,6 +293,7 @@ at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecut
 at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler error output for details.
 at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:57)
+25 actionable tasks: 25 executed
 at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:39)
 at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
 at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:52)
@@ -393,7 +399,7 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 27s
+BUILD FAILED in 22s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
