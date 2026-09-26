@@ -1,0 +1,175 @@
+{
+    "steps": [
+        {
+            "step": 1,
+            "title": "Initialize Android Project Structure",
+            "description": "Sets up the basic Android project files including the manifest and build configuration with the new package name and app name.",
+            "files": [
+                "app/src/main/AndroidManifest.xml",
+                "app/build.gradle"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 2,
+            "title": "Define Subject Data Model",
+            "description": "Creates the Subject class to represent study subjects with an ID and name.",
+            "files": [
+                "app/src/main/java/com/studentstudyplanner/app/Subject.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 3,
+            "title": "Define Task Data Model",
+            "description": "Creates the Task class to represent study tasks with an ID, associated subject, title, description, due date, priority, and completion status.",
+            "files": [
+                "app/src/main/java/com/studentstudyplanner/app/Task.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 4,
+            "title": "Define Reminder Data Model",
+            "description": "Creates the Reminder class to represent notifications for tasks, including ID, associated task ID, message, and reminder time.",
+            "files": [
+                "app/src/main/java/com/studentstudyplanner/app/Reminder.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 5,
+            "title": "Implement SQLite Database Helper",
+            "description": "Develops StudyPlannerDatabaseHelper for managing SQLite operations for Subjects, Tasks, and Reminders (CRUD operations and search/filter).",
+            "files": [
+                "app/src/main/java/com/studentstudyplanner/app/StudyPlannerDatabaseHelper.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 6,
+            "title": "Create Main Activity Layout (Subject List)",
+            "description": "Designs the layout for MainActivity, which will display a list of all study subjects and a button to add new ones.",
+            "files": [
+                "app/src/main/res/layout/activity_main.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 7,
+            "title": "Create Subject List Item Layout",
+            "description": "Designs the layout for a single subject item displayed in the main list.",
+            "files": [
+                "app/src/main/res/layout/item_subject.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 8,
+            "title": "Implement Subject Adapter",
+            "description": "Creates a custom ArrayAdapter to efficiently display Subject objects in the MainActivity's ListView.",
+            "files": [
+                "app/src/main/java/com/studentstudyplanner/app/SubjectAdapter.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 9,
+            "title": "Implement Main Activity (Subject List Management)",
+            "description": "Develops the core logic for MainActivity to load, display, and add subjects, handling user interactions.",
+            "files": [
+                "app/src/main/java/com/studentstudyplanner/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 10,
+            "title": "Create Subject Detail/Tasks List Layout",
+            "description": "Designs the layout for SubjectDetailActivity, showing subject name and a list of tasks for that subject.",
+            "files": [
+                "app/src/main/res/layout/activity_subject_detail.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 11,
+            "title": "Create Task List Item Layout",
+            "description": "Designs the layout for a single task item, including its title, due date, priority, and completion status.",
+            "files": [
+                "app/src/main/res/layout/item_task.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 12,
+            "title": "Implement Task Adapter",
+            "description": "Creates a custom ArrayAdapter to efficiently display Task objects within SubjectDetailActivity's ListView.",
+            "files": [
+                "app/src/main/java/com/studentstudyplanner/app/TaskAdapter.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 13,
+            "title": "Implement Subject Detail Activity (Tasks Management)",
+            "description": "Develops SubjectDetailActivity to display tasks for a subject, add new tasks, and mark task completion, including subject editing.",
+            "files": [
+                "app/src/main/java/com/studentstudyplanner/app/SubjectDetailActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 14,
+            "title": "Create Task Detail Layout (Add/Edit Task)",
+            "description": "Designs the layout for TaskDetailActivity, allowing users to input/edit task title, description, due date, and priority.",
+            "files": [
+                "app/src/main/res/layout/activity_task_detail.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 15,
+            "title": "Implement Task Detail Activity",
+            "description": "Develops TaskDetailActivity for handling task creation, editing, and deletion, interacting with the database.",
+            "files": [
+                "app/src/main/java/com/studentstudyplanner/app/TaskDetailActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 16,
+            "title": "Implement Reminder Broadcast Receiver",
+            "description": "Creates a BroadcastReceiver to handle alarm triggers and display notifications for reminders.",
+            "files": [
+                "app/src/main/java/com/studentstudyplanner/app/ReminderBroadcastReceiver.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 17,
+            "title": "Add Reminder Setup and Management",
+            "description": "Integrates functionality to set and cancel reminders for tasks within TaskDetailActivity using AlarmManager.",
+            "files": [
+                "app/src/main/java/com/studentstudyplanner/app/TaskDetailActivity.java",
+                "app/src/main/java/com/studentstudyplanner/app/ReminderUtils.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 18,
+            "title": "Update Android Manifest",
+            "description": "Adds declarations for new activities, the broadcast receiver, and necessary permissions to the AndroidManifest.xml.",
+            "files": [
+                "app/src/main/AndroidManifest.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 19,
+            "title": "Building Student Study Planner",
+            "description": "The final step to compile and build the Android application.",
+            "files": [],
+            "status": "pending"
+        }
+    ]
+}
