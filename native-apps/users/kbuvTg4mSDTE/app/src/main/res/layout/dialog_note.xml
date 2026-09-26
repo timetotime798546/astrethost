@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/dialog_note_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Note"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#111827"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TITLE"
+        android:textColor="#4B5563"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        android:layout_marginBottom="6dp" />
+
+    <EditText
+        android:id="@+id/et_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter note title..."
+        android:background="@drawable/bg_input_field"
+        android:inputType="textCapSentences"
+        android:textColor="#111827"
+        android:textColorHint="#9CA3AF"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONTENT"
+        android:textColor="#4B5563"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        android:layout_marginBottom="6dp" />
+
+    <EditText
+        android:id="@+id/et_dialog_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Write your thoughts here..."
+        android:background="@drawable/bg_input_field"
+        android:inputType="textMultiLine|textCapSentences"
+        android:lines="5"
+        android:gravity="top"
+        android:textColor="#111827"
+        android:textColorHint="#9CA3AF"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT CATEGORY"
+        android:textColor="#4B5563"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        android:layout_marginBottom="6dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_spinner"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:layout_marginBottom="10dp">
+
+        <Spinner
+            android:id="@+id/spinner_dialog_category"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@null" />
+    </LinearLayout>
+</LinearLayout>

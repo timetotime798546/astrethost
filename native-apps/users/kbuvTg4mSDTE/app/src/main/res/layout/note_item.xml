@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_note_card"
+    android:padding="20dp">
+
+    <!-- Card Header with Title and Custom Label Category Tag -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="top"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:id="@+id/note_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#1F2937"
+            android:lineSpacingExtra="2dp" />
+
+        <TextView
+            android:id="@+id/note_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_category_tag"
+            android:textColor="#4F46E5"
+            android:textStyle="bold"
+            android:textSize="11sp"
+            android:layout_marginLeft="8dp" />
+    </LinearLayout>
+
+    <!-- Card Content Body text -->
+    <TextView
+        android:id="@+id/note_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#4B5563"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Sleek Separation Divider Line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F3F4F6"
+        android:layout_marginBottom="14dp" />
+
+    <!-- Bottom Actions and Timestamp metadata -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/note_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:textColor="#9CA3AF" />
+
+        <Button
+            android:id="@+id/btn_note_edit"
+            android:layout_width="65dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_button_edit"
+            android:textColor="#D97706"
+            android:text="Edit"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginRight="8dp" />
+
+        <Button
+            android:id="@+id/btn_note_delete"
+            android:layout_width="65dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_button_delete"
+            android:textColor="#DC2626"
+            android:text="Delete"
+            android:textStyle="bold"
+            android:textSize="12sp" />
+    </LinearLayout>
+</LinearLayout>
