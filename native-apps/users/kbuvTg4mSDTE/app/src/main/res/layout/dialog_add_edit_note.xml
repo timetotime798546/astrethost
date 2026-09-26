@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/dialogTitleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Note Title"
+        android:inputType="textCapSentences"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/dialogContentEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Note Content"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:maxLines="8"
+        android:scrollbars="vertical"
+        android:layout_marginBottom="8dp"/>
+
+    <Spinner
+        android:id="@+id/dialogCategorySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown" />
+
+</LinearLayout>
