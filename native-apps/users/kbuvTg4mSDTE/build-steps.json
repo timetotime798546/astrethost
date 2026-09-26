@@ -2,11 +2,10 @@
     "steps": [
         {
             "step": 1,
-            "title": "Initialize Android Project Structure",
-            "description": "Set up the basic Android project files, including app-meta.json, build-steps.json, AndroidManifest.xml (removed deprecated package attribute), and app/build.gradle (removed external dependencies) with the specified environment and package name.",
+            "title": "Initialize Android Project Structure & Configuration",
+            "description": "Set up the basic Android project files, including app-meta.json, AndroidManifest.xml, and app/build.gradle. Ensure correct version codes and names are applied, and remove any disallowed external dependencies, specifically 'org.nanohttpd:nanohttpd'.",
             "files": [
                 "app-meta.json",
-                "build-steps.json",
                 "app/src/main/AndroidManifest.xml",
                 "app/build.gradle"
             ],
@@ -14,8 +13,8 @@
         },
         {
             "step": 2,
-            "title": "Create Base Note Data Model",
-            "description": "Define a Java class 'Note' to represent individual notes, including properties for ID, title, content, and category. This will be used for data storage.",
+            "title": "Define Note Data Model",
+            "description": "Create the 'Note' Java class to represent individual notes with properties for ID, title, content, and category.",
             "files": [
                 "app/src/main/java/com/notescategorized/app/Note.java"
             ],
@@ -23,8 +22,8 @@
         },
         {
             "step": 3,
-            "title": "Implement Data Storage Utility",
-            "description": "Create a 'NoteStorage' utility class to handle saving and loading notes and categories using SharedPreferences, serializing and deserializing them as JSON strings. Fixed string literal syntax for default categories to resolve compilation errors.",
+            "title": "Implement Note Data Storage Logic",
+            "description": "Develop the 'NoteStorage' Java class for managing notes and categories using SharedPreferences. This includes correcting the JSON string literal for default categories by escaping internal double quotes to prevent compilation errors.",
             "files": [
                 "app/src/main/java/com/notescategorized/app/NoteStorage.java"
             ],
@@ -33,7 +32,7 @@
         {
             "step": 4,
             "title": "Design Main Activity Layout",
-            "description": "Create the layout for MainActivity, including a ListView to display notes, an EditText for search, a Spinner for category filtering, and a Button to add new notes.",
+            "description": "Create the layout for 'MainActivity', including a ListView for notes, an EditText for search, a Spinner for category filtering, and buttons for adding new notes and managing categories.",
             "files": [
                 "app/src/main/res/layout/activity_main.xml"
             ],
@@ -41,8 +40,8 @@
         },
         {
             "step": 5,
-            "title": "Implement Main Activity Functionality",
-            "description": "Develop the MainActivity Java code to display notes, handle search and category filtering, manage note additions and deletions, and navigate to detail/category management activities.",
+            "title": "Develop Main Activity Functionality",
+            "description": "Implement the Java code for 'MainActivity' to load, display, filter, search, and manage notes, including handling user interactions and navigation to other activities.",
             "files": [
                 "app/src/main/java/com/notescategorized/app/MainActivity.java"
             ],
@@ -51,7 +50,7 @@
         {
             "step": 6,
             "title": "Create Note List Item Layout",
-            "description": "Design the layout for a single item in the notes ListView, showing the note title and a preview of its content.",
+            "description": "Design the layout for a single note item to be displayed in the 'notesListView' of 'MainActivity', showing the note's title and a content preview.",
             "files": [
                 "app/src/main/res/layout/list_item_note.xml"
             ],
@@ -59,8 +58,8 @@
         },
         {
             "step": 7,
-            "title": "Create Note Detail Activity Layout",
-            "description": "Design the layout for NoteDetailActivity, providing EditText fields for note title and content, a Spinner for category selection, and buttons for saving and deleting a note.",
+            "title": "Design Note Detail Activity Layout",
+            "description": "Create the layout for 'NoteDetailActivity', providing input fields for note title, content, a spinner for category selection, and buttons to save or delete a note.",
             "files": [
                 "app/src/main/res/layout/activity_note_detail.xml"
             ],
@@ -69,7 +68,7 @@
         {
             "step": 8,
             "title": "Implement Note Detail Activity Logic",
-            "description": "Develop the NoteDetailActivity Java code to allow users to create new notes or edit existing ones, including selecting a category and saving changes via the NoteStorage utility.",
+            "description": "Develop the Java code for 'NoteDetailActivity' to handle creating new notes, editing existing notes, saving changes, and confirming note deletion.",
             "files": [
                 "app/src/main/java/com/notescategorized/app/NoteDetailActivity.java"
             ],
@@ -78,7 +77,7 @@
         {
             "step": 9,
             "title": "Design Category Management Activity Layout",
-            "description": "Create the layout for CategoryManageActivity, featuring an EditText and Button to add new categories, and a ListView to display and allow deletion of existing categories.",
+            "description": "Create the layout for 'CategoryManageActivity', including an EditText and Button to add new categories, and a ListView to display existing categories with deletion capability.",
             "files": [
                 "app/src/main/res/layout/activity_category_manage.xml"
             ],
@@ -87,7 +86,7 @@
         {
             "step": 10,
             "title": "Create Category List Item Layout",
-            "description": "Design the layout for a single item in the category ListView, simply displaying the category name.",
+            "description": "Design the layout for a single category item to be displayed in the 'categoriesListView' of 'CategoryManageActivity', showing the category name.",
             "files": [
                 "app/src/main/res/layout/list_item_category.xml"
             ],
@@ -96,7 +95,7 @@
         {
             "step": 11,
             "title": "Implement Category Management Activity Logic",
-            "description": "Develop the CategoryManageActivity Java code to allow users to add new categories and delete existing ones, updating the categories stored in SharedPreferences.",
+            "description": "Develop the Java code for 'CategoryManageActivity' to enable users to add and delete categories, ensuring 'All' and 'Uncategorized' default categories are handled correctly.",
             "files": [
                 "app/src/main/java/com/notescategorized/app/CategoryManageActivity.java"
             ],
