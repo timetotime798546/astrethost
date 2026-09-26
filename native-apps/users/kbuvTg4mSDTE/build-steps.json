@@ -1,0 +1,110 @@
+{
+    "steps": [
+        {
+            "step": 1,
+            "title": "Set up Gradle Environment",
+            "description": "Configuring the project-level and app-level build.gradle files with specified SDK versions and build tools.",
+            "files": [
+                "app/build.gradle"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 2,
+            "title": "Define Android Manifest",
+            "description": "Creating the AndroidManifest.xml to declare the application package, activities, and necessary permissions.",
+            "files": [
+                "app/src/main/AndroidManifest.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 3,
+            "title": "Design Main Layout",
+            "description": "Creating the activity_main.xml layout with a ListView for notes, an EditText for search, and a Button for adding new notes.",
+            "files": [
+                "app/src/main/res/layout/activity_main.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 4,
+            "title": "Implement Note Data Model",
+            "description": "Creating a simple Java class (Note) to represent individual notes, including ID, title, content, and category.",
+            "files": [
+                "app/src/main/java/com/categorynotesapp/app/Note.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 5,
+            "title": "Initialize MainActivity Components",
+            "description": "Setting up basic UI components in MainActivity.java, including ListView, ArrayAdapter, and SharedPreferences.",
+            "files": [
+                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 6,
+            "title": "Implement Data Persistence with SharedPreferences",
+            "description": "Adding methods to MainActivity for saving and loading notes using Android's SharedPreferences, converting notes to/from JSON.",
+            "files": [
+                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 7,
+            "title": "Add Note Creation Dialog",
+            "description": "Implementing a dialog for adding new notes, allowing users to input title, content, and select a category.",
+            "files": [
+                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 8,
+            "title": "Implement Note Editing and Deletion",
+            "description": "Adding long-click context menu options to the ListView for editing and deleting existing notes.",
+            "files": [
+                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 9,
+            "title": "Implement Search Functionality",
+            "description": "Adding a TextWatcher to the search EditText to filter notes in real-time based on title or content.",
+            "files": [
+                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 10,
+            "title": "Implement Category Filtering Menu",
+            "description": "Creating an options menu to allow users to filter notes by predefined categories.",
+            "files": [
+                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 11,
+            "title": "Refine UI Interactions and Display",
+            "description": "Ensuring all UI elements respond correctly, and notes are displayed clearly in the ListView.",
+            "files": [
+                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 12,
+            "title": "Building Category Notes",
+            "description": "Compiling and packaging the Android application.",
+            "files": [],
+            "status": "pending"
+        }
+    ]
+}
