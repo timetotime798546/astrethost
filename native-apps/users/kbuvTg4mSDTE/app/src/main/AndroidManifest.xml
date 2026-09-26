@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.btaapp.app">
+    package="com.moderncalculator.app">
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:roundIcon="@drawable/icon"
-        android:label="BTA App"
+        android:label="Modern Calculator"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.Light">
-        <activity android:name=".MainActivity"
-            android:exported="true">
+
+        <activity android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity"
+            android:exported="false">
         </activity>
     </application>
 

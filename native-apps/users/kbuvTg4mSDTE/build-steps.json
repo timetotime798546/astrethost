@@ -9,8 +9,8 @@
         },
         {
             "step": 2,
-            "title": "Configure Gradle Build Files",
-            "description": "Updates the module-level build.gradle file with SDK versions, build tools, and other essential configurations for the app.",
+            "title": "Configure Gradle Build Files and Remove Unsupported Dependencies",
+            "description": "Updates the module-level build.gradle file with SDK versions, build tools, and removes any unsupported external libraries to comply with project rules.",
             "files": [
                 "app/build.gradle"
             ],
@@ -18,15 +18,42 @@
         },
         {
             "step": 3,
-            "title": "Define Application Manifest",
-            "description": "Creates the AndroidManifest.xml file, declaring the application's package, activities, permissions, and theme.",
+            "title": "Verify Splash Screen Layout",
+            "description": "Confirms the XML layout for the SplashActivity correctly displays a loading indicator and app title on launch.",
+            "files": [
+                "app/src/main/res/layout/activity_splash.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 4,
+            "title": "Verify Splash Activity Java Class",
+            "description": "Confirms the SplashActivity.java file correctly functions as the initial launcher activity and transitions to MainActivity after a short delay.",
+            "files": [
+                "app/src/main/java/com/moderncalculator/app/SplashActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 5,
+            "title": "Verify AndroidManifest.xml for Splash Screen and Main Activity",
+            "description": "Confirms the AndroidManifest.xml correctly declares SplashActivity as the app's launcher and Main Activity as a non-launcher activity.",
             "files": [
                 "app/src/main/AndroidManifest.xml"
             ],
             "status": "pending"
         },
         {
-            "step": 4,
+            "step": 6,
+            "title": "Confirm Splash Screen Loader Duration",
+            "description": "Ensures the SplashActivity is configured to display the loader for an appropriate duration (e.g., 3 seconds) before transitioning to the main content.",
+            "files": [
+                "app/src/main/java/com/moderncalculator/app/SplashActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 7,
             "title": "Design Calculator Display Layout",
             "description": "Develops the XML layout for the main activity to display the input and results of calculations.",
             "files": [
@@ -35,7 +62,7 @@
             "status": "pending"
         },
         {
-            "step": 5,
+            "step": 8,
             "title": "Design Calculator Button Layout",
             "description": "Adds a GridLayout to the main activity layout to arrange the numerical and operator buttons.",
             "files": [
@@ -44,80 +71,80 @@
             "status": "pending"
         },
         {
-            "step": 6,
+            "step": 9,
             "title": "Initialize MainActivity",
             "description": "Creates the MainActivity.java file and sets up the basic class structure, including inflating the layout.",
             "files": [
-                "app/src/main/java/com/btaapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 7,
-            "title": "Connect UI Elements to Java Code",
-            "description": "Finds TextView and Button references from the layout in MainActivity.java.",
-            "files": [
-                "app/src/main/java/com/btaapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 8,
-            "title": "Implement Number Button Logic",
-            "description": "Adds OnClickListener for number buttons to append digits to the display.",
-            "files": [
-                "app/src/main/java/com/btaapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 9,
-            "title": "Implement Operator Button Logic",
-            "description": "Adds OnClickListener for operator buttons (+, -, *, /) to handle operations and store current input.",
-            "files": [
-                "app/src/main/java/com/btaapp/app/MainActivity.java"
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 10,
-            "title": "Implement Clear (C) Button Logic",
-            "description": "Adds OnClickListener for the 'C' button to clear the display and reset calculation state.",
+            "title": "Connect UI Elements to Java Code",
+            "description": "Finds TextView and Button references from the layout in MainActivity.java.",
             "files": [
-                "app/src/main/java/com/btaapp/app/MainActivity.java"
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 11,
-            "title": "Implement Equals (=) Button Logic",
-            "description": "Adds OnClickListener for the '=' button to trigger the calculation of the expression.",
+            "title": "Implement Number Button Logic",
+            "description": "Adds OnClickListener for number buttons to append digits to the display.",
             "files": [
-                "app/src/main/java/com/btaapp/app/MainActivity.java"
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 12,
-            "title": "Add Core Calculation Logic",
-            "description": "Develops a private method within MainActivity to parse the expression and perform the arithmetic calculation.",
+            "title": "Implement Operator Button Logic",
+            "description": "Adds OnClickListener for operator buttons (+, -, *, /) to handle operations and store current input.",
             "files": [
-                "app/src/main/java/com/btaapp/app/MainActivity.java"
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 13,
-            "title": "Refine Display Handling",
-            "description": "Ensures proper formatting and error handling for the calculator's display.",
+            "title": "Implement Clear (C) Button Logic",
+            "description": "Adds OnClickListener for the 'C' button to clear the display and reset calculation state.",
             "files": [
-                "app/src/main/java/com/btaapp/app/MainActivity.java"
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 14,
-            "title": "Building BTA App",
+            "title": "Implement Equals (=) Button Logic",
+            "description": "Adds OnClickListener for the '=' button to trigger the calculation of the expression.",
+            "files": [
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 15,
+            "title": "Add Core Calculation Logic",
+            "description": "Develops a private method within MainActivity to parse the expression and perform the arithmetic calculation.",
+            "files": [
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 16,
+            "title": "Refine Display Handling",
+            "description": "Ensures proper formatting and error handling for the calculator's display.",
+            "files": [
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 17,
+            "title": "Building Modern Calculator",
             "description": "Compiling and packaging the Android application.",
             "files": [],
             "status": "pending"

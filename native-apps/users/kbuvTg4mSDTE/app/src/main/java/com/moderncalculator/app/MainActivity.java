@@ -1,4 +1,4 @@
-package com.btaapp.app;
+package com.moderncalculator.app;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -199,4 +199,3 @@ public class MainActivity extends Activity {
         }
     }
 }
-[2026-09-26 06:14:02] [INFO]
