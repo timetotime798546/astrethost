@@ -10,11 +10,11 @@
         {
             "step": 2,
             "title": "Configure Gradle Build Files and Remove Unsupported Dependencies",
-            "description": "Updates the module-level build.gradle file with SDK versions, build tools, and removes any unsupported external libraries to comply with project rules.",
+            "description": "Updates the module-level build.gradle file with SDK versions, build tools, and removes the unsupported 'org.nanohttpd' external library to comply with project rules.",
             "files": [
                 "app/build.gradle"
             ],
-            "status": "pending"
+            "status": "completed"
         },
         {
             "step": 3,
@@ -28,20 +28,20 @@
         {
             "step": 4,
             "title": "Verify Splash Activity Java Class",
-            "description": "Confirms the SplashActivity.java file correctly functions as the initial launcher activity and transitions to MainActivity after a short delay.",
+            "description": "Confirms the SplashActivity.java file correctly functions as the initial launcher activity and transitions to MainActivity after a short delay. This step also fixes extraneous text at the end of the file that caused a compilation error.",
             "files": [
                 "app/src/main/java/com/moderncalculator/app/SplashActivity.java"
             ],
-            "status": "pending"
+            "status": "completed"
         },
         {
             "step": 5,
             "title": "Verify AndroidManifest.xml for Splash Screen and Main Activity",
-            "description": "Confirms the AndroidManifest.xml correctly declares SplashActivity as the app's launcher and Main Activity as a non-launcher activity.",
+            "description": "Confirms the AndroidManifest.xml correctly declares SplashActivity as the app's launcher and Main Activity as a non-launcher activity. This step also removes the deprecated 'package' attribute from the manifest tag.",
             "files": [
                 "app/src/main/AndroidManifest.xml"
             ],
-            "status": "pending"
+            "status": "completed"
         },
         {
             "step": 6,

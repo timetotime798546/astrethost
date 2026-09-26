@@ -33,4 +33,3 @@ public class SplashActivity extends Activity {
         }, SPLASH_TIME_OUT);
     }
 }
-[2026-09-26 06:18:46] [INFO]
