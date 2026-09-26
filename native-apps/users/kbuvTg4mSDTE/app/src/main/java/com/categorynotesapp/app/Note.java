@@ -51,7 +51,7 @@ public class Note {
     public static Note fromJsonString(String jsonString) {
         // Simple JSON parsing, for a real app consider a library
         // Format: id|title|content|category
-        String[] parts = jsonString.split("\|", 4);
+        String[] parts = jsonString.split("\\|", 4); // Fixed: escaped '|'
         if (parts.length == 4) {
             return new Note(parts[0], parts[1], parts[2], parts[3]);
         }

@@ -47,6 +47,15 @@
         },
         {
             "step": 6,
+            "title": "Fix Manifest Deprecation Warning",
+            "description": "Removing the deprecated 'package' attribute from AndroidManifest.xml as recommended. The illegal escape character error in Note.java was already addressed in the provided source code.",
+            "files": [
+                "app/src/main/AndroidManifest.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 7,
             "title": "Implement Data Persistence with SharedPreferences",
             "description": "Adding methods to MainActivity for saving and loading notes using Android's SharedPreferences, converting notes to/from JSON.",
             "files": [
@@ -55,7 +64,7 @@
             "status": "pending"
         },
         {
-            "step": 7,
+            "step": 8,
             "title": "Add Note Creation Dialog",
             "description": "Implementing a dialog for adding new notes, allowing users to input title, content, and select a category.",
             "files": [
@@ -64,7 +73,7 @@
             "status": "pending"
         },
         {
-            "step": 8,
+            "step": 9,
             "title": "Implement Note Editing and Deletion",
             "description": "Adding long-click context menu options to the ListView for editing and deleting existing notes.",
             "files": [
@@ -73,7 +82,7 @@
             "status": "pending"
         },
         {
-            "step": 9,
+            "step": 10,
             "title": "Implement Search Functionality",
             "description": "Adding a TextWatcher to the search EditText to filter notes in real-time based on title or content.",
             "files": [
@@ -82,7 +91,7 @@
             "status": "pending"
         },
         {
-            "step": 10,
+            "step": 11,
             "title": "Implement Category Filtering Menu",
             "description": "Creating an options menu to allow users to filter notes by predefined categories.",
             "files": [
@@ -91,7 +100,7 @@
             "status": "pending"
         },
         {
-            "step": 11,
+            "step": 12,
             "title": "Refine UI Interactions and Display",
             "description": "Ensuring all UI elements respond correctly, and notes are displayed clearly in the ListView.",
             "files": [
@@ -100,7 +109,7 @@
             "status": "pending"
         },
         {
-            "step": 12,
+            "step": 13,
             "title": "Building Category Notes",
             "description": "Compiling and packaging the Android application.",
             "files": [],
