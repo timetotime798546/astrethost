@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Meta and Specifications",
+      "description": "Establish the global namespace, package name: com.real3dcaradventure.app, and custom game name 'Real3DCarAdventure'.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Establish Android Manifest",
+      "description": "Create AndroidManifest.xml specifying a landscape-oriented hardware-accelerated Game Activity with required GL configurations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Build Scripts",
+      "description": "Set up build.gradle with proper compile and target SDKs (34), tool versions, and strict Java 8 compilation compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create User Interface Layout",
+      "description": "Develop dynamic full-screen activity_main.xml layout overlaying a custom GLSurfaceView with a responsive game HUD, custom meters, and high-contrast control buttons.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Initialize Dynamic Audio Engine",
+      "description": "Implement a real-time programmatic audio synthesizer using AudioTrack in MainActivity to play dynamic, variable-frequency engine sound based on throttle and current speed.",
+      "files": ["app/src/main/java/com/real3dcaradventure/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement GLES 2.0 Shader Engine",
+      "description": "Develop safe vertex and fragment shader program loaders inside MainActivity for authentic flat-shaded and directional-lit 3D polygons.",
+      "files": ["app/src/main/java/com/real3dcaradventure/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Define 3D Geometry and Normals",
+      "description": "Construct high-precision vertex, index, and normal buffers for generating 3D models (chassis, cabin, wheels, road, scenery).",
+      "files": ["app/src/main/java/com/real3dcaradventure/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build Game Play Mechanics & Spawner",
+      "description": "Write physics-based loop handling speeds up to 180MPH, drifting, deceleration, multi-lane obstacles spawner, and dynamic camera chase systems.",
+      "files": ["app/src/main/java/com/real3dcaradventure/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Program Collision Detection and Screen Shake",
+      "description": "Code bounding-box based collision engine checking lane offsets, executing dramatic crash animations (shaking the 3D viewport) and synthesizing dynamic white-noise impact sounds.",
+      "files": ["app/src/main/java/com/real3dcaradventure/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Connect Interactive Overlays and Highscores",
+      "description": "Hook up MainActivity click listeners, dynamic game over overlay, score counters, gear indicator, and speed dials using thread-safe state synchronization.",
+      "files": ["app/src/main/java/com/real3dcaradventure/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Real3DCarAdventure",
+      "description": "Run the complete build, compile GLES modules, construct the project, and package the debug APK with zero errors.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
