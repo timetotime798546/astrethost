@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Modern Calculator
 App ID: app_6ab72dce73b03
-Build ID: 36211812033
-Time: 2026-09-25 22:29:46
+Build ID: 36212405753
+Time: 2026-09-25 22:41:26
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 167590
-Extracted error characters: 30042
-File references detected: 238
+Original log characters: 167097
+Extracted error characters: 29610
+File references detected: 235
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2197) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2112) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/ff963ccb-3f77-4c48-a46b-e30e0a76e919
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/d90fe90f-be3c-46b8-af08-14660e44f865
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -189,6 +189,7 @@ PROJECT FILES
 ./app-meta.json
 ./app/build.gradle
 ./app/proguard-rules.pro
+./build-error.log
 ./build-steps.json
 ./build.gradle
 ./local.properties
@@ -216,14 +217,12 @@ Daemon will be stopped at the end of the build
 > Task :app:mergeDebugResources
 > Task :app:createDebugCompatibleScreenManifests
 > Task :app:extractDeepLinksDebug
-
 [Fatal Error] activity_main.xml:232:16: Content is not allowed in trailing section.
+
 > Task :app:parseDebugLocalResources FAILED
 
-> Task :app:processDebugMainManifest
-package="com.moderncalculator.app" found in source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
-
 FAILURE: Build failed with an exception.
+> Task :app:processDebugMainManifest
 
 Execution failed for task ':app:parseDebugLocalResources'.
 > A failure occurred while executing com.android.build.gradle.internal.res.ParseLibraryResourcesTask$ParseResourcesRunnable
@@ -281,6 +280,7 @@ at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForAll(DefaultAsyncWorkT
 at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForCompletion(DefaultAsyncWorkTracker.java:66)
 at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:256)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+11 actionable tasks: 11 executed
 at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
 at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
 at org.gradle.internal.operations.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:68)
@@ -313,11 +313,9 @@ at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:59)
 at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:68)
 at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:46)
 at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:36)
-at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:2
-
-================ EXTRACTED LOG CONTINUED ================
-
-gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:22)
+at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:25)
+at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:36)
+at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:22)
 at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:91)
 at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:55)
 at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:55)
@@ -387,11 +385,10 @@ at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Do
 at com.android.ide.common.symbols.ResourceDirectoryParser.parseResourceFile(ResourceDirectoryParser.kt:225)
 ... 34 more
 
-BUILD FAILED in 24s
-Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
-Recommendation: remove package="com.moderncalculator.app" from the source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
-11 actionable tasks: 11 executed
+BUILD FAILED in 25s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
 [36;1mrm -rf gradle-8.5[0m
+
+Post job cleanup.
