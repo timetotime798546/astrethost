@@ -1,0 +1,91 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Setup App Metadata",
+      "description": "Configure app-meta.json with app details.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build System",
+      "description": "Create build.gradle with correct Android build options and target levels.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Android Manifest",
+      "description": "Create AndroidManifest.xml with application name, package, and startup activity.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define Model Classes",
+      "description": "Create Note and Category model classes to represent app data.",
+      "files": [
+        "app/src/main/java/com/notesmanager/app/Note.java",
+        "app/src/main/java/com/notesmanager/app/Category.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create SQLite Database Helper",
+      "description": "Develop SQLiteOpenHelper to manage tables for categories and notes.",
+      "files": ["app/src/main/java/com/notesmanager/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Main Layout XML",
+      "description": "Construct UI container layout including search input, category spinner, and scrollable notes list.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Dialog Layouts",
+      "description": "Construct Dialog UI XML layout for creating and editing notes.",
+      "files": ["app/src/main/res/layout/dialog_note.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Category Dialog Layout",
+      "description": "Construct Dialog UI XML layout for creating categories.",
+      "files": ["app/src/main/res/layout/dialog_category.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Note List Item Layout",
+      "description": "Design custom XML template layout for each individual note item in list.",
+      "files": ["app/src/main/res/layout/note_item.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement MainActivity UI Binding",
+      "description": "Initialize views, database connection, and bind event handlers for search and add actions.",
+      "files": ["app/src/main/java/com/notesmanager/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Filter and Search logic",
+      "description": "Write logic to filter note cards dynamically based on category selection and search query changes.",
+      "files": ["app/src/main/java/com/notesmanager/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Notes Manager",
+      "description": "Compile, build and assemble the debug package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
