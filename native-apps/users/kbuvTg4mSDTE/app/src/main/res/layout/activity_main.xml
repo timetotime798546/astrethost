@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    android:padding="8dp"
+    android:background="@android:color/black">
+
+    <!-- Display -->
+    <TextView
+        android:id="@+id/displayTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:textSize="48sp"
+        android:gravity="end"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="0"
+        android:maxLines="1"
+        android:ellipsize="start"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Buttons Grid -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="5">
+
+        <!-- Row 1: Clear, Operators -->
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/buttonClear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="C"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:layout_margin="2dp"/>
+
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/buttonDivide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="/"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:layout_margin="2dp"/>
+
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/buttonMultiply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="*"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:layout_margin="2dp"/>
+
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/buttonSubtract"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="-"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:layout_margin="2dp"/>
+
+        <!-- Row 2: 7, 8, 9, + -->
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/button7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="7"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_margin="2dp"/>
+
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/button8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="8"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_margin="2dp"/>
+
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/button9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="9"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_margin="2dp"/>
+
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/buttonAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="+"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:layout_margin="2dp"/>
+
+        <!-- Row 3: 4, 5, 6 -->
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/button4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="4"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_margin="2dp"/>
+
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/button5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="5"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_margin="2dp"/>
+
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/button6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="6"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_margin="2dp"/>
+
+        <!-- Row 4: 1, 2, 3 -->
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="1"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_margin="2dp"/>
+
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="2"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_margin="2dp"/>
+
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="3"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_margin="2dp"/>
+
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/buttonEquals"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="="
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:layout_margin="2dp"/>
+
+        <!-- Row 5: 0, decimal -->
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/button0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:text="0"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_margin="2dp"/>
+
+        <Button style="@android:style/Widget.Material.Button"
+            android:id="@+id/buttonDecimal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="."
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_margin="2dp"/>
+
+    </GridLayout>
+
+</LinearLayout>","annotations":[{"start_index":8253,"end_index":8661,"url":"https://www.buzzphp.com/posts/obtain-a-drawable-with-getresources-getidentifier-in-android","type":"url_citation"},{"start_index":8735,"end_index":9048,"url":"https://github.com/1AhmadElmasri/CalculatorApp","type":"url_citation"},{"start_index":9835,"end_index":10382,"url":"https://github.com/AliMehrpour/eSecureBox","type":"url_citation"},{"start_index":11706,"end_index":12111,"url":"https://github.com/MDSalmanChohan/SecondTraineP","type":"url_citation"},{"start_index":12369,"end_index":12752,"url":"https://www.transtutors.com/questions/p1-suppose-we-want-to-create-a-method-for-the-class-binarytree-file-binarytree-java--10316804.htm","type":"url_citation"}],"type":"text"}],"type":"model_output"}],"object":"interaction","model":"gemini-2.5-flash"}
+[2026-09-25 22:26:45] [SUCCESS] Gemini response JSON decoded
+{
+    "response_keys": [
+        "id",
+        "status",
+        "usage",
+        "created",
+        "updated",
+        "service_tier",
+        "steps",
+        "object",
+        "model"
+    ]
+}
+[2026-09-25 22:26:45] [SUCCESS] Interaction ID received
+{
+    "interaction_id": "v1_ChdaUzIzYXJUZ01ZYWIyOG9QcjYyc3lBOBIXWlMyM2FyVGdNWWFiMjhvUHI2MnN5QTg",
+    "serial": "5"
+}
+[2026-09-25 22:26:45] [WARNING] Database connection lost. Reconnecting...
+[2026-09-25 22:26:45] [START] Connecting to MySQL
+[2026-09-25 22:26:45] [SUCCESS] MySQL connection successful
+[2026-09-25 22:26:45] [START] Saving Gemini key usage
+{
+    "serial": "5",
+    "minute": 1,
+    "hour": 2,
+    "day": 8
+}
+[2026-09-25 22:26:45] [SUCCESS] Gemini key usage saved
+{
+    "serial": "5"
+}
+[2026-09-25 22:26:45] [SUCCESS] Gemini key usage incremented after successful create
+{
+    "serial": "5",
+    "usage": {
+        "minute": 1,
+        "hour": 2,
+        "day": 8,
+        "minuteReset": 1790389608355,
+        "hourReset": 1790392897003,
+        "dayReset": 1790420820884
+    }
+}
+[2026-09-25 22:26:45] [SUCCESS] Returning interaction ID to frontend
+{
+    "interaction_id": "v1_ChdaUzIzYXJUZ01ZYWIyOG9QcjYyc3lBOBIXWlMyM2FyVGdNWWFiMjhvUHI2MnN5QTg",
+    "status": "in_progress",
+    "api_serial": "5"
+}
+[2026-09-25 22:26:45] [SUCCESS] Sending JSON response
+{
+    "http_status": 200,
+    "response": {
+        "success": true,
+        "interaction_id": "v1_ChdaUzIzYXJUZ01ZYWIyOG9QcjYyc3lBOBIXWlMyM2FyVGdNWWFiMjhvUHI2MnN5QTg",
+        "status": "in_progress",
+        "api_serial": "5",
+        "limits": {
+            "minute": {
+                "used": 1,
+                "limit": 15,
+                "remaining": 14
+            },
+            "hour": {
+                "used": 2,
+                "limit": 200,
+                "remaining": 198
+            },
+            "day": {
+                "used": 8,
+                "limit": 500,
+                "remaining": 492
+            },
+            "device": {
+                "used": 6,
+                "limit": 50,
+                "remaining": 44
+            }
+        }
+    }
+}
+[2026-09-25 22:26:45] [SUCCESS] jsonResponse() completed. Exiting worker.
