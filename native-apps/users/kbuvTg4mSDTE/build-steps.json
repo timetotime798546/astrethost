@@ -1,0 +1,111 @@
+{
+    "steps": [
+        {
+            "step": 1,
+            "title": "Initialize Android Project Structure",
+            "description": "Sets up the basic Android project files including the manifest and build configuration.",
+            "files": [
+                "app/src/main/AndroidManifest.xml",
+                "app/build.gradle"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 2,
+            "title": "Define Note Data Model",
+            "description": "Creates the Note class to represent individual notes with id, title, content, and category.",
+            "files": [
+                "app/src/main/java/com/notescategoriesapp/app/Note.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 3,
+            "title": "Implement SQLite Database Helper",
+            "description": "Develops NoteDatabaseHelper for managing SQLite operations like creating, reading, updating, and deleting notes.",
+            "files": [
+                "app/src/main/java/com/notescategoriesapp/app/NoteDatabaseHelper.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 4,
+            "title": "Create Note List Item Layout",
+            "description": "Designs the layout for a single note item displayed in the main list.",
+            "files": [
+                "app/src/main/res/layout/item_note.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 5,
+            "title": "Design Main Activity Layout",
+            "description": "Configures the main layout for MainActivity, which will display the list of notes.",
+            "files": [
+                "app/src/main/res/layout/activity_main.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 6,
+            "title": "Implement Custom Note Adapter",
+            "description": "Creates a custom ArrayAdapter to efficiently display Note objects in a ListView.",
+            "files": [
+                "app/src/main/java/com/notescategoriesapp/app/NoteAdapter.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 7,
+            "title": "Create Note Detail Activity Layout",
+            "description": "Designs the layout for NoteDetailActivity, used for adding new notes or editing existing ones.",
+            "files": [
+                "app/src/main/res/layout/activity_note_detail.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 8,
+            "title": "Implement Note Detail Activity",
+            "description": "Develops NoteDetailActivity for handling note creation, editing, and deletion, interacting with the database.",
+            "files": [
+                "app/src/main/java/com/notescategoriesapp/app/NoteDetailActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 9,
+            "title": "Setup Menu for Main Activity",
+            "description": "Defines the options menu for MainActivity, including options for adding, searching, and filtering notes.",
+            "files": [
+                "app/src/main/res/menu/main_menu.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 10,
+            "title": "Integrate Database and UI in MainActivity",
+            "description": "Implements the core logic in MainActivity to fetch and display notes, handle clicks, and refresh the list.",
+            "files": [
+                "app/src/main/java/com/notescategoriesapp/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 11,
+            "title": "Implement Search and Category Filtering",
+            "description": "Adds functionality to MainActivity to search notes by text and filter by categories using dialogs.",
+            "files": [
+                "app/src/main/java/com/notescategoriesapp/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 12,
+            "title": "Building Notes Categories App",
+            "description": "The final step to compile and build the Android application.",
+            "files": [],
+            "status": "pending"
+        }
+    ]
+}
