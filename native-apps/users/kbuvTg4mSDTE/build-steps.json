@@ -2,137 +2,110 @@
     "steps": [
         {
             "step": 1,
-            "title": "Analyze Build Error Log",
-            "description": "Identified the `class, interface, or enum expected` compilation error in `MainActivity.java` as the primary cause of the build failure, indicating extraneous code outside the class definition.",
+            "title": "Initialize Android Project Structure",
+            "description": "Set up the basic Android project files, including app-meta.json, build-steps.json, AndroidManifest.xml, and app/build.gradle with the specified environment and package name.",
             "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 2,
-            "title": "Clean MainActivity.java",
-            "description": "Removed the non-Java log lines and JSON block that were erroneously present at the end of `MainActivity.java`, causing the compilation error.",
-            "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 3,
-            "title": "Review Gradle Dependencies",
-            "description": "Checked the `app/build.gradle` file for any external or unauthorized dependencies that violate project rules.",
-            "files": [
-                "app/build.gradle"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 4,
-            "title": "Remove Unauthorized Dependency",
-            "description": "Removed the `org.nanohttpd:nanohttpd` external library dependency from `app/build.gradle` as it is not permitted by project restrictions.",
-            "files": [
-                "app/build.gradle"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 5,
-            "title": "Update App Build Gradle Plugin Syntax",
-            "description": "Migrated `app/build.gradle` from `apply plugin` to the modern `plugins { id 'com.android.application' }` syntax for Android Gradle Plugin 8.3.2 compatibility.",
-            "files": [
-                "app/build.gradle"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 6,
-            "title": "Confirm Existing Sound Removal",
-            "description": "Verified that all sound-related code, including `MediaPlayer` instantiation, `playSoundEffect` method, and calls to play sound effects, has already been removed from `MainActivity.java`.",
-            "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 7,
-            "title": "Confirm Manifest Configuration",
-            "description": "Confirmed that `AndroidManifest.xml` is correctly defined with the proper namespace and that the deprecated `package` attribute has already been removed, with `namespace` correctly declared in `app/build.gradle`.",
-            "files": [
+                "app-meta.json",
+                "build-steps.json",
                 "app/src/main/AndroidManifest.xml",
                 "app/build.gradle"
             ],
             "status": "pending"
         },
         {
-            "step": 8,
-            "title": "Validate UI Layouts",
-            "description": "Ensured the UI layouts `activity_main.xml` and `dialog_add_edit_note.xml` are structurally sound and correctly define the user interface elements.",
+            "step": 2,
+            "title": "Create Base Note Data Model",
+            "description": "Define a Java class 'Note' to represent individual notes, including properties for ID, title, content, and category. This will be used for data storage.",
             "files": [
-                "app/src/main/res/layout/activity_main.xml",
-                "app/src/main/res/layout/dialog_add_edit_note.xml"
+                "app/src/main/java/com/notescategorized/app/Note.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 3,
+            "title": "Implement Data Storage Utility",
+            "description": "Create a 'NoteStorage' utility class to handle saving and loading notes and categories using SharedPreferences, serializing and deserializing them as JSON strings.",
+            "files": [
+                "app/src/main/java/com/notescategorized/app/NoteStorage.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 4,
+            "title": "Design Main Activity Layout",
+            "description": "Create the layout for MainActivity, including a ListView to display notes, an EditText for search, a Spinner for category filtering, and a Button to add new notes.",
+            "files": [
+                "app/src/main/res/layout/activity_main.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 5,
+            "title": "Implement Main Activity Functionality",
+            "description": "Develop the MainActivity Java code to display notes, handle search and category filtering, manage note additions and deletions, and navigate to detail/category management activities.",
+            "files": [
+                "app/src/main/java/com/notescategorized/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 6,
+            "title": "Create Note List Item Layout",
+            "description": "Design the layout for a single item in the notes ListView, showing the note title and a preview of its content.",
+            "files": [
+                "app/src/main/res/layout/list_item_note.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 7,
+            "title": "Create Note Detail Activity Layout",
+            "description": "Design the layout for NoteDetailActivity, providing EditText fields for note title and content, a Spinner for category selection, and buttons for saving and deleting a note.",
+            "files": [
+                "app/src/main/res/layout/activity_note_detail.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 8,
+            "title": "Implement Note Detail Activity Logic",
+            "description": "Develop the NoteDetailActivity Java code to allow users to create new notes or edit existing ones, including selecting a category and saving changes via the NoteStorage utility.",
+            "files": [
+                "app/src/main/java/com/notescategorized/app/NoteDetailActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 9,
-            "title": "Verify Note Data Model Integrity",
-            "description": "Checked the `Note.java` class to ensure the data model, including ID, title, content, category, and JSON serialization/deserialization methods, is correct.",
+            "title": "Design Category Management Activity Layout",
+            "description": "Create the layout for CategoryManageActivity, featuring an EditText and Button to add new categories, and a ListView to display and allow deletion of existing categories.",
             "files": [
-                "app/src/main/java/com/categorynotesapp/app/Note.java"
+                "app/src/main/res/layout/activity_category_manage.xml"
             ],
             "status": "pending"
         },
         {
             "step": 10,
-            "title": "Review Asynchronous Task Implementation",
-            "description": "Ensured `LoadNotesTask` (an `AsyncTask`) correctly handles background data loading, displays the `ProgressBar`, and updates the UI on completion.",
+            "title": "Create Category List Item Layout",
+            "description": "Design the layout for a single item in the category ListView, simply displaying the category name.",
             "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+                "app/src/main/res/layout/list_item_category.xml"
             ],
             "status": "pending"
         },
         {
             "step": 11,
-            "title": "Validate Data Persistence Logic",
-            "description": "Confirmed that the `saveNotes` method correctly uses `SharedPreferences` to persist notes and that notes are loaded upon app startup.",
+            "title": "Implement Category Management Activity Logic",
+            "description": "Develop the CategoryManageActivity Java code to allow users to add new categories and delete existing ones, updating the categories stored in SharedPreferences.",
             "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+                "app/src/main/java/com/notescategorized/app/CategoryManageActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 12,
-            "title": "Check User Interaction Handlers",
-            "description": "Verified that all user interaction points, such as the 'Add Note' button, search `EditText` `TextWatcher`, `ListView` context menu, and options menu, are correctly implemented.",
-            "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 13,
-            "title": "Ensure Sorting and Filtering Functionality",
-            "description": "Reviewed the `sortNotes` and `applyFilterAndSearch` methods to ensure notes are consistently sorted and filtered based on user input and category selection.",
-            "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 14,
-            "title": "Final Code Compliance Check",
-            "description": "Performed a final check of all Java code for compliance with Java 8 standards (no lambdas/streams) and overall adherence to project guidelines.",
-            "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java",
-                "app/src/main/java/com/categorynotesapp/app/Note.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 15,
-            "title": "Building Category Notes",
-            "description": "Compiling and packaging the Android application after applying all necessary fixes.",
+            "title": "Building Notes Categorized",
+            "description": "Compile and assemble the 'Notes Categorized' application into a debug APK.",
             "files": [],
             "status": "pending"
         }
