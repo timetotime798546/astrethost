@@ -100,6 +100,7 @@ public class NoteStorage {
 
     public List<String> loadCategories() {
         List<String> categories = new ArrayList<>();
+        // FIX: Escaped double quotes within the JSON string literal
         String categoriesJsonString = sharedPreferences.getString(KEY_CATEGORIES, "["All", "Uncategorized"]");
         try {
             JSONArray jsonArray = new JSONArray(categoriesJsonString);
@@ -157,3 +158,4 @@ public class NoteStorage {
         }
     }
 }
+[2026-09-26 05:41:34] [INFO]

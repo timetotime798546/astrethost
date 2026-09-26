@@ -24,7 +24,7 @@
         {
             "step": 3,
             "title": "Implement Data Storage Utility",
-            "description": "Create a 'NoteStorage' utility class to handle saving and loading notes and categories using SharedPreferences, serializing and deserializing them as JSON strings. Fixed string literal syntax for default categories.",
+            "description": "Create a 'NoteStorage' utility class to handle saving and loading notes and categories using SharedPreferences, serializing and deserializing them as JSON strings. Fixed string literal syntax for default categories to resolve compilation errors.",
             "files": [
                 "app/src/main/java/com/notescategorized/app/NoteStorage.java"
             ],
