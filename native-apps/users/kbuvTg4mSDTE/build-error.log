@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Study Planner
 App ID: app_6ab750646e0b8
-Build ID: 36219308934
-Time: 2026-09-26 00:57:26
+Build ID: 36219860882
+Time: 2026-09-26 01:08:50
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 163866
-Extracted error characters: 26754
-File references detected: 204
+Original log characters: 347917
+Extracted error characters: 30042
+File references detected: 381
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2363) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2246) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/4befd256-5869-4585-bb1e-8120e6628f8a
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/a44cee2b-f704-41de-80a0-5dbbf2cf8b52
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -189,6 +189,8 @@ PROJECT FILES
 ./app-meta.json
 ./app/build.gradle
 ./app/proguard-rules.pro
+./build-error.log
+./build-steps.json
 ./build.gradle
 ./local.properties
 ./settings.gradle
@@ -216,72 +218,67 @@ Daemon will be stopped at the end of the build
 > Task :app:createDebugCompatibleScreenManifests
 > Task :app:extractDeepLinksDebug
 > Task :app:parseDebugLocalResources
-Incorrect package="com.studyplanner.app" found in source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:processDebugManifestForPackage
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:checkDebugDuplicateClasses
+> Task :app:processDebugResources
+> Task :app:mergeDebugJavaResource
+> Task :app:desugarDebugFileDependencies
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/ProgressActivity.java:1: error: illegal character: '\'
 
-Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported.
-Recommendation: remove package="com.studyplanner.app" from the source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
-> Task :app:processDebugMainManifest FAILED
+\npackage com.app.studyplanner;\n\nimport android.app.Activity;\nimport android.os.Bundle;\nimport android.widget.LinearLayout;\nimport android.widget.TextView;\nimport java.util.ArrayList;\nimport java.util.List;\n\npublic class ProgressActivity extends Activity {\n\n    private LinearLayout progressLayout;\n    private List<String> progressItems = new ArrayList<String>();\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_progress);\n\n        progressLayout = (LinearLayout) findViewById(R.id.progress_list_layout);\n\n        // For demonstration, manually add some progress items\n        if (progressItems.isEmpty()) {\n            addProgressItem(\"Mathematics: Chapter 1-3 completed.\");\n            addProgressItem(\"Physics: 50% exam prep done.\");\n            addProgressItem(\"Chemistry: Report draft finished.\");\n            addProgressItem(\"Tasks completed this week: 3\");\n        }\n    }\n\n    private void addProgressItem(String itemText) {\n        progressItems.add(itemText);\n        TextView progressTextView = new TextView(this);\n        progressTextView.setText(itemText);\n        progressTextView.setTextSize(18f); // Changed 18sp to 18f\n        progressTextView.setPadding(0, 8, 0, 8);\n        progressLayout.addView(progressTextView);\n    }\n}\n\n
+> Task :app:compileDebugJavaWithJavac FAILED
+^
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/ProgressActivity.java:1: error: class, interface, or enum expected
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/ProgressActivity.java:1: error: not a statement
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/ProgressActivity.java:1: error: ';' expected
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/ProgressActivity.java:1: error: reached end of file while parsing
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/RemindersActivity.java:1: error: illegal character: '\'
+\npackage com.app.studyplanner;\n\nimport android.app.Activity;\nimport android.os.Bundle;\nimport android.view.View;\nimport android.widget.Button;\nimport android.widget.LinearLayout;\nimport android.widget.TextView;\nimport java.util.ArrayList;\nimport java.util.List;\n\npublic class RemindersActivity extends Activity {\n\n    private LinearLayout remindersLayout;\n    private List<String> reminders = new ArrayList<String>();\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_reminders);\n\n        remindersLayout = (LinearLayout) findViewById(R.id.reminders_list_layout);\n        Button addReminderButton = (Button) findViewById(R.id.add_reminder_button);\n\n        addReminderButton.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View v) {\n                // In a real app, this would open a dialog or a new activity to add a reminder\n                // For now, let's just add a placeholder reminder\n                addReminder(\"Reminder: Study Physics (Tomorrow 9 AM)\");\n            }\n        });\n\n        if (reminders.isEmpty()) {\n            addReminder(\"Physics Exam in 3 days\");\n            addReminder(\"Submit Chemistry Report by Friday\");\n        }\n    }\n\n    private void addReminder(String reminderText) {\n        reminders.add(reminderText);\n        TextView reminderTextView = new TextView(this);\n        reminderTextView.setText(reminderText);\n        reminderTextView.setTextSize(18f); // Changed 18sp to 18f\n        reminderTextView.setPadding(0, 8, 0, 8);\n        remindersLayout.addView(reminderTextView);\n    }\n}\n\n
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/RemindersActivity.java:1: error: class, interface, or enum expected
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/RemindersActivity.java:1: error: not a statement
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/RemindersActivity.java:1: error: ';' expected
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/RemindersActivity.java:1: error: <identifier> expected
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/RemindersActivity.java:1: error: illegal start of type
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/RemindersActivity.java:1: error: illegal start of expression
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/RemindersActivity.java:1: error: reached end of file while parsing
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/MainActivity.java:1: error: illegal character: '\'
+\npackage com.app.studyplanner;\n\nimport android.app.Activity;\nimport android.content.Intent;\nimport android.os.Bundle;\nimport android.view.View;\nimport android.widget.Button;\n\npublic class MainActivity extends Activity {\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_main);\n\n        Button subjectsButton = (Button) findViewById(R.id.subjects_button);\n        Button tasksButton = (Button) findViewById(R.id.tasks_button);\n        Button remindersButton = (Button) findViewById(R.id.reminders_button);\n        Button progressButton = (Button) findViewById(R.id.progress_button);\n\n        subjectsButton.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View v) {\n                Intent intent = new Intent(MainActivity.this, SubjectsActivity.class);\n                startActivity(intent);\n            }\n        });\n\n        tasksButton.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View v) {\n                Intent intent = new Intent(MainActivity.this, TasksActivity.class);\n                startActivity(intent);\n            }\n        });\n\n        remindersButton.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View v) {\n                Intent intent = new Intent(MainActivity.this, RemindersActivity.class);\n                startActivity(intent);\n            }\n        });\n\n        progressButton.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View v) {\n                Intent intent = new Intent(MainActivity.this, ProgressActivity.class);\n                startActivity(intent);\n            }\n        });\n    }\n}\n\n
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/app/studyplanner/MainActivity.java:1: error: class, interface, or enum expected
+100 errors
+only showing the first 100 errors, of 554 total; use -Xmaxerrs if you would like to see more
 
-11 actionable tasks: 11 executed
 FAILURE: Build failed with an exception.
 
-Execution failed for task ':app:processDebugMainManifest'.
-> Incorrect package="com.studyplanner.app" found in source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
+Execution failed for task ':app:compileDebugJavaWithJavac'.
+> Compilation failed; see the compiler error output for details.
 
 * Try:
-> Run with --info or --debug option to get more log output.
+> Run with --info option to get more log output.
 > Run with --scan to get full insights.
-> Get more help at https://help.gradle.org.
 
 * Exception is:
-org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:processDebugMainManifest'.
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileDebugJavaWithJavac'.
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:148)
 at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:282)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:134)
 at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
 at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
-at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
-at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
-at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
-at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
-at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
-at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
-at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
-at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
-at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
-at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
-at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
-at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
-at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
-at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
-at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
-at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
-at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:80)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
-at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
-at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
-at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-Caused by: java.lang.RuntimeException: Incorrect package="com.studyplanner.app" found in source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
-at com.android.manifmerger.ManifestMerger2.merge(ManifestMerger2.java:237)
-at com.android.manifmerger.ManifestMerger2$Invoker.merge(ManifestMerger2.java:2144)
-at com.android.build.gradle.internal.tasks.manifest.ManifestHelperKt.mergeManifests(ManifestHelper.kt:121)
-at com.android.build.gradle.internal.tasks.manifest.ManifestHelperKt.mergeManifests$default(ManifestHelper.kt:46)
-at com.android.build.gradle.tasks.ProcessApplicationManifest.doTaskAction(ProcessApplicationManifest.kt:178)
-at com.android.build.gradle.internal.tasks.NonIncrementalTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:66)
-at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
-at com.android.build.gradle.internal.tasks.NonIncrementalTask.taskAction(NonIncrementalTask.kt:97)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
-at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+at org.grad
+
+================ EXTRACTED LOG CONTINUED ================
+
+entalTaskAction.doExecute(IncrementalTaskAction.java:45)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.execute(IncrementalTaskAction.java:26)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
 at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:248)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
@@ -335,7 +332,7 @@ at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:55
 at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
 at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
 at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
-at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:81)
+at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:86)
 at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
 at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
 at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
@@ -359,9 +356,8 @@ at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultEx
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
 BUILD FAILED in 27s
+21 actionable tasks: 21 executed
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
 [36;1mrm -rf gradle-8.5[0m
-
-Post job cleanup.
