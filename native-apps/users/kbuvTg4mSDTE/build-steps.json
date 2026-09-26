@@ -3,7 +3,7 @@
         {
             "step": 1,
             "title": "Initialize Android Project Structure",
-            "description": "Set up the basic Android project files, including app-meta.json, build-steps.json, AndroidManifest.xml, and app/build.gradle with the specified environment and package name.",
+            "description": "Set up the basic Android project files, including app-meta.json, build-steps.json, AndroidManifest.xml (removed deprecated package attribute), and app/build.gradle (removed external dependencies) with the specified environment and package name.",
             "files": [
                 "app-meta.json",
                 "build-steps.json",
@@ -24,7 +24,7 @@
         {
             "step": 3,
             "title": "Implement Data Storage Utility",
-            "description": "Create a 'NoteStorage' utility class to handle saving and loading notes and categories using SharedPreferences, serializing and deserializing them as JSON strings.",
+            "description": "Create a 'NoteStorage' utility class to handle saving and loading notes and categories using SharedPreferences, serializing and deserializing them as JSON strings. Fixed string literal syntax for default categories.",
             "files": [
                 "app/src/main/java/com/notescategorized/app/NoteStorage.java"
             ],
