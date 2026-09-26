@@ -86,8 +86,6 @@ public class MainActivity extends Activity {
         registerForContextMenu(notesListView);
     }
 
-    // Removed playSoundEffect method and MediaPlayer related lifecycle methods (onPause, onDestroy)
-
     // AsyncTask for loading notes in the background
     private class LoadNotesTask extends AsyncTask<Void, Void, List<Note>> {
         @Override
@@ -225,7 +223,6 @@ public class MainActivity extends Activity {
                 }
                 sortNotes(); // Ensure notes are sorted after adding/editing
                 saveNotes();
-                // Removed: playSoundEffect(R.raw.sound_effect); // Play sound on save
                 Toast.makeText(MainActivity.this, "Note saved!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -268,7 +265,6 @@ public class MainActivity extends Activity {
                             public void onClick(DialogInterface dialog, int which) {
                                 allNotes.remove(selectedNote);
                                 saveNotes();
-                                // Removed: playSoundEffect(R.raw.sound_effect); // Play sound on delete
                                 Toast.makeText(MainActivity.this, "Note deleted", Toast.LENGTH_SHORT).show();
                             }
                         })
@@ -309,9 +305,9 @@ public class MainActivity extends Activity {
         builder.show();
     }
 }
-[2026-09-26 04:52:30] [INFO] Gemini 2.5 completed directly. Calling process-from-log.php
+[2026-09-26 04:58:45] [INFO] Gemini 2.5 completed directly. Calling process-from-log.php
 {
     "user_id": "kbuvTg4mSDTE",
-    "interaction_id": "v1_ChZ6b2UzYXB0dHRwN2R1Z19DaUxpUkRnEhZ6b2UzYXB0dHRwN2R1Z19DaUxpUkRn",
-    "serial": "5"
+    "interaction_id": "v1_ChdSSW0zYW9PdUZJNk4zYm9QNlpTZy1RcxIXUkltM2FvT3VGSTZOM2JvUDZaU2ctUXM",
+    "serial": "6"
 }

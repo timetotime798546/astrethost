@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Category Notes
 App ID: app_6ab78142b59b8
-Build ID: 36230479227
-Time: 2026-09-26 04:41:42
+Build ID: 36231097684
+Time: 2026-09-26 04:53:46
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 166719
-Extracted error characters: 29247
-File references detected: 235
+Original log characters: 166268
+Extracted error characters: 28828
+File references detected: 232
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2262) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2231) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/e07aac99-245e-46b1-8f93-838a522b99e1
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/3377f6a4-359b-495c-ac37-c3126060e7ae
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -189,6 +189,7 @@ PROJECT FILES
 ./app-meta.json
 ./app/build.gradle
 ./app/proguard-rules.pro
+./build-error.log
 ./build-steps.json
 ./build.gradle
 ./local.properties
@@ -223,25 +224,20 @@ Daemon will be stopped at the end of the build
 > Task :app:compileDebugShaders NO-SOURCE
 > Task :app:generateDebugAssets UP-TO-DATE
 > Task :app:mergeDebugAssets
-> Task :app:processDebugManifestForPackage
 > Task :app:compressDebugAssets
 > Task :app:processDebugJavaRes NO-SOURCE
 > Task :app:checkDebugDuplicateClasses
-> Task :app:processDebugResources
 > Task :app:mergeDebugJavaResource
 > Task :app:desugarDebugFileDependencies
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+> Task :app:mergeExtDexDebug
 
 > Task :app:compileDebugJavaWithJavac FAILED
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/categorynotesapp/app/MainActivity.java:266: error: cannot find symbol
-playSoundEffect(R.raw.sound_effect); // Play sound on save
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/categorynotesapp/app/MainActivity.java:312: error: class, interface, or enum expected
+[2026-09-26 04:52:30] [INFO] Gemini 2.5 completed directly. Calling process-from-log.php
 ^
-symbol:   variable raw
-location: class R
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/categorynotesapp/app/MainActivity.java:309: error: cannot find symbol
-playSoundEffect(R.raw.sound_effect); // Play sound on delete
-Note: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/categorynotesapp/app/MainActivity.java uses or overrides a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-2 errors
+1 error
 
 FAILURE: Build failed with an exception.
 
@@ -301,7 +297,6 @@ at org.gradle.api.tasks.compile.JavaCompile.lambda$createToolchainCompiler$3(Jav
 at org.gradle.api.internal.tasks.compile.CleaningJavaCompiler.execute(CleaningJavaCompiler.java:53)
 at org.gradle.api.internal.tasks.compile.incremental.IncrementalCompilerFactory.lambda$createRebuildAllCompiler$0(IncrementalCompilerFactory.java:52)
 at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:70)
-21 actionable tasks: 21 executed
 at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:44)
 at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:66)
 at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:52)
@@ -394,10 +389,9 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 33s
+BUILD FAILED in 26s
+22 actionable tasks: 22 executed
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
 [36;1mrm -rf gradle-8.5[0m
-
-Post job cleanup.

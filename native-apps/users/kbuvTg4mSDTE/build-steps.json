@@ -2,89 +2,91 @@
     "steps": [
         {
             "step": 1,
-            "title": "Set up Gradle Environment",
-            "description": "Configuring the project-level and app-level build.gradle files with specified SDK versions and build tools.",
+            "title": "Analyze Build Error Log",
+            "description": "Identified the `class, interface, or enum expected` compilation error in `MainActivity.java` as the primary cause of the build failure, indicating extraneous code outside the class definition.",
+            "files": [
+                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 2,
+            "title": "Clean MainActivity.java",
+            "description": "Removed the non-Java log lines and JSON block that were erroneously present at the end of `MainActivity.java`, causing the compilation error.",
+            "files": [
+                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 3,
+            "title": "Review Gradle Dependencies",
+            "description": "Checked the `app/build.gradle` file for any external or unauthorized dependencies that violate project rules.",
             "files": [
                 "app/build.gradle"
             ],
             "status": "pending"
         },
         {
-            "step": 2,
-            "title": "Define Android Manifest",
-            "description": "Creating the AndroidManifest.xml to declare the application package, activities, and necessary permissions.",
-            "files": [
-                "app/src/main/AndroidManifest.xml"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 3,
-            "title": "Design Main Layout with Loader",
-            "description": "Modifying activity_main.xml to include a ProgressBar that will act as a loader, initially hidden, overlaid on the notes ListView.",
-            "files": [
-                "app/src/main/res/layout/activity_main.xml"
-            ],
-            "status": "pending"
-        },
-        {
             "step": 4,
-            "title": "Implement Note Data Model",
-            "description": "Creating a simple Java class (Note) to represent individual notes, including ID, title, content, and category.",
+            "title": "Remove Unauthorized Dependency",
+            "description": "Removed the `org.nanohttpd:nanohttpd` external library dependency from `app/build.gradle` as it is not permitted by project restrictions.",
+            "files": [
+                "app/build.gradle"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 5,
+            "title": "Update App Build Gradle Plugin Syntax",
+            "description": "Migrated `app/build.gradle` from `apply plugin` to the modern `plugins { id 'com.android.application' }` syntax for Android Gradle Plugin 8.3.2 compatibility.",
+            "files": [
+                "app/build.gradle"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 6,
+            "title": "Confirm Existing Sound Removal",
+            "description": "Verified that all sound-related code, including `MediaPlayer` instantiation, `playSoundEffect` method, and calls to play sound effects, has already been removed from `MainActivity.java`.",
+            "files": [
+                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 7,
+            "title": "Confirm Manifest Configuration",
+            "description": "Confirmed that `AndroidManifest.xml` is correctly defined with the proper namespace and that the deprecated `package` attribute has already been removed, with `namespace` correctly declared in `app/build.gradle`.",
+            "files": [
+                "app/src/main/AndroidManifest.xml",
+                "app/build.gradle"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 8,
+            "title": "Validate UI Layouts",
+            "description": "Ensured the UI layouts `activity_main.xml` and `dialog_add_edit_note.xml` are structurally sound and correctly define the user interface elements.",
+            "files": [
+                "app/src/main/res/layout/activity_main.xml",
+                "app/src/main/res/layout/dialog_add_edit_note.xml"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 9,
+            "title": "Verify Note Data Model Integrity",
+            "description": "Checked the `Note.java` class to ensure the data model, including ID, title, content, category, and JSON serialization/deserialization methods, is correct.",
             "files": [
                 "app/src/main/java/com/categorynotesapp/app/Note.java"
             ],
             "status": "pending"
         },
         {
-            "step": 5,
-            "title": "Initialize MainActivity Components",
-            "description": "Setting up basic UI components in MainActivity.java, including ListView, ArrayAdapter, ProgressBar, and SharedPreferences.",
-            "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 6,
-            "title": "Fix Manifest Deprecation Warning",
-            "description": "Removing the deprecated 'package' attribute from AndroidManifest.xml as recommended. The illegal escape character error in Note.java was already addressed in the provided source code.",
-            "files": [
-                "app/src/main/AndroidManifest.xml"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 7,
-            "title": "Implement Asynchronous Data Loading with Loader",
-            "description": "Refactoring data loading into an AsyncTask to show a ProgressBar while notes are being loaded and sorted in the background, then hiding it.",
-            "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 8,
-            "title": "Implement Data Persistence with SharedPreferences",
-            "description": "Adding methods to MainActivity for saving and loading notes using Android's SharedPreferences, converting notes to/from JSON.",
-            "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 9,
-            "title": "Add Note Creation Dialog",
-            "description": "Implementing a dialog for adding new notes, allowing users to input title, content, and select a category.",
-            "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
             "step": 10,
-            "title": "Implement Note Editing and Deletion",
-            "description": "Adding long-click context menu options to the ListView for editing and deleting existing notes.",
+            "title": "Review Asynchronous Task Implementation",
+            "description": "Ensured `LoadNotesTask` (an `AsyncTask`) correctly handles background data loading, displays the `ProgressBar`, and updates the UI on completion.",
             "files": [
                 "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
             ],
@@ -92,8 +94,8 @@
         },
         {
             "step": 11,
-            "title": "Implement Search Functionality",
-            "description": "Adding a TextWatcher to the search EditText to filter notes in real-time based on title or content.",
+            "title": "Validate Data Persistence Logic",
+            "description": "Confirmed that the `saveNotes` method correctly uses `SharedPreferences` to persist notes and that notes are loaded upon app startup.",
             "files": [
                 "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
             ],
@@ -101,8 +103,8 @@
         },
         {
             "step": 12,
-            "title": "Implement Category Filtering Menu",
-            "description": "Creating an options menu to allow users to filter notes by predefined categories.",
+            "title": "Check User Interaction Handlers",
+            "description": "Verified that all user interaction points, such as the 'Add Note' button, search `EditText` `TextWatcher`, `ListView` context menu, and options menu, are correctly implemented.",
             "files": [
                 "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
             ],
@@ -110,8 +112,8 @@
         },
         {
             "step": 13,
-            "title": "Remove Sound Resource Usage",
-            "description": "Per request to 'REMOVE sound', all code and references related to sound effects and `MediaPlayer` have been removed from the `MainActivity.java`.",
+            "title": "Ensure Sorting and Filtering Functionality",
+            "description": "Reviewed the `sortNotes` and `applyFilterAndSearch` methods to ensure notes are consistently sorted and filtered based on user input and category selection.",
             "files": [
                 "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
             ],
@@ -119,35 +121,18 @@
         },
         {
             "step": 14,
-            "title": "Remove Sound Playback Logic",
-            "description": "Removed `MediaPlayer` instance, `playSoundEffect` method, and all calls to play sound effects from `MainActivity.java` to address the `R.raw.sound_effect` compilation error and user request.",
+            "title": "Final Code Compliance Check",
+            "description": "Performed a final check of all Java code for compliance with Java 8 standards (no lambdas/streams) and overall adherence to project guidelines.",
             "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
+                "app/src/main/java/com/categorynotesapp/app/MainActivity.java",
+                "app/src/main/java/com/categorynotesapp/app/Note.java"
             ],
             "status": "pending"
         },
         {
             "step": 15,
-            "title": "Remove Unauthorized Dependency",
-            "description": "Removed the `org.nanohttpd:nanohttpd` external library from `app/build.gradle` to comply with the project's restriction on third-party dependencies.",
-            "files": [
-                "app/build.gradle"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 16,
-            "title": "Refine UI Interactions and Display",
-            "description": "Ensuring all UI elements respond correctly, and notes are displayed clearly in the ListView.",
-            "files": [
-                "app/src/main/java/com/categorynotesapp/app/MainActivity.java"
-            ],
-            "status": "pending"
-        },
-        {
-            "step": 17,
             "title": "Building Category Notes",
-            "description": "Compiling and packaging the Android application.",
+            "description": "Compiling and packaging the Android application after applying all necessary fixes.",
             "files": [],
             "status": "pending"
         }
