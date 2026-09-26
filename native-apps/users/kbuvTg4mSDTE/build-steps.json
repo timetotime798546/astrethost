@@ -2,37 +2,33 @@
     "steps": [
         {
             "step": 1,
-            "title": "Initialize Android Project Structure & Configuration",
-            "description": "Set up the basic Android project files, including app-meta.json, AndroidManifest.xml, and app/build.gradle. Ensure correct version codes and names are applied, and remove any disallowed external dependencies, specifically 'org.nanohttpd:nanohttpd'.",
-            "files": [
-                "app-meta.json",
-                "app/src/main/AndroidManifest.xml",
-                "app/build.gradle"
-            ],
-            "status": "fixed"
+            "title": "Set up Project Structure",
+            "description": "Initializes the basic Android project structure with necessary directories and configuration files.",
+            "files": [],
+            "status": "pending"
         },
         {
             "step": 2,
-            "title": "Define Note Data Model",
-            "description": "Create the 'Note' Java class to represent individual notes with properties for ID, title, content, and category.",
+            "title": "Configure Gradle Build Files",
+            "description": "Updates the module-level build.gradle file with SDK versions, build tools, and other essential configurations for the app.",
             "files": [
-                "app/src/main/java/com/notescategorized/app/Note.java"
+                "app/build.gradle"
             ],
             "status": "pending"
         },
         {
             "step": 3,
-            "title": "Implement Note Data Storage Logic",
-            "description": "Develop the 'NoteStorage' Java class for managing notes and categories using SharedPreferences. This includes correcting the JSON string literal for default categories by escaping internal double quotes to prevent compilation errors.",
+            "title": "Define Application Manifest",
+            "description": "Creates the AndroidManifest.xml file, declaring the application's package, activities, permissions, and theme.",
             "files": [
-                "app/src/main/java/com/notescategorized/app/NoteStorage.java"
+                "app/src/main/AndroidManifest.xml"
             ],
-            "status": "fixed"
+            "status": "pending"
         },
         {
             "step": 4,
-            "title": "Design Main Activity Layout",
-            "description": "Create the layout for 'MainActivity', including a ListView for notes, an EditText for search, a Spinner for category filtering, and buttons for adding new notes and managing categories.",
+            "title": "Design Calculator Display Layout",
+            "description": "Develops the XML layout for the main activity to display the input and results of calculations.",
             "files": [
                 "app/src/main/res/layout/activity_main.xml"
             ],
@@ -40,71 +36,89 @@
         },
         {
             "step": 5,
-            "title": "Develop Main Activity Functionality",
-            "description": "Implement the Java code for 'MainActivity' to load, display, filter, search, and manage notes, including handling user interactions and navigation to other activities.",
+            "title": "Design Calculator Button Layout",
+            "description": "Adds a GridLayout to the main activity layout to arrange the numerical and operator buttons.",
             "files": [
-                "app/src/main/java/com/notescategorized/app/MainActivity.java"
+                "app/src/main/res/layout/activity_main.xml"
             ],
             "status": "pending"
         },
         {
             "step": 6,
-            "title": "Create Note List Item Layout",
-            "description": "Design the layout for a single note item to be displayed in the 'notesListView' of 'MainActivity', showing the note's title and a content preview.",
+            "title": "Initialize MainActivity",
+            "description": "Creates the MainActivity.java file and sets up the basic class structure, including inflating the layout.",
             "files": [
-                "app/src/main/res/layout/list_item_note.xml"
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 7,
-            "title": "Design Note Detail Activity Layout",
-            "description": "Create the layout for 'NoteDetailActivity', providing input fields for note title, content, a spinner for category selection, and buttons to save or delete a note.",
+            "title": "Connect UI Elements to Java Code",
+            "description": "Finds TextView and Button references from the layout in MainActivity.java.",
             "files": [
-                "app/src/main/res/layout/activity_note_detail.xml"
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 8,
-            "title": "Implement Note Detail Activity Logic",
-            "description": "Develop the Java code for 'NoteDetailActivity' to handle creating new notes, editing existing notes, saving changes, and confirming note deletion.",
+            "title": "Implement Number Button Logic",
+            "description": "Adds OnClickListener for number buttons to append digits to the display.",
             "files": [
-                "app/src/main/java/com/notescategorized/app/NoteDetailActivity.java"
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 9,
-            "title": "Design Category Management Activity Layout",
-            "description": "Create the layout for 'CategoryManageActivity', including an EditText and Button to add new categories, and a ListView to display existing categories with deletion capability.",
+            "title": "Implement Operator Button Logic",
+            "description": "Adds OnClickListener for operator buttons (+, -, *, /) to handle operations and store current input.",
             "files": [
-                "app/src/main/res/layout/activity_category_manage.xml"
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 10,
-            "title": "Create Category List Item Layout",
-            "description": "Design the layout for a single category item to be displayed in the 'categoriesListView' of 'CategoryManageActivity', showing the category name.",
+            "title": "Implement Clear (C) Button Logic",
+            "description": "Adds OnClickListener for the 'C' button to clear the display and reset calculation state.",
             "files": [
-                "app/src/main/res/layout/list_item_category.xml"
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 11,
-            "title": "Implement Category Management Activity Logic",
-            "description": "Develop the Java code for 'CategoryManageActivity' to enable users to add and delete categories, ensuring 'All' and 'Uncategorized' default categories are handled correctly.",
+            "title": "Implement Equals (=) Button Logic",
+            "description": "Adds OnClickListener for the '=' button to trigger the calculation of the expression.",
             "files": [
-                "app/src/main/java/com/notescategorized/app/CategoryManageActivity.java"
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
             ],
             "status": "pending"
         },
         {
             "step": 12,
-            "title": "Building Notes Categorized",
-            "description": "Compile and assemble the 'Notes Categorized' application into a debug APK.",
+            "title": "Add Core Calculation Logic",
+            "description": "Develops a private method within MainActivity to parse the expression and perform the arithmetic calculation.",
+            "files": [
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 13,
+            "title": "Refine Display Handling",
+            "description": "Ensures proper formatting and error handling for the calculator's display.",
+            "files": [
+                "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+            ],
+            "status": "pending"
+        },
+        {
+            "step": 14,
+            "title": "Building Modern Calculator",
+            "description": "Compiling and packaging the Android application.",
             "files": [],
             "status": "pending"
         }
