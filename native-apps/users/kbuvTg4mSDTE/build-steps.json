@@ -1,0 +1,45 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Parse Error in Create Student",
+      "description": "Identify that the current parsing implementation in BackendApi.java tries to parse fields directly from the root of the student record, and expects '_id' instead of 'id'.",
+      "files": [
+        "app/src/main/java/com/studentmanagement/app/BackendApi.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Fix Create Student Parsing Structure",
+      "description": "Refactor createStudent in BackendApi.java to correctly parse root.success, extract the nested record object, fetch the ID using key 'id' instead of '_id', and retrieve application fields from the nested data object.",
+      "files": [
+        "app/src/main/java/com/studentmanagement/app/BackendApi.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Fix Get Students Parsing Structure",
+      "description": "Refactor getStudents in BackendApi.java to extract each record's ID using key 'id' instead of '_id' and extract student fields (name, phone, className, rollNumber) from the nested data object inside the record.",
+      "files": [
+        "app/src/main/java/com/studentmanagement/app/BackendApi.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Verify Model Compatibility",
+      "description": "Verify Student.java matches the properties and constructor requirements after these changes.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Building Student Management",
+      "description": "Reassemble and build the student management app with corrected parser logic.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
