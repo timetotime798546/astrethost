@@ -1,0 +1,119 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project Configurations",
+      "description": "Configure build system files, Gradle settings, target SDKs, and basic parameters.",
+      "files": ["app-meta.json", "api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Environment",
+      "description": "Define compile target parameters, targetSdkVersion, source compatibility, and dependencies setup inside build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Manifest and Security Policies",
+      "description": "Define package structure, activities mapping, and request necessary networking permissions in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Card Container Drawables",
+      "description": "Develop card shapes with custom rounding, solid white backgrounds, and light-grey strokes.",
+      "files": ["app/src/main/res/drawable/card_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Input Field and Button Themes",
+      "description": "Create standard shapes for form fields, active states, and custom action buttons.",
+      "files": [
+        "app/src/main/res/drawable/input_bg.xml",
+        "app/src/main/res/drawable/button_bg.xml",
+        "app/src/main/res/drawable/accent_button_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Authentication Layouts",
+      "description": "Formulate interface UI designs for logging in and signing up, incorporating loading spinners.",
+      "files": [
+        "app/src/main/res/layout/activity_login.xml",
+        "app/src/main/res/layout/activity_register.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Dashboard Layout",
+      "description": "Design main application board with overall summary indicators, categorized metrics, and action triggers.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Form Editor and Item Views",
+      "description": "Build templates for creating/editing transactions, date fields, spinner components, and raw items row layouts.",
+      "files": [
+        "app/src/main/res/layout/activity_add_edit.xml",
+        "app/src/main/res/layout/item_expense.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement API and Data Client Connection logic",
+      "description": "Create BackendApi client using standard HttpURLConnection. Support parsing of dynamic login tokens and credentials.",
+      "files": ["app/src/main/java/com/expensemanager/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Model Data Structures",
+      "description": "Establish basic transactional schemas for local execution, including parser bindings to extract backend collection records.",
+      "files": ["app/src/main/java/com/expensemanager/app/Expense.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Authentication Gateways",
+      "description": "Implement LoginActivity sequence verifying existing persistence headers, credentials verification, and redirection.",
+      "files": ["app/src/main/java/com/expensemanager/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Account Registration logic",
+      "description": "Handle signup execution, triggering automatic credential logging protocols immediately on user registration success.",
+      "files": ["app/src/main/java/com/expensemanager/app/RegisterActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Form Controller actions",
+      "description": "Assemble transaction form parameters handling dynamic calendars, database creation, structural editing, and deletion requests.",
+      "files": ["app/src/main/java/com/expensemanager/app/AddEditExpenseActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement Main Dashboard Engine",
+      "description": "Retrieve financial list logs asynchronously, parse records, calculate statistics, and build visual item lists.",
+      "files": ["app/src/main/java/com/expensemanager/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Expense Manager",
+      "description": "Assemble clean packages and perform compiler target tests verifying network persistence operations.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

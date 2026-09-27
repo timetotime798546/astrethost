@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Title Section -->
+        <TextView
+            android:id="@+id/tv_form_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Expense Entry"
+            android:textColor="@color/primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp">
+
+            <!-- Title input -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title *"
+                android:textColor="@color/text_secondary"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_expense_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="What did you pay for?"
+                android:inputType="textCapWords"
+                android:background="@drawable/input_bg"
+                android:textSize="15sp"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Amount input -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount ($) *"
+                android:textColor="@color/text_secondary"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_expense_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="0.00"
+                android:inputType="numberDecimal"
+                android:background="@drawable/input_bg"
+                android:textSize="15sp"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Category input (Spinner) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category *"
+                android:textColor="@color/text_secondary"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:layout_marginBottom="4dp" />
+
+            <Spinner
+                android:id="@+id/spinner_expense_category"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/input_bg"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Date picker input -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transaction Date *"
+                android:textColor="@color/text_secondary"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_expense_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="YYYY-MM-DD"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="true"
+                android:background="@drawable/input_bg"
+                android:textSize="15sp"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Note input -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notes"
+                android:textColor="@color/text_secondary"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_expense_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Add dynamic tags or comments..."
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:gravity="top|start"
+                android:background="@drawable/input_bg"
+                android:textSize="15sp"
+                android:textColor="@color/text_primary" />
+
+        </LinearLayout>
+
+        <!-- Actions -->
+        <Button
+            android:id="@+id/btn_save_expense"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Save Record"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:background="@drawable/btn_accent"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btn_delete_expense"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Delete Transaction"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:background="@drawable/btn_delete"
+            android:layout_marginBottom="10dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="?android:attr/buttonStyleBorderless"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Cancel &amp; Go Back"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</ScrollView>
