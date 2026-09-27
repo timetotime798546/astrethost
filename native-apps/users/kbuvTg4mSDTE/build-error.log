@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: RetailPro
 App ID: app_6ab89b916819b
-Build ID: 36295036127
-Time: 2026-09-27 00:42:16
+Build ID: 36295739809
+Time: 2026-09-27 00:57:22
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 176484
+Original log characters: 174838
 Extracted error characters: 30042
-File references detected: 315
+File references detected: 309
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2026) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2270) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/3728c03e-dcf3-4833-84f4-8616b7ca5304
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/8e854b6b-6175-4299-8896-5d1aaabc3df4
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -217,13 +217,13 @@ Daemon will be stopped at the end of the build
 > Task :app:mergeDebugResources
 > Task :app:createDebugCompatibleScreenManifests
 > Task :app:extractDeepLinksDebug
-> Task :app:parseDebugLocalResources
 
 > Task :app:processDebugMainManifest
 package="com.retailpro.app" found in source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
 Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
 Recommendation: remove package="com.retailpro.app" from the source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
 
+> Task :app:parseDebugLocalResources
 > Task :app:processDebugManifest
 > Task :app:mergeDebugShaders
 > Task :app:compileDebugShaders NO-SOURCE
@@ -243,33 +243,15 @@ Recommendation: remove package="com.retailpro.app" from the source AndroidManife
 > Task :app:processDebugResources
 > Task :app:validateSigningDebug
 
-> Task :app:compileDebugJavaWithJavac FAILED
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:726: error: ')' expected
-text.setTextSize(14sp);
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:989: error: cannot find symbol
+ScrollView scroller = new ScrollView(this);
 ^
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:726: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:984: error: ')' expected
-printView.setTextSize(12sp);
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:984: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:1072: error: ')' expected
-text2.setTextSize(12sp);
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:1072: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:1314: error: ')' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:1314: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:1534: error: ')' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:1534: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:1801: error: ')' expected
-text2.setTextSize(11sp);
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:1801: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:1921: error: ')' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:1921: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:2114: error: ')' expected
-tv.setTextSize(12sp);
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:2114: error: ';' expected
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:2121: error: ')' expected
-et.setTextSize(14sp);
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:2121: error: ';' expected
-18 errors
+symbol:   class ScrollView
+location: class MainActivity
+> Task :app:compileDebugJavaWithJavac FAILED
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:1114: error: cannot find symbol
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/retailpro/app/MainActivity.java:1200: error: cannot find symbol
+6 errors
 
 FAILURE: Build failed with an exception.
 
@@ -311,6 +293,7 @@ at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOper
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+25 actionable tasks: 25 executed
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
 at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:116)
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
@@ -324,11 +307,31 @@ at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks
 at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
 at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
 at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
-at org.gradle.
+at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
+at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:264)
+at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:128)
+at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler error output for details.
+at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:57)
+at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:39)
+at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
+at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:52)
+at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:38)
+at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:51)
+at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:37)
+at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:46)
+at org.gradle.api.internal.ta
 
 ================ EXTRACTED LOG CONTINUED ================
 
-entalTaskAction.doExecute(IncrementalTaskAction.java:45)
+factory.IncrementalTaskAction.doExecute(IncrementalTaskAction.java:45)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
 at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.execute(IncrementalTaskAction.java:26)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
@@ -407,9 +410,10 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 20s
-25 actionable tasks: 25 executed
+BUILD FAILED in 28s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
 [36;1mrm -rf gradle-8.5[0m
+
+Post job cleanup.
