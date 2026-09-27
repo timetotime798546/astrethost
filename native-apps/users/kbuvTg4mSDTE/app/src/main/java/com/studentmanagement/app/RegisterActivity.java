@@ -30,7 +30,8 @@ public class RegisterActivity extends Activity {
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
         textViewLogin = (TextView) findViewById(R.id.textViewLogin);
 
-        backendApi = new BackendApi(this); // Pass context
+        // Pass context to BackendApi for app_id initialization
+        backendApi = new BackendApi(this);
         sharedPreferencesManager = new SharedPreferencesManager(this);
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {

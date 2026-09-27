@@ -31,7 +31,7 @@
     {
       "step": 4,
       "title": "Create Backend API Client",
-      "description": "Develops a client class (BackendApi) to handle all HTTP requests to the TrumpleDroid generic backend API. This includes reading the app_id from assets/app-meta.json at runtime, and using the correct /login, /register, and /data endpoints for authentication and CRUD operations, addressing the 404 errors.",
+      "description": "Develops a client class (BackendApi) to handle all HTTP requests to the TrumpleDroid generic backend API, including reading the application ID from `app-meta.json` at runtime, performing user authentication via `/login` and `/register`, and executing CRUD operations for student data using the generic `/data` endpoint with appropriate collection and data parameters.",
       "files": [
         "app/src/main/java/com/studentmanagement/app/BackendApi.java"
       ],
@@ -49,7 +49,7 @@
     {
       "step": 6,
       "title": "Implement Login Activity Logic",
-      "description": "Codes the Java logic for LoginActivity to handle user input, correctly instantiate BackendApi with Context, interact with the BackendApi for authentication, store the token, and navigate to the main activity. Improved error handling to display messages from the backend.",
+      "description": "Codes the Java logic for LoginActivity to handle user input, interact with the BackendApi for authentication, store the token, and navigate to the main activity.",
       "files": [
         "app/src/main/java/com/studentmanagement/app/LoginActivity.java"
       ],
@@ -67,7 +67,7 @@
     {
       "step": 8,
       "title": "Implement Registration Activity Logic",
-      "description": "Codes the Java logic for RegisterActivity to handle user input, correctly instantiate BackendApi with Context, interact with the BackendApi for new user registration, store the token, and navigate to the main activity. Improved error handling to display messages from the backend.",
+      "description": "Codes the Java logic for RegisterActivity to handle user input, interact with the BackendApi for new user registration, store the token, and navigate to the main activity.",
       "files": [
         "app/src/main/java/com/studentmanagement/app/RegisterActivity.java"
       ],
@@ -103,7 +103,7 @@
     {
       "step": 12,
       "title": "Implement Main Activity Logic",
-      "description": "Codes the Java logic for MainActivity to correctly instantiate BackendApi with Context, fetch and display student records, handle adding new students, and navigate to the student detail screen for editing/viewing.",
+      "description": "Codes the Java logic for MainActivity to fetch and display student records, handle adding new students, and navigate to the student detail screen for editing/viewing.",
       "files": [
         "app/src/main/java/com/studentmanagement/app/MainActivity.java"
       ],
@@ -121,7 +121,7 @@
     {
       "step": 14,
       "title": "Implement Student Detail Activity Logic",
-      "description": "Codes the Java logic for StudentDetailActivity to correctly instantiate BackendApi with Context, handle input for student details, perform create, update, or delete operations via the BackendApi, and navigate back.",
+      "description": "Codes the Java logic for StudentDetailActivity to handle input for student details, perform create, update, or delete operations via the BackendApi, and navigate back.",
       "files": [
         "app/src/main/java/com/studentmanagement/app/StudentDetailActivity.java"
       ],

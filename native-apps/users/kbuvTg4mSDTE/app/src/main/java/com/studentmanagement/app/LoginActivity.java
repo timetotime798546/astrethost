@@ -28,7 +28,8 @@ public class LoginActivity extends Activity {
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
         textViewRegister = (TextView) findViewById(R.id.textViewRegister);
 
-        backendApi = new BackendApi(this); // Pass context
+        // Pass context to BackendApi for app_id initialization
+        backendApi = new BackendApi(this);
         sharedPreferencesManager = new SharedPreferencesManager(this);
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {

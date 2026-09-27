@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
         buttonAddStudent = (Button) findViewById(R.id.buttonAddStudent);
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
 
-        backendApi = new BackendApi(this); // Pass context
+        backendApi = new BackendApi();
         sharedPreferencesManager = new SharedPreferencesManager(this);
 
         // Check if user is logged in
@@ -79,10 +79,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Ensure backendApi is initialized with context before fetching
-        if (backendApi == null) {
-            backendApi = new BackendApi(this);
-        }
         fetchStudents(); // Refresh student list when activity resumes
     }
 
@@ -122,7 +118,7 @@ public class MainActivity extends Activity {
                     public void run() {
                         Toast.makeText(MainActivity.this, "Failed to load students: " + error, Toast.LENGTH_LONG).show();
                         // If error is related to auth, redirect to login
-                        if (error.contains("401") || error.contains("Unauthorized") || error.toLowerCase().contains("token")) {
+                        if (error.contains("401") || error.contains("Unauthorized")) {
                             sharedPreferencesManager.clearAuthToken();
                             redirectToLogin();
                         }

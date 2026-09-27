@@ -35,7 +35,7 @@ public class StudentDetailActivity extends Activity {
         buttonDelete = (Button) findViewById(R.id.buttonDelete);
         textViewTitle = (TextView) findViewById(R.id.textViewTitle);
 
-        backendApi = new BackendApi(this); // Pass context
+        backendApi = new BackendApi();
         sharedPreferencesManager = new SharedPreferencesManager(this);
 
         // Check if editing an existing student or creating a new one

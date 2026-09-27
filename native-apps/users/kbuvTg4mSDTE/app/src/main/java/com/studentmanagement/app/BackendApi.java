@@ -22,8 +22,7 @@ import java.util.List;
 public class BackendApi {
 
     private static final String BASE_URL = "https://trumpledroid-api.cloudbeta28624.workers.dev";
-    private Context context;
-    private String appId;
+    private String appId; // Will be read from assets
 
     public interface ApiCallback<T> {
         void onSuccess(T result);
@@ -31,31 +30,31 @@ public class BackendApi {
     }
 
     public BackendApi(Context context) {
-        this.context = context;
-        loadAppId();
+        this.appId = readAppIdFromAssets(context);
+        if (this.appId == null) {
+            // Log an error or handle this more robustly if app_id is critical for operation.
+            System.err.println("CRITICAL ERROR: app_id could not be loaded from assets!");
+        }
     }
 
-    private void loadAppId() {
-        if (appId != null) {
-            return; // Already loaded
-        }
-        AssetManager assetManager = context.getAssets();
+    private String readAppIdFromAssets(Context context) {
+        String jsonString = null;
         try {
+            AssetManager assetManager = context.getAssets();
             InputStream is = assetManager.open("app-meta.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            String jsonString = new String(buffer, "UTF-8");
-            JSONObject jsonObject = new JSONObject(jsonString);
-            appId = jsonObject.getString("app_id");
+            jsonString = new String(buffer, "UTF-8");
+            JSONObject json = new JSONObject(jsonString);
+            return json.getString("app_id");
         } catch (IOException e) {
-            // Log this error, as the app_id is crucial.
             e.printStackTrace();
-            appId = null; // Indicate app_id loading failed
+            return null;
         } catch (JSONException e) {
             e.printStackTrace();
-            appId = null; // Indicate app_id parsing failed
+            return null;
         }
     }
 
@@ -63,29 +62,34 @@ public class BackendApi {
 
     public void login(String email, String password, ApiCallback<String> callback) {
         if (appId == null) {
-            callback.onError("App ID not loaded. Cannot perform login.");
+            callback.onError("App ID not initialized. Cannot login.");
             return;
         }
-
         JSONObject postData = new JSONObject();
         try {
-            postData.put("app_id", appId);
+            postData.put("app_id", appId); // Add app_id to JSON body
             postData.put("email", email);
             postData.put("password", password);
         } catch (JSONException e) {
             callback.onError(e.getMessage());
             return;
         }
+        // Correct endpoint: /login
         new HttpRequestTask(BASE_URL + "/login", "POST", postData.toString(), null, new ApiCallback<String>() {
             @Override
             public void onSuccess(String response) {
                 try {
                     JSONObject jsonResponse = new JSONObject(response);
+                    // Check for "success" field
                     if (jsonResponse.optBoolean("success", false)) {
-                        String token = jsonResponse.getString("token");
-                        callback.onSuccess(token);
+                        String token = jsonResponse.optString("token", null);
+                        if (token != null) {
+                            callback.onSuccess(token);
+                        } else {
+                            callback.onError("Login response missing token.");
+                        }
                     } else {
-                        callback.onError(jsonResponse.optString("error", "Login failed: Unknown error."));
+                        callback.onError(jsonResponse.optString("error", "Unknown login error."));
                     }
                 } catch (JSONException e) {
                     callback.onError("Failed to parse login response: " + e.getMessage());
@@ -101,32 +105,61 @@ public class BackendApi {
 
     public void register(String email, String password, ApiCallback<String> callback) {
         if (appId == null) {
-            callback.onError("App ID not loaded. Cannot perform registration.");
+            callback.onError("App ID not initialized. Cannot register.");
             return;
         }
-
         JSONObject postData = new JSONObject();
         try {
-            postData.put("app_id", appId);
+            postData.put("app_id", appId); // Add app_id to JSON body
             postData.put("email", email);
             postData.put("password", password);
         } catch (JSONException e) {
             callback.onError(e.getMessage());
             return;
         }
+        // Correct endpoint: /register
         new HttpRequestTask(BASE_URL + "/register", "POST", postData.toString(), null, new ApiCallback<String>() {
             @Override
             public void onSuccess(String response) {
                 try {
                     JSONObject jsonResponse = new JSONObject(response);
+                    // Check for "success" field
                     if (jsonResponse.optBoolean("success", false)) {
-                        String token = jsonResponse.getString("token");
-                        callback.onSuccess(token);
+                        String token = jsonResponse.optString("token", null);
+                        if (token != null) {
+                            callback.onSuccess(token);
+                        } else {
+                            callback.onError("Registration response missing token.");
+                        }
                     } else {
-                        callback.onError(jsonResponse.optString("error", "Registration failed: Unknown error."));
+                        callback.onError(jsonResponse.optString("error", "Unknown registration error."));
                     }
                 } catch (JSONException e) {
                     callback.onError("Failed to parse register response: " + e.getMessage());
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                callback.onError(error);
+            }
+        }).execute();
+    }
+    
+    public void logout(String authToken, ApiCallback<Void> callback) {
+        // Correct endpoint: /logout
+        new HttpRequestTask(BASE_URL + "/logout", "POST", null, authToken, new ApiCallback<String>() {
+            @Override
+            public void onSuccess(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    if (jsonResponse.optBoolean("success", false)) {
+                        callback.onSuccess(null);
+                    } else {
+                        callback.onError(jsonResponse.optString("error", "Unknown logout error."));
+                    }
+                } catch (JSONException e) {
+                    callback.onError("Failed to parse logout response: " + e.getMessage());
                 }
             }
 
@@ -140,26 +173,33 @@ public class BackendApi {
     // --- Student CRUD Operations ---
 
     public void getStudents(String authToken, ApiCallback<List<Student>> callback) {
-        new HttpRequestTask(BASE_URL + "/data?collection=students", "GET", null, authToken, new ApiCallback<String>() {
+        if (appId == null) {
+            callback.onError("App ID not initialized. Cannot fetch students.");
+            return;
+        }
+        // Correct endpoint: /data with collection and app_id query parameters
+        new HttpRequestTask(BASE_URL + "/data?collection=students&app_id=" + appId, "GET", null, authToken, new ApiCallback<String>() {
             @Override
             public void onSuccess(String response) {
                 try {
                     JSONObject jsonResponse = new JSONObject(response);
                     if (jsonResponse.optBoolean("success", false)) {
-                        JSONArray jsonArray = jsonResponse.getJSONArray("records");
+                        JSONArray jsonArray = jsonResponse.optJSONArray("records");
                         List<Student> students = new ArrayList<Student>();
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject = jsonArray.getJSONObject(i);
-                            String id = jsonObject.getString("_id");
-                            String name = jsonObject.getString("name");
-                            String phone = jsonObject.getString("phone");
-                            String className = jsonObject.getString("className");
-                            int rollNumber = jsonObject.getInt("rollNumber");
-                            students.add(new Student(id, name, phone, className, rollNumber));
+                        if (jsonArray != null) {
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                String id = jsonObject.getString("_id");
+                                String name = jsonObject.getString("name");
+                                String phone = jsonObject.getString("phone");
+                                String className = jsonObject.getString("className");
+                                int rollNumber = jsonObject.getInt("rollNumber");
+                                students.add(new Student(id, name, phone, className, rollNumber));
+                            }
                         }
                         callback.onSuccess(students);
                     } else {
-                        callback.onError(jsonResponse.optString("error", "Failed to retrieve students: Unknown error."));
+                        callback.onError(jsonResponse.optString("error", "Unknown error fetching students."));
                     }
                 } catch (JSONException e) {
                     callback.onError("Failed to parse student list: " + e.getMessage());
@@ -175,38 +215,47 @@ public class BackendApi {
 
     public void createStudent(String authToken, Student student, ApiCallback<Student> callback) {
         if (appId == null) {
-            callback.onError("App ID not loaded. Cannot create student.");
+            callback.onError("App ID not initialized. Cannot create student.");
             return;
         }
-
-        JSONObject studentData = new JSONObject();
+        JSONObject postDataPayload = new JSONObject();
         try {
-            studentData.put("name", student.getName());
-            studentData.put("phone", student.getPhone());
-            studentData.put("className", student.getClassName());
-            studentData.put("rollNumber", student.getRollNumber());
-
-            JSONObject postData = new JSONObject();
-            postData.put("app_id", appId);
-            postData.put("collection", "students");
-            postData.put("data", studentData);
-
+            postDataPayload.put("name", student.getName());
+            postDataPayload.put("phone", student.getPhone());
+            postDataPayload.put("className", student.getClassName());
+            postDataPayload.put("rollNumber", student.getRollNumber());
         } catch (JSONException e) {
             callback.onError(e.getMessage());
             return;
         }
-        new HttpRequestTask(BASE_URL + "/data", "POST", studentData.toString(), authToken, new ApiCallback<String>() {
+
+        JSONObject requestBody = new JSONObject();
+        try {
+            requestBody.put("collection", "students");
+            requestBody.put("app_id", appId); // app_id in body for POST /data
+            requestBody.put("data", postDataPayload);
+        } catch (JSONException e) {
+            callback.onError(e.getMessage());
+            return;
+        }
+
+        // Correct endpoint: /data
+        new HttpRequestTask(BASE_URL + "/data", "POST", requestBody.toString(), authToken, new ApiCallback<String>() {
             @Override
             public void onSuccess(String response) {
                 try {
                     JSONObject jsonResponse = new JSONObject(response);
                     if (jsonResponse.optBoolean("success", false)) {
-                        JSONObject record = jsonResponse.getJSONObject("record");
-                        String id = record.getString("_id");
-                        student.setId(id); // Assign ID received from backend
-                        callback.onSuccess(student);
+                        JSONObject record = jsonResponse.optJSONObject("record");
+                        if (record != null) {
+                             String id = record.getString("_id");
+                             student.setId(id); // Assign ID received from backend
+                             callback.onSuccess(student);
+                        } else {
+                            callback.onError("Create student response missing record data.");
+                        }
                     } else {
-                        callback.onError(jsonResponse.optString("error", "Failed to create student: Unknown error."));
+                        callback.onError(jsonResponse.optString("error", "Unknown error creating student."));
                     }
                 } catch (JSONException e) {
                     callback.onError("Failed to parse create student response: " + e.getMessage());
@@ -222,28 +271,32 @@ public class BackendApi {
 
     public void updateStudent(String authToken, Student student, ApiCallback<Student> callback) {
         if (appId == null) {
-            callback.onError("App ID not loaded. Cannot update student.");
+            callback.onError("App ID not initialized. Cannot update student.");
             return;
         }
-        
-        JSONObject studentData = new JSONObject();
+        JSONObject putDataPayload = new JSONObject();
         try {
-            studentData.put("name", student.getName());
-            studentData.put("phone", student.getPhone());
-            studentData.put("className", student.getClassName());
-            studentData.put("rollNumber", student.getRollNumber());
-
-            JSONObject putData = new JSONObject();
-            putData.put("app_id", appId);
-            putData.put("collection", "students");
-            putData.put("id", student.getId());
-            putData.put("data", studentData);
-
+            putDataPayload.put("name", student.getName());
+            putDataPayload.put("phone", student.getPhone());
+            putDataPayload.put("className", student.getClassName());
+            putDataPayload.put("rollNumber", student.getRollNumber());
         } catch (JSONException e) {
             callback.onError(e.getMessage());
             return;
         }
-        new HttpRequestTask(BASE_URL + "/data", "PUT", studentData.toString(), authToken, new ApiCallback<String>() {
+
+        JSONObject requestBody = new JSONObject();
+        try {
+            requestBody.put("collection", "students");
+            requestBody.put("app_id", appId); // app_id in body for PUT /data
+            requestBody.put("id", student.getId());
+            requestBody.put("data", putDataPayload);
+        } catch (JSONException e) {
+            callback.onError(e.getMessage());
+            return;
+        }
+        // Correct endpoint: /data
+        new HttpRequestTask(BASE_URL + "/data", "PUT", requestBody.toString(), authToken, new ApiCallback<String>() {
             @Override
             public void onSuccess(String response) {
                 try {
@@ -251,10 +304,10 @@ public class BackendApi {
                     if (jsonResponse.optBoolean("success", false)) {
                         callback.onSuccess(student); // Assuming success means update was applied
                     } else {
-                        callback.onError(jsonResponse.optString("error", "Failed to update student: Unknown error."));
+                        callback.onError(jsonResponse.optString("error", "Unknown error updating student."));
                     }
                 } catch (JSONException e) {
-                    callback.onError("Failed to parse update student response: " + e.getMessage());
+                     callback.onError("Failed to parse update student response: " + e.getMessage());
                 }
             }
 
@@ -266,7 +319,12 @@ public class BackendApi {
     }
 
     public void deleteStudent(String authToken, String studentId, ApiCallback<Void> callback) {
-        new HttpRequestTask(BASE_URL + "/data?id=" + studentId + "&collection=students", "DELETE", null, authToken, new ApiCallback<String>() {
+        if (appId == null) {
+            callback.onError("App ID not initialized. Cannot delete student.");
+            return;
+        }
+        // Correct endpoint: /data with id, collection, and app_id query parameters
+        new HttpRequestTask(BASE_URL + "/data?id=" + studentId + "&collection=students&app_id=" + appId, "DELETE", null, authToken, new ApiCallback<String>() {
             @Override
             public void onSuccess(String response) {
                 try {
@@ -274,7 +332,7 @@ public class BackendApi {
                     if (jsonResponse.optBoolean("success", false)) {
                         callback.onSuccess(null); // No specific result needed
                     } else {
-                        callback.onError(jsonResponse.optString("error", "Failed to delete student: Unknown error."));
+                        callback.onError(jsonResponse.optString("error", "Unknown error deleting student."));
                     }
                 } catch (JSONException e) {
                     callback.onError("Failed to parse delete student response: " + e.getMessage());
@@ -298,13 +356,14 @@ public class BackendApi {
         private String authToken;
         private ApiCallback<String> callback;
         private String errorMessage;
-        private int responseCode;
+        private int httpResponseCode; // Store response code
 
         public HttpRequestTask(String urlString, String method, String requestBody, String authToken, ApiCallback<String> callback) {
             this.urlString = urlString;
             this.method = method;
             this.requestBody = requestBody;
             this.authToken = authToken;
+            this.callback = callback;
         }
 
         @Override
@@ -330,8 +389,8 @@ public class BackendApi {
                     os.close();
                 }
 
-                responseCode = urlConnection.getResponseCode();
-                if (responseCode >= 200 && responseCode < 300) { // HTTP_OK, HTTP_CREATED, etc.
+                httpResponseCode = urlConnection.getResponseCode(); // Store the response code
+                if (httpResponseCode >= 200 && httpResponseCode < 300) { // Check for 2xx success codes
                     BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
                     String inputLine;
                     StringBuffer response = new StringBuffer();
@@ -349,17 +408,20 @@ public class BackendApi {
                     }
                     errorReader.close();
                     String rawError = errorResponse.toString();
-                    
-                    try {
-                        JSONObject errorJson = new JSONObject(rawError);
-                        errorMessage = "HTTP Error " + responseCode + ": " + errorJson.optString("error", "Unknown API error.");
-                    } catch (JSONException e) {
-                        errorMessage = "HTTP Error " + responseCode + ": " + rawError;
+                    if (!rawError.isEmpty()) {
+                        try {
+                            JSONObject errorJson = new JSONObject(rawError);
+                            errorMessage = "HTTP Error " + httpResponseCode + ": " + errorJson.optString("error", "Unknown API error.");
+                        } catch (JSONException e) {
+                            errorMessage = "HTTP Error " + httpResponseCode + ": " + rawError; // Fallback if error is not JSON
+                        }
+                    } else {
+                        errorMessage = "HTTP Error " + httpResponseCode + ": No error message from server.";
                     }
                     return null;
                 }
             } catch (Exception e) {
-                errorMessage = e.getMessage();
+                errorMessage = "Network or parsing error: " + e.getMessage();
                 return null;
             } finally {
                 if (urlConnection != null) {
@@ -373,7 +435,7 @@ public class BackendApi {
             if (result != null) {
                 callback.onSuccess(result);
             } else {
-                callback.onError(errorMessage != null ? errorMessage : "Unknown network error occurred.");
+                callback.onError(errorMessage != null ? errorMessage : "Unknown error occurred.");
             }
         }
     }
