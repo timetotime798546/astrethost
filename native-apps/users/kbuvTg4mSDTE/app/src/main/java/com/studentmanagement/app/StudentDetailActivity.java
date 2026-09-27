@@ -35,7 +35,7 @@ public class StudentDetailActivity extends Activity {
         buttonDelete = (Button) findViewById(R.id.buttonDelete);
         textViewTitle = (TextView) findViewById(R.id.textViewTitle);
 
-        backendApi = new BackendApi();
+        backendApi = new BackendApi(this); // FIX: Pass context to BackendApi constructor
         sharedPreferencesManager = new SharedPreferencesManager(this);
 
         // Check if editing an existing student or creating a new one
@@ -123,6 +123,10 @@ public class StudentDetailActivity extends Activity {
                         public void run() {
                             Toast.makeText(StudentDetailActivity.this, "Failed to add student: " + error, Toast.LENGTH_LONG).show();
                             buttonSave.setEnabled(true);
+                             if (error.contains("401") || error.contains("Unauthorized") || error.contains("Authentication failed")) {
+                                sharedPreferencesManager.clearAuthToken();
+                                finish(); // Go back to the previous activity, which should be MainActivity or LoginActivity
+                            }
                         }
                     });
                 }
@@ -153,6 +157,10 @@ public class StudentDetailActivity extends Activity {
                         public void run() {
                             Toast.makeText(StudentDetailActivity.this, "Failed to update student: " + error, Toast.LENGTH_LONG).show();
                             buttonSave.setEnabled(true);
+                             if (error.contains("401") || error.contains("Unauthorized") || error.contains("Authentication failed")) {
+                                sharedPreferencesManager.clearAuthToken();
+                                finish(); // Go back to the previous activity, which should be MainActivity or LoginActivity
+                            }
                         }
                     });
                 }
@@ -194,6 +202,10 @@ public class StudentDetailActivity extends Activity {
                     public void run() {
                         Toast.makeText(StudentDetailActivity.this, "Failed to delete student: " + error, Toast.LENGTH_LONG).show();
                         buttonDelete.setEnabled(true);
+                         if (error.contains("401") || error.contains("Unauthorized") || error.contains("Authentication failed")) {
+                            sharedPreferencesManager.clearAuthToken();
+                            finish(); // Go back to the previous activity, which should be MainActivity or LoginActivity
+                        }
                     }
                 });
             }

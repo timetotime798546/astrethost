@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.studentmanagement.app"
+    namespace "com.app.androidpermissioninternet"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.studentmanagement.app"
+        applicationId "com.app.androidpermissioninternet"
 
         minSdkVersion 21
 

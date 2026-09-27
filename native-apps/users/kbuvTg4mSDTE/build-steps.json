@@ -3,7 +3,7 @@
     {
       "step": 1,
       "title": "Setup Project Structure",
-      "description": "Initializes the Android project with essential files like manifest and build.gradle for basic configuration.",
+      "description": "Initializes the Android project with essential files like manifest and build.gradle for basic configuration, including necessary permissions and removing deprecated attributes.",
       "files": [
         "app/src/main/AndroidManifest.xml",
         "app/build.gradle"
@@ -103,7 +103,7 @@
     {
       "step": 12,
       "title": "Implement Main Activity Logic",
-      "description": "Codes the Java logic for MainActivity to fetch and display student records, handle adding new students, and navigate to the student detail screen for editing/viewing.",
+      "description": "Codes the Java logic for MainActivity to fetch and display student records, handle adding new students, and navigate to the student detail screen for editing/viewing, ensuring the BackendApi is correctly initialized with context.",
       "files": [
         "app/src/main/java/com/studentmanagement/app/MainActivity.java"
       ],
@@ -121,7 +121,7 @@
     {
       "step": 14,
       "title": "Implement Student Detail Activity Logic",
-      "description": "Codes the Java logic for StudentDetailActivity to handle input for student details, perform create, update, or delete operations via the BackendApi, and navigate back.",
+      "description": "Codes the Java logic for StudentDetailActivity to handle input for student details, perform create, update, or delete operations via the BackendApi, ensuring proper initialization with context, and navigate back.",
       "files": [
         "app/src/main/java/com/studentmanagement/app/StudentDetailActivity.java"
       ],

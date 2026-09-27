@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
         buttonAddStudent = (Button) findViewById(R.id.buttonAddStudent);
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
 
-        backendApi = new BackendApi();
+        backendApi = new BackendApi(this); // FIX: Pass context to BackendApi constructor
         sharedPreferencesManager = new SharedPreferencesManager(this);
 
         // Check if user is logged in
@@ -60,8 +60,40 @@ public class MainActivity extends Activity {
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPreferencesManager.clearAuthToken();
-                redirectToLogin();
+                // Perform logout API call
+                String authToken = sharedPreferencesManager.getAuthToken();
+                if (authToken != null) {
+                    backendApi.logout(authToken, new BackendApi.ApiCallback<Void>() {
+                        @Override
+                        public void onSuccess(Void result) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    sharedPreferencesManager.clearAuthToken();
+                                    redirectToLogin();
+                                    Toast.makeText(MainActivity.this, "Logged out successfully.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onError(final String error) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(MainActivity.this, "Logout failed: " + error, Toast.LENGTH_LONG).show();
+                                    // Even if API logout fails, clear local token for safety
+                                    sharedPreferencesManager.clearAuthToken();
+                                    redirectToLogin();
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    // No token to log out, just redirect
+                    sharedPreferencesManager.clearAuthToken();
+                    redirectToLogin();
+                }
             }
         });
 
@@ -79,7 +111,12 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        fetchStudents(); // Refresh student list when activity resumes
+        // Ensure user is still logged in before fetching data
+        if (sharedPreferencesManager.getAuthToken() == null) {
+            redirectToLogin();
+        } else {
+            fetchStudents(); // Refresh student list when activity resumes
+        }
     }
 
     private void redirectToLogin() {
@@ -118,7 +155,7 @@ public class MainActivity extends Activity {
                     public void run() {
                         Toast.makeText(MainActivity.this, "Failed to load students: " + error, Toast.LENGTH_LONG).show();
                         // If error is related to auth, redirect to login
-                        if (error.contains("401") || error.contains("Unauthorized")) {
+                        if (error.contains("401") || error.contains("Unauthorized") || error.contains("Authentication failed")) {
                             sharedPreferencesManager.clearAuthToken();
                             redirectToLogin();
                         }
