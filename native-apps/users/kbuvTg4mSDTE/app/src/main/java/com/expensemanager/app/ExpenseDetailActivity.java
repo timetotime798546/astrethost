@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import org.json.JSONObject;
 import java.util.Calendar;
 
 public class ExpenseDetailActivity extends Activity {
@@ -33,23 +34,23 @@ public class ExpenseDetailActivity extends Activity {
 
         backendApi = new BackendApi(this);
 
-        tvFormTitle = findViewById(R.id.tv_form_title);
-        etTitle = findViewById(R.id.et_expense_title);
-        etAmount = findViewById(R.id.et_expense_amount);
-        spinnerCategory = findViewById(R.id.spinner_expense_category);
-        etDate = findViewById(R.id.et_expense_date);
-        etNote = findViewById(R.id.et_expense_note);
+        tvFormTitle = (TextView) findViewById(R.id.tv_form_title);
+        etTitle = (EditText) findViewById(R.id.et_expense_title);
+        etAmount = (EditText) findViewById(R.id.et_expense_amount);
+        spinnerCategory = (Spinner) findViewById(R.id.spinner_expense_category);
+        etDate = (EditText) findViewById(R.id.et_expense_date);
+        etNote = (EditText) findViewById(R.id.et_expense_note);
         
-        btnSave = findViewById(R.id.btn_save_expense);
-        btnDelete = findViewById(R.id.btn_delete_expense);
-        btnCancel = findViewById(R.id.btn_cancel);
+        btnSave = (Button) findViewById(R.id.btn_save_expense);
+        btnDelete = (Button) findViewById(R.id.btn_delete_expense);
+        btnCancel = (Button) findViewById(R.id.btn_cancel);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Recording database transactional modification...");
         progressDialog.setCancelable(false);
 
         // Configure Category Spinner
-        ArrayAdapter<String> catAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
+        ArrayAdapter<String> catAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
         catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCategory.setAdapter(catAdapter);
 
@@ -158,12 +159,10 @@ public class ExpenseDetailActivity extends Activity {
 
         progressDialog.show();
 
-        Expense expense = new Expense(expenseId, title, amount, category, date, note);
-
         if (expenseId == null) {
-            backendApi.createExpense(expense, new BackendApi.ApiCallback<Expense>() {
+            backendApi.createExpense(title, amount, category, date, note, new BackendApi.ApiCallback() {
                 @Override
-                public void onSuccess(Expense result) {
+                public void onSuccess(JSONObject result) {
                     progressDialog.dismiss();
                     Toast.makeText(ExpenseDetailActivity.this, "Expense recorded successful", Toast.LENGTH_SHORT).show();
                     finish();
@@ -176,9 +175,9 @@ public class ExpenseDetailActivity extends Activity {
                 }
             });
         } else {
-            backendApi.updateExpense(expense, new BackendApi.ApiCallback<Void>() {
+            backendApi.updateExpense(expenseId, title, amount, category, date, note, new BackendApi.ApiCallback() {
                 @Override
-                public void onSuccess(Void result) {
+                public void onSuccess(JSONObject result) {
                     progressDialog.dismiss();
                     Toast.makeText(ExpenseDetailActivity.this, "Expense modification processed successfully.", Toast.LENGTH_SHORT).show();
                     finish();
@@ -199,9 +198,9 @@ public class ExpenseDetailActivity extends Activity {
         progressDialog.setMessage("Removing transactional reference...");
         progressDialog.show();
 
-        backendApi.deleteExpense(expenseId, new BackendApi.ApiCallback<Void>() {
+        backendApi.deleteExpense(expenseId, new BackendApi.ApiCallback() {
             @Override
-            public void onSuccess(Void result) {
+            public void onSuccess(JSONObject result) {
                 progressDialog.dismiss();
                 Toast.makeText(ExpenseDetailActivity.this, "Transaction record erased.", Toast.LENGTH_SHORT).show();
                 finish();
