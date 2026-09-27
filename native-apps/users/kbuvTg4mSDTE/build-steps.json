@@ -59,7 +59,7 @@
     {
       "step": 8,
       "title": "Build Main Activity Layout",
-      "description": "Design dynamic tabbed POS layout hosting Dashboard, Inventory, Billing, and Expenses panes.",
+      "description": "Design dynamic tabbed POS layout hosting Dashboard, Inventory, Billing, and Expenses panes, fixing RelativeLayout alignment and LinearLayout custom attributes.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
