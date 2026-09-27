@@ -723,7 +723,7 @@ public class MainActivity extends Activity {
             String label = item.productName + " (" + item.unit + ")\n" +
                     "Rate: " + currencySymbol + item.sellingPrice + "  |  Qty: " + item.quantity + "  |  Total: " + currencySymbol + String.format(Locale.getDefault(), "%.2f", lineTotal);
             text.setText(label);
-            text.setTextSize(14sp);
+            text.setTextSize(14);
 
             // Row click options (Plus, Minus, Delete dialog triggers)
             row.setOnClickListener(new View.OnClickListener() {
@@ -981,7 +981,7 @@ public class MainActivity extends Activity {
         TextView printView = new TextView(this);
         printView.setText(slip.toString());
         printView.setTypeface(android.graphics.Typeface.MONOSPACE);
-        printView.setTextSize(12sp);
+        printView.setTextSize(12);
         printView.setPadding(30, 30, 30, 30);
         printView.setBackgroundColor(0xFFFFFFFF);
         printView.setTextColor(0xFF000000);
@@ -1069,7 +1069,7 @@ public class MainActivity extends Activity {
                 String subtitle = "Category: " + item.get("category") + " | Selling Rate: " + currencySymbol + item.get("selling_price") +
                         "\nStock: " + item.get("stock") + " | SKU: " + item.get("sku") + " | Barcode: " + item.get("barcode");
                 text2.setText(subtitle);
-                text2.setTextSize(12sp);
+                text2.setTextSize(12);
 
                 return convertView;
             }
@@ -1311,7 +1311,7 @@ public class MainActivity extends Activity {
                 }
 
                 text2.setText("Mobile: " + map.get("mobile") + " | Address: " + map.get("address"));
-                text2.setTextSize(12sp);
+                text2.setTextSize(12);
 
                 return convertView;
             }
@@ -1531,7 +1531,7 @@ public class MainActivity extends Activity {
             }
 
             text2.setText("Phone: " + mob + " | Address: " + add);
-            text2.setTextSize(12sp);
+            text2.setTextSize(12);
 
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -1798,7 +1798,7 @@ public class MainActivity extends Activity {
                 text1.setTextColor(0xFFEF4444);
 
                 text2.setText("Category: " + item.get("category") + " | Date: " + item.get("date") + " | Note: " + item.get("note"));
-                text2.setTextSize(11sp);
+                text2.setTextSize(11);
 
                 return convertView;
             }
@@ -1918,7 +1918,7 @@ public class MainActivity extends Activity {
                 }
 
                 text2.setText("Client: " + item.get("customer_name") + " | Mode: " + item.get("pay_mode") + " | Date: " + item.get("date"));
-                text2.setTextSize(11sp);
+                text2.setTextSize(11);
 
                 return convertView;
             }
@@ -2111,14 +2111,14 @@ public class MainActivity extends Activity {
     private EditText createPopupInput(String label, LinearLayout container) {
         TextView tv = new TextView(this);
         tv.setText(label);
-        tv.setTextSize(12sp);
+        tv.setTextSize(12);
         tv.setTextColor(0xFF4B5563);
         tv.setPadding(0, 10, 0, 4);
         container.addView(tv);
 
         EditText et = new EditText(this);
         et.setBackgroundResource(R.drawable.edit_text_bg);
-        et.setTextSize(14sp);
+        et.setTextSize(14);
         et.setPadding(20, 16, 20, 16);
         et.setTextColor(0xFF1F2937);
 
