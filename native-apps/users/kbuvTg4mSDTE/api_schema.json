@@ -1,0 +1,30 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {},
+  "logic": {
+    "calculator_add": {
+      "type": "calculation",
+      "inputs": ["a", "b"],
+      "formula": "a + b"
+    },
+    "calculator_subtract": {
+      "type": "calculation",
+      "inputs": ["a", "b"],
+      "formula": "a - b"
+    },
+    "calculator_multiply": {
+      "type": "calculation",
+      "inputs": ["a", "b"],
+      "formula": "a * b"
+    },
+    "calculator_divide": {
+      "type": "calculation",
+      "inputs": ["a", "b"],
+      "formula": "a / b"
+    }
+  }
+}
