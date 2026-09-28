@@ -17,7 +17,7 @@
     {
       "step": 3,
       "title": "Establish Android Manifest",
-      "description": "Set up application structural configurations, declare activities, and request internet access rights. Removed deprecated package attribute from manifest tag.",
+      "description": "Set up application structural configurations, declare activities, and request internet access rights. Removed deprecated package attribute from manifest tag and fixed main theme to material light.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
