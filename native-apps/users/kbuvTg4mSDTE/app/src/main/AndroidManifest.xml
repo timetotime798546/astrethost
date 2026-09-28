@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.studentmanager.app">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:roundIcon="@drawable/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Material.Light"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name="com.studentmanager.app.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.studentmanager.app.LoginActivity" />
+        <activity android:name="com.studentmanager.app.RegisterActivity" />
+        <activity android:name="com.studentmanager.app.MainActivity" />
+        <activity android:name="com.studentmanager.app.StudentDetailActivity" />
+
+    </application>
+</manifest>
