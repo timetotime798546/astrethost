@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.cctvrecordbook.app"
+    namespace "com.app.androidpermissioninternet"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.cctvrecordbook.app"
+        applicationId "com.app.androidpermissioninternet"
 
         minSdkVersion 21
 
