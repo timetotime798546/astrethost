@@ -3,7 +3,7 @@
     {
       "step": 1,
       "title": "Set up project structure",
-      "description": "Initialize the Android project with necessary configurations for app metadata and Gradle build environment.",
+      "description": "Initialize the Android project with necessary configurations for app metadata and Gradle build environment, including adding required external libraries like OkHttp and Gson.",
       "files": ["app-meta.json", "build.gradle"],
       "status": "pending"
     },
@@ -17,7 +17,7 @@
     {
       "step": 3,
       "title": "Configure Android Manifest",
-      "description": "Set up application permissions for internet access and define activities for registration, login, main list, and adding/editing students.",
+      "description": "Set up application permissions for internet access, define activities for registration, login, main list, and adding/editing students, and remove deprecated 'package' attribute from manifest.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
