@@ -17,14 +17,14 @@
     {
       "step": 3,
       "title": "Establish Android Manifest",
-      "description": "Set up application structural configurations, declare activities, and request internet access rights. Removed deprecated package attribute from manifest tag and fixed main theme to material light.",
+      "description": "Set up application structural configurations, declare activities, and request internet access rights with standard material light theme.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
       "title": "Configure Android SDK Compilation Settings",
-      "description": "Establish target SDK 34 compatibility, setup namespace attributes, and define Java 1.8 compatibility features.",
+      "description": "Establish target SDK 34 compatibility, namespace configurations, and standard Java 8 settings without third-party dependencies.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
@@ -49,8 +49,8 @@
     },
     {
       "step": 7,
-      "title": "Design Interactive Activities XML Assets",
-      "description": "Create layouts for User Signup/Login, Customer Database Dashboard, Record Creator Form, and detailed Information View. Fixed `layout_width` typo from `match_match` to `match_parent` in `activity_login.xml`.",
+      "title": "Fix and Design Interactive Activity Layouts",
+      "description": "Validate and generate XML layouts for Login, Dashboard, Record Form, and Details views with valid dimensions.",
       "files": [
         "app/src/main/res/layout/activity_login.xml",
         "app/src/main/res/layout/activity_main.xml",
@@ -58,47 +58,47 @@
         "app/src/main/res/layout/activity_details.xml",
         "app/src/main/res/layout/item_customer.xml"
       ],
-      "status": "complete"
+      "status": "pending"
     },
     {
       "step": 8,
-      "title": "Develop Native Object Models",
-      "description": "Create Customer.java entity representing installation attributes, containing JSON parsing adapters.",
+      "title": "Develop Native Data Models",
+      "description": "Customer entity representing installation attributes with built-in JSON conversion adapters.",
       "files": ["app/src/main/java/com/cctvrecordbook/app/Customer.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Cloud Network SDK Client",
-      "description": "Create BackendApi.java which parses internal assets metadata and establishes safe CRUD interfaces to server endpoints.",
+      "title": "Implement Cloud Network Client",
+      "description": "BackendApi client communicating with worker backend endpoints using HttpURLConnection and asset configuration.",
       "files": ["app/src/main/java/com/cctvrecordbook/app/BackendApi.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement Authentication Flows",
-      "description": "Write LoginActivity.java executing network-based login and registration operations with secure local session preservation.",
+      "title": "Implement Authentication Activity",
+      "description": "LoginActivity executing register and login operations with secure session token persistence.",
       "files": ["app/src/main/java/com/cctvrecordbook/app/LoginActivity.java"],
       "status": "pending"
     },
     {
       "step": 11,
       "title": "Implement Database Listing Screen",
-      "description": "Write MainActivity.java showing dynamic installation cards, aggregate analytics calculations, and real-time textual searching features.",
+      "description": "MainActivity displaying installation cards, summary calculations, and real-time textual search.",
       "files": ["app/src/main/java/com/cctvrecordbook/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Implement Form Creator and Verification Flows",
-      "description": "Create AddEditCustomerActivity.java with dynamic real-time local mathematical calculation and remote validation check features.",
+      "title": "Implement Form Creator and Calculation Validation",
+      "description": "AddEditCustomerActivity with local balance calculation and optional logic verification check.",
       "files": ["app/src/main/java/com/cctvrecordbook/app/AddEditCustomerActivity.java"],
       "status": "pending"
     },
     {
       "step": 13,
-      "title": "Implement Individual Details and Operations Action Screen",
-      "description": "Write CustomerDetailsActivity.java containing instant telephone calling intent and remote data deleting operations.",
+      "title": "Implement Details and Operations View",
+      "description": "CustomerDetailsActivity providing telephone intent and remote record deletion.",
       "files": ["app/src/main/java/com/cctvrecordbook/app/CustomerDetailsActivity.java"],
       "status": "pending"
     },
