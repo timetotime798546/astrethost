@@ -50,7 +50,7 @@
     {
       "step": 7,
       "title": "Design Interactive Activities XML Assets",
-      "description": "Create layouts for User Signup/Login, Customer Database Dashboard, Record Creator Form, and detailed Information View. Fixed layout_width typo in activity_login.xml.",
+      "description": "Create layouts for User Signup/Login, Customer Database Dashboard, Record Creator Form, and detailed Information View. Fixed `layout_width` typo from `match_match` to `match_parent` in `activity_login.xml`.",
       "files": [
         "app/src/main/res/layout/activity_login.xml",
         "app/src/main/res/layout/activity_main.xml",
@@ -58,7 +58,7 @@
         "app/src/main/res/layout/activity_details.xml",
         "app/src/main/res/layout/item_customer.xml"
       ],
-      "status": "pending"
+      "status": "complete"
     },
     {
       "step": 8,

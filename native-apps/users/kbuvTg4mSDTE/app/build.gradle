@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.app.androidpermissioninternet"
+    namespace "com.app.generatedapp"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.app.androidpermissioninternet"
+        applicationId "com.app.generatedapp"
 
         minSdkVersion 21
 
