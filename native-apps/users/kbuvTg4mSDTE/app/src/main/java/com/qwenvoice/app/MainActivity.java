@@ -231,8 +231,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     private void setupSpeechRecognizer() {
-        if (SpeechRecognizer.is
-        (this)) {
+        if (SpeechRecognizer.isRecognitionAvailable(this)) {
             speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
             speechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);

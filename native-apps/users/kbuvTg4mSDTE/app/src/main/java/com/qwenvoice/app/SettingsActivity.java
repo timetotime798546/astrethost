@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.Voice; // Explicitly import TextToSpeech.Voice to resolve compilation error
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -245,13 +246,13 @@ public class SettingsActivity extends Activity implements TextToSpeech.OnInitLis
             return;
         }
 
-        Set<TextToSpeech.Voice> voices = tempTts.getVoices();
+        Set<Voice> voices = tempTts.getVoices();
         availableVoices = new ArrayList<Map<String, String>>();
         List<String> voiceNames = new ArrayList<String>();
         String savedLocaleTag = prefs.getString("selectedVoiceLanguageTag", null);
         int selectedPosition = 0;
 
-        for (TextToSpeech.Voice voice : voices) {
+        for (Voice voice : voices) {
             // Only add voices that speak a valid language and are not network-only if offline
             if (voice.getFeatures() != null && voice.getLocale() != null && !voice.getLocale().getDisplayName().isEmpty()) {
                 Map<String, String> voiceMap = new HashMap<String, String>();
