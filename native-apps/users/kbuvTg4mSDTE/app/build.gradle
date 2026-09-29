@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.qwenvoice.app"
+    namespace "com.pocketledgerpro.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.qwenvoice.app"
+        applicationId "com.pocketledgerpro.app"
 
         minSdkVersion 21
 
