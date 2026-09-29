@@ -32,9 +32,9 @@ public class BackendApi {
             }
             reader.close();
             JSONObject meta = new JSONObject(sb.toString());
-            this.appId = meta.optString("package_name", "com.vaultlauncher.app");
+            this.appId = meta.optString("app_id", "app_6abb3678331a4");
         } catch (Exception e) {
-            this.appId = "com.vaultlauncher.app";
+            this.appId = "app_6abb3678331a4";
         }
     }
 

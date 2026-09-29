@@ -2,85 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure App Metadata",
-      "description": "Establish app package name and application configuration parameters.",
-      "files": ["app-meta.json"],
+      "title": "Analyze compilation diagnostics",
+      "description": "Examine the compiler error logs to pinpoint wrong R resource identifier and layout selections as well as missing widget imports.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Define Backend API Schema",
-      "description": "Create api_schema.json to model cloud backup collections and client logic constraints.",
-      "files": ["api_schema.json"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Setup Build Specifications",
-      "description": "Configure build.gradle with proper compile SDK versions and dependency exclusions.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Design Decoy Launcher Layout",
-      "description": "Develop the XML layout for the decoy calculator lock interface.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Design Cloud Authorization Interface",
-      "description": "Build the layout interface to log in or register for online vault backups.",
-      "files": ["app/src/main/res/layout/activity_login.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Design Secured Vault Dashboard",
-      "description": "Create the dashboard layout with offline-calculated stats and lists for sensitive data.",
-      "files": ["app/src/main/res/layout/activity_vault.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Implement Native Backend Service Wrapper",
-      "description": "Write BackendApi.java utilizing native HttpURLConnection to communicate with the cloud worker.",
-      "files": ["app/src/main/java/com/vaultlauncher/app/BackendApi.java"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Develop Decoy Calculator Lock Screen",
-      "description": "Program MainActivity.java to compute mathematical input locally and unlock with secret code inputs.",
+      "title": "Correct MainActivity layout resource reference",
+      "description": "Change setContentView target parameter from R.id.activity_main to R.layout.activity_main to load the visual XML tree layout successfully.",
       "files": ["app/src/main/java/com/vaultlauncher/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Program Authorization Workflow",
-      "description": "Handle Cloud Sync setup via user registration/login and native SharedPreferences token storage.",
+      "step": 3,
+      "title": "Correct LoginActivity layout resource reference",
+      "description": "Fix the target reference in LoginActivity from R.id.activity_login to R.layout.activity_login to clear compile errors.",
       "files": ["app/src/main/java/com/vaultlauncher/app/LoginActivity.java"],
       "status": "pending"
     },
     {
-      "step": 10,
-      "title": "Create Dashboard & Local Computations",
-      "description": "Program VaultActivity.java to manage sensitive items and calculate real-time stats locally.",
+      "step": 4,
+      "title": "Import LinearLayout in VaultActivity",
+      "description": "Include missing android.widget.LinearLayout import statement to allow programmatic custom layout creations during dialog inflation.",
       "files": ["app/src/main/java/com/vaultlauncher/app/VaultActivity.java"],
       "status": "pending"
     },
     {
-      "step": 11,
-      "title": "Configure Application Manifest",
-      "description": "Set up internet permissions, launcher configuration, and security settings in AndroidManifest.xml.",
+      "step": 5,
+      "title": "Verify offline statistics calculations",
+      "description": "Ensure total items count calculation performs offline mathematical additions in real-time.",
+      "files": ["app/src/main/java/com/vaultlauncher/app/VaultActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify local storage fallback databases",
+      "description": "Validate local fallback reading/writing of notes and credentials through standard device-bound SharedPreferences.",
+      "files": ["app/src/main/java/com/vaultlauncher/app/VaultActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Confirm Shared Preferences keys for PIN storage",
+      "description": "Audit the decoy calculation sequence and comparison check logic matching the secret access pin.",
+      "files": ["app/src/main/java/com/vaultlauncher/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Audit network API parameters in BackendApi",
+      "description": "Correct assets reading block to correctly obtain the app_id property from app-meta.json configurations.",
+      "files": ["app/src/main/java/com/vaultlauncher/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Validate AndroidManifest properties",
+      "description": "Double check application package configurations and target components registry.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
-      "step": 12,
+      "step": 10,
       "title": "Building Vault Launcher",
-      "description": "Execute final build verification using the Gradle compiler wrapper.",
+      "description": "Run the Gradle compiler pipeline to generate and package the debug APK with no error diagnostics.",
       "files": [],
       "status": "pending"
     }

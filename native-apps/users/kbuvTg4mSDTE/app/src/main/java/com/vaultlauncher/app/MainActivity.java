@@ -21,7 +21,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.id.activity_main);
+        setContentView(R.layout.activity_main);
 
         currentInput = new StringBuilder();
         tvDisplay = (TextView) findViewById(R.id.tv_display);
