@@ -102,7 +102,6 @@ public class MainActivity extends Activity {
         tvIncome.setText(String.format(Locale.US, "$%.2f", totalIncome));
         tvExpenses.setText(String.format(Locale.US, "$%.2f", totalExpense));
 
-        // Populate List (reverse for recent)
         for (int i = transactionList.size() - 1; i >= 0; i--) {
             Transaction t = transactionList.get(i);
             View itemView = getLayoutInflater().inflate(R.layout.item_transaction, listContainer, false);
@@ -175,15 +174,19 @@ public class MainActivity extends Activity {
                     return;
                 }
 
-                double amt = Double.parseDouble(amountStr);
-                String cat = spCategory.getSelectedItem().toString();
-                String date = new SimpleDateFormat("dd MMM", Locale.US).format(new Date());
+                try {
+                    double amt = Double.parseDouble(amountStr);
+                    String cat = spCategory.getSelectedItem().toString();
+                    String date = new SimpleDateFormat("dd MMM", Locale.US).format(new Date());
 
-                Transaction t = new Transaction(UUID.randomUUID().toString(), title, amt, cat, date, isAddingIncome);
-                transactionList.add(t);
-                dataManager.saveTransactions(transactionList);
-                
-                showDashboard();
+                    Transaction t = new Transaction(UUID.randomUUID().toString(), title, amt, cat, date, isAddingIncome);
+                    transactionList.add(t);
+                    dataManager.saveTransactions(transactionList);
+                    
+                    showDashboard();
+                } catch (NumberFormatException e) {
+                    Toast.makeText(MainActivity.this, "Invalid amount", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -231,7 +234,7 @@ public class MainActivity extends Activity {
                 double percent = (entry.getValue() / totalSpend) * 100;
                 label.setText(String.format(Locale.US, "%s: $%.2f (%.1f%%)", entry.getKey(), entry.getValue(), percent));
                 label.setTextColor(Color.WHITE);
-                label.setTextSize(14spToPx(14));
+                label.setTextSize(14); // Fixed syntax error here
 
                 View progressBg = new View(this);
                 LinearLayout.LayoutParams lpBg = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 8);

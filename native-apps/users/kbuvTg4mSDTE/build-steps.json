@@ -2,104 +2,69 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Initialization",
-      "description": "Setting up the project structure and package naming for PocketLedger Pro.",
-      "files": [],
+      "title": "Analyze Build Error",
+      "description": "Identified syntax error in MainActivity.java and deprecated manifest package attribute.",
+      "files": ["app/src/main/java/com/pocketledgerpro/app/MainActivity.java", "app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Manifest Configuration",
-      "description": "Configuring AndroidManifest.xml with necessary permissions and activity declarations.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Fix Java Syntax",
+      "description": "Correcting the invalid text size method call in the Analytics view.",
+      "files": ["app/src/main/java/com/pocketledgerpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Color Resource Definition",
-      "description": "Defining the Electric Indigo, Emerald Green, and Coral Red color palette for the dark theme.",
-      "files": ["app/src/main/res/values/colors.xml"],
+      "title": "Update Manifest",
+      "description": "Removing deprecated package attribute as per build log recommendations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Main Layout Design",
-      "description": "Creating the primary container layout with a bottom navigation system.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Validate Resource References",
+      "description": "Ensuring all color and layout references remain consistent with the indigo/emerald theme.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Dashboard UI Design",
-      "description": "Designing the dashboard view featuring the balance summary card and recent transactions list.",
-      "files": ["app/src/main/res/layout/view_dashboard.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Transaction Item Design",
-      "description": "Creating a sleek layout for individual transaction records in the list.",
-      "files": ["app/src/main/res/layout/item_transaction.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Add Transaction UI",
-      "description": "Building the form to input title, amount, category, and date.",
-      "files": ["app/src/main/res/layout/view_add_transaction.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Analytics UI Design",
-      "description": "Developing the summary view for monthly spending analysis.",
-      "files": ["app/src/main/res/layout/view_analytics.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Settings UI Design",
-      "description": "Creating the About and Data Management settings page.",
-      "files": ["app/src/main/res/layout/view_settings.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Data Model Implementation",
-      "description": "Implementing the Transaction model class for data handling.",
-      "files": ["app/src/main/java/com/pocketledgerpro/app/Transaction.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Persistence Logic",
-      "description": "Developing the local storage manager using SharedPreferences and JSON serialization.",
+      "title": "Verify Data Persistence",
+      "description": "Ensuring SharedPreferences logic for transaction history is preserved.",
       "files": ["app/src/main/java/com/pocketledgerpro/app/DataManager.java"],
       "status": "pending"
     },
     {
-      "step": 12,
-      "title": "Core Business Logic",
-      "description": "Implementing calculations for totals, income, and expenses within the app.",
+      "step": 6,
+      "title": "Verify UI Layouts",
+      "description": "Checking Dashboard, Add Transaction, and Analytics XML layouts for integrity.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Check Calculation Logic",
+      "description": "Ensuring the income vs expense balance formula is correctly implemented in Java.",
       "files": ["app/src/main/java/com/pocketledgerpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 13,
-      "title": "Navigation Controller",
-      "description": "Managing screen transitions between Dashboard, Add, Analytics, and Settings.",
+      "step": 8,
+      "title": "Review Theme Styles",
+      "description": "Confirming Material Light theme application with custom color overrides.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Optimize Imports",
+      "description": "Cleaning up unused or missing imports in activity classes.",
       "files": ["app/src/main/java/com/pocketledgerpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 14,
-      "title": "Theming and Styling",
-      "description": "Applying Material Design 3 styles, rounded corners, and dark mode visuals.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 15,
+      "step": 10,
       "title": "Building PocketLedger Pro",
       "description": "Finalizing the build and compiling the APK.",
       "files": [],
