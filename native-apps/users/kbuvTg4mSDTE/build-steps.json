@@ -1,0 +1,102 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Set up Android Project Structure",
+      "description": "Initialize the basic Android project files, including app-meta.json and build-steps.json, and configure the Gradle build environment for Java 8 compatibility and Android SDK versions.",
+      "files": ["app-meta.json", "build-steps.json", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Android Manifest and Network Security",
+      "description": "Add necessary permissions for Internet and Audio recording, declare activities, and configure network security to allow cleartext HTTP traffic for local server communication.",
+      "files": ["app/src/main/AndroidManifest.xml", "app/src/main/res/xml/network_security_config.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Design Main Activity Layout (activity_main.xml)",
+      "description": "Create the user interface for the main conversation screen, featuring a microphone icon, status text, connection indicator, and control buttons for start, stop, and settings.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Qwen API Client",
+      "description": "Create a utility class to handle HTTP POST requests to the local Qwen AI server, including JSON construction, sending requests, and parsing responses, using HttpURLConnection on a background thread.",
+      "files": ["app/src/main/java/com/qwenvoice/app/QwenApiClient.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Initialize Main Activity Core Components",
+      "description": "Set up the MainActivity class, including UI element binding, initializing TextToSpeech, and handling runtime RECORD_AUDIO permission requests.",
+      "files": ["app/src/main/java/com/qwenvoice/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Speech Recognition (SpeechRecognizer)",
+      "description": "Integrate Android's SpeechRecognizer, including its listener callbacks to detect user speech, process results, and handle recognition errors, ensuring Java 8 compatibility.",
+      "files": ["app/src/main/java/com/qwenvoice/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Text-to-Speech (TextToSpeech)",
+      "description": "Integrate Android's TextToSpeech, including its initialization listener and utterance progress listener to manage spoken output and detect when speaking finishes, using Java 8 compatible anonymous inner classes.",
+      "files": ["app/src/main/java/com/qwenvoice/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Manage Conversation State and Flow",
+      "description": "Develop logic to orchestrate the continuous conversation cycle: listening, sending to AI, speaking AI response, and automatically restarting listening. Handle state transitions and prevent overlaps.",
+      "files": ["app/src/main/java/com/qwenvoice/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Conversation Memory",
+      "description": "Add functionality to maintain a limited history of the conversation (user and assistant messages) in memory to provide context for subsequent Qwen API requests, controlling the message list size.",
+      "files": ["app/src/main/java/com/qwenvoice/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Create Settings Activity Layout (activity_settings.xml)",
+      "description": "Design the UI for the Settings screen, including input fields for Qwen server URL and max tokens, Spinners for voice selection, SeekBars for speech rate and pitch, and Switches for auto-listen and clear conversation.",
+      "files": ["app/src/main/res/layout/activity_settings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Settings Activity Logic",
+      "description": "Develop the SettingsActivity to load, save, and apply user preferences using SharedPreferences. Implement a connection test to the Qwen server and dynamically update the UI based on settings.",
+      "files": ["app/src/main/java/com/qwenvoice/app/SettingsActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Integrate Settings into Main Activity",
+      "description": "Enable MainActivity to access and apply settings saved from SettingsActivity, such as the Qwen server URL, speech rate, pitch, and auto-listen preferences, ensuring changes are reflected.",
+      "files": ["app/src/main/java/com/qwenvoice/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Refine UI and Error Handling",
+      "description": "Implement robust error handling for network issues, speech recognition failures, and TTS initialization. Update UI status indicators dynamically to provide clear feedback to the user.",
+      "files": ["app/src/main/java/com/qwenvoice/app/MainActivity.java", "app/src/main/java/com/qwenvoice/app/SettingsActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Qwen Voice",
+      "description": "Compile and assemble the 'Qwen Voice' application for debugging.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
