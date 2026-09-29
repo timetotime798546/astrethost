@@ -30,8 +30,8 @@ public class BackendApi {
             InputStream is = context.getAssets().open("app-meta.json");
             Scanner s = new Scanner(is).useDelimiter("\\A");
             String json = s.hasNext() ? s.next() : "";
-            // FIXED: Correctly reading 'app_id' as required by backend rules
-            return new JSONObject(json).getString("app_id");
+            JSONObject obj = new JSONObject(json);
+            return obj.optString("app_id", "app_6abbb783a9f92");
         } catch (Exception e) {
             return "app_6abbb783a9f92";
         }
@@ -71,14 +71,15 @@ public class BackendApi {
         }).start();
     }
 
-    public void saveHistory(final String expression, final String result, final ApiCallback callback) {
+    public void saveHistory(final String expression, final String resultStr, final ApiCallback callback) {
+        if (token == null) return;
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     JSONObject data = new JSONObject();
                     data.put("expression", expression);
-                    data.put("result", result);
+                    data.put("result", resultStr);
                     data.put("timestamp", String.valueOf(System.currentTimeMillis()));
 
                     JSONObject body = new JSONObject();
@@ -93,6 +94,7 @@ public class BackendApi {
     }
 
     public void getHistory(final ApiCallback callback) {
+        if (token == null) return;
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -124,18 +126,22 @@ public class BackendApi {
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             StringBuilder sb = new StringBuilder();
             String line;
-            while ((line = br.readLine()) != null) sb.append(line);
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
             
             JSONObject response = new JSONObject(sb.toString());
             if (response.optBoolean("success", false)) {
                 callback.onSuccess(response);
             } else {
-                callback.onError(response.optString("message", "Error occurred"));
+                callback.onError(response.optString("message", response.optString("error", "Request failed")));
             }
         } catch (Exception e) {
             callback.onError(e.getMessage());
         } finally {
-            if (conn != null) conn.disconnect();
+            if (conn != null) {
+                conn.disconnect();
+            }
         }
     }
 }

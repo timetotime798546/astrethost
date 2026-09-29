@@ -2,71 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze Build Failure",
-      "description": "Inspecting the error log to identify the syntax error in HistoryActivity.java.",
-      "files": ["app/src/main/java/com/procalculator/app/HistoryActivity.java"],
+      "title": "Fix Theme Resource Referencing",
+      "description": "Correcting the invalid dot notation in ThemeManager.java to use underscore notation for Android framework style resources (android.R.style.Theme_Material).",
+      "files": ["app/src/main/java/com/procalculator/app/ThemeManager.java"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Fix Java Syntax Error",
-      "description": "Removing the invalid 'sp' suffix from the setTextSize call in HistoryActivity.",
-      "files": ["app/src/main/java/com/procalculator/app/HistoryActivity.java"],
+      "title": "Remove Unauthorized External Dependencies",
+      "description": "Removing 'org.nanohttpd' from build.gradle to strictly adhere to the no-external-dependencies rule.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Update Backend API App ID Logic",
-      "description": "Correcting the BackendApi to read the 'app_id' field instead of 'package_name' from assets.",
+      "title": "Verify Backend API Client",
+      "description": "Ensuring BackendApi.java reads the app_id from assets and correctly handles the generic /data CRUD endpoints.",
       "files": ["app/src/main/java/com/procalculator/app/BackendApi.java"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Dependency Cleanup",
-      "description": "Removing unused third-party dependencies from build.gradle to ensure compliance with SDK-only rules.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Manifest Verification",
-      "description": "Verifying activity declarations and package name consistency in the Android Manifest.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Calculator UI Layout Check",
-      "description": "Ensuring the main calculator grid and display logic remain intact.",
+      "title": "Clean Up Layout References",
+      "description": "Ensuring all UI components in activity_main.xml are correctly mapped in MainActivity.java.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 5,
+      "title": "Validate Authentication Flow",
+      "description": "Verifying that LoginActivity and RegisterActivity handle token storage correctly without mixing responses.",
+      "files": ["app/src/main/java/com/procalculator/app/LoginActivity.java", "app/src/main/java/com/procalculator/app/RegisterActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Review History Parsing",
+      "description": "Confirming HistoryActivity correctly navigates the nested 'record.data' structure returned by the /data API.",
+      "files": ["app/src/main/java/com/procalculator/app/HistoryActivity.java"],
+      "status": "pending"
+    },
+    {
       "step": 7,
-      "title": "Calculation Engine Verification",
-      "description": "Confirming the local Java calculation logic handles all basic operators correctly.",
+      "title": "Check Calculator Engine",
+      "description": "Verifying local Java arithmetic logic for edge cases like division by zero.",
       "files": ["app/src/main/java/com/procalculator/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "History Data Parsing",
-      "description": "Validating the JSON parsing logic for fetching history records from the backend.",
-      "files": ["app/src/main/java/com/procalculator/app/HistoryActivity.java"],
+      "title": "Sound Manager Audit",
+      "description": "Ensuring ToneGenerator resources are correctly managed and released.",
+      "files": ["app/src/main/java/com/procalculator/app/SoundManager.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Auth Flow Stability",
-      "description": "Testing the login and registration response handling for token management.",
-      "files": ["app/src/main/java/com/procalculator/app/LoginActivity.java", "app/src/main/java/com/procalculator/app/RegisterActivity.java"],
+      "title": "Manifest Integrity Check",
+      "description": "Ensuring correct Internet permissions and activity registrations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building Pro Calculator",
-      "description": "Performing the final build to verify all fixes.",
+      "description": "Executing final Gradle build using Java 17 and Android SDK 34.",
       "files": [],
       "status": "pending"
     }

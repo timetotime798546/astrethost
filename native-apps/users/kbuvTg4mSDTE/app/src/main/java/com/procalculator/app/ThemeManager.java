@@ -12,9 +12,11 @@ public class ThemeManager {
         SharedPreferences prefs = activity.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         boolean isDark = prefs.getBoolean(KEY_THEME, false);
         if (isDark) {
-            activity.setTheme(android.R.style.Theme.Material);
+            // FIXED: Using underscore notation for Android framework style resources
+            activity.setTheme(android.R.style.Theme_Material);
         } else {
-            activity.setTheme(android.R.style.Theme.Material.Light);
+            // FIXED: Using underscore notation for Android framework style resources
+            activity.setTheme(android.R.style.Theme_Material_Light);
         }
     }
 

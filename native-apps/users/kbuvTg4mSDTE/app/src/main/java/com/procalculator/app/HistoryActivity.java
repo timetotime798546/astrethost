@@ -25,18 +25,19 @@ public class HistoryActivity extends Activity {
                     @Override
                     public void run() {
                         try {
+                            // Backend generic /data GET returns "records" array
                             JSONArray records = result.getJSONArray("records");
                             for (int i = 0; i < records.length(); i++) {
                                 JSONObject record = records.getJSONObject(i);
+                                // Application fields are nested inside "data" object
                                 JSONObject data = record.getJSONObject("data");
-                                String expr = data.getString("expression");
-                                String res = data.getString("result");
+                                String expr = data.optString("expression", "");
+                                String res = data.optString("result", "");
 
                                 TextView tv = new TextView(HistoryActivity.this);
                                 tv.setText(expr + " = " + res);
-                                // FIXED: Removed 'sp' suffix which is invalid in Java code
-                                tv.setTextSize(18); 
-                                tv.setPadding(0, 8, 0, 8);
+                                tv.setTextSize(18); // Value in SP
+                                tv.setPadding(0, 16, 0, 16);
                                 container.addView(tv, 0); // Newest first
                             }
                         } catch (Exception e) {
