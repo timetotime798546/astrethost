@@ -1,7 +1,6 @@
 package com.procalculator.app;
 
 import android.content.Context;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -31,9 +30,10 @@ public class BackendApi {
             InputStream is = context.getAssets().open("app-meta.json");
             Scanner s = new Scanner(is).useDelimiter("\\A");
             String json = s.hasNext() ? s.next() : "";
-            return new JSONObject(json).getString("package_name");
+            // FIXED: Correctly reading 'app_id' as required by backend rules
+            return new JSONObject(json).getString("app_id");
         } catch (Exception e) {
-            return "com.procalculator.app";
+            return "app_6abbb783a9f92";
         }
     }
 

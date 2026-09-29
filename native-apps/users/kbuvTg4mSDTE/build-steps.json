@@ -2,92 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Initialization",
-      "description": "Setting up the project structure and package names.",
-      "files": ["app-meta.json", "api_schema.json"],
-      "status": "pending"
-    },
-    {
-      "step": 2,
-      "title": "Manifest Configuration",
-      "description": "Configuring AndroidManifest.xml with necessary activities and permissions.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Gradle Build Setup",
-      "description": "Defining the build environment and SDK versions.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Backend API Client Implementation",
-      "description": "Creating the native Java client for authentication and history storage.",
-      "files": ["app/src/main/java/com/procalculator/app/BackendApi.java"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Auth UI Design",
-      "description": "Designing Login and Registration screens.",
-      "files": ["app/src/main/res/layout/activity_login.xml", "app/src/main/res/layout/activity_register.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Auth Implementation",
-      "description": "Implementing user login and registration logic with session handling.",
-      "files": ["app/src/main/java/com/procalculator/app/LoginActivity.java", "app/src/main/java/com/procalculator/app/RegisterActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Calculator Layout Design",
-      "description": "Creating a professional calculator interface with numerical and operator buttons.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Calculation Engine",
-      "description": "Implementing the core calculation logic and button click handlers.",
-      "files": ["app/src/main/java/com/procalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Sound and Feedback",
-      "description": "Integrating ToneGenerator for professional button click sounds.",
-      "files": ["app/src/main/java/com/procalculator/app/SoundManager.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "History View Design",
-      "description": "Creating the layout for viewing calculation history.",
-      "files": ["app/src/main/res/layout/activity_history.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "History Data Management",
-      "description": "Implementing fetching and deleting history from the backend.",
+      "title": "Analyze Build Failure",
+      "description": "Inspecting the error log to identify the syntax error in HistoryActivity.java.",
       "files": ["app/src/main/java/com/procalculator/app/HistoryActivity.java"],
       "status": "pending"
     },
     {
-      "step": 12,
-      "title": "Theme Management",
-      "description": "Implementing a theme loader for switching between Light and Dark styles.",
-      "files": ["app/src/main/java/com/procalculator/app/ThemeManager.java"],
+      "step": 2,
+      "title": "Fix Java Syntax Error",
+      "description": "Removing the invalid 'sp' suffix from the setTextSize call in HistoryActivity.",
+      "files": ["app/src/main/java/com/procalculator/app/HistoryActivity.java"],
       "status": "pending"
     },
     {
-      "step": 13,
+      "step": 3,
+      "title": "Update Backend API App ID Logic",
+      "description": "Correcting the BackendApi to read the 'app_id' field instead of 'package_name' from assets.",
+      "files": ["app/src/main/java/com/procalculator/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Dependency Cleanup",
+      "description": "Removing unused third-party dependencies from build.gradle to ensure compliance with SDK-only rules.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Manifest Verification",
+      "description": "Verifying activity declarations and package name consistency in the Android Manifest.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Calculator UI Layout Check",
+      "description": "Ensuring the main calculator grid and display logic remain intact.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Calculation Engine Verification",
+      "description": "Confirming the local Java calculation logic handles all basic operators correctly.",
+      "files": ["app/src/main/java/com/procalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "History Data Parsing",
+      "description": "Validating the JSON parsing logic for fetching history records from the backend.",
+      "files": ["app/src/main/java/com/procalculator/app/HistoryActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Auth Flow Stability",
+      "description": "Testing the login and registration response handling for token management.",
+      "files": ["app/src/main/java/com/procalculator/app/LoginActivity.java", "app/src/main/java/com/procalculator/app/RegisterActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
       "title": "Building Pro Calculator",
-      "description": "Final compilation and APK generation.",
+      "description": "Performing the final build to verify all fixes.",
       "files": [],
       "status": "pending"
     }

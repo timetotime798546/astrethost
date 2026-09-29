@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
     }
 
     private void handleInput(String input) {
-        if (Character.isDigit(input.charAt(0)) || ".".equals(input)) {
+        if (input.length() == 1 && Character.isDigit(input.charAt(0)) || ".".equals(input)) {
             currentInput += input;
             tvDisplay.setText(currentInput);
         } else if ("C".equals(input)) {
@@ -96,7 +96,6 @@ public class MainActivity extends Activity {
         double operand2 = Double.parseDouble(currentInput);
         double result = 0;
 
-        // Offline calculation logic
         if ("+".equals(operator)) result = operand1 + operand2;
         else if ("-".equals(operator)) result = operand1 - operand2;
         else if ("*".equals(operator)) result = operand1 * operand2;
@@ -113,7 +112,6 @@ public class MainActivity extends Activity {
         
         tvDisplay.setText(resultStr);
         
-        // Sync to backend history
         api.saveHistory(expression, resultStr, new BackendApi.ApiCallback() {
             @Override
             public void onSuccess(JSONObject res) {}
