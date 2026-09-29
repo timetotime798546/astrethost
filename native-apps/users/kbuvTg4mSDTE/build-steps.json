@@ -1,0 +1,95 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Initialization",
+      "description": "Setting up the project structure and package names.",
+      "files": ["app-meta.json", "api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Manifest Configuration",
+      "description": "Configuring AndroidManifest.xml with necessary activities and permissions.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Gradle Build Setup",
+      "description": "Defining the build environment and SDK versions.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Backend API Client Implementation",
+      "description": "Creating the native Java client for authentication and history storage.",
+      "files": ["app/src/main/java/com/procalculator/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Auth UI Design",
+      "description": "Designing Login and Registration screens.",
+      "files": ["app/src/main/res/layout/activity_login.xml", "app/src/main/res/layout/activity_register.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Auth Implementation",
+      "description": "Implementing user login and registration logic with session handling.",
+      "files": ["app/src/main/java/com/procalculator/app/LoginActivity.java", "app/src/main/java/com/procalculator/app/RegisterActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Calculator Layout Design",
+      "description": "Creating a professional calculator interface with numerical and operator buttons.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Calculation Engine",
+      "description": "Implementing the core calculation logic and button click handlers.",
+      "files": ["app/src/main/java/com/procalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Sound and Feedback",
+      "description": "Integrating ToneGenerator for professional button click sounds.",
+      "files": ["app/src/main/java/com/procalculator/app/SoundManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "History View Design",
+      "description": "Creating the layout for viewing calculation history.",
+      "files": ["app/src/main/res/layout/activity_history.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "History Data Management",
+      "description": "Implementing fetching and deleting history from the backend.",
+      "files": ["app/src/main/java/com/procalculator/app/HistoryActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Theme Management",
+      "description": "Implementing a theme loader for switching between Light and Dark styles.",
+      "files": ["app/src/main/java/com/procalculator/app/ThemeManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Pro Calculator",
+      "description": "Final compilation and APK generation.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
