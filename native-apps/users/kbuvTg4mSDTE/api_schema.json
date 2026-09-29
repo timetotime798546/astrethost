@@ -1,0 +1,12 @@
+{
+  "backend": false,
+  "roles": {},
+  "collections": {},
+  "logic": {
+    "total_balance": {
+      "type": "calculation",
+      "inputs": ["income_list", "expense_list"],
+      "formula": "sum(income_list) - sum(expense_list)"
+    }
+  }
+}
