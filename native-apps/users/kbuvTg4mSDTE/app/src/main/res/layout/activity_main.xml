@@ -1,383 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_match"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFF5F5F7">
+    android:padding="16dp"
+    android:gravity="center_horizontal">
 
-    <!-- Header Section -->
-    <LinearLayout
+    <TextView
+        android:id="@+id/appTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/phoneNumberEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#FF1E1E24"
-        android:padding="16dp">
+        android:hint="Enter Phone Number"
+        android:inputType="phone"
+        android:padding="12dp"
+        android:background="@drawable/edit_text_background"
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="3D CALCULATOR"
-            android:textColor="#FFFFFFFF"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/callStatusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status: Ready"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@android:color/black" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Interactive wireframes, volumes and 3D surface plotting"
-            android:textColor="#FFAAAAAA"
-            android:textSize="12sp"
-            android:layout_marginTop="2dp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/countdownTimerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Max Duration: 02:00"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:textColor="@android:color/black" />
 
-    <!-- Interactive Canvas & Controls Container -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="270dp">
-
-        <com.threedcalculator.app.ThreeDView
-            android:id="@+id/threeDView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <!-- Floating action indicators on Canvas -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Drag on graph to Rotate 3D space"
-            android:textColor="#80FFFFFF"
-            android:textSize="11sp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_margin="10dp" />
-
-        <!-- Zoom Floating Button Controls on Right -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp">
-
-            <Button
-                android:id="@+id/btnZoomIn"
-                android:layout_width="45dp"
-                android:layout_height="40dp"
-                android:text="+"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="5dp"
-                android:background="#44FFFFFF"
-                android:textColor="#FFFFFFFF" />
-
-            <Button
-                android:id="@+id/btnZoomOut"
-                android:layout_width="45dp"
-                android:layout_height="40dp"
-                android:text="-"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="5dp"
-                android:background="#44FFFFFF"
-                android:textColor="#FFFFFFFF" />
-
-            <Button
-                android:id="@+id/btnResetView"
-                android:layout_width="45dp"
-                android:layout_height="40dp"
-                android:text="⟲"
-                android:textSize="14sp"
-                android:background="#44FFFFFF"
-                android:textColor="#FFFFFFFF" />
-        </LinearLayout>
-    </RelativeLayout>
-
-    <!-- Sub-Controls Panel -->
-    <LinearLayout
+    <Button
+        android:id="@+id/startCallButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#FFECECEF"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="8dp"
-        android:gravity="center_vertical">
-
-        <CheckBox
-            android:id="@+id/cbAutoRotate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Auto Rotate Model"
-            android:textSize="13sp"
-            android:textColor="#FF2C2C35" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/txtRenderStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mode: Shape Solid"
-            android:textColor="#FF6200EE"
-            android:textStyle="bold"
-            android:textSize="12sp" />
-    </LinearLayout>
-
-    <!-- Tab Toggles for Layout Panel switcher -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal"
-        android:background="#FFFFFFFF">
-
-        <Button
-            android:id="@+id/tabShapes"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="3D Shape Solver"
-            android:textColor="#FFFFFF"
-            android:background="#FF6200EE"
-            style="?android:attr/borderlessButtonStyle" />
-
-        <Button
-            android:id="@+id/tabFunctions"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="3D Function Surface"
-            android:textColor="#FF1E1E24"
-            android:background="#FFE0E0E0"
-            style="?android:attr/borderlessButtonStyle" />
-    </LinearLayout>
-
-    <!-- Scrollable dynamic control inputs and details -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:text="Start AI Call"
+        android:textSize="20sp"
         android:padding="16dp"
-        android:fillViewport="true">
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <Button
+        android:id="@+id/endCallButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="End Call"
+        android:textSize="20sp"
+        android:padding="16dp"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="24dp" />
 
-            <!-- 1. PANEL: SHAPES INTERACTIVE SOLVER -->
-            <LinearLayout
-                android:id="@+id/panelShapes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="visible">
+    <Button
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Select Shape and Parameters"
-                    android:textStyle="bold"
-                    android:textColor="#FF1E1E24"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="8dp" />
-
-                <Spinner
-                    android:id="@+id/spinnerShapes"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:background="@android:drawable/btn_dropdown"
-                    android:layout_marginBottom="12dp" />
-
-                <!-- Dynamic input box 1 -->
-                <LinearLayout
-                    android:id="@+id/layoutInput1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="10dp">
-
-                    <TextView
-                        android:id="@+id/lblInput1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Side Length (m)"
-                        android:textColor="#FF555555"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/editInput1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
-                        android:text="5.0"
-                        android:hint="Enter length"
-                        android:textColor="#FF000000" />
-                </LinearLayout>
-
-                <!-- Dynamic input box 2 -->
-                <LinearLayout
-                    android:id="@+id/layoutInput2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="12dp"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:id="@+id/lblInput2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Height (m)"
-                        android:textColor="#FF555555"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/editInput2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
-                        android:text="8.0"
-                        android:hint="Enter height"
-                        android:textColor="#FF000000" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btnCalculateShape"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Calculate &amp; Render 3D Model"
-                    android:textColor="#FFFFFFFF"
-                    android:background="#FF2E7D32" />
-            </LinearLayout>
-
-            <!-- 2. PANEL: MATHEMATICAL FUNCTION PLOTTER -->
-            <LinearLayout
-                android:id="@+id/panelFunctions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Select Mathematical Surface Function f(x, z)"
-                    android:textStyle="bold"
-                    android:textColor="#FF1E1E24"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="8dp" />
-
-                <Spinner
-                    android:id="@+id/spinnerFunctions"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:background="@android:drawable/btn_dropdown"
-                    android:layout_marginBottom="12dp" />
-
-                <!-- Resolution Grid setting -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Grid Wireframe Complexity (10 - 24 points)"
-                    android:textColor="#FF555555"
-                    android:textSize="13sp" />
-
-                <EditText
-                    android:id="@+id/editGridRes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:text="16"
-                    android:hint="Grid Resolution"
-                    android:textColor="#FF000000" />
-
-                <!-- Amplitude multiplier -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Height Scale Multiplier (Y amplitude)"
-                    android:textColor="#FF555555"
-                    android:textSize="13sp"
-                    android:layout_marginTop="8dp" />
-
-                <EditText
-                    android:id="@+id/editAmplitude"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:text="1.0"
-                    android:hint="E.g. 1.0"
-                    android:textColor="#FF000000"
-                    android:layout_marginBottom="12dp" />
-
-                <Button
-                    android:id="@+id/btnPlotFunction"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="Plot Mathematical Mesh"
-                    android:textColor="#FFFFFFFF"
-                    android:background="#FF6200EE" />
-            </LinearLayout>
-
-            <!-- 3. DETAILED CALCULATION RESULTS PANEL -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#FFFFFFFF"
-                android:padding="16dp"
-                android:layout_marginTop="16dp"
-                android:elevation="2dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Calculation Details &amp; Outputs"
-                    android:textColor="#FF222222"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:id="@+id/txtMainResults"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Press calculate to run offline geometric models."
-                    android:textColor="#FF1B5E20"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="12dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Formulas Used:"
-                    android:textColor="#FF555555"
-                    android:textStyle="bold"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/txtFormulasInfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Cube Volume V = s³ \nSurface Area = 6s²"
-                    android:textColor="#FF666666"
-                    android:textSize="12sp"
-                    android:layout_marginTop="2dp" />
-
-                <TextView
-                    android:id="@+id/txtStepDetails"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Offline Calculation Step Logic:\n1. Choose dimensions\n2. Solve values mathematically using local Java math operations"
-                    android:textColor="#FF888888"
-                    android:textSize="11sp"
-                    android:layout_marginTop="10dp" />
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>

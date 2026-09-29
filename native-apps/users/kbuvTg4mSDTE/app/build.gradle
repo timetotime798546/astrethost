@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.threedcalculator.app"
+    namespace "com.aivoicecaller.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.threedcalculator.app"
+        applicationId "com.aivoicecaller.app"
 
         minSdkVersion 21
 

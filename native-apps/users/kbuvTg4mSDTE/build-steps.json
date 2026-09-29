@@ -2,85 +2,123 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure App Metadata",
-      "description": "Create app-meta.json containing the application name and package name details.",
-      "files": ["app-meta.json"],
+      "title": "Set up new Android project",
+      "description": "Initialize a new Android project with the specified app name and package name, configuring basic project settings.",
+      "files": [
+        "app-meta.json",
+        "app/build.gradle",
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Define Offline API Schema",
-      "description": "Configure api_schema.json with backend disabled for offline-only 3D geometric operations.",
-      "files": ["api_schema.json"],
+      "title": "Define UI layout for Main Activity",
+      "description": "Create the layout for the main screen, including elements for phone number input, call controls, status, and timer.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Build System",
-      "description": "Define build.gradle using specified compiler SDK 34, AGP 8.3.2, and Java 17.",
-      "files": ["app/build.gradle"],
+      "title": "Implement Main Activity UI logic",
+      "description": "Add Java code to MainActivity to handle UI interactions, display call status, and manage the countdown timer.",
+      "files": [
+        "app/src/main/java/com/aivoicecaller/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create Android Manifest",
-      "description": "Declare the package, application class, launcher MainActivity, and light Material theme.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Define UI layout for Settings Activity",
+      "description": "Design the layout for the Settings screen, allowing users to input, save, view, and clear their Gemini API key.",
+      "files": [
+        "app/src/main/res/layout/activity_settings.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Define Application Resources",
-      "description": "Add string resources, themes, and dimensions needed for custom 3D drawing controls.",
-      "files": ["app/src/main/res/values/strings.xml"],
+      "title": "Implement Settings Activity logic",
+      "description": "Develop Java code for SettingsActivity to manage Gemini API key input, secure storage using SharedPreferences, and UI feedback.",
+      "files": [
+        "app/src/main/java/com/aivoicecaller/app/SettingsActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Create 3D Custom Rendering Canvas View",
-      "description": "Implement ThreeDView.java to handle perspective projection, matrix rotations, custom coordinate math, and user touch drag gestures.",
-      "files": ["app/src/main/java/com/threedcalculator/app/ThreeDView.java"],
+      "title": "Implement Gemini API Client",
+      "description": "Create a utility class to handle communication with the Gemini API, including sending text and receiving AI responses using HttpURLConnection.",
+      "files": [
+        "app/src/main/java/com/aivoicecaller/app/GeminiApiClient.java"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Geometric Wireframe Generator",
-      "description": "Add support in ThreeDView to build vertices and lines for Cube, Sphere, Cone, Cylinder, Pyramid, and customizable 3D mathematical surfaces.",
-      "files": ["app/src/main/java/com/threedcalculator/app/ThreeDView.java"],
+      "title": "Integrate Speech Recognition (User Input)",
+      "description": "Add functionality to MainActivity to convert user's spoken input to text using Android's SpeechRecognizer.",
+      "files": [
+        "app/src/main/java/com/aivoicecaller/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Design Interactive Calculator Interface Layout",
-      "description": "Create activity_main.xml with clean material UI inputs, custom shape selector, results cards, and the 3D drawing view.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Integrate Text-to-Speech (AI Output)",
+      "description": "Implement TextToSpeech in MainActivity to convert Gemini's text responses into spoken audio for the user.",
+      "files": [
+        "app/src/main/java/com/aivoicecaller/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement MainActivity Logic and Event Listeners",
-      "description": "Add Java controller logic in MainActivity.java to bind elements, capture inputs, handle dropdown change states, and calculate volume/area.",
-      "files": ["app/src/main/java/com/threedcalculator/app/MainActivity.java"],
+      "title": "Handle Runtime Permissions",
+      "description": "Implement runtime permission requests for CALL_PHONE and RECORD_AUDIO to ensure the app can function correctly and securely.",
+      "files": [
+        "app/src/main/java/com/aivoicecaller/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Integrate 3D Interactive Controls and Visual Updates",
-      "description": "Connect formula outputs, shape parameter changes, and surface graph parameters instantly to the custom rendering canvas.",
-      "files": ["app/src/main/java/com/threedcalculator/app/MainActivity.java"],
+      "title": "Implement Call Initiation and Simulation",
+      "description": "Develop the 'Start AI Call' and 'End Call' logic, including initiating a standard phone call, displaying the safety notice, managing the call timer, and simulating AI conversation independent of the cellular audio stream.",
+      "files": [
+        "app/src/main/java/com/aivoicecaller/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Verify UI States and Mathematical Accuracy",
-      "description": "Conduct robust error checks on negative values, empty inputs, and optimize rendering of custom wireframe vertices.",
-      "files": ["app/src/main/java/com/threedcalculator/app/MainActivity.java"],
+      "title": "Add Disclaimer for Telephony Limitations",
+      "description": "Ensure a clear disclaimer is presented to the user regarding the limitations of integrating AI audio directly into cellular calls via public Android APIs.",
+      "files": [
+        "app/src/main/java/com/aivoicecaller/app/MainActivity.java",
+        "app/src/main/res/values/strings.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Building 3D Calculator",
-      "description": "Compile the complete Android application project with local calculations and interactive 3D capabilities.",
+      "title": "Refine UI and UX",
+      "description": "Make final adjustments to layouts and Java code for a clean, responsive UI and good user experience, including proper error handling and progress indicators.",
+      "files": [
+        "app/src/main/java/com/aivoicecaller/app/MainActivity.java",
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/res/layout/activity_settings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building AI Voice Caller",
+      "description": "Compile and assemble the debug APK of the AI Voice Caller application.",
       "files": [],
       "status": "pending"
     }
