@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.studentdatasaver.app"
+    namespace "com.edgelighting.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.studentdatasaver.app"
+        applicationId "com.edgelighting.app"
 
         minSdkVersion 21
 

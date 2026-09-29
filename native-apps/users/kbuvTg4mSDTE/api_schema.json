@@ -1,17 +1,6 @@
 {
-  "backend": true,
-  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
-  "roles": {
-    "user": ["own"]
-  },
-  "collections": {
-    "students": {
-      "fields": {
-        "name": "string",
-        "student_id": "string"
-      },
-      "operations": ["create", "read", "update", "delete"]
-    }
-  },
+  "backend": false,
+  "roles": {},
+  "collections": {},
   "logic": {}
 }

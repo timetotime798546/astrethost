@@ -2,106 +2,91 @@
   "steps": [
     {
       "step": 1,
-      "title": "Set up project structure",
-      "description": "Initialize the Android project with necessary configurations for app metadata and Gradle build environment, including adding required external libraries like OkHttp and Gson.",
-      "files": ["app-meta.json", "build.gradle"],
+      "title": "Set up Android project",
+      "description": "The initial setup of the Android project with specified SDK versions and Gradle configuration.",
+      "files": [
+        "app/build.gradle",
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Define backend API schema",
-      "description": "Create the API schema to specify the 'students' collection and its fields for persistent data storage, including authentication details.",
-      "files": ["api_schema.json"],
+      "title": "Create MainActivity layout",
+      "description": "Design the user interface for the main activity, including buttons to start and stop the edge lighting service.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Android Manifest",
-      "description": "Set up application permissions for internet access, define activities for registration, login, main list, and adding/editing students, and remove deprecated 'package' attribute from manifest.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Implement MainActivity logic",
+      "description": "Add Java code to MainActivity to handle button clicks, request `SYSTEM_ALERT_WINDOW` permission, and manage the lifecycle of the `EdgeLightingService`.",
+      "files": [
+        "app/src/main/java/com/edgelighting/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Implement API Client for Backend Communication",
-      "description": "Develop a Java class (BackendApi.java) to handle all network requests for user authentication (register, login, logout) and student data CRUD operations.",
-      "files": ["app/src/main/java/com/studentdatasaver/app/BackendApi.java"],
+      "title": "Define EdgeLightingService",
+      "description": "Create the `EdgeLightingService` class, which will run in the background and manage the drawing of the edge lighting effect.",
+      "files": [
+        "app/src/main/java/com/edgelighting/app/EdgeLightingService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Shared Preferences Manager",
-      "description": "Implement a utility class (SharedPrefsManager.java) to securely store and retrieve the authentication token and app ID.",
-      "files": ["app/src/main/java/com/studentdatasaver/app/SharedPrefsManager.java"],
+      "title": "Implement EdgeLightingView for drawing",
+      "description": "Create an inner `EdgeLightingView` class within the service responsible for drawing the animated edge lights on the screen.",
+      "files": [
+        "app/src/main/java/com/edgelighting/app/EdgeLightingService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Design Student Data Model",
-      "description": "Create a Java class (Student.java) to represent a student object, including fields for name, student ID, and the unique backend ID.",
-      "files": ["app/src/main/java/com/studentdatasaver/app/Student.java"],
+      "title": "Add color animation to EdgeLightingView",
+      "description": "Implement the logic within `EdgeLightingView` to cycle through colors and animate the edge lighting effect.",
+      "files": [
+        "app/src/main/java/com/edgelighting/app/EdgeLightingService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Develop Registration UI and Logic",
-      "description": "Create the layout and activity for user registration (RegisterActivity.java and activity_register.xml) to allow new users to create accounts.",
-      "files": ["app/src/main/java/com/studentdatasaver/app/RegisterActivity.java", "app/src/main/res/layout/activity_register.xml"],
+      "title": "Configure service lifecycle in EdgeLightingService",
+      "description": "Manage the `WindowManager` to add and remove the `EdgeLightingView` when the service starts and stops.",
+      "files": [
+        "app/src/main/java/com/edgelighting/app/EdgeLightingService.java"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement Login UI and Logic",
-      "description": "Build the user interface and backend integration for user login (LoginActivity.java and activity_login.xml), including token storage.",
-      "files": ["app/src/main/java/com/studentdatasaver/app/LoginActivity.java", "app/src/main/res/layout/activity_login.xml"],
+      "title": "Declare service in AndroidManifest.xml",
+      "description": "Add the `EdgeLightingService` declaration to the `AndroidManifest.xml` so the system can recognize and run it.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Create Main Activity UI for Student List",
-      "description": "Design the main screen (MainActivity.java and activity_main.xml) to display a list of students, with options to add, edit, or delete them.",
-      "files": ["app/src/main/java/com/studentdatasaver/app/MainActivity.java", "app/src/main/res/layout/activity_main.xml"],
+      "title": "Request SYSTEM_ALERT_WINDOW permission",
+      "description": "Ensure the application requests and handles the `SYSTEM_ALERT_WINDOW` permission, which is required for drawing over other apps.",
+      "files": [
+        "app/src/main/AndroidManifest.xml",
+        "app/src/main/java/com/edgelighting/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement Student List Adapter",
-      "description": "Create a custom ArrayAdapter for MainActivity to efficiently display student data in a ListView.",
-      "files": ["app/src/main/java/com/studentdatasaver/app/StudentAdapter.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Develop Add/Edit Student UI and Logic",
-      "description": "Build the form (AddEditStudentActivity.java and activity_add_edit_student.xml) for adding new students and modifying existing ones, integrating with backend CRUD operations.",
-      "files": ["app/src/main/java/com/studentdatasaver/app/AddEditStudentActivity.java", "app/src/main/res/layout/activity_add_edit_student.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Configure Application Startup Flow",
-      "description": "Adjust MainActivity to check login status on startup and redirect to LoginActivity if the user is not authenticated.",
-      "files": ["app/src/main/java/com/studentdatasaver/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Implement Logout Functionality",
-      "description": "Add a logout option to MainActivity, clearing the session token and returning to the login screen.",
-      "files": ["app/src/main/java/com/studentdatasaver/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Handle API Responses and UI Updates",
-      "description": "Ensure all activities correctly handle successful and error responses from the BackendApi, updating the UI accordingly and showing appropriate messages.",
-      "files": ["app/src/main/java/com/studentdatasaver/app/MainActivity.java", "app/src/main/java/com/studentdatasaver/app/AddEditStudentActivity.java", "app/src/main/java/com/studentdatasaver/app/RegisterActivity.java", "app/src/main/java/com/studentdatasaver/app/LoginActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 15,
-      "title": "Building StudentDataSaver",
-      "description": "Compile and assemble the Android application to create an installable APK.",
+      "title": "Building EdgeLightingApp",
+      "description": "Compile and assemble the final APK for the Edge Lighting App.",
       "files": [],
       "status": "pending"
     }
