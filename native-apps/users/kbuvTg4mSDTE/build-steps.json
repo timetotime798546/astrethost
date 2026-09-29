@@ -3,12 +3,12 @@
     {
       "step": 1,
       "title": "Set up Android project",
-      "description": "The initial setup of the Android project. This step now includes removing the deprecated 'package' attribute from AndroidManifest.xml and the `org.nanohttpd` external dependency from `app/build.gradle` to adhere to project rules.",
+      "description": "The initial setup of the Android project, including AGP version config and setting up appropriate compatibility options.",
       "files": [
         "app/build.gradle",
         "app/src/main/AndroidManifest.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 2,
@@ -17,74 +17,82 @@
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 3,
       "title": "Implement MainActivity logic",
-      "description": "Add Java code to MainActivity to handle button clicks, request `SYSTEM_ALERT_WINDOW` permission, and manage the lifecycle of the `EdgeLightingService`. MainActivity is now migrated to extend `android.app.Activity` and all `androidx.*` imports and annotations, including `@Nullable`, are removed to comply with project restrictions.",
+      "description": "Add Java code to MainActivity to handle button clicks and request SYSTEM_ALERT_WINDOW permission.",
       "files": [
         "app/src/main/java/com/edgelighting/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 4,
       "title": "Define EdgeLightingService",
-      "description": "Create the `EdgeLightingService` class, which will run in the background and manage the drawing of the edge lighting effect. `androidx.annotation.Nullable` import and annotation are removed to comply with project restrictions.",
+      "description": "Create the EdgeLightingService class, which runs in the background and manages drawing edge overlay.",
       "files": [
         "app/src/main/java/com/edgelighting/app/EdgeLightingService.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 5,
       "title": "Implement EdgeLightingView for drawing",
-      "description": "Create an inner `EdgeLightingView` class within the service responsible for drawing the animated edge lights on the screen.",
+      "description": "Create the EdgeLightingView inner class responsible for rendering the overlays on screen.",
       "files": [
         "app/src/main/java/com/edgelighting/app/EdgeLightingService.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 6,
       "title": "Add color animation to EdgeLightingView",
-      "description": "Implement the logic within `EdgeLightingView` to cycle through colors and animate the edge lighting effect.",
+      "description": "Implement the rendering cycle with dynamic hue transitions.",
       "files": [
         "app/src/main/java/com/edgelighting/app/EdgeLightingService.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 7,
       "title": "Configure service lifecycle in EdgeLightingService",
-      "description": "Manage the `WindowManager` to add and remove the `EdgeLightingView` when the service starts and stops.",
+      "description": "Attach and detach view bounds via WindowManager correctly.",
       "files": [
         "app/src/main/java/com/edgelighting/app/EdgeLightingService.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 8,
       "title": "Declare service in AndroidManifest.xml",
-      "description": "Add the `EdgeLightingService` declaration to the `AndroidManifest.xml` so the system can recognize and run it. The deprecated 'package' attribute has been removed from the manifest in an earlier step.",
+      "description": "Set up the required overlay parameters inside the manifest.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 9,
-      "title": "Request SYSTEM_ALERT_WINDOW permission",
-      "description": "Ensure the application requests and handles the `SYSTEM_ALERT_WINDOW` permission, which is required for drawing over other apps. Changes to `MainActivity.java` have been made to align with SDK built-in classes.",
+      "title": "Fix Dialog Interface Click Listener signature",
+      "description": "Correct the DialogInterface.OnClickListener callback signature in MainActivity.java to fix build errors.",
       "files": [
-        "app/src/main/AndroidManifest.xml",
         "app/src/main/java/com/edgelighting/app/MainActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 10,
+      "title": "Remove external dependencies from Gradle build script",
+      "description": "Remove org.nanohttpd external dependency and adhere strictly to native Java and SDK libraries.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "completed"
+    },
+    {
+      "step": 11,
       "title": "Building EdgeLightingApp",
       "description": "Compile and assemble the final APK for the Edge Lighting App.",
       "files": [],

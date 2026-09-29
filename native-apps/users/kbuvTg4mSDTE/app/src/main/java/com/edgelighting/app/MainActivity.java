@@ -1,8 +1,9 @@
 package com.edgelighting.app;
 
-import android.app.Activity; // Changed from androidx.appcompat.app.AppCompatActivity
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -13,9 +14,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-// Removed import androidx.annotation.Nullable;
-
-// Changed to extend Activity directly
 public class MainActivity extends Activity {
 
     private static final int REQUEST_OVERLAY_PERMISSION = 123;
@@ -62,17 +60,17 @@ public class MainActivity extends Activity {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Permission Required");
             builder.setMessage("Edge Lighting App needs permission to draw over other apps to function. Please grant this permission in the next screen.");
-            builder.setPositiveButton("Go to Settings", new android.content.DialogInterface.OnClickListener() {
+            builder.setPositiveButton("Go to Settings", new DialogInterface.OnClickListener() {
                 @Override
-                public void onClick(android.content.DialogInterface.OnClickListener dialog, int which) {
+                public void onClick(DialogInterface dialog, int which) {
                     Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                             Uri.parse("package:" + getPackageName()));
                     startActivityForResult(intent, REQUEST_OVERLAY_PERMISSION);
                 }
             });
-            builder.setNegativeButton("Cancel", new android.content.DialogInterface.OnClickListener() {
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                 @Override
-                public void onClick(android.content.DialogInterface.OnClickListener dialog, int which) {
+                public void onClick(DialogInterface dialog, int which) {
                     Toast.makeText(MainActivity.this, "Permission denied. Cannot start service.", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -83,7 +81,6 @@ public class MainActivity extends Activity {
         }
     }
 
-    // Removed @Nullable annotation for strict adherence to SDK built-in classes
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -118,9 +115,6 @@ public class MainActivity extends Activity {
     }
 
     private void updateServiceStatus() {
-        // This is a simplified check. A more robust solution would involve binding to the service
-        // or using LocalBroadcastManager. For now, we assume if the service was asked to start,
-        // it's running unless explicitly stopped.
         boolean isServiceRunning = EdgeLightingService.isRunning();
         if (isServiceRunning) {
             statusTextView.setText("Status: Running");
