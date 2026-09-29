@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Establish app package name and application configuration parameters.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Backend API Schema",
+      "description": "Create api_schema.json to model cloud backup collections and client logic constraints.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Setup Build Specifications",
+      "description": "Configure build.gradle with proper compile SDK versions and dependency exclusions.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Decoy Launcher Layout",
+      "description": "Develop the XML layout for the decoy calculator lock interface.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Cloud Authorization Interface",
+      "description": "Build the layout interface to log in or register for online vault backups.",
+      "files": ["app/src/main/res/layout/activity_login.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Secured Vault Dashboard",
+      "description": "Create the dashboard layout with offline-calculated stats and lists for sensitive data.",
+      "files": ["app/src/main/res/layout/activity_vault.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Native Backend Service Wrapper",
+      "description": "Write BackendApi.java utilizing native HttpURLConnection to communicate with the cloud worker.",
+      "files": ["app/src/main/java/com/vaultlauncher/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Develop Decoy Calculator Lock Screen",
+      "description": "Program MainActivity.java to compute mathematical input locally and unlock with secret code inputs.",
+      "files": ["app/src/main/java/com/vaultlauncher/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Program Authorization Workflow",
+      "description": "Handle Cloud Sync setup via user registration/login and native SharedPreferences token storage.",
+      "files": ["app/src/main/java/com/vaultlauncher/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Create Dashboard & Local Computations",
+      "description": "Program VaultActivity.java to manage sensitive items and calculate real-time stats locally.",
+      "files": ["app/src/main/java/com/vaultlauncher/app/VaultActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Configure Application Manifest",
+      "description": "Set up internet permissions, launcher configuration, and security settings in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Vault Launcher",
+      "description": "Execute final build verification using the Gradle compiler wrapper.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
