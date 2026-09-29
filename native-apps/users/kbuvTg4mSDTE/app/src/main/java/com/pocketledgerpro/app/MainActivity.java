@@ -226,15 +226,15 @@ public class MainActivity extends Activity {
             barsContainer.addView(tv);
         } else {
             for (Map.Entry<String, Double> entry : catTotals.entrySet()) {
-                View barView = new LinearLayout(this);
-                ((LinearLayout) barView).setOrientation(LinearLayout.VERTICAL);
+                LinearLayout barView = new LinearLayout(this);
+                barView.setOrientation(LinearLayout.VERTICAL);
                 barView.setPadding(0, 0, 0, 16);
 
                 TextView label = new TextView(this);
                 double percent = (entry.getValue() / totalSpend) * 100;
                 label.setText(String.format(Locale.US, "%s: $%.2f (%.1f%%)", entry.getKey(), entry.getValue(), percent));
                 label.setTextColor(Color.WHITE);
-                label.setTextSize(14); // Fixed syntax error here
+                label.setTextSize(14); 
 
                 View progressBg = new View(this);
                 LinearLayout.LayoutParams lpBg = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 8);
@@ -249,8 +249,8 @@ public class MainActivity extends Activity {
                 progress.setBackgroundColor(getResources().getColor(R.color.primary));
 
                 barView.addView(label);
-                ((LinearLayout) barView).addView(progressBg);
-                ((LinearLayout) barView).addView(progress);
+                barView.addView(progressBg);
+                barView.addView(progress);
                 barsContainer.addView(barView);
             }
         }
@@ -274,9 +274,5 @@ public class MainActivity extends Activity {
         });
 
         contentFrame.addView(view);
-    }
-
-    private float spToPx(float sp) {
-        return sp * getResources().getDisplayMetrics().scaledDensity;
     }
 }

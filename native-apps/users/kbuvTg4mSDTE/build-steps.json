@@ -2,69 +2,62 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze Build Error",
-      "description": "Identified syntax error in MainActivity.java and deprecated manifest package attribute.",
-      "files": ["app/src/main/java/com/pocketledgerpro/app/MainActivity.java", "app/src/main/AndroidManifest.xml"],
+      "title": "Analyze Compiler Error",
+      "description": "Identified that 'barView' was declared as a View instead of a LinearLayout, causing 'addView' to be unreachable.",
+      "files": ["app/src/main/java/com/pocketledgerpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Fix Java Syntax",
-      "description": "Correcting the invalid text size method call in the Analytics view.",
+      "title": "Fix Variable Declaration",
+      "description": "Changed 'barView' type to LinearLayout to properly support child view insertion in Analytics.",
       "files": ["app/src/main/java/com/pocketledgerpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Update Manifest",
-      "description": "Removing deprecated package attribute as per build log recommendations.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Clean Up Layout Logic",
+      "description": "Removed redundant casting of barView inside the analytics loop.",
+      "files": ["app/src/main/java/com/pocketledgerpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Validate Resource References",
-      "description": "Ensuring all color and layout references remain consistent with the indigo/emerald theme.",
+      "title": "Verify Color Resources",
+      "description": "Confirmed all UI components reference the correct color definitions in colors.xml.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Verify Data Persistence",
-      "description": "Ensuring SharedPreferences logic for transaction history is preserved.",
-      "files": ["app/src/main/java/com/pocketledgerpro/app/DataManager.java"],
+      "title": "Validate Balance Calculation",
+      "description": "Ensured income and expense totals are accurately calculated before display.",
+      "files": ["app/src/main/java/com/pocketledgerpro/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Verify UI Layouts",
-      "description": "Checking Dashboard, Add Transaction, and Analytics XML layouts for integrity.",
-      "files": [],
+      "title": "Review Manifest Configuration",
+      "description": "Confirmed AndroidManifest.xml uses the modern namespace and correct activity definitions.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Check Calculation Logic",
-      "description": "Ensuring the income vs expense balance formula is correctly implemented in Java.",
-      "files": ["app/src/main/java/com/pocketledgerpro/app/MainActivity.java"],
+      "title": "Check Asset Metadata",
+      "description": "Verified app-meta.json is present in assets for runtime app_id retrieval.",
+      "files": ["app/src/main/assets/app-meta.json"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Review Theme Styles",
-      "description": "Confirming Material Light theme application with custom color overrides.",
-      "files": ["app/src/main/res/values/colors.xml"],
+      "title": "Optimizing Gradle Config",
+      "description": "Checking build.gradle for compatibility with Java 17 and AGP 8.3.2.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Optimize Imports",
-      "description": "Cleaning up unused or missing imports in activity classes.",
-      "files": ["app/src/main/java/com/pocketledgerpro/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
       "title": "Building PocketLedger Pro",
       "description": "Finalizing the build and compiling the APK.",
       "files": [],
