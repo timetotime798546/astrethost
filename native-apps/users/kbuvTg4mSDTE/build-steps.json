@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Create app-meta.json containing the application name and package name details.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Offline API Schema",
+      "description": "Configure api_schema.json with backend disabled for offline-only 3D geometric operations.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Build System",
+      "description": "Define build.gradle using specified compiler SDK 34, AGP 8.3.2, and Java 17.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Android Manifest",
+      "description": "Declare the package, application class, launcher MainActivity, and light Material theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define Application Resources",
+      "description": "Add string resources, themes, and dimensions needed for custom 3D drawing controls.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create 3D Custom Rendering Canvas View",
+      "description": "Implement ThreeDView.java to handle perspective projection, matrix rotations, custom coordinate math, and user touch drag gestures.",
+      "files": ["app/src/main/java/com/threedcalculator/app/ThreeDView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Geometric Wireframe Generator",
+      "description": "Add support in ThreeDView to build vertices and lines for Cube, Sphere, Cone, Cylinder, Pyramid, and customizable 3D mathematical surfaces.",
+      "files": ["app/src/main/java/com/threedcalculator/app/ThreeDView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Interactive Calculator Interface Layout",
+      "description": "Create activity_main.xml with clean material UI inputs, custom shape selector, results cards, and the 3D drawing view.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement MainActivity Logic and Event Listeners",
+      "description": "Add Java controller logic in MainActivity.java to bind elements, capture inputs, handle dropdown change states, and calculate volume/area.",
+      "files": ["app/src/main/java/com/threedcalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Integrate 3D Interactive Controls and Visual Updates",
+      "description": "Connect formula outputs, shape parameter changes, and surface graph parameters instantly to the custom rendering canvas.",
+      "files": ["app/src/main/java/com/threedcalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Verify UI States and Mathematical Accuracy",
+      "description": "Conduct robust error checks on negative values, empty inputs, and optimize rendering of custom wireframe vertices.",
+      "files": ["app/src/main/java/com/threedcalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building 3D Calculator",
+      "description": "Compile the complete Android application project with local calculations and interactive 3D capabilities.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
