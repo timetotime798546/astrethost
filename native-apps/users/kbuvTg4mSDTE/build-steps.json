@@ -2,34 +2,20 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Setup",
-      "description": "Initialize package structure and build.gradle configuration.",
-      "files": ["app/build.gradle", "app/src/main/AndroidManifest.xml"],
+      "title": "Fix Missing Layouts",
+      "description": "Add missing XML layout files for Login and Main activities.",
+      "files": ["app/src/main/res/layout/activity_login.xml", "app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "API Client Implementation",
-      "description": "Implement BackendApi.java for secure cloud communication.",
-      "files": ["app/src/main/java/com/cloudsyncvault/app/BackendApi.java"],
+      "title": "Ensure MainActivity Existence",
+      "description": "Define MainActivity class to resolve build errors.",
+      "files": ["app/src/main/java/com/cloudsyncvault/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Authentication UI",
-      "description": "Create Login and Signup activities with validation.",
-      "files": ["app/src/main/java/com/cloudsyncvault/app/LoginActivity.java", "app/src/main/java/com/cloudsyncvault/app/SignupActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Dashboard UI",
-      "description": "Build MainActivity with card-based cloud record display.",
-      "files": ["app/src/main/java/com/cloudsyncvault/app/MainActivity.java", "app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
       "title": "Building CloudSync Vault",
       "description": "Final compilation of the application.",
       "files": [],
