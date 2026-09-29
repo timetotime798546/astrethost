@@ -1,5 +1,6 @@
 package com.edgelighting.app;
 
+import android.app.Activity; // Changed from androidx.appcompat.app.AppCompatActivity
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,10 +13,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+// Removed import androidx.annotation.Nullable;
 
-public class MainActivity extends AppCompatActivity {
+// Changed to extend Activity directly
+public class MainActivity extends Activity {
 
     private static final int REQUEST_OVERLAY_PERMISSION = 123;
     private Button startButton;
@@ -82,8 +83,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Removed @Nullable annotation for strict adherence to SDK built-in classes
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_OVERLAY_PERMISSION) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Settings.canDrawOverlays(this)) {

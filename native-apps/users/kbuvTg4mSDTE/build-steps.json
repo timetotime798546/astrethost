@@ -3,7 +3,7 @@
     {
       "step": 1,
       "title": "Set up Android project",
-      "description": "The initial setup of the Android project with specified SDK versions and Gradle configuration.",
+      "description": "The initial setup of the Android project. This step now includes removing the deprecated 'package' attribute from AndroidManifest.xml and the `org.nanohttpd` external dependency from `app/build.gradle` to adhere to project rules.",
       "files": [
         "app/build.gradle",
         "app/src/main/AndroidManifest.xml"
@@ -22,7 +22,7 @@
     {
       "step": 3,
       "title": "Implement MainActivity logic",
-      "description": "Add Java code to MainActivity to handle button clicks, request `SYSTEM_ALERT_WINDOW` permission, and manage the lifecycle of the `EdgeLightingService`.",
+      "description": "Add Java code to MainActivity to handle button clicks, request `SYSTEM_ALERT_WINDOW` permission, and manage the lifecycle of the `EdgeLightingService`. MainActivity is now migrated to extend `android.app.Activity` and all `androidx.*` imports and annotations, including `@Nullable`, are removed to comply with project restrictions.",
       "files": [
         "app/src/main/java/com/edgelighting/app/MainActivity.java"
       ],
@@ -31,7 +31,7 @@
     {
       "step": 4,
       "title": "Define EdgeLightingService",
-      "description": "Create the `EdgeLightingService` class, which will run in the background and manage the drawing of the edge lighting effect.",
+      "description": "Create the `EdgeLightingService` class, which will run in the background and manage the drawing of the edge lighting effect. `androidx.annotation.Nullable` import and annotation are removed to comply with project restrictions.",
       "files": [
         "app/src/main/java/com/edgelighting/app/EdgeLightingService.java"
       ],
@@ -67,7 +67,7 @@
     {
       "step": 8,
       "title": "Declare service in AndroidManifest.xml",
-      "description": "Add the `EdgeLightingService` declaration to the `AndroidManifest.xml` so the system can recognize and run it.",
+      "description": "Add the `EdgeLightingService` declaration to the `AndroidManifest.xml` so the system can recognize and run it. The deprecated 'package' attribute has been removed from the manifest in an earlier step.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -76,7 +76,7 @@
     {
       "step": 9,
       "title": "Request SYSTEM_ALERT_WINDOW permission",
-      "description": "Ensure the application requests and handles the `SYSTEM_ALERT_WINDOW` permission, which is required for drawing over other apps.",
+      "description": "Ensure the application requests and handles the `SYSTEM_ALERT_WINDOW` permission, which is required for drawing over other apps. Changes to `MainActivity.java` have been made to align with SDK built-in classes.",
       "files": [
         "app/src/main/AndroidManifest.xml",
         "app/src/main/java/com/edgelighting/app/MainActivity.java"

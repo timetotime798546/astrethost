@@ -19,7 +19,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 
-import androidx.annotation.Nullable;
+// Removed import androidx.annotation.Nullable;
 
 public class EdgeLightingService extends Service {
 
@@ -112,7 +112,7 @@ public class EdgeLightingService extends Service {
         stopForeground(true);
     }
 
-    @Nullable
+    // Removed @Nullable annotation for strict adherence to SDK built-in classes
     @Override
     public IBinder onBind(Intent intent) {
         return null;
