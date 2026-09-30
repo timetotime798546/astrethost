@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Beautiful Calculator
 App ID: app_6abd03de9cf58
-Build ID: 36745766739
-Time: 2026-09-30 12:40:18
+Build ID: 36747675885
+Time: 2026-09-30 12:56:06
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 170867
-Extracted error characters: 30042
-File references detected: 263
+Original log characters: 164249
+Extracted error characters: 27733
+File references detected: 203
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2159) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2319) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/0f8a6107-31d1-4cf1-9ba8-4252452d07e8
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/caa2981a-e94d-44ef-89c7-547d88397c3b
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -221,9 +221,13 @@ Daemon will be stopped at the end of the build
 > Task :app:parseDebugLocalResources
 
 > Task :app:processDebugMainManifest FAILED
-package="com.generatedappname.app" found in source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml:8:9-13:20 Error:
+package="com.generatedappname.app" found in source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
 android:exported needs to be explicitly specified for element <activity#com.generatedappname.app.MainActivity>. Apps targeting Android 12 and higher are required to specify an explicit value for `android:exported` when the corresponding component has an intent filter defined. See https://developer.android.com/guide/topics/manifest/activity-element#exported for details.
+Recommendation: remove package="com.generatedappname.app" from the source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
+
+See https://developer.android.com/r/studio-ui/build/manifest-merger for more information about the manifest merger.
 
 FAILURE: Build failed with an exception.
 
@@ -231,7 +235,6 @@ Execution failed for task ':app:processDebugMainManifest'.
 > Manifest merger failed : android:exported needs to be explicitly specified for element <activity#com.generatedappname.app.MainActivity>. Apps targeting Android 12 and higher are required to specify an explicit value for `android:exported` when the corresponding component has an intent filter defined. See https://developer.android.com/guide/topics/manifest/activity-element#exported for details.
 
 * Try:
-Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
 > Run with --info or --debug option to get more log output.
 > Run with --scan to get full insights.
 > Get more help at https://help.gradle.org.
@@ -240,11 +243,7 @@ Setting the namespace via the package attribute in the source AndroidManifest.xm
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:processDebugMainManifest'.
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:148)
 at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:282)
-Recommendation: remove package="com.generatedappname.app" from the source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
-
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
-See https://developer.android.com/r/studio-ui/build/manifest-merger for more information about the manifest merger.
-
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:134)
 at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
 at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
@@ -255,6 +254,7 @@ at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask
 at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
 at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+11 actionable tasks: 11 executed
 at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
@@ -272,28 +272,6 @@ at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareE
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
-at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:116)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
-at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
-at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
-at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
-at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
-at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
-at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
-at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
-at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
-at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
-at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:264)
-at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:128)
-at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
-11 actionable tasks: 11 executed
-at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
-at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
-at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
 at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 Caused by: java.lang.RuntimeException: Manifest merger failed : android:exported needs to be explicitly specified for element <activity#com.generatedappname.app.MainActivity>. Apps targeting Android 12 and higher are required to specify an explicit value for `android:exported` when the corresponding component has an intent filter defined. See https://developer.android.com/guide/topics/manifest/activity-element#exported for details.
@@ -305,11 +283,7 @@ at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
 at com.android.build.gradle.internal.tasks.NonIncrementalTask.taskAction(NonIncrementalTask.kt:97)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAcces
-
-================ EXTRACTED LOG CONTINUED ================
-
-:43)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
@@ -389,7 +363,7 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 20s
+BUILD FAILED in 25s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
