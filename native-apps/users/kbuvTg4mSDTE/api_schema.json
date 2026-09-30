@@ -1,0 +1,12 @@
+{
+  "backend": false,
+  "roles": {},
+  "collections": {},
+  "logic": {
+    "arithmetic": {
+      "type": "calculation",
+      "inputs": ["val1", "val2", "operator"],
+      "formula": "val1 operator val2"
+    }
+  }
+}
