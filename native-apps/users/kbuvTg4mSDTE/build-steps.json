@@ -1,7 +1,25 @@
 {
   "steps": [
-    { "step": 1, "title": "Modern UI Refresh", "description": "Update XML layouts with weights and new color themes.", "files": ["app/src/main/res/layout/activity_main.xml"], "status": "pending" },
-    { "step": 2, "title": "Refine Logic", "description": "Update MainActivity for responsive input handling.", "files": ["app/src/main/java/com/procalc/app/MainActivity.java"], "status": "pending" },
-    { "step": 3, "title": "Building ProCalc", "description": "Building ProCalc", "files": [], "status": "pending" }
+    {
+      "step": 1,
+      "title": "Fix Styles",
+      "description": "Correcting resource style definitions in values/styles.xml.",
+      "files": ["app/src/main/res/values/styles.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Clean Manifest",
+      "description": "Removing deprecated package attribute from AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Building ProCalc",
+      "description": "Building ProCalc",
+      "files": [],
+      "status": "pending"
+    }
   ]
 }
