@@ -1,0 +1,79 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Metadata",
+      "description": "Configure the application name and unified package identifier.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Establish API Schema",
+      "description": "Create the API schema indicating local calculations with no online backend requirements.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Build Script",
+      "description": "Define build parameters, target SDK version 34, namespace and compiler compliance options.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure Android Manifest",
+      "description": "Establish the application structure, icon configurations, main launcher activity, and layout orientation controls.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define Color Palette",
+      "description": "Design a modern dark palette containing specific hex values for button categories (numeric, operators, helper actions).",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Button Background Drawables",
+      "description": "Implement modern rounded corner button shapes with selector states for interactive visual feedback.",
+      "files": [
+        "app/src/main/res/drawable/btn_numeric_bg.xml",
+        "app/src/main/res/drawable/btn_operator_bg.xml",
+        "app/src/main/res/drawable/btn_action_bg.xml",
+        "app/src/main/res/drawable/btn_equal_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop User Interface Layout",
+      "description": "Implement a full-screen modern layout with a formula and result viewer pane, and a dynamic grids-of-keys layout using flexible weights.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Expression Parser Engine",
+      "description": "Develop a local recursive descent parser in MainActivity to calculate inputs offline safely according to mathematical precedence.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement UI Event Handlers",
+      "description": "Wire up button interactions, expression construction logic, delete character routines, and safety checks in MainActivity.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Modern Calculator",
+      "description": "Synthesize all XML resource files and native Java modules to complete compilation of the calculator.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

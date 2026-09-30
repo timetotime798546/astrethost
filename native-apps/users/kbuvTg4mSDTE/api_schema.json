@@ -1,0 +1,12 @@
+{
+  "backend": false,
+  "roles": {},
+  "collections": {},
+  "logic": {
+    "local_evaluation": {
+      "type": "calculation",
+      "inputs": ["expression_string"],
+      "formula": "recursively parse and evaluate mathematical tokens in standard operator precedence order"
+    }
+  }
+}
