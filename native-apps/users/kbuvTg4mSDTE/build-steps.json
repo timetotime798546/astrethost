@@ -1,0 +1,25 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Cleanup Dependencies",
+      "description": "Removing unauthorized third-party libraries (nanohttpd) from build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Add Sound Assets",
+      "description": "Adding system-level sound triggers for button interactions using SoundPool.",
+      "files": ["app/src/main/java/com/procalc/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Building ProCalc",
+      "description": "Building ProCalc",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
