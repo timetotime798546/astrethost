@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search notes..."
+        android:padding="16dp"
+        android:inputType="textNoSuggestions"
+        android:singleLine="true"/>
+
+    <ListView
+        android:id="@+id/notesListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/searchEditText"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp" />
+
+    <TextView
+        android:id="@+id/emptyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No notes yet. Tap '+' to add one!"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:padding="16dp"
+        android:textSize="18sp"/>
+
+</RelativeLayout>
