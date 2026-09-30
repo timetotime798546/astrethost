@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:editable="false"
+        android:gravity="end"
+        android:padding="20dp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="4"
+        android:rowCount="5">
+        
+        <!-- Add buttons 0-9 and operations -->
+        <Button android:text="7" android:onClick="onNumClick" />
+        <Button android:text="8" android:onClick="onNumClick" />
+        <Button android:text="9" android:onClick="onNumClick" />
+        <Button android:text="/" android:onClick="onOpClick" />
+        <Button android:text="4" android:onClick="onNumClick" />
+        <Button android:text="5" android:onClick="onNumClick" />
+        <Button android:text="6" android:onClick="onNumClick" />
+        <Button android:text="*" android:onClick="onOpClick" />
+        <Button android:text="1" android:onClick="onNumClick" />
+        <Button android:text="2" android:onClick="onNumClick" />
+        <Button android:text="3" android:onClick="onNumClick" />
+        <Button android:text="-" android:onClick="onOpClick" />
+        <Button android:text="C" android:onClick="onClear" />
+        <Button android:text="0" android:onClick="onNumClick" />
+        <Button android:text="=" android:onClick="onEquals" />
+        <Button android:text="+" android:onClick="onOpClick" />
+    </GridLayout>
+</LinearLayout>
