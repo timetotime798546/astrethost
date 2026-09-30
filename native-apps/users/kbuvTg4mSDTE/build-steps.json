@@ -1,0 +1,156 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Setup",
+      "description": "Initializes the Android project structure with the specified app and package names.",
+      "files": [
+        "app-meta.json",
+        "api_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Manifest",
+      "description": "Sets up the Android manifest with necessary permissions, activity declarations, and theme.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Build",
+      "description": "Configures the app-level build.gradle file with SDK versions, dependencies, and application ID.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Calculator Display",
+      "description": "Creates the main layout for the calculator, including the TextView for displaying input and results.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Calculator Buttons - Row 1 (C, ±, %, /)",
+      "description": "Adds the first row of calculator buttons: Clear, Sign Change (optional, for future), Percentage (optional, for future), and Divide.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Calculator Buttons - Row 2 (7, 8, 9, x)",
+      "description": "Adds the second row of number and operation buttons: 7, 8, 9, and Multiply.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Calculator Buttons - Row 3 (4, 5, 6, -)",
+      "description": "Adds the third row of number and operation buttons: 4, 5, 6, and Subtract.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Calculator Buttons - Row 4 (1, 2, 3, +)",
+      "description": "Adds the fourth row of number and operation buttons: 1, 2, 3, and Add.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Calculator Buttons - Row 5 (0, ., =)",
+      "description": "Adds the fifth row of number, decimal, and equals buttons: 0, Decimal Point, and Equals.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Initialize UI Elements in MainActivity",
+      "description": "Sets up references to the TextView and Buttons in MainActivity.java and attaches click listeners.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Number Input Logic",
+      "description": "Adds logic to handle number button presses, appending digits to the current input display.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Operator Input Logic",
+      "description": "Adds logic to handle operator button presses (+, -, *, /), storing the operator and the first operand.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Clear and Decimal Logic",
+      "description": "Adds logic for the Clear (C) button to reset the calculator state and for the decimal point (.) button.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement Equals Logic",
+      "description": "Adds logic for the Equals (=) button to trigger the calculation based on stored operands and operator.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Implement Calculation Helper Method",
+      "description": "Creates a private helper method to perform the actual arithmetic operations based on the operator.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Refine Display Formatting and Error Handling",
+      "description": "Improves how numbers are displayed and adds basic error handling (e.g., division by zero).",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Building Modern Calculator",
+      "description": "The app is ready to be built and run on an Android device or emulator.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
