@@ -1,0 +1,25 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Cleanup Dependencies",
+      "description": "Removing unauthorized third-party libraries from build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "done"
+    },
+    {
+      "step": 2,
+      "title": "Refine Professional UI",
+      "description": "Updating styles.xml and layout to provide a high-contrast, modern calculator interface with better spacing and visual hierarchy.",
+      "files": ["app/src/main/res/values/styles.xml", "app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Building ProCalc",
+      "description": "Building ProCalc",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
