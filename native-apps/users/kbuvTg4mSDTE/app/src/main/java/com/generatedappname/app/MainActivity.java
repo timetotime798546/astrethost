@@ -38,23 +38,39 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn0: appendDigit("0"); break;
-            case R.id.btn1: appendDigit("1"); break;
-            case R.id.btn2: appendDigit("2"); break;
-            case R.id.btn3: appendDigit("3"); break;
-            case R.id.btn4: appendDigit("4"); break;
-            case R.id.btn5: appendDigit("5"); break;
-            case R.id.btn6: appendDigit("6"); break;
-            case R.id.btn7: appendDigit("7"); break;
-            case R.id.btn8: appendDigit("8"); break;
-            case R.id.btn9: appendDigit("9"); break;
-            case R.id.btnAdd: setOperator("+"); break;
-            case R.id.btnSub: setOperator("-"); break;
-            case R.id.btnMul: setOperator("*"); break;
-            case R.id.btnDiv: setOperator("/"); break;
-            case R.id.btnEquals: calculateResult(); break;
-            case R.id.btnClear: clearAll(); break;
+        int id = v.getId();
+        if (id == R.id.btn0) {
+            appendDigit("0");
+        } else if (id == R.id.btn1) {
+            appendDigit("1");
+        } else if (id == R.id.btn2) {
+            appendDigit("2");
+        } else if (id == R.id.btn3) {
+            appendDigit("3");
+        } else if (id == R.id.btn4) {
+            appendDigit("4");
+        } else if (id == R.id.btn5) {
+            appendDigit("5");
+        } else if (id == R.id.btn6) {
+            appendDigit("6");
+        } else if (id == R.id.btn7) {
+            appendDigit("7");
+        } else if (id == R.id.btn8) {
+            appendDigit("8");
+        } else if (id == R.id.btn9) {
+            appendDigit("9");
+        } else if (id == R.id.btnAdd) {
+            setOperator("+");
+        } else if (id == R.id.btnSub) {
+            setOperator("-");
+        } else if (id == R.id.btnMul) {
+            setOperator("*");
+        } else if (id == R.id.btnDiv) {
+            setOperator("/");
+        } else if (id == R.id.btnEquals) {
+            calculateResult();
+        } else if (id == R.id.btnClear) {
+            clearAll();
         }
     }
 
@@ -81,18 +97,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         double secondOperand = Double.parseDouble(currentInput);
         double result = 0;
-        switch (operator) {
-            case "+": result = firstOperand + secondOperand; break;
-            case "-": result = firstOperand - secondOperand; break;
-            case "*": result = firstOperand * secondOperand; break;
-            case "/":
-                if (secondOperand == 0) {
-                    resultView.setText("Error");
-                    return;
-                }
-                result = firstOperand / secondOperand;
-                break;
+        
+        if (operator.equals("+")) {
+            result = firstOperand + secondOperand;
+        } else if (operator.equals("-")) {
+            result = firstOperand - secondOperand;
+        } else if (operator.equals("*")) {
+            result = firstOperand * secondOperand;
+        } else if (operator.equals("/")) {
+            if (secondOperand == 0) {
+                resultView.setText("Error");
+                return;
+            }
+            result = firstOperand / secondOperand;
         }
+        
         resultView.setText(String.valueOf(result));
         currentInput = String.valueOf(result);
         operator = "";

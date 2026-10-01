@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Calculator
 App ID: app_6abdfe661ee0b
-Build ID: 36825307171
-Time: 2026-10-01 02:33:28
+Build ID: 36825868092
+Time: 2026-10-01 02:40:00
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 164185
-Extracted error characters: 27685
-File references detected: 203
+Original log characters: 169425
+Extracted error characters: 30042
+File references detected: 247
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2165) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2314) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/5b04863c-31e6-4544-94cd-056f81aebd63
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/71ea07bc-61a0-49d7-8b7b-5105f4b5ea46
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -190,6 +190,7 @@ PROJECT FILES
 ./app-meta.json
 ./app/build.gradle
 ./app/proguard-rules.pro
+./build-error.log
 ./build-steps.json
 ./build.gradle
 ./local.properties
@@ -217,23 +218,68 @@ Daemon will be stopped at the end of the build
 > Task :app:mergeDebugResources
 > Task :app:createDebugCompatibleScreenManifests
 > Task :app:extractDeepLinksDebug
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml:9:9-14:20 Error:
 > Task :app:parseDebugLocalResources
-android:exported needs to be explicitly specified for element <activity#com.generatedappname.app.MainActivity>. Apps targeting Android 12 and higher are required to specify an explicit value for `android:exported` when the corresponding component has an intent filter defined. See https://developer.android.com/guide/topics/manifest/activity-element#exported for details.
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:compressDebugAssets
+> Task :app:processDebugManifestForPackage
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeDebugJavaResource
+> Task :app:processDebugResources
+> Task :app:desugarDebugFileDependencies
 
-> Task :app:processDebugMainManifest FAILED
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:42: error: constant expression required
+case R.id.btn0: appendDigit("0"); break;
+> Task :app:compileDebugJavaWithJavac FAILED
+^
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:43: error: constant expression required
+case R.id.btn1: appendDigit("1"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:44: error: constant expression required
+case R.id.btn2: appendDigit("2"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:45: error: constant expression required
+case R.id.btn3: appendDigit("3"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:46: error: constant expression required
+case R.id.btn4: appendDigit("4"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:47: error: constant expression required
+case R.id.btn5: appendDigit("5"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:48: error: constant expression required
+case R.id.btn6: appendDigit("6"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:49: error: constant expression required
+case R.id.btn7: appendDigit("7"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:50: error: constant expression required
+case R.id.btn8: appendDigit("8"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:51: error: constant expression required
+case R.id.btn9: appendDigit("9"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:52: error: constant expression required
+case R.id.btnAdd: setOperator("+"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:53: error: constant expression required
+case R.id.btnSub: setOperator("-"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:54: error: constant expression required
+case R.id.btnMul: setOperator("*"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:55: error: constant expression required
+case R.id.btnDiv: setOperator("/"); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:56: error: constant expression required
+case R.id.btnEquals: calculateResult(); break;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/generatedappname/app/MainActivity.java:57: error: constant expression required
+case R.id.btnClear: clearAll(); break;
+16 errors
+
 FAILURE: Build failed with an exception.
 
-Execution failed for task ':app:processDebugMainManifest'.
-> Manifest merger failed : android:exported needs to be explicitly specified for element <activity#com.generatedappname.app.MainActivity>. Apps targeting Android 12 and higher are required to specify an explicit value for `android:exported` when the corresponding component has an intent filter defined. See https://developer.android.com/guide/topics/manifest/activity-element#exported for details.
+Execution failed for task ':app:compileDebugJavaWithJavac'.
+> Compilation failed; see the compiler error output for details.
 
 * Try:
-> Run with --info or --debug option to get more log output.
+> Run with --info option to get more log output.
 > Run with --scan to get full insights.
-> Get more help at https://help.gradle.org.
 
 * Exception is:
-org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:processDebugMainManifest'.
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileDebugJavaWithJavac'.
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:148)
 at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:282)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
@@ -259,33 +305,30 @@ at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
-package="com.generatedappname.app" found in source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
 at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:80)
-Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
-Recommendation: remove package="com.generatedappname.app" from the source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/AndroidManifest.xml.
-
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
-See https://developer.android.com/r/studio-ui/build/manifest-merger for more information about the manifest merger.
-
-11 actionable tasks: 11 executed
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
 at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-Caused by: java.lang.RuntimeException: Manifest merger failed : android:exported needs to be explicitly specified for element <activity#com.generatedappname.app.MainActivity>. Apps targeting Android 12 and higher are required to specify an explicit value for `android:exported` when the corresponding component has an intent filter defined. See https://developer.android.com/guide/topics/manifest/activity-element#exported for details.
-at com.android.build.gradle.internal.tasks.manifest.ManifestHelperKt.mergeManifests(ManifestHelper.kt:125)
-at com.android.build.gradle.internal.tasks.manifest.ManifestHelperKt.mergeManifests$default(ManifestHelper.kt:46)
-at com.android.build.gradle.tasks.ProcessApplicationManifest.doTaskAction(ProcessApplicationManifest.kt:178)
-at com.android.build.gradle.internal.tasks.NonIncrementalTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:66)
-at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
-at com.android.build.gradle.internal.tasks.NonIncrementalTask.taskAction(NonIncrementalTask.kt:97)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
-at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler error output for details.
+at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:57)
+at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:39)
+at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
+at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:52)
+at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:38)
+at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:51)
+at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:37)
+at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:46)
+at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:36)
+at org.gradle.jvm.toolchain.internal.DefaultToolchainJavaCompiler
+
+================ EXTRACTED LOG CONTINUED ================
+
+entalTaskAction.doExecute(IncrementalTaskAction.java:45)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.execute(IncrementalTaskAction.java:26)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
 at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:248)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
@@ -339,7 +382,7 @@ at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:55
 at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
 at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
 at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
-at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:81)
+at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:86)
 at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
 at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
 at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
@@ -362,10 +405,9 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 21s
+BUILD FAILED in 29s
+21 actionable tasks: 21 executed
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
 [36;1mrm -rf gradle-8.5[0m
-
-Post job cleanup.

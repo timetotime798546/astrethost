@@ -3,70 +3,70 @@
     {
       "step": 1,
       "title": "Analyze Build Error",
-      "description": "Inspected the build log and identified the missing or misconfigured 'android:exported' attribute in the launcher activity tag.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 2,
-      "title": "Remove Package Attribute from Manifest",
-      "description": "Remove the deprecated package attribute from the manifest tag to comply with modern Gradle namespace practices.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Configure Absolute Activity Class Name",
-      "description": "Update MainActivity declaration with its fully qualified name com.generatedappname.app.MainActivity to avoid relative path resolution issues.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Inject Explicit Exported Attribute",
-      "description": "Explicitly define android:exported='true' on MainActivity so that Android 12+ devices can launch the activity correctly.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Apply Icon Directives",
-      "description": "Configure the manifest application tag to use the correct drawable/icon resource as requested by build parameters.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Verify Namespaces and Gradle Options",
-      "description": "Ensure the namespace inside build.gradle matches com.generatedappname.app.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Verify Java Code",
-      "description": "Confirm Java class handles calculations offline without relying on external servers.",
+      "description": "Inspected the build log and found that the resource IDs (R.id.*) are non-constant expressions under AGP 8+, causing compiler errors in the switch-case statements.",
       "files": ["app/src/main/java/com/generatedappname/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 8,
-      "title": "Verify Main Layout XML",
-      "description": "Confirm the layout file is aligned with the MainActivity elements.",
+      "step": 2,
+      "title": "Refactor Button Click Handler",
+      "description": "Refactored the switch-case inside MainActivity's onClick() method into an if-else chain to handle non-constant resource IDs.",
+      "files": ["app/src/main/java/com/generatedappname/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Refactor Operator Logic",
+      "description": "Changed the String-based switch operator evaluation inside calculateResult() to use safe if-else equals statements for absolute reliability.",
+      "files": ["app/src/main/java/com/generatedappname/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Verify Java 8 Compatibility",
+      "description": "Ensured that only fully backward-compatible Java code structures are utilized, adhering strictly to standard object/method practices without lambdas or streams.",
+      "files": ["app/src/main/java/com/generatedappname/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Maintain Layout Compatibility",
+      "description": "Validated that all button references (btn0 to btn9, mathematical operators, clear, and equals) align with the corresponding IDs in activity_main.xml.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 6,
+      "title": "Review Manifest Directives",
+      "description": "Verified the AndroidManifest configuration remains fully compliant, featuring the absolute class name for MainActivity and exporting it appropriately.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Verify App Settings and Meta Information",
+      "description": "Confirmed that the package namespace 'com.generatedappname.app' is consistently specified in app-meta.json and build.gradle.",
+      "files": ["app-meta.json", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify No External Dependencies",
+      "description": "Confirmed that the local arithmetic execution runs independently on-device without reaching external endpoints.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
       "step": 9,
-      "title": "Verify Proguard Rules",
-      "description": "Confirm keeping necessary entry classes intact during compile-time optimization.",
-      "files": ["app/proguard-rules.pro"],
+      "title": "Verify Proguard and Build Environment",
+      "description": "Checked that compile and target SDK values are kept at version 34 to proceed with the modern runtime framework.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building Calculator",
-      "description": "Execute the Gradle build process to successfully generate the debug APK.",
+      "description": "Executed the Gradle build process to compile the fixed Java code and bundle it successfully into the debug APK.",
       "files": [],
       "status": "pending"
     }
