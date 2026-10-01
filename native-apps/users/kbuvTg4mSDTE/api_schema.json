@@ -1,29 +1,4 @@
 {
-  "backend": true,
-  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
-  "roles": {
-    "user": ["own"]
-  },
-  "collections": {
-    "bookings": {
-      "fields": {
-        "service_name": "string",
-        "stylist_name": "string",
-        "booking_date": "string",
-        "booking_time": "string",
-        "base_price": "number",
-        "tax": "number",
-        "total_price": "number",
-        "status": "string"
-      },
-      "operations": ["create", "read", "update", "delete"]
-    }
-  },
-  "logic": {
-    "booking_total": {
-      "type": "calculation",
-      "inputs": ["base_price", "tax"],
-      "formula": "base_price + tax"
-    }
-  }
+  "backend": false,
+  "logic": {}
 }

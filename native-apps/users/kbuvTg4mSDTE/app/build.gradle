@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.saloonbooking.app"
+    namespace "com.generatedappname.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.saloonbooking.app"
+        applicationId "com.generatedappname.app"
 
         minSdkVersion 21
 
