@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.generatedappname.app"
+    namespace "com.cloudnotes.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.generatedappname.app"
+        applicationId "com.cloudnotes.app"
 
         minSdkVersion 21
 
