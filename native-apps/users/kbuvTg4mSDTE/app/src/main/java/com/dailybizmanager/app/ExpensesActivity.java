@@ -101,7 +101,7 @@ public class ExpensesActivity extends Activity {
             row.setText(date + ": " + title + " [" + cat + "] @ $" + String.format("%.2f", amount));
             row.setPadding(8, 8, 8, 8);
             row.setBackgroundColor(Color.WHITE);
-            row.setTextSize(13sp);
+            row.setTextSize(13);
 
             View divider = new View(this);
             divider.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1));

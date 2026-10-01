@@ -226,7 +226,7 @@ public class SalesActivity extends Activity {
             TextView txtItemInfo = new TextView(this);
             txtItemInfo.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
             txtItemInfo.setText(item.product.name + " x" + item.quantity + " - $" + String.format("%.2f", item.product.sellingPrice * item.quantity));
-            txtItemInfo.setTextSize(14sp);
+            txtItemInfo.setTextSize(14);
 
             Button btnRemove = new Button(this);
             btnRemove.setText("X");

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -154,7 +155,7 @@ public class PurchasesActivity extends Activity {
             row.setText(date + ": " + name + " (Qty: " + qty + ") from " + supplier + " @ $" + String.format("%.2f", price));
             row.setPadding(8, 8, 8, 8);
             row.setBackgroundColor(Color.WHITE);
-            row.setTextSize(13sp);
+            row.setTextSize(13);
 
             View divider = new View(this);
             divider.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1));

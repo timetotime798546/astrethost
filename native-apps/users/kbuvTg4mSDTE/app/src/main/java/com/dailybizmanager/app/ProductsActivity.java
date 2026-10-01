@@ -201,7 +201,7 @@ public class ProductsActivity extends Activity {
             TextView text2 = (TextView) convertView.findViewById(android.R.id.text2);
 
             text1.setText(p.name + " (" + p.sku + ")");
-            text1.setTextSize(16sp);
+            text1.setTextSize(16);
 
             String stockInfo = "Stock: " + p.stock + " " + p.unit + " | Price: $" + String.format("%.2f", p.sellingPrice);
             text2.setText(stockInfo);

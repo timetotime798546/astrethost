@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -148,7 +149,7 @@ public class CustomersActivity extends Activity {
             TextView text2 = (TextView) convertView.findViewById(android.R.id.text2);
 
             text1.setText(c.name + " (" + c.phone + ")");
-            text1.setTextSize(16sp);
+            text1.setTextSize(16);
 
             String info = "Purchases: $" + String.format("%.2f", c.totalPurchases) + " | Due: $" + String.format("%.2f", c.balance);
             text2.setText(info);

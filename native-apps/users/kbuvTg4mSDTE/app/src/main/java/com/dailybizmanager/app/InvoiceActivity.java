@@ -143,7 +143,7 @@ public class InvoiceActivity extends Activity {
             row.setText(prodName + " (x" + qty + ") - $" + String.format("%.2f", itemTotal));
             row.setPadding(0, 4, 0, 4);
             row.setTextColor(Color.DKGRAY);
-            row.setTextSize(14sp);
+            row.setTextSize(14);
 
             layoutInvItems.addView(row);
 
