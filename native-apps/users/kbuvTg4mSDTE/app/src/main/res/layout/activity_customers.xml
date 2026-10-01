@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Ledger"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#2C3E50"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/edtCustomerSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search by name or phone..."
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnAddNewCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+ ADD NEW CUSTOMER"
+        android:background="#3498DB"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp" />
+
+    <ListView
+        android:id="@+id/lstCustomers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#E0E0E0"
+        android:dividerHeight="1dp" />
+
+</LinearLayout>

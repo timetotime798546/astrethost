@@ -1,0 +1,130 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Establish the application package name and metadata for build-pipeline mapping.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Establish Schema Configurations",
+      "description": "Define the app configuration to operate completely offline without server-side integrations.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define Gradle Configuration",
+      "description": "Configure build parameters to target SDK 34 and setup JDK 17 environments for smooth compilation.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Develop Android Manifest",
+      "description": "Establish launch flow and standard hardware configuration flags inside AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create SQLite Database Layer",
+      "description": "Implement local database schema with optimized relational structured tables for product stock, sales ledger, customer metrics, purchases, expenses and app global configuration settings.",
+      "files": ["app/src/main/java/com/dailybizmanager/app/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Construct Dashboard Interface XML",
+      "description": "Implement grid layouts to render business indicators including net profit, daily sales, low stock alerts, and quick action launch pads.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build Main Dashboard Controller",
+      "description": "Setup business data bindings and register trigger actions to dynamically render business metrics.",
+      "files": ["app/src/main/java/com/dailybizmanager/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Product Management Layouts",
+      "description": "Assemble interfaces for product searching, inventory listing, addition, deletion, and low stock visualization indicators.",
+      "files": ["app/src/main/res/layout/activity_products.xml", "app/src/main/res/layout/activity_add_product.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop Product Operations Logic",
+      "description": "Construct handlers for searching items, processing barcode categories, minimum threshold logic, and inventory logging.",
+      "files": ["app/src/main/java/com/dailybizmanager/app/ProductsActivity.java", "app/src/main/java/com/dailybizmanager/app/AddProductActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design Customer Record Layouts",
+      "description": "Build layout files for managing contacts, transaction totals, outstanding balances, and list presentation panels.",
+      "files": ["app/src/main/res/layout/activity_customers.xml", "app/src/main/res/layout/activity_add_customer.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Develop Customer Record Handlers",
+      "description": "Implement validation and database binding for processing user logs and updating outstanding credit balances.",
+      "files": ["app/src/main/java/com/dailybizmanager/app/CustomersActivity.java", "app/src/main/java/com/dailybizmanager/app/AddCustomerActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Construct Advanced Sales Checkout Layout",
+      "description": "Assemble advanced transaction layout enabling multi-item selection, real-time discount calculations, tax rules, and payments balance management.",
+      "files": ["app/src/main/res/layout/activity_sales.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Develop Interactive Sales Checkout Logic",
+      "description": "Implement interactive checkout handling. Formulates multi-product list, deducts item stock automatically, creates invoice data, and updates customer outstanding balances.",
+      "files": ["app/src/main/java/com/dailybizmanager/app/SalesActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Assemble Purchase & Expense UI and Logic",
+      "description": "Construct inventory replenishment handlers, supplier detail management, and daily operational expense logging features.",
+      "files": ["app/src/main/res/layout/activity_purchases.xml", "app/src/main/java/com/dailybizmanager/app/PurchasesActivity.java", "app/src/main/res/layout/activity_expenses.xml", "app/src/main/java/com/dailybizmanager/app/ExpensesActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Develop Low Stock alerts and System Settings Screen",
+      "description": "Build configuration screens with options to set global metrics, tax policies, reset databases, and pre-load complex sample data sets.",
+      "files": ["app/src/main/res/layout/activity_settings.xml", "app/src/main/java/com/dailybizmanager/app/SettingsActivity.java", "app/src/main/res/layout/activity_low_stock.xml", "app/src/main/java/com/dailybizmanager/app/LowStockActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Develop Business Reports View",
+      "description": "Design a statistics and analytical reporting panel representing complete sale metrics, purchasing overheads, and computed gross margins.",
+      "files": ["app/src/main/res/layout/activity_reports.xml", "app/src/main/java/com/dailybizmanager/app/ReportsActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Build Shareable Digital Invoice View",
+      "description": "Create an invoice billing interface supporting native digital sharing parameters and detailed cost line-item tables.",
+      "files": ["app/src/main/res/layout/activity_invoice.xml", "app/src/main/java/com/dailybizmanager/app/InvoiceActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 18,
+      "title": "Building DailyBiz Manager",
+      "description": "Perform code linting, layout compilation and final offline validation tests.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

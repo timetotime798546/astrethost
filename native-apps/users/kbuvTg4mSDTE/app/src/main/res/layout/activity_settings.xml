@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App Preferences &amp; Config"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#2C3E50"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Shop Name -->
+        <EditText
+            android:id="@+id/edtSettingsShopName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Shop / Business Name"
+            android:background="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Shop Phone -->
+        <EditText
+            android:id="@+id/edtSettingsShopPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Shop Contact Number"
+            android:inputType="phone"
+            android:background="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Shop Address -->
+        <EditText
+            android:id="@+id/edtSettingsShopAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Physical / Billing Address"
+            android:background="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Currency -->
+        <EditText
+            android:id="@+id/edtSettingsCurrency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Currency Symbol (e.g. $, €)"
+            android:background="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Tax -->
+        <EditText
+            android:id="@+id/edtSettingsTax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Default Tax Rate (%)"
+            android:inputType="numberDecimal"
+            android:background="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="20dp" />
+
+        <Button
+            android:id="@+id/btnSaveSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAVE SYSTEM SETTINGS"
+            android:background="#2ECC71"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Reset & Admin Options -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Database Administration"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#2C3E50"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnLoadSampleData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="POPULATE OFFLINE DEMO RECORDS"
+            android:background="#F39C12"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnClearAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HARD RESET ALL STORE DATA"
+            android:background="#E74C3C"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="16dp" />
+
+        <!-- About App -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DailyBiz Manager App v1.0\nFully local. Safe. Secure."
+            android:gravity="center"
+            android:textColor="#95A5A6"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+</ScrollView>

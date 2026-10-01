@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Shop Name Header Area -->
+        <TextView
+            android:id="@+id/txtInvShopName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DailyBiz Retailers"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#2C3E50"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/txtInvShopDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="123 Business Lane, Tel: 555-2211"
+            android:textSize="12sp"
+            android:textColor="#7F8C8D"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#2C3E50"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Invoice Details block -->
+        <TextView
+            android:id="@+id/txtInvNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="INVOICE: INV-09923821"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="#2C3E50" />
+
+        <TextView
+            android:id="@+id/txtInvDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date Issued: 2024-01-20"
+            android:textSize="13sp"
+            android:textColor="#7F8C8D"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:id="@+id/txtInvCustomer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Billed To: Walk-in Customer"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="#34495E"
+            android:layout_marginBottom="16dp" />
+
+        <!-- List Items Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sales Line-Items:"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#34495E"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Table Grid Container -->
+        <LinearLayout
+            android:id="@+id/layoutInvItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+            <!-- Programmatically inflated invoice rows -->
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BDC3C7"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Balance Totals details block -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Subtotal:" />
+            <TextView
+                android:id="@+id/txtInvSubtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$0.00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Trade Discount:" />
+            <TextView
+                android:id="@+id/txtInvDiscount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-$0.00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="VAT / Sales Tax:" />
+            <TextView
+                android:id="@+id/txtInvTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$0.00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Grand Consolidated Total:"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/txtInvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$0.00"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="#2ECC71" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BDC3C7"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cash Amount Paid:" />
+            <TextView
+                android:id="@+id/txtInvPaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$0.00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Remaining Balance Ledger:"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txtInvBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$0.00"
+                android:textStyle="bold"
+                android:textColor="#E74C3C" />
+        </LinearLayout>
+
+        <!-- Actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnBackToMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="BACK TO MENU"
+                android:background="#95A5A6"
+                android:textColor="#FFFFFF"
+                android:layout_marginRight="8dp" />
+
+            <Button
+                android:id="@+id/btnShareInvoice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SHARE RECEIPT"
+                android:background="#3498DB"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
