@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Language Dynamic Toggle Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Language / भाषा: "
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_gravity="center_vertical"/>
+
+            <Button
+                android:id="@+id/btn_lang_toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HINDI"
+                android:textSize="12sp"
+                android:backgroundTint="#8E24AA"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="8dp"
+                style="?android:attr/buttonStyleSmall"/>
+        </LinearLayout>
+
+        <!-- Dynamic Title Hero -->
+        <TextView
+            android:id="@+id/tv_app_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salon Ease"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#8E24AA"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_app_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Look Premium, Feel Confident"
+            android:textSize="14sp"
+            android:textColor="#777777"
+            android:layout_marginBottom="40dp"/>
+
+        <!-- Form Card Container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="20dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/tv_form_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login to Your Account"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- Email Input -->
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:drawable/edit_text"/>
+
+            <!-- Password Input -->
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:layout_marginBottom="24dp"
+                android:background="@android:drawable/edit_text"/>
+
+            <!-- Action Button -->
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="LOG IN"
+                android:backgroundTint="#8E24AA"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <!-- Toggle Form state trigger -->
+        <TextView
+            android:id="@+id/tv_switch_auth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account? Sign Up"
+            android:textColor="#8E24AA"
+            android:textSize="14sp"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <!-- Progress Spinner -->
+        <ProgressBar
+            android:id="@+id/progress_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</ScrollView>

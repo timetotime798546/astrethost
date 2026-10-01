@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Initialize app-meta.json with the customized app name and target package structure.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Database Schema and Offline Calculations",
+      "description": "Create api_schema.json defining the bookings collection, authentication roles, and dynamic tax calculation formula.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Establish Build Script",
+      "description": "Set up build.gradle with correct SDK, namespace configuration, target environments, and dependency-free rules.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Android Manifest",
+      "description": "Configure AndroidManifest.xml with dynamic permissions, entry activities, themes, and services.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Bilingual Translation Dictionary",
+      "description": "Implement Lang.java utility managing English & Hindi localized text dictionaries with instant real-time toggling.",
+      "files": ["app/src/main/java/com/saloonbooking/app/Lang.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Develop Native Backend API Client",
+      "description": "Build BackendApi.java supporting robust user creation, session token management, and structured CRUD endpoints matching JSON rules.",
+      "files": ["app/src/main/java/com/saloonbooking/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Splash and Auth Layout",
+      "description": "Design an elegant Material-inspired login and signup XML layout with high-contrast text fields and custom styling.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement MainActivity Flow",
+      "description": "Write login, registration, dynamic language switching, and secure token storage features in MainActivity.java.",
+      "files": ["app/src/main/java/com/saloonbooking/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Salon Booking Dashboard Layout",
+      "description": "Create a unified interactive dashboard layout with multi-stage service wizards, date/time pickers, offline pricing, and list views.",
+      "files": ["app/src/main/res/layout/activity_booking.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Write Booking Dashboard Business Logic",
+      "description": "Develop BookingActivity.java implementing local offline 18% tax calculation, dynamic service catalogs, booking status feeds, and cancellation capabilities.",
+      "files": ["app/src/main/java/com/saloonbooking/app/BookingActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Salon Booking",
+      "description": "Execute final Gradle assembly tasks to package the high-performance Bilingual Saloon Booking native application.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
