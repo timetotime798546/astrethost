@@ -1,3 +1,74 @@
 {
-  "steps": []
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Build Error",
+      "description": "Inspected the build log and identified the missing or misconfigured 'android:exported' attribute in the launcher activity tag.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Remove Package Attribute from Manifest",
+      "description": "Remove the deprecated package attribute from the manifest tag to comply with modern Gradle namespace practices.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Absolute Activity Class Name",
+      "description": "Update MainActivity declaration with its fully qualified name com.generatedappname.app.MainActivity to avoid relative path resolution issues.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Inject Explicit Exported Attribute",
+      "description": "Explicitly define android:exported='true' on MainActivity so that Android 12+ devices can launch the activity correctly.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Apply Icon Directives",
+      "description": "Configure the manifest application tag to use the correct drawable/icon resource as requested by build parameters.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify Namespaces and Gradle Options",
+      "description": "Ensure the namespace inside build.gradle matches com.generatedappname.app.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Verify Java Code",
+      "description": "Confirm Java class handles calculations offline without relying on external servers.",
+      "files": ["app/src/main/java/com/generatedappname/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify Main Layout XML",
+      "description": "Confirm the layout file is aligned with the MainActivity elements.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Proguard Rules",
+      "description": "Confirm keeping necessary entry classes intact during compile-time optimization.",
+      "files": ["app/proguard-rules.pro"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Calculator",
+      "description": "Execute the Gradle build process to successfully generate the debug APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
 }
