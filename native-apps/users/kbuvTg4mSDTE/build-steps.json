@@ -2,87 +2,78 @@
   "steps": [
     {
       "step": 1,
-      "title": "Setup App Specifications",
-      "description": "Initialize app metadata and backend connection schema settings",
-      "files": ["app-meta.json", "api_schema.json"],
+      "title": "Analyze AAPT Build Errors",
+      "description": "Inspect compilation log to discover invalid XML attributes in layouts",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Environment",
-      "description": "Configure build.gradle with correct SDK versions and direct compilation settings",
-      "files": ["app/build.gradle"],
+      "title": "Locate Invalid Layout Y Centering",
+      "description": "Search activity_main.xml and activity_note.xml for incorrect layout_centerY references",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Android Manifest",
-      "description": "Register all application activities, launch configurations, and internet permissions",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Develop Backend Client API",
-      "description": "Implement native Java HTTP networking client supporting authentication and complete dynamic collection CRUD operations",
-      "files": ["app/src/main/java/com/cloudnotes/app/BackendApi.java"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Define Note Data Structure",
-      "description": "Create standard Note model to store data dynamically",
-      "files": ["app/src/main/java/com/cloudnotes/app/Note.java"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Create User Authentication Views",
-      "description": "Design layouts for the Login and Registration screens",
-      "files": [
-        "app/src/main/res/layout/activity_login.xml",
-        "app/src/main/res/layout/activity_register.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Implement User Authentication Activities",
-      "description": "Write Java logic for user login, signup with automated session tokens, and redirect handling",
-      "files": [
-        "app/src/main/java/com/cloudnotes/app/LoginActivity.java",
-        "app/src/main/java/com/cloudnotes/app/RegisterActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Design Main Workspace Layout",
-      "description": "Design the workspace UI incorporating dynamic note search, categories navigation, local logic stats display, and custom list styling",
+      "title": "Correct Main Header Center Style",
+      "description": "Replace layout_centerY with layout_centerVertical in activity_main.xml for TextView",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 4,
+      "title": "Correct Logout Button Placement",
+      "description": "Replace layout_centerY with layout_centerVertical in activity_main.xml for Logout Button",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Correct Editor Back Button Alignment",
+      "description": "Replace layout_centerY with layout_centerVertical in activity_note.xml for Back Button",
+      "files": ["app/src/main/res/layout/activity_note.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify RelativeLayout Structure",
+      "description": "Validate that RelativeLayout attributes in both XML layouts compile cleanly",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Validate Package Meta",
+      "description": "Check meta configuration inside app-meta.json",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Check Backend Compatibility",
+      "description": "Verify model and API client operations match original architecture specifications",
+      "files": [],
+      "status": "pending"
+    },
+    {
       "step": 9,
-      "title": "Implement Main Activity Controllers",
-      "description": "Build the core notes application flow with searching, list operations, category filtering, and offline calculation logic",
-      "files": ["app/src/main/java/com/cloudnotes/app/MainActivity.java"],
+      "title": "Review Java Implementation",
+      "description": "Confirm that Main and Note Activities operate perfectly with correct layout references",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Create Note Management Workflow",
-      "description": "Build UI and edit/save/delete flow for creating or updating note items in the cloud backend",
-      "files": [
-        "app/src/main/res/layout/activity_note.xml",
-        "app/src/main/java/com/cloudnotes/app/NoteActivity.java"
-      ],
+      "title": "Perform Offline Calculations Review",
+      "description": "Confirm that local statistics calculations for total notes and character counts remain intact",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 11,
       "title": "Building Cloud Notes",
-      "description": "Assemble the complete native application project with build environment assets",
+      "description": "Assemble the complete native application project with layout fixes",
       "files": [],
       "status": "pending"
     }
