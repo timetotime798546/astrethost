@@ -1,0 +1,144 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Android project structure",
+      "description": "Set up the basic directory structure for the Android application.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define app metadata",
+      "description": "Specify the application name, package, and unique ID for the project.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure top-level Gradle build file",
+      "description": "Set up the main build configuration for the Android project, including repositories and plugin versions.",
+      "files": [
+        "build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure app-level Gradle build file",
+      "description": "Define application-specific build settings such as namespace, SDK versions, and remove disallowed external dependencies.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "completed"
+    },
+    {
+      "step": 5,
+      "title": "Set up Android Manifest",
+      "description": "Declare app components, permissions, and fundamental app characteristics in AndroidManifest.xml. Removed deprecated 'package' attribute, added 'android:exported=\"true\"', and explicitly set 'android:icon' and 'android:roundIcon'.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "completed"
+    },
+    {
+      "step": 6,
+      "title": "Create main layout for calculator UI",
+      "description": "Design the graphical user interface for the calculator, including the display area and button grid.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement display TextView",
+      "description": "Add a TextView component to show current input and calculation results.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design calculator button grid",
+      "description": "Arrange number, operator, and function buttons using a GridLayout for a standard calculator layout.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement calculator logic in MainActivity.java",
+      "description": "Write the Java code to handle user interactions and perform arithmetic calculations.",
+      "files": [
+        "app/src/main/java/com/generatedappname/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Handle number and decimal input",
+      "description": "Develop logic to process numerical digit presses and decimal point entries, updating the display accordingly.",
+      "files": [
+        "app/src/main/java/com/generatedappname/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement arithmetic operations",
+      "description": "Code methods for addition, subtraction, multiplication, and division, including error handling for division by zero.",
+      "files": [
+        "app/src/main/java/com/generatedappname/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Add clear, sign change, and percentage functions",
+      "description": "Implement special calculator functions like clearing all input, toggling positive/negative sign, and calculating percentages.",
+      "files": [
+        "app/src/main/java/com/generatedappname/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Configure Java 8 compatibility",
+      "description": "Ensure the project is set to compile and target Java 8 for source compatibility.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Exclude unnecessary resources from packaging",
+      "description": "Optimize the APK size by excluding specific resource files during the build process.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Update assets/app-meta.json",
+      "description": "Ensure that the app metadata file in the assets folder contains the correct app name, package name, and app ID for runtime access.",
+      "files": [
+        "app/src/main/assets/app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building Calculator",
+      "description": "Compile and package the Android application.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

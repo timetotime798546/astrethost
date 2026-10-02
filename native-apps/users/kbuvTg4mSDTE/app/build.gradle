@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.app.generatedapp"
+    namespace "com.app.mainactivity"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.app.generatedapp"
+        applicationId "com.app.mainactivity"
 
         minSdkVersion 21
 
