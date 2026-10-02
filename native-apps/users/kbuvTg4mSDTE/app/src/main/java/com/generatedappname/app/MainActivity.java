@@ -10,157 +10,179 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private TextView display;
     private StringBuilder input = new StringBuilder();
+    private double operand = 0;
+    private char pendingOperator = 0;
+    private boolean resetInput = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         display = (TextView) findViewById(R.id.display);
-        int[] buttonIds = {
-                R.id.button0, R.id.button1, R.id.button2, R.id.button3,
-                R.id.button4, R.id.button5, R.id.button6, R.id.button7,
-                R.id.button8, R.id.button9, R.id.buttonAdd, R.id.buttonSubtract,
-                R.id.buttonMultiply, R.id.buttonDivide, R.id.buttonDecimal,
-                R.id.buttonClear, R.id.buttonEquals
+        int[] ids = {
+                R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+                R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9,
+                R.id.btnAdd, R.id.btnSub, R.id.btnMul, R.id.btnDiv,
+                R.id.btnEq, R.id.btnClear, R.id.btnDot, R.id.btnBack
         };
-        for (int id : buttonIds) {
-            Button b = (Button) findViewById(id);
-            b.setOnClickListener(this);
+        for (int id : ids) {
+            View v = findViewById(id);
+            if (v != null) {
+                v.setOnClickListener(this);
+            }
         }
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        switch (id) {
-            case R.id.button0:
-                appendInput("0");
-                break;
-            case R.id.button1:
-                appendInput("1");
-                break;
-            case R.id.button2:
-                appendInput("2");
-                break;
-            case R.id.button3:
-                appendInput("3");
-                break;
-            case R.id.button4:
-                appendInput("4");
-                break;
-            case R.id.button5:
-                appendInput("5");
-                break;
-            case R.id.button6:
-                appendInput("6");
-                break;
-            case R.id.button7:
-                appendInput("7");
-                break;
-            case R.id.button8:
-                appendInput("8");
-                break;
-            case R.id.button9:
-                appendInput("9");
-                break;
-            case R.id.buttonDecimal:
-                appendInput(".");
-                break;
-            case R.id.buttonAdd:
-                appendInput("+");
-                break;
-            case R.id.buttonSubtract:
-                appendInput("-");
-                break;
-            case R.id.buttonMultiply:
-                appendInput("*");
-                break;
-            case R.id.buttonDivide:
-                appendInput("/");
-                break;
-            case R.id.buttonClear:
-                clearInput();
-                break;
-            case R.id.buttonEquals:
-                evaluateExpression();
-                break;
+
+        if (id == R.id.btn0) {
+            appendDigit("0");
+        } else if (id == R.id.btn1) {
+            appendDigit("1");
+        } else if (id == R.id.btn2) {
+            appendDigit("2");
+        } else if (id == R.id.btn3) {
+            appendDigit("3");
+        } else if (id == R.id.btn4) {
+            appendDigit("4");
+        } else if (id == R.id.btn5) {
+            appendDigit("5");
+        } else if (id == R.id.btn6) {
+            appendDigit("6");
+        } else if (id == R.id.btn7) {
+            appendDigit("7");
+        } else if (id == R.id.btn8) {
+            appendDigit("8");
+        } else if (id == R.id.btn9) {
+            appendDigit("9");
+        } else if (id == R.id.btnDot) {
+            appendDot();
+        } else if (id == R.id.btnClear) {
+            clearAll();
+        } else if (id == R.id.btnBack) {
+            backspace();
+        } else if (id == R.id.btnAdd) {
+            applyOperator('+');
+        } else if (id == R.id.btnSub) {
+            applyOperator('-');
+        } else if (id == R.id.btnMul) {
+            applyOperator('*');
+        } else if (id == R.id.btnDiv) {
+            applyOperator('/');
+        } else if (id == R.id.btnEq) {
+            calculateResult();
         }
     }
 
-    private void appendInput(String str) {
-        input.append(str);
-        display.setText(input.toString());
+    private void appendDigit(String digit) {
+        if (resetInput) {
+            input.setLength(0);
+            resetInput = false;
+        }
+        input.append(digit);
+        updateDisplay();
     }
 
-    private void clearInput() {
+    private void appendDot() {
+        if (resetInput) {
+            input.setLength(0);
+            resetInput = false;
+        }
+        if (input.indexOf(".") == -1) {
+            if (input.length() == 0) {
+                input.append("0");
+            }
+            input.append(".");
+            updateDisplay();
+        }
+    }
+
+    private void clearAll() {
         input.setLength(0);
-        display.setText("");
+        operand = 0;
+        pendingOperator = 0;
+        resetInput = false;
+        updateDisplay();
     }
 
-    private void evaluateExpression() {
-        String expr = input.toString();
-        try {
-            double result = evaluate(expr);
-            display.setText(String.valueOf(result));
-            input.setLength(0);
-            input.append(result);
-        } catch (Exception e) {
-            display.setText("Error");
-            input.setLength(0);
+    private void backspace() {
+        if (resetInput) {
+            return;
+        }
+        int len = input.length();
+        if (len > 0) {
+            input.deleteCharAt(len - 1);
+            updateDisplay();
         }
     }
 
-    // Simple left-to-right evaluation without operator precedence
-    private double evaluate(String expr) throws Exception {
-        if (expr.isEmpty()) {
+    private void applyOperator(char op) {
+        if (input.length() == 0 && pendingOperator != 0) {
+            pendingOperator = op;
+            return;
+        }
+        double value = parseInput();
+        if (pendingOperator == 0) {
+            operand = value;
+        } else {
+            operand = compute(operand, value, pendingOperator);
+        }
+        pendingOperator = op;
+        resetInput = true;
+        display.setText(formatNumber(operand));
+    }
+
+    private void calculateResult() {
+        if (pendingOperator == 0) {
+            return;
+        }
+        double value = parseInput();
+        double result = compute(operand, value, pendingOperator);
+        display.setText(formatNumber(result));
+        input.setLength(0);
+        input.append(formatNumber(result));
+        operand = 0;
+        pendingOperator = 0;
+        resetInput = true;
+    }
+
+    private double parseInput() {
+        try {
+            return Double.parseDouble(input.toString());
+        } catch (NumberFormatException e) {
             return 0;
         }
-        java.util.ArrayList<Double> numbers = new java.util.ArrayList<Double>();
-        java.util.ArrayList<Character> ops = new java.util.ArrayList<Character>();
-        StringBuilder num = new StringBuilder();
-        for (int i = 0; i < expr.length(); i++) {
-            char c = expr.charAt(i);
-            if ((c >= '0' && c <= '9') || c == '.') {
-                num.append(c);
-            } else if (c == '+' || c == '-' || c == '*' || c == '/') {
-                if (num.length() == 0) {
-                    // handle unary minus
-                    if (c == '-' && (i == 0 || expr.charAt(i - 1) == '(')) {
-                        num.append(c);
-                        continue;
-                    } else {
-                        throw new Exception("Invalid expression");
-                    }
+    }
+
+    private double compute(double a, double b, char op) {
+        switch (op) {
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '*':
+                return a * b;
+            case '/':
+                if (b == 0) {
+                    return 0;
                 }
-                numbers.add(Double.parseDouble(num.toString()));
-                num.setLength(0);
-                ops.add(c);
-            } else {
-                throw new Exception("Invalid character");
-            }
+                return a / b;
+            default:
+                return b;
         }
-        if (num.length() > 0) {
-            numbers.add(Double.parseDouble(num.toString()));
+    }
+
+    private String formatNumber(double value) {
+        if (value == (long) value) {
+            return String.valueOf((long) value);
+        } else {
+            return String.valueOf(value);
         }
-        double result = numbers.get(0);
-        for (int i = 0; i < ops.size(); i++) {
-            char op = ops.get(i);
-            double next = numbers.get(i + 1);
-            switch (op) {
-                case '+':
-                    result += next;
-                    break;
-                case '-':
-                    result -= next;
-                    break;
-                case '*':
-                    result *= next;
-                    break;
-                case '/':
-                    result /= next;
-                    break;
-            }
-        }
-        return result;
+    }
+
+    private void updateDisplay() {
+        display.setText(input.length() == 0 ? "0" : input.toString());
     }
 }
