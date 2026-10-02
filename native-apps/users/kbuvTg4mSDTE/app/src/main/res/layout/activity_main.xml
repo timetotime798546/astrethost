@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <!-- Title Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Local Gemini HTTP Bridge"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Connection Info Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:elevation="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Server Status"
+            android:textStyle="bold"
+            android:textColor="#777777"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status: Stopped"
+            android:textSize="16sp"
+            android:textColor="#D32F2F"
+            android:layout_marginTop="2dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE"
+            android:layout_marginVertical="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Device IP Address"
+            android:textStyle="bold"
+            android:textColor="#777777"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/tv_ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fetching IP..."
+            android:textSize="14sp"
+            android:textColor="#2196F3"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Active Endpoint:"
+            android:textStyle="bold"
+            android:textColor="#777777"
+            android:textSize="11sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tv_endpoint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="POST http://YOUR_IP:8080/send-prompt"
+            android:textSize="13sp"
+            android:textColor="#333333"
+            android:textStyle="italic"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- Auto-Submit Accessibility Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:elevation="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Auto-Submit Capability"
+            android:textStyle="bold"
+            android:textColor="#777777"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/tv_accessibility_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accessibility Service: Checking..."
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#FF9800"
+            android:layout_marginTop="2dp" />
+
+        <Button
+            android:id="@+id/btn_enable_accessibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ENABLE AUTO-SUBMIT"
+            android:backgroundTint="#FF9800"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- Controls Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+
+        <Button
+            android:id="@+id/btn_toggle_server"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Start Server"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="4dp" />
+
+        <Button
+            android:id="@+id/btn_refresh_ip"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Refresh IP"
+            android:textColor="#333333"
+            android:layout_marginLeft="4dp" />
+    </LinearLayout>
+
+    <!-- Quick Manual Test Panel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:elevation="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manual Test Launcher"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/et_test_prompt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type a test prompt here..."
+            android:textSize="13sp"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/btn_test_send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Launch Gemini Instantly"
+            android:backgroundTint="#009688"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="6dp" />
+    </LinearLayout>
+
+    <!-- Log Section Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="#000000"
+        android:padding="8dp"
+        android:elevation="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="HTTP Server Live Logs"
+                android:textColor="#00FF00"
+                android:textStyle="bold"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/tv_clear_logs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[CLEAR]"
+                android:textColor="#FF9800"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scroller_logs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/tv_logs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bridge Console initialized. Idle...\n"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

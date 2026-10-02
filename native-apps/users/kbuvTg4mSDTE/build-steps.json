@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define resources and strings",
+      "description": "Configure strings.xml and static app parameters including descriptions for the accessibility service.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Accessibility Service configuration file",
+      "description": "Create accessibility_service_config.xml to target com.google.android.apps.bard and listen to window state changes.",
+      "files": ["app/src/main/res/xml/accessibility_service_config.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement GeminiAutoSubmitService",
+      "description": "Create GeminiAutoSubmitService class to dynamically locate and trigger the send button inside Gemini.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/GeminiAutoSubmitService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Declare service in AndroidManifest",
+      "description": "Register the new Accessibility Service with BIND_ACCESSIBILITY_SERVICE permission in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Modify Main Layout XML",
+      "description": "Update activity_main.xml to include Accessibility Service state indicators and settings navigation button.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Integrate auto-submit checking in MainActivity",
+      "description": "Update MainActivity.java to continuously check accessibility configuration state and bind control buttons.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement CORS support on HTTP server",
+      "description": "Add Access-Control-Allow-Origin headers to response handling logic inside MyNanoHTTPD helper.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify compile specifications",
+      "description": "Review Gradle build config and set parameters to remain compliant with SDK level 34.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Validate Proguard requirements",
+      "description": "Optimize release rules and configuration configurations if necessary.",
+      "files": ["app/proguard-rules.pro"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Local Gemini Bridge",
+      "description": "Compile resources, assemble APK files and execute test coverage routines under AGP 8.3.2.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
