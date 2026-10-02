@@ -1,0 +1,27 @@
+{
+  "backend": false,
+  "roles": {},
+  "collections": {},
+  "logic": {
+    "addition": {
+      "type": "calculation",
+      "inputs": ["operand1", "operand2"],
+      "formula": "operand1 + operand2"
+    },
+    "subtraction": {
+      "type": "calculation",
+      "inputs": ["operand1", "operand2"],
+      "formula": "operand1 - operand2"
+    },
+    "multiplication": {
+      "type": "calculation",
+      "inputs": ["operand1", "operand2"],
+      "formula": "operand1 * operand2"
+    },
+    "division": {
+      "type": "calculation",
+      "inputs": ["operand1", "operand2"],
+      "formula": "operand1 / operand2"
+    }
+  }
+}
