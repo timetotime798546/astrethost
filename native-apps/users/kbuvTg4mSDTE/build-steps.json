@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define resources and strings",
+      "description": "Configure strings.xml and static app parameters including descriptions for the accessibility service.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Accessibility Service configuration file",
+      "description": "Create accessibility_service_config.xml to target com.google.android.apps.bard and listen to window state changes.",
+      "files": ["app/src/main/res/xml/accessibility_service_config.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Robust Node Search in GeminiAutoSubmitService",
+      "description": "Enhance GeminiAutoSubmitService class to dynamically scan the entire active tree recursively for match conditions and click handling.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/GeminiAutoSubmitService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Retry and Delay handler in Accessibility Service",
+      "description": "Integrate a 400ms delay with thread protection to ensure Gemini is fully rendered and content is loaded.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/GeminiAutoSubmitService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Add UI bridge logs hook in MainActivity",
+      "description": "Expose safe static logging hooks so the background service can output detailed diagnostic reports into the UI scroll view.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Declare service in AndroidManifest",
+      "description": "Register the new Accessibility Service with BIND_ACCESSIBILITY_SERVICE permission in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Modify Main Layout XML",
+      "description": "Update activity_main.xml to include Accessibility Service state indicators and settings navigation button.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement CORS support on HTTP server",
+      "description": "Add Access-Control-Allow-Origin headers to response handling logic inside MyNanoHTTPD helper.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify compile specifications",
+      "description": "Review Gradle build config and set parameters to remain compliant with SDK level 34.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Local Gemini Bridge",
+      "description": "Compile resources, assemble APK files and execute test coverage routines under AGP 8.3.2.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
