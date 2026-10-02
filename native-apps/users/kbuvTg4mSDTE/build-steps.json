@@ -2,16 +2,69 @@
   "steps": [
     {
       "step": 1,
-      "title": "Verify metadata consistency",
-      "description": "Ensuring app-meta.json is correct and identical in both the root and assets directories.",
-      "files": [
-        "app-meta.json",
-        "app/src/main/assets/app-meta.json"
-      ],
+      "title": "Analyze layout XML file",
+      "description": "Inspect activity_main.xml layout for syntax and attributes compatibility errors.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 2,
+      "title": "Fix AAPT layout width error",
+      "description": "Correct 'match_match' layout width parameter to the standard 'match_parent' in activity_main.xml.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Align app metadata ID",
+      "description": "Synchronize app_id in both root and assets app-meta.json configurations.",
+      "files": ["app-meta.json", "app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Verify manifest configuration",
+      "description": "Check AndroidManifest.xml permissions for local network/internet socket tasks.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify build toolchain options",
+      "description": "Validate target SDK, compile SDK, and minimum SDK settings are in line with standards.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Validate Java implementation",
+      "description": "Check MainActivity.java for background thread socket lifecycle control.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Analyze network interfaces fetch",
+      "description": "Confirm robustness of network IP fetching logic across all available Wi-Fi / cellular interfaces.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Check UI binding integrity",
+      "description": "Ensure text views, control buttons, and log console references connect cleanly with views.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Review Proguard rules",
+      "description": "Verify proguard rules are ready and optimized.",
+      "files": ["app/proguard-rules.pro"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
       "title": "Building Local Gemini Bridge",
       "description": "Compiling resources and building the debug APK using standard Gradle toolchains.",
       "files": [],
