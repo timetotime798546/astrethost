@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6F8">
+
+    <!-- TOP HEADER -->
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#2C3E50"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/txt_header_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="BizFlow Pro"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:background="#E74C3C"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- LOADING SHIELD -->
+    <RelativeLayout
+        android:id="@+id/layout_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CCFFFFFF"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progress_bar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progress_bar"
+            android:layout_marginTop="10dp"
+            android:text="Communicating with servers..."
+            android:textColor="#2C3E50"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <!-- LOGIN SCREEN -->
+    <ScrollView
+        android:id="@+id/scroll_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_header"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enterprise Work Management"
+                android:textColor="#2C3E50"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign in or register your dynamic portal below"
+                android:textColor="#7F8C8D"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="30dp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EMAIL ADDRESS"
+                android:textColor="#34495E"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="textEmailAddress"
+                android:background="#FFFFFF"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PASSWORD"
+                android:textColor="#34495E"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="textPassword"
+                android:background="#FFFFFF"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="24dp"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@+id/btn_login_submit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="LOG IN"
+                android:background="#2980B9"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btn_register_submit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="CREATE BUSINESS ACCOUNT"
+                android:background="#27AE60"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- CORE SYSTEM WORKSPACE (Visible only when logged in) -->
+    <LinearLayout
+        android:id="@+id/layout_workspace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_header"
+        android:layout_above="@+id/layout_nav"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- TAB CONTENT CONTAINER -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- TAB 1: DASHBOARD -->
+            <ScrollView
+                android:id="@+id/view_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Operational Intelligence Overview"
+                        android:textColor="#2C3E50"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- STATS TILES -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_marginBottom="12dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#FFFFFF"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:layout_marginRight="6dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TOTAL REVENUE"
+                                android:textColor="#7F8C8D"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/stat_total_revenue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$0.00"
+                                android:textColor="#27AE60"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#FFFFFF"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:layout_marginLeft="6dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TOTAL PROFIT"
+                                android:textColor="#7F8C8D"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/stat_total_profit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$0.00"
+                                android:textColor="#2980B9"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_marginBottom="20dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#FFFFFF"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:layout_marginRight="6dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="CLIENT BASE"
+                                android:textColor="#7F8C8D"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/stat_clients_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#34495E"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#FFFFFF"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:layout_marginLeft="6dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="STOCK ALERTS"
+                                android:textColor="#7F8C8D"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/stat_low_stock"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0 items low"
+                                android:textColor="#D35400"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- QUICK FORMULAS INFO BOX (OFFLINE COMPUTATION DOCUMENTATION) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#EAEDED"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Offline Logic Engine Activated"
+                            android:textColor="#2C3E50"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="All invoicing formulas, profitability, margin metrics, and stock valuations are dynamically calculated offline in Java before cloud persistence logic triggers."
+                            android:textColor="#5D6D7E"
+                            android:textSize="11sp"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+
+                    <!-- SYNC STATUS INFO -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#D4EFDF"
+                        android:orientation="horizontal"
+                        android:padding="12dp"
+                        android:gravity="center_vertical">
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="#27AE60"
+                            android:layout_marginRight="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Database synchronized with cloud workspace."
+                            android:textColor="#196F3D"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- TAB 2: CLIENT MANAGEMENT -->
+            <LinearLayout
+                android:id="@+id/view_clients"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Client Directory Management"
+                    android:textColor="#2C3E50"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- ADD CLIENT INNER PANELS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginBottom="12dp">
+
+                    <EditText
+                        android:id="@+id/input_client_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:hint="Full Client Name"
+                        android:background="#F2F4F4"
+                        android:paddingLeft="10dp"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="6dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="6dp">
+
+                        <EditText
+                            android:id="@+id/input_client_phone"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:hint="Phone Number"
+                            android:background="#F2F4F4"
+                            android:paddingLeft="10dp"
+                            android:textSize="14sp"
+                            android:inputType="phone"
+                            android:layout_marginRight="4dp" />
+
+                        <EditText
+                            android:id="@+id/input_client_email"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:hint="Email Address"
+                            android:background="#F2F4F4"
+                            android:paddingLeft="10dp"
+                            android:textSize="14sp"
+                            android:inputType="textEmailAddress"
+                            android:layout_marginLeft="4dp" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/input_client_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:hint="Worksite Address"
+                        android:background="#F2F4F4"
+                        android:paddingLeft="10dp"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="10dp" />
+
+                    <Button
+                        android:id="@+id/btn_add_client"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:text="REGISTER NEW CLIENT"
+                        android:background="#2980B9"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Active Clients"
+                    android:textColor="#7F8C8D"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <ListView
+                    android:id="@+id/list_clients"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:divider="#E2E2E2"
+                    android:dividerHeight="1dp" />
+            </LinearLayout>
+
+            <!-- TAB 3: INVENTORY TRACKING -->
+            <LinearLayout
+                android:id="@+id/view_inventory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enterprise Stock &amp; Supply Ledger"
+                    android:textColor="#2C3E50"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- ADD STOCK INNER PANEL -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="6dp">
+
+                        <EditText
+                            android:id="@+id/input_item_name"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="2"
+                            android:hint="Item Name"
+                            android:background="#F2F4F4"
+                            android:paddingLeft="10dp"
+                            android:textSize="14sp"
+                            android:layout_marginRight="4dp" />
+
+                        <EditText
+                            android:id="@+id/input_item_sku"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:hint="SKU Code"
+                            android:background="#F2F4F4"
+                            android:paddingLeft="10dp"
+                            android:textSize="14sp"
+                            android:layout_marginLeft="4dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+
+                        <EditText
+                            android:id="@+id/input_item_qty"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:hint="Qty"
+                            android:background="#F2F4F4"
+                            android:paddingLeft="10dp"
+                            android:textSize="14sp"
+                            android:inputType="number"
+                            android:layout_marginRight="4dp" />
+
+                        <EditText
+                            android:id="@+id/input_item_cost"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:hint="Cost ($)"
+                            android:background="#F2F4F4"
+                            android:paddingLeft="10dp"
+                            android:textSize="14sp"
+                            android:inputType="numberDecimal"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp" />
+
+                        <EditText
+                            android:id="@+id/input_item_price"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:hint="Price ($)"
+                            android:background="#F2F4F4"
+                            android:paddingLeft="10dp"
+                            android:textSize="14sp"
+                            android:inputType="numberDecimal"
+                            android:layout_marginLeft="4dp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_add_item"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:text="REGISTER STOCK SKU"
+                        android:background="#27AE60"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stock Manifest (Alerts highlight low levels below 5)"
+                    android:textColor="#7F8C8D"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <ListView
+                    android:id="@+id/list_inventory"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:divider="#E2E2E2"
+                    android:dividerHeight="1dp" />
+            </LinearLayout>
+
+            <!-- TAB 4: CALCULATOR / INVOICING ENGINE -->
+            <LinearLayout
+                android:id="@+id/view_invoices"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estimator &amp; Invoice Builder"
+                    android:textColor="#2C3E50"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- FORM AND LIVE OFFLINE COMPUTATION WRAPPER -->
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#FFFFFF"
+                            android:orientation="vertical"
+                            android:padding="12dp"
+                            android:layout_marginBottom="12dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="CLIENT CONTRACT TARGET"
+                                android:textColor="#34495E"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="4dp" />
+
+                            <Spinner
+                                android:id="@+id/spin_invoice_client"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="#EAEDED"
+                                android:layout_marginBottom="12dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="STOCK ITEM TARGET"
+                                android:textColor="#34495E"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="4dp" />
+
+                            <Spinner
+                                android:id="@+id/spin_invoice_item"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="#EAEDED"
+                                android:layout_marginBottom="12dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginBottom="12dp">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:layout_marginRight="4dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="QUANTITY"
+                                        android:textColor="#34495E"
+                                        android:textSize="10sp"
+                                        android:textStyle="bold" />
+
+                                    <EditText
+                                        android:id="@+id/invoice_input_qty"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:background="#F2F4F4"
+                                        android:paddingLeft="10dp"
+                                        android:textSize="14sp"
+                                        android:inputType="number"
+                                        android:text="1" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.2"
+                                    android:orientation="vertical"
+                                    android:layout_marginLeft="4dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="ADJUSTED UNIT PRICE ($)"
+                                        android:textColor="#34495E"
+                                        android:textSize="10sp"
+                                        android:textStyle="bold" />
+
+                                    <EditText
+                                        android:id="@+id/invoice_input_price"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:background="#F2F4F4"
+                                        android:paddingLeft="10dp"
+                                        android:textSize="14sp"
+                                        android:inputType="numberDecimal"
+                                        android:text="0.00" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginBottom="12dp">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:layout_marginRight="4dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="DISCOUNT (%)"
+                                        android:textColor="#34495E"
+                                        android:textSize="10sp"
+                                        android:textStyle="bold" />
+
+                                    <EditText
+                                        android:id="@+id/invoice_input_discount"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:background="#F2F4F4"
+                                        android:paddingLeft="10dp"
+                                        android:textSize="14sp"
+                                        android:inputType="numberDecimal"
+                                        android:text="0.0" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:layout_marginLeft="4dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="TAX (%)"
+                                        android:textColor="#34495E"
+                                        android:textSize="10sp"
+                                        android:textStyle="bold" />
+
+                                    <EditText
+                                        android:id="@+id/invoice_input_tax"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:background="#F2F4F4"
+                                        android:paddingLeft="10dp"
+                                        android:textSize="14sp"
+                                        android:inputType="numberDecimal"
+                                        android:text="10.0" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <!-- LIVE OFFLINE CALCULATION REPORT -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#EBF5FB"
+                                android:orientation="vertical"
+                                android:padding="12dp"
+                                android:layout_marginBottom="12dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="LIVE TRANSACTION CALCULATION"
+                                    android:textColor="#2980B9"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="8dp">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Subtotal Raw:"
+                                        android:textColor="#566573"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/calc_raw_subtotal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="$0.00"
+                                        android:textColor="#2C3E50"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="4dp">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Discount Extracted:"
+                                        android:textColor="#566573"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/calc_discount_deduction"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="-$0.00"
+                                        android:textColor="#C0392B"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="4dp">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Tax Surcharge:"
+                                        android:textColor="#566573"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/calc_tax_addition"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="+$0.00"
+                                        android:textColor="#D35400"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#D4E6F1"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="8dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="NET REVENUE TOTAL:"
+                                        android:textColor="#1B4F72"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/calc_net_total"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="$0.00"
+                                        android:textColor="#27AE60"
+                                        android:textSize="14sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="4dp">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="ESTIMATED MARGIN PROFIT:"
+                                        android:textColor="#1B4F72"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/calc_margin_profit"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="$0.00"
+                                        android:textColor="#2980B9"
+                                        android:textSize="14sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/btn_publish_invoice"
+                                android:layout_width="match_parent"
+                                android:layout_height="44dp"
+                                android:text="POST COMPLETED TRANSACTION"
+                                android:background="#2980B9"
+                                android:textColor="#FFFFFF"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Historical Generated Transactions"
+                            android:textColor="#7F8C8D"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="4dp" />
+
+                        <!-- List height hardcapped internally to scroll within dynamic scroll wrapper smoothly -->
+                        <ListView
+                            android:id="@+id/list_invoices"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            android:divider="#E2E2E2"
+                            android:dividerHeight="1dp" />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- SYSTEM NAVIGATION TABS (Only visible when logged in) -->
+        <LinearLayout
+            android:id="@+id/layout_nav"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#2C3E50"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <Button
+                android:id="@+id/nav_dashboard"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="DASHBOARD"
+                android:background="#34495E"
+                android:textColor="#FFFFFF"
+                android:textSize="9sp" />
+
+            <Button
+                android:id="@+id/nav_clients"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="CLIENTS"
+                android:background="#2C3E50"
+                android:textColor="#CCCCCC"
+                android:textSize="9sp" />
+
+            <Button
+                android:id="@+id/nav_inventory"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="INVENTORY"
+                android:background="#2C3E50"
+                android:textColor="#CCCCCC"
+                android:textSize="9sp" />
+
+            <Button
+                android:id="@+id/nav_invoices"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="INVOICES"
+                android:background="#2C3E50"
+                android:textColor="#CCCCCC"
+                android:textSize="9sp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
