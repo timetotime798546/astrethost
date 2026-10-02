@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_form_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student Record"
+            android:textColor="#1565C0"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Name"
+            android:textSize="12sp"
+            android:textColor="#666666" />
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Enter Student Name"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Roll Number"
+            android:textSize="12sp"
+            android:textColor="#666666" />
+        <EditText
+            android:id="@+id/et_roll_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="e.g. 102A"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grade/Class"
+            android:textSize="12sp"
+            android:textColor="#666666" />
+        <EditText
+            android:id="@+id/et_grade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="e.g. Grade 10"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attendance Records"
+            android:textStyle="bold"
+            android:textColor="#1565C0"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Present Days"
+                    android:textSize="12sp"
+                    android:textColor="#666666" />
+                <EditText
+                    android:id="@+id/et_attendance_present"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="0" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Days"
+                    android:textSize="12sp"
+                    android:textColor="#666666" />
+                <EditText
+                    android:id="@+id/et_attendance_total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="0" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Academic Marks"
+            android:textStyle="bold"
+            android:textColor="#1565C0"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Obtained Marks"
+                    android:textSize="12sp"
+                    android:textColor="#666666" />
+                <EditText
+                    android:id="@+id/et_marks_obtained"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="0" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Marks"
+                    android:textSize="12sp"
+                    android:textColor="#666666" />
+                <EditText
+                    android:id="@+id/et_marks_total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="0" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E8F5E9"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Live Local Calculations"
+                android:textStyle="bold"
+                android:textColor="#2E7D32"
+                android:textSize="14sp"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_live_attendance_pct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attendance: 0.0%"
+                android:textColor="#333333"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_live_marks_pct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Academic Score: 0.0%"
+                android:textColor="#333333"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/tv_live_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Projected Grade: N/A"
+                android:textColor="#333333"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Record"
+            android:textColor="#FFFFFF"
+            android:background="#1565C0"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textColor="#333333"
+            android:background="#E0E0E0" />
+
+    </LinearLayout>
+</ScrollView>

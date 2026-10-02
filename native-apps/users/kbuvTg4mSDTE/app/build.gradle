@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.bizflowpro.app"
+    namespace "com.studentmanager.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.bizflowpro.app"
+        applicationId "com.studentmanager.app"
 
         minSdkVersion 21
 

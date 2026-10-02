@@ -2,99 +2,99 @@
   "steps": [
     {
       "step": 1,
-      "title": "Setup Directory Structure",
-      "description": "Initialize the directories for package files, assets, resources, and gradle build wrappers.",
-      "files": [
-        "app/src/main/AndroidManifest.xml",
-        "app/build.gradle"
-      ],
+      "title": "Generate metadata assets",
+      "description": "Create app-meta json files for build system matching package rules",
+      "files": ["app-meta.json", "app/src/main/assets/app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Settings",
-      "description": "Define compiler, targetSDK, minSDK, build tools configurations, and clean dependencies in build.gradle.",
-      "files": [
-        "app/build.gradle"
-      ],
+      "title": "Configure api_schema rules",
+      "description": "Define student collections and dynamic calculation logic rules inside schema",
+      "files": ["api_schema.json"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Define Application Metadata",
-      "description": "Create global app metadata file assets to deliver static configurations to backend integrations at runtime.",
-      "files": [
-        "app/src/main/assets/app-meta.json"
-      ],
+      "title": "Configure build.gradle environment",
+      "description": "Set up Gradle script config including compileSdk, targetSdk and packaging rules",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Declare Permissions and Entry Points",
-      "description": "Configure the AndroidManifest.xml with Internet permissions, launch activity targets, and framework application theme.",
-      "files": [
-        "app/src/main/AndroidManifest.xml"
-      ],
+      "title": "Configure AndroidManifest with permissions",
+      "description": "Register Internet permissions, Login, Dashboard and Form actions",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Draft Backend API Client",
-      "description": "Create the unified high-performance BackendApi engine using native Java HttpURLConnection for register, login, and robust dynamic CRUD payloads.",
-      "files": [
-        "app/src/main/java/com/bizflowpro/app/BackendApi.java"
-      ],
+      "title": "Create native Student data model with helper calculations",
+      "description": "Create offline model object containing local algorithms for attendance percentages and grade calculations",
+      "files": ["app/src/main/java/com/studentmanager/app/Student.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Design Enterprise Visual Interfaces",
-      "description": "Implement activity_main.xml visual presentation layer, structuring dashboards, dynamic listings, and advanced calculation controls.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
+      "title": "Create HTTP Backend API controller using native java threads",
+      "description": "Build asynchronous HTTP engine handling dynamic backend tokens, payloads and CRUD parsing without external libraries",
+      "files": ["app/src/main/java/com/studentmanager/app/ApiCallback.java", "app/src/main/java/com/studentmanager/app/BackendApi.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Develop Interactive Switch Controllers",
-      "description": "Implement standard interface components, input filters, and validation methods inside MainActivity.",
-      "files": [
-        "app/src/main/java/com/bizflowpro/app/MainActivity.java"
-      ],
+      "title": "Create dynamic Login activity layout",
+      "description": "Write login layout featuring dual state inputs for fast credentials sign in and registration",
+      "files": ["app/src/main/res/layout/activity_login.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Program Dynamic Calculations Module",
-      "description": "Develop and hook offline computation events to dynamically process live price calculations, totals, subtotals, margins, and cost models.",
-      "files": [
-        "app/src/main/java/com/bizflowpro/app/MainActivity.java"
-      ],
+      "title": "Implement Login and Registration logic with token handling",
+      "description": "Write authentication activity executing register and automatic fallback logins securely",
+      "files": ["app/src/main/java/com/studentmanager/app/LoginActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Integrate Dynamic List Adapters",
-      "description": "Program custom ListAdapters locally inside MainActivity to render synced Client profiles, Inventory statuses, and calculated invoice logs.",
-      "files": [
-        "app/src/main/java/com/bizflowpro/app/MainActivity.java"
-      ],
+      "title": "Create Main Dashboard layout with offline overview calculations UI",
+      "description": "Write dashboard screen comprising layout widgets displaying real-time class metrics calculations",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Verify Registration & Token Flow",
-      "description": "Test programmatic registration sequence with immediate secondary login trigger, handling dynamic bearer token extraction.",
-      "files": [
-        "app/src/main/java/com/bizflowpro/app/MainActivity.java"
-      ],
+      "title": "Implement Main Dashboard listing and class statistics logic",
+      "description": "Create main control routine computing combined list scores on physical records received from online CRUD API",
+      "files": ["app/src/main/java/com/studentmanager/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Building BizFlow Pro",
-      "description": "Verify code constraints, finalize dependency structures, construct, compile and assemble the final enterprise-ready software binaries.",
+      "title": "Create row layout template for student list item display",
+      "description": "Build layout template for list entries demonstrating complete details and metrics",
+      "files": ["app/src/main/res/layout/row_student.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Create Add/Edit Student record layout with live-preview calculations",
+      "description": "Form layout with specialized real-time input monitoring indicators updating locally",
+      "files": ["app/src/main/res/layout/activity_add_edit.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Add/Edit Student record activity",
+      "description": "Produce view action tracking student form submissions, validating limits, and sending HTTP operations",
+      "files": ["app/src/main/java/com/studentmanager/app/AddEditStudentActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Student Manager",
+      "description": "Compiles the native Android project via gradle to build the student manager application package",
       "files": [],
       "status": "pending"
     }

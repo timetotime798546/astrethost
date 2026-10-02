@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bizflowpro.app">
+    package="com.studentmanager.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -8,16 +8,26 @@
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:roundIcon="@drawable/icon"
-        android:label="BizFlow Pro"
+        android:label="Student Manager"
         android:theme="@android:style/Theme.Material.Light">
+
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustPan">
+            android:name="com.studentmanager.app.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.studentmanager.app.MainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.studentmanager.app.AddEditStudentActivity"
+            android:exported="false" />
+
     </application>
+
 </manifest>

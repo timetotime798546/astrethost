@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_vertical"
+    android:background="#FAFAFA">
+
+    <TextView
+        android:id="@+id/tv_app_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🎓 Student System"
+        android:textColor="#1565C0"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manage student profiles, performance metrics, and attendance records live."
+        android:textColor="#666666"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="32dp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:textColor="#333333"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="12dp"
+        android:padding="12dp"
+        android:background="#FFFFFF"
+        android:elevation="1dp" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:background="#FFFFFF"
+        android:elevation="1dp" />
+
+    <Button
+        android:id="@+id/btn_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        android:background="#1565C0"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tv_switch_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account? Register"
+        android:textColor="#1565C0"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:padding="8dp" />
+
+</LinearLayout>
