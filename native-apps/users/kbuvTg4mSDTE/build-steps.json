@@ -28,7 +28,7 @@
     {
       "step": 4,
       "title": "Configure app-level Gradle build file",
-      "description": "Define application-specific build settings such as namespace, SDK versions, and remove disallowed external dependencies.",
+      "description": "Define application-specific build settings such as namespace, SDK versions, and remove disallowed external dependencies. Removed 'org.nanohttpd:nanohttpd' dependency.",
       "files": [
         "app/build.gradle"
       ],
@@ -37,11 +37,11 @@
     {
       "step": 5,
       "title": "Set up Android Manifest",
-      "description": "Declare app components, permissions, and fundamental app characteristics in AndroidManifest.xml. Removed deprecated 'package' attribute, added 'android:exported=\"true\"', and explicitly set 'android:icon' and 'android:roundIcon'.",
+      "description": "Declare app components, permissions, and fundamental app characteristics in AndroidManifest.xml.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
-      "status": "completed"
+      "status": "pending"
     },
     {
       "step": 6,
