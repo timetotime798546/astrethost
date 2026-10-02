@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Directory Structure",
+      "description": "Setting up the standard Android Native app tree structure and asset directories.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Settings",
+      "description": "Setting up build.gradle with correct compile/target SDK versions (34) and Java 8 settings.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Android Manifest",
+      "description": "Declaring network permissions (INTERNET) and launch activities with clean configurations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Generate Meta Files",
+      "description": "Creating metadata specifications for the build process.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Application Layout",
+      "description": "Building a custom dashboard using native XML controls, styling widgets to display server status, port, IP, and scrollable request logs.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Server Thread Skeleton",
+      "description": "Defining the background Thread structures to run ServerSocket tasks off the UI thread.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Local IP Utility",
+      "description": "Writing logic to query active network interfaces and extract ipv4 addresses.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement HTTP Request Parser",
+      "description": "Creating an inline header and POST payload parser for incoming client requests targeting /send-prompt.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Intent Dispatcher",
+      "description": "Integrating Android Intent dispatching targeting com.google.android.apps.bard using ACTION_SEND.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Develop Interactive UI Hooks",
+      "description": "Binding UI buttons to manually start/stop the server and test local prompt routing directly inside the app.",
+      "files": ["app/src/main/java/com/localgeminibridge/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Local Gemini Bridge",
+      "description": "Compiling resources and building the debug APK using standard Gradle toolchains.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
