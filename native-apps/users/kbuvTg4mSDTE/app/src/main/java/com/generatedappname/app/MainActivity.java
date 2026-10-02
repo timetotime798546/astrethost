@@ -9,192 +9,158 @@ import android.widget.TextView;
 public class MainActivity extends Activity implements View.OnClickListener {
 
     private TextView display;
-    private StringBuilder currentInput = new StringBuilder();
-    private double operand1 = Double.NaN;
-    private double operand2;
-    private char pendingOperator;
-    private boolean resetInput = false;
+    private StringBuilder input = new StringBuilder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        display = findViewById(R.id.display);
-
+        display = (TextView) findViewById(R.id.display);
         int[] buttonIds = {
-                R.id.btn_0, R.id.btn_1, R.id.btn_2, R.id.btn_3,
-                R.id.btn_4, R.id.btn_5, R.id.btn_6, R.id.btn_7,
-                R.id.btn_8, R.id.btn_9, R.id.btn_dot,
-                R.id.btn_add, R.id.btn_sub, R.id.btn_mul, R.id.btn_div,
-                R.id.btn_eq, R.id.btn_clear, R.id.btn_plus_minus, R.id.btn_percent
+                R.id.button0, R.id.button1, R.id.button2, R.id.button3,
+                R.id.button4, R.id.button5, R.id.button6, R.id.button7,
+                R.id.button8, R.id.button9, R.id.buttonAdd, R.id.buttonSubtract,
+                R.id.buttonMultiply, R.id.buttonDivide, R.id.buttonDecimal,
+                R.id.buttonClear, R.id.buttonEquals
         };
-
         for (int id : buttonIds) {
-            View v = findViewById(id);
-            if (v != null) {
-                v.setOnClickListener(this);
-            }
+            Button b = (Button) findViewById(id);
+            b.setOnClickListener(this);
         }
-
-        updateDisplay("0");
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.btn_0: case R.id.btn_1: case R.id.btn_2: case R.id.btn_3:
-            case R.id.btn_4: case R.id.btn_5: case R.id.btn_6: case R.id.btn_7:
-            case R.id.btn_8: case R.id.btn_9:
-                numberPressed(((Button) v).getText().toString());
+            case R.id.button0:
+                appendInput("0");
                 break;
-            case R.id.btn_dot:
-                decimalPressed();
+            case R.id.button1:
+                appendInput("1");
                 break;
-            case R.id.btn_add:
-                operatorPressed('+');
+            case R.id.button2:
+                appendInput("2");
                 break;
-            case R.id.btn_sub:
-                operatorPressed('-');
+            case R.id.button3:
+                appendInput("3");
                 break;
-            case R.id.btn_mul:
-                operatorPressed('*');
+            case R.id.button4:
+                appendInput("4");
                 break;
-            case R.id.btn_div:
-                operatorPressed('/');
+            case R.id.button5:
+                appendInput("5");
                 break;
-            case R.id.btn_eq:
-                equalsPressed();
+            case R.id.button6:
+                appendInput("6");
                 break;
-            case R.id.btn_clear:
-                clearAll();
+            case R.id.button7:
+                appendInput("7");
                 break;
-            case R.id.btn_plus_minus:
-                plusMinusPressed();
+            case R.id.button8:
+                appendInput("8");
                 break;
-            case R.id.btn_percent:
-                percentPressed();
+            case R.id.button9:
+                appendInput("9");
+                break;
+            case R.id.buttonDecimal:
+                appendInput(".");
+                break;
+            case R.id.buttonAdd:
+                appendInput("+");
+                break;
+            case R.id.buttonSubtract:
+                appendInput("-");
+                break;
+            case R.id.buttonMultiply:
+                appendInput("*");
+                break;
+            case R.id.buttonDivide:
+                appendInput("/");
+                break;
+            case R.id.buttonClear:
+                clearInput();
+                break;
+            case R.id.buttonEquals:
+                evaluateExpression();
                 break;
         }
     }
 
-    private void numberPressed(String digit) {
-        if (resetInput) {
-            currentInput.setLength(0);
-            resetInput = false;
-        }
-        if (currentInput.length() == 1 && currentInput.charAt(0) == '0' && !digit.equals(".")) {
-            currentInput.setLength(0);
-        }
-        currentInput.append(digit);
-        updateDisplay(currentInput.toString());
+    private void appendInput(String str) {
+        input.append(str);
+        display.setText(input.toString());
     }
 
-    private void decimalPressed() {
-        if (resetInput) {
-            currentInput.setLength(0);
-            currentInput.append("0");
-            resetInput = false;
-        }
-        if (currentInput.indexOf(".") == -1) {
-            if (currentInput.length() == 0) {
-                currentInput.append("0");
-            }
-            currentInput.append(".");
-            updateDisplay(currentInput.toString());
-        }
+    private void clearInput() {
+        input.setLength(0);
+        display.setText("");
     }
 
-    private void operatorPressed(char op) {
-        if (!Double.isNaN(operand1)) {
-            compute();
-        } else {
-            operand1 = parseInput();
-        }
-        pendingOperator = op;
-        resetInput = true;
-    }
-
-    private void equalsPressed() {
-        if (!Double.isNaN(operand1) && !resetInput) {
-            compute();
-            pendingOperator = '\0';
-            operand1 = Double.NaN;
-        }
-    }
-
-    private void compute() {
-        operand2 = parseInput();
-        double result = 0.0;
-        switch (pendingOperator) {
-            case '+':
-                result = operand1 + operand2;
-                break;
-            case '-':
-                result = operand1 - operand2;
-                break;
-            case '*':
-                result = operand1 * operand2;
-                break;
-            case '/':
-                if (operand2 != 0) {
-                    result = operand1 / operand2;
-                } else {
-                    updateDisplay("Error");
-                    clearAll();
-                    return;
-                }
-                break;
-        }
-        updateDisplay(trimResult(result));
-        operand1 = result;
-        resetInput = true;
-    }
-
-    private double parseInput() {
+    private void evaluateExpression() {
+        String expr = input.toString();
         try {
-            return Double.parseDouble(currentInput.toString());
-        } catch (NumberFormatException e) {
+            double result = evaluate(expr);
+            display.setText(String.valueOf(result));
+            input.setLength(0);
+            input.append(result);
+        } catch (Exception e) {
+            display.setText("Error");
+            input.setLength(0);
+        }
+    }
+
+    // Simple left-to-right evaluation without operator precedence
+    private double evaluate(String expr) throws Exception {
+        if (expr.isEmpty()) {
             return 0;
         }
-    }
-
-    private void clearAll() {
-        currentInput.setLength(0);
-        operand1 = Double.NaN;
-        pendingOperator = '\0';
-        resetInput = false;
-        updateDisplay("0");
-    }
-
-    private void plusMinusPressed() {
-        if (currentInput.length() == 0) {
-            return;
+        java.util.ArrayList<Double> numbers = new java.util.ArrayList<Double>();
+        java.util.ArrayList<Character> ops = new java.util.ArrayList<Character>();
+        StringBuilder num = new StringBuilder();
+        for (int i = 0; i < expr.length(); i++) {
+            char c = expr.charAt(i);
+            if ((c >= '0' && c <= '9') || c == '.') {
+                num.append(c);
+            } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+                if (num.length() == 0) {
+                    // handle unary minus
+                    if (c == '-' && (i == 0 || expr.charAt(i - 1) == '(')) {
+                        num.append(c);
+                        continue;
+                    } else {
+                        throw new Exception("Invalid expression");
+                    }
+                }
+                numbers.add(Double.parseDouble(num.toString()));
+                num.setLength(0);
+                ops.add(c);
+            } else {
+                throw new Exception("Invalid character");
+            }
         }
-        if (currentInput.charAt(0) == '-') {
-            currentInput.deleteCharAt(0);
-        } else {
-            currentInput.insert(0, '-');
+        if (num.length() > 0) {
+            numbers.add(Double.parseDouble(num.toString()));
         }
-        updateDisplay(currentInput.toString());
-    }
-
-    private void percentPressed() {
-        double value = parseInput() / 100.0;
-        currentInput.setLength(0);
-        currentInput.append(trimResult(value));
-        updateDisplay(currentInput.toString());
-    }
-
-    private void updateDisplay(String text) {
-        display.setText(text);
-    }
-
-    private String trimResult(double value) {
-        if (value == (long) value) {
-            return String.format("%d", (long) value);
-        } else {
-            return String.format("%s", value);
+        double result = numbers.get(0);
+        for (int i = 0; i < ops.size(); i++) {
+            char op = ops.get(i);
+            double next = numbers.get(i + 1);
+            switch (op) {
+                case '+':
+                    result += next;
+                    break;
+                case '-':
+                    result -= next;
+                    break;
+                case '*':
+                    result *= next;
+                    break;
+                case '/':
+                    result /= next;
+                    break;
+            }
         }
+        return result;
     }
 }
