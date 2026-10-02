@@ -1,0 +1,123 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Setup",
+      "description": "Initialize a new Android project with the specified Java and Gradle environment.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Generate app-meta.json",
+      "description": "Create the app-meta.json file at the project root to define the application's name and package.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Generate build-steps.json",
+      "description": "Create the build-steps.json file to outline the development process.",
+      "files": ["build-steps.json"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure AndroidManifest.xml",
+      "description": "Set up the application manifest, defining the main activity, theme, and necessary configurations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Configure build.gradle",
+      "description": "Adjust the project's build.gradle file to include the correct SDK versions and dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Layout (Display)",
+      "description": "Create the user interface layout for the calculator, starting with the display area to show numbers and results.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Layout (Number Buttons)",
+      "description": "Add buttons for digits (0-9) to the calculator's layout.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Layout (Operator Buttons)",
+      "description": "Add buttons for mathematical operations (+, -, *, /, =), and a clear button (C) to the layout.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement MainActivity.java (Class Structure)",
+      "description": "Set up the basic structure of MainActivity.java, including member variables for UI elements and calculator state.",
+      "files": ["app/src/main/java/com/calculatorapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement MainActivity.java (UI Binding)",
+      "description": "Bind the UI components defined in activity_main.xml to their corresponding Java objects in MainActivity.java.",
+      "files": ["app/src/main/java/com/calculatorapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement MainActivity.java (Number Input Handling)",
+      "description": "Add logic to handle number button clicks, appending digits to the display and building the current number.",
+      "files": ["app/src/main/java/com/calculatorapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement MainActivity.java (Operator Handling)",
+      "description": "Add logic for operator button clicks to store the first operand and the selected operation.",
+      "files": ["app/src/main/java/com/calculatorapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement MainActivity.java (Equals Button Logic)",
+      "description": "Develop the logic for the equals button to perform the pending calculation and display the result.",
+      "files": ["app/src/main/java/com/calculatorapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement MainActivity.java (Clear Button Logic)",
+      "description": "Implement the clear button functionality to reset the calculator's state and clear the display.",
+      "files": ["app/src/main/java/com/calculatorapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Implement MainActivity.java (Core Calculation Logic)",
+      "description": "Create a helper method to perform the actual mathematical operations based on the stored operator.",
+      "files": ["app/src/main/java/com/calculatorapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Generate api_schema.json",
+      "description": "Define the api_schema.json to document the local calculation logic used by the app.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Building Calculator App",
+      "description": "Compile and assemble the Android application.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
