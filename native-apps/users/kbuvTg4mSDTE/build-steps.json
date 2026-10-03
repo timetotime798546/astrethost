@@ -2,83 +2,15 @@
   "steps": [
     {
       "step": 1,
-      "title": "Setup Project Structure",
-      "description": "Initialize the Android project directory structure and configuration files.",
-      "files": ["app-meta.json"],
+      "title": "Fix Keystore Path",
+      "description": "Copy the auto-generated release keystore from the app directory to the root directory during the Gradle configuration phase to satisfy signing config validations.",
+      "files": ["build.gradle"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Gradle Build Scripts",
-      "description": "Define compilation target SDK, JVM version, and remove external dependencies to stick to the pure Android SDK.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Configure Android Manifest",
-      "description": "Register MainActivity and declare the application theme and system permissions.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Define Color Resources",
-      "description": "Create modern, premium, high-contrast dark palette colors for the calculator buttons and background.",
-      "files": ["app/src/main/res/values/colors.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Define String Resources",
-      "description": "Add user interface strings and button text values to ensure localizable resources.",
-      "files": ["app/src/main/res/values/strings.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Create Modern Button Backgrounds",
-      "description": "Generate rounded-corner custom drawable selectors for basic, operator, and action buttons.",
-      "files": [
-        "app/src/main/res/drawable/btn_bg_numeric.xml",
-        "app/src/main/res/drawable/btn_bg_operator.xml",
-        "app/src/main/res/drawable/btn_bg_action.xml",
-        "app/src/main/res/drawable/btn_bg_equals.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Create User Interface Layout",
-      "description": "Develop a sleek, modern, grid-based calculator interface with nested LinearLayouts, displaying formula, result, and history log.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Implement Calculator Logic Model",
-      "description": "Create a native Java-based expression parser to calculate arithmetic operations with precision and error safety.",
-      "files": ["app/src/main/java/com/moderncalculator/app/CalculatorEngine.java"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Develop MainActivity Controller",
-      "description": "Wire up UI buttons to the input buffer, link back-end calculations, and handle orientation, state, and click interactions.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Define API Schema configuration",
-      "description": "Create the required api_schema.json configuration for local processing.",
-      "files": ["api_schema.json"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
       "title": "Building Modern Calculator",
-      "description": "Compile the application with Gradle debug assembler to generate the executable APK.",
+      "description": "Rebuild the project using the local keystore to successfully package and sign the production APK.",
       "files": [],
       "status": "pending"
     }
