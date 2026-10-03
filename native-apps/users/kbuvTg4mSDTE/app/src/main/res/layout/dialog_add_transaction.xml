@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="290dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/glass_card"
+    android:padding="20dp"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/dialog_trans_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Transaction"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/dialog_et_amount"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/glass_input"
+        android:hint="Amount (\u20B9)"
+        android:textColorHint="#60ffffff"
+        android:textColor="#FFFFFF"
+        android:paddingHorizontal="12dp"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/dialog_et_notes"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/glass_input"
+        android:hint="Add notes (e.g., Rice, Milk, etc.)"
+        android:textColorHint="#60ffffff"
+        android:textColor="#FFFFFF"
+        android:paddingHorizontal="12dp"
+        android:inputType="text"
+        android:layout_marginBottom="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/dialog_trans_btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Cancel"
+            android:textColor="#FFFFFF"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="8dp" />
+
+        <Button
+            android:id="@+id/dialog_trans_btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Add"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/glass_button" />
+    </LinearLayout>
+
+</LinearLayout>
