@@ -232,6 +232,21 @@ jobs:
 
 
       # ==========================================
+      # DECODE RELEASE KEYSTORE
+      # ==========================================
+
+      - name: Decode Release Keystore
+        shell: bash
+        run: |
+          echo "=========================================="
+          echo "DECODING RELEASE KEYSTORE"
+          echo "=========================================="
+          mkdir -p native-apps/users/${{ inputs.user_id }}/app
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > native-apps/users/${{ inputs.user_id }}/app/release.keystore
+          echo "Keystore decoded successfully."
+
+
+      # ==========================================
       # VERIFY BUILD ENVIRONMENT
       # ==========================================
 
@@ -292,17 +307,25 @@ jobs:
       - name: Build User APK
         working-directory: native-apps/users/${{ inputs.user_id }}
         shell: bash
+        env:
+          RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
         run: |
           set -e
 
           echo "=========================================="
-          echo "BUILDING APK"
+          echo "BUILDING RELEASE APK"
           echo "=========================================="
 
           echo ""
           echo "Starting Gradle build..."
 
-          gradle assembleDebug \
+          gradle assembleRelease \
+            -Pandroid.injected.signing.store.file=release.keystore \
+            -Pandroid.injected.signing.store.password="$RELEASE_KEYSTORE_PASSWORD" \
+            -Pandroid.injected.signing.key.alias="$RELEASE_KEY_ALIAS" \
+            -Pandroid.injected.signing.key.password="$RELEASE_KEY_PASSWORD" \
             --no-daemon \
             --stacktrace
 
@@ -320,7 +343,7 @@ jobs:
         run: |
           set -e
 
-          APK_SOURCE="app/build/outputs/apk/debug/app-debug.apk"
+          APK_SOURCE="app/build/outputs/apk/release/app-release.apk"
 
           echo "=========================================="
           echo "VERIFYING APK"
@@ -360,9 +383,9 @@ jobs:
             SAFE_NAME="app"
           fi
 
-          TARGET_DIR="native-apps/users/${{ inputs.user_id }}/app/build/outputs/apk/debug"
+          TARGET_DIR="native-apps/users/${{ inputs.user_id }}/app/build/outputs/apk/release"
 
-          APK_SOURCE="$TARGET_DIR/app-debug.apk"
+          APK_SOURCE="$TARGET_DIR/app-release.apk"
 
           if [ ! -f "$APK_SOURCE" ]; then
             echo "::error::APK not found at expected path: $APK_SOURCE"
