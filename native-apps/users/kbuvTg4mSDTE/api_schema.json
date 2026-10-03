@@ -1,0 +1,23 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "tasks": {
+      "fields": {
+        "title": "string",
+        "status": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "completion_percentage": {
+      "type": "calculation",
+      "inputs": ["completed_tasks", "total_tasks"],
+      "formula": "(completed_tasks / total_tasks) * 100"
+    }
+  }
+}
