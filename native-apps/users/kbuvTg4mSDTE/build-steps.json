@@ -2,92 +2,82 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define App Metadata",
-      "description": "Establish the application name and native package namespace for compilation.",
-      "files": ["app-meta.json"],
+      "title": "Create configuration files",
+      "description": "Generate application metadata configuration and empty backend schemas.",
+      "files": ["app-meta.json", "api_schema.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Environment",
-      "description": "Set up Gradle build configurations including compilation SDK version 34 and tool chain versions.",
+      "title": "Create build configuration",
+      "description": "Configure the Gradle build script with compile/target SDK versions, application ID, and dependencies.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Declare Manifest Information",
-      "description": "Register application nodes, screen configurations, and launcher attributes in AndroidManifest.xml.",
+      "title": "Define Android Manifest",
+      "description": "Establish application settings, standard application themes, launcher actions, and screen orientation rules.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create Modern Theme Color Definitions",
-      "description": "Establish hex color mappings for a premium dark styling of display monitors and active text states.",
-      "files": ["app/src/main/res/values/colors.xml"],
+      "title": "Establish style definitions",
+      "description": "Configure light and dark color palettes, text sizes, and global button styles.",
+      "files": ["app/src/main/res/values/strings.xml", "app/src/main/res/values/colors.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Configure Display Border Shape",
-      "description": "Establish a rounded-corner shape for the digital display output screen.",
-      "files": ["app/src/main/res/drawable/display_border.xml"],
+      "title": "Create modern button drawables",
+      "description": "Create custom rounded-corners background states for numbers, operators, and functional calculator keys.",
+      "files": [
+        "app/src/main/res/drawable/bg_button_number.xml",
+        "app/src/main/res/drawable/bg_button_operator.xml",
+        "app/src/main/res/drawable/bg_button_functional.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Number Button Selector States",
-      "description": "Create rounded-corner shapes with active highlight states for keying in numeric values.",
-      "files": ["app/src/main/res/drawable/btn_number.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Implement Operator Button Selector States",
-      "description": "Create vivid accent color selectors for essential mathematical operators like add, subtract, multiply, and divide.",
-      "files": ["app/src/main/res/drawable/btn_operator.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Implement Action Button Selector States",
-      "description": "Style secondary action keys (Clear, Backspace, Percent) with balanced gray selectors.",
-      "files": ["app/src/main/res/drawable/btn_action.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Implement Equals Button Selector States",
-      "description": "Design a glowing blue accent key selector for triggers evaluating equations.",
-      "files": ["app/src/main/res/drawable/btn_equals.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Design Beautiful Calculator Layout UI",
-      "description": "Construct the session history monitor, current expression scrollbars, and key grid structure inside activity_main.xml.",
+      "title": "Design user interface",
+      "description": "Implement a responsive nested linear layout grid that maximizes screen real estate with elegant expression and result views.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 7,
+      "title": "Build expression parser engine",
+      "description": "Develop a state-of-the-art infix expression parser in Java featuring standard operator precedence, decimal tracking, and division-by-zero handling.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement button callbacks",
+      "description": "Bind layout buttons to Java listener actions to update the expression input dynamically.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Handle advanced calculator operations",
+      "description": "Incorporate functional math helpers for percent, absolute negate (+/-), clearing states, and backspaces.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Run formatting and safety validation",
+      "description": "Implement rigorous UI bounds validation, custom scale double formattings, and scientific notations when necessary.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
       "step": 11,
-      "title": "Implement Native Expression Parsing Engine",
-      "description": "Write a parsing algorithm with order-of-precedence calculation rules and support for percent and negative prefixes.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Map UI Keypad Bindings",
-      "description": "Connect key press listeners using classic anonymous listeners with robust live expression evaluation feedback.",
-      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
       "title": "Building Modern Calculator",
-      "description": "Final compile and verify build outputs to complete modern calculator app bundle.",
+      "description": "Compile the complete Android layout, styles, drawables, and recursive calculation logic using Gradle.",
       "files": [],
       "status": "pending"
     }
