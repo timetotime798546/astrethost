@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="14dp"
+    android:background="#FFFFFF">
+
+    <!-- Custom Status Indicator or Checkbox -->
+    <CheckBox
+        android:id="@+id/cbTaskStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/tvTaskTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Sample Task Name"
+        android:textColor="#111827"
+        android:textSize="16sp" />
+
+    <!-- Action Delete Button -->
+    <Button
+        android:id="@+id/btnDeleteTask"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:text="Delete"
+        android:textColor="#EF4444"
+        android:textSize="12sp"
+        android:background="?android:attr/selectableItemBackground" />
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Task Manager</string>
+    <string name="login_title">Welcome Back</string>
+    <string name="login_subtitle">Sign in to manage your daily tasks</string>
+    <string name="register_title">Create Account</string>
+    <string name="register_subtitle">Start tracking tasks today</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+    <string name="login_btn">Sign In</string>
+    <string name="register_btn">Sign Up</string>
+    <string name="go_to_register">Don\'t have an account? Sign Up</string>
+    <string name="go_to_login">Already have an account? Sign In</string>
+    <string name="task_hint">Enter daily task title...</string>
+    <string name="add_task_btn">Add Task</string>
+    <string name="logout">Logout</string>
+    <string name="stats_header">Stats Summary</string>
+    <string name="empty_tasks">No tasks added yet. Create some above!</string>
+    
+    <!-- Password Reset OTP Strings -->
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="forgot_password_title">Reset Password</string>
+    <string name="forgot_password_subtitle">Enter your email to receive a 6-digit verification code</string>
+    <string name="btn_send_otp">Send Verification Code</string>
+    <string name="otp_hint">6-Digit OTP Code</string>
+    <string name="new_password_hint">New Password</string>
+    <string name="btn_reset_password">Reset Password</string>
+    <string name="otp_sent_success">Verification code sent! Check your inbox.</string>
+    <string name="reset_success">Password reset successfully. Please login.</string>
+</resources>
