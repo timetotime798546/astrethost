@@ -241,8 +241,8 @@ jobs:
           echo "=========================================="
           echo "DECODING RELEASE KEYSTORE"
           echo "=========================================="
-          mkdir -p native-apps/users/${{ inputs.user_id }}/app
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > native-apps/users/${{ inputs.user_id }}/app/release.keystore
+          mkdir -p native-apps/users/${{ inputs.user_id }}
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > native-apps/users/${{ inputs.user_id }}/release.keystore
           echo "Keystore decoded successfully."
 
 
