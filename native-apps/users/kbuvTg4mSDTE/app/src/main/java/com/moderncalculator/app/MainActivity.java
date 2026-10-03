@@ -6,13 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.text.DecimalFormat;
-import java.util.Locale;
 
 public class MainActivity extends Activity {
 
-    private TextView tvExpression;
+    private TextView tvHistory;
+    private TextView tvFormula;
     private TextView tvResult;
-    private String currentExpression = "";
+
+    private String currentFormula = "";
     private boolean isResultDisplayed = false;
 
     @Override
@@ -20,327 +21,261 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvExpression = (TextView) findViewById(R.id.tv_expression);
-        tvResult = (TextView) findViewById(R.id.tv_result);
+        tvHistory = (TextView) findViewById(R.id.tvHistory);
+        tvFormula = (TextView) findViewById(R.id.tvFormula);
+        tvResult = (TextView) findViewById(R.id.tvResult);
 
-        // Bind standard number and operators using helper methods
-        setupButton(R.id.btn_0, "0");
-        setupButton(R.id.btn_1, "1");
-        setupButton(R.id.btn_2, "2");
-        setupButton(R.id.btn_3, "3");
-        setupButton(R.id.btn_4, "4");
-        setupButton(R.id.btn_5, "5");
-        setupButton(R.id.btn_6, "6");
-        setupButton(R.id.btn_7, "7");
-        setupButton(R.id.btn_8, "8");
-        setupButton(R.id.btn_9, "9");
-        setupButton(R.id.btn_decimal, ".");
-
-        setupButton(R.id.btn_add, " + ");
-        setupButton(R.id.btn_subtract, " − ");
-        setupButton(R.id.btn_multiply, " × ");
-        setupButton(R.id.btn_divide, " ÷ ");
-
-        // Bind special button events using traditional anonymous inner classes
-        findViewById(R.id.btn_clear).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clearExpression();
-            }
-        });
-
-        findViewById(R.id.btn_negate).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toggleNegate();
-            }
-        });
-
-        findViewById(R.id.btn_percent).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appendPercent();
-            }
-        });
-
-        findViewById(R.id.btn_backspace).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                performBackspace();
-            }
-        });
-
-        findViewById(R.id.btn_equals).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                performCalculation();
-            }
-        });
+        setupButtonListeners();
+        updateDisplay();
     }
 
-    private void setupButton(int id, final String value) {
-        View btn = findViewById(id);
-        if (btn != null) {
-            btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    appendExpression(value);
-                }
-            });
-        }
-    }
+    private void setupButtonListeners() {
+        int[] numericButtons = {
+            R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+            R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9,
+            R.id.btnDot
+        };
 
-    private void appendExpression(String val) {
-        if (isResultDisplayed) {
-            if (isOperator(val)) {
-                currentExpression = tvResult.getText().toString() + val;
-            } else {
-                currentExpression = val;
-            }
-            isResultDisplayed = false;
-        } else {
-            if (val.equals(".")) {
-                if (canAppendDecimal()) {
-                    currentExpression += val;
+        View.OnClickListener numericClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Button b = (Button) v;
+                if (isResultDisplayed) {
+                    currentFormula = "";
+                    isResultDisplayed = false;
                 }
-            } else if (isOperator(val)) {
-                if (currentExpression.endsWith(" ")) {
-                    int len = currentExpression.length();
-                    if (len >= 3) {
-                        currentExpression = currentExpression.substring(0, len - 3) + val;
+                String btnText = b.getText().toString();
+                if (btnText.equals(".")) {
+                    if (canAddDecimal()) {
+                        currentFormula += ".";
                     }
-                } else if (!currentExpression.isEmpty()) {
-                    currentExpression += val;
+                } else {
+                    if (currentFormula.equals("0")) {
+                        currentFormula = btnText;
+                    } else {
+                        currentFormula += btnText;
+                    }
                 }
-            } else {
-                currentExpression += val;
+                updateDisplay();
+                triggerRealtimeCalculation();
             }
+        };
+
+        for (int id : numericButtons) {
+            findViewById(id).setOnClickListener(numericClickListener);
         }
-        updateViews();
-    }
 
-    private boolean isOperator(String val) {
-        return val.equals(" + ") || val.equals(" − ") || val.equals(" × ") || val.equals(" ÷ ");
-    }
+        int[] operatorButtons = {
+            R.id.btnAdd, R.id.btnSubtract, R.id.btnMultiply, R.id.btnDivide, R.id.btnPercent
+        };
 
-    private boolean canAppendDecimal() {
-        if (currentExpression.isEmpty()) return true;
-        String[] parts = currentExpression.split(" ");
-        if (parts.length == 0) return true;
-        String lastWord = parts[parts.length - 1];
-        return !lastWord.contains(".");
-    }
-
-    private void clearExpression() {
-        currentExpression = "";
-        isResultDisplayed = false;
-        updateViews();
-    }
-
-    private void appendPercent() {
-        if (currentExpression.isEmpty()) return;
-        char lastChar = currentExpression.charAt(currentExpression.length() - 1);
-        if (Character.isDigit(lastChar) || lastChar == '%') {
-            currentExpression += "%";
-            updateViews();
-        }
-    }
-
-    private void performBackspace() {
-        if (currentExpression.isEmpty()) return;
-        int len = currentExpression.length();
-        if (currentExpression.endsWith(" ")) {
-            if (len >= 3) {
-                currentExpression = currentExpression.substring(0, len - 3);
-            } else {
-                currentExpression = "";
+        View.OnClickListener operatorClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Button b = (Button) v;
+                if (isResultDisplayed) {
+                    isResultDisplayed = false;
+                }
+                String op = b.getText().toString();
+                if (currentFormula.length() > 0) {
+                    char lastChar = currentFormula.charAt(currentFormula.length() - 1);
+                    if (isOperator(lastChar)) {
+                        currentFormula = currentFormula.substring(0, currentFormula.length() - 1) + op;
+                    } else {
+                        currentFormula += op;
+                    }
+                } else if (op.equals("-")) {
+                    currentFormula += "-";
+                }
+                updateDisplay();
             }
+        };
+
+        for (int id : operatorButtons) {
+            findViewById(id).setOnClickListener(operatorClickListener);
+        }
+
+        findViewById(R.id.btnClear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentFormula = "";
+                tvHistory.setText("");
+                tvResult.setText("");
+                isResultDisplayed = false;
+                updateDisplay();
+            }
+        });
+
+        findViewById(R.id.btnDelete).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isResultDisplayed) {
+                    currentFormula = "";
+                    isResultDisplayed = false;
+                } else if (currentFormula.length() > 0) {
+                    currentFormula = currentFormula.substring(0, currentFormula.length() - 1);
+                }
+                updateDisplay();
+                triggerRealtimeCalculation();
+            }
+        });
+
+        findViewById(R.id.btnBrackets).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isResultDisplayed) {
+                    currentFormula = "";
+                    isResultDisplayed = false;
+                }
+                appendSmartBracket();
+                updateDisplay();
+                triggerRealtimeCalculation();
+            }
+        });
+
+        findViewById(R.id.btnEquals).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performFinalCalculation();
+            }
+        });
+    }
+
+    private void updateDisplay() {
+        if (currentFormula.isEmpty()) {
+            tvFormula.setText("0");
         } else {
-            currentExpression = currentExpression.substring(0, len - 1);
+            tvFormula.setText(currentFormula);
         }
-        updateViews();
     }
 
-    private void toggleNegate() {
-        if (currentExpression.isEmpty()) return;
-
-        int len = currentExpression.length();
-        int i = len - 1;
-        while (i >= 0 && currentExpression.charAt(i) == ' ') {
-            i--;
-        }
-        if (i < 0) return;
-
-        int end = i + 1;
-        while (i >= 0 && (Character.isDigit(currentExpression.charAt(i)) || currentExpression.charAt(i) == '.' || currentExpression.charAt(i) == '%')) {
-            i--;
-        }
-
-        if (i >= 0 && currentExpression.charAt(i) == '-') {
-            boolean isUnary = false;
-            if (i == 0) {
-                isUnary = true;
-            } else {
-                char before = currentExpression.charAt(i - 1);
-                if (before == ' ' || before == '+' || before == '*' || before == '/' || before == '(') {
-                    isUnary = true;
-                }
-            }
-
-            if (isUnary) {
-                currentExpression = currentExpression.substring(0, i) + currentExpression.substring(i + 1, end);
-                updateViews();
-                return;
-            }
-        }
-
-        currentExpression = currentExpression.substring(0, i + 1) + "-" + currentExpression.substring(i + 1, end);
-        updateViews();
+    private boolean isOperator(char c) {
+        return c == '+' || c == '-' || c == '*' || c == '/' || c == '%';
     }
 
-    private void updateViews() {
-        tvExpression.setText(currentExpression);
+    private boolean canAddDecimal() {
+        if (currentFormula.isEmpty()) return true;
+        
+        int len = currentFormula.length();
+        for (int i = len - 1; i >= 0; i--) {
+            char c = currentFormula.charAt(i);
+            if (isOperator(c) || c == '(' || c == ')') {
+                break;
+            }
+            if (c == '.') {
+                return false;
+            }
+        }
+        return true;
+    }
 
-        if (currentExpression.isEmpty()) {
-            tvResult.setText("0");
+    private void appendSmartBracket() {
+        if (currentFormula.isEmpty()) {
+            currentFormula += "(";
             return;
         }
 
-        try {
-            String evalTarget = currentExpression;
-            if (evalTarget.endsWith(" ")) {
-                int len = evalTarget.length();
-                if (len >= 3) {
-                    evalTarget = evalTarget.substring(0, len - 3);
-                }
-            }
+        int len = currentFormula.length();
+        char lastChar = currentFormula.charAt(len - 1);
 
-            if (!evalTarget.isEmpty()) {
-                double res = evaluate(evalTarget);
-                tvResult.setText(formatResult(res));
-            }
-        } catch (Exception e) {
-            // Keep current text unchanged on live preview parsing errors
+        int openCount = 0;
+        int closeCount = 0;
+        for (int i = 0; i < len; i++) {
+            if (currentFormula.charAt(i) == '(') openCount++;
+            if (currentFormula.charAt(i) == ')') closeCount++;
+        }
+
+        if (openCount > closeCount && (Character.isDigit(lastChar) || lastChar == ')')) {
+            currentFormula += ")";
+        } else if (isOperator(lastChar) || lastChar == '(' || currentFormula.isEmpty()) {
+            currentFormula += "(";
+        } else {
+            currentFormula += "*(";
         }
     }
 
-    private void performCalculation() {
-        if (currentExpression.isEmpty()) return;
+    private void triggerRealtimeCalculation() {
+        if (currentFormula.isEmpty()) {
+            tvResult.setText("");
+            return;
+        }
 
+        if (!hasOperatorsOrBrackets(currentFormula)) {
+            tvResult.setText("");
+            return;
+        }
+
+        String sanitized = sanitizeFormula(currentFormula);
         try {
-            double res = evaluate(currentExpression);
-            String finalResult = formatResult(res);
+            double result = CalculatorEngine.evaluate(sanitized);
+            tvResult.setText(formatResult(result));
+        } catch (Exception e) {
+            tvResult.setText("");
+        }
+    }
 
-            tvExpression.setText(currentExpression + " =");
-            tvResult.setText(finalResult);
+    private void performFinalCalculation() {
+        if (currentFormula.isEmpty()) return;
 
-            currentExpression = finalResult;
+        String sanitized = sanitizeFormula(currentFormula);
+        try {
+            double result = CalculatorEngine.evaluate(sanitized);
+            String formattedResult = formatResult(result);
+            
+            tvHistory.setText(currentFormula + " =");
+            currentFormula = formattedResult;
+            tvResult.setText("");
             isResultDisplayed = true;
+            updateDisplay();
         } catch (ArithmeticException e) {
-            tvResult.setText("Error");
-            currentExpression = "";
-            isResultDisplayed = true;
+            tvResult.setText("Error: Division by 0");
         } catch (Exception e) {
-            tvResult.setText("Error");
-            currentExpression = "";
-            isResultDisplayed = true;
+            tvResult.setText("Format Error");
         }
     }
 
-    private String formatResult(double val) {
-        if (Double.isInfinite(val) || Double.isNaN(val)) {
-            return "Error";
-        }
-
-        if (val == (long) val) {
-            return String.valueOf((long) val);
-        }
-
-        String s = String.format(Locale.US, "%.10f", val);
-        if (s.contains(".")) {
-            while (s.endsWith("0")) {
-                s = s.substring(0, s.length() - 1);
-            }
-            if (s.endsWith(".")) {
-                s = s.substring(0, s.length() - 1);
+    private boolean hasOperatorsOrBrackets(String formula) {
+        for (int i = 0; i < formula.length(); i++) {
+            char c = formula.charAt(i);
+            if (isOperator(c) || c == '(' || c == ')') {
+                return true;
             }
         }
+        return false;
+    }
 
-        if (Math.abs(val) >= 1e12 || (Math.abs(val) > 0 && Math.abs(val) < 1e-6)) {
-            DecimalFormat df = new DecimalFormat("0.######E0");
-            return df.format(val).replace("E", "e");
+    private String sanitizeFormula(String formula) {
+        String s = formula;
+        
+        while (s.length() > 0 && isOperator(s.charAt(s.length() - 1))) {
+            s = s.substring(0, s.length() - 1);
+        }
+
+        int openCount = 0;
+        int closeCount = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') openCount++;
+            if (s.charAt(i) == ')') closeCount++;
+        }
+        
+        while (openCount > closeCount) {
+            s += ")";
+            closeCount++;
         }
 
         return s;
     }
 
-    private double evaluate(String expression) throws Exception {
-        final String cleanExpr = expression.replace("×", "*").replace("÷", "/").replace("−", "-").replaceAll("\\s+", "");
-
-        return new Object() {
-            int pos = -1, ch;
-
-            void nextChar() {
-                ch = (++pos < cleanExpr.length()) ? cleanExpr.charAt(pos) : -1;
-            }
-
-            boolean eat(int charToEat) {
-                while (ch == ' ') nextChar();
-                if (ch == charToEat) {
-                    nextChar();
-                    return true;
-                }
-                return false;
-            }
-
-            double parse() {
-                nextChar();
-                double x = parseExpression();
-                if (pos < cleanExpr.length()) throw new RuntimeException("Unexpected: " + (char)ch);
-                return x;
-            }
-
-            double parseExpression() {
-                double x = parseTerm();
-                for (;;) {
-                    if      (eat('+')) x += parseTerm();
-                    else if (eat('-')) x -= parseTerm();
-                    else return x;
-                }
-            }
-
-            double parseTerm() {
-                double x = parseFactor();
-                for (;;) {
-                    if      (eat('*')) x *= parseFactor();
-                    else if (eat('/')) {
-                        double divisor = parseFactor();
-                        if (divisor == 0) throw new ArithmeticException("Divide by zero");
-                        x /= divisor;
-                    }
-                    else return x;
-                }
-            }
-
-            double parseFactor() {
-                if (eat('+')) return parseFactor();
-                if (eat('-')) return -parseFactor();
-
-                double x;
-                int startPos = this.pos;
-                if ((ch >= '0' && ch <= '9') || ch == '.') {
-                    while ((ch >= '0' && ch <= '9') || ch == '.') nextChar();
-                    x = Double.parseDouble(cleanExpr.substring(startPos, this.pos));
-                } else {
-                    throw new RuntimeException("Unexpected: " + (char)ch);
-                }
-
-                while (eat('%')) {
-                    x = x / 100.0;
-                }
-
-                return x;
-            }
-        }.parse();
+    private String formatResult(double val) {
+        if (Double.isInfinite(val)) return "Error: Infinity";
+        if (Double.isNaN(val)) return "Error";
+        
+        if (val == (long) val) {
+            return String.format("%d", (long) val);
+        } else {
+            DecimalFormat df = new DecimalFormat("0.########");
+            return df.format(val);
+        }
     }
 }
+```
