@@ -1,0 +1,95 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define App Metadata",
+      "description": "Establish the application name and native package namespace for compilation.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Environment",
+      "description": "Set up Gradle build configurations including compilation SDK version 34 and tool chain versions.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Declare Manifest Information",
+      "description": "Register application nodes, screen configurations, and launcher attributes in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Modern Theme Color Definitions",
+      "description": "Establish hex color mappings for a premium dark styling of display monitors and active text states.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Configure Display Border Shape",
+      "description": "Establish a rounded-corner shape for the digital display output screen.",
+      "files": ["app/src/main/res/drawable/display_border.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Number Button Selector States",
+      "description": "Create rounded-corner shapes with active highlight states for keying in numeric values.",
+      "files": ["app/src/main/res/drawable/btn_number.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Operator Button Selector States",
+      "description": "Create vivid accent color selectors for essential mathematical operators like add, subtract, multiply, and divide.",
+      "files": ["app/src/main/res/drawable/btn_operator.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Action Button Selector States",
+      "description": "Style secondary action keys (Clear, Backspace, Percent) with balanced gray selectors.",
+      "files": ["app/src/main/res/drawable/btn_action.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Equals Button Selector States",
+      "description": "Design a glowing blue accent key selector for triggers evaluating equations.",
+      "files": ["app/src/main/res/drawable/btn_equals.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design Beautiful Calculator Layout UI",
+      "description": "Construct the session history monitor, current expression scrollbars, and key grid structure inside activity_main.xml.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Native Expression Parsing Engine",
+      "description": "Write a parsing algorithm with order-of-precedence calculation rules and support for percent and negative prefixes.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Map UI Keypad Bindings",
+      "description": "Connect key press listeners using classic anonymous listeners with robust live expression evaluation feedback.",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Modern Calculator",
+      "description": "Final compile and verify build outputs to complete modern calculator app bundle.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
