@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cloud Notes"
+            android:textColor="#1976D2"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Secure offline-enabled cloud sync"
+            android:textColor="#757575"
+            android:textSize="14sp"
+            android:layout_marginBottom="40dp"/>
+
+        <!-- ================== LOGIN CONTAINER ================== -->
+        <LinearLayout
+            android:id="@+id/loginContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="20dp"
+            android:elevation="4dp"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign In"
+                android:textColor="#212121"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"/>
+
+            <EditText
+                android:id="@+id/loginEmail"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/loginPassword"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="LOG IN"
+                android:textColor="#FFFFFF"
+                android:background="#1976D2"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/btnGoToSignup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Create Account"
+                    android:textColor="#1976D2"
+                    android:padding="8dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" • "
+                    android:textColor="#757575"/>
+
+                <TextView
+                    android:id="@+id/btnGoToForgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Forgot Password?"
+                    android:textColor="#1976D2"
+                    android:padding="8dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ================== SIGNUP CONTAINER ================== -->
+        <LinearLayout
+            android:id="@+id/signupContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="20dp"
+            android:elevation="4dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create Account"
+                android:textColor="#212121"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"/>
+
+            <EditText
+                android:id="@+id/signupEmail"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/signupPassword"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/signupConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btnSignup"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="REGISTER"
+                android:textColor="#FFFFFF"
+                android:background="#2E7D32"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/btnBackToLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back to Sign In"
+                android:textColor="#1976D2"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <!-- ================== FORGOT PASSWORD CONTAINER ================== -->
+        <LinearLayout
+            android:id="@+id/forgotPasswordContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="20dp"
+            android:elevation="4dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reset Password"
+                android:textColor="#212121"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- STEP 1: Email for OTP -->
+            <LinearLayout
+                android:id="@+id/otpStep1Layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enter your email to request a reset security code."
+                    android:textColor="#616161"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"/>
+
+                <EditText
+                    android:id="@+id/forgotEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="Email Address"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:layout_marginBottom="16dp"/>
+
+                <Button
+                    android:id="@+id/btnRequestOtp"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="SEND SECURITY CODE"
+                    android:textColor="#FFFFFF"
+                    android:background="#E65100"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp"/>
+            </LinearLayout>
+
+            <!-- STEP 2: Code verification and New Password -->
+            <LinearLayout
+                android:id="@+id/otpStep2Layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Check your email for the 6-digit verification code."
+                    android:textColor="#2E7D32"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+
+                <EditText
+                    android:id="@+id/resetOtpCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="6-Digit Code"
+                    android:inputType="number"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:layout_marginBottom="16dp"/>
+
+                <EditText
+                    android:id="@+id/resetNewPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="New Password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:layout_marginBottom="16dp"/>
+
+                <Button
+                    android:id="@+id/btnResetPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="UPDATE PASSWORD"
+                    android:textColor="#FFFFFF"
+                    android:background="#1976D2"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnBackToLoginFromForgot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back to Sign In"
+                android:textColor="#1976D2"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/loginProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</ScrollView>
