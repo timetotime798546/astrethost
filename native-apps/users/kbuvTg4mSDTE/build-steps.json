@@ -2,113 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define App Configuration",
-      "description": "Initialize app-meta.json and define the package name com.omniflowbusinesserp.app.",
-      "files": ["app-meta.json"],
+      "title": "Parse and diagnose layout compile errors",
+      "description": "Analyze AAPT linking errors related to layout_centerY attributes across several activity resources.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Define Backend API Schema",
-      "description": "Establish the persistent ERP data collections for Inventory, Sales, and Expenses alongside validation logic.",
-      "files": ["api_schema.json"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Configure Build Tools",
-      "description": "Create the main build.gradle file compatible with Java 17 and Android SDK 34.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Create Android Manifest",
-      "description": "Write AndroidManifest.xml to declare Internet permissions and register ERP activities.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Implement API Client Utilities",
-      "description": "Develop a solid pure Java standard library BackendApi client for authentication, data persistence, and OTP recovery.",
-      "files": ["app/src/main/java/com/omniflowbusinesserp/app/BackendApi.java"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Create Layouts - Authentication Flow",
-      "description": "Design clean authentication layout supporting login, sign up, and dynamic OTP forgot-password modals.",
-      "files": ["app/src/main/res/layout/activity_login.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Implement Authentication Activity",
-      "description": "Program LoginActivity.java to manage registration, credential validation, and local token storage.",
-      "files": ["app/src/main/java/com/omniflowbusinesserp/app/LoginActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Create Layouts - Main Dashboard",
-      "description": "Build layout for MainActivity, showcasing live indicators of local ERP analytics.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Implement Dashboard Analytics Logic",
-      "description": "Implement MainActivity.java executing background retrieval and native offline totals calculation.",
-      "files": ["app/src/main/java/com/omniflowbusinesserp/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Create Layouts - Warehouse Inventory Management",
-      "description": "Design an interface for tracking warehouse inventory items and dynamic warehouse levels.",
-      "files": ["app/src/main/res/layout/activity_inventory.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Implement Warehouse Inventory Controller",
-      "description": "Write InventoryActivity.java to fetch, search, insert, and update warehouse stocks.",
-      "files": ["app/src/main/java/com/omniflowbusinesserp/app/InventoryActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Create Layouts - POS Billing & Tax Engine",
-      "description": "Create activity_billing.xml defining product billing cart system and checkout details.",
+      "title": "Correct RelativeLayout centering attributes in Billing Layout",
+      "description": "Replace non-existent layout_centerY attribute with valid layout_centerVertical in activity_billing.xml.",
       "files": ["app/src/main/res/layout/activity_billing.xml"],
       "status": "pending"
     },
     {
-      "step": 13,
-      "title": "Implement POS Terminal & Tax Calculations",
-      "description": "Write BillingActivity.java performing real-time tax and discount calculations natively with receipt logs.",
-      "files": ["app/src/main/java/com/omniflowbusinesserp/app/BillingActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Create Layouts - Business Expense Voucher Module",
-      "description": "Design clean input layouts for tracking organizational expenditures.",
+      "step": 3,
+      "title": "Correct RelativeLayout centering attributes in Expense Layout",
+      "description": "Replace non-existent layout_centerY attribute with valid layout_centerVertical in activity_expense.xml.",
       "files": ["app/src/main/res/layout/activity_expense.xml"],
       "status": "pending"
     },
     {
-      "step": 15,
-      "title": "Implement Expense Logger Controller",
-      "description": "Write ExpenseActivity.java to register and display dynamic expense listings.",
-      "files": ["app/src/main/java/com/omniflowbusinesserp/app/ExpenseActivity.java"],
+      "step": 4,
+      "title": "Correct RelativeLayout centering attributes in Inventory Layout",
+      "description": "Replace non-existent layout_centerY attribute with valid layout_centerVertical in activity_inventory.xml.",
+      "files": ["app/src/main/res/layout/activity_inventory.xml"],
       "status": "pending"
     },
     {
-      "step": 16,
+      "step": 5,
+      "title": "Correct RelativeLayout centering attributes in Dashboard Main Layout",
+      "description": "Replace non-existent layout_centerY attribute with valid layout_centerVertical in activity_main.xml.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Diagnose Java compilation issue regarding invalid digit-prefixed method names",
+      "description": "Analyze InventoryActivity.java to discover invalid method names such as 14spToFloat, which cannot be compiled by Java compilers.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Refactor custom density helper methods to standard TextView values in Inventory Controller",
+      "description": "Clean up syntax in InventoryActivity.java by replacing numerical-prefixed functions with direct float values for TextView's native SP text size sizing.",
+      "files": ["app/src/main/java/com/omniflowbusinesserp/app/InventoryActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Perform offline validation of layout XML rules",
+      "description": "Ensure AAPT requirements and layout formats strictly adhere to proper Android SDK specifications.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Java source syntax and layout referencing",
+      "description": "Confirm compile-time compatibility with standard Java 8 and Android SDK layout properties.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 10,
       "title": "Building OmniFlow Business ERP",
-      "description": "Compile the complete enterprise ERP Android Application stack using high-speed build flags.",
+      "description": "Compile the complete enterprise ERP Android Application stack using corrected resources and Java syntax.",
       "files": [],
       "status": "pending"
     }
