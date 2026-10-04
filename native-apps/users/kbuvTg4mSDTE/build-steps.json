@@ -1,0 +1,143 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Setup",
+      "description": "Initialize app metadata, configure backend API schema, and outline package structure.",
+      "files": ["app-meta.json", "api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Gradle Configuration",
+      "description": "Set up build.gradle with proper standard SDK versioning and standard dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Manifest Setup",
+      "description": "Declare permissions, core Activities, and custom launch settings in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "UI Design Resources",
+      "description": "Create reusable shape and color drawables for rounded input containers, alerts, and clean action buttons.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/btn_primary.xml",
+        "app/src/main/res/drawable/btn_secondary.xml",
+        "app/src/main/res/drawable/edittext_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Backend API Integration",
+      "description": "Write a pure-Java HTTP helper class (BackendApi.java) to handle register, login, OTP recovery, and /data operations with manual JSON processing.",
+      "files": ["app/src/main/java/com/shopinventorysync/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Local Cache Engine",
+      "description": "Develop a lightweight SharedPreferences-backed data store to serve as an offline-first cache when there's no network.",
+      "files": ["app/src/main/java/com/shopinventorysync/app/OfflineCache.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Product and Sale Models",
+      "description": "Create standard Java data-transfer objects for Products and Sales, enabling precise offline business calculations.",
+      "files": [
+        "app/src/main/java/com/shopinventorysync/app/Product.java",
+        "app/src/main/java/com/shopinventorysync/app/Sale.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Authentication Screens UI",
+      "description": "Design visual layout for login, user signup registration, and Gmail-based OTP password recovery screens.",
+      "files": ["app/src/main/res/layout/activity_login.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Authentication Controller Logic",
+      "description": "Implement LoginActivity logic matching all rules for authentication, token handling, registration response structures, and OTP generation.",
+      "files": ["app/src/main/java/com/shopinventorysync/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Dashboard Design",
+      "description": "Design an analytical MainActivity dashboard with summary boxes (Valuation, Total Stock, Low Warnings) and dynamic sync feedback.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Dashboard Controller Logic",
+      "description": "Implement MainActivity functionality to auto-load products, run dynamic calculations locally, and refresh UI fields seamlessly.",
+      "files": ["app/src/main/java/com/shopinventorysync/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Inventory Management UI",
+      "description": "Design the layout to view all products, search, and switch to category-wise stock filters.",
+      "files": [
+        "app/src/main/res/layout/activity_inventory.xml",
+        "app/src/main/res/layout/item_product.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Inventory Controller and List Adapter",
+      "description": "Code InventoryActivity and custom Adapter to manage filters, launch product creations, and manage low-stock colors.",
+      "files": ["app/src/main/java/com/shopinventorysync/app/InventoryActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Product Details Form & Margin Calculator",
+      "description": "Implement product addition and editing interface with live dynamic margin percentage updating on pricing entry.",
+      "files": [
+        "app/src/main/res/layout/activity_add_edit.xml",
+        "app/src/main/java/com/shopinventorysync/app/AddEditProductActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "POS Quick Billing Counter",
+      "description": "Develop high-speed cashier checkout checkout ledger interface, supporting custom sales basket collections, automated revenue calculation, and instant local stock quantity deduction.",
+      "files": [
+        "app/src/main/res/layout/activity_billing.xml",
+        "app/src/main/java/com/shopinventorysync/app/BillingActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Sales Ledger History UI and Logic",
+      "description": "Integrate previous transaction log visualization (SalesHistoryActivity) with list-view display of past earnings.",
+      "files": [
+        "app/src/main/res/layout/activity_sales_history.xml",
+        "app/src/main/java/com/shopinventorysync/app/SalesHistoryActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Building Shop Inventory & Stock Sync",
+      "description": "Perform full debug builds using Gradle compilation to ensure error-free assembly without resource linkage or syntax issues.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

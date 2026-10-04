@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical">
+
+    <!-- Header bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00796B"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Store Inventory"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnAddProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Add Item"
+            android:textColor="#00796B"
+            android:textStyle="bold"
+            android:background="@drawable/btn_secondary"
+            android:paddingHorizontal="16dp" />
+    </LinearLayout>
+
+    <!-- Search Box and Filters -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/edtSearch"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="🔍 Search SKU or Name..."
+            android:background="@drawable/edittext_bg"
+            android:textSize="14sp"
+            android:layout_marginRight="8dp" />
+
+        <Spinner
+            android:id="@+id/spinCategoryFilter"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_bg" />
+    </LinearLayout>
+
+    <!-- Main Inventory List -->
+    <ListView
+        android:id="@+id/listProducts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#E0E0E0"
+        android:dividerHeight="1dp"
+        android:padding="8dp"
+        android:clipToPadding="false" />
+
+</LinearLayout>

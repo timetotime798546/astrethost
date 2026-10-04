@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.shopinventorysync.app">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:roundIcon="@drawable/icon"
+        android:label="Shop Inventory Sync"
+        android:theme="@android:style/Theme.Material.Light">
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="Dashboard" />
+
+        <activity
+            android:name=".InventoryActivity"
+            android:exported="false"
+            android:label="Product Inventory" />
+
+        <activity
+            android:name=".AddEditProductActivity"
+            android:exported="false"
+            android:label="Product Form" />
+
+        <activity
+            android:name=".BillingActivity"
+            android:exported="false"
+            android:label="Billing Counter" />
+
+        <activity
+            android:name=".SalesHistoryActivity"
+            android:exported="false"
+            android:label="Sales Ledger" />
+
+    </application>
+</manifest>

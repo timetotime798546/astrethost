@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- App Logo Area -->
+        <TextView
+            android:id="@+id/txtAppLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔄"
+            android:textSize="64sp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shop Stock Sync"
+            android:textColor="#00796B"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retailer Inventory Management"
+            android:textColor="#555555"
+            android:textSize="14sp"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Main Card Form -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:elevation="3dp">
+
+            <TextView
+                android:id="@+id/txtFormTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Merchant Login"
+                android:textColor="#333333"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Email Address input -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Address"
+                android:textColor="#777777"
+                android:textSize="12sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="merchant@store.com"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/edittext_bg"
+                android:textColor="#333333"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Password Input -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textColor="#777777"
+                android:textSize="12sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="••••••••"
+                android:inputType="textPassword"
+                android:background="@drawable/edittext_bg"
+                android:textColor="#333333"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Recovery fields (only visible when in OTP reset mode) -->
+            <LinearLayout
+                android:id="@+id/layoutRecovery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reset OTP (Received via email)"
+                    android:textColor="#777777"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp" />
+
+                <EditText
+                    android:id="@+id/edtOtp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="6-Digit Code"
+                    android:inputType="number"
+                    android:background="@drawable/edittext_bg"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Password"
+                    android:textColor="#777777"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp" />
+
+                <EditText
+                    android:id="@+id/edtNewPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter secure new password"
+                    android:inputType="textPassword"
+                    android:background="@drawable/edittext_bg"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="16dp" />
+
+            </LinearLayout>
+
+            <!-- Action buttons -->
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Log In"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/btn_primary"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnOtpRequest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Request Reset OTP Code"
+                android:textColor="#00796B"
+                android:background="@drawable/btn_secondary"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone" />
+
+            <!-- Mode toggles -->
+            <TextView
+                android:id="@+id/txtToggleMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Don't have an account? Sign Up"
+                android:textColor="#00796B"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:clickable="true" />
+
+            <TextView
+                android:id="@+id/txtForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:textColor="#D32F2F"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:clickable="true" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
