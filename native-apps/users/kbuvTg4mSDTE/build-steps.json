@@ -1,0 +1,97 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Structure",
+      "description": "Establish package directories and configure project metadata files.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create API Schema Rules",
+      "description": "Define data structures and local offline formulas for ERP system in api_schema.json.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Build Configuration",
+      "description": "Establish target versions, packaging configs, and standard configurations in build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Establish Application Manifest",
+      "description": "Setup AndroidManifest.xml containing required permissions, activities and assets mapping.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Premium M3 Drawable Assets",
+      "description": "Create elevated visual styles, dynamic borders, gradients and customized trend vectors.",
+      "files": [
+        "app/src/main/res/drawable/bg_outline_input.xml",
+        "app/src/main/res/drawable/bg_primary_button.xml",
+        "app/src/main/res/drawable/bg_secondary_button.xml",
+        "app/src/main/res/drawable/bg_card_elevated.xml",
+        "app/src/main/res/drawable/bg_bottom_nav.xml",
+        "app/src/main/res/drawable/bg_alert_card.xml",
+        "app/src/main/res/drawable/ic_arrow_up.xml",
+        "app/src/main/res/drawable/ic_arrow_down.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Develop Native Backend API Client",
+      "description": "Write BackendApi.java handling HTTP connections, parsing custom JSON CRUD elements, and session persistence.",
+      "files": ["app/src/main/java/com/omniflow/erp/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create App Launcher Entry",
+      "description": "Develop MainActivity as a splash and routing screen verifying existing authentication tokens.",
+      "files": ["app/src/main/java/com/omniflow/erp/MainActivity.java", "app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Overhaul Secure Console Login Screen",
+      "description": "Rebuild the authorization panel using Material 3 outline fields, pill-shaped high-fidelity buttons and elegant fonts.",
+      "files": ["app/src/main/java/com/omniflow/erp/LoginActivity.java", "app/src/main/res/layout/activity_login.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Overhaul OmniFlow ERP Central Activity UI Layout",
+      "description": "Redesign unified main interface with rounded cards, custom trend line mock graphics, and sleek modern bottom navigation bar.",
+      "files": ["app/src/main/res/layout/activity_erp.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Bottom Navigation Controllers & ERP Flow in Java",
+      "description": "Integrate Bottom Nav bar controls, custom alert highlights and M3 card rendering handlers inside the main ERP Activity.",
+      "files": ["app/src/main/java/com/omniflow/erp/ERPActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Validate Package Context",
+      "description": "Verify package context declarations and asset reference rules.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building OmniFlow Business ERP",
+      "description": "Compile raw native Android sources using gradle assembleDebug.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

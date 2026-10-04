@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F0F11"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="28dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OmniFlow ERP"
+            android:textColor="#FFFFFF"
+            android:textSize="32sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:letterSpacing="0.05" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enterprise Management Panel"
+            android:textColor="#00E5FF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="40dp"
+            android:letterSpacing="0.1" />
+
+        <LinearLayout
+            android:id="@+id/layoutNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Secure Console Login"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Corporate Email"
+                android:textColor="#8F8F9F"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="sans-serif-medium" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_outline_input"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#5A5A66"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:inputType="textEmailAddress"
+                android:textSize="15sp"
+                android:layout_marginBottom="20dp"
+                android:hint="enterprise@company.com" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Security Password"
+                android:textColor="#8F8F9F"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="sans-serif-medium" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_outline_input"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#5A5A66"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:inputType="textPassword"
+                android:textSize="15sp"
+                android:layout_marginBottom="28dp"
+                android:hint="••••••••" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="AUTHORIZE SIGN-IN"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_primary_button"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="REGISTER NEW ENTERPRISE ACCOUNT"
+                android:textColor="#00ADB5"
+                android:background="@drawable/bg_secondary_button"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp" />
+
+            <Button
+                android:id="@+id/btnForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="FORGOTTEN CREDENTIAL PASSWORD?"
+                android:textColor="#8F8F9F"
+                style="?android:attr/borderlessButtonStyle"
+                android:textSize="12sp"
+                android:letterSpacing="0.05" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutOtp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verification OTP Request"
+                android:textColor="#FFD700"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter Registered Email"
+                android:textColor="#8F8F9F"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/etOtpEmail"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_outline_input"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#5A5A66"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:inputType="textEmailAddress"
+                android:textSize="15sp"
+                android:hint="yourname@company.com"
+                android:layout_marginBottom="12dp"/>
+
+            <Button
+                android:id="@+id/btnSendOtp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="GENERATE OTP RESET CODE"
+                android:textColor="#121212"
+                android:background="@drawable/bg_primary_button"
+                android:backgroundTint="#FFD700"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verification Code (OTP)"
+                android:textColor="#8F8F9F"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/etOtpCode"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_outline_input"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#5A5A66"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:inputType="number"
+                android:textSize="15sp"
+                android:hint="123456"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Target Password"
+                android:textColor="#8F8F9F"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/etOtpNewPassword"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_outline_input"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#5A5A66"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:inputType="textPassword"
+                android:textSize="15sp"
+                android:hint="New password"
+                android:layout_marginBottom="24dp"/>
+
+            <Button
+                android:id="@+id/btnVerifyAndReset"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="APPLY NEW PASSWORD"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_primary_button"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnCancelOtp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="BACK TO MAIN LOGIN"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_secondary_button"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
