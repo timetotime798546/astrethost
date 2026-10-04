@@ -1,0 +1,109 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Establish the application name and package identifiers for compilation context.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Database Schema and Offline Logic",
+      "description": "Declare database collections, required fields, and offline calculated properties in api_schema.json.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure App Manifest",
+      "description": "Define application components, entry activities, and internet access permissions in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Set Up Gradle Build System",
+      "description": "Configure the SDK version targets, compiler compatibility, and package configuration parameters.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Reusable Backend API Client",
+      "description": "Develop the BackendApi helper class to facilitate cloud data interactions and authentication.",
+      "files": ["app/src/main/java/com/shopinventorysync/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create User Login Screen Layout",
+      "description": "Design the login layout with credentials entry, action buttons, and a link for password recovery.",
+      "files": ["app/src/main/res/layout/activity_login.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement User Login Logic",
+      "description": "Implement LoginActivity with session state, error handling, and transition to registration or recovery.",
+      "files": ["app/src/main/java/com/shopinventorysync/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Registration Screen Layout",
+      "description": "Design the layout for entering registration details and password verification.",
+      "files": ["app/src/main/res/layout/activity_register.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Account Creation Logic",
+      "description": "Implement RegisterActivity with auto-login capabilities after successful user registration.",
+      "files": ["app/src/main/java/com/shopinventorysync/app/RegisterActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Create Password Recovery Screen Layout",
+      "description": "Design the layout for requested password recovery OTP requests and secure updates.",
+      "files": ["app/src/main/res/layout/activity_forgot_password.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Password Recovery Code",
+      "description": "Implement ForgotPasswordActivity handling email OTP verification and credential updates.",
+      "files": ["app/src/main/java/com/shopinventorysync/app/ForgotPasswordActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Create Dashboard Layout",
+      "description": "Design the MainActivity layout with live calculated value headers, search criteria, and the list adapter.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Design Adapter Rows",
+      "description": "Create the row layout displaying product names, price, quantity, and product value.",
+      "files": ["app/src/main/res/layout/product_list_item.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement Live Dashboard Controller",
+      "description": "Implement MainActivity logic that performs live stock calculations, real-time inventory updates, and multi-user sync.",
+      "files": ["app/src/main/java/com/shopinventorysync/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Shop Inventory Sync",
+      "description": "Run compiler checks, resources packing, and complete building debug package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
