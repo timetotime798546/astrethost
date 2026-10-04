@@ -1,0 +1,111 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Define the app name and the unique package name in app-meta.json and api_schema.json.",
+      "files": ["app-meta.json", "api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Setup Gradle Environment",
+      "description": "Configure build.gradle to use Java 17 toolchain, target SDK 34, min SDK 21 and the correct AGP.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure App Manifest",
+      "description": "Declare permissions, Launcher Activity (LoginActivity), and other activities with native Material theme styling.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Asset Files",
+      "description": "Copy the app-meta.json into the main assets folder so the app_id can be loaded dynamically at runtime.",
+      "files": ["app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Background Drawables and UI Resources",
+      "description": "Create custom styles, colors, and button/card backgrounds using XML shapes for a highly modern design.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/button_bg.xml",
+        "app/src/main/res/drawable/input_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Authenticated UI Shell Layouts",
+      "description": "Design clean, user-friendly layouts for Register, Login, and OTP-based Forgot Password screens.",
+      "files": [
+        "app/src/main/res/layout/activity_login.xml",
+        "app/src/main/res/layout/activity_register.xml",
+        "app/src/main/res/layout/activity_forgot_password.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build Main Tracker and Form Layouts",
+      "description": "Build the main dashboard displaying real-time calculations (balance, income, expenses), dynamic list layout, adding transaction form layout, and monthly report layout.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/res/layout/activity_add_transaction.xml",
+        "app/src/main/res/layout/activity_reports.xml",
+        "app/src/main/res/layout/item_transaction.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Develop Native HTTP Backend Client",
+      "description": "Create the BackendApi.java class to load app_id dynamically and handle asynchronous network requests for auth and custom transactions.",
+      "files": ["app/src/main/java/com/modernexpensetracker/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Offline Calculation models",
+      "description": "Create Transaction model classes and utility calculations to compute totals, balances, and categories locally.",
+      "files": ["app/src/main/java/com/modernexpensetracker/app/Transaction.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Authenticaton & Forgot Password Controllers",
+      "description": "Code custom logic for LoginActivity, RegisterActivity, and ForgotPasswordActivity with standard error handling and secure local storage of JWT tokens.",
+      "files": [
+        "app/src/main/java/com/modernexpensetracker/app/LoginActivity.java",
+        "app/src/main/java/com/modernexpensetracker/app/RegisterActivity.java",
+        "app/src/main/java/com/modernexpensetracker/app/ForgotPasswordActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Dashboard, Form, and Report Controllers",
+      "description": "Implement MainActivity, AddTransactionActivity, and ReportsActivity to execute complete client-side data calculation logic and secure CRUD execution.",
+      "files": [
+        "app/src/main/java/com/modernexpensetracker/app/MainActivity.java",
+        "app/src/main/java/com/modernexpensetracker/app/AddTransactionActivity.java",
+        "app/src/main/java/com/modernexpensetracker/app/ReportsActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Expense Tracker",
+      "description": "Run offline verification, code check, compatibility logic validation, and build standard APK outputs.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
