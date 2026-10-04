@@ -1,0 +1,79 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Set up build.gradle",
+      "description": "Configure the project's build dependencies, SDK version, and target SDK properties.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Manifest",
+      "description": "Set up application settings, main launcher activity, permissions, and themes.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define App Styles and Layouts",
+      "description": "Create layouts for authentication screens, note editing form, main list screen, and custom list items.",
+      "files": [
+        "app/src/main/res/layout/activity_login.xml",
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/res/layout/activity_note.xml",
+        "app/src/main/res/layout/note_item.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Native Backend API Client",
+      "description": "Develop custom HTTP connector for Registration, Login, Forgot Password OTP requests, and full CRUD synchronized data endpoints.",
+      "files": ["app/src/main/java/com/cloudnotes/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define Note Data Model",
+      "description": "Create a robust Java representation of Note objects with local calculation methods for words parsing.",
+      "files": ["app/src/main/java/com/cloudnotes/app/Note.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Login and Recovery Screens",
+      "description": "Write logic for validating inputs, posting registration, session token extraction, and executing OTP-based recovery flows.",
+      "files": ["app/src/main/java/com/cloudnotes/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build Main Notes Dashboard",
+      "description": "Create note list display, real-time filtering, category tabs, and automatic calculation of statistics locally.",
+      "files": ["app/src/main/java/com/cloudnotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Develop Custom Note Editor",
+      "description": "Assemble Note editor UI with category selection, live data persistence via CRUD API, and inline modifications.",
+      "files": ["app/src/main/java/com/cloudnotes/app/NoteActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Custom ListView Adapter",
+      "description": "Build high-performance adapter to bind note data, format chips, calculate offline word counts dynamically, and manage list actions.",
+      "files": ["app/src/main/java/com/cloudnotes/app/NoteAdapter.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Cloud Notes",
+      "description": "Assemble and compile the complete project using Gradle with standard Java 8 settings.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
