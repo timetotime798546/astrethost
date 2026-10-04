@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="28dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OmniFlow ERP"
+            android:textColor="#1A237E"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginTop="40dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enterprise Multi-Location Solution"
+            android:textColor="#757575"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Card View Container simulated with layout and padding -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/txtFormHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign In"
+                android:textColor="#333333"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Address"
+                android:textColor="#555555"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="textEmailAddress"
+                android:hint="name@company.com"
+                android:background="@android:drawable/editbox_background_normal"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/lblPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textColor="#555555"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="textPassword"
+                android:hint="••••••••"
+                android:background="@android:drawable/editbox_background_normal"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- OTP Input Field, hidden initially -->
+            <LinearLayout
+                android:id="@+id/layoutOtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OTP Code (Sent via Email)"
+                    android:textColor="#D32F2F"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etOtp"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:inputType="number"
+                    android:hint="6-Digit Code"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:layout_marginTop="6dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Log In"
+                android:textColor="#FFFFFF"
+                android:background="#1A237E"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/btnToggleMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Need an ERP Account? Sign Up"
+                android:textColor="#3949AB"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:clickable="true" />
+
+            <TextView
+                android:id="@+id/btnForgotPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:textColor="#D32F2F"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:clickable="true" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_marginTop="20dp"
+            android:gravity="center" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,47 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "inventory": {
+      "fields": {
+        "name": "string",
+        "sku": "string",
+        "warehouse": "string",
+        "quantity": "number",
+        "price": "number"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "sales": {
+      "fields": {
+        "invoice_no": "string",
+        "items_summary": "string",
+        "subtotal": "number",
+        "discount": "number",
+        "tax": "number",
+        "total": "number",
+        "customer": "string"
+      },
+      "operations": ["create", "read"]
+    },
+    "expenses": {
+      "fields": {
+        "category": "string",
+        "amount": "number",
+        "description": "string",
+        "status": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "invoice_calculation": {
+      "type": "calculation",
+      "inputs": ["subtotal", "discount", "tax_rate"],
+      "formula": "((subtotal - discount) * (1 + tax_rate))"
+    }
+  }
+}
