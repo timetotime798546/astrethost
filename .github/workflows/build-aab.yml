@@ -1,0 +1,646 @@
+name: Build AAB
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_id:
+        description: "App ID"
+        required: true
+        type: string
+
+      user_id:
+        description: "User ID"
+        required: true
+        type: string
+
+      app_name:
+        description: "App Name"
+        required: true
+        type: string
+
+      project_name:
+        description: "Project Name"
+        required: true
+        type: string
+
+      package_name:
+        description: "Package Name"
+        required: true
+        type: string
+
+      storage_token_name:
+        description: "Storage Token Name"
+        required: true
+        type: string
+
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # ==========================================
+      # CHECKOUT
+      # ==========================================
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+
+      # ==========================================
+      # JAVA 17
+      # ==========================================
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+
+      # ==========================================
+      # ANDROID SDK
+      # ==========================================
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4
+        with:
+          packages: >-
+            platforms;android-34
+            build-tools;34.0.0
+            platform-tools
+
+
+      # ==========================================
+      # ACCEPT ALL ANDROID SDK LICENSES
+      # ==========================================
+
+      - name: Accept Android SDK Licenses
+        shell: bash
+        run: |
+          set +e
+
+          echo "=========================================="
+          echo "ACCEPTING ANDROID SDK LICENSES"
+          echo "=========================================="
+
+          yes | sdkmanager --licenses >/tmp/sdk-licenses.log 2>&1
+
+          LICENSE_STATUS=$?
+
+          cat /tmp/sdk-licenses.log
+
+          if [ "$LICENSE_STATUS" -ne 0 ]; then
+            echo "License command returned status $LICENSE_STATUS."
+            echo "Continuing because required SDK packages will be verified."
+          fi
+
+          echo ""
+          echo "Android SDK license processing completed."
+
+
+      # ==========================================
+      # INSTALL REQUIRED ANDROID SDK PACKAGES
+      # ==========================================
+
+      - name: Install Required Android SDK Packages
+        shell: bash
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "INSTALLING REQUIRED SDK PACKAGES"
+          echo "=========================================="
+
+          sdkmanager "platform-tools"
+          sdkmanager "platforms;android-34"
+          sdkmanager "build-tools;34.0.0"
+
+          echo ""
+          echo "Required Android SDK packages installed."
+
+
+      # ==========================================
+      # VERIFY ANDROID SDK
+      # ==========================================
+
+      - name: Verify Android SDK
+        shell: bash
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "VERIFYING ANDROID SDK"
+          echo "=========================================="
+
+          echo "ANDROID_HOME:"
+          echo "$ANDROID_HOME"
+
+          echo ""
+          echo "SDK Manager:"
+          sdkmanager --version
+
+          echo ""
+          echo "Installed Android packages:"
+          sdkmanager --list_installed
+
+          echo ""
+          echo "Checking required packages..."
+
+          test -d "$ANDROID_HOME/platforms/android-34"
+          test -d "$ANDROID_HOME/build-tools/34.0.0"
+          test -d "$ANDROID_HOME/platform-tools"
+
+          echo ""
+          echo "Android SDK verification successful."
+
+
+      # ==========================================
+      # GRADLE 8.5
+      # ==========================================
+
+      - name: Install Gradle 8.5
+        shell: bash
+        run: |
+          set -e
+
+          wget -q \
+            https://services.gradle.org/distributions/gradle-8.5-bin.zip
+
+          unzip -q \
+            gradle-8.5-bin.zip
+
+          echo "$PWD/gradle-8.5/bin" >> "$GITHUB_PATH"
+
+          export PATH="$PWD/gradle-8.5/bin:$PATH"
+
+          echo "=========================================="
+          echo "GRADLE VERSION"
+          echo "=========================================="
+
+          gradle --version
+
+
+      # ==========================================
+      # CHECK USER PROJECT
+      # ==========================================
+
+      - name: Check User Project
+        shell: bash
+        run: |
+          set -e
+
+          USER_ID="${{ inputs.user_id }}"
+
+          PROJECT_DIR="native-apps/users/$USER_ID"
+
+          echo "=========================================="
+          echo "CHECKING USER PROJECT"
+          echo "=========================================="
+
+          echo "User ID: $USER_ID"
+          echo "Project directory: $PROJECT_DIR"
+          echo "Project name: ${{ inputs.project_name }}"
+
+          if [ ! -d "$PROJECT_DIR" ]; then
+            echo "::error::User project folder not found"
+            exit 1
+          fi
+
+          if [ ! -d "$PROJECT_DIR/app" ]; then
+            echo "::error::Android app module not found"
+            exit 1
+          fi
+
+          echo "sdk.dir=$ANDROID_HOME" \
+            > "$PROJECT_DIR/local.properties"
+
+          echo ""
+          echo "local.properties created."
+
+          cat "$PROJECT_DIR/local.properties"
+
+
+      # ==========================================
+      # DECODE RELEASE KEYSTORE
+      # ==========================================
+
+      - name: Decode Release Keystore
+        shell: bash
+        run: |
+          echo "=========================================="
+          echo "DECODING RELEASE KEYSTORE"
+          echo "=========================================="
+          mkdir -p native-apps/users/${{ inputs.user_id }}
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > native-apps/users/${{ inputs.user_id }}/release.keystore
+          echo "Keystore decoded successfully."
+
+
+      # ==========================================
+      # VERIFY BUILD ENVIRONMENT
+      # ==========================================
+
+      - name: Verify Build Environment
+        working-directory: native-apps/users/${{ inputs.user_id }}
+        shell: bash
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "BUILD ENVIRONMENT"
+          echo "=========================================="
+
+          echo ""
+          echo "Java:"
+          java -version
+
+          echo ""
+          echo "Gradle:"
+          gradle --version
+
+          echo ""
+          echo "Android SDK:"
+          echo "$ANDROID_HOME"
+
+          echo ""
+          echo "=========================================="
+          echo "FIXED WORKFLOW ENVIRONMENT"
+          echo "=========================================="
+
+          echo "Java: 17"
+          echo "Gradle: 8.5"
+          echo "Compile SDK: 34"
+          echo "Build Tools: 34.0.0"
+          echo "Target SDK: 34"
+          echo "Min SDK: 21"
+
+          echo ""
+          echo "Project Name:"
+          echo "${{ inputs.project_name }}"
+
+
+      # ==========================================
+      # BUILD AAB (BUNDLE)
+      # ==========================================
+
+      - name: Build User AAB
+        working-directory: native-apps/users/${{ inputs.user_id }}
+        shell: bash
+        env:
+          RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "BUILDING RELEASE AAB (BUNDLE)"
+          echo "=========================================="
+
+          echo ""
+          echo "Starting Gradle bundle build..."
+
+          gradle bundleRelease \
+            -Pandroid.injected.signing.store.file="$PWD/release.keystore" \
+            -Pandroid.injected.signing.store.password="$RELEASE_KEYSTORE_PASSWORD" \
+            -Pandroid.injected.signing.key.alias="$RELEASE_KEY_ALIAS" \
+            -Pandroid.injected.signing.key.password="$RELEASE_KEY_PASSWORD" \
+            --no-daemon \
+            --stacktrace
+
+          echo ""
+          echo "Gradle bundle build completed successfully."
+
+
+      # ==========================================
+      # VERIFY AAB
+      # ==========================================
+
+      - name: Verify AAB
+        working-directory: native-apps/users/${{ inputs.user_id }}
+        shell: bash
+        run: |
+          set -e
+
+          AAB_SOURCE="app/build/outputs/bundle/release/app-release.aab"
+
+          echo "=========================================="
+          echo "VERIFYING AAB"
+          echo "=========================================="
+
+          echo "Checking:"
+          echo "$AAB_SOURCE"
+
+          if [ ! -f "$AAB_SOURCE" ]; then
+            echo "::error::AAB was not generated."
+            exit 1
+          fi
+
+          echo ""
+          echo "AAB successfully generated."
+
+          ls -lh "$AAB_SOURCE"
+
+
+      # ==========================================
+      # RENAME AAB
+      # ==========================================
+
+      - name: Rename AAB
+        id: aab
+        shell: bash
+        run: |
+          set -e
+
+          RAW_NAME="${{ inputs.app_name }}"
+
+          SAFE_NAME=$(echo "$RAW_NAME" \
+            | tr ' ' '_' \
+            | tr -cd '[:alnum:]_.-')
+
+          if [ -z "$SAFE_NAME" ]; then
+            SAFE_NAME="app"
+          fi
+
+          TARGET_DIR="native-apps/users/${{ inputs.user_id }}/app/build/outputs/bundle/release"
+
+          AAB_SOURCE="$TARGET_DIR/app-release.aab"
+
+          if [ ! -f "$AAB_SOURCE" ]; then
+            echo "::error::AAB not found at expected path: $AAB_SOURCE"
+            exit 1
+          fi
+
+          # Extension ko aab rakha hai
+          AAB_NAME="${SAFE_NAME}.aab"
+
+          AAB_TARGET="$TARGET_DIR/$AAB_NAME"
+
+          cp "$AAB_SOURCE" "$AAB_TARGET"
+
+          echo "aab_name=$AAB_NAME" >> "$GITHUB_OUTPUT"
+          echo "aab_path=$AAB_TARGET" >> "$GITHUB_OUTPUT"
+
+          echo ""
+          echo "=========================================="
+          echo "AAB RENAMED"
+          echo "=========================================="
+
+          echo "Original Name: $RAW_NAME"
+          echo "Saved As: $AAB_NAME"
+
+          ls -lh "$AAB_TARGET"
+
+
+      # ==========================================
+      # UPLOAD ARTIFACT
+      # ==========================================
+
+      - name: Upload User AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.user_id }}-${{ steps.aab.outputs.aab_name }}
+          path: ${{ steps.aab.outputs.aab_path }}
+          if-no-files-found: error
+
+
+      # ==========================================
+      # DELETE OLD RELEASE (USING apk- TAG)
+      # ==========================================
+
+      - name: Delete Old Release
+        env:
+          GH_TOKEN: ${{ secrets.APK_STORAGE_TOKEN }}
+        shell: bash
+        run: |
+          set -e
+
+          USER_ID="${{ inputs.user_id }}"
+          APP_ID="${{ inputs.app_id }}"
+
+          TAG_NAME="apk-${USER_ID}-${APP_ID}"
+
+          echo "=========================================="
+          echo "CHECKING OLD RELEASE"
+          echo "=========================================="
+
+          echo "User ID: $USER_ID"
+          echo "App ID: $APP_ID"
+          echo "Tag: $TAG_NAME"
+
+          if gh release view "$TAG_NAME" \
+            --repo timetotime798546/apk-storage >/dev/null 2>&1; then
+
+            echo ""
+            echo "Old release found."
+            echo "Deleting old release and tag..."
+
+            gh release delete "$TAG_NAME" \
+              --repo timetotime798546/apk-storage \
+              --yes \
+              --cleanup-tag
+
+            echo "Old release deleted."
+
+          else
+
+            echo ""
+            echo "No old release found."
+            echo "Continuing with new upload."
+
+          fi
+
+
+      # ==========================================
+      # UPLOAD TO STORAGE RELEASE (USING apk- TAG)
+      # ==========================================
+
+      - name: Upload AAB to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          repository: timetotime798546/apk-storage
+          token: ${{ secrets.APK_STORAGE_TOKEN }}
+          tag_name: apk-${{ inputs.user_id }}-${{ inputs.app_id }}
+          name: "${{ inputs.app_name }} (${{ inputs.app_id }})"
+          files: ${{ steps.aab.outputs.aab_path }}
+
+
+      # ==========================================
+      # UPDATE USER apps-info.json
+      # ==========================================
+
+      - name: Update User apps-info.json
+        env:
+          GH_TOKEN: ${{ secrets.APK_STORAGE_TOKEN }}
+        shell: bash
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "UPDATING USER APPS INFO"
+          echo "=========================================="
+
+          USER_ID="${{ inputs.user_id }}"
+          APP_ID="${{ inputs.app_id }}"
+          PROJECT_NAME="${{ inputs.project_name }}"
+          APP_NAME="${{ inputs.app_name }}"
+          PACKAGE_NAME="${{ inputs.package_name }}"
+          AAB_NAME="${{ steps.aab.outputs.aab_name }}"
+
+          STORAGE_REPO="timetotime798546/apk-storage"
+
+          SAFE_USER_ID=$(printf '%s' "$USER_ID" | tr -cd '[:alnum:]!_-')
+          META_FILE="${SAFE_USER_ID}-apps-info.json"
+
+          TAG_NAME="apk-${USER_ID}-${APP_ID}"
+
+          RELEASE_JSON=$(gh api "repos/$STORAGE_REPO/releases/tags/$TAG_NAME")
+
+          if [ -z "$RELEASE_JSON" ]; then
+            echo "::error::Unable to get release information."
+            exit 1
+          fi
+
+          RELEASE_ID=$(echo "$RELEASE_JSON" | jq -r '.id')
+          RELEASE_CREATED_AT=$(echo "$RELEASE_JSON" | jq -r '.created_at // ""')
+          RELEASE_PUBLISHED_AT=$(echo "$RELEASE_JSON" | jq -r '.published_at // ""')
+          
+          if [ -z "$RELEASE_PUBLISHED_AT" ] || [ "$RELEASE_PUBLISHED_AT" = "null" ]; then
+            RELEASE_PUBLISHED_AT="$RELEASE_CREATED_AT"
+          fi
+
+          ASSET_JSON=$(echo "$RELEASE_JSON" | jq --arg AAB_NAME "$AAB_NAME" '.assets[] | select(.name == $AAB_NAME)')
+          ASSET_URL=$(echo "$ASSET_JSON" | jq -r '.url')
+
+          ENCODED_USER_ID=$(printf '%s' "$USER_ID" | jq -sRr @uri)
+          ENCODED_ASSET=$(printf '%s' "$ASSET_URL" | jq -sRr @uri)
+          ENCODED_AAB_NAME=$(printf '%s' "$AAB_NAME" | jq -sRr @uri)
+
+          DOWNLOAD_URL="https://astrethost-apk-storage.cloudappbuild7292.workers.dev/download?user_id=${ENCODED_USER_ID}&asset=${ENCODED_ASSET}&name=${ENCODED_AAB_NAME}&storage_owner=timetotime798546"
+
+          TMP_DIR=$(mktemp -d)
+          OLD_FILE="$TMP_DIR/old.json"
+          NEW_FILE="$TMP_DIR/new.json"
+
+          if gh api "repos/$STORAGE_REPO/contents/$META_FILE" --jq '.content' 2>/dev/null | base64 -d > "$OLD_FILE" 2>/dev/null; then
+            if ! jq empty "$OLD_FILE" >/dev/null 2>&1; then
+              echo "[]" > "$OLD_FILE"
+            fi
+          else
+            echo "[]" > "$OLD_FILE"
+          fi
+
+          NOW=$(date -u +"%Y-%m-%d %H:%M:%S")
+
+          jq \
+            --arg app_id "$APP_ID" \
+            --arg user_id "$USER_ID" \
+            --arg project_name "$PROJECT_NAME" \
+            --arg app_name "$APP_NAME" \
+            --arg package_name "$PACKAGE_NAME" \
+            --arg aab_name "$AAB_NAME" \
+            --arg download_url "$DOWNLOAD_URL" \
+            --arg release_id "$RELEASE_ID" \
+            --arg build_id "${{ github.run_id }}" \
+            --arg build_url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --arg run_number "${{ github.run_number }}" \
+            --arg created_at "$NOW" \
+            --arg release_created_at "$RELEASE_CREATED_AT" \
+            --arg release_published_at "$RELEASE_PUBLISHED_AT" \
+            '
+            map(select(.app_id != $app_id))
+            +
+            [
+              {
+                "app_id": $app_id,
+                "user_id": $user_id,
+                "project_name": $project_name,
+                "app_name": $app_name,
+                "package_name": $package_name,
+                "status": "success",
+                "created_at": $created_at,
+                "build_id": ($build_id | tonumber),
+                "build_url": $build_url,
+                "build_started_at": $created_at,
+                "status_check_count": 0,
+                "last_status_check": 0,
+                "last_status_check_at": "",
+                "run_number": ($run_number | tonumber),
+                "build_created_at": $release_created_at,
+                "build_started_at_github": $release_created_at,
+                "build_updated_at": $release_published_at,
+                "github_status": "completed",
+                "conclusion": "success",
+                "build_completed_at": $created_at,
+                "download_url": $download_url,
+                "release_id": ($release_id | tonumber),
+                "apk_name": $aab_name,
+                "apk_status": "ready",
+                "apk_ready_at": $created_at
+              }
+            ]
+            ' \
+            "$OLD_FILE" \
+            > "$NEW_FILE"
+
+          SHA=$(gh api "repos/$STORAGE_REPO/contents/$META_FILE" --jq '.sha' 2>/dev/null || true)
+          CONTENT=$(base64 -w 0 "$NEW_FILE")
+
+          if [ -n "$SHA" ]; then
+            gh api --method PUT "repos/$STORAGE_REPO/contents/$META_FILE" \
+              -f message="Update $META_FILE for $APP_ID (AAB)" \
+              -f content="$CONTENT" \
+              -f sha="$SHA"
+          else
+            gh api --method PUT "repos/$STORAGE_REPO/contents/$META_FILE" \
+              -f message="Create $META_FILE (AAB)" \
+              -f content="$CONTENT"
+          fi
+
+          rm -rf "$TMP_DIR"
+
+
+      # ==========================================
+      # REMOVE BUILD FILES
+      # ==========================================
+
+      - name: Remove Build Files
+        if: always()
+        shell: bash
+        run: |
+          rm -f gradle-8.5-bin.zip
+          rm -rf gradle-8.5
+
+
+      # ==========================================
+      # DELETE USER PROJECT
+      # ==========================================
+
+      - name: Delete User Project From Repo
+        if: success()
+        shell: bash
+        run: |
+          set -e
+
+          USER_ID="${{ inputs.user_id }}"
+
+          echo "=========================================="
+          echo "DELETING USER PROJECT"
+          echo "=========================================="
+
+          rm -rf "native-apps/users/$USER_ID"
+
+          git config user.name "github-actions"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          git commit -m "Delete user project $USER_ID after AAB build" || echo "No changes to commit"
+          git push origin main
