@@ -2,94 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Define Project Structure",
-      "description": "Establish package directories and configure project metadata files.",
-      "files": ["app-meta.json"],
-      "status": "pending"
-    },
-    {
-      "step": 2,
-      "title": "Create API Schema Rules",
-      "description": "Define data structures and local offline formulas for ERP system in api_schema.json.",
-      "files": ["api_schema.json"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Configure Build Configuration",
-      "description": "Establish target versions, packaging configs, and standard configurations in build.gradle.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Establish Application Manifest",
-      "description": "Setup AndroidManifest.xml containing required permissions, activities and assets mapping.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Implement Premium M3 Drawable Assets",
-      "description": "Create elevated visual styles, dynamic borders, gradients and customized trend vectors.",
-      "files": [
-        "app/src/main/res/drawable/bg_outline_input.xml",
-        "app/src/main/res/drawable/bg_primary_button.xml",
-        "app/src/main/res/drawable/bg_secondary_button.xml",
-        "app/src/main/res/drawable/bg_card_elevated.xml",
-        "app/src/main/res/drawable/bg_bottom_nav.xml",
-        "app/src/main/res/drawable/bg_alert_card.xml",
-        "app/src/main/res/drawable/ic_arrow_up.xml",
-        "app/src/main/res/drawable/ic_arrow_down.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Develop Native Backend API Client",
-      "description": "Write BackendApi.java handling HTTP connections, parsing custom JSON CRUD elements, and session persistence.",
-      "files": ["app/src/main/java/com/omniflow/erp/BackendApi.java"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Create App Launcher Entry",
-      "description": "Develop MainActivity as a splash and routing screen verifying existing authentication tokens.",
-      "files": ["app/src/main/java/com/omniflow/erp/MainActivity.java", "app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Overhaul Secure Console Login Screen",
-      "description": "Rebuild the authorization panel using Material 3 outline fields, pill-shaped high-fidelity buttons and elegant fonts.",
-      "files": ["app/src/main/java/com/omniflow/erp/LoginActivity.java", "app/src/main/res/layout/activity_login.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Overhaul OmniFlow ERP Central Activity UI Layout",
-      "description": "Redesign unified main interface with rounded cards, custom trend line mock graphics, and sleek modern bottom navigation bar.",
-      "files": ["app/src/main/res/layout/activity_erp.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Implement Bottom Navigation Controllers & ERP Flow in Java",
-      "description": "Integrate Bottom Nav bar controls, custom alert highlights and M3 card rendering handlers inside the main ERP Activity.",
-      "files": ["app/src/main/java/com/omniflow/erp/ERPActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Validate Package Context",
-      "description": "Verify package context declarations and asset reference rules.",
+      "title": "Analyze Build Output",
+      "description": "Examine the Gradle compile log to find the root cause of the build failure.",
       "files": [],
       "status": "pending"
     },
     {
-      "step": 12,
+      "step": 2,
+      "title": "Locate Duplicated Layout Elements",
+      "description": "Trace the duplicate id 'etPosDiscount' in activity_erp.xml.",
+      "files": ["app/src/main/res/layout/activity_erp.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Remove Redundant Discount EditText",
+      "description": "Edit activity_erp.xml to remove the duplicate etPosDiscount EditText layout node to resolve compiler ambiguity.",
+      "files": ["app/src/main/res/layout/activity_erp.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Adjust Horizontal Layout Margins",
+      "description": "Align the remaining Discount and Tax Rate inputs in the horizontal layout block.",
+      "files": ["app/src/main/res/layout/activity_erp.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Validate Resource ID References",
+      "description": "Ensure no other duplicate elements or missing ID definitions exist in resources.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Review Java View Inflation",
+      "description": "Verify ERPActivity.java safely binds etPosDiscount and etPosTaxRate without runtime inflation clashes.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Check App Assets Manifest",
+      "description": "Ensure the updated app-meta.json matches ERP package credentials.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Run Lint Verification",
+      "description": "Pre-validate the static resource structure locally before initiating full compilation.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Prepare Assembly Pipeline",
+      "description": "Initialize the final Gradle compilation process and clean previous residual builds.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 10,
       "title": "Building OmniFlow Business ERP",
-      "description": "Compile raw native Android sources using gradle assembleDebug.",
+      "description": "Execute gradle assembleDebug to finalize the build pipeline.",
       "files": [],
       "status": "pending"
     }
