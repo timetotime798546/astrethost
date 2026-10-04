@@ -193,4 +193,12 @@ public class InventoryActivity extends Activity {
 
         layoutInventoryList.addView(row);
     }
+
+    private float spToFloat() {
+        return 14.0f;
+    }
+
+    private float spToFloat(float val) {
+        return val;
+    }
 }

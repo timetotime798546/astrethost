@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: OmniFlow Business ERP
 App ID: app_6ac2806687277
-Build ID: 37217939672
-Time: 2026-10-04 12:46:30
+Build ID: 37218384592
+Time: 2026-10-04 12:53:50
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 176638
+Original log characters: 170256
 Extracted error characters: 30042
-File references detected: 302
+File references detected: 244
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2086) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2108) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/2fdaf9a1-ff3c-4383-b232-9e71c28a9b25
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/1c0a6434-727b-4c9d-a5d4-177ad20b9b0d
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -233,13 +233,19 @@ Recommendation: remove package="com.omniflowbusinesserp.app" from the source And
 > Task :app:processReleaseManifestForPackage
 > Task :app:mergeReleaseJniLibFolders
 > Task :app:mergeReleaseNativeLibs NO-SOURCE
+> Task :app:stripReleaseDebugSymbols NO-SOURCE
+> Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :app:checkReleaseDuplicateClasses
 > Task :app:processReleaseResources
+> Task :app:desugarReleaseFileDependencies
 
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/omniflowbusinesserp.app/InventoryActivity.java:152: error: ')' expected
 > Task :app:compileReleaseJavaWithJavac FAILED
 tvTitle.setTextSize(14spToFloat());
 ^
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/omniflowbusinesserp.app/InventoryActivity.java:152: error: ';' expected
+19 actionable tasks: 19 executed
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/omniflowbusinesserp.app/InventoryActivity.java:158: error: ')' expected
 tvDetails.setTextSize(12spToFloat());
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/omniflowbusinesserp.app/InventoryActivity.java:158: error: ';' expected
@@ -279,7 +285,6 @@ at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOn
 at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
 at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
 at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
-17 actionable tasks: 17 executed
 at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
@@ -299,24 +304,21 @@ at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareE
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
-at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:116)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
-at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
-at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
-at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
-at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
-at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
-at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
-at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
-at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
-at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
-at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:264)
-at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:128)
-at org.gradle.composite.internal.DefaultBuildControl
+at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler error output for details.
+at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:57)
+at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:39)
+at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
+at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:52)
+at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:38)
+at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:51)
+at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:37)
+at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:46)
+at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:36)
+at org.gradle.jvm.toolchain.internal.DefaultToolchainJavaCompiler.execute(DefaultToolchainJavaCompiler.java:57)
+at org.gradle.api.tasks.compile.JavaCompile.lambda$createToolchainCompiler$3(JavaCompile.java:202)
+at org.gradle.api.internal.tasks.compile.CleaningJavaCompiler.execute(CleaningJava
 
 ================ EXTRACTED LOG CONTINUED ================
 
@@ -399,7 +401,7 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 22s
+BUILD FAILED in 26s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
