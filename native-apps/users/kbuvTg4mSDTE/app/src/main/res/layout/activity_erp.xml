@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#121212">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#1E1E1E"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OmniFlow ERP Console"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvUserSession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Session: guest@omniflow"
+                android:textColor="#03A9F4"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSignOut"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="EXIT"
+            android:background="#D32F2F"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#121212"
+        android:padding="4dp">
+
+        <Button
+            android:id="@+id/tabDashboard"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="42dp"
+            android:text="DASHBOARD"
+            android:textSize="9sp"
+            android:textColor="#FFFFFF"
+            android:background="#03A9F4"
+            android:layout_margin="2dp" />
+
+        <Button
+            android:id="@+id/tabInventory"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="42dp"
+            android:text="INVENTORY"
+            android:textSize="9sp"
+            android:textColor="#FFFFFF"
+            android:background="#424242"
+            android:layout_margin="2dp" />
+
+        <Button
+            android:id="@+id/tabPOS"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="42dp"
+            android:text="POS BILLING"
+            android:textSize="9sp"
+            android:textColor="#FFFFFF"
+            android:background="#424242"
+            android:layout_margin="2dp" />
+
+        <Button
+            android:id="@+id/tabExpenses"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="42dp"
+            android:text="EXPENSES"
+            android:textSize="9sp"
+            android:textColor="#FFFFFF"
+            android:background="#424242"
+            android:layout_margin="2dp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:id="@+id/panelDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Financial Position (Calculated)"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#2E7D32"
+                        android:padding="12dp"
+                        android:layout_marginEnd="6dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TOTAL REVENUE"
+                            android:textColor="#E8F5E9"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalRevenue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$0.00"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#C62828"
+                        android:padding="12dp"
+                        android:layout_marginStart="6dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TOTAL EXPENSES"
+                            android:textColor="#FFEBEE"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalExpenses"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$0.00"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#1E1E1E"
+                    android:padding="16dp"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NET OPERATING FLOW"
+                        android:textColor="#B0BEC5"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvNetOperatingFlow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$0.00"
+                        android:textColor="#4CAF50"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Warehouse Supply Alerts"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvWarehouseAlerts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3E2723"
+                    android:textColor="#FFCCBC"
+                    android:padding="12dp"
+                    android:text="All warehouse levels stable."
+                    android:textSize="12sp"
+                    android:layout_marginBottom="24dp" />
+
+                <Button
+                    android:id="@+id/btnRefreshDashboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="SYNC ALL CLOUD DATA"
+                    android:textColor="#000000"
+                    android:background="#FFEB3B"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/panelInventory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Warehouse Stock Manager"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#1E1E1E"
+                    android:padding="16dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="REGISTER NEW STOCK ITEM"
+                        android:textColor="#03A9F4"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <EditText
+                        android:id="@+id/etInvName"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:hint="Item Name"
+                        android:textColorHint="#666666"
+                        android:background="#2E2E2E"
+                        android:textColor="#FFFFFF"
+                        android:padding="10dp"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <EditText
+                        android:id="@+id/etInvSku"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:hint="SKU / Barcode Index"
+                        android:textColorHint="#666666"
+                        android:background="#2E2E2E"
+                        android:textColor="#FFFFFF"
+                        android:padding="10dp"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <EditText
+                        android:id="@+id/etInvWarehouse"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:hint="Warehouse Location (e.g. North-A)"
+                        android:textColorHint="#666666"
+                        android:background="#2E2E2E"
+                        android:textColor="#FFFFFF"
+                        android:padding="10dp"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <EditText
+                            android:id="@+id/etInvStock"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="44dp"
+                            android:hint="Stock Units"
+                            android:textColorHint="#666666"
+                            android:background="#2E2E2E"
+                            android:textColor="#FFFFFF"
+                            android:padding="10dp"
+                            android:inputType="number"
+                            android:textSize="13sp"
+                            android:layout_marginEnd="4dp" />
+
+                        <EditText
+                            android:id="@+id/etInvReorder"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="44dp"
+                            android:hint="Reorder Level"
+                            android:textColorHint="#666666"
+                            android:background="#2E2E2E"
+                            android:textColor="#FFFFFF"
+                            android:padding="10dp"
+                            android:inputType="number"
+                            android:textSize="13sp"
+                            android:layout_marginStart="4dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+
+                        <EditText
+                            android:id="@+id/etInvWholesale"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="44dp"
+                            android:hint="Wholesale ($)"
+                            android:textColorHint="#666666"
+                            android:background="#2E2E2E"
+                            android:textColor="#FFFFFF"
+                            android:padding="10dp"
+                            android:inputType="numberDecimal"
+                            android:textSize="13sp"
+                            android:layout_marginEnd="4dp" />
+
+                        <EditText
+                            android:id="@+id/etInvRetail"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="44dp"
+                            android:hint="Retail ($)"
+                            android:textColorHint="#666666"
+                            android:background="#2E2E2E"
+                            android:textColor="#FFFFFF"
+                            android:padding="10dp"
+                            android:inputType="numberDecimal"
+                            android:textSize="13sp"
+                            android:layout_marginStart="4dp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnSaveInventory"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:text="SAVE TO WAREHOUSE DATA"
+                        android:background="#4CAF50"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stock Catalog Records"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:id="@+id/listInventoryContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/panelPOS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Interactive POS Terminal"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#1E1E1E"
+                    android:padding="16dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CUSTOMER KHATA / DETAILS"
+                        android:textColor="#03A9F4"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <EditText
+                        android:id="@+id/etPosCustomer"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:hint="Customer Name"
+                        android:textColorHint="#666666"
+                        android:background="#2E2E2E"
+                        android:textColor="#FFFFFF"
+                        android:padding="10dp"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SELECT ITEM TO CART"
+                        android:textColor="#03A9F4"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerPosItems"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:background="#2E2E2E"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+
+                        <EditText
+                            android:id="@+id/etPosQty"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="44dp"
+                            android:hint="Qty"
+                            android:textColorHint="#666666"
+                            android:background="#2E2E2E"
+                            android:textColor="#FFFFFF"
+                            android:padding="10dp"
+                            android:inputType="number"
+                            android:textSize="13sp"
+                            android:layout_marginEnd="6dp" />
+
+                        <Button
+                            android:id="@+id/btnPosAddToCart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="44dp"
+                            android:text="ADD"
+                            android:background="#03A9F4"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CURRENT INVOICE CART"
+                        android:textColor="#03A9F4"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:id="@+id/tvPosCartContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#2E2E2E"
+                        android:textColor="#FFFFFF"
+                        android:padding="8dp"
+                        android:text="Cart empty. Add items to calculate invoice values."
+                        android:textSize="12sp"
+                        android:layout_marginBottom="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <EditText
+                            android:id="@+id/etPosDiscount"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="44dp"
+                            android:hint="Discount ($)"
+                            android:textColorHint="#666666"
+                            android:background="#2E2E2E"
+                            android:textColor="#FFFFFF"
+                            android:padding="10dp"
+                            android:inputType="numberDecimal"
+                            android:textSize="13sp"
+                            android:layout_marginEnd="4dp" />
+
+                        <EditText
+                            android:id="@+id/etPosTaxRate"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="44dp"
+                            android:hint="Tax Rate (e.g. 0.15)"
+                            android:textColorHint="#666666"
+                            android:background="#2E2E2E"
+                            android:textColor="#FFFFFF"
+                            android:padding="10dp"
+                            android:inputType="numberDecimal"
+                            android:textSize="13sp"
+                            android:layout_marginStart="4dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#121212"
+                        android:padding="12dp"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/tvPosSubtotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Subtotal: $0.00"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvPosTaxCalculated"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Calculated Tax: $0.00"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvPosTotalAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Net Invoice Total: $0.00"
+                            android:textColor="#4CAF50"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnSubmitInvoice"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:text="FINALIZE INVOICE &amp; RECORD"
+                        android:background="#4CAF50"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recent Finalized Invoices"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:id="@+id/listTransactionsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/panelExpenses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Operational Expense Tracker"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#1E1E1E"
+                    android:padding="16dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CREATE VOUCHER SUBMISSION"
+                        android:textColor="#F44336"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <EditText
+                        android:id="@+id/etExpTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:hint="Expense Title / Description"
+                        android:textColorHint="#666666"
+                        android:background="#2E2E2E"
+                        android:textColor="#FFFFFF"
+                        android:padding="10dp"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <EditText
+                        android:id="@+id/etExpCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:hint="Category (e.g. Travel, Logistics)"
+                        android:textColorHint="#666666"
+                        android:background="#2E2E2E"
+                        android:textColor="#FFFFFF"
+                        android:padding="10dp"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <EditText
+                        android:id="@+id/etExpAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:hint="Voucher Amount ($)"
+                        android:textColorHint="#666666"
+                        android:background="#2E2E2E"
+                        android:textColor="#FFFFFF"
+                        android:padding="10dp"
+                        android:inputType="numberDecimal"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="12dp" />
+
+                    <Button
+                        android:id="@+id/btnSaveExpense"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:text="SUBMIT EXPENSE VOUCHER"
+                        android:background="#F44336"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Corporate Expense Ledger"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:id="@+id/listExpensesContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+</LinearLayout>

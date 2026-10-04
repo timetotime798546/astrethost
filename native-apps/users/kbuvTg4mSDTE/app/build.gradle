@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.omniflowbusinesserp.app"
+    namespace "com.omniflow.erp"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.omniflowbusinesserp.app"
+        applicationId "com.omniflow.erp"
 
         minSdkVersion 21
 

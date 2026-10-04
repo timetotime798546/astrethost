@@ -7,41 +7,49 @@
   "collections": {
     "inventory": {
       "fields": {
-        "name": "string",
+        "item_name": "string",
         "sku": "string",
         "warehouse": "string",
-        "quantity": "number",
-        "price": "number"
+        "stock": "number",
+        "reorder_level": "number",
+        "wholesale_price": "number",
+        "retail_price": "number"
       },
       "operations": ["create", "read", "update", "delete"]
     },
-    "sales": {
+    "transactions": {
       "fields": {
-        "invoice_no": "string",
-        "items_summary": "string",
+        "customer_name": "string",
+        "items": "string",
         "subtotal": "number",
         "discount": "number",
         "tax": "number",
         "total": "number",
-        "customer": "string"
+        "payment_status": "string"
       },
-      "operations": ["create", "read"]
+      "operations": ["create", "read", "update", "delete"]
     },
     "expenses": {
       "fields": {
+        "title": "string",
         "category": "string",
         "amount": "number",
-        "description": "string",
+        "date": "string",
         "status": "string"
       },
       "operations": ["create", "read", "update", "delete"]
     }
   },
   "logic": {
-    "invoice_calculation": {
+    "invoice_total_calc": {
       "type": "calculation",
       "inputs": ["subtotal", "discount", "tax_rate"],
-      "formula": "((subtotal - discount) * (1 + tax_rate))"
+      "formula": "(subtotal - discount) * (1 + tax_rate)"
+    },
+    "net_cash_flow": {
+      "type": "calculation",
+      "inputs": ["total_revenue", "total_expenses"],
+      "formula": "total_revenue - total_expenses"
     }
   }
 }
