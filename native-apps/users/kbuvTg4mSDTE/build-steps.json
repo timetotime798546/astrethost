@@ -41,7 +41,7 @@
     {
       "step": 6,
       "title": "Develop User Interface Structure",
-      "description": "Wrote activity_main layout incorporating dashboard widgets and list displays.",
+      "description": "Wrote activity_main layout incorporating dashboard widgets and list displays with correct layout attributes.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
@@ -62,7 +62,7 @@
     {
       "step": 9,
       "title": "Program Dynamic Calculations",
-      "description": "Developed local calculation classes inside MainActivity for patient stats analysis.",
+      "description": "Developed local calculation classes inside MainActivity for patient stats analysis and resolved imports.",
       "files": ["app/src/main/java/com/hospitalpatientstracker/app/MainActivity.java"],
       "status": "pending"
     },

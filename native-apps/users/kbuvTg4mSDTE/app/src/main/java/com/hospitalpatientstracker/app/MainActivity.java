@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -745,14 +746,14 @@ public class MainActivity extends Activity {
             
             TextView txtName = new TextView(MainActivity.this);
             txtName.setText(p.name);
-            txtName.setTextSize(16spToPx());
+            txtName.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 16);
             txtName.setTextColor(Color.parseColor("#004D40"));
             txtName.setTypeface(null, android.graphics.Typeface.BOLD);
             titleLay.addView(txtName);
 
             TextView txtSubInfo = new TextView(MainActivity.this);
             txtSubInfo.setText(" (" + p.gender + ", Age: " + p.age + ")");
-            txtSubInfo.setTextSize(14spToPx());
+            txtSubInfo.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 14);
             txtSubInfo.setTextColor(Color.parseColor("#757575"));
             titleLay.addView(txtSubInfo);
 
@@ -763,19 +764,19 @@ public class MainActivity extends Activity {
             txtIllness.setText("Diagnosis: " + p.illness);
             txtIllness.setPadding(0, 4, 0, 2);
             txtIllness.setTextColor(Color.parseColor("#37474F"));
-            txtIllness.setTextSize(14spToPx());
+            txtIllness.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 14);
             mainLay.addView(txtIllness);
 
             TextView txtRoomAndDate = new TextView(MainActivity.this);
             txtRoomAndDate.setText("Loc: " + p.roomNumber + " | Admitted: " + p.admissionDate);
             txtRoomAndDate.setTextColor(Color.parseColor("#546E7A"));
-            txtRoomAndDate.setTextSize(13spToPx());
+            txtRoomAndDate.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 13);
             mainLay.addView(txtRoomAndDate);
 
             // Status Indicator tag
             TextView txtStatus = new TextView(MainActivity.this);
             txtStatus.setText(p.status.toUpperCase());
-            txtStatus.setTextSize(11spToPx());
+            txtStatus.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 11);
             txtStatus.setPadding(10, 4, 10, 4);
             txtStatus.setTypeface(null, android.graphics.Typeface.BOLD);
             txtStatus.setTextColor(Color.WHITE);
@@ -799,7 +800,7 @@ public class MainActivity extends Activity {
 
             Button editBtn = new Button(MainActivity.this);
             editBtn.setText("EDIT");
-            editBtn.setTextSize(11spToPx());
+            editBtn.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 11);
             editBtn.setTextColor(Color.parseColor("#006064"));
             editBtn.setBackgroundColor(Color.TRANSPARENT);
             editBtn.setOnClickListener(new View.OnClickListener() {
@@ -812,7 +813,7 @@ public class MainActivity extends Activity {
 
             Button delBtn = new Button(MainActivity.this);
             delBtn.setText("DISMISS");
-            delBtn.setTextSize(11spToPx());
+            delBtn.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 11);
             delBtn.setTextColor(Color.parseColor("#C62828"));
             delBtn.setBackgroundColor(Color.TRANSPARENT);
             delBtn.setOnClickListener(new View.OnClickListener() {
@@ -826,18 +827,5 @@ public class MainActivity extends Activity {
             mainLay.addView(actionsLay);
             return mainLay;
         }
-
-        private float spToPx() {
-            return 14.0f; // Scale helper logic representation
-        }
-
-        private float spToPx(int size) {
-            return (float) size;
-        }
-
-        private float 16spToPx() { return 16.0f; }
-        private float 14spToPx() { return 14.0f; }
-        private float 13spToPx() { return 13.0f; }
-        private float 11spToPx() { return 11.0f; }
     }
 }
