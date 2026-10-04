@@ -144,6 +144,10 @@ public class BackendApi {
         }
     }
 
+    public void logout(ApiCallback callback) {
+        executeRequest("POST", "/logout", null, callback);
+    }
+
     public void requestOtp(String email, ApiCallback callback) {
         try {
             JSONObject body = new JSONObject();
