@@ -2,71 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Parse and diagnose layout compile errors",
-      "description": "Analyze AAPT linking errors related to layout_centerY attributes across several activity resources.",
+      "title": "Parse and diagnose compiler syntax errors",
+      "description": "Examine the build log to locate Java compiler errors in InventoryActivity.java.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Correct RelativeLayout centering attributes in Billing Layout",
-      "description": "Replace non-existent layout_centerY attribute with valid layout_centerVertical in activity_billing.xml.",
-      "files": ["app/src/main/res/layout/activity_billing.xml"],
+      "title": "Identify invalid Java method signatures",
+      "description": "Locate methods in InventoryActivity.java starting with digit literals, which violates the Java Language Specification.",
+      "files": ["app/src/main/java/com/omniflowbusinesserp/app/InventoryActivity.java"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Correct RelativeLayout centering attributes in Expense Layout",
-      "description": "Replace non-existent layout_centerY attribute with valid layout_centerVertical in activity_expense.xml.",
-      "files": ["app/src/main/res/layout/activity_expense.xml"],
+      "title": "Refactor density unit conversion helpers",
+      "description": "Remove non-compilable methods like 14spToFloat, 12spToFloat, and 10spToFloat.",
+      "files": ["app/src/main/java/com/omniflowbusinesserp/app/InventoryActivity.java"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Correct RelativeLayout centering attributes in Inventory Layout",
-      "description": "Replace non-existent layout_centerY attribute with valid layout_centerVertical in activity_inventory.xml.",
-      "files": ["app/src/main/res/layout/activity_inventory.xml"],
+      "title": "Configure standard text sizing",
+      "description": "Modify TextView's setTextSize calls to use standard float sizing values natively supported by the SDK.",
+      "files": ["app/src/main/java/com/omniflowbusinesserp/app/InventoryActivity.java"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Correct RelativeLayout centering attributes in Dashboard Main Layout",
-      "description": "Replace non-existent layout_centerY attribute with valid layout_centerVertical in activity_main.xml.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Clean up redundant helper methods",
+      "description": "Prune unused conversion templates to avoid any unused method warnings or duplicate overrides.",
+      "files": ["app/src/main/java/com/omniflowbusinesserp/app/InventoryActivity.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Diagnose Java compilation issue regarding invalid digit-prefixed method names",
-      "description": "Analyze InventoryActivity.java to discover invalid method names such as 14spToFloat, which cannot be compiled by Java compilers.",
+      "title": "Verify package structure paths",
+      "description": "Ensure the folder nesting matches the exact package name namespace: com.omniflowbusinesserp.app.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Refactor custom density helper methods to standard TextView values in Inventory Controller",
-      "description": "Clean up syntax in InventoryActivity.java by replacing numerical-prefixed functions with direct float values for TextView's native SP text size sizing.",
-      "files": ["app/src/main/java/com/omniflowbusinesserp/app/InventoryActivity.java"],
+      "title": "Perform static code validation",
+      "description": "Double check imports, interfaces, callbacks, and parent activities in the source files.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Perform offline validation of layout XML rules",
-      "description": "Ensure AAPT requirements and layout formats strictly adhere to proper Android SDK specifications.",
+      "title": "Review RelativeLayout centering configurations",
+      "description": "Make sure correct layout layout_centerVertical properties are used everywhere.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Verify Java source syntax and layout referencing",
-      "description": "Confirm compile-time compatibility with standard Java 8 and Android SDK layout properties.",
+      "title": "Validate offline mathematical calculations",
+      "description": "Confirm the local dynamic calculations for billing and analytics totals remain sound and precise.",
       "files": [],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building OmniFlow Business ERP",
-      "description": "Compile the complete enterprise ERP Android Application stack using corrected resources and Java syntax.",
+      "description": "Execute gradle assembleDebug to build the application with corrected syntax and layout structures.",
       "files": [],
       "status": "pending"
     }
