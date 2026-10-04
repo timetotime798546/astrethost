@@ -379,7 +379,6 @@ jobs:
             exit 1
           fi
 
-          # Extension ko aab rakha hai
           AAB_NAME="${SAFE_NAME}.aab"
 
           AAB_TARGET="$TARGET_DIR/$AAB_NAME"
