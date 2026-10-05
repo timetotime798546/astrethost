@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Application Metadata",
+      "description": "Create the app-meta.json containing the dynamic app name 'Neon Sphere Run' and unique package path com.neonsphererun.app.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Backend API Schema",
+      "description": "Configure the api_schema.json to declare that no online backend database is needed for this pure high-performance arcade action runner.",
+      "files": [
+        "api_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Build Script",
+      "description": "Set up build.gradle with SDK compile version 34, target 34, min SDK 21, and configuration for standard Java 8 features.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Establish Android Manifest",
+      "description": "Configure AndroidManifest.xml to request high-performance graphics, set application icons, and lock orientation to portrait mode for easy single-thumb gameplay.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Configure Application Color Resources",
+      "description": "Create colors.xml containing neon-themed values including Cyber Pink, Radiant Cyan, Toxic Green, and Deep Dark Void background colors.",
+      "files": [
+        "app/src/main/res/values/colors.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create User Interface Overlay XML",
+      "description": "Implement activity_main.xml to set up the HUD displaying distance, speed multiplier, a futuristic main menu screen, and an interactive game-over statistics panel.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop Retro Sound-Effects Synthesizer",
+      "description": "Implement SoundSynth.java using native Android AudioTrack to generate custom retro-synth soundwaves on-the-fly for jumps, speed-ups, and dramatic crash explosions.",
+      "files": [
+        "app/src/main/java/com/neonsphererun/app/SoundSynth.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build Main Activity",
+      "description": "Implement MainActivity.java to bind the layout controls, coordinate UI visibility states, play contextual synth sound-effects, and persist high scores via SharedPreferences.",
+      "files": [
+        "app/src/main/java/com/neonsphererun/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop 3D Rendering Engine",
+      "description": "Create GameView.java and build the math-based perspective projection engine that draws 3D roads, moving gridlines, obstacles, and rolling sphere meshes onto a 2D canvas.",
+      "files": [
+        "app/src/main/java/com/neonsphererun/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Neon Sphere Run",
+      "description": "Run the Android build chain to compile, assemble the debug APK, and generate the final playable native arcade game package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
