@@ -1,0 +1,95 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure project metadata",
+      "description": "Initialize app metadata and package name structures",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Declare offline backend rules",
+      "description": "Set up empty backend rules in api_schema.json to define pure client-side calculator actions",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Build Gradle configuration",
+      "description": "Configure compilation settings, sdk versions, and dependencies in build.gradle",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Set up Android Manifest",
+      "description": "Declare custom application attributes, package mappings, launcher activities, and theme options",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define beautiful color palette",
+      "description": "Create premium visual styles using modern gray scale, matte black, and vivid accents",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Apply App Theme configuration",
+      "description": "Configure standard platform styles mapping to built-in Material theme attributes",
+      "files": ["app/src/main/res/values/styles.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design numerical buttons background style",
+      "description": "Create selector drawable for standard gray numbers with click state animations",
+      "files": ["app/src/main/res/drawable/btn_number_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design operator buttons background style",
+      "description": "Create selector drawable for system orange arithmetic actions with press feedback state",
+      "files": ["app/src/main/res/drawable/btn_operator_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design special buttons background style",
+      "description": "Create selector drawable for functional controls with smooth slate overlays",
+      "files": ["app/src/main/res/drawable/btn_special_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Build main calculator layout xml",
+      "description": "Create a fully functional modern multi-row calculator grid using native layouts",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Expression Parser Engine",
+      "description": "Create robust Java 7-8 mathematical parser supporting arithmetic operations and priority rules",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Configure activity input controllers",
+      "description": "Define click listeners, character buffers, running previews, and input controls in MainActivity",
+      "files": ["app/src/main/java/com/moderncalculator/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Modern Calculator",
+      "description": "Compile the complete codebase locally, verify layout constraints, code architecture, and produce debug APK",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
