@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze compilation and runtime crashes",
+      "description": "Identify missing GLSurfaceView OpenGL ES initialization configuration causing immediate crash on launch, and ensure proper context version selection.",
+      "files": [
+        "app/src/main/java/com/generatedappname/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure OpenGL ES 2.0 context",
+      "description": "Add setEGLContextClientVersion(2) to MainActivity to prevent initialization and runtime crashes from GLES 1.x defaults.",
+      "files": [
+        "app/src/main/java/com/generatedappname/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Refactor GL Renderer to client-side NIO buffers",
+      "description": "Refactor buffer generation using direct float/short buffers to prevent platform-specific driver bugs and VBO binding crashes.",
+      "files": [
+        "app/src/main/java/com/generatedappname/app/GLCubeRenderer.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Enable Depth Buffer and Face Ordering",
+      "description": "Ensure GLES20.GL_DEPTH_TEST is enabled during surface setup and cleared inside the render loop for reliable 3D rendering.",
+      "files": [
+        "app/src/main/java/com/generatedappname/app/GLCubeRenderer.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Align and map vertex attributes dynamically",
+      "description": "Enable and bind vertex attributes dynamically based on program locations to ensure broad compatibility across multiple GPUs.",
+      "files": [
+        "app/src/main/java/com/generatedappname/app/GLCubeRenderer.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Synchronize vertex colors to vertex indices",
+      "description": "Ensure color mapping size matches exactly with 8 coordinate vertices to prevent index-out-of-bounds rendering crashes.",
+      "files": [
+        "app/src/main/java/com/generatedappname/app/GLCubeRenderer.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Verify Java compatibility rules",
+      "description": "Ensure no lambdas, streams, or post-Java 8 features are present in the rendering source code.",
+      "files": [
+        "app/src/main/java/com/generatedappname/app/GLCubeRenderer.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify local layout parameters and lifecycle integration",
+      "description": "Confirm onResume and onPause are correctly forwarding state commands to prevent OpenGL state leaks.",
+      "files": [
+        "app/src/main/java/com/generatedappname/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Sanity check manifest elements",
+      "description": "Verify application attributes, theme config, and permissions conform to correct structure.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building 3D Cube Runner",
+      "description": "Trigger final compilation to produce a crash-free, high-performance 3D Cube application.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
