@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Verify metadata configurations",
+      "description": "Verify consistency of app name, package namespace, and build descriptors across all configuration files.",
+      "files": ["app-meta.json", "app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Validate compiler resource bindings",
+      "description": "Ensure layout XML files and localized strings have perfect compatibility and match Java classes.",
+      "files": ["app/src/main/res/values/strings.xml", "app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Optimize Top-Level build configuration",
+      "description": "Verify project Gradle dependencies and tool versions are set correctly according to required rules.",
+      "files": ["build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Remove redundant third-party gradle dependencies",
+      "description": "Clean up the app's build.gradle dependencies block to eliminate unnecessary external third-party packages.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Ensure SDK compatibility rules for target level 34",
+      "description": "Validate manifest parameters and packaging options for secure execution on Android target level 34.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Check layout structures for optimal responsiveness",
+      "description": "Ensure dialog margins, list item elements, and orientation rules render smoothly.",
+      "files": ["app/src/main/res/layout/product_list_item.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Optimize offline inventory calculations in product adapter",
+      "description": "Implement safe arithmetic computations natively inside Java to recalculate rows, totals, and valuations dynamically.",
+      "files": ["app/src/main/java/com/shopinventorysync/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify authentication flows & background worker safety",
+      "description": "Optimize UI threads to avoid UI-blocking operations on login, signup, and reset requests.",
+      "files": ["app/src/main/java/com/shopinventorysync/app/BackendApi.java", "app/src/main/java/com/shopinventorysync/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Confirm app meta properties match package details",
+      "description": "Check that application assets mirror the final configured package name perfectly.",
+      "files": ["app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Shop Inventory Sync",
+      "description": "Invoke the compiler tasks and construct the final clean debug package of the application.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
