@@ -1,33 +1,33 @@
 [
   {
     "step": 1,
-    "action": "create_project",
-    "description": "Initialize Android project structure"
+    "action": "create_project_structure",
+    "description": "Initialize Android project with Gradle 8.5 and AGP 8.3.2"
   },
   {
     "step": 2,
-    "action": "configure_gradle",
-    "description": "Set up Gradle build files with AGP 8.3.2 and JDK 17"
+    "action": "configure_build_files",
+    "description": "Set up root and app build.gradle with compileSdk 34, minSdk 21"
   },
   {
     "step": 3,
     "action": "create_manifest",
-    "description": "Create AndroidManifest.xml with launcher activity"
+    "description": "Create AndroidManifest.xml with launcher activity and exported=true"
   },
   {
     "step": 4,
-    "action": "create_layouts",
-    "description": "Create modern UI layouts for calculator"
+    "action": "generate_resources",
+    "description": "Create XML layouts, colors, and drawables for modern calculator UI"
   },
   {
     "step": 5,
-    "action": "create_java",
-    "description": "Implement calculator logic in Java"
+    "action": "implement_java_logic",
+    "description": "Write MainActivity.java with calculator logic and UI interactions"
   },
   {
     "step": 6,
     "action": "build_apk",
-    "description": "Build the Android APK"
+    "description": "Compile and build the Android APK"
   }
 ]
 

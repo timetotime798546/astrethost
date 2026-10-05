@@ -8,9 +8,9 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    private TextView tvExpression;
-    private TextView tvResult;
-
+    private TextView tvDisplay;
+    private TextView tvHistory;
+    
     private String currentInput = "0";
     private String previousInput = "";
     private String operator = "";
@@ -22,10 +22,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvExpression = findViewById(R.id.tvExpression);
-        tvResult = findViewById(R.id.tvResult);
+        tvDisplay = findViewById(R.id.tvDisplay);
+        tvHistory = findViewById(R.id.tvHistory);
 
-        // Number buttons
+        // Number Buttons
         Button btn0 = findViewById(R.id.btn0);
         Button btn1 = findViewById(R.id.btn1);
         Button btn2 = findViewById(R.id.btn2);
@@ -36,21 +36,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Button btn7 = findViewById(R.id.btn7);
         Button btn8 = findViewById(R.id.btn8);
         Button btn9 = findViewById(R.id.btn9);
+        Button btnDecimal = findViewById(R.id.btnDecimal);
 
-        // Operator buttons
+        // Operator Buttons
         Button btnAdd = findViewById(R.id.btnAdd);
         Button btnSubtract = findViewById(R.id.btnSubtract);
         Button btnMultiply = findViewById(R.id.btnMultiply);
         Button btnDivide = findViewById(R.id.btnDivide);
         Button btnPercent = findViewById(R.id.btnPercent);
 
-        // Function buttons
+        // Function Buttons
         Button btnClear = findViewById(R.id.btnClear);
-        Button btnBackspace = findViewById(R.id.btnBackspace);
-        Button btnDecimal = findViewById(R.id.btnDecimal);
+        Button btnDelete = findViewById(R.id.btnDelete);
         Button btnEquals = findViewById(R.id.btnEquals);
 
-        // Set click listeners
+        // Set Click Listeners
         btn0.setOnClickListener(this);
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
@@ -61,16 +61,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btn7.setOnClickListener(this);
         btn8.setOnClickListener(this);
         btn9.setOnClickListener(this);
-
+        btnDecimal.setOnClickListener(this);
         btnAdd.setOnClickListener(this);
         btnSubtract.setOnClickListener(this);
         btnMultiply.setOnClickListener(this);
         btnDivide.setOnClickListener(this);
         btnPercent.setOnClickListener(this);
-
         btnClear.setOnClickListener(this);
-        btnBackspace.setOnClickListener(this);
-        btnDecimal.setOnClickListener(this);
+        btnDelete.setOnClickListener(this);
         btnEquals.setOnClickListener(this);
     }
 
@@ -83,47 +81,47 @@ public class MainActivity extends Activity implements View.OnClickListener {
         int id = v.getId();
 
         if (id == R.id.btn0) {
-            handleNumber("0");
+            inputNumber("0");
         } else if (id == R.id.btn1) {
-            handleNumber("1");
+            inputNumber("1");
         } else if (id == R.id.btn2) {
-            handleNumber("2");
+            inputNumber("2");
         } else if (id == R.id.btn3) {
-            handleNumber("3");
+            inputNumber("3");
         } else if (id == R.id.btn4) {
-            handleNumber("4");
+            inputNumber("4");
         } else if (id == R.id.btn5) {
-            handleNumber("5");
+            inputNumber("5");
         } else if (id == R.id.btn6) {
-            handleNumber("6");
+            inputNumber("6");
         } else if (id == R.id.btn7) {
-            handleNumber("7");
+            inputNumber("7");
         } else if (id == R.id.btn8) {
-            handleNumber("8");
+            inputNumber("8");
         } else if (id == R.id.btn9) {
-            handleNumber("9");
+            inputNumber("9");
         } else if (id == R.id.btnDecimal) {
-            handleDecimal();
+            inputDecimal();
         } else if (id == R.id.btnAdd) {
-            handleOperator("+");
+            setOperator("+");
         } else if (id == R.id.btnSubtract) {
-            handleOperator("-");
+            setOperator("-");
         } else if (id == R.id.btnMultiply) {
-            handleOperator("*");
+            setOperator("×");
         } else if (id == R.id.btnDivide) {
-            handleOperator("/");
+            setOperator("÷");
         } else if (id == R.id.btnPercent) {
-            handlePercent();
-        } else if (id == R.id.btnEquals) {
-            handleEquals();
+            calculatePercent();
         } else if (id == R.id.btnClear) {
             clearAll();
-        } else if (id == R.id.btnBackspace) {
-            handleBackspace();
+        } else if (id == R.id.btnDelete) {
+            deleteLast();
+        } else if (id == R.id.btnEquals) {
+            calculate();
         }
     }
 
-    private void handleNumber(String number) {
+    private void inputNumber(String number) {
         if (startNewInput) {
             currentInput = number;
             startNewInput = false;
@@ -132,26 +130,26 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 currentInput = number;
             } else {
                 if (currentInput.length() < 15) {
-                    currentInput = currentInput + number;
+                    currentInput += number;
                 }
             }
         }
         updateDisplay();
     }
 
-    private void handleDecimal() {
+    private void inputDecimal() {
         if (startNewInput) {
             currentInput = "0.";
             startNewInput = false;
         } else {
             if (!currentInput.contains(".")) {
-                currentInput = currentInput + ".";
+                currentInput += ".";
             }
         }
         updateDisplay();
     }
 
-    private void handleOperator(String op) {
+    private void setOperator(String op) {
         if (!operator.isEmpty() && !startNewInput) {
             calculate();
         }
@@ -161,29 +159,65 @@ public class MainActivity extends Activity implements View.OnClickListener {
         updateDisplay();
     }
 
-    private void handleEquals() {
-        if (!operator.isEmpty()) {
-            calculate();
+    private void calculate() {
+        if (operator.isEmpty() || previousInput.isEmpty()) {
+            return;
+        }
+
+        try {
+            double num1 = Double.parseDouble(previousInput);
+            double num2 = Double.parseDouble(currentInput);
+            double result = 0;
+
+            if (operator.equals("+")) {
+                result = num1 + num2;
+            } else if (operator.equals("-")) {
+                result = num1 - num2;
+            } else if (operator.equals("×")) {
+                result = num1 * num2;
+            } else if (operator.equals("÷")) {
+                if (num2 == 0) {
+                    showError();
+                    return;
+                }
+                result = num1 / num2;
+            }
+
+            currentInput = formatResult(result);
+            tvHistory.setText(previousInput + " " + operator + " " + num2);
+            previousInput = "";
             operator = "";
             startNewInput = true;
+            updateDisplay();
+
+        } catch (NumberFormatException e) {
+            showError();
         }
+    }
+
+    private void calculatePercent() {
+        try {
+            double num = Double.parseDouble(currentInput);
+            double result = num / 100.0;
+            currentInput = formatResult(result);
+            startNewInput = true;
+            updateDisplay();
+        } catch (NumberFormatException e) {
+            showError();
+        }
+    }
+
+    private void clearAll() {
+        currentInput = "0";
+        previousInput = "";
+        operator = "";
+        startNewInput = true;
+        hasError = false;
+        tvHistory.setText("");
         updateDisplay();
     }
 
-    private void handlePercent() {
-        try {
-            double value = Double.parseDouble(currentInput);
-            value = value / 100.0;
-            currentInput = formatNumber(value);
-            updateDisplay();
-        } catch (NumberFormatException e) {
-            hasError = true;
-            tvResult.setText("Error");
-            tvExpression.setText("");
-        }
-    }
-
-    private void handleBackspace() {
+    private void deleteLast() {
         if (startNewInput) {
             return;
         }
@@ -195,91 +229,38 @@ public class MainActivity extends Activity implements View.OnClickListener {
         updateDisplay();
     }
 
-    private void clearAll() {
-        currentInput = "0";
+    private void showError() {
+        currentInput = "Error";
         previousInput = "";
         operator = "";
         startNewInput = true;
-        hasError = false;
+        hasError = true;
+        tvHistory.setText("");
         updateDisplay();
     }
 
-    private void calculate() {
-        try {
-            double num1 = Double.parseDouble(previousInput);
-            double num2 = Double.parseDouble(currentInput);
-            double result = 0;
-
-            switch (operator) {
-                case "+":
-                    result = num1 + num2;
-                    break;
-                case "-":
-                    result = num1 - num2;
-                    break;
-                case "*":
-                    result = num1 * num2;
-                    break;
-                case "/":
-                    if (num2 == 0) {
-                        hasError = true;
-                        tvResult.setText("Error");
-                        tvExpression.setText("");
-                        return;
-                    }
-                    result = num1 / num2;
-                    break;
-                default:
-                    return;
-            }
-
-            currentInput = formatNumber(result);
-            previousInput = "";
-        } catch (NumberFormatException e) {
-            hasError = true;
-            tvResult.setText("Error");
-            tvExpression.setText("");
-        }
-    }
-
-    private String formatNumber(double number) {
-        if (number == (long) number) {
-            return String.valueOf((long) number);
+    private String formatResult(double result) {
+        if (result == (long) result) {
+            return String.valueOf((long) result);
         } else {
-            String formatted = String.format("%.10f", number);
+            String formatted = String.format("%.10f", result);
             // Remove trailing zeros
-            formatted = formatted.replaceAll("0+$", "");
-            formatted = formatted.replaceAll("\\.$", "");
+            formatted = formatted.replaceAll("0+?$", "");
+            formatted = formatted.replaceAll("[.]$", "");
             return formatted;
         }
     }
 
     private void updateDisplay() {
-        tvResult.setText(currentInput);
+        tvDisplay.setText(currentInput);
         
-        if (!previousInput.isEmpty() && !operator.isEmpty()) {
-            String opSymbol = getOperatorSymbol(operator);
-            tvExpression.setText(previousInput + " " + opSymbol);
-        } else if (!operator.isEmpty()) {
-            String opSymbol = getOperatorSymbol(operator);
-            tvExpression.setText(opSymbol);
+        // Auto-adjust text size for long numbers
+        if (currentInput.length() > 10) {
+            tvDisplay.setTextSize(40);
+        } else if (currentInput.length() > 7) {
+            tvDisplay.setTextSize(50);
         } else {
-            tvExpression.setText("");
-        }
-    }
-
-    private String getOperatorSymbol(String op) {
-        switch (op) {
-            case "+":
-                return "+";
-            case "-":
-                return "−";
-            case "*":
-                return "×";
-            case "/":
-                return "÷";
-            default:
-                return "";
+            tvDisplay.setTextSize(64);
         }
     }
 }
