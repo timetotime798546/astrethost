@@ -117,40 +117,40 @@ public class GLCubeRenderer implements GLSurfaceView.Renderer {
         int[] vertexBuffer = new int[1];
         GLES20.glGenBuffers(1, vertexBuffer, 0);
         vertexBufferId = vertexBuffer[0];
-        GLES20.glBindBuffer(GLES20.ARRAY_BUFFER, vertexBufferId);
-        GLES20.glBufferData(GLES20.ARRAY_BUFFER, cubeVertices.length * 4,
+        GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, vertexBufferId);
+        GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER, cubeVertices.length * 4,
                 java.nio.ByteBuffer.allocateDirect(cubeVertices.length * 4)
                         .order(java.nio.ByteOrder.nativeOrder())
                         .asFloatBuffer()
                         .put(cubeVertices)
                         .position(0),
-                GLES20.STATIC_DRAW);
+                GLES20.GL_STATIC_DRAW);
 
         // Create color buffer
         int[] colorBuffer = new int[1];
         GLES20.glGenBuffers(1, colorBuffer, 0);
         colorBufferId = colorBuffer[0];
-        GLES20.glBindBuffer(GLES20.ARRAY_BUFFER, colorBufferId);
-        GLES20.glBufferData(GLES20.ARRAY_BUFFER, cubeColors.length * 4,
+        GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, colorBufferId);
+        GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER, cubeColors.length * 4,
                 java.nio.ByteBuffer.allocateDirect(cubeColors.length * 4)
                         .order(java.nio.ByteOrder.nativeOrder())
                         .asFloatBuffer()
                         .put(cubeColors)
                         .position(0),
-                GLES20.STATIC_DRAW);
+                GLES20.GL_STATIC_DRAW);
 
         // Create index buffer
         int[] indexBuffer = new int[1];
         GLES20.glGenBuffers(1, indexBuffer, 0);
         indexBufferId = indexBuffer[0];
-        GLES20.glBindBuffer(GLES20.ELEMENT_ARRAY_BUFFER, indexBufferId);
-        GLES20.glBufferData(GLES20.ELEMENT_ARRAY_BUFFER, cubeIndices.length * 2,
+        GLES20.glBindBuffer(GLES20.GL_ELEMENT_ARRAY_BUFFER, indexBufferId);
+        GLES20.glBufferData(GLES20.GL_ELEMENT_ARRAY_BUFFER, cubeIndices.length * 2,
                 java.nio.ByteBuffer.allocateDirect(cubeIndices.length * 2)
                         .order(java.nio.ByteOrder.nativeOrder())
                         .asShortBuffer()
                         .put(cubeIndices)
                         .position(0),
-                GLES20.STATIC_DRAW);
+                GLES20.GL_STATIC_DRAW);
 
         // Initialize model matrix to identity
         Matrix.setIdentityM(mModelMatrix, 0);
@@ -188,15 +188,15 @@ public class GLCubeRenderer implements GLSurfaceView.Renderer {
         int colorHandle = GLES20.glGetAttribLocation(program, "vColor");
 
         // Bind vertex buffer
-        GLES20.glBindBuffer(GLES20.ARRAY_BUFFER, vertexBufferId);
+        GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, vertexBufferId);
         GLES20.glVertexAttribPointer(positionHandle, 3, GLES20.GL_FLOAT, false, 12, 0);
 
         // Bind color buffer
-        GLES20.glBindBuffer(GLES20.ARRAY_BUFFER, colorBufferId);
+        GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, colorBufferId);
         GLES20.glVertexAttribPointer(colorHandle, 4, GLES20.GL_FLOAT, false, 16, 0);
 
         // Bind index buffer
-        GLES20.glBindBuffer(GLES20.ELEMENT_ARRAY_BUFFER, indexBufferId);
+        GLES20.glBindBuffer(GLES20.GL_ELEMENT_ARRAY_BUFFER, indexBufferId);
 
         // Update rotation
         if (!isTouching) {
@@ -282,4 +282,3 @@ public class GLCubeRenderer implements GLSurfaceView.Renderer {
         return program;
     }
 }
-

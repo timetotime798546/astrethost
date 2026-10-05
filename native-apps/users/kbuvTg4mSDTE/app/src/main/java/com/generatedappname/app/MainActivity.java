@@ -1,6 +1,7 @@
 package com.generatedappname.app;
 
 import android.app.Activity;
+import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.Window;
@@ -59,4 +60,3 @@ public class MainActivity extends Activity {
         }
     }
 }
-
