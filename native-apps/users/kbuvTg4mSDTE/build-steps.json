@@ -1,0 +1,33 @@
+[
+  {
+    "step": 1,
+    "action": "create_project",
+    "description": "Initialize Android project structure"
+  },
+  {
+    "step": 2,
+    "action": "configure_gradle",
+    "description": "Set up build.gradle files with AGP 8.3.2 and SDK 34"
+  },
+  {
+    "step": 3,
+    "action": "create_manifest",
+    "description": "Create AndroidManifest.xml with launcher activity"
+  },
+  {
+    "step": 4,
+    "action": "create_java_sources",
+    "description": "Implement 3D car race game logic using OpenGL ES"
+  },
+  {
+    "step": 5,
+    "action": "create_resources",
+    "description": "Add layout XML and drawable resources"
+  },
+  {
+    "step": 6,
+    "action": "build_apk",
+    "description": "Compile and build the Android APK"
+  }
+]
+
