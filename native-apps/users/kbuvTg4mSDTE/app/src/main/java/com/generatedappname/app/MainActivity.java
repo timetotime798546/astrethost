@@ -42,14 +42,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Button btnSubtract = findViewById(R.id.btnSubtract);
         Button btnMultiply = findViewById(R.id.btnMultiply);
         Button btnDivide = findViewById(R.id.btnDivide);
-        Button btnEquals = findViewById(R.id.btnEquals);
+        Button btnPercent = findViewById(R.id.btnPercent);
 
         // Function buttons
         Button btnClear = findViewById(R.id.btnClear);
-        Button btnDecimal = findViewById(R.id.btnDecimal);
-        Button btnPercent = findViewById(R.id.btnPercent);
         Button btnBackspace = findViewById(R.id.btnBackspace);
-        Button btnPlusMinus = findViewById(R.id.btnPlusMinus);
+        Button btnDecimal = findViewById(R.id.btnDecimal);
+        Button btnEquals = findViewById(R.id.btnEquals);
 
         // Set click listeners
         btn0.setOnClickListener(this);
@@ -67,17 +66,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btnSubtract.setOnClickListener(this);
         btnMultiply.setOnClickListener(this);
         btnDivide.setOnClickListener(this);
-        btnEquals.setOnClickListener(this);
+        btnPercent.setOnClickListener(this);
 
         btnClear.setOnClickListener(this);
-        btnDecimal.setOnClickListener(this);
-        btnPercent.setOnClickListener(this);
         btnBackspace.setOnClickListener(this);
-        btnPlusMinus.setOnClickListener(this);
+        btnDecimal.setOnClickListener(this);
+        btnEquals.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        if (hasError) {
+            clearAll();
+        }
+
         int id = v.getId();
 
         if (id == R.id.btn0) {
@@ -110,24 +112,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
             handleOperator("*");
         } else if (id == R.id.btnDivide) {
             handleOperator("/");
+        } else if (id == R.id.btnPercent) {
+            handlePercent();
         } else if (id == R.id.btnEquals) {
             handleEquals();
         } else if (id == R.id.btnClear) {
-            handleClear();
-        } else if (id == R.id.btnPercent) {
-            handlePercent();
+            clearAll();
         } else if (id == R.id.btnBackspace) {
             handleBackspace();
-        } else if (id == R.id.btnPlusMinus) {
-            handlePlusMinus();
         }
     }
 
     private void handleNumber(String number) {
-        if (hasError) {
-            handleClear();
-        }
-
         if (startNewInput) {
             currentInput = number;
             startNewInput = false;
@@ -135,17 +131,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
             if (currentInput.equals("0")) {
                 currentInput = number;
             } else {
-                currentInput = currentInput + number;
+                if (currentInput.length() < 15) {
+                    currentInput = currentInput + number;
+                }
             }
         }
         updateDisplay();
     }
 
     private void handleDecimal() {
-        if (hasError) {
-            handleClear();
-        }
-
         if (startNewInput) {
             currentInput = "0.";
             startNewInput = false;
@@ -158,14 +152,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void handleOperator(String op) {
-        if (hasError) {
-            handleClear();
-        }
-
         if (!operator.isEmpty() && !startNewInput) {
             calculate();
         }
-
         previousInput = currentInput;
         operator = op;
         startNewInput = true;
@@ -173,30 +162,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void handleEquals() {
-        if (hasError || operator.isEmpty()) {
-            return;
+        if (!operator.isEmpty()) {
+            calculate();
+            operator = "";
+            startNewInput = true;
         }
-
-        calculate();
-        operator = "";
-        startNewInput = true;
-        updateDisplay();
-    }
-
-    private void handleClear() {
-        currentInput = "0";
-        previousInput = "";
-        operator = "";
-        startNewInput = true;
-        hasError = false;
         updateDisplay();
     }
 
     private void handlePercent() {
-        if (hasError) {
-            return;
-        }
-
         try {
             double value = Double.parseDouble(currentInput);
             value = value / 100.0;
@@ -204,21 +178,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
             updateDisplay();
         } catch (NumberFormatException e) {
             hasError = true;
-            currentInput = "Error";
-            updateDisplay();
+            tvResult.setText("Error");
+            tvExpression.setText("");
         }
     }
 
     private void handleBackspace() {
-        if (hasError) {
-            handleClear();
-            return;
-        }
-
         if (startNewInput) {
             return;
         }
-
         if (currentInput.length() > 1) {
             currentInput = currentInput.substring(0, currentInput.length() - 1);
         } else {
@@ -227,32 +195,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
         updateDisplay();
     }
 
-    private void handlePlusMinus() {
-        if (hasError) {
-            return;
-        }
-
-        if (currentInput.equals("0")) {
-            return;
-        }
-
-        if (currentInput.startsWith("-")) {
-            currentInput = currentInput.substring(1);
-        } else {
-            currentInput = "-" + currentInput;
-        }
+    private void clearAll() {
+        currentInput = "0";
+        previousInput = "";
+        operator = "";
+        startNewInput = true;
+        hasError = false;
         updateDisplay();
     }
 
     private void calculate() {
-        if (operator.isEmpty()) {
-            return;
-        }
-
         try {
             double num1 = Double.parseDouble(previousInput);
             double num2 = Double.parseDouble(currentInput);
-            double result;
+            double result = 0;
 
             switch (operator) {
                 case "+":
@@ -267,8 +223,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 case "/":
                     if (num2 == 0) {
                         hasError = true;
-                        currentInput = "Error";
-                        updateDisplay();
+                        tvResult.setText("Error");
+                        tvExpression.setText("");
                         return;
                     }
                     result = num1 / num2;
@@ -281,8 +237,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             previousInput = "";
         } catch (NumberFormatException e) {
             hasError = true;
-            currentInput = "Error";
-            updateDisplay();
+            tvResult.setText("Error");
+            tvExpression.setText("");
         }
     }
 
@@ -290,25 +246,29 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (number == (long) number) {
             return String.valueOf((long) number);
         } else {
-            return String.valueOf(number);
+            String formatted = String.format("%.10f", number);
+            // Remove trailing zeros
+            formatted = formatted.replaceAll("0+$", "");
+            formatted = formatted.replaceAll("\\.$", "");
+            return formatted;
         }
     }
 
     private void updateDisplay() {
         tvResult.setText(currentInput);
-
+        
         if (!previousInput.isEmpty() && !operator.isEmpty()) {
-            String displayOperator = getDisplayOperator(operator);
-            tvExpression.setText(previousInput + " " + displayOperator);
+            String opSymbol = getOperatorSymbol(operator);
+            tvExpression.setText(previousInput + " " + opSymbol);
         } else if (!operator.isEmpty()) {
-            String displayOperator = getDisplayOperator(operator);
-            tvExpression.setText(displayOperator);
+            String opSymbol = getOperatorSymbol(operator);
+            tvExpression.setText(opSymbol);
         } else {
             tvExpression.setText("");
         }
     }
 
-    private String getDisplayOperator(String op) {
+    private String getOperatorSymbol(String op) {
         switch (op) {
             case "+":
                 return "+";
@@ -319,7 +279,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case "/":
                 return "÷";
             default:
-                return op;
+                return "";
         }
     }
 }
