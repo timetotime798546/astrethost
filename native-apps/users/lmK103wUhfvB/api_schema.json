@@ -1,0 +1,25 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "workouts": {
+      "fields": {
+        "exercise": "string",
+        "duration_mins": "integer",
+        "calories_burned": "integer",
+        "date": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "calories_sum": {
+      "type": "calculation",
+      "inputs": ["calories_burned"],
+      "formula": "sum(calories_burned)"
+    }
+  }
+}
