@@ -2,85 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure App Meta and Specifications",
-      "description": "Configure package name com.studyplanner.app and define the schema for subjects and tasks collections.",
-      "files": ["app-meta.json", "api_schema.json"],
+      "title": "Analyze compilation failure log",
+      "description": "Identify syntax error with illegal unit suffix inside setTextSize() statements inside activity files.",
+      "files": ["build-error.log"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Settings",
-      "description": "Configure app build.gradle with proper compile and target SDK 34 versions and standard dependencies.",
-      "files": ["app/build.gradle"],
+      "title": "Fix setTextSize call inside SubjectActivity",
+      "description": "Update text1.setTextSize(16sp) to valid numeric value 16 in SubjectActivity.java.",
+      "files": ["app/src/main/java/com/studyplanner/app/SubjectActivity.java"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Declare Manifest and Permissions",
-      "description": "Declare permissions for internet connectivity and registration of all activities in AndroidManifest.xml.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Fix setTextSize call inside TaskActivity",
+      "description": "Update descView.setTextSize(12sp) to valid numeric value 12 in TaskActivity.java.",
+      "files": ["app/src/main/java/com/studyplanner/app/TaskActivity.java"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create App String Resources",
-      "description": "Define the missing app_name string and other XML values in strings.xml to fix AAPT build errors.",
-      "files": ["app/src/main/res/values/strings.xml"],
+      "title": "Validate Java compile parameters and compatibility",
+      "description": "Ensure standard Java 8 anonymous inner classes are preserved without lambdas or modern language elements.",
+      "files": ["app/src/main/java/com/studyplanner/app/SubjectActivity.java", "app/src/main/java/com/studyplanner/app/TaskActivity.java"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create Backend API Client",
-      "description": "Develop BackendApi.java helper to handle user authentication, forgot-password OTP, and generic dynamic CRUD operations.",
-      "files": ["app/src/main/java/com/studyplanner/app/BackendApi.java"],
+      "title": "Verify local study statistics and metrics logic",
+      "description": "Perform verification of local minutes-to-hours dynamic conversion and mathematical tracking of tasks completion rate.",
+      "files": ["app/src/main/java/com/studyplanner/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Login Layout and Activity",
-      "description": "Create the user login interface, connecting UI inputs to the authentication endpoint and managing tokens.",
-      "files": ["app/src/main/res/layout/activity_login.xml", "app/src/main/java/com/studyplanner/app/LoginActivity.java"],
+      "title": "Verify assets mapping",
+      "description": "Verify app-meta.json and dynamic app_id references align properly with current schema mapping.",
+      "files": ["app/src/main/assets/app-meta.json"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Register Layout and Activity",
-      "description": "Create registration screen where students sign up and trigger an automatic login upon successful registration.",
-      "files": ["app/src/main/res/layout/activity_register.xml", "app/src/main/java/com/studyplanner/app/RegisterActivity.java"],
+      "title": "Check layout specifications",
+      "description": "Check layout component structures to prevent overlap or visual clipping across screens.",
+      "files": ["app/src/main/res/layout/activity_subject.xml", "app/src/main/res/layout/activity_task.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement Forgot Password Layout and Activity",
-      "description": "Implement standard 2-step OTP verification workflow sending recovery emails through Gmail via cloud backend API.",
-      "files": ["app/src/main/res/layout/activity_forgot_password.xml", "app/src/main/java/com/studyplanner/app/ForgotPasswordActivity.java"],
+      "title": "Verify network and permissions mapping",
+      "description": "Confirm internet permissions in the AndroidManifest.xml are registered appropriately.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Dashboard Layout and Activity",
-      "description": "Create Main Dashboard showing study statistical calculation calculations, task completion rates, and navigation menu.",
-      "files": ["app/src/main/res/layout/activity_main.xml", "app/src/main/java/com/studyplanner/app/MainActivity.java"],
+      "title": "Prepare build configuration alignment",
+      "description": "Ensure namespace configurations are compatible with Gradle 8.5 structures.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement Subject Management Layout and Activity",
-      "description": "Allow students to add, update, and remove academic subjects with study hours targets.",
-      "files": ["app/src/main/res/layout/activity_subject.xml", "app/src/main/java/com/studyplanner/app/SubjectActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Implement Task Management and Interactive Study Timer Layout and Activity",
-      "description": "Provide functional list tracking, search, task checkboxes, and interactive study stop-watch timer to log and save local study minutes.",
-      "files": ["app/src/main/res/layout/activity_task.xml", "app/src/main/java/com/studyplanner/app/TaskActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building Study Planner",
-      "description": "Compile, build, and assemble debug APK.",
+      "description": "Run production assembly debug configuration compile and check for error-free packaging.",
       "files": [],
       "status": "pending"
     }

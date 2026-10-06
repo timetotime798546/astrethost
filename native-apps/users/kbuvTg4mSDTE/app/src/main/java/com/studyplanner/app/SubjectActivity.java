@@ -201,7 +201,7 @@ public class SubjectActivity extends Activity {
 
                 text1.setText(name);
                 text1.setTextColor(0xFF3F51B5);
-                text1.setTextSize(16sp);
+                text1.setTextSize(16);
                 text2.setText("Weekly Target Goal: " + hours + " Study Hours");
             } catch (Exception e) {
                 text1.setText("Error reading item");

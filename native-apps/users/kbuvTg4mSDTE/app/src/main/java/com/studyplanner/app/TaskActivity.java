@@ -465,7 +465,7 @@ public class TaskActivity extends Activity {
             if (descView == null) {
                 descView = new TextView(TaskActivity.this);
                 descView.setPadding(15, 0, 15, 10);
-                descView.setTextSize(12sp);
+                descView.setTextSize(12);
                 descView.setTextColor(0xFF555555);
                 ((ViewGroup) convertView).addView(descView);
             }
