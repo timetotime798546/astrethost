@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze compilation failure log",
+      "description": "Identify syntax error with illegal unit suffix inside setTextSize() statements inside activity files.",
+      "files": ["build-error.log"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Fix setTextSize call inside SubjectActivity",
+      "description": "Update text1.setTextSize(16sp) to valid numeric value 16 in SubjectActivity.java.",
+      "files": ["app/src/main/java/com/studyplanner/app/SubjectActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Fix setTextSize call inside TaskActivity",
+      "description": "Update descView.setTextSize(12sp) to valid numeric value 12 in TaskActivity.java.",
+      "files": ["app/src/main/java/com/studyplanner/app/TaskActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Validate Java compile parameters and compatibility",
+      "description": "Ensure standard Java 8 anonymous inner classes are preserved without lambdas or modern language elements.",
+      "files": ["app/src/main/java/com/studyplanner/app/SubjectActivity.java", "app/src/main/java/com/studyplanner/app/TaskActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify local study statistics and metrics logic",
+      "description": "Perform verification of local minutes-to-hours dynamic conversion and mathematical tracking of tasks completion rate.",
+      "files": ["app/src/main/java/com/studyplanner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify assets mapping",
+      "description": "Verify app-meta.json and dynamic app_id references align properly with current schema mapping.",
+      "files": ["app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Check layout specifications",
+      "description": "Check layout component structures to prevent overlap or visual clipping across screens.",
+      "files": ["app/src/main/res/layout/activity_subject.xml", "app/src/main/res/layout/activity_task.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify network and permissions mapping",
+      "description": "Confirm internet permissions in the AndroidManifest.xml are registered appropriately.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Prepare build configuration alignment",
+      "description": "Ensure namespace configurations are compatible with Gradle 8.5 structures.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Study Planner",
+      "description": "Run production assembly debug configuration compile and check for error-free packaging.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
