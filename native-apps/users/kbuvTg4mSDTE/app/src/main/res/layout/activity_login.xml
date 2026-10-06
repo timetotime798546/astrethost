@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FAFAFA"
+    android:padding="24dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NoteSphere"
+        android:textColor="#3F51B5"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign in to sync your notes online"
+        android:textColor="#757575"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"/>
+
+    <EditText
+        android:id="@+id/edit_login_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:elevation="1dp"
+        android:hint="Email Address"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/edit_login_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:elevation="1dp"
+        android:hint="Password"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Sign In"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:background="@drawable/btn_primary_bg"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/text_goto_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account? Sign Up"
+        android:textColor="#3F51B5"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/text_forgot_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textColor="#E53935"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="8dp"/>
+
+</LinearLayout>
