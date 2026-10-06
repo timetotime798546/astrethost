@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FAFAFA"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/text_screen_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Note"
+        android:textColor="#212121"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category:"
+            android:textColor="#424242"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginRight="12dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_category"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="#FFFFFF"
+            android:elevation="1dp"
+            android:spinnerMode="dropdown"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edit_note_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FFFFFF"
+        android:elevation="1dp"
+        android:hint="Enter note title..."
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:textColor="#212121"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/edit_note_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        android:elevation="1dp"
+        android:hint="Start typing your note here..."
+        android:gravity="top|left"
+        android:padding="12dp"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        android:scrollbars="vertical"
+        android:layout_marginBottom="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_delete_note"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="48dp"
+            android:text="Delete"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_delete_bg"
+            android:layout_marginRight="8dp"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/button_cancel_note"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="48dp"
+            android:text="Cancel"
+            android:textColor="#424242"
+            android:background="@drawable/btn_cancel_bg"
+            android:layout_marginRight="8dp"/>
+
+        <Button
+            android:id="@+id/button_save_note"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="48dp"
+            android:text="Save Note"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_save_bg"/>
+    </LinearLayout>
+
+</LinearLayout>
