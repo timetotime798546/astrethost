@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.tasksync.app"
+    namespace "com.smartmultitool.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.tasksync.app"
+        applicationId "com.smartmultitool.app"
 
         minSdkVersion 21
 
