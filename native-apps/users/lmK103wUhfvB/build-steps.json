@@ -2,85 +2,29 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Setup",
-      "description": "Initialize the Android project directory structure and compile environment configuration.",
+      "title": "Project Setup Verification",
+      "description": "Verifying metadata config files and updating package names.",
       "files": ["app-meta.json", "api_schema.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Gradle Build",
-      "description": "Set up build.gradle with proper parameters targetting SDK 34 and Java 8 compatibility.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Define Android Manifest",
-      "description": "Configure the Android Manifest with Internet permissions and declare necessary activities.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Create Modern Theme and UI Drawables",
-      "description": "Define beautiful background drawables, colors, styles, and custom visual buttons for Material Theme.",
-      "files": ["app/src/main/res/values/strings.xml", "app/src/main/res/drawable/card_bg.xml", "app/src/main/res/drawable/btn_primary.xml", "app/src/main/res/drawable/edittext_bg.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Develop Login Layout",
-      "description": "Implement complete layout with username, password input, authentication buttons, and redirect link.",
+      "title": "Fixing Login Layout",
+      "description": "Correcting the invalid match_size dimensions in activity_login.xml with standard match_parent parameters.",
       "files": ["app/src/main/res/layout/activity_login.xml"],
       "status": "pending"
     },
     {
-      "step": 6,
-      "title": "Develop Registration Layout",
-      "description": "Implement user signup screen layout allowing new account generation.",
-      "files": ["app/src/main/res/layout/activity_register.xml"],
+      "step": 3,
+      "title": "Fixing Main Dashboard Layout",
+      "description": "Correcting invalid layout_centerY attributes in activity_main.xml to use standard layout_centerVertical properties.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
-      "step": 7,
-      "title": "Develop Forgot Password OTP Layout",
-      "description": "Design OTP requesting and password resetting fields on dynamic layouts.",
-      "files": ["app/src/main/res/layout/activity_forgot_password.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Develop Main Dashboard Layout",
-      "description": "Implement a gorgeous overview cards design for Balance, Income, and Expense summaries with offline calculations.",
-      "files": ["app/src/main/res/layout/activity_main.xml", "app/src/main/res/layout/dialog_transaction.xml", "app/src/main/res/layout/list_item_transaction.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Build Dynamic Backend Client",
-      "description": "Write BackendApi.java with native HttpURLConnection calls handling /register, /login, /logout, and dynamic CRUD.",
-      "files": ["app/src/main/java/com/bizkeep/app/BackendApi.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Implement Credentials & Authentication Logic",
-      "description": "Write LoginActivity, RegisterActivity, and ForgotPasswordActivity to coordinate user state securely.",
-      "files": ["app/src/main/java/com/bizkeep/app/LoginActivity.java", "app/src/main/java/com/bizkeep/app/RegisterActivity.java", "app/src/main/java/com/bizkeep/app/ForgotPasswordActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Implement Dashboard Operations and Offline Calculations",
-      "description": "Write MainActivity containing CRUD controls, transaction parsing, local financial calculations, and secure logging.",
-      "files": ["app/src/main/java/com/bizkeep/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
+      "step": 4,
       "title": "Building BizKeep",
-      "description": "Execute gradle assembleDebug to build and compile the complete application package.",
+      "description": "Compiling and assembling the modified ledger app safely with the updated assets.",
       "files": [],
       "status": "pending"
     }
