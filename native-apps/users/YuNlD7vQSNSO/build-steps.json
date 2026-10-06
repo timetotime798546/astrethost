@@ -1,0 +1,115 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Meta and Package Names",
+      "description": "Establish package namespace 'com.strictstudymode.app' and standard build parameters for modern Android target 34.",
+      "files": ["app-meta.json", "api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Set Up Android Build Configuration",
+      "description": "Create build.gradle specifying compileSdkVersion 34, targetSdkVersion 34, Java 1.8 compiler levels, and zero external dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Android Manifest",
+      "description": "Declare permissions for PACKAGE_USAGE_STATS, FOREGROUND_SERVICE, and FOREGROUND_SERVICE_SPECIAL_USE. Define activity entrypoints and service components with specialUse type for background monitoring.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define Custom Drawables and Styling Resources",
+      "description": "Create custom visual elements including rounded button states, input text fields, and white clean card containers to deliver a premium user interface without adding Google Material libraries.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/drawable/btn_primary.xml",
+        "app/src/main/res/drawable/btn_danger.xml",
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/input_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Dashboard Layout",
+      "description": "Construct activity_main.xml featuring custom status cards, countdown timer layout, strict mode controls, session duration selectors, and statistics overview widgets.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design App Blocker Layout",
+      "description": "Create activity_blocked_apps.xml with app list, search filter, and individual item layouts with toggles for restricting target applications.",
+      "files": [
+        "app/src/main/res/layout/activity_blocked_apps.xml",
+        "app/src/main/res/layout/item_app.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Weekly Schedule Layout",
+      "description": "Create activity_schedule.xml and row item layouts to allow users to add specific times of the day and repeat days for automatic distraction-blocking.",
+      "files": [
+        "app/src/main/res/layout/activity_schedule.xml",
+        "app/src/main/res/layout/item_schedule.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Blocker Overlay screen",
+      "description": "Create activity_block_overlay.xml displaying strict warning alerts to intercept attention and prevent access to banned apps during study periods.",
+      "files": ["app/src/main/res/layout/activity_block_overlay.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Background Monitor Service",
+      "description": "Develop StudyBlockerService.java which runs continuously as a foreground service, evaluates current schedule compliance, inspects package usage stats, and triggers intercept screens.",
+      "files": ["app/src/main/java/com/strictstudymode/app/StudyBlockerService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Main Control Panel",
+      "description": "Implement MainActivity.java managing timer orchestration, permission checks, scheduling states, active monitoring toggles, and statistics storage using offline SharedPreferences.",
+      "files": ["app/src/main/java/com/strictstudymode/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement App Chooser panel",
+      "description": "Develop BlockedAppsActivity.java displaying lists of all user-launchable programs with reactive filters and immediate SharedPreferences status sync.",
+      "files": ["app/src/main/java/com/strictstudymode/app/BlockedAppsActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Weekly Schedules Manager",
+      "description": "Develop ScheduleActivity.java providing timepicker-based creation, repeat-day selectors, and localized list maintenance to handle regular automatic blocking hours.",
+      "files": ["app/src/main/java/com/strictstudymode/app/ScheduleActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Blocker Overlay logic",
+      "description": "Develop BlockOverlayActivity.java to block back key, manage focus redirection, and redirect the user's attention back to their studies with high-impact motivational slogans.",
+      "files": ["app/src/main/java/com/strictstudymode/app/BlockOverlayActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Strict Study Mode",
+      "description": "Compile raw code files and package metadata to build the complete native Android distraction-blocking study assistant.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

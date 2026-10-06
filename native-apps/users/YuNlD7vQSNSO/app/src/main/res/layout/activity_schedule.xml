@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6F7"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Add Schedule Form -->
+    <LinearLayout
+        android:id="@+id/layoutAddSchedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Weekly Focus Hours"
+            android:textColor="#2C3E50"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Start Time"
+                    android:textSize="11sp"
+                    android:textColor="#7F8C8D"/>
+
+                <Button
+                    android:id="@+id/btnStartTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="09:00"
+                    android:textColor="#2C3E50"
+                    android:background="@drawable/input_bg"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="16dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="End Time"
+                    android:textSize="11sp"
+                    android:textColor="#7F8C8D" />
+
+                <Button
+                    android:id="@+id/btnEndTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="17:00"
+                    android:textColor="#2C3E50"
+                    android:background="@drawable/input_bg"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Repeat Days checkboxes -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repeat Days:"
+            android:textSize="11sp"
+            android:textColor="#7F8C8D" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox android:id="@+id/chkMon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mon" />
+                <CheckBox android:id="@+id/chkTue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tue" />
+                <CheckBox android:id="@+id/chkWed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Wed" />
+                <CheckBox android:id="@+id/chkThu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Thu" />
+                <CheckBox android:id="@+id/chkFri" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Fri" />
+                <CheckBox android:id="@+id/chkSat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sat" />
+                <CheckBox android:id="@+id/chkSun" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sun" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/btnAddSchedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADD TIMETABLE"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_primary" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CURRENT ACTIVE TIME SLOTS"
+        android:textColor="#2C3E50"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Alert lock warning -->
+    <TextView
+        android:id="@+id/txtScheduleLockedMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🔒 Settings Locked: You cannot add or delete timetables during an active Strict Study Session!"
+        android:textColor="#C0392B"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <!-- Schedules List -->
+    <ListView
+        android:id="@+id/lstSchedules"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#ECF0F1"
+        android:dividerHeight="1dp"
+        android:background="@drawable/card_bg" />
+
+</LinearLayout>

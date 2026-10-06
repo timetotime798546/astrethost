@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6F7"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT DISTRACTION APPS"
+        android:textColor="#2C3E50"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Any selected application below will be instantly closed when study mode timer or scheduled locks are running."
+        android:textColor="#7F8C8D"
+        android:textSize="12sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Search / Filter Field -->
+    <EditText
+        android:id="@+id/edtSearch"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="Search application..."
+        android:background="@drawable/input_bg"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:textColor="#2C3E50"
+        android:textColorHint="#BDC3C7"
+        android:layout_marginBottom="12dp"
+        android:singleLine="true" />
+
+    <!-- Restricted warning if study mode is locked -->
+    <TextView
+        android:id="@+id/txtAppsLockedMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🔒 Settings Locked: You cannot modify the blocked apps roster during an active Strict Study Session!"
+        android:textColor="#C0392B"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"
+        android:visibility="gone" />
+
+    <!-- Apps List -->
+    <ListView
+        android:id="@+id/lstApps"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#ECF0F1"
+        android:dividerHeight="1dp"
+        android:background="@drawable/card_bg" />
+
+</LinearLayout>
