@@ -1,5 +1,39 @@
 {
-  "backend": false,
-  "logic": {}
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "subjects": {
+      "fields": {
+        "name": "string",
+        "target_hours": "number"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "tasks": {
+      "fields": {
+        "subject_id": "string",
+        "title": "string",
+        "due_date": "string",
+        "completed": "boolean",
+        "study_minutes": "number",
+        "reminder_time": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "subject_completion_rate": {
+      "type": "calculation",
+      "inputs": ["completed_tasks", "total_tasks"],
+      "formula": "(completed_tasks / total_tasks) * 100"
+    },
+    "study_target_completion": {
+      "type": "calculation",
+      "inputs": ["study_minutes", "target_hours"],
+      "formula": "(study_minutes / 60.0 / target_hours) * 100"
+    }
+  }
 }
-
