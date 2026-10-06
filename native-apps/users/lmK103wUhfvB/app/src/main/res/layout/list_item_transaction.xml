@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="14dp"
+    android:background="#FFFFFF">
+
+    <!-- Type Indicator Circle -->
+    <View
+        android:id="@+id/view_indicator"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:background="#2E7D32" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toRightOf="@id/view_indicator"
+        android:layout_toEndOf="@id/view_indicator"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_toLeftOf="@+id/layout_right_section"
+        android:layout_toStartOf="@+id/layout_right_section">
+
+        <TextView
+            android:id="@+id/tv_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Office Rent"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#333333"/>
+
+        <TextView
+            android:id="@+id/tv_item_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2023-11-20"
+            android:textSize="11sp"
+            android:textColor="#888888"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/tv_item_notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monthly office space fee"
+            android:textSize="12sp"
+            android:textColor="#555555"
+            android:layout_marginTop="2dp"
+            android:singleLine="true"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_right_section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_item_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+$500.00"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp"/>
+
+        <ImageView
+            android:id="@+id/img_item_edit"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@android:drawable/ic_menu_edit"
+            android:padding="4dp"
+            android:background="@drawable/card_bg"
+            android:layout_marginRight="6dp"
+            android:layout_marginEnd="6dp"
+            android:contentDescription="Edit"/>
+
+        <ImageView
+            android:id="@+id/img_item_delete"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@android:drawable/ic_menu_delete"
+            android:padding="4dp"
+            android:background="@drawable/card_bg"
+            android:contentDescription="Delete"/>
+
+    </LinearLayout>
+</RelativeLayout>

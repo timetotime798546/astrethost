@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/tv_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Transaction Entry"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#1A73E8"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/et_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="Transaction Description (e.g. Office rent)"
+        android:inputType="textCapWords"
+        android:padding="10dp"
+        android:background="@drawable/edittext_bg"
+        android:layout_marginBottom="12dp"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Entry Type"
+        android:textSize="12sp"
+        android:textColor="#666666"
+        android:layout_marginBottom="6dp"/>
+
+    <RadioGroup
+        android:id="@+id/rg_dialog_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+
+        <RadioButton
+            android:id="@+id/rb_income"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Income (+)"
+            android:textColor="#2E7D32"
+            android:checked="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <RadioButton
+            android:id="@+id/rb_expense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expense (-)"
+            android:textColor="#C62828"/>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/et_dialog_amount"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="Amount ($)"
+        android:inputType="numberDecimal"
+        android:padding="10dp"
+        android:background="@drawable/edittext_bg"
+        android:layout_marginBottom="12dp"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/et_dialog_date"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="Date (e.g. 2023-11-20)"
+        android:inputType="date"
+        android:padding="10dp"
+        android:background="@drawable/edittext_bg"
+        android:layout_marginBottom="12dp"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/et_dialog_notes"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:hint="Additional Notes/Remarks"
+        android:gravity="top|left"
+        android:inputType="textMultiLine"
+        android:padding="10dp"
+        android:background="@drawable/edittext_bg"
+        android:layout_marginBottom="20dp"
+        android:textSize="14sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btn_dialog_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Cancel"
+            android:textColor="#555555"
+            android:background="@drawable/card_bg"
+            android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp"/>
+
+        <Button
+            android:id="@+id/btn_dialog_save"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Save Entry"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_primary"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</LinearLayout>
