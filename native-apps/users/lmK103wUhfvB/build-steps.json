@@ -1,0 +1,116 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Structure Initialization",
+      "description": "Initialize standard Android folder hierarchy and configuration files.",
+      "files": ["app-meta.json", "api_schema.json", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Security and Manifest",
+      "description": "Set up AndroidManifest.xml with Internet permissions and declare target activities without AndroidX dependencies.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Generate Assets Configuration",
+      "description": "Store application meta-data in assets folder for runtime dynamic reading of app_id.",
+      "files": ["app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Resources and Color Palette",
+      "description": "Define lightweight Material design-compliant color resources and design strings.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement API Client Core",
+      "description": "Create BackendApi.java using standard HttpURLConnection and Native Threads. Strictly implements endpoints /register, /login, /logout, /request-otp, /reset-password, and /data.",
+      "files": ["app/src/main/java/com/smartbudgettracker/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Transaction Model Class",
+      "description": "Create Transaction.java to represent financial records with helper calculation properties.",
+      "files": ["app/src/main/java/com/smartbudgettracker/app/Transaction.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Login View Layout",
+      "description": "Draft standard UI layouts for User Authentication focusing on visual hierarchy.",
+      "files": ["app/src/main/res/layout/activity_login.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Login Controller Activity",
+      "description": "Implement LoginActivity.java to handle credentials validation and authorization token storage.",
+      "files": ["app/src/main/java/com/smartbudgettracker/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Registration View Layout",
+      "description": "Draft registration layout with email and password fields, using pure Android layouts.",
+      "files": ["app/src/main/res/layout/activity_register.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Registration Controller Activity",
+      "description": "Implement RegisterActivity.java to validate and send data to /register, handling redirects sequentially.",
+      "files": ["app/src/main/java/com/smartbudgettracker/app/RegisterActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Forgot Password Layout",
+      "description": "Construct 2-step OTP request and password reset UI layout.",
+      "files": ["app/src/main/res/layout/activity_reset_password.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Forgot Password Controller",
+      "description": "Implement ResetPasswordActivity.java processing OTP delivery verification and password overrides.",
+      "files": ["app/src/main/java/com/smartbudgettracker/app/ResetPasswordActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Design Main Dashboard Layout",
+      "description": "Design dynamic main layout containing header dashboard tiles, summary calculations, transaction list, and quick actions.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Design Transaction Dialog View",
+      "description": "Construct a custom modal view layout for adding and updating ledger items locally.",
+      "files": ["app/src/main/res/layout/dialog_transaction.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Implement Dashboard & Local Calculations Engine",
+      "description": "Implement MainActivity.java with native calculations for income, expense totals, remaining balance, category percentages, and offline list handling.",
+      "files": ["app/src/main/java/com/smartbudgettracker/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building Smart Budget Tracker",
+      "description": "Execute final Gradle compilation and validation check of assets, manifests, layouts, and Java classes.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
