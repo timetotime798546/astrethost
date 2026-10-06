@@ -1,31 +1,12 @@
 {
-  "backend": true,
-  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
-  "roles": {
-    "user": ["own"]
-  },
-  "collections": {
-    "transactions": {
-      "fields": {
-        "title": "string",
-        "amount": "number",
-        "type": "string",
-        "category": "string",
-        "date": "string"
-      },
-      "operations": ["create", "read", "update", "delete"]
-    }
-  },
+  "backend": false,
+  "roles": {},
+  "collections": {},
   "logic": {
-    "balance": {
+    "evaluate_expression": {
       "type": "calculation",
-      "inputs": ["income", "expenses"],
-      "formula": "income - expenses"
-    },
-    "savings_rate": {
-      "type": "calculation",
-      "inputs": ["income", "expenses"],
-      "formula": "((income - expenses) / income) * 100"
+      "inputs": ["expression_string"],
+      "formula": "parse_and_evaluate(expression_string)"
     }
   }
 }

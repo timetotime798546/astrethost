@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.smartbudgettracker.app"
+    namespace "com.beautifulcalculator.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.smartbudgettracker.app"
+        applicationId "com.beautifulcalculator.app"
 
         minSdkVersion 21
 
