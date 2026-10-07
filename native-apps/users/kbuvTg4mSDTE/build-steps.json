@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Product Detail Crash",
+      "description": "Locate and diagnose the NullPointerException / crash occurring in ProductDetailActivity when instantiating MainActivity and invoking lifecycle methods directly.",
+      "files": ["app/src/main/java/com/shozicapremor/app/ProductDetailActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Refactor Product Catalog",
+      "description": "Expose the mock shoe list inside a static thread-safe catalog method within Product.java to decouple product query logic from active lifecycle contexts.",
+      "files": ["app/src/main/java/com/shozicapremor/app/Product.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Unify MainActivity Data Source",
+      "description": "Configure MainActivity to read its active product lineup directly from the newly centralized static product catalog helper.",
+      "files": ["app/src/main/java/com/shozicapremor/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Repair ProductDetailActivity Queries",
+      "description": "Change ProductDetailActivity to load details using Product.getProductById(shoeId) rather than constructing new MainActivity instances.",
+      "files": ["app/src/main/java/com/shozicapremor/app/ProductDetailActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Ensure Safe Intent Retrievals",
+      "description": "Add null safety validations in ProductDetailActivity for cases when shoe_id parameter is absent or corrupted.",
+      "files": ["app/src/main/java/com/shozicapremor/app/ProductDetailActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Examine Image Resource Bindings",
+      "description": "Ensure the dynamic layout inflation correctly maps image arrays to layout views using the ImageLoader module.",
+      "files": ["app/src/main/java/com/shozicapremor/app/ProductDetailActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Verify Dynamic Cart Save Settings",
+      "description": "Check that the shared preferences state contains consistent parameters matching local schema names for seamless checkout sync.",
+      "files": ["app/src/main/java/com/shozicapremor/app/ProductDetailActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify Java 8 Compatibility",
+      "description": "Confirm that all newly introduced code utilizes traditional anonymous inner classes instead of Java 8+ lambdas or stream API.",
+      "files": ["app/src/main/java/com/shozicapremor/app/Product.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Layout Integrity",
+      "description": "Ensure layout margins and scaleType styles correctly display wide images across multiple Android display sizes.",
+      "files": ["app/src/main/java/com/shozicapremor/app/ProductDetailActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Shozica Premor",
+      "description": "Compile the complete verified project files to execute the final build signature check successfully.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

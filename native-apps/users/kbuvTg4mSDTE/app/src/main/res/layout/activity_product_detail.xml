@@ -1,0 +1,279 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_buy_bar"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Back navigation / Action -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingHorizontal="16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/btn_detail_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="← SHOWCASE"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/detail_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="PREMIUM MATCH"
+                    android:textColor="@color/bg_dark"
+                    android:background="@color/accent_gold"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"/>
+            </RelativeLayout>
+
+            <!-- MULTI-IMAGE GALLERIES COMPONENT -->
+            <!-- Supports dynamic multi-image presentation as per constraints -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:scrollbars="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/layout_image_gallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <!-- Loaded dynamically via ImageLoader inside ProductDetailActivity -->
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Swipe horizontally to view detailed shoe profile angles."
+                android:textColor="@color/text_secondary"
+                android:textSize="11dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="6dp" />
+
+            <!-- Core Details Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/bg_card">
+
+                <TextView
+                    android:id="@+id/detail_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RUNNING PERFORMANCE"
+                    android:textColor="@color/accent_gold"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"/>
+
+                <TextView
+                    android:id="@+id/detail_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shoe Title Premium"
+                    android:textColor="@color/text_primary"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:id="@+id/detail_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$0.00"
+                    android:textColor="@color/accent_gold"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About The Footwear"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/detail_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Designed with a luxurious profile, high-response responsive midsole cushion systems, and specialized premium traction rubber outsole profiles built to last."
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingMultiplier="1.2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Colorway"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/color_option_1"
+                        android:layout_width="70dp"
+                        android:layout_height="36dp"
+                        android:text="Gold"
+                        android:gravity="center"
+                        android:textColor="@color/bg_dark"
+                        android:background="@color/accent_gold"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:layout_marginRight="8dp" />
+
+                    <TextView
+                        android:id="@+id/color_option_2"
+                        android:layout_width="70dp"
+                        android:layout_height="36dp"
+                        android:text="Charcoal"
+                        android:gravity="center"
+                        android:textColor="@color/text_primary"
+                        android:background="#2C2E42"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Size (US)"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/size_option_8"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:text="8"
+                        android:gravity="center"
+                        android:textColor="@color/bg_dark"
+                        android:background="@color/accent_gold"
+                        android:textStyle="bold"
+                        android:layout_marginRight="8dp"/>
+
+                    <TextView
+                        android:id="@+id/size_option_9"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:text="9"
+                        android:gravity="center"
+                        android:textColor="@color/text_primary"
+                        android:background="#2C2E42"
+                        android:layout_marginRight="8dp"/>
+
+                    <TextView
+                        android:id="@+id/size_option_10"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:text="10"
+                        android:gravity="center"
+                        android:textColor="@color/text_primary"
+                        android:background="#2C2E42"
+                        android:layout_marginRight="8dp"/>
+
+                    <TextView
+                        android:id="@+id/size_option_11"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:text="11"
+                        android:gravity="center"
+                        android:textColor="@color/text_primary"
+                        android:background="#2C2E42"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Fixed Bottom Buy/Order Panel -->
+    <LinearLayout
+        android:id="@+id/bottom_buy_bar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:gravity="center_vertical"
+        android:background="#12131D"
+        android:elevation="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selected Total"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/detail_bottom_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$180.00"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_add_to_cart"
+            android:layout_width="180dp"
+            android:layout_height="52dp"
+            android:text="ADD TO CART"
+            android:textColor="@color/bg_dark"
+            android:background="@color/accent_gold"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

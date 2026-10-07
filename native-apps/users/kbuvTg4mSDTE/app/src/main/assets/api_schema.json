@@ -1,0 +1,27 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "orders": {
+      "fields": {
+        "shoe_name": "string",
+        "price": "number",
+        "quantity": "integer",
+        "size": "string",
+        "image_url": "string",
+        "total_price": "number"
+      },
+      "operations": ["create", "read"]
+    }
+  },
+  "logic": {
+    "order_total": {
+      "type": "calculation",
+      "inputs": ["price", "quantity"],
+      "formula": "price * quantity"
+    }
+  }
+}
