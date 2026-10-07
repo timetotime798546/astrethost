@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Image Layout Integration",
+      "description": "Identify where ImageViews can be elegantly placed inside the Service Catalog row templates.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Update activity_main.xml Layout",
+      "description": "Integrate structured ImageView components into each Service relative row item.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Curate High-Quality Public Images",
+      "description": "Assign premium Unsplash source URLs for classic haircuts, hot shaves, beard trims, facials, and hair spas.",
+      "files": ["app/src/main/java/com/barberq/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Map View Identifiers in Controller",
+      "description": "Expose and reference target ImageViews in MainActivity.java to support programmatic bitmap injection.",
+      "files": ["app/src/main/java/com/barberq/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Lightweight Network Loader",
+      "description": "Write a secure, robust Java-based background HttpURLConnection stream downloader to fetch Unsplash bitmaps.",
+      "files": ["app/src/main/java/com/barberq/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Manage Main Thread Callback UI Dispatching",
+      "description": "Route parsed bitmap assignments back onto the Android Main Thread cleanly to prevent thread errors.",
+      "files": ["app/src/main/java/com/barberq/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Ensure Offline Calculations Consistency",
+      "description": "Verify checkout cart totals dynamically update locally when checking multiple treatments.",
+      "files": ["app/src/main/java/com/barberq/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Validate Saloon Dark Theme Alignment",
+      "description": "Confirm scaleType, margins, and golden boundaries look clean on multiple resolution displays.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Java 8 Source Compatibility",
+      "description": "Confirm only traditional anonymous inner classes are used for running worker background tasks.",
+      "files": ["app/src/main/java/com/barberq/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building BarberQ",
+      "description": "Execute gradle assembleDebug to compile the premium barber scheduler app after updating service catalog visuals.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "bookings": {
+      "fields": {
+        "customer_name": "string",
+        "customer_phone": "string",
+        "services": "string",
+        "total_price": "number",
+        "booking_date": "string",
+        "booking_time": "string",
+        "status": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "total_price_calc": {
+      "type": "calculation",
+      "inputs": ["selected_services_prices"],
+      "formula": "sum(selected_services_prices)"
+    }
+  }
+}
