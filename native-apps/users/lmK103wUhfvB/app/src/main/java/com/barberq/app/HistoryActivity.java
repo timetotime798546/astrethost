@@ -114,7 +114,7 @@ public class HistoryActivity extends Activity {
         TextView tvName = new TextView(this);
         tvName.setText(name);
         tvName.setTextColor(Color.WHITE);
-        tvName.setTextSize(16spToPx(16));
+        tvName.setTextSize(16);
         tvName.setTypeface(null, android.graphics.Typeface.BOLD);
         RelativeLayout.LayoutParams p1 = new RelativeLayout.LayoutParams(
             RelativeLayout.LayoutParams.WRAP_CONTENT,
@@ -126,7 +126,7 @@ public class HistoryActivity extends Activity {
         TextView tvStatus = new TextView(this);
         tvStatus.setText(status.toUpperCase());
         tvStatus.setTextColor(Color.parseColor("#4CAF50"));
-        tvStatus.setTextSize(12spToPx(12));
+        tvStatus.setTextSize(12);
         tvStatus.setTypeface(null, android.graphics.Typeface.BOLD);
         RelativeLayout.LayoutParams p2 = new RelativeLayout.LayoutParams(
             RelativeLayout.LayoutParams.WRAP_CONTENT,
@@ -154,7 +154,7 @@ public class HistoryActivity extends Activity {
         TextView tvServices = new TextView(this);
         tvServices.setText(services);
         tvServices.setTextColor(Color.parseColor("#BBBBBB"));
-        tvServices.setTextSize(14spToPx(14));
+        tvServices.setTextSize(14);
         LinearLayout.LayoutParams spParams = new LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
@@ -173,7 +173,7 @@ public class HistoryActivity extends Activity {
         TextView tvDate = new TextView(this);
         tvDate.setText(date + "  •  " + time);
         tvDate.setTextColor(Color.parseColor("#888888"));
-        tvDate.setTextSize(12spToPx(12));
+        tvDate.setTextSize(12);
         RelativeLayout.LayoutParams p3 = new RelativeLayout.LayoutParams(
             RelativeLayout.LayoutParams.WRAP_CONTENT,
             RelativeLayout.LayoutParams.WRAP_CONTENT
@@ -185,7 +185,7 @@ public class HistoryActivity extends Activity {
         TextView tvPrice = new TextView(this);
         tvPrice.setText("₹" + (int) price);
         tvPrice.setTextColor(Color.parseColor("#C5A880"));
-        tvPrice.setTextSize(16spToPx(16));
+        tvPrice.setTextSize(16);
         tvPrice.setTypeface(null, android.graphics.Typeface.BOLD);
         RelativeLayout.LayoutParams p4 = new RelativeLayout.LayoutParams(
             RelativeLayout.LayoutParams.WRAP_CONTENT,
@@ -200,13 +200,5 @@ public class HistoryActivity extends Activity {
         card.addView(btmRow);
 
         historyContainer.addView(card);
-    }
-
-    private int spToPx(float sp) {
-        return (int) (sp * getResources().getDisplayMetrics().scaledDensity);
-    }
-
-    private int spToPx(int sp) {
-        return spToPx((float) sp);
     }
 }

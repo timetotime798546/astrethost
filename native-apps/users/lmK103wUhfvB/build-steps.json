@@ -2,90 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure Application Build and Manifest",
-      "description": "Set up build.gradle with correct SDK targets, Gradle settings, and declare required internet permissions and launch Activities inside AndroidManifest.xml.",
-      "files": ["app/build.gradle", "app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 2,
-      "title": "Create Modern Dark Theme Custom Drawables",
-      "description": "Create premium custom UI XML shapes, borders, card backgrounds, and stylish button drawables featuring a professional gold and charcoal color palette.",
-      "files": [
-        "app/src/main/res/drawable/button_gold.xml",
-        "app/src/main/res/drawable/input_border.xml",
-        "app/src/main/res/drawable/card_background.xml",
-        "app/src/main/res/drawable/slot_button_selector.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Implement Native Backend API Client",
-      "description": "Build the HTTP client class to connect with the Cloud Worker API for login, registration, password reset OTP, and booking synchronization over /data.",
-      "files": ["app/src/main/java/com/barberq/app/BackendApi.java"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Design the Login, Registration, and Forgot Password XML Screen",
-      "description": "Design an elegant Dark Modern Theme login layout that enables authentication and incorporates a dedicated forgot password container for email-based OTP verification.",
-      "files": ["app/src/main/res/layout/activity_login.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Implement Login and Account Authentication Logic",
-      "description": "Code LoginActivity.java to manage user sessions, coordinate sign-ups, handle secure tokens, and execute forgot password OTP logic natively.",
-      "files": ["app/src/main/java/com/barberq/app/LoginActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Design the Home & Service Selection Screen Layout",
-      "description": "Design main dashboard interface using XML layouts to catalog premium saloon services alongside modern checklist selectors and a floating pricing calculator panel.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Program the Interactive Service Dashboard & Price Calculator",
-      "description": "Write MainActivity.java to list saloon services, compute prices dynamically in real time, and pass selection details over to the appointment scheduler.",
-      "files": ["app/src/main/java/com/barberq/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Design the Appointment Scheduling Layout Screen",
-      "description": "Build an intuitive scheduling layout with direct UI widgets for customer details, date picking, interactive slot matrices, and a golden confirmation CTA.",
-      "files": ["app/src/main/res/layout/activity_booking.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Develop Interactive Scheduling and Session Logic",
-      "description": "Code BookingActivity.java to validate booking data, display dynamic slot selections, and store final requests securely via the cloud-synced endpoint.",
-      "files": ["app/src/main/java/com/barberq/app/BookingActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Design the Bookings History Layout List",
-      "description": "Create a robust list layout with dynamic card views to let customers browse their booked appointments and check reservation details.",
-      "files": ["app/src/main/res/layout/activity_history.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Implement cloud-synchronized History Retrievals",
-      "description": "Write HistoryActivity.java to fetch and format personal booking rosters, parsing responses from the centralized backend server efficiently.",
+      "title": "Analyze Build Failures",
+      "description": "Inspect the compilation logs of HistoryActivity.java to pinpoint invalid sp-to-px helper utility calls.",
       "files": ["app/src/main/java/com/barberq/app/HistoryActivity.java"],
       "status": "pending"
     },
     {
-      "step": 12,
+      "step": 2,
+      "title": "Correct TextView Font Sizing",
+      "description": "Replace malformed custom sizing calls with valid, standard Android float inputs inside setTextSize.",
+      "files": ["app/src/main/java/com/barberq/app/HistoryActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Verify Java 8 Compatibility",
+      "description": "Ensure no lambdas, stream APIs, or other Java 9+ features are used in the modified codebase.",
+      "files": ["app/src/main/java/com/barberq/app/HistoryActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Confirm App Metadata Integrity",
+      "description": "Validate assets/app-meta.json to confirm correct app_id configurations for synchronizing backend data.",
+      "files": ["app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Validate Manifest Layouts",
+      "description": "Verify that AndroidManifest.xml contains correct activity structures and references the default Material theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify Drawables and Style Properties",
+      "description": "Confirm custom golden button states and custom input drawables are correctly defined and referenced.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Run Integration Compilation Checks",
+      "description": "Validate card view allocations and margins to ensure History list rendering functions flawlessly.",
+      "files": ["app/src/main/java/com/barberq/app/HistoryActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify Network Client Serialization",
+      "description": "Ensure the JSON collection parsers are robustly aligned to retrieve 'bookings' from the Cloud Beta Worker API.",
+      "files": ["app/src/main/java/com/barberq/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Perform Clean Build Preparation",
+      "description": "Clear compilation cache files to prevent residual resource conflicts or build collisions.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 10,
       "title": "Building BarberQ",
-      "description": "Perform comprehensive gradle assembly checks and ensure strict environment compatibility with Java 8.",
+      "description": "Execute gradle assembleDebug to finalize compilation of the debug build after resolving all code violations.",
       "files": [],
       "status": "pending"
     }
