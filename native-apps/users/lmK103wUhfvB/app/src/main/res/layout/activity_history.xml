@@ -20,7 +20,7 @@
             android:textColor="#C5A880"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:layout_centerY="true"
+            android:layout_centerVertical="true"
             android:padding="8dp"/>
 
         <TextView
@@ -31,7 +31,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_alignParentRight="true"
-            android:layout_centerY="true"/>
+            android:layout_centerVertical="true"/>
     </RelativeLayout>
 
     <!-- Error/No-Data Message -->

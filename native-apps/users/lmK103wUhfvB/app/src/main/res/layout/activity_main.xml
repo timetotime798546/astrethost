@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerY="true"
+            android:layout_centerVertical="true"
             android:text="BARBER Q"
             android:textColor="#C5A880"
             android:textSize="20sp"
@@ -349,7 +349,7 @@
 
     <!-- Bottom Pricing / CTA Panel -->
     <LinearLayout
-        android:id="@id/pricingPanel"
+        android:id="@+id/pricingPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
