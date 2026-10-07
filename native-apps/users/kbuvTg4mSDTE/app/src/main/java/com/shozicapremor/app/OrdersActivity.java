@@ -47,7 +47,7 @@ public class OrdersActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
 
-        api = BackendApi.getInstance(getApplicationContext());
+        api = new BackendApi(this);
         listOrders = (ListView) findViewById(R.id.listOrders);
         tvOrdersEmpty = (TextView) findViewById(R.id.tvOrdersEmpty);
 
@@ -65,47 +65,53 @@ public class OrdersActivity extends Activity {
     }
 
     private void loadOrderHistory() {
-        api.getOrders(new BackendApi.ApiCallback() {
+        api.readOrders(new BackendApi.ApiCallback<JSONArray>() {
             @Override
-            public void onSuccess(JSONObject response) {
-                try {
-                    if (response.optBoolean("success", false)) {
-                        JSONArray records = response.getJSONArray("records");
-                        orderHistoryList.clear();
+            public void onSuccess(final JSONArray records) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            orderHistoryList.clear();
 
-                        for (int i = 0; i < records.length(); i++) {
-                            JSONObject record = records.getJSONObject(i);
-                            // READ parses records[] and each record.data according to rule 11
-                            JSONObject data = record.getJSONObject("data");
+                            for (int i = 0; i < records.length(); i++) {
+                                JSONObject record = records.getJSONObject(i);
+                                // READ parses records[] and each record.data according to rule 11
+                                if (record.has("data")) {
+                                    JSONObject data = record.getJSONObject("data");
+                                    HistoricOrder ord = new HistoricOrder(
+                                        data.optString("shoe_name", data.optString("product_name", "Unknown premium shoe")),
+                                        data.optDouble("price", 0.0),
+                                        data.optInt("quantity", 1),
+                                        data.optString("size", "N/A"),
+                                        data.optString("image_url", ""),
+                                        data.optDouble("total_price", data.optDouble("total", 0.0))
+                                    );
+                                    orderHistoryList.add(ord);
+                                }
+                            }
 
-                            HistoricOrder ord = new HistoricOrder(
-                                data.optString("shoe_name", "Unknown premium shoe"),
-                                data.optDouble("price", 0.0),
-                                data.optInt("quantity", 1),
-                                data.optString("size", "N/A"),
-                                data.optString("image_url", ""),
-                                data.optDouble("total_price", 0.0)
-                            );
-                            orderHistoryList.add(ord);
+                            if (orderHistoryList.isEmpty()) {
+                                tvOrdersEmpty.setVisibility(View.VISIBLE);
+                            } else {
+                                tvOrdersEmpty.setVisibility(View.GONE);
+                            }
+                            adapter.notifyDataSetChanged();
+                        } catch (Exception e) {
+                            Toast.makeText(OrdersActivity.this, "Error processing order catalog.", Toast.LENGTH_SHORT).show();
                         }
-
-                        if (orderHistoryList.isEmpty()) {
-                            tvOrdersEmpty.setVisibility(View.VISIBLE);
-                        } else {
-                            tvOrdersEmpty.setVisibility(View.GONE);
-                        }
-                        adapter.notifyDataSetChanged();
-                    } else {
-                        Toast.makeText(OrdersActivity.this, "Failed to load exclusive history.", Toast.LENGTH_SHORT).show();
                     }
-                } catch (Exception e) {
-                    Toast.makeText(OrdersActivity.this, "Error processing order catalog.", Toast.LENGTH_SHORT).show();
-                }
+                });
             }
 
             @Override
-            public void onError(String errorMessage) {
-                Toast.makeText(OrdersActivity.this, "Offline mode or sync issue.", Toast.LENGTH_SHORT).show();
+            public void onError(final String errorMessage) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(OrdersActivity.this, "Offline mode or sync issue.", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }

@@ -93,7 +93,7 @@ public class ShopActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
 
-        api = BackendApi.getInstance(getApplicationContext());
+        api = new BackendApi(this);
         gridShoes = (GridView) findViewById(R.id.gridShoes);
         tvCartBadge = (TextView) findViewById(R.id.tvCartBadge);
 
@@ -199,7 +199,7 @@ public class ShopActivity extends Activity {
         findViewById(R.id.btnShopLogout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                api.logout(ShopActivity.this);
+                api.clearAuth();
                 CartManager.getInstance().clear();
                 startActivity(new Intent(ShopActivity.this, MainActivity.class));
                 finish();
@@ -264,10 +264,10 @@ public class ShopActivity extends Activity {
 
             Shoe shoe = list.get(position);
 
-            ImageView ivThumb = (ImageView) convertView.findViewById(R.id.ivShoeThumbnail);
-            TextView tvCat = (TextView) convertView.findViewById(R.id.tvShoeCat);
-            TextView tvName = (TextView) convertView.findViewById(R.id.tvShoeName);
-            TextView tvPrice = (TextView) convertView.findViewById(R.id.tvShoePrice);
+            ImageView ivThumb = (ImageView) convertView.findViewById(R.id.shoe_image);
+            TextView tvCat = (TextView) convertView.findViewById(R.id.shoe_category);
+            TextView tvName = (TextView) convertView.findViewById(R.id.shoe_name);
+            TextView tvPrice = (TextView) convertView.findViewById(R.id.shoe_price);
 
             tvCat.setText(shoe.category.toUpperCase());
             tvName.setText(shoe.name);

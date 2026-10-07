@@ -20,7 +20,7 @@
             android:background="#EAEAEA"
             android:text="←"
             android:textSize="18sp"
-            android:layout_centerY="true" />
+            android:layout_centerVertical="true" />
 
         <TextView
             android:id="@+id/tvDetailTitleHeader"

@@ -17,7 +17,7 @@
             android:id="@+id/tvShopHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerY="true"
+            android:layout_centerVertical="true"
             android:text="SHOZICA"
             android:textColor="#111111"
             android:textSize="22sp"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_alignParentRight="true"
-            android:layout_centerY="true">
+            android:layout_centerVertical="true">
 
             <Button
                 android:id="@+id/btnHeaderOrders"

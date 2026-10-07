@@ -17,6 +17,10 @@ public class ImageLoader {
     private static final Handler uiHandler = new Handler(Looper.getMainLooper());
 
     public static void displayImage(final String imageUrl, final ImageView imageView) {
+        loadImage(imageUrl, imageView);
+    }
+
+    public static void loadImage(final String imageUrl, final ImageView imageView) {
         if (imageUrl == null || imageUrl.trim().isEmpty()) {
             return;
         }
