@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Setup App Directory Structure",
+      "description": "Create basic package folders and configuration assets.",
+      "files": ["app-meta.json", "api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Environment",
+      "description": "Establish build.gradle with compatible target/compile SDKs and native standard libraries.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define App Manifest and Permissions",
+      "description": "Setup AndroidManifest.xml with required Internet permissions, custom launcher themes, and registered activities.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Craft Visual Identity & Themes",
+      "description": "Implement colors, dimensions, drawable states, and premium design styles targeting the Shozica Premor brand.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml", "app/src/main/res/values/styles.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Develop Core Native API client",
+      "description": "Create BackendApi.java utilizing native Java HttpURLConnection for register, login, OTP recovery, and CRUD operations.",
+      "files": ["app/src/main/java/com/shozicapremor/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Develop Custom Image Loading Engine",
+      "description": "Create ImageLoader.java utilizing lightweight async connection pool and bitmap memory-caching to dynamically load premium shoe images.",
+      "files": ["app/src/main/java/com/shozicapremor/app/ImageLoader.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Construct Brand Authentication UI",
+      "description": "Create LoginActivity.java and matching login layout with custom toggle capabilities for user authentication.",
+      "files": ["app/src/main/res/layout/activity_login.xml", "app/src/main/java/com/shozicapremor/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Email OTP Recovery Workflow",
+      "description": "Build ForgotPasswordActivity.java with multi-step interactive container toggling for requesting and verifying password resets.",
+      "files": ["app/src/main/res/layout/activity_forgot_password.xml", "app/src/main/java/com/shozicapremor/app/ForgotPasswordActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Dashboard & Interactive Shoe Showcase",
+      "description": "Build MainActivity.java which allows user to browse shoe categories, toggle view tabs, and search products.",
+      "files": ["app/src/main/res/layout/activity_main.xml", "app/src/main/res/layout/item_shoe.xml", "app/src/main/java/com/shozicapremor/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Build Dynamic Multi-Image Gallery Detail View",
+      "description": "Design ProductDetailActivity.java supporting horizontal multi-angle shoe view gallery, interactive size selector, and add-to-cart controls.",
+      "files": ["app/src/main/res/layout/activity_product_detail.xml", "app/src/main/java/com/shozicapremor/app/ProductDetailActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Develop Checkout Engine with Offline Calculations",
+      "description": "Build CartActivity.java with precise real-time calculations for subtotals, tax fractions, bulk discounts, shipping fees, and database sync.",
+      "files": ["app/src/main/res/layout/activity_cart.xml", "app/src/main/res/layout/item_cart_order.xml", "app/src/main/java/com/shozicapremor/app/CartActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Shozica Premor",
+      "description": "Run strict gradle debug build tasks to verify app packaging, assets deployment, and signature.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
