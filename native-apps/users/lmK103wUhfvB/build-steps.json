@@ -1,0 +1,93 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Application Build and Manifest",
+      "description": "Set up build.gradle with correct SDK targets, Gradle settings, and declare required internet permissions and launch Activities inside AndroidManifest.xml.",
+      "files": ["app/build.gradle", "app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create Modern Dark Theme Custom Drawables",
+      "description": "Create premium custom UI XML shapes, borders, card backgrounds, and stylish button drawables featuring a professional gold and charcoal color palette.",
+      "files": [
+        "app/src/main/res/drawable/button_gold.xml",
+        "app/src/main/res/drawable/input_border.xml",
+        "app/src/main/res/drawable/card_background.xml",
+        "app/src/main/res/drawable/slot_button_selector.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Native Backend API Client",
+      "description": "Build the HTTP client class to connect with the Cloud Worker API for login, registration, password reset OTP, and booking synchronization over /data.",
+      "files": ["app/src/main/java/com/barberq/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design the Login, Registration, and Forgot Password XML Screen",
+      "description": "Design an elegant Dark Modern Theme login layout that enables authentication and incorporates a dedicated forgot password container for email-based OTP verification.",
+      "files": ["app/src/main/res/layout/activity_login.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Login and Account Authentication Logic",
+      "description": "Code LoginActivity.java to manage user sessions, coordinate sign-ups, handle secure tokens, and execute forgot password OTP logic natively.",
+      "files": ["app/src/main/java/com/barberq/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design the Home & Service Selection Screen Layout",
+      "description": "Design main dashboard interface using XML layouts to catalog premium saloon services alongside modern checklist selectors and a floating pricing calculator panel.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Program the Interactive Service Dashboard & Price Calculator",
+      "description": "Write MainActivity.java to list saloon services, compute prices dynamically in real time, and pass selection details over to the appointment scheduler.",
+      "files": ["app/src/main/java/com/barberq/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design the Appointment Scheduling Layout Screen",
+      "description": "Build an intuitive scheduling layout with direct UI widgets for customer details, date picking, interactive slot matrices, and a golden confirmation CTA.",
+      "files": ["app/src/main/res/layout/activity_booking.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop Interactive Scheduling and Session Logic",
+      "description": "Code BookingActivity.java to validate booking data, display dynamic slot selections, and store final requests securely via the cloud-synced endpoint.",
+      "files": ["app/src/main/java/com/barberq/app/BookingActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design the Bookings History Layout List",
+      "description": "Create a robust list layout with dynamic card views to let customers browse their booked appointments and check reservation details.",
+      "files": ["app/src/main/res/layout/activity_history.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement cloud-synchronized History Retrievals",
+      "description": "Write HistoryActivity.java to fetch and format personal booking rosters, parsing responses from the centralized backend server efficiently.",
+      "files": ["app/src/main/java/com/barberq/app/HistoryActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building BarberQ",
+      "description": "Perform comprehensive gradle assembly checks and ensure strict environment compatibility with Java 8.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
