@@ -1,0 +1,95 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Initialization",
+      "description": "Initialize Ludo Classic app project structure and metadata.",
+      "files": ["app-meta.json", "api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Android Manifest",
+      "description": "Set up the AndroidManifest.xml with native orientation lock and material theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Build",
+      "description": "Configure the build.gradle file with standard compilation SDK versions and clean dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Coordinate System",
+      "description": "Design the Ludo cell and board path system for the 4 players.",
+      "files": ["app/src/main/java/com/ludoclassic/app/LudoBoardView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build Board Drawing Logic",
+      "description": "Program custom onDraw method to render the 15x15 Ludo board grid, starting zones, and safe stars on Canvas.",
+      "files": ["app/src/main/java/com/ludoclassic/app/LudoBoardView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Token Stack Offset Rendering",
+      "description": "Implement overlapping token offset calculations to allow multiple tokens on the same cell to render distinctively.",
+      "files": ["app/src/main/java/com/ludoclassic/app/LudoBoardView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Touch Interaction and Movement Logic",
+      "description": "Program touch listener on the canvas board to detect which token of the current player was clicked.",
+      "files": ["app/src/main/java/com/ludoclassic/app/LudoBoardView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Define Game Engine State",
+      "description": "Implement player turns, token positions, winner checking, and safe zones rules.",
+      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Main Activity Layout",
+      "description": "Design main application layout with Ludo Board, dice roll section, player options, and clean instructions.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Dice Rolling Animation",
+      "description": "Create a handler-based dice roll animation displaying rolling dice faces.",
+      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Integrate Game Sound and Visual Effects",
+      "description": "Add Toast feedbacks and visual updates for special game triggers (capture, win, extra turn, six rolled).",
+      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement State Persistence",
+      "description": "Save game states locally using SharedPreferences to preserve unfinished match status on app exit.",
+      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Ludo Classic",
+      "description": "Build the debug APK using Gradle tool chain.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
