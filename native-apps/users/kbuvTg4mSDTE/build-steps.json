@@ -58,8 +58,8 @@
     },
     {
       "step": 9,
-      "title": "Create Main Activity Layout",
-      "description": "Design main application layout with Ludo Board, dice roll section, player options, and clean instructions.",
+      "title": "Fix Main Activity Layout",
+      "description": "Correct layout positioning errors by replacing invalid 'layout_centerY' attributes with 'layout_centerVertical' in the RelativeLayout header.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
