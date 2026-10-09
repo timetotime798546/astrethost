@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F8FAFC">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="56dp">
+
+        <!-- Dynamic Contextual Category Display Image Banner -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp">
+
+            <ImageView
+                android:id="@+id/imgDetailHeader"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="#E2E8F0" />
+
+            <!-- Elegant overlay gradient shadow to distinguish category banner -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/txtHeaderBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="20dp"
+                android:text="PERSONAL"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:paddingLeft="18dp"
+                android:paddingTop="8dp"
+                android:paddingRight="18dp"
+                android:paddingBottom="8dp"
+                android:background="#EC4899" />
+
+        </RelativeLayout>
+
+        <!-- Form fields layout with clean margins -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Dynamic Horizontal image carousel -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HEADER CAROUSEL (DYNAMIC MULTI-IMAGE)"
+                android:textStyle="bold"
+                android:textColor="#475569"
+                android:textSize="11sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="24dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Rounded Thumbnail Variant 1 -->
+                    <ImageView
+                        android:id="@+id/imgThumb1"
+                        android:layout_width="100dp"
+                        android:layout_height="65dp"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="centerCrop"
+                        android:background="#E2E8F0"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <!-- Rounded Thumbnail Variant 2 -->
+                    <ImageView
+                        android:id="@+id/imgThumb2"
+                        android:layout_width="100dp"
+                        android:layout_height="65dp"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="centerCrop"
+                        android:background="#E2E8F0"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <!-- Rounded Thumbnail Variant 3 -->
+                    <ImageView
+                        android:id="@+id/imgThumb3"
+                        android:layout_width="100dp"
+                        android:layout_height="65dp"
+                        android:scaleType="centerCrop"
+                        android:background="#E2E8F0"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Note Title"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/detailTitle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:hint="Provide title..."
+                android:inputType="text"
+                android:paddingLeft="16dp"
+                android:textSize="14sp"
+                android:textColor="#1E293B"
+                android:background="@drawable/bg_edit_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Category Type"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/detailTypeSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Completion Status"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/detailStatusSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Creation / Execution Date"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:textSize="12sp" />
+
+            <!-- Rounded Date Picker Picker Panel Layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:background="@drawable/bg_edit_text">
+
+                <TextView
+                    android:id="@+id/txtDetailDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2024-01-01"
+                    android:textSize="14sp"
+                    android:textColor="#1E293B" />
+
+                <Button
+                    android:id="@+id/btnPickDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Change"
+                    android:textSize="12sp"
+                    android:textColor="#475569"
+                    android:background="@drawable/bg_button_secondary" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Note Body Description"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/detailDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Provide all descriptive notes here..."
+                android:inputType="textMultiLine"
+                android:minLines="5"
+                android:gravity="top"
+                android:padding="16dp"
+                android:textSize="14sp"
+                android:textColor="#1E293B"
+                android:background="@drawable/bg_edit_text" />
+
+            <!-- Core Operations Actions Panel -->
+            <Button
+                android:id="@+id/btnSaveNote"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="36dp"
+                android:text="Synchronize with Cloud"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button_primary"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnDeleteNote"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="12dp"
+                android:text="Purge Note Permanently"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button_danger"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F8FAFC">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="32dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:text="Create Account"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1E293B" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Deploy your private secure notes directory"
+            android:textSize="14sp"
+            android:textColor="#64748B" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:background="#FFFFFF"
+            android:elevation="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Address"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/regEmail"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:hint="you@domain.com"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="16dp"
+                android:textSize="14sp"
+                android:textColor="#1E293B"
+                android:background="@drawable/bg_edit_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Password"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/regPassword"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:hint="Must be at least 6 characters"
+                android:inputType="textPassword"
+                android:paddingLeft="16dp"
+                android:textSize="14sp"
+                android:textColor="#1E293B"
+                android:background="@drawable/bg_edit_text" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="28dp"
+                android:text="Register Workspace"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button_primary"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnBackToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Already have an account? Sign In"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#6366F1"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+</ScrollView>
