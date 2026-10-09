@@ -1,0 +1,37 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "user_profiles": {
+      "fields": {
+        "email": "string",
+        "points": "integer"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "bookings": {
+      "fields": {
+        "email": "string",
+        "service_name": "string",
+        "cost": "integer",
+        "booking_date": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "booking_cost_calculation": {
+      "type": "calculation",
+      "inputs": ["current_points", "service_cost"],
+      "formula": "current_points - service_cost"
+    },
+    "loyalty_checkin_bonus": {
+      "type": "calculation",
+      "inputs": ["current_points", "bonus_points"],
+      "formula": "current_points + bonus_points"
+    }
+  }
+}

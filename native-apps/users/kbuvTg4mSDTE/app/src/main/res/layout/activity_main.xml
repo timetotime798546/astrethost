@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8FAFC">
+
+    <!-- Premium Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#121824"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tvGreeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome!"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvEmailSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvGreeting"
+            android:text="user@example.com"
+            android:textColor="#94A3B8"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/button_rounded"
+            android:text="Logout"
+            android:textColor="#121824"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Content Scroller -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Loyalty Status Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#1E293B"
+                android:padding="20dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LOYALTY WALLET BALANCE"
+                    android:textColor="#D4AF37"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPointsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100 pts"
+                    android:textColor="#FFFFFF"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+
+                <!-- Checkin Helper -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Earn daily bonus rewards (+20 pts)"
+                        android:textColor="#94A3B8"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/btnDailyCheckIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="CLAIM"
+                        android:textColor="#121824"
+                        android:background="@drawable/button_rounded"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PREMIUM TREATMENTS"
+                android:textColor="#121824"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Catalog Cards with Horizontal Dynamic Carousels -->
+            <!-- Haircut Catalog -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_rounded"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💈 Executive Haircut"
+                    android:textColor="#121824"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cost: 30 Loyalty Points"
+                    android:textColor="#D4AF37"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <!-- Dynamic Multiple Image Horizontal Frame -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/ivHaircut1"
+                            android:layout_width="120dp"
+                            android:layout_height="90dp"
+                            android:scaleType="centerCrop"
+                            android:layout_marginRight="8dp" />
+
+                        <ImageView
+                            android:id="@+id/ivHaircut2"
+                            android:layout_width="120dp"
+                            android:layout_height="90dp"
+                            android:scaleType="centerCrop"
+                            android:layout_marginRight="8dp" />
+
+                        <ImageView
+                            android:id="@+id/ivHaircut3"
+                            android:layout_width="120dp"
+                            android:layout_height="90dp"
+                            android:scaleType="centerCrop" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <Button
+                    android:id="@+id/btnBookHaircut"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:background="@drawable/button_rounded"
+                    android:text="REDEEM FOR 30 PTS"
+                    android:textColor="#121824"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp" />
+            </LinearLayout>
+
+            <!-- Shave Catalog -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_rounded"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🪒 Royal Beard Beard Trim &amp; Shave"
+                    android:textColor="#121824"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cost: 15 Loyalty Points"
+                    android:textColor="#D4AF37"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <!-- Dynamic Multiple Image Horizontal Frame -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/ivShave1"
+                            android:layout_width="120dp"
+                            android:layout_height="90dp"
+                            android:scaleType="centerCrop"
+                            android:layout_marginRight="8dp" />
+
+                        <ImageView
+                            android:id="@+id/ivShave2"
+                            android:layout_width="120dp"
+                            android:layout_height="90dp"
+                            android:scaleType="centerCrop"
+                            android:layout_marginRight="8dp" />
+
+                        <ImageView
+                            android:id="@+id/ivShave3"
+                            android:layout_width="120dp"
+                            android:layout_height="90dp"
+                            android:scaleType="centerCrop" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <Button
+                    android:id="@+id/btnBookShave"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:background="@drawable/button_rounded"
+                    android:text="REDEEM FOR 15 PTS"
+                    android:textColor="#121824"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp" />
+            </LinearLayout>
+
+            <!-- Bookings List Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YOUR BOOKED SESSIONS"
+                android:textColor="#121824"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Dynamic bookings layout container -->
+            <LinearLayout
+                android:id="@+id/llBookingsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="40dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

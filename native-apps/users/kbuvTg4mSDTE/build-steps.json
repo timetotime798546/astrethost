@@ -1,0 +1,116 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Meta Data",
+      "description": "Establish the application name, unique package identifier, and background identity configurations.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define API Schema and Collections",
+      "description": "Map the backend structure with dynamic collection rules and strict business logic equations.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Build Settings",
+      "description": "Configure the SDK compile version, layout paths, application theme, and dependencies without 3rd party frameworks.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Write Android Manifest Definitions",
+      "description": "Set system properties, enable clean network communications, and declare explicit entry point activities.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Style Guide and Visual Assets",
+      "description": "Formulate premium barbershop-inspired colors, rounded input buttons, and background cards.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/drawable/button_rounded.xml",
+        "app/src/main/res/drawable/card_rounded.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create User Onboarding UI Layouts",
+      "description": "Develop full linear XML sheets for Login and Signup processes featuring rich color variables.",
+      "files": [
+        "app/src/main/res/layout/activity_login.xml",
+        "app/src/main/res/layout/activity_register.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Password Recovery Layout",
+      "description": "Develop a standard form to assist with two-stage password OTP requests and reset processes.",
+      "files": ["app/src/main/res/layout/activity_forgot_password.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Dashboard and Service Layout",
+      "description": "Build an elegant dashboard containing dynamic service catalogs, wallet balance monitors, and horizontal photo carousels.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Build Network Handler Class",
+      "description": "Code custom asynchronous HTTP handlers with automatic token reading and request-reply parses.",
+      "files": ["app/src/main/java/com/barberloyalty/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Create Image Loading Utility",
+      "description": "Develop a pure Java executor-based background image downloader without third-party libraries.",
+      "files": ["app/src/main/java/com/barberloyalty/app/SimpleImageDownloader.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Login Activity Logic",
+      "description": "Bind authorization listeners to execute registration and session validations natively.",
+      "files": ["app/src/main/java/com/barberloyalty/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Register Activity Logic",
+      "description": "Register accounts and instantly coordinate automated logins without expecting register-level tokens.",
+      "files": ["app/src/main/java/com/barberloyalty/app/RegisterActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Password Recovery Logic",
+      "description": "Implement request OTP and password reset triggers using the backend endpoints.",
+      "files": ["app/src/main/java/com/barberloyalty/app/ForgotPasswordActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement Main Dashboard Logic",
+      "description": "Govern loyalty systems, calculate balances, manage offline-first bookings, and pull dynamic cloud datasets.",
+      "files": ["app/src/main/java/com/barberloyalty/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Barber Loyalty & Booking",
+      "description": "Final compilation of application artifacts on Java 17 framework utilizing Gradle compilers.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
