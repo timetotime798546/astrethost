@@ -1,0 +1,30 @@
+{
+  "backend": true,
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "bookings": {
+      "fields": {
+        "room_name": "string",
+        "price_per_night": "number",
+        "check_in_date": "string",
+        "check_out_date": "string",
+        "number_of_nights": "integer",
+        "subtotal": "number",
+        "tax": "number",
+        "total_price": "number",
+        "guest_name": "string",
+        "special_requests": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "booking_total_price": {
+      "type": "calculation",
+      "inputs": ["price_per_night", "number_of_nights"],
+      "formula": "(price_per_night * number_of_nights) * 1.10"
+    }
+  }
+}
