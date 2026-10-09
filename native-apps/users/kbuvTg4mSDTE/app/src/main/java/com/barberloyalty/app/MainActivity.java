@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -356,7 +357,7 @@ public class MainActivity extends Activity {
                                 TextView tvEmpty = new TextView(MainActivity.this);
                                 tvEmpty.setText("No stylist reservations scheduled yet.");
                                 tvEmpty.setTextColor(Color.parseColor("#94A3B8"));
-                                tvEmpty.setTextSize(14sp);
+                                tvEmpty.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
                                 tvEmpty.setPadding(0, 16, 0, 0);
                                 llBookingsContainer.addView(tvEmpty);
                                 return;
@@ -390,14 +391,14 @@ public class MainActivity extends Activity {
                                         TextView titleTv = new TextView(MainActivity.this);
                                         titleTv.setText("📌 " + serviceName);
                                         titleTv.setTextColor(Color.parseColor("#121824"));
-                                        titleTv.setTextSize(15sp);
+                                        titleTv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
                                         titleTv.setTypeface(null, android.graphics.Typeface.BOLD);
                                         card.addView(titleTv);
 
                                         TextView detailsTv = new TextView(MainActivity.this);
                                         detailsTv.setText("Schedule: " + date + "\nWallet Redemptions: -" + cost + " pts");
                                         detailsTv.setTextColor(Color.parseColor("#64748B"));
-                                        detailsTv.setTextSize(12sp);
+                                        detailsTv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
                                         detailsTv.setPadding(0, 6, 0, 0);
                                         card.addView(detailsTv);
 
@@ -410,7 +411,7 @@ public class MainActivity extends Activity {
                                 TextView tvEmpty = new TextView(MainActivity.this);
                                 tvEmpty.setText("No styling reservations active for your account.");
                                 tvEmpty.setTextColor(Color.parseColor("#94A3B8"));
-                                tvEmpty.setTextSize(14sp);
+                                tvEmpty.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
                                 tvEmpty.setPadding(0, 16, 0, 0);
                                 llBookingsContainer.addView(tvEmpty);
                             }
