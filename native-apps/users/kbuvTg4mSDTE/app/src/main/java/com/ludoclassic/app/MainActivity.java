@@ -327,7 +327,7 @@ public class MainActivity extends Activity implements LudoBoardView.OnTokenSelec
                                 // Captured! Return captured token to yard position 0
                                 tokenPositions[opponent][t] = 0;
                                 extraRoll = true;
-                                Toast.makeText(this, colorName + " captured " + getPlayerColorName(opponent) + "! Extra roll!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(this, colorName + " captured " + getPlayerColorName(opponent) + "! Extra roll!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -510,4 +510,3 @@ public class MainActivity extends Activity implements LudoBoardView.OnTokenSelec
         saveGameState();
     }
 }
-```
