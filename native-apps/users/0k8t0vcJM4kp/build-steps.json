@@ -2,113 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure App Metadata",
-      "description": "Establish basic project configuration details in app-meta.json.",
-      "files": ["app-meta.json"],
+      "title": "Analyze Build Error Logs",
+      "description": "Review AAPT compiling error logs related to incompatible 'match_size' layout constraints.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Define Database and API Schema",
-      "description": "Create api_schema.json defining booking collections and internal offline calculation details.",
-      "files": ["api_schema.json"],
+      "title": "Verify Layout Constraints",
+      "description": "Identify all root nodes utilizing illegal 'match_size' values inside XML layouts.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Build Settings",
-      "description": "Configure app build.gradle settings with target SDK 34 and appropriate parameters.",
-      "files": ["app/build.gradle"],
+      "title": "Fix Login Layout XML",
+      "description": "Correct layout_width attribute in activity_login.xml to match_parent.",
+      "files": ["app/src/main/res/layout/activity_login.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Declare Application Manifest",
-      "description": "Set up permissions, launcher activity, and custom Material layout themes in AndroidManifest.xml.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Fix Register Layout XML",
+      "description": "Update layout_width to match_parent in activity_register.xml to fix AAPT resource compiling.",
+      "files": ["app/src/main/res/layout/activity_register.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Establish Aesthetic Style Assets",
-      "description": "Create custom shapes, styling colors, and styles matching GrandStay's visual language.",
-      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml", "app/src/main/res/drawable/button_gold.xml", "app/src/main/res/drawable/edit_text_border.xml", "app/src/main/res/drawable/card_navy_gradient.xml"],
+      "title": "Fix Recovery Layout XML",
+      "description": "Standardize forgot password layout XML root configuration with match_parent.",
+      "files": ["app/src/main/res/layout/activity_forgot_password.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Custom Image Delivery Utility",
-      "description": "Create ImageLoader.java to asynchronously load and cache remote hotel room images with absolute standard libraries.",
-      "files": ["app/src/main/java/com/grandstayhotelresort/app/ImageLoader.java"],
+      "title": "Fix Dashboard Layout XML",
+      "description": "Correct activity_main.xml layout width properties for proper layout rendering.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Backend API Client",
-      "description": "Build dynamic authentication, forgot password flow, and REST API database connection module.",
-      "files": ["app/src/main/java/com/grandstayhotelresort/app/BackendApi.java"],
+      "title": "Fix Room Details Layout XML",
+      "description": "Correct activity_room_details.xml main root width parameter to follow standard resource layouts.",
+      "files": ["app/src/main/res/layout/activity_room_details.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Create Room Model",
-      "description": "Create Room.java entity featuring room details and collection of related high-definition preview images.",
-      "files": ["app/src/main/java/com/grandstayhotelresort/app/Room.java"],
+      "title": "Fix Guest History Layout XML",
+      "description": "Update layout width inside activity_my_bookings.xml to compile smoothly.",
+      "files": ["app/src/main/res/layout/activity_my_bookings.xml"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Build Login Screen and Layout",
-      "description": "Create Login UI and logic verifying credentials, storing token, and loading dynamic app configuration.",
-      "files": ["app/src/main/res/layout/activity_login.xml", "app/src/main/java/com/grandstayhotelresort/app/LoginActivity.java"],
+      "title": "Verify Metadata Integrity",
+      "description": "Confirm consistency of asset app-meta.json and package paths across resource bindings.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Build Register Screen and Layout",
-      "description": "Create Signup UI with validation routines, registration feedback, and automated session initialization.",
-      "files": ["app/src/main/res/layout/activity_register.xml", "app/src/main/java/com/grandstayhotelresort/app/RegisterActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Build Forgot Password Recovery Stream",
-      "description": "Develop Gmail OTP validation and target key reset interface for secure password restoration.",
-      "files": ["app/src/main/res/layout/activity_forgot_password.xml", "app/src/main/java/com/grandstayhotelresort/app/ForgotPasswordActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Build Main Hotel Dashboard",
-      "description": "Develop catalog browsing panel with dynamic keyword and price-range search system.",
-      "files": ["app/src/main/res/layout/activity_main.xml", "app/src/main/java/com/grandstayhotelresort/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Build Multi-Image Room Detail View",
-      "description": "Construct detail page containing multi-image landscape slider, dates choosing dialog, and dynamic calculation model.",
-      "files": ["app/src/main/res/layout/activity_room_details.xml", "app/src/main/java/com/grandstayhotelresort/app/RoomDetailsActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 14,
-      "title": "Build Guest Bookings Management Screen",
-      "description": "Develop history list component demonstrating active bookings details fetched from server.",
-      "files": ["app/src/main/res/layout/activity_my_bookings.xml", "app/src/main/java/com/grandstayhotelresort/app/MyBookingsActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 15,
-      "title": "Inject Asset app-meta.json",
-      "description": "Write asset app-meta.json to make application name and parameters discoverable by client code at runtime.",
-      "files": ["app/src/main/assets/app-meta.json"],
-      "status": "pending"
-    },
-    {
-      "step": 16,
       "title": "Building GrandStay Hotel & Resort",
-      "description": "Execute native assembly build step to generate the final GrandStay application.",
+      "description": "Execute native assembly build step to generate the final GrandStay application without errors.",
       "files": [],
       "status": "pending"
     }
