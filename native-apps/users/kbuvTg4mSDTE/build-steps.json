@@ -1,0 +1,87 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Audio Synthesizer Library",
+      "description": "Establish the SoundManager with robust AudioTrack synthesizing for rich rolling and hopping waveforms.",
+      "files": ["app/src/main/java/com/ludoclassic/app/SoundManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create Particle Background System",
+      "description": "Implement LudoParticleView to draw self-animating vector particles for high-end cinematic visual interest.",
+      "files": ["app/src/main/java/com/ludoclassic/app/LudoParticleView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Design Neon Button and Glass Card Drawables",
+      "description": "Produce modern glassmorphic and glowing neon button XML styles for premium dark-theme selections.",
+      "files": [
+        "app/src/main/res/drawable/btn_neon_red.xml",
+        "app/src/main/res/drawable/btn_neon_green.xml",
+        "app/src/main/res/drawable/btn_neon_blue.xml",
+        "app/src/main/res/drawable/glass_card.xml",
+        "app/src/main/res/drawable/dice_3d_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Premium Lobby Layout",
+      "description": "Build high-definition glassmorphic lobby welcome screen with neon player options and floating particles.",
+      "files": ["app/src/main/res/layout/activity_welcome.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Configure Welcome Lobby Activity",
+      "description": "Implement WelcomeActivity to guide players safely into matches with transition configurations.",
+      "files": ["app/src/main/java/com/ludoclassic/app/WelcomeActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Upgrade Ludo Board Rendering Canvas",
+      "description": "Enhance LudoBoardView to draw dark obsidian cells, glowing neon home paths, metallic yard borders, and premium 3D sphere tokens with floating physics shadows.",
+      "files": ["app/src/main/java/com/ludoclassic/app/LudoBoardView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Main Game Screen Layout",
+      "description": "Format activity_main.xml with immersive dark Obsidian backdrop, status displays, and a beautifully floating 3D dice board.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Main Gameplay Controller",
+      "description": "Establish main activity logic mapping turns, dice values, token selections, and automatic progression states.",
+      "files": ["app/src/main/java/com/ludoclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Configure High-Resolution App Manifest",
+      "description": "Ensure the application properties list the proper launcher and design orientations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Verify Build Dependencies and Gradle Scripts",
+      "description": "Prepare compile files and verify AGP plugin configuration settings.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Ludo Classic",
+      "description": "Compile the entire Premium 3D Ludo project and output the ready-to-play debug APK package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
