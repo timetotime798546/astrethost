@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:keepScreenOn="true"
+    android:padding="16dp">
+
+    <!-- Top Ambient Glassmorphism Widget Bar -->
+    <LinearLayout
+        android:id="@+id/topWidgetCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/glass_card_bg"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Live Date Display -->
+            <TextView
+                android:id="@+id/textDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="MONDAY, OCT 24"
+                android:textColor="#E0E0E0"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+
+            <!-- Dynamic Battery Status Widget -->
+            <LinearLayout
+                android:id="@+id/batteryContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textBatteryIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚡ 100%"
+                    android:textColor="#00FFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="#1AFFFFFF" />
+
+        <!-- Daily Quote Display -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textQuote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/btnRefreshQuote"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="&quot;The stars shine brightest in the deepest dark.&quot;"
+                android:textColor="#B0B0B0"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/btnRefreshQuote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/button_glass_bg"
+                android:paddingLeft="10dp"
+                android:paddingTop="4dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="4dp"
+                android:text="↺ Next"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- Center Giant Glowing Neon Clock -->
+    <LinearLayout
+        android:id="@+id/clockCenterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textClock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:shadowColor="#00FFFF"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="25"
+                android:text="12:00:00"
+                android:textColor="#00FFFF"
+                android:textSize="64sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textAmPm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:shadowColor="#00FFFF"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="15"
+                android:text="PM"
+                android:textColor="#00FFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Pulsing Indicator Line -->
+        <View
+            android:id="@+id/pulseLine"
+            android:layout_width="120dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="16dp"
+            android:background="#00FFFF" />
+    </LinearLayout>
+
+    <!-- Bottom Nightstand Controls Container -->
+    <LinearLayout
+        android:id="@+id/controlsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/glass_card_bg"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Horizontal Row: Format Toggle & Hint -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:id="@+id/textHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Tap anywhere to hide controls"
+                android:textColor="#80FFFFFF"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/btnTimeFormatToggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/button_glass_bg"
+                android:paddingLeft="12dp"
+                android:paddingTop="6dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="6dp"
+                android:text="Format: 12H"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Neon Accent Color Picker Slider -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEON ACCENT COLOR"
+            android:textColor="#A0A0A0"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- Cyan Circle -->
+                <View
+                    android:id="@+id/colorCyan"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginRight="14dp"
+                    android:background="@drawable/circle_cyan" />
+
+                <!-- Purple Circle -->
+                <View
+                    android:id="@+id/colorPurple"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginRight="14dp"
+                    android:background="@drawable/circle_purple" />
+
+                <!-- Green Circle -->
+                <View
+                    android:id="@+id/colorGreen"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginRight="14dp"
+                    android:background="@drawable/circle_green" />
+
+                <!-- Pink Circle -->
+                <View
+                    android:id="@+id/colorPink"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginRight="14dp"
+                    android:background="@drawable/circle_pink" />
+
+                <!-- Yellow Circle -->
+                <View
+                    android:id="@+id/colorYellow"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginRight="14dp"
+                    android:background="@drawable/circle_yellow" />
+
+                <!-- Orange Circle -->
+                <View
+                    android:id="@+id/colorOrange"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/circle_orange" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Nightstand Screen Brightness Dimmer -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textBrightnessLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="☀ Night Dimmer"
+                android:textColor="#A0A0A0"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <SeekBar
+                android:id="@+id/seekbarBrightness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/textBrightnessLabel"
+                android:max="100"
+                android:progress="80" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

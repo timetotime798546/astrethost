@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Setup Project Structure",
+      "description": "Initialize app metadata and directory structure for Neon Clock & Nightstand.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure API Schema",
+      "description": "Define api_schema.json for offline standalone digital clock functionality.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Setup Build Gradle",
+      "description": "Configure Gradle build script with SDK level 34 and Java 8 settings.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure Android Manifest",
+      "description": "Set up full-screen theme, wake lock permissions, and main activity entry point.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Glassmorphism Drawable",
+      "description": "Design translucent glassmorphism background drawable with subtle rounded border.",
+      "files": ["app/src/main/res/drawable/glass_card_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Button Drawable",
+      "description": "Design interactive button background drawable for nightstand controls.",
+      "files": ["app/src/main/res/drawable/button_glass_bg.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Accent Color Circle Drawables",
+      "description": "Create selector circle drawables for Neon Cyan, Electric Purple, Laser Green, Hot Pink, Sunset Yellow, and Solar Orange.",
+      "files": [
+        "app/src/main/res/drawable/circle_cyan.xml",
+        "app/src/main/res/drawable/circle_purple.xml",
+        "app/src/main/res/drawable/circle_green.xml",
+        "app/src/main/res/drawable/circle_pink.xml",
+        "app/src/main/res/drawable/circle_yellow.xml",
+        "app/src/main/res/drawable/circle_orange.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Main Screen Layout",
+      "description": "Build responsive XML layout containing giant glowing digital clock, widget card, color picker scroll bar, and brightness control.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Main Activity Core",
+      "description": "Program real-time clock ticker, date formatter, dynamic battery monitor, 12H/24H format toggling, and brightness control logic.",
+      "files": ["app/src/main/java/com/neondigitalclock/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Distraction-Free UI Toggle",
+      "description": "Add screen tap gesture detection to dynamically hide and show widget controls for clean nightstand viewing.",
+      "files": ["app/src/main/java/com/neondigitalclock/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Neon Clock & Nightstand",
+      "description": "Finalize and build debug APK package for deployment.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
