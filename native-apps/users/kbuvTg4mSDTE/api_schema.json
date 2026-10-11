@@ -1,0 +1,70 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "members": {
+      "fields": {
+        "name": "string",
+        "phone": "string",
+        "email": "string",
+        "age": "integer",
+        "gender": "string",
+        "plan": "string",
+        "start_date": "string",
+        "end_date": "string",
+        "status": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "plans": {
+      "fields": {
+        "title": "string",
+        "duration_months": "integer",
+        "price": "number",
+        "description": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "attendance": {
+      "fields": {
+        "member_id": "string",
+        "member_name": "string",
+        "date": "string",
+        "status": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "payments": {
+      "fields": {
+        "member_id": "string",
+        "member_name": "string",
+        "amount": "number",
+        "pending_amount": "number",
+        "payment_method": "string",
+        "date": "string",
+        "plan_name": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "monthly_revenue": {
+      "type": "calculation",
+      "inputs": ["payments"],
+      "formula": "sum(payments.amount)"
+    },
+    "pending_dues": {
+      "type": "calculation",
+      "inputs": ["payments"],
+      "formula": "sum(payments.pending_amount)"
+    },
+    "active_members_count": {
+      "type": "calculation",
+      "inputs": ["members"],
+      "formula": "count(members.status == 'Active')"
+    }
+  }
+}

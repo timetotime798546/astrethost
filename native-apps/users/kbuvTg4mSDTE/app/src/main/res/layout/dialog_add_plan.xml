@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/card_slate"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Create Membership Plan"
+        android:textColor="@color/text_white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/dialogPlanTitle"
+        style="@style/GymProInputStyle"
+        android:layout_marginBottom="10dp"
+        android:hint="Plan Title (e.g. Quarterly VIP)" />
+
+    <EditText
+        android:id="@+id/dialogPlanMonths"
+        style="@style/GymProInputStyle"
+        android:layout_marginBottom="10dp"
+        android:hint="Duration (Months)"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/dialogPlanPrice"
+        style="@style/GymProInputStyle"
+        android:layout_marginBottom="10dp"
+        android:hint="Price (₹)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/dialogPlanDesc"
+        style="@style/GymProInputStyle"
+        android:layout_marginBottom="16dp"
+        android:hint="Plan Description" />
+
+    <Button
+        android:id="@+id/dialogBtnSavePlan"
+        style="@style/GymProButtonStyle"
+        android:text="Save Plan" />
+
+</LinearLayout>
