@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project Structure",
+      "description": "Configure Android Gradle scripts, manifests, and application assets metadata.",
+      "files": ["app-meta.json", "api_schema.json", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Application Manifest",
+      "description": "Define permissions for internet access and register native activities.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Session & Data Models",
+      "description": "Create Note data model and native SharedPreferences token session manager.",
+      "files": ["app/src/main/java/com/swiftnote/app/NoteModel.java", "app/src/main/java/com/swiftnote/app/SessionManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Offline Calculation Engine",
+      "description": "Implement local word count, character count, and reading duration calculator.",
+      "files": ["app/src/main/java/com/swiftnote/app/NoteCalculationHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Cloud Backend API Client",
+      "description": "Build resilient HTTP networking layer supporting authentication and data operations.",
+      "files": ["app/src/main/java/com/swiftnote/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Visual Styles and Drawables",
+      "description": "Build XML drawables for cards, inputs, tags, and category selectors.",
+      "files": ["app/src/main/res/drawable/card_background.xml", "app/src/main/res/drawable/button_primary.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Splash & Routing Screen",
+      "description": "Check user session validity and route automatically to dashboard or authentication.",
+      "files": ["app/src/main/java/com/swiftnote/app/SplashActivity.java", "app/src/main/res/layout/activity_splash.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build Authentication Flow with OTP Recovery",
+      "description": "Develop sign in, sign up, and password reset dialog screens.",
+      "files": ["app/src/main/java/com/swiftnote/app/LoginActivity.java", "app/src/main/res/layout/activity_login.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop Main Dashboard & Note Listing",
+      "description": "Build interactive note dashboard with search, category filtering, and summary statistics.",
+      "files": ["app/src/main/java/com/swiftnote/app/MainActivity.java", "app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Build Note Editor & Real-Time Metrics",
+      "description": "Implement note creation, color styling, pinning, and editing with instant metrics.",
+      "files": ["app/src/main/java/com/swiftnote/app/NoteEditActivity.java", "app/src/main/res/layout/activity_note_edit.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building SwiftNote",
+      "description": "Compile debug APK and assemble native Android binary.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
