@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:visibility="GONE"
+            android:visibility="gone"
             android:layout_marginBottom="8dp" />
 
         <TextView
@@ -101,7 +101,7 @@
             android:layout_height="240dp"
             android:scaleType="fitCenter"
             android:background="#E5E7EB"
-            android:visibility="GONE"
+            android:visibility="gone"
             android:layout_marginBottom="24dp" />
 
         <LinearLayout

@@ -2,104 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Project Initialization",
-      "description": "Configure package name, meta-data, and dependencies for Patient Entry Manager.",
-      "files": ["app-meta.json", "api_schema.json"],
+      "title": "Analyze AAPT Link Error",
+      "description": "Identify invalid uppercase visibility attribute values in XML layout files.",
+      "files": ["build-error.log"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Build Environment",
-      "description": "Set up build.gradle with target SDK 34 and Java 8 compatibility.",
-      "files": ["app/build.gradle"],
+      "title": "Fix Login Activity Layout Visibility",
+      "description": "Change uppercase GONE to lowercase gone in activity_login.xml.",
+      "files": ["app/src/main/res/layout/activity_login.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Android Manifest",
-      "description": "Declare permissions, activities, launcher theme, and application entry points.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Fix Register Activity Layout Visibility",
+      "description": "Change uppercase GONE to lowercase gone in activity_register.xml.",
+      "files": ["app/src/main/res/layout/activity_register.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Add App Meta Asset",
-      "description": "Create runtime app-meta.json inside assets folder for app_id resolution.",
-      "files": ["app/src/main/assets/app-meta.json"],
+      "title": "Fix Main Dashboard Layout Visibility",
+      "description": "Change uppercase GONE to lowercase gone for empty state and progress bar in activity_main.xml.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement Generic Backend API Client",
-      "description": "Build BackendApi.java for auth, OTP password reset, and generic CRUD endpoints.",
-      "files": ["app/src/main/java/com/patiententrymanager/app/BackendApi.java"],
+      "title": "Fix Add/Edit Patient Form Visibility",
+      "description": "Change uppercase GONE to lowercase gone for remove photo button and progress bar in activity_add_edit_patient.xml.",
+      "files": ["app/src/main/res/layout/activity_add_edit_patient.xml"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Image Worker Client",
-      "description": "Build ImageWorkerApi.java for secure cloud image uploading, fetching, and deletion.",
-      "files": ["app/src/main/java/com/patiententrymanager/app/ImageWorkerApi.java"],
+      "title": "Fix Patient Detail Screen Visibility",
+      "description": "Change uppercase GONE to lowercase gone for image viewer and progress bar in activity_patient_detail.xml.",
+      "files": ["app/src/main/res/layout/activity_patient_detail.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Create Patient Data Model and List Adapter",
-      "description": "Implement Patient model and custom ListView adapter with search support.",
-      "files": [
-        "app/src/main/java/com/patiententrymanager/app/Patient.java",
-        "app/src/main/java/com/patiententrymanager/app/PatientAdapter.java",
-        "app/src/main/res/layout/item_patient.xml"
-      ],
+      "title": "Fix Patient List Item Layout Visibility",
+      "description": "Change uppercase GONE to lowercase gone for photo indicator in item_patient.xml.",
+      "files": ["app/src/main/res/layout/item_patient.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement Authentication UI",
-      "description": "Create screens and layouts for user registration, login, and forgot password OTP reset.",
-      "files": [
-        "app/src/main/java/com/patiententrymanager/app/LoginActivity.java",
-        "app/src/main/java/com/patiententrymanager/app/RegisterActivity.java",
-        "app/src/main/res/layout/activity_login.xml",
-        "app/src/main/res/layout/activity_register.xml",
-        "app/src/main/res/layout/dialog_forgot_password.xml"
-      ],
+      "title": "Validate App Meta Settings",
+      "description": "Ensure app-meta.json matches package name and app ID configuration.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Main Dashboard Screen",
-      "description": "Build patient list display with live filter search, refresh, and detail navigation.",
-      "files": [
-        "app/src/main/java/com/patiententrymanager/app/MainActivity.java",
-        "app/src/main/res/layout/activity_main.xml"
-      ],
+      "title": "Verify Resource Linking Compatibility",
+      "description": "Confirm all resource attribute values conform to standard Android XML schema rules.",
+      "files": [],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Implement Add/Edit Patient Screen",
-      "description": "Create form for adding/editing patient info, capturing or selecting image, and compression upload.",
-      "files": [
-        "app/src/main/java/com/patiententrymanager/app/AddEditPatientActivity.java",
-        "app/src/main/res/layout/activity_add_edit_patient.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Implement Patient Detail View Screen",
-      "description": "Build full record viewer with secure private photo rendering, edit, and deletion options.",
-      "files": [
-        "app/src/main/java/com/patiententrymanager/app/PatientDetailActivity.java",
-        "app/src/main/res/layout/activity_patient_detail.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 12,
       "title": "Building Patient Entry Manager",
-      "description": "Final compilation and validation of native Android code and API schemas.",
+      "description": "Final compilation and assembly of release APK package.",
       "files": [],
       "status": "pending"
     }
