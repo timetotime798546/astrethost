@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Application Metadata",
+      "description": "Establish package structure, metadata configuration, and API schema.",
+      "files": ["app-meta.json", "app/src/main/assets/app-meta.json", "api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Gradle Build Scripts",
+      "description": "Set up Gradle build settings, dependencies, and compilation targets for Java 8 and Android 34.",
+      "files": ["build.gradle", "settings.gradle", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Android Manifest and Permissions",
+      "description": "Declare application activities, internet connectivity, and external read permissions.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement SQLite Database Layer",
+      "description": "Create SQLite database helper and product model for offline storage of product catalog.",
+      "files": ["app/src/main/java/com/productimagemanager/app/ProductDbHelper.java", "app/src/main/java/com/productimagemanager/app/Product.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement TrumpleDroid Backend Authentication Client",
+      "description": "Construct HTTP networking client for user authentication, registration, OTP request, and password reset.",
+      "files": ["app/src/main/java/com/productimagemanager/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Image Worker Client and Compression Utility",
+      "description": "Build multipart image uploader, retrieval handler, deletion coordinator, and 200 KB image compressor.",
+      "files": ["app/src/main/java/com/productimagemanager/app/ImageWorkerApi.java", "app/src/main/java/com/productimagemanager/app/ImageUtils.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Application UI Layouts",
+      "description": "Build Material XML layouts for Login, Main catalog list, Product Card item, and Add/Edit product screens.",
+      "files": ["app/src/main/res/layout/activity_login.xml", "app/src/main/res/layout/activity_main.xml", "app/src/main/res/layout/item_product.xml", "app/src/main/res/layout/activity_product_edit.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Authentication Activities",
+      "description": "Build LoginActivity handling sign-in, account creation, and OTP password recovery workflows.",
+      "files": ["app/src/main/java/com/productimagemanager/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Product Add and Edit Activity",
+      "description": "Handle image selection from gallery, validation, resizing under 200 KB, multipart upload, and SQLite persistence.",
+      "files": ["app/src/main/java/com/productimagemanager/app/ProductEditActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Main Product Catalog Activity",
+      "description": "Render offline SQLite products, asynchronously fetch private images from Image Worker, calculate inventory value, and handle deletion.",
+      "files": ["app/src/main/java/com/productimagemanager/app/MainActivity.java", "app/src/main/java/com/productimagemanager/app/ProductAdapter.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Product Image Manager",
+      "description": "Compile and package the complete Android native project.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

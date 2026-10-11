@@ -1,0 +1,15 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {},
+  "logic": {
+    "inventory_total": {
+      "type": "calculation",
+      "inputs": ["price"],
+      "formula": "sum(price)"
+    }
+  }
+}
