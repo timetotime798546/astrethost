@@ -1,0 +1,93 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define App Metadata and Schema",
+      "description": "Configure app-meta.json and api_schema.json with application credentials.",
+      "files": [
+        "app-meta.json",
+        "api_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Gradle Build Scripts",
+      "description": "Verify build.gradle and settings.gradle configuration.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Review Android Manifest",
+      "description": "Verify application permissions and activity declarations in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Image Worker Delete API",
+      "description": "Add HTTP DELETE support to ImageWorkerApi to permanently delete images by id with authorization header.",
+      "files": [
+        "app/src/main/java/com/imagevault/app/ImageWorkerApi.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Update Gallery Adapter for Deletion and Caching",
+      "description": "Add removeItem helper method and long-click listener support in GalleryAdapter.",
+      "files": [
+        "app/src/main/java/com/imagevault/app/GalleryAdapter.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Update Preview Layout with Delete Action",
+      "description": "Add a prominent delete button and title bar to activity_preview.xml.",
+      "files": [
+        "app/src/main/res/layout/activity_preview.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Delete Dialog in Preview Activity",
+      "description": "Implement confirmation dialog, execution of delete request, and result feedback in PreviewActivity.",
+      "files": [
+        "app/src/main/java/com/imagevault/app/PreviewActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Integrate Image Removal in Main Activity",
+      "description": "Handle preview deletion result and add long-press delete shortcut dialog in MainActivity.",
+      "files": [
+        "app/src/main/java/com/imagevault/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify UI Feedback and State Updates",
+      "description": "Ensure empty state and count recalculations trigger smoothly when images are deleted.",
+      "files": [
+        "app/src/main/java/com/imagevault/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building ImageVault",
+      "description": "Assemble and build the debug APK package via gradle.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
