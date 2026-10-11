@@ -1,0 +1,116 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Initialization",
+      "description": "Initialize application architecture, meta definitions, and dependencies.",
+      "files": ["app-meta.json", "build-steps.json", "api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Build Settings",
+      "description": "Set up build.gradle with target SDK 34 and Java 8 settings.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Manifest & Assets Configuration",
+      "description": "Define permissions, application assets, and activities in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml", "app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "UI Theme & Custom Drawables",
+      "description": "Create premium dark theme XML drawables for cards, inputs, and buttons.",
+      "files": ["app/src/main/res/drawable/bg_card.xml", "app/src/main/res/drawable/bg_button_accent.xml", "app/src/main/res/drawable/bg_input.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Authentication Manager",
+      "description": "Implement local session manager using SharedPreferences for authentication tokens.",
+      "files": ["app/src/main/java/com/gympro/app/AuthManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Backend REST Client",
+      "description": "Develop native HTTP client for API interaction with exact schema handling.",
+      "files": ["app/src/main/java/com/gympro/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Login Screen",
+      "description": "Build UI and authentication handlers for user login.",
+      "files": ["app/src/main/res/layout/activity_login.xml", "app/src/main/java/com/gympro/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Registration Screen",
+      "description": "Build user registration flow with email and password.",
+      "files": ["app/src/main/res/layout/activity_register.xml", "app/src/main/java/com/gympro/app/RegisterActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Password Reset Screen",
+      "description": "Implement OTP request and password reset UI flow.",
+      "files": ["app/src/main/res/layout/activity_forgot_password.xml", "app/src/main/java/com/gympro/app/ForgotPasswordActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Main Dashboard",
+      "description": "Build primary dashboard with financial metrics, member counts, and calculations.",
+      "files": ["app/src/main/res/layout/activity_main.xml", "app/src/main/java/com/gympro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Member Management",
+      "description": "Implement member list, creation modal, fee calculation, and deletion.",
+      "files": ["app/src/main/res/layout/activity_members.xml", "app/src/main/java/com/gympro/app/MembersActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Attendance System",
+      "description": "Develop daily attendance checking and status persistence.",
+      "files": ["app/src/main/res/layout/activity_attendance.xml", "app/src/main/java/com/gympro/app/AttendanceActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Payment & Revenue System",
+      "description": "Implement payment logging, total revenue tracking, and payment history.",
+      "files": ["app/src/main/res/layout/activity_payments.xml", "app/src/main/java/com/gympro/app/PaymentsActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Expense Tracking System",
+      "description": "Build expense logger and net profit calculation system.",
+      "files": ["app/src/main/res/layout/activity_expenses.xml", "app/src/main/java/com/gympro/app/ExpensesActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Trainer Management",
+      "description": "Implement trainer profiles and salary records.",
+      "files": ["app/src/main/res/layout/activity_trainers.xml", "app/src/main/java/com/gympro/app/TrainersActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building GYM PRO – Online Gym Management System",
+      "description": "Assemble and compile final application binary package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
