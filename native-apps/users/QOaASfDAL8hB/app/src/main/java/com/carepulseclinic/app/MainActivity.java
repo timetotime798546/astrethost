@@ -179,7 +179,7 @@ public class MainActivity extends Activity {
                     renderAppointmentsUI(list);
 
                 } catch (Exception e) {
-                    Toast.makeText(MainActivity.java, "Parsing error: " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Parsing error: " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
 

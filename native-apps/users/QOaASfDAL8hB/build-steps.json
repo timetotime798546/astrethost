@@ -2,124 +2,85 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure App Metadata and Package",
-      "description": "Initialize app-meta.json and build config for CarePulse Clinic",
+      "title": "Configure App Metadata",
+      "description": "Set app_name and package_name in app-meta.json",
       "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Define Backend Schema and API Contract",
-      "description": "Specify collections, fields, and fee calculation logic in api_schema.json",
+      "title": "Define API Schema",
+      "description": "Configure endpoint paths and collection schemas",
       "files": ["api_schema.json"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Setup Gradle Build Configuration",
-      "description": "Configure dependencies, SDK version 34, and compile targets in app/build.gradle",
+      "title": "Configure Gradle Build Script",
+      "description": "Set compile and target SDK versions to 34",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create Android Manifest",
-      "description": "Register activities, internet permissions, and main theme in AndroidManifest.xml",
+      "title": "Configure Android Manifest",
+      "description": "Declare activities and network permissions",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Store Asset Configuration",
-      "description": "Create runtime assets directory app-meta.json with app_id",
-      "files": ["app/src/main/assets/app-meta.json"],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Develop Backend API HTTP Client",
-      "description": "Implement authentication, OTP password reset, and generic CRUD endpoints in BackendApi.java",
+      "title": "Setup Backend API Client",
+      "description": "Implement authentication and CRUD communication in BackendApi.java",
       "files": ["app/src/main/java/com/carepulseclinic/app/BackendApi.java"],
       "status": "pending"
     },
     {
+      "step": 6,
+      "title": "Implement Login Activity",
+      "description": "Authenticate existing clinic user accounts",
+      "files": ["app/src/main/java/com/carepulseclinic/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
       "step": 7,
-      "title": "Implement User Authentication Screens",
-      "description": "Create LoginActivity, RegisterActivity, and ForgotPasswordActivity with state persistence",
-      "files": [
-        "app/src/main/java/com/carepulseclinic/app/LoginActivity.java",
-        "app/src/main/java/com/carepulseclinic/app/RegisterActivity.java",
-        "app/src/main/java/com/carepulseclinic/app/ForgotPasswordActivity.java"
-      ],
+      "title": "Implement Register Activity",
+      "description": "Create new patient accounts with auto-login flow",
+      "files": ["app/src/main/java/com/carepulseclinic/app/RegisterActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Create Auth Layouts",
-      "description": "Build responsive XML layouts for login, register, and password reset screens",
-      "files": [
-        "app/src/main/res/layout/activity_login.xml",
-        "app/src/main/res/layout/activity_register.xml",
-        "app/src/main/res/layout/activity_forgot_password.xml"
-      ],
+      "title": "Implement Forgot Password Activity",
+      "description": "Request OTP and reset password",
+      "files": ["app/src/main/java/com/carepulseclinic/app/ForgotPasswordActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Main Dashboard Activity",
-      "description": "Develop MainActivity displaying doctor list, upcoming appointments, and offline revenue totals",
+      "title": "Fix Context Syntax in Main Activity",
+      "description": "Replace MainActivity.java type reference with MainActivity.this context instance in Toast error handler",
       "files": ["app/src/main/java/com/carepulseclinic/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Design Dashboard Layout",
-      "description": "Create layout XML with clinic stats header, doctor services slider, and appointment list",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Implement Appointment Booking Activity",
-      "description": "Develop BookAppointmentActivity with real-time tax and total fee native calculation",
+      "title": "Implement Book Appointment Activity",
+      "description": "Calculate fees and book consultation slots",
       "files": ["app/src/main/java/com/carepulseclinic/app/BookAppointmentActivity.java"],
       "status": "pending"
     },
     {
-      "step": 12,
-      "title": "Design Booking Layout",
-      "description": "Create appointment form layout with doctor selection spinner, date picker, and live cost calculation preview",
-      "files": ["app/src/main/res/layout/activity_book_appointment.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
+      "step": 11,
       "title": "Implement Appointment Detail Activity",
-      "description": "Build AppointmentDetailActivity for viewing details, updating status, and cancelling bookings",
+      "description": "View details, update status, and delete records",
       "files": ["app/src/main/java/com/carepulseclinic/app/AppointmentDetailActivity.java"],
       "status": "pending"
     },
     {
-      "step": 14,
-      "title": "Design Appointment Detail Layout",
-      "description": "Create detailed view layout XML with patient info, doctor bio, breakdown of fee & tax, and action buttons",
-      "files": ["app/src/main/res/layout/activity_appointment_detail.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 15,
-      "title": "Create List Item Layouts",
-      "description": "Design custom XML items for appointments and doctor/service rows",
-      "files": [
-        "app/src/main/res/layout/item_appointment.xml",
-        "app/src/main/res/layout/item_doctor_service.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 16,
+      "step": 12,
       "title": "Building CarePulse Clinic",
-      "description": "Assemble and verify full debug build of CarePulse Clinic APK",
+      "description": "Assemble and verify build for CarePulse Clinic",
       "files": [],
       "status": "pending"
     }
