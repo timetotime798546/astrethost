@@ -1,0 +1,101 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Application Crash",
+      "description": "Identify missing Activity class implementations causing immediate launch crash.",
+      "files": [
+        "app/src/main/java/com/gympro/app/LoginActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Implement Login Activity",
+      "description": "Create LoginActivity with authentication, session checking, and password reset navigation.",
+      "files": [
+        "app/src/main/java/com/gympro/app/LoginActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Register Activity",
+      "description": "Create RegisterActivity handling user signup and auto-login.",
+      "files": [
+        "app/src/main/java/com/gympro/app/RegisterActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Forgot Password Activity",
+      "description": "Create ForgotPasswordActivity handling OTP request and password reset workflow.",
+      "files": [
+        "app/src/main/java/com/gympro/app/ForgotPasswordActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Main Dashboard Activity",
+      "description": "Create MainActivity displaying overview, performing offline profit calculations, and providing navigation.",
+      "files": [
+        "app/src/main/java/com/gympro/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Members Activity",
+      "description": "Create MembersActivity for member registration, plan fee management, and data synchronization.",
+      "files": [
+        "app/src/main/java/com/gympro/app/MembersActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Attendance Activity",
+      "description": "Create AttendanceActivity for logging daily member attendance.",
+      "files": [
+        "app/src/main/java/com/gympro/app/AttendanceActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Payments Activity",
+      "description": "Create PaymentsActivity for tracking fee collections and revenue.",
+      "files": [
+        "app/src/main/java/com/gympro/app/PaymentsActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Expenses Activity",
+      "description": "Create ExpensesActivity for logging gym operational expenses.",
+      "files": [
+        "app/src/main/java/com/gympro/app/ExpensesActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Trainers Activity",
+      "description": "Create TrainersActivity for trainer profile and salary management.",
+      "files": [
+        "app/src/main/java/com/gympro/app/TrainersActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building GYM PRO",
+      "description": "Compile and assemble the release APK binary package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
