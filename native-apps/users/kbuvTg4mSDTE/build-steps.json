@@ -2,71 +2,89 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze AAPT Link Error",
-      "description": "Identify invalid uppercase visibility attribute values in XML layout files.",
-      "files": ["build-error.log"],
+      "title": "Analyze Build Error Log",
+      "description": "Identify Java compilation failure in PatientDetailActivity line 61 due to invalid Intent context parameter.",
+      "files": [
+        "build-error.log"
+      ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Fix Login Activity Layout Visibility",
-      "description": "Change uppercase GONE to lowercase gone in activity_login.xml.",
-      "files": ["app/src/main/res/layout/activity_login.xml"],
+      "title": "Fix Intent Context in PatientDetailActivity",
+      "description": "Replace PatientDetailActivity.class with PatientDetailActivity.this when instantiating editIntent.",
+      "files": [
+        "app/src/main/java/com/patiententrymanager/app/PatientDetailActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Fix Register Activity Layout Visibility",
-      "description": "Change uppercase GONE to lowercase gone in activity_register.xml.",
-      "files": ["app/src/main/res/layout/activity_register.xml"],
+      "title": "Clean Manifest Package Attribute",
+      "description": "Remove deprecated package attribute from AndroidManifest to align with AGP 8.3.2 namespace configuration.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Fix Main Dashboard Layout Visibility",
-      "description": "Change uppercase GONE to lowercase gone for empty state and progress bar in activity_main.xml.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Verify Backend API Methods",
+      "description": "Confirm BackendApi methods use assets/app-meta.json app_id and handle data persistence correctly.",
+      "files": [
+        "app/src/main/java/com/patiententrymanager/app/BackendApi.java"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Fix Add/Edit Patient Form Visibility",
-      "description": "Change uppercase GONE to lowercase gone for remove photo button and progress bar in activity_add_edit_patient.xml.",
-      "files": ["app/src/main/res/layout/activity_add_edit_patient.xml"],
+      "title": "Validate ImageWorker API Integration",
+      "description": "Ensure ImageWorkerApi compresses images under 200KB and manages upload/download callbacks safely.",
+      "files": [
+        "app/src/main/java/com/patiententrymanager/app/ImageWorkerApi.java"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Fix Patient Detail Screen Visibility",
-      "description": "Change uppercase GONE to lowercase gone for image viewer and progress bar in activity_patient_detail.xml.",
-      "files": ["app/src/main/res/layout/activity_patient_detail.xml"],
+      "title": "Verify Patient Data Model",
+      "description": "Ensure Patient class handles serialization and JSON parsing robustly without memory leaks.",
+      "files": [
+        "app/src/main/java/com/patiententrymanager/app/Patient.java"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Fix Patient List Item Layout Visibility",
-      "description": "Change uppercase GONE to lowercase gone for photo indicator in item_patient.xml.",
-      "files": ["app/src/main/res/layout/item_patient.xml"],
+      "title": "Check UI Activity Navigations",
+      "description": "Validate intent extras transfer and activity lifecycle transitions across all screens.",
+      "files": [
+        "app/src/main/java/com/patiententrymanager/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Validate App Meta Settings",
-      "description": "Ensure app-meta.json matches package name and app ID configuration.",
-      "files": ["app-meta.json"],
+      "title": "Validate Resource Layout Attributes",
+      "description": "Ensure all layout visibility attributes use lowercase values compatible with AAPT2.",
+      "files": [
+        "app/src/main/res/layout/activity_patient_detail.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Verify Resource Linking Compatibility",
-      "description": "Confirm all resource attribute values conform to standard Android XML schema rules.",
-      "files": [],
+      "title": "Confirm Java 8 Compiler Compatibility",
+      "description": "Verify source and target compatibility settings in build scripts.",
+      "files": [
+        "app/build.gradle"
+      ],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building Patient Entry Manager",
-      "description": "Final compilation and assembly of release APK package.",
+      "description": "Execute assembleRelease build task to generate the final APK.",
       "files": [],
       "status": "pending"
     }
