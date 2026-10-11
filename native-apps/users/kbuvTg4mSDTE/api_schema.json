@@ -1,0 +1,22 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "patients": {
+      "fields": {
+        "name": "string",
+        "age": "integer",
+        "gender": "string",
+        "phone": "string",
+        "visit_date": "string",
+        "notes": "string",
+        "image_id": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {}
+}
