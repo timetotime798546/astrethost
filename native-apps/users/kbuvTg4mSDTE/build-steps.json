@@ -3,7 +3,7 @@
     {
       "step": 1,
       "title": "Analyze Compilation Error Log",
-      "description": "Identify root causes: duplicate class due to incorrect file path package separator and invalid Intent context in PatientDetailActivity.",
+      "description": "Identify root cause: invalid Intent constructor parameter (PatientDetailActivity.class instead of PatientDetailActivity.this) and duplicate class due to dot-separated package directory path.",
       "files": [
         "build-error.log"
       ],
@@ -11,24 +11,17 @@
     },
     {
       "step": 2,
-      "title": "Fix File Package Paths",
-      "description": "Move all Java source files from com.patiententrymanager.app path to proper directory structure com/patiententrymanager/app.",
+      "title": "Fix Intent Context in PatientDetailActivity",
+      "description": "Replace PatientDetailActivity.class with PatientDetailActivity.this when constructing Intent for AddEditPatientActivity.",
       "files": [
-        "app/src/main/java/com/patiententrymanager/app/PatientDetailActivity.java",
-        "app/src/main/java/com/patiententrymanager/app/ImageWorkerApi.java",
-        "app/src/main/java/com/patiententrymanager/app/Patient.java",
-        "app/src/main/java/com/patiententrymanager/app/PatientAdapter.java",
-        "app/src/main/java/com/patiententrymanager/app/LoginActivity.java",
-        "app/src/main/java/com/patiententrymanager/app/RegisterActivity.java",
-        "app/src/main/java/com/patiententrymanager/app/MainActivity.java",
-        "app/src/main/java/com/patiententrymanager/app/AddEditPatientActivity.java"
+        "app/src/main/java/com/patiententrymanager/app/PatientDetailActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Fix Intent Context in PatientDetailActivity",
-      "description": "Replace PatientDetailActivity.class parameter with PatientDetailActivity.this when constructing Intent for AddEditPatientActivity.",
+      "title": "Verify Directory Structure and File Paths",
+      "description": "Ensure all source files strictly reside in slash-separated directory paths matching package com.patiententrymanager.app.",
       "files": [
         "app/src/main/java/com/patiententrymanager/app/PatientDetailActivity.java"
       ],
@@ -36,8 +29,8 @@
     },
     {
       "step": 4,
-      "title": "Verify Java 8 Language Compatibility",
-      "description": "Ensure code uses standard Java 8 anonymous inner classes instead of lambdas or streams.",
+      "title": "Verify Java 8 Compatibility",
+      "description": "Ensure all activity listener callbacks use standard anonymous inner classes without Java 8+ lambdas or method references.",
       "files": [
         "app/src/main/java/com/patiententrymanager/app/PatientDetailActivity.java"
       ],
@@ -45,53 +38,53 @@
     },
     {
       "step": 5,
-      "title": "Update Backend API Integration",
-      "description": "Confirm BackendApi methods handle authentication tokens and JSON parsing correctly.",
+      "title": "Check ImageWorker API Integration",
+      "description": "Verify background thread image fetching and thread-safe UI updates in PatientDetailActivity.",
       "files": [
-        "app/src/main/java/com/patiententrymanager/app/BackendApi.java"
+        "app/src/main/java/com/patiententrymanager/app/PatientDetailActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Validate ImageWorker API Implementation",
-      "description": "Verify image upload and download callbacks are thread-safe and main thread handled.",
+      "title": "Check Backend Record Deletion Flow",
+      "description": "Confirm deletion dialog correctly removes associated patient images and backend records asynchronously.",
       "files": [
-        "app/src/main/java/com/patiententrymanager/app/ImageWorkerApi.java"
+        "app/src/main/java/com/patiententrymanager/app/PatientDetailActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Validate Patient Data Model",
-      "description": "Ensure model handles JSON serialization and optional field fallbacks safely.",
-      "files": [
-        "app/src/main/java/com/patiententrymanager/app/Patient.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Check UI Layout XML Definitions",
-      "description": "Ensure layout view visibility and attributes are standard Material light theme compliant.",
+      "title": "Validate Material Light Theme Layout References",
+      "description": "Confirm layout view references in activity match layout XML definitions.",
       "files": [
         "app/src/main/res/layout/activity_patient_detail.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Verify Android Manifest Setup",
-      "description": "Confirm activity declarations and permission rules align with target SDK 34.",
+      "step": 8,
+      "title": "Verify Manifest Activity Configurations",
+      "description": "Ensure PatientDetailActivity is correctly declared under package com.patiententrymanager.app.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
+      "step": 9,
+      "title": "Validate Release Build Gradle Settings",
+      "description": "Confirm Java 1.8 compatibility and build settings in app/build.gradle.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
       "step": 10,
       "title": "Building Patient Entry Manager",
-      "description": "Compile project sources into release APK package.",
+      "description": "Compile updated project sources into output APK package.",
       "files": [],
       "status": "pending"
     }

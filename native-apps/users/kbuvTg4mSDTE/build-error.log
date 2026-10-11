@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Patient Entry Manager
 App ID: app_6acb6265ae5b9
-Build ID: 38132300413
-Time: 2026-10-11 06:33:38
+Build ID: 38133162792
+Time: 2026-10-11 06:47:50
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 186796
+Original log characters: 188038
 Extracted error characters: 30042
-File references detected: 237
+File references detected: 238
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2325) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2162) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/f7aa4468-52b8-41fe-b0ae-39a6cfc2d231
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/bd499eb0-1130-4fc4-a2cc-9a9f380dddac
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -213,8 +213,8 @@ Daemon will be stopped at the end of the build
 > Task :app:preBuild UP-TO-DATE
 > Task :app:preReleaseBuild UP-TO-DATE
 > Task :app:javaPreCompileRelease
-> Task :app:generateReleaseResValues
 > Task :app:checkReleaseAarMetadata
+> Task :app:generateReleaseResValues
 > Task :app:mapReleaseSourceSetPaths
 > Task :app:generateReleaseResources
 > Task :app:packageReleaseResources
@@ -230,41 +230,39 @@ Daemon will be stopped at the end of the build
 > Task :app:stripReleaseDebugSymbols NO-SOURCE
 > Task :app:extractReleaseNativeSymbolTables NO-SOURCE
 > Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
-> Task :app:checkReleaseDuplicateClasses
-> Task :app:desugarReleaseFileDependencies
-> Task :app:mergeReleaseArtProfile
-> Task :app:mergeReleaseShaders
-> Task :app:compileReleaseShaders NO-SOURCE
-> Task :app:generateReleaseAssets UP-TO-DATE
-> Task :app:mergeReleaseAssets
-> Task :app:compressReleaseAssets
-> Task :app:extractReleaseVersionControlInfo
-> Task :app:processReleaseJavaRes NO-SOURCE
 > Task :app:processReleaseManifestForPackage
-> Task :app:mergeExtDexRelease
-> Task :app:collectReleaseDependencies
-> Task :app:mergeReleaseJavaResource
-> Task :app:sdkReleaseDependencyData
-> Task :app:validateSigningRelease
-> Task :app:writeReleaseAppMetadata
+> Task :app:checkReleaseDuplicateClasses
 > Task :app:processReleaseResources
-> Task :app:writeReleaseSigningConfigVersions
+> Task :app:desugarReleaseFileDependencies
 
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/patiententrymanager/app/PatientDetailActivity.java:19: error: duplicate class: com.patiententrymanager.app.PatientDetailActivity
 > Task :app:compileReleaseJavaWithJavac FAILED
-public class PatientDetailActivity extends Activity {
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/patiententrymanager/app/Patient.java:6: error: duplicate class: com.patiententrymanager.app.Patient
+public class Patient implements Serializable {
 ^
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/patiententrymanager/app/ImageWorkerApi.java:20: error: duplicate class: com.patiententrymanager.app.ImageWorkerApi
+public class ImageWorkerApi {
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/patiententrymanager/app/LoginActivity.java:19: error: duplicate class: com.patiententrymanager.app.LoginActivity
+public class LoginActivity extends Activity {
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/patiententrymanager/app/RegisterActivity.java:14: error: duplicate class: com.patiententrymanager.app.RegisterActivity
+public class RegisterActivity extends Activity {
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/patiententrymanager/app/MainActivity.java:23: error: duplicate class: com.patiententrymanager.app.MainActivity
+public class MainActivity extends Activity {
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/patiententrymanager/app/PatientDetailActivity.java:19: error: duplicate class: com.patiententrymanager.app.PatientDetailActivity
+public class PatientDetailActivity extends Activity {
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/patiententrymanager/app/PatientAdapter.java:15: error: duplicate class: com.patiententrymanager.app.PatientAdapter
+public class PatientAdapter extends BaseAdapter implements Filterable {
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/patiententrymanager/app/AddEditPatientActivity.java:27: error: duplicate class: com.patiententrymanager.app.AddEditPatientActivity
+public class AddEditPatientActivity extends Activity {
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/patiententrymanager.app/PatientDetailActivity.java:61: error: no suitable constructor found for Intent(Class<PatientDetailActivity>,Class<AddEditPatientActivity>)
 Intent editIntent = new Intent(PatientDetailActivity.class, AddEditPatientActivity.class);
 constructor Intent.Intent(String,Uri) is not applicable
 (argument mismatch; Class<PatientDetailActivity> cannot be converted to String)
 constructor Intent.Intent(Context,Class<?>) is not applicable
 (argument mismatch; Class<PatientDetailActivity> cannot be converted to Context)
-31 actionable tasks: 31 executed
 Note: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-2 errors
+9 errors
 
 FAILURE: Build failed with an exception.
 
@@ -321,20 +319,11 @@ at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.ex
 at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:36)
 at org.gradle.jvm.toolchain.internal.DefaultToolchainJavaCompiler.execute(DefaultToolchainJavaCompiler.java:57)
 at org.gradle.api.tasks.compile.JavaCompile.lambda$createToolchainCompiler$3(JavaCompile.java:202)
-at org.gradle.api.internal.tasks.compile.CleaningJavaCompiler.execute(CleaningJavaCompiler.java:53)
-at org.gradle.api.internal.tasks.compile.incremental.IncrementalCompilerFactory.lambda$createRebuildAllCompiler$0(IncrementalCompilerFactory.java:52)
-at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:70)
-at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:44)
-at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:66)
-at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:52)
-at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.call(CompileJavaBuildOperationReportingCompiler.java:64)
-at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.call(CompileJavaBuildOperationReportingCompiler.java:48)
-at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler.execute(CompileJavaBuildOperationReportingCompiler.java:48)
-at org.gradle.api.tasks.compile.JavaCompile.performCompilation(JavaCompile.jav
+at org.gradle.api.internal.tasks.compile.Cleani
 
 ================ EXTRACTED LOG CONTINUED ================
 
-factory.IncrementalTaskAction.doExecute(IncrementalTaskAction.java:45)
+entalTaskAction.doExecute(IncrementalTaskAction.java:45)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
 at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.execute(IncrementalTaskAction.java:26)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
@@ -413,10 +402,9 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 32s
+BUILD FAILED in 25s
+19 actionable tasks: 19 executed
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
 [36;1mrm -rf gradle-8.5[0m
-
-Post job cleanup.
