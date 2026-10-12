@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F5F9">
+
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="16dp"
+        android:elevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="My Notes"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#0F172A"/>
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Logout"
+                android:textSize="12sp"
+                android:backgroundTint="#EF4444"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F8FAFC"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvStatTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#2563EB"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Notes"
+                    android:textSize="11sp"
+                    android:textColor="#64748B"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvStatPinned"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#D97706"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pinned"
+                    android:textSize="11sp"
+                    android:textColor="#64748B"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvStatWords"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#10B981"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Words"
+                    android:textSize="11sp"
+                    android:textColor="#64748B"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:hint="🔍 Search notes..."
+            android:textSize="14sp"
+            android:background="#F1F5F9"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="#0F172A"
+            android:layout_marginBottom="10dp"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnFilterAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="All"
+                    android:textSize="11sp"
+                    android:backgroundTint="#2563EB"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="6dp"/>
+
+                <Button
+                    android:id="@+id/btnFilterWork"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Work"
+                    android:textSize="11sp"
+                    android:backgroundTint="#94A3B8"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="6dp"/>
+
+                <Button
+                    android:id="@+id/btnFilterPersonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Personal"
+                    android:textSize="11sp"
+                    android:backgroundTint="#94A3B8"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="6dp"/>
+
+                <Button
+                    android:id="@+id/btnFilterIdeas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Ideas"
+                    android:textSize="11sp"
+                    android:backgroundTint="#94A3B8"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="6dp"/>
+
+                <Button
+                    android:id="@+id/btnFilterTodo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Todo"
+                    android:textSize="11sp"
+                    android:backgroundTint="#94A3B8"
+                    android:textColor="#FFFFFF"/>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvNotes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headerLayout"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        android:divider="@null"
+        android:dividerHeight="0dp"/>
+
+    <TextView
+        android:id="@+id/tvEmptyState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="No notes found.\nTap + to create one!"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#94A3B8"
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/pbMainLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/btnAddNote"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="+"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:backgroundTint="#2563EB"
+        android:textColor="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+        android:elevation="6dp"/>
+
+</RelativeLayout>
