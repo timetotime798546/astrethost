@@ -1,0 +1,40 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Fix Login Activity Token Parsing & Null Safety",
+      "description": "Refactor LoginActivity to extract tokens safely from any successful response keys, enforce validation, and prevent fake sessions or crashes.",
+      "files": [
+        "app/src/main/java/com/cloudnotespro/app/LoginActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Fix Register Activity Post-Signup Flow",
+      "description": "Secure RegisterActivity token extraction and automatic login sequence to prevent unexpected crashes upon successful registration.",
+      "files": [
+        "app/src/main/java/com/cloudnotespro/app/RegisterActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Add Null-Safety & Diagnostic Logging in MainActivity",
+      "description": "Add null checks for all views in MainActivity.java matching activity_main.xml and implement focused diagnostic logging for note loading.",
+      "files": [
+        "app/src/main/java/com/cloudnotespro/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Building CloudNotes Pro",
+      "description": "Final compilation and build verification for CloudNotes Pro.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    }
+  ]
+}
