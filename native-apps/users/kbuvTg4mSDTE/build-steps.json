@@ -1,0 +1,51 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Add Forgot Password Endpoints to BackendApi",
+      "description": "Implement requestOtp and resetPassword methods in BackendApi.java to support password recovery workflow via OTP.",
+      "files": [
+        "app/src/main/java/com/cloudnotespro/app/BackendApi.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create Forgot Password Activity and Layout",
+      "description": "Implement ForgotPasswordActivity.java and activity_forgot_password.xml for requesting OTP and resetting the account password.",
+      "files": [
+        "app/src/main/java/com/cloudnotespro/app/ForgotPasswordActivity.java",
+        "app/src/main/res/layout/activity_forgot_password.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Register ForgotPasswordActivity in Manifest",
+      "description": "Add ForgotPasswordActivity declaration to AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Update Login Activity UI and Click Listener",
+      "description": "Add 'Forgot Password?' button to activity_login.xml and wire it up in LoginActivity.java to launch ForgotPasswordActivity.",
+      "files": [
+        "app/src/main/res/layout/activity_login.xml",
+        "app/src/main/java/com/cloudnotespro/app/LoginActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Building CloudNotes Pro",
+      "description": "Final compilation and build verification for CloudNotes Pro.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    }
+  ]
+}
