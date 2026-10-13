@@ -7,11 +7,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 
 import org.json.JSONObject;
 
-public class NoteEditorActivity extends AppCompatActivity {
+public class NoteEditorActivity extends Activity {
 
     private EditText etTitle, etCategory, etContent;
     private Button btnSave, btnDelete;

@@ -10,10 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import android.app.Activity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -21,11 +18,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private ListView listViewNotes;
     private TextView tvEmpty;
-    private FloatingActionButton fabAddNote;
+    private Button fabAddNote;
     private Button btnLogout;
     private BackendApi backendApi;
     private List<NoteModel> noteList;
@@ -144,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_EDITOR && resultCode == RESULT_OK) {
             fetchNotes();

@@ -3,7 +3,6 @@ package com.cloudnotespro.app;
 import android.content.Context;
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;

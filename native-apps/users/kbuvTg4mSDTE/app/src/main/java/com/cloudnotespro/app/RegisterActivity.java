@@ -8,11 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 
 import org.json.JSONObject;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends Activity {
 
     private EditText etEmail, etPassword;
     private Button btnRegister, btnBackToLogin;
@@ -47,7 +47,6 @@ public class RegisterActivity extends AppCompatActivity {
                     public void run() {
                         JSONObject regResult = backendApi.register(email, password);
                         if (regResult != null && regResult.optBoolean("success", false)) {
-                            // Automatically log in after successful registration
                             JSONObject loginResult = backendApi.login(email, password);
                             runOnUiThread(new Runnable() {
                                 @Override
