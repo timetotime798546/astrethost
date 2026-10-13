@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="18dp"
+    android:background="@android:drawable/dialog_holo_light_frame"
+    android:backgroundTint="#FFFFFF"
+    android:elevation="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/tvNoteTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Note Title"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#1E293B"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/tvNoteCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Work"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#4F46E5"
+            android:background="@android:drawable/dialog_holo_light_frame"
+            android:backgroundTint="#EEF2FF"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvNoteContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Note content preview goes here..."
+        android:textSize="14sp"
+        android:textColor="#64748B"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3dp" />
+
+</LinearLayout>
