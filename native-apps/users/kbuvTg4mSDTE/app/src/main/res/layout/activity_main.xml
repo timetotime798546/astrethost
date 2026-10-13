@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:text="Logout"
             android:textColor="#FFFFFF"
-            style="?android:attr/buttonStyleBorderless" />
+            android:background="@android:color/transparent" />
 
     </LinearLayout>
 
