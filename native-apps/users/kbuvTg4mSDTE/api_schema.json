@@ -1,0 +1,22 @@
+{
+  "backend": false,
+  "roles": {},
+  "collections": {},
+  "logic": {
+    "word_count": {
+      "type": "calculation",
+      "inputs": ["content"],
+      "formula": "count_words(content)"
+    },
+    "character_count": {
+      "type": "calculation",
+      "inputs": ["content"],
+      "formula": "length(content)"
+    },
+    "reading_time_minutes": {
+      "type": "calculation",
+      "inputs": ["word_count"],
+      "formula": "ceil(word_count / 200)"
+    }
+  }
+}
