@@ -175,7 +175,7 @@ public class MainActivity extends Activity {
                 View view = super.getView(position, convertView, parent);
                 TextView tv = (TextView) view.findViewById(android.R.id.text1);
                 tv.setTextColor(0xFFFFFFFF);
-                tv.setTextSize(16spToPx(6)); // Approx styling
+                tv.setTextSize(16);
                 return view;
             }
         };
@@ -204,11 +204,6 @@ public class MainActivity extends Activity {
         }
 
         dialog.show();
-    }
-
-    private int spToPx(float sp) {
-        float scale = getResources().getDisplayMetrics().scaledDensity;
-        return (int) (sp * scale + 0.5f);
     }
 
     private double evaluate(String expression) {
