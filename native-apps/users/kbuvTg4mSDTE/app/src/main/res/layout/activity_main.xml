@@ -58,14 +58,16 @@
 
     </FrameLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <Button
         android:id="@+id/fabAddNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="end|bottom"
         android:layout_margin="24dp"
-        android:src="@android:drawable/ic_input_add"
-        android:contentDescription="Add Note"
-        app:tint="#FFFFFF" />
+        android:text="+"
+        android:textSize="28sp"
+        android:textColor="#FFFFFF"
+        android:background="@android:drawable/dialog_holo_dark_frame"
+        android:backgroundTint="#3F51B5" />
 
 </LinearLayout>
