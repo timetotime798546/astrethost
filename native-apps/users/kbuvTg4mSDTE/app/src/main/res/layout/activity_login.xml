@@ -98,7 +98,18 @@
                 android:textColor="#1E293B"
                 android:textColorHint="#94A3B8"
                 android:background="@android:drawable/editbox_background_normal"
-                android:layout_marginBottom="24dp" />
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:textColor="#6366F1"
+                android:textSize="13sp"
+                android:background="@android:color/transparent"
+                android:layout_gravity="end"
+                android:layout_marginBottom="18dp" />
 
             <Button
                 android:id="@+id/btnLogin"
