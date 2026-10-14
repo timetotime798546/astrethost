@@ -2,27 +2,41 @@
   "steps": [
     {
       "step": 1,
-      "title": "Fix Dependencies in build.gradle",
-      "description": "Add androidx fragment and appcompat dependencies to resolve missing symbols.",
+      "title": "Add AndroidX Support Libraries",
+      "description": "Add appcompat, fragment, and cardview dependencies in build.gradle.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Update Theme in AndroidManifest",
-      "description": "Ensure the application uses a compatible Material theme.",
+      "title": "Update AndroidManifest",
+      "description": "Register activities and ensure proper application configuration.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Refactor MainActivity",
-      "description": "Fix Activity inheritance and context handling.",
-      "files": ["app/src/main/java/com/expenseconverterapp/app/MainActivity.java"],
+      "title": "Implement BackendApi Client",
+      "description": "Create robust backend communication methods.",
+      "files": ["app/src/main/java/com/expenseconverterapp/app/BackendApi.java"],
       "status": "pending"
     },
     {
       "step": 4,
+      "title": "Implement Login and Register Activities",
+      "description": "Create authentication UI and logic.",
+      "files": ["app/src/main/java/com/expenseconverterapp/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement MainActivity and Fragments",
+      "description": "Create tab navigation for expense tracking and currency conversion.",
+      "files": ["app/src/main/java/com/expenseconverterapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
       "title": "Building ExpenseConverterApp",
       "description": "Final compilation check.",
       "files": [],

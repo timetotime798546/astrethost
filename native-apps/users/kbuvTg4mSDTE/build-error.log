@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: ExpenseConverterApp
 App ID: app_6acf0d72877ad
-Build ID: 38514792062
-Time: 2026-10-14 01:06:40
+Build ID: 38515432567
+Time: 2026-10-14 01:14:11
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 201939
+Original log characters: 202047
 Extracted error characters: 30061
-File references detected: 350
+File references detected: 351
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.20+1 from tool-cache
 Setting Java 17.0.20+1 as the default
-(node:2271) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2325) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/be973c15-a1c3-4fa9-9bb4-92bade542fd4
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/84a711d3-4200-41d3-ad66-8f5e25d5efdf
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -191,6 +191,7 @@ PROJECT FILES
 ./app-meta.json
 ./app/build.gradle
 ./app/proguard-rules.pro
+./build-error.log
 ./build-steps.json
 ./build.gradle
 ./local.properties
@@ -235,8 +236,8 @@ Daemon will be stopped at the end of the build
 > Task :app:desugarReleaseFileDependencies
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/ExpenseTrackerFragment.java:16: error: package androidx.fragment.app does not exist
 
-import androidx.fragment.app.Fragment;
 > Task :app:compileReleaseJavaWithJavac FAILED
+import androidx.fragment.app.Fragment;
 ^
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/ExpenseTrackerFragment.java:24: error: cannot find symbol
 public class ExpenseTrackerFragment extends Fragment {
@@ -244,15 +245,17 @@ symbol: class Fragment
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/CurrencyConverterFragment.java:14: error: package androidx.fragment.app does not exist
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/CurrencyConverterFragment.java:19: error: cannot find symbol
 public class CurrencyConverterFragment extends Fragment {
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:8: error: package androidx.fragment.app does not exist
-import androidx.fragment.app.FragmentActivity;
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:8: error: package androidx.appcompat.app does not exist
+import androidx.appcompat.app.AppCompatActivity;
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:9: error: package androidx.fragment.app does not exist
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:10: error: package androidx.fragment.app does not exist
 import androidx.fragment.app.FragmentTransaction;
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:11: error: cannot find symbol
-public class MainActivity extends FragmentActivity {
-symbol: class FragmentActivity
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:57: error: package androidx.fragment.app does not exist
-private void loadFragment(androidx.fragment.app.Fragment fragment, boolean isInitial) {
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:12: error: cannot find symbol
+public class MainActivity extends AppCompatActivity {
+symbol: class AppCompatActivity
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:58: error: cannot find symbol
+private void loadFragment(Fragment fragment) {
+location: class MainActivity
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/ExpenseTrackerFragment.java:55: error: method does not override or implement a method from a supertype
 @Override
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/ExpenseTrackerFragment.java:59: error: cannot find symbol
@@ -279,46 +282,42 @@ location: class CurrencyConverterFragment
 Toast.makeText(requireContext(), "Enter amount in USD", Toast.LENGTH_SHORT).show();
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/CurrencyConverterFragment.java:70: error: cannot find symbol
 Toast.makeText(requireContext(), "Invalid number", Toast.LENGTH_SHORT).show();
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:16: error: method does not override or implement a method from a supertype
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:18: error: cannot find symbol
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:17: error: method does not override or implement a method from a supertype
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:19: error: cannot find symbol
 super.onCreate(savedInstanceState);
 symbol:   variable super
-location: class MainActivity
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:19: error: cannot find symbol
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:20: error: cannot find symbol
 setContentView(R.layout.activity_main);
 symbol:   method setContentView(int)
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:21: error: incompatible types: MainActivity cannot be converted to Context
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:22: error: incompatible types: MainActivity cannot be converted to Context
 backendApi = new BackendApi(this);
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:23: error: cannot find symbol
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:24: error: cannot find symbol
 btnTabExpense = findViewById(R.id.btnTabExpense);
 symbol:   method findViewById(int)
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:24: error: cannot find symbol
-btnTabCurrency = findViewById(R.id.btnTabCurrency);
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:25: error: cannot find symbol
+btnTabCurrency = findViewById(R.id.btnTabCurrency);
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:26: error: cannot find symbol
 btnLogout = findViewById(R.id.btnLogout);
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:32: error: cannot find symbol
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:33: error: cannot find symbol
 btnTabExpense.setBackgroundColor(getResources().getColor(R.color.accentColor));
 symbol: method getResources()
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:33: error: cannot find symbol
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:34: error: cannot find symbol
 btnTabCurrency.setBackgroundColor(getResources().getColor(R.color.primaryDarkColor));
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:41: error: cannot find symbol
-btnTabCurrency.setBackgroundColor(getResources().getColor(R.color.accentColor));
 /home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:42: error: cannot find symbol
+btnTabCurrency.setBackgroundColor(getResources().getColor(R.color.accentColor));
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:43: error: cannot find symbol
 btnTabExpense.setBackgroundColor(getResources().getColor(R.color.primaryDarkColor));
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:51: error: no suitable constructor found for Intent(Class<CAP#1>,Class<LoginActivity>)
-startActivity(new Intent(MainActivity.javaToClass(), LoginActivity.class));
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:52: error: no suitable constructor found for Intent(MainActivity,Class<LoginActivity>)
+startActivity(new Intent(MainActivity.this, LoginActivity.class));
 constructor Intent.Intent(String,Uri) is not applicable
-(argument mismatch; Class<CAP#2> cannot be converted to String)
+(argument mismatch; MainActivity cannot be converted to String)
 constructor Intent.Intent(Context,Class<?>) is not applicable
-(argument mismatch; Class<CAP#2> cannot be converted to Context)
-where CAP#1,CAP#2 are fresh type-variables:
-CAP#1 extends Object from capture of ?
-CAP#2 extends Object from capture of ?
-/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:52: error: cannot fin
+(argument mismatch; MainActivity cannot be converted to Context)
+/home/runner/work/astrethost/astrethost/native-apps/users/kbuvTg4mSDTE/app/src/main/java/com/expenseconverterapp/app/MainActivity.java:53: e
 
 ================ EXTRACTED LOG CONTINUED ================
 
-entalTaskAction.doExecute(IncrementalTaskAction.java:45)
+factory.IncrementalTaskAction.doExecute(IncrementalTaskAction.java:45)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
 at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.execute(IncrementalTaskAction.java:26)
 at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
@@ -397,9 +396,10 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 29s
-19 actionable tasks: 19 executed
+BUILD FAILED in 26s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
 [36;1mrm -rf gradle-8.5[0m
+
+Post job cleanup.

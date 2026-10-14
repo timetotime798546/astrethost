@@ -1,6 +1,5 @@
 package com.expenseconverterapp.app;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,9 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONObject;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText etEmail, etPassword;
     private Button btnLogin, btnRegister;
