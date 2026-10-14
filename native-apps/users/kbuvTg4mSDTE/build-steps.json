@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Application Metadata",
+      "description": "Define app identifiers, metadata, package configuration, and permissions for PhotoForge Pro.",
+      "files": ["app-meta.json", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Local Engine Schema",
+      "description": "Specify local deterministic business logic and offline adjustment calculations schema.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Setup Manifest & Permissions",
+      "description": "Declare hardware acceleration, storage access, gallery pickers, and main studio activity.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Dark Studio Palette & Styles",
+      "description": "Build high-contrast obsidian dark theme colors, slate accents, and professional slider assets.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml", "app/src/main/res/values/styles.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Interactive Studio Drawables",
+      "description": "Construct UI backgrounds, rounded badges, split view icons, and tool button selectors.",
+      "files": ["app/src/main/res/drawable/bg_studio_header.xml", "app/src/main/res/drawable/bg_tool_button.xml", "app/src/main/res/drawable/bg_badge.xml", "app/src/main/res/drawable/bg_slider_track.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Native Image Processing Engine",
+      "description": "Build ImageProcessor with ColorMatrix pipelines, exposure/contrast formulas, and preset filters.",
+      "files": ["app/src/main/java/com/photoforgepro/app/ImageProcessor.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement State & History Management",
+      "description": "Construct EditState and EditHistory stack supporting multi-level non-destructive undo/redo.",
+      "files": ["app/src/main/java/com/photoforgepro/app/EditState.java", "app/src/main/java/com/photoforgepro/app/EditHistory.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build Real-Time PhotoCanvasView",
+      "description": "Create custom high-performance Android View with real-time hardware-accelerated preview, EXIF overlay, and split Before/After curtain.",
+      "files": ["app/src/main/java/com/photoforgepro/app/PhotoCanvasView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Construct Studio Layout Architecture",
+      "description": "Assemble top header, tool ribbons, adjustment drawers, and bottom navigation bar in XML.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Studio UI Controller",
+      "description": "Bind interactive sliders, tool categories, image loader, export dialog, and split comparisons.",
+      "files": ["app/src/main/java/com/photoforgepro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building PhotoForge Pro",
+      "description": "Compile debug APK using Gradle 8.5, Android SDK 34, and Temurin 17 toolchain.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    }
+  ]
+}

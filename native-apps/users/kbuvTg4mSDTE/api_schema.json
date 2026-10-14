@@ -1,0 +1,22 @@
+{
+  "backend": false,
+  "roles": {},
+  "collections": {},
+  "logic": {
+    "exposure_calc": {
+      "type": "calculation",
+      "inputs": ["exposure_value"],
+      "formula": "exposure_value * 2.55"
+    },
+    "contrast_calc": {
+      "type": "calculation",
+      "inputs": ["contrast_value"],
+      "formula": "(contrast_value + 100) / 100"
+    },
+    "saturation_calc": {
+      "type": "calculation",
+      "inputs": ["saturation_value"],
+      "formula": "(saturation_value + 100) / 100"
+    }
+  }
+}
