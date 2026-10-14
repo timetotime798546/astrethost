@@ -29,12 +29,12 @@ public class BackendApi {
             String jsonStr = loadAssetFile("app-meta.json");
             if (jsonStr != null) {
                 JSONObject obj = new JSONObject(jsonStr);
-                return obj.optString("app_id", "expenseconverterapp_prod");
+                return obj.optString("app_id", "app_6acf0d72877ad");
             }
         } catch (Exception e) {
             Log.e(TAG, "Error reading app_id", e);
         }
-        return "expenseconverterapp_prod";
+        return "app_6acf0d72877ad";
     }
 
     private String loadAssetFile(String filename) {
@@ -105,6 +105,45 @@ public class BackendApi {
         }
     }
 
+    public JSONObject logout() {
+        try {
+            String responseStr = makeRequest("POST", "/logout", null, getToken());
+            clearToken();
+            return new JSONObject(responseStr);
+        } catch (Exception e) {
+            clearToken();
+            return null;
+        }
+    }
+
+    public JSONObject requestOtp(String email) {
+        try {
+            JSONObject body = new JSONObject();
+            body.put("app_id", getAppId());
+            body.put("email", email);
+            String responseStr = makeRequest("POST", "/request-otp", body.toString(), null);
+            return new JSONObject(responseStr);
+        } catch (Exception e) {
+            Log.e(TAG, "Request OTP error", e);
+            return null;
+        }
+    }
+
+    public JSONObject resetPassword(String email, String otp, String newPassword) {
+        try {
+            JSONObject body = new JSONObject();
+            body.put("app_id", getAppId());
+            body.put("email", email);
+            body.put("otp", otp);
+            body.put("new_password", newPassword);
+            String responseStr = makeRequest("POST", "/reset-password", body.toString(), null);
+            return new JSONObject(responseStr);
+        } catch (Exception e) {
+            Log.e(TAG, "Reset Password error", e);
+            return null;
+        }
+    }
+
     public JSONObject createData(String collection, JSONObject data) {
         try {
             JSONObject body = new JSONObject();
@@ -164,7 +203,8 @@ public class BackendApi {
         if (responseCode >= 200 && responseCode < 300) {
             reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
         } else {
-            reader = new BufferedReader(new InputStreamReader(conn.getErrorStream() != null ? conn.getErrorStream() : conn.getInputStream(), "UTF-8"));
+            reader = new BufferedReader(new InputStreamReader(
+                    conn.getErrorStream() != null ? conn.getErrorStream() : conn.getInputStream(), "UTF-8"));
         }
 
         StringBuilder sb = new StringBuilder();
