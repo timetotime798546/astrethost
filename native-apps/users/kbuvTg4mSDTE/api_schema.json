@@ -1,0 +1,76 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "patients": {
+      "fields": {
+        "mrn": "string",
+        "name": "string",
+        "phone": "string",
+        "dob": "string",
+        "age": "integer",
+        "blood_group": "string",
+        "allergies": "string",
+        "vitals_bp": "string",
+        "vitals_pulse": "string",
+        "vitals_sugar": "string",
+        "diagnosis": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "appointments": {
+      "fields": {
+        "mrn": "string",
+        "patient_name": "string",
+        "doctor_name": "string",
+        "department": "string",
+        "slot_time": "string",
+        "date": "string",
+        "status": "string",
+        "consultation_fee": "number"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "prescriptions": {
+      "fields": {
+        "mrn": "string",
+        "patient_name": "string",
+        "doctor_name": "string",
+        "medication_list": "string",
+        "clinical_notes": "string",
+        "subtotal": "number",
+        "discount": "number",
+        "tax": "number",
+        "net_total": "number",
+        "date": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "medicines": {
+      "fields": {
+        "name": "string",
+        "batch_number": "string",
+        "stock_quantity": "integer",
+        "unit_price": "number",
+        "expiry_date": "string",
+        "is_expiring_soon": "boolean"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "consultation_bill": {
+      "type": "calculation",
+      "inputs": ["consultation_fee", "discount", "tax"],
+      "formula": "(consultation_fee - discount) + tax"
+    },
+    "net_prescription_total": {
+      "type": "calculation",
+      "inputs": ["subtotal", "discount", "tax"],
+      "formula": "(subtotal - discount) + tax"
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Initialization",
+      "description": "Configure Android enterprise gradle settings, app metadata, and target SDK 34 specifications",
+      "files": ["app-meta.json", "build.gradle", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Backend Schema Configuration",
+      "description": "Establish schema for patients, appointments, prescriptions, and pharmacy catalog",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Android Manifest and Permissions",
+      "description": "Configure application permissions for Internet access and declare primary Activities",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design System and Color Palette",
+      "description": "Define clinical theme colors, healthcare teal, indigo, card surfaces, and rounded drawables",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/drawable/bg_card_rounded.xml",
+        "app/src/main/res/drawable/bg_stat_teal.xml",
+        "app/src/main/res/drawable/bg_stat_indigo.xml",
+        "app/src/main/res/drawable/bg_button_primary.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Native Backend Network API Client",
+      "description": "Implement HTTP client for authentication, session tokens, and /data CRUD operations",
+      "files": ["app/src/main/java/com/caresyncpro/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Offline Data Models & Business Logic Calculator",
+      "description": "Develop patient, medicine, appointment models with local calculations for taxes, billing, and ages",
+      "files": [
+        "app/src/main/java/com/caresyncpro/app/BillingCalculator.java",
+        "app/src/main/java/com/caresyncpro/app/LocalDataManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Enterprise Dashboard and EHR Layouts",
+      "description": "Construct hospital executive dashboard and tab navigation UI layouts",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Patient Registration and Clinical EHR View",
+      "description": "Implement Patient profile inspector, automated age detection from DOB, and vitals tracking",
+      "files": ["app/src/main/java/com/caresyncpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "OPD Consultation & Prescription Builder",
+      "description": "Implement digital prescription module, inventory deduction, and billing checkout",
+      "files": ["app/src/main/java/com/caresyncpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Pharmacy Inventory & Expiry Alerts",
+      "description": "Display batch numbers, stock indicators, and highlight items expiring within 30 days",
+      "files": ["app/src/main/java/com/caresyncpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building CareSync Pro",
+      "description": "Final build compilation, validation of healthcare workflows, and APK assembly",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
