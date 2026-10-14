@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.fragment.app.FragmentActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     private Button btnTabExpense, btnTabCurrency, btnLogout;
     private BackendApi backendApi;
@@ -24,14 +25,14 @@ public class MainActivity extends FragmentActivity {
         btnTabCurrency = findViewById(R.id.btnTabCurrency);
         btnLogout = findViewById(R.id.btnLogout);
 
-        loadFragment(new ExpenseTrackerFragment(), true);
+        loadFragment(new ExpenseTrackerFragment());
 
         btnTabExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btnTabExpense.setBackgroundColor(getResources().getColor(R.color.accentColor));
                 btnTabCurrency.setBackgroundColor(getResources().getColor(R.color.primaryDarkColor));
-                loadFragment(new ExpenseTrackerFragment(), false);
+                loadFragment(new ExpenseTrackerFragment());
             }
         });
 
@@ -40,7 +41,7 @@ public class MainActivity extends FragmentActivity {
             public void onClick(View v) {
                 btnTabCurrency.setBackgroundColor(getResources().getColor(R.color.accentColor));
                 btnTabExpense.setBackgroundColor(getResources().getColor(R.color.primaryDarkColor));
-                loadFragment(new CurrencyConverterFragment(), false);
+                loadFragment(new CurrencyConverterFragment());
             }
         });
 
@@ -48,19 +49,15 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 backendApi.clearToken();
-                startActivity(new Intent(MainActivity.javaToClass(), LoginActivity.class));
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 finish();
             }
         });
     }
 
-    private void loadFragment(androidx.fragment.app.Fragment fragment, boolean isInitial) {
+    private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragmentContainer, fragment);
         transaction.commit();
-    }
-
-    private static Class<?> javaToClass() {
-        return MainActivity.class;
     }
 }
