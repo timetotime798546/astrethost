@@ -151,7 +151,7 @@ public class MainActivity extends Activity {
         }
 
         if (isResumeTabActive) {
-            tabResume.setBackgroundResource(R.drawable/bg_tab_selected);
+            tabResume.setBackgroundResource(R.drawable.bg_tab_selected);
             tabResume.setTextColor(getResources().getColor(R.color.text_primary));
 
             tabCoverLetter.setBackgroundResource(R.drawable.bg_tab_unselected);
