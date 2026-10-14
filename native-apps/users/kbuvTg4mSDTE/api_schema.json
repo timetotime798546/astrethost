@@ -2,11 +2,5 @@
   "backend": false,
   "roles": {},
   "collections": {},
-  "logic": {
-    "scientific_calculation": {
-      "type": "calculation",
-      "inputs": ["operand1", "operator", "operand2"],
-      "formula": "operand1 operator operand2"
-    }
-  }
+  "logic": {}
 }

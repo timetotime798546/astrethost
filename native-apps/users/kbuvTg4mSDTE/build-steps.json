@@ -3,7 +3,7 @@
     {
       "step": 1,
       "title": "Initialize Project Structure",
-      "description": "Configure Android native project environment for CalcPro.",
+      "description": "Configure Android native environment with package name com.resumeai.app.",
       "files": [
         "app-meta.json",
         "api_schema.json",
@@ -14,7 +14,7 @@
     {
       "step": 2,
       "title": "Configure Application Manifest",
-      "description": "Set up application package name, launcher activity, and theme attributes.",
+      "description": "Set up application permissions, activities, and theme definitions.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -23,7 +23,7 @@
     {
       "step": 3,
       "title": "Create Color Palette and UI Resources",
-      "description": "Define modern calculator theme colors, dark slate backgrounds, and vibrant accent hues.",
+      "description": "Define sleek dark-mode hex palettes, contrast accents, and custom shape drawables.",
       "files": [
         "app/src/main/res/values/colors.xml",
         "app/src/main/res/values/strings.xml",
@@ -33,21 +33,22 @@
     },
     {
       "step": 4,
-      "title": "Design Calculator Button Shapes",
-      "description": "Create custom ripple drawables and background shapes for number, operator, and action buttons.",
+      "title": "Design Card and Button Backgrounds",
+      "description": "Build high-contrast dark card shapes, gradient accents, and input container borders.",
       "files": [
-        "app/src/main/res/drawable/bg_btn_number.xml",
-        "app/src/main/res/drawable/bg_btn_operator.xml",
-        "app/src/main/res/drawable/bg_btn_action.xml",
-        "app/src/main/res/drawable/bg_btn_equals.xml",
-        "app/src/main/res/drawable/bg_calc_screen.xml"
+        "app/src/main/res/drawable/bg_dark_card.xml",
+        "app/src/main/res/drawable/bg_input_box.xml",
+        "app/src/main/res/drawable/bg_generate_button.xml",
+        "app/src/main/res/drawable/bg_chip_tag.xml",
+        "app/src/main/res/drawable/bg_tab_selected.xml",
+        "app/src/main/res/drawable/bg_tab_unselected.xml"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Build Calculator Main Layout",
-      "description": "Construct high-precision layout with expression history display, primary result screen, and responsive keypad grid.",
+      "title": "Build Main Activity Layout",
+      "description": "Create intuitive dark-mode interface with single multi-line input box, instant sample tags, and tabbed output cards.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -55,36 +56,35 @@
     },
     {
       "step": 6,
-      "title": "Implement Calculator Engine",
-      "description": "Develop robust math evaluation engine supporting arithmetic, trigonometry, logarithms, percentages, and memory operations.",
+      "title": "Implement AI Generator Model",
+      "description": "Develop algorithmic career profile synthesis engine generating tailored executive summaries, bulleted experience records, and cover letters.",
       "files": [
-        "app/src/main/java/com/calcpro/app/CalculatorEngine.java"
+        "app/src/main/java/com/resumeai/app/ResumeGeneratorEngine.java"
       ],
       "status": "pending"
     },
     {
       "step": 7,
       "title": "Implement Main Activity Controller",
-      "description": "Connect UI button clicks, handle operator sequencing, maintain calculation history, and update display smoothly.",
+      "description": "Connect UI controls, validate input, trigger instant content generation, and provide one-tap clipboard copy.",
       "files": [
-        "app/src/main/java/com/calcpro/app/MainActivity.java"
+        "app/src/main/java/com/resumeai/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Enable Scientific Mode Toggle",
-      "description": "Implement expandable scientific keypad row for advanced functions like sin, cos, tan, log, ln, and square root.",
+      "title": "Add Quick Fill Sample Presets",
+      "description": "Provide fast tap chips for Software Engineer, Product Manager, Data Scientist, and Growth Marketer.",
       "files": [
-        "app/src/main/java/com/calcpro/app/MainActivity.java",
-        "app/src/main/res/layout/activity_main.xml"
+        "app/src/main/java/com/resumeai/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Validate Responsive UI and Spacing",
-      "description": "Ensure optimal button sizing, text auto-scaling, and clean padding across diverse screen configurations.",
+      "title": "Validate Dark Mode Rendering and Spacing",
+      "description": "Ensure text readability, card margins, and scroll responsiveness across multiple device dimensions.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -92,7 +92,7 @@
     },
     {
       "step": 10,
-      "title": "Building CalcPro",
+      "title": "Building ResumeAI",
       "description": "Compile native Android project artifacts and package final APK.",
       "files": [],
       "status": "pending"

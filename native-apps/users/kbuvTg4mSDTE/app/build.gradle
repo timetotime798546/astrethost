@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.calcpro.app"
+    namespace "com.resumeai.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.calcpro.app"
+        applicationId "com.resumeai.app"
 
         minSdkVersion 21
 

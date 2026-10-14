@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CalcPro</string>
-    <string name="app_subtitle">Advanced Scientific Calculator</string>
-    <string name="zero">0</string>
-    <string name="dot">.</string>
-    <string name="plus">+</string>
-    <string name="minus">-</string>
-    <string name="multiply">×</string>
-    <string name="divide">÷</string>
-    <string name="equals">=</string>
-    <string name="clear">AC</string>
-    <string name="backspace">⌫</string>
-    <string name="percent">%</string>
-    <string name="sci_sin">sin</string>
-    <string name="sci_cos">cos</string>
-    <string name="sci_tan">tan</string>
-    <string name="sci_log">log</string>
-    <string name="sci_ln">ln</string>
-    <string name="sci_sqrt">√</string>
-    <string name="sci_pow">^</string>
-    <string name="sci_pi">π</string>
-    <string name="sci_e">e</string>
-    <string name="sci_toggle">Scientific</string>
+    <string name="app_name">ResumeAI</string>
+    <string name="header_badge">AI-POWERED CAREER SUITE</string>
+    <string name="main_title">Generate ATS-Ready Resumes</string>
+    <string name="main_subtitle">Enter your target role and core skills to create an impactful resume and matching cover letter.</string>
+    <string name="input_label">Target Role &amp; Core Skills</string>
+    <string name="input_hint">e.g., Senior Android Developer, Java, Kotlin, MVVM, Room DB, REST APIs, CI/CD</string>
+    <string name="btn_generate">Generate AI Resume</string>
+    <string name="tab_resume">Resume</string>
+    <string name="tab_cover_letter">Cover Letter</string>
+    <string name="btn_copy">Copy to Clipboard</string>
+    <string name="btn_share">Share Document</string>
+    <string name="quick_try_label">Quick Presets:</string>
+    <string name="preset_1">Android Dev</string>
+    <string name="preset_2">Product Manager</string>
+    <string name="preset_3">Data Analyst</string>
+    <string name="preset_4">UX Designer</string>
 </resources>
