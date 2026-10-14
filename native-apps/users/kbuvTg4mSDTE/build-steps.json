@@ -1,0 +1,90 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project Structure",
+      "description": "Set up Gradle configuration, package names, and manifest.",
+      "files": ["app/build.gradle", "app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create Backend Schema",
+      "description": "Define local and online storage schemas for expenses and currency conversion logs.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Build Utility and API Client",
+      "description": "Implement HTTP connection helpers, session storage, and backend request handlers.",
+      "files": ["app/src/main/java/com/expenseconverterapp/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design Dark-Teal Theme Layouts",
+      "description": "Create primary color schemes, custom buttons, card containers, and tab views.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build Authentication Screens",
+      "description": "Create login, registration, and logout flows with secure token management.",
+      "files": [
+        "app/src/main/res/layout/activity_login.xml",
+        "app/src/main/java/com/expenseconverterapp/app/LoginActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Main Dashboard Layout",
+      "description": "Implement tab navigation for Expense Tracker and Currency Converter modules.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Currency Converter Logic",
+      "description": "Add local conversion math for USD, EUR, GBP, JPY, and other major currencies.",
+      "files": [
+        "app/src/main/java/com/expenseconverterapp/app/CurrencyConverterFragment.java",
+        "app/src/main/res/layout/fragment_currency.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Expense Tracker Logic",
+      "description": "Add income/expense recording, category breakdown, and local summation.",
+      "files": [
+        "app/src/main/java/com/expenseconverterapp/app/ExpenseTrackerFragment.java",
+        "app/src/main/res/layout/fragment_expense.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Wire Up MainActivity Tabs",
+      "description": "Connect fragments to main navigation view and user session controls.",
+      "files": [
+        "app/src/main/java/com/expenseconverterapp/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building ExpenseConverterApp",
+      "description": "Final review and compilation check.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
