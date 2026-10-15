@@ -1,6 +1,7 @@
 package com.morgbilling.app;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -248,7 +249,7 @@ public class InventoryActivity extends Activity {
             TextView tvPrice = new TextView(this);
             tvPrice.setText(BillingCalculator.formatMoney(p.price));
             tvPrice.setTextSize(16);
-            tvPrice.setTextStyle(android.graphics.Typeface.BOLD);
+            tvPrice.setTypeface(null, Typeface.BOLD);
             tvPrice.setTextColor(getResources().getColor(R.color.accent_blue));
             tvPrice.setGravity(android.view.Gravity.CENTER_VERTICAL);
 

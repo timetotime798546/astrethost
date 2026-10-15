@@ -16,51 +16,51 @@
     },
     {
       "step": 3,
-      "title": "Fix Syntax Error in Main Dashboard Controller",
-      "description": "Resolve invalid resource reference syntax R.drawable/bg_card to R.drawable.bg_card inside invoice view generation.",
-      "files": ["app/src/main/java/com/morgbilling/app/MainActivity.java"],
+      "title": "Resolve Manifest Package Specification",
+      "description": "Ensure the manifest relies on the Gradle namespace definition.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
+      "title": "Fix TextView Typeface Compilation Error",
+      "description": "Replace nonexistent setTextStyle call with setTypeface on tvPrice in InventoryActivity.",
+      "files": ["app/src/main/java/com/morgbilling/app/InventoryActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
       "title": "Verify Local Computation Logic",
       "description": "Ensure BillingCalculator performs accurate offline calculations for invoice totals, taxes, and balance dues.",
       "files": ["app/src/main/java/com/morgbilling/app/BillingCalculator.java"],
       "status": "pending"
     },
     {
-      "step": 5,
+      "step": 6,
       "title": "Validate Cloud Backend Communication",
       "description": "Check BackendApi CRUD and authentication flow compliance with the remote REST endpoints.",
       "files": ["app/src/main/java/com/morgbilling/app/BackendApi.java"],
       "status": "pending"
     },
     {
-      "step": 6,
+      "step": 7,
       "title": "Verify Invoice Generation Workflow",
       "description": "Ensure CreateInvoiceActivity dynamic item calculations and JSON structures are fully verified.",
       "files": ["app/src/main/java/com/morgbilling/app/CreateInvoiceActivity.java"],
       "status": "pending"
     },
     {
-      "step": 7,
+      "step": 8,
       "title": "Check Invoice Detail and Sharing Activity",
       "description": "Ensure InvoiceDetailActivity receipt viewer and status modification are functional.",
       "files": ["app/src/main/java/com/morgbilling/app/InvoiceDetailActivity.java"],
       "status": "pending"
     },
     {
-      "step": 8,
-      "title": "Check Inventory Management Activity",
-      "description": "Ensure InventoryActivity supports stock and item management.",
-      "files": ["app/src/main/java/com/morgbilling/app/InventoryActivity.java"],
-      "status": "pending"
-    },
-    {
       "step": 9,
-      "title": "Validate Manifest & Layouts",
-      "description": "Verify application permissions, activity declarations, and layout resources.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Verify Main Dashboard UI and Invoices List",
+      "description": "Ensure MainActivity dynamic card rendering and invoice filtering work properly.",
+      "files": ["app/src/main/java/com/morgbilling/app/MainActivity.java"],
       "status": "pending"
     },
     {
