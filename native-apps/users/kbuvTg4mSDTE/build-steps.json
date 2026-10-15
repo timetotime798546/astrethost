@@ -1,0 +1,105 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Establish Project Metadata and Architecture",
+      "description": "Configure app metadata and define non-backend schema configuration.",
+      "files": [
+        "app-meta.json",
+        "api_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Clean Build Configurations",
+      "description": "Ensure pure Android SDK compliance with no third-party libraries.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Application Manifest",
+      "description": "Update manifest with material light theme and portrait lock configuration.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define Color Palette",
+      "description": "Declare modern aesthetic tones, gradients, and elevation surfaces.",
+      "files": [
+        "app/src/main/res/values/colors.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define String Resources",
+      "description": "Add welcoming prompts, feature highlights, and onboarding checklist text.",
+      "files": [
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Header Gradient Surface",
+      "description": "Design custom multi-stop gradient background for header banner.",
+      "files": [
+        "app/src/main/res/drawable/bg_header_gradient.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Custom Card and Button Drawables",
+      "description": "Build modern elevated card backgrounds, button states, and input field strokes.",
+      "files": [
+        "app/src/main/res/drawable/bg_card_elevated.xml",
+        "app/src/main/res/drawable/bg_btn_primary.xml",
+        "app/src/main/res/drawable/bg_btn_secondary.xml",
+        "app/src/main/res/drawable/bg_input_field.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Custom Welcome Dashboard Layout",
+      "description": "Construct scrollable interactive dashboard with time-aware greeting, personalization studio, onboarding checklist, and feature showcase.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Interactive MainActivity Logic",
+      "description": "Code dynamic hour-of-day greeting, interactive onboarding checklist with live progress calculation, motivation quote rotator, and personalization.",
+      "files": [
+        "app/src/main/java/com/welcomeapp/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Synchronize Asset Metadata",
+      "description": "Ensure runtime assets match application identification.",
+      "files": [
+        "app/src/main/assets/app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Welcome App",
+      "description": "Execute Gradle assembleDebug to produce production-ready APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
