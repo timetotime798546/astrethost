@@ -164,7 +164,6 @@ public class MainActivity extends Activity {
 
     private void loadInvoices() {
         if (!backendApi.isLoggedIn()) {
-            // Display empty or locally stored state
             renderInvoiceList(allInvoices);
             calculateDashboardMetrics(allInvoices);
             return;
@@ -206,7 +205,6 @@ public class MainActivity extends Activity {
                     Toast.makeText(MainActivity.this, "Parsing error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
-                // Deterministic local business calculation across all fetched records
                 calculateDashboardMetrics(allInvoices);
                 filterInvoices(etSearch.getText().toString());
             }
@@ -221,7 +219,6 @@ public class MainActivity extends Activity {
         });
     }
 
-    // Pure local Java calculation across records
     private void calculateDashboardMetrics(List<InvoiceItemRecord> invoices) {
         double totalBilled = 0.0;
         double totalPaid = 0.0;
@@ -272,7 +269,7 @@ public class MainActivity extends Activity {
 
             LinearLayout card = new LinearLayout(this);
             card.setOrientation(LinearLayout.VERTICAL);
-            card.setBackgroundResource(R.drawable/bg_card);
+            card.setBackgroundResource(R.drawable.bg_card);
             card.setPadding(36, 32, 36, 32);
 
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -282,7 +279,6 @@ public class MainActivity extends Activity {
             lp.setMargins(0, 0, 0, 24);
             card.setLayoutParams(lp);
 
-            // Header Row: Customer Name & Amount
             LinearLayout row1 = new LinearLayout(this);
             row1.setOrientation(LinearLayout.HORIZONTAL);
 
@@ -300,7 +296,6 @@ public class MainActivity extends Activity {
             row1.addView(tvCust);
             row1.addView(tvAmt);
 
-            // Sub row: Invoice #, Date, Status Badge
             LinearLayout row2 = new LinearLayout(this);
             row2.setOrientation(LinearLayout.HORIZONTAL);
             row2.setPadding(0, 10, 0, 0);
@@ -325,7 +320,6 @@ public class MainActivity extends Activity {
             row2.addView(tvSub);
             row2.addView(badge);
 
-            // Balance indicator if due
             if (inv.balanceDue > 0) {
                 TextView tvDue = new TextView(this);
                 tvDue.setText("Due: " + BillingCalculator.formatMoney(inv.balanceDue));

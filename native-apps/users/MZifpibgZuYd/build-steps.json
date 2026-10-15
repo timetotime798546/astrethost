@@ -2,113 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure Application Metadata",
-      "description": "Establish app metadata, dynamic API schema, and package identifier for Morg Billing.",
-      "files": ["app-meta.json", "api_schema.json"],
+      "title": "Validate Project Configuration",
+      "description": "Ensure package configuration, assets, and app metadata align with Android build constraints.",
+      "files": ["app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Gradle Build Files",
-      "description": "Set up build.gradle with Temurin 17, AGP 8.3.2, compileSdk 34 and clean SDK-only configuration.",
+      "title": "Clean Dependencies in Gradle Script",
+      "description": "Remove non-standard external dependencies from build.gradle to ensure clean compilation using Android SDK built-in classes only.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Manifest and Permissions",
-      "description": "Define network permissions, application theme, activities, and launcher icon.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Fix Syntax Error in Main Dashboard Controller",
+      "description": "Resolve invalid resource reference syntax R.drawable/bg_card to R.drawable.bg_card inside invoice view generation.",
+      "files": ["app/src/main/java/com/morgbilling/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Build Dynamic UI Drawables & Themes",
-      "description": "Create custom high-clarity button styles, card containers, badge headers, and input backgrounds.",
-      "files": [
-        "app/src/main/res/drawable/bg_card.xml",
-        "app/src/main/res/drawable/bg_button_primary.xml",
-        "app/src/main/res/drawable/bg_button_accent.xml",
-        "app/src/main/res/drawable/bg_input.xml",
-        "app/src/main/res/drawable/bg_badge_paid.xml",
-        "app/src/main/res/drawable/bg_badge_due.xml",
-        "app/src/main/res/values/strings.xml",
-        "app/src/main/res/values/colors.xml"
-      ],
+      "title": "Verify Local Computation Logic",
+      "description": "Ensure BillingCalculator performs accurate offline calculations for invoice totals, taxes, and balance dues.",
+      "files": ["app/src/main/java/com/morgbilling/app/BillingCalculator.java"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement Cloud Backend API & Auth Client",
-      "description": "Create BackendApi client supporting authentication, OTP password recovery, and /data CRUD.",
+      "title": "Validate Cloud Backend Communication",
+      "description": "Check BackendApi CRUD and authentication flow compliance with the remote REST endpoints.",
       "files": ["app/src/main/java/com/morgbilling/app/BackendApi.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Offline Billing Calculation Engine",
-      "description": "Create pure Java calculation manager for item totals, GST/tax, discounts, balances, and analytics.",
-      "files": ["app/src/main/java/com/morgbilling/app/BillingCalculator.java"],
+      "title": "Verify Invoice Generation Workflow",
+      "description": "Ensure CreateInvoiceActivity dynamic item calculations and JSON structures are fully verified.",
+      "files": ["app/src/main/java/com/morgbilling/app/CreateInvoiceActivity.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement User Authentication Activity",
-      "description": "Create AuthActivity for Sign In, Registration, and automated OTP password reset workflow.",
-      "files": [
-        "app/src/main/java/com/morgbilling/app/AuthActivity.java",
-        "app/src/main/res/layout/activity_auth.xml"
-      ],
+      "title": "Check Invoice Detail and Sharing Activity",
+      "description": "Ensure InvoiceDetailActivity receipt viewer and status modification are functional.",
+      "files": ["app/src/main/java/com/morgbilling/app/InvoiceDetailActivity.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Design Interactive Dashboard Layout",
-      "description": "Create next-level dashboard UI showcasing gross revenue, unpaid balances, stats, and action tabs.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Check Inventory Management Activity",
+      "description": "Ensure InventoryActivity supports stock and item management.",
+      "files": ["app/src/main/java/com/morgbilling/app/InventoryActivity.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Main Billing Hub Controller",
-      "description": "Connect Dashboard, real-time invoice filtering, statistics, and navigation.",
-      "files": ["app/src/main/java/com/morgbilling/app/MainActivity.java"],
+      "title": "Validate Manifest & Layouts",
+      "description": "Verify application permissions, activity declarations, and layout resources.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Create Dynamic Invoice Generator UI & Logic",
-      "description": "Build high-tier invoice generator with dynamic item additions, instant subtotal calculation, tax, and discount sliders.",
-      "files": [
-        "app/src/main/java/com/morgbilling/app/CreateInvoiceActivity.java",
-        "app/src/main/res/layout/activity_create_invoice.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Implement Invoice Details & Printable Receipt Viewer",
-      "description": "Build formatted receipt viewer with shareable text, itemized breakdown, and status updates.",
-      "files": [
-        "app/src/main/java/com/morgbilling/app/InvoiceDetailActivity.java",
-        "app/src/main/res/layout/activity_invoice_detail.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Implement Product Inventory Management",
-      "description": "Create inventory activity for managing products, prices, and stock tracking.",
-      "files": [
-        "app/src/main/java/com/morgbilling/app/InventoryActivity.java",
-        "app/src/main/res/layout/activity_inventory.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 13,
       "title": "Building Morg Billing",
-      "description": "Assemble and compile debug APK using Gradle 8.5 and Temurin 17.",
+      "description": "Assemble and compile debug APK using Gradle 8.5, AGP 8.3.2, and Temurin 17.",
       "files": [],
       "status": "pending"
     }
