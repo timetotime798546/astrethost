@@ -1,0 +1,130 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Architecture & Configuration",
+      "description": "Configuring Gradle build settings, dependencies, permissions, and app identity.",
+      "files": [
+        "app/build.gradle",
+        "app/src/main/AndroidManifest.xml",
+        "app-meta.json",
+        "api_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Color Scheme & Theme Definitions",
+      "description": "Creating standard Android Material UI colors, styles, and custom card backgrounds.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/styles.xml",
+        "app/src/main/res/drawable/card_income_bg.xml",
+        "app/src/main/res/drawable/card_expense_bg.xml",
+        "app/src/main/res/drawable/card_balance_bg.xml",
+        "app/src/main/res/drawable/btn_primary_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Backend API Client & Network Engine",
+      "description": "Constructing native HTTP network client for authentication and cloud transaction syncing.",
+      "files": [
+        "app/src/main/java/com/expensetracker/app/BackendApi.java",
+        "app/src/main/java/com/expensetracker/app/SessionManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Data Models & Offline Calculation Engine",
+      "description": "Implementing deterministic native calculation engine for incomes, expenses, balances, and reports.",
+      "files": [
+        "app/src/main/java/com/expensetracker/app/TransactionModel.java",
+        "app/src/main/java/com/expensetracker/app/ExpenseCalculator.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Authentication Layouts",
+      "description": "Creating native layout XML screens for Sign In, Account Registration, and Password Reset.",
+      "files": [
+        "app/src/main/res/layout/activity_login.xml",
+        "app/src/main/res/layout/activity_register.xml",
+        "app/src/main/res/layout/activity_forgot_password.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Authentication Activities Implementation",
+      "description": "Connecting user session login, signup with automatic login, and OTP recovery handling.",
+      "files": [
+        "app/src/main/java/com/expensetracker/app/LoginActivity.java",
+        "app/src/main/java/com/expensetracker/app/RegisterActivity.java",
+        "app/src/main/java/com/expensetracker/app/ForgotPasswordActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Dashboard & Navigation Layouts",
+      "description": "Designing high-contrast dashboard with summary balances, filter chips, and transaction list items.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/res/layout/item_transaction.xml",
+        "app/src/main/res/layout/activity_add_transaction.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Monthly Reports Screen & Category Statistics",
+      "description": "Designing and implementing monthly analytical report screens with local percentage calculations.",
+      "files": [
+        "app/src/main/res/layout/activity_reports.xml",
+        "app/src/main/res/layout/item_report_category.xml",
+        "app/src/main/java/com/expensetracker/app/ReportsActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Transaction Adapter & Interactive Controls",
+      "description": "Building custom native list adapter with category icons, colored badges, and delete action.",
+      "files": [
+        "app/src/main/java/com/expensetracker/app/TransactionAdapter.java",
+        "app/src/main/java/com/expensetracker/app/AddTransactionActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Main Activity Dashboard Logic",
+      "description": "Connecting live filtering, recalculations, transaction CRUD operations, and navigation flow.",
+      "files": [
+        "app/src/main/java/com/expensetracker/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Assets & Metadata Bundling",
+      "description": "Packaging runtime app-meta.json and verifying endpoint requirements.",
+      "files": [
+        "app/src/main/assets/app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Expense Tracker",
+      "description": "Compiling release-ready native Android package using Java 17 and AGP 8.3.2.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
