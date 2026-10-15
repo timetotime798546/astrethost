@@ -38,8 +38,8 @@
     },
     {
       "step": 5,
-      "title": "Fix Continuous QR Scan Loop and Dismiss Dialog Issue",
-      "description": "Implement robust debounce and user-controlled dismissal flags so the scanner dialog does not keep re-appearing automatically.",
+      "title": "Fix Dialog Dismissal and Syntax in MainActivity.java",
+      "description": "Correct syntax closing bracket typo in DialogInterface.OnClickListener callback from 'which>' to 'which)' and ensure proper QR scan dialog lifecycle management.",
       "files": [
         "app/src/main/java/com/smartqrstudio/app/MainActivity.java"
       ],

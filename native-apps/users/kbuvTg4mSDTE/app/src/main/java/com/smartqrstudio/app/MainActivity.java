@@ -507,7 +507,7 @@ public class MainActivity extends Activity {
 
         builder.setNegativeButton("Copy", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which> {
+            public void onClick(DialogInterface dialog, int which) {
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("QR Content", content);
                 clipboard.setPrimaryClip(clip);
@@ -531,6 +531,7 @@ public class MainActivity extends Activity {
         });
 
         mActiveScanDialog = builder.create();
+        mActiveScanDialog.setCanceledOnTouchOutside(true);
         mActiveScanDialog.show();
     }
 
