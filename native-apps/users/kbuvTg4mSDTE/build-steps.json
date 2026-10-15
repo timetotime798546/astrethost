@@ -1,0 +1,56 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Define application name, package name, and project metadata in app-meta.json.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Offline API Schema",
+      "description": "Establish offline architecture schema without external server requirement in api_schema.json.",
+      "files": [
+        "api_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Build Configuration",
+      "description": "Ensure build.gradle targets SDK 34 with Java 8 compatibility and clean dependencies.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Declare App Permissions and Manifest",
+      "description": "Clean manifest attributes and verify permissions for camera and storage.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Fix Continuous QR Scan Loop and Dismiss Dialog Issue",
+      "description": "Implement robust debounce and user-controlled dismissal flags so the scanner dialog does not keep re-appearing automatically.",
+      "files": [
+        "app/src/main/java/com/smartqrstudio/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Building Smart QR Studio",
+      "description": "Compile Java sources and assemble the final Android debug package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
