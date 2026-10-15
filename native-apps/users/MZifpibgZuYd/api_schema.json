@@ -1,0 +1,74 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "invoices": {
+      "fields": {
+        "invoice_number": "string",
+        "customer_name": "string",
+        "customer_phone": "string",
+        "items_json": "string",
+        "subtotal": "number",
+        "discount_percent": "number",
+        "discount_amount": "number",
+        "tax_percent": "number",
+        "tax_amount": "number",
+        "total_amount": "number",
+        "paid_amount": "number",
+        "balance_due": "number",
+        "payment_status": "string",
+        "date_created": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "products": {
+      "fields": {
+        "name": "string",
+        "sku": "string",
+        "unit_price": "number",
+        "stock_qty": "integer",
+        "unit": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "customers": {
+      "fields": {
+        "name": "string",
+        "phone": "string",
+        "email": "string",
+        "address": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "item_subtotal": {
+      "type": "calculation",
+      "inputs": ["quantity", "unit_price"],
+      "formula": "quantity * unit_price"
+    },
+    "discount_value": {
+      "type": "calculation",
+      "inputs": ["subtotal", "discount_percent"],
+      "formula": "(subtotal * discount_percent) / 100"
+    },
+    "tax_value": {
+      "type": "calculation",
+      "inputs": ["taxable_amount", "tax_percent"],
+      "formula": "(taxable_amount * tax_percent) / 100"
+    },
+    "invoice_net_total": {
+      "type": "calculation",
+      "inputs": ["subtotal", "discount_amount", "tax_amount"],
+      "formula": "subtotal - discount_amount + tax_amount"
+    },
+    "invoice_balance_due": {
+      "type": "calculation",
+      "inputs": ["total_amount", "paid_amount"],
+      "formula": "total_amount - paid_amount"
+    }
+  }
+}
