@@ -1,0 +1,99 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Define application name, package name, and project metadata in app-meta.json.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Offline API Schema",
+      "description": "Establish offline architecture schema without external server requirement in api_schema.json.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Build Configuration",
+      "description": "Set up build.gradle with SDK 34, Java 8 compilation compatibility, and no external dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Declare App Permissions and Manifest",
+      "description": "Declare CAMERA, VIBRATE, and storage permissions in AndroidManifest.xml using standard Material theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Color and String Resources",
+      "description": "Define high-contrast modern dark-accent color palette, UI text, and styles in res/values.",
+      "files": [
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Modern Card and Shape Drawables",
+      "description": "Build custom card layouts, tab selectors, and scanner viewfinder reticle drawables.",
+      "files": [
+        "app/src/main/res/drawable/bg_tab_selected.xml",
+        "app/src/main/res/drawable/bg_tab_unselected.xml",
+        "app/src/main/res/drawable/bg_card.xml",
+        "app/src/main/res/drawable/bg_button.xml",
+        "app/src/main/res/drawable/bg_button_secondary.xml",
+        "app/src/main/res/drawable/bg_scanner_frame.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Construct Unified Multi-Tab Activity Layout",
+      "description": "Implement responsive layout featuring Tab controls, Generator view, Live Camera scanner, and Gallery decoder in activity_main.xml.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Native QR Code Generator Engine",
+      "description": "Build high-performance pure Java Reed-Solomon error correction and 2D matrix encoder in QRCodeEncoder.java.",
+      "files": ["app/src/main/java/com/smartqrstudio/app/QRCodeEncoder.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Native QR Code Analyzer and Decoder Engine",
+      "description": "Build pure Java image luminance analyzer, finder-pattern locator, and data extractor in QRCodeDecoder.java.",
+      "files": ["app/src/main/java/com/smartqrstudio/app/QRCodeDecoder.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Native Camera Surface Viewfinder",
+      "description": "Construct hardware camera preview SurfaceView component with auto-focus and frame callback in CameraPreview.java.",
+      "files": ["app/src/main/java/com/smartqrstudio/app/CameraPreview.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Assemble Main Application Logic",
+      "description": "Connect QR creation, live scanning, gallery picking, audio-haptic feedback, and web actions in MainActivity.java.",
+      "files": ["app/src/main/java/com/smartqrstudio/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Smart QR Studio",
+      "description": "Assemble and build the final native Android debug APK package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

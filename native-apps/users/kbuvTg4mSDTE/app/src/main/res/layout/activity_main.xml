@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- Top Header Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/primary"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:elevation="4dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_header_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PRO NATIVE"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="#60A5FA"
+            android:background="#1E293B"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
+    </LinearLayout>
+
+    <!-- Top Custom Navigation Tabs -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/tab_btn_generate"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:text="@string/tab_generate"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:background="@drawable/bg_tab_selected" />
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/tab_btn_scan"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:text="@string/tab_scan"
+            android:textColor="@color/text_secondary"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:background="@drawable/bg_tab_unselected" />
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/tab_btn_history"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:text="@string/tab_history"
+            android:textColor="@color/text_secondary"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:background="@drawable/bg_tab_unselected" />
+    </LinearLayout>
+
+    <!-- Content Container Frame -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- ================= SECTION 1: GENERATE QR ================= -->
+        <ScrollView
+            android:id="@+id/view_generate_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Input Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Enter Content / Web URL"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_qr_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="@string/input_hint"
+                        android:text="https://google.com"
+                        android:textSize="14sp"
+                        android:padding="12dp"
+                        android:background="#F8FAFC"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_secondary"
+                        android:singleLine="false"
+                        android:maxLines="3" />
+
+                    <!-- Quick Preset Chips -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <Button
+                            android:id="@+id/btn_preset_web"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:text="https://"
+                            android:textSize="11sp"
+                            android:background="@drawable/bg_button_secondary"
+                            android:textColor="@color/text_primary" />
+
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="match_parent" />
+
+                        <Button
+                            android:id="@+id/btn_preset_wifi"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:text="Wi-Fi"
+                            android:textSize="11sp"
+                            android:background="@drawable/bg_button_secondary"
+                            android:textColor="@color/text_primary" />
+
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="match_parent" />
+
+                        <Button
+                            android:id="@+id/btn_preset_clear"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:text="Clear"
+                            android:textSize="11sp"
+                            android:background="@drawable/bg_button_secondary"
+                            android:textColor="#EF4444" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_generate_qr"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/btn_generate"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:background="@drawable/bg_button" />
+                </LinearLayout>
+
+                <!-- QR Display Preview Card -->
+                <LinearLayout
+                    android:id="@+id/card_qr_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="QR Preview (500x500 HD)"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/iv_qr_code"
+                        android:layout_width="260dp"
+                        android:layout_height="260dp"
+                        android:layout_marginTop="14dp"
+                        android:scaleType="fitCenter"
+                        android:background="#FFFFFF"
+                        android:padding="8dp" />
+
+                    <!-- Actions -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="16dp">
+
+                        <Button
+                            android:id="@+id/btn_save_qr"
+                            android:layout_width="0dp"
+                            android:layout_height="46dp"
+                            android:layout_weight="1"
+                            android:text="@string/btn_save"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:background="@drawable/bg_button" />
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="match_parent" />
+
+                        <Button
+                            android:id="@+id/btn_share_qr"
+                            android:layout_width="0dp"
+                            android:layout_height="46dp"
+                            android:layout_weight="1"
+                            android:text="@string/btn_share"
+                            android:textColor="@color/text_primary"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:background="@drawable/bg_button_secondary" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ================= SECTION 2: SCAN QR ================= -->
+        <LinearLayout
+            android:id="@+id/view_scan_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Camera Viewport with Framing overlay -->
+            <FrameLayout
+                android:id="@+id/camera_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#000000">
+
+                <!-- Live Camera Surface -->
+                <FrameLayout
+                    android:id="@+id/camera_surface_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <!-- Reticle Frame -->
+                <View
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_scanner_frame" />
+
+                <!-- Scan Guidance Text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="24dp"
+                    android:text="@string/camera_scan_title"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:background="#99000000"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp" />
+
+                <!-- Scanner Quick Flashlight & Switch controls -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|right"
+                    android:layout_margin="14dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_flash_toggle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="Flash Light"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:background="#66000000"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Bottom Control Panel -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                android:padding="16dp"
+                android:elevation="6dp">
+
+                <Button
+                    android:id="@+id/btn_pick_gallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:text="@string/btn_gallery_pick"
+                    android:textColor="@color/text_primary"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:background="@drawable/bg_button_secondary" />
+
+                <!-- Scanned Result Card -->
+                <LinearLayout
+                    android:id="@+id/card_scan_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#F8FAFC"
+                    android:layout_marginTop="12dp"
+                    android:padding="12dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Scanned QR Result:"
+                        android:textColor="@color/accent_green"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_scanned_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="https://example.com"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textIsSelectable="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <Button
+                            android:id="@+id/btn_action_open"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:text="@string/btn_open_url"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:background="@drawable/bg_button" />
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="match_parent" />
+
+                        <Button
+                            android:id="@+id/btn_action_copy"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:text="@string/btn_copy"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:background="@drawable/bg_button_secondary" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ================= SECTION 3: HISTORY ================= -->
+        <LinearLayout
+            android:id="@+id/view_history_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Recent Scan History"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_clear_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Clear All"
+                    android:textSize="11sp"
+                    android:textColor="#EF4444"
+                    android:background="@drawable/bg_button_secondary" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lv_history"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="12dp"
+                android:divider="@color/border"
+                android:dividerHeight="1dp" />
+
+            <TextView
+                android:id="@+id/tv_history_empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="No scan history yet.\nScan a QR code to see it here."
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
