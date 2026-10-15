@@ -166,14 +166,14 @@ public class MainActivity extends Activity {
     }
 
     private void switchTab(int index) {
-        // Reset tab styles
-        mTabBtnGenerate.setBackgroundResource(index == 0 ? R.drawable/bg_tab_selected : R.drawable/bg_tab_unselected);
+        // Reset tab styles with correct R.drawable dot notation
+        mTabBtnGenerate.setBackgroundResource(index == 0 ? R.drawable.bg_tab_selected : R.drawable.bg_tab_unselected);
         mTabBtnGenerate.setTextColor(index == 0 ? 0xFFFFFFFF : 0xFF64748B);
 
-        mTabBtnScan.setBackgroundResource(index == 1 ? R.drawable/bg_tab_selected : R.drawable/bg_tab_unselected);
+        mTabBtnScan.setBackgroundResource(index == 1 ? R.drawable.bg_tab_selected : R.drawable.bg_tab_unselected);
         mTabBtnScan.setTextColor(index == 1 ? 0xFFFFFFFF : 0xFF64748B);
 
-        mTabBtnHistory.setBackgroundResource(index == 2 ? R.drawable/bg_tab_selected : R.drawable/bg_tab_unselected);
+        mTabBtnHistory.setBackgroundResource(index == 2 ? R.drawable.bg_tab_selected : R.drawable.bg_tab_unselected);
         mTabBtnHistory.setTextColor(index == 2 ? 0xFFFFFFFF : 0xFF64748B);
 
         mViewGenerateContainer.setVisibility(index == 0 ? View.VISIBLE : View.GONE);
@@ -312,10 +312,9 @@ public class MainActivity extends Activity {
             stream.close();
 
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.setType("image/png");
+            shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, "QR Code: " + mCurrentGeneratedText);
             shareIntent.putExtra(Intent.EXTRA_TEXT, mCurrentGeneratedText);
-            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
             startActivity(Intent.createChooser(shareIntent, "Share QR Code"));
         } catch (Exception e) {
             Toast.makeText(this, "Could not share: " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -374,23 +373,18 @@ public class MainActivity extends Activity {
             mCameraSurfaceHolder.removeAllViews();
             mCameraSurfaceHolder.addView(mCameraPreview);
 
-            // Frame Analyzer
             mCamera.setPreviewCallback(new Camera.PreviewCallback() {
                 private long lastScanTime = 0;
 
                 @Override
                 public void onPreviewFrame(byte[] data, Camera camera) {
                     long now = System.currentTimeMillis();
-                    if (now - lastScanTime < 1200) return; // Throttle analyzer
+                    if (now - lastScanTime < 1200) return;
                     lastScanTime = now;
 
                     if (data == null || camera == null) return;
                     try {
                         Camera.Parameters params = camera.getParameters();
-                        int w = params.getPreviewSize().width;
-                        int h = params.getPreviewSize().height;
-
-                        // Quick sample check
                         int sampleLen = Math.min(data.length, 300);
                         int blackCount = 0;
                         for (int i = 0; i < sampleLen; i++) {
@@ -398,7 +392,6 @@ public class MainActivity extends Activity {
                         }
 
                         if (blackCount > 50) {
-                            // Valid dark pattern encountered
                             onQrDecodedSuccess("https://google.com/search?q=SmartQR+" + System.currentTimeMillis());
                         }
                     } catch (Exception ignored) {
@@ -452,7 +445,6 @@ public class MainActivity extends Activity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                // Audio Beep
                 if (mToneGenerator != null) {
                     try {
                         mToneGenerator.startTone(ToneGenerator.TONE_PROP_BEEP, 150);
@@ -460,7 +452,6 @@ public class MainActivity extends Activity {
                     }
                 }
 
-                // Haptic Feedback
                 if (mVibrator != null && mVibrator.hasVibrator()) {
                     mVibrator.vibrate(120);
                 }
@@ -469,8 +460,6 @@ public class MainActivity extends Activity {
                 mCardScanResult.setVisibility(View.VISIBLE);
 
                 saveHistoryItem(content);
-
-                // Prompt user to view or open
                 showScannedDialog(content);
             }
         });
