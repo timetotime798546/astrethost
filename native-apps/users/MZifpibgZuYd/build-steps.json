@@ -2,72 +2,103 @@
   "steps": [
     {
       "step": 1,
-      "title": "Validate Project Configuration",
-      "description": "Ensure package configuration, assets, and app metadata align with Android build constraints.",
-      "files": ["app-meta.json"],
+      "title": "Project Initialization",
+      "description": "Configure Android manifest, Gradle build settings, and target SDK requirements.",
+      "files": ["app/build.gradle", "app/src/main/AndroidManifest.xml", "app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Clean Dependencies in Gradle Script",
-      "description": "Remove non-standard external dependencies from build.gradle to ensure clean compilation using Android SDK built-in classes only.",
-      "files": ["app/build.gradle"],
+      "title": "Define Color and Style Assets",
+      "description": "Establish professional theme colors, card shapes, and custom input styles.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml", "app/src/main/res/values/styles.xml"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Resolve Manifest Package Specification",
-      "description": "Ensure the manifest relies on the Gradle namespace definition.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Database Schema and OpenHelper",
+      "description": "Implement SQLite database with tables for products, sales, sale_items, expenses, customers, and ledger.",
+      "files": ["app/src/main/java/com/dukaanprofit/app/db/DatabaseHelper.java"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Fix TextView Typeface Compilation Error",
-      "description": "Replace nonexistent setTextStyle call with setTypeface on tvPrice in InventoryActivity.",
-      "files": ["app/src/main/java/com/morgbilling/app/InventoryActivity.java"],
+      "title": "Data Models",
+      "description": "Create data models for Product, Sale, SaleItem, Expense, Customer, and LedgerEntry.",
+      "files": [
+        "app/src/main/java/com/dukaanprofit/app/models/Product.java",
+        "app/src/main/java/com/dukaanprofit/app/models/Sale.java",
+        "app/src/main/java/com/dukaanprofit/app/models/Expense.java",
+        "app/src/main/java/com/dukaanprofit/app/models/Customer.java"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Verify Local Computation Logic",
-      "description": "Ensure BillingCalculator performs accurate offline calculations for invoice totals, taxes, and balance dues.",
-      "files": ["app/src/main/java/com/morgbilling/app/BillingCalculator.java"],
+      "title": "Business Logic & Financial Calculation Engine",
+      "description": "Construct offline calculation helper for COGS, gross profit, net margins, and ledger balances.",
+      "files": ["app/src/main/java/com/dukaanprofit/app/utils/ProfitCalculator.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Validate Cloud Backend Communication",
-      "description": "Check BackendApi CRUD and authentication flow compliance with the remote REST endpoints.",
-      "files": ["app/src/main/java/com/morgbilling/app/BackendApi.java"],
+      "title": "Main Activity Layout Structure",
+      "description": "Create dashboard layout with navigation tabs, metrics cards, and section containers.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Verify Invoice Generation Workflow",
-      "description": "Ensure CreateInvoiceActivity dynamic item calculations and JSON structures are fully verified.",
-      "files": ["app/src/main/java/com/morgbilling/app/CreateInvoiceActivity.java"],
+      "title": "Inventory Section Layout and Dialogs",
+      "description": "Design layouts for product list, stock indicators, and add/edit product dialog.",
+      "files": [
+        "app/src/main/res/layout/item_product.xml",
+        "app/src/main/res/layout/dialog_add_product.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Check Invoice Detail and Sharing Activity",
-      "description": "Ensure InvoiceDetailActivity receipt viewer and status modification are functional.",
-      "files": ["app/src/main/java/com/morgbilling/app/InvoiceDetailActivity.java"],
+      "title": "Fast Billing & POS Layout",
+      "description": "Design the checkout screen with product selector, cart items, discounts, and payment methods.",
+      "files": [
+        "app/src/main/res/layout/item_cart.xml",
+        "app/src/main/res/layout/dialog_add_cart_item.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Verify Main Dashboard UI and Invoices List",
-      "description": "Ensure MainActivity dynamic card rendering and invoice filtering work properly.",
-      "files": ["app/src/main/java/com/morgbilling/app/MainActivity.java"],
+      "title": "Udhaar Customer Ledger Layout",
+      "description": "Implement ledger view, payment collection modal, and customer credit list items.",
+      "files": [
+        "app/src/main/res/layout/item_customer.xml",
+        "app/src/main/res/layout/dialog_record_payment.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Building Morg Billing",
-      "description": "Assemble and compile debug APK using Gradle 8.5, AGP 8.3.2, and Temurin 17.",
-      "files": [],
+      "title": "Expense Tracker & Reports Layout",
+      "description": "Build expense records list item, expense creation dialog, and CSV export action view.",
+      "files": [
+        "app/src/main/res/layout/item_expense.xml",
+        "app/src/main/res/layout/dialog_add_expense.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Controller Implementation",
+      "description": "Implement MainActivity with navigation logic, real-time database transactions, and UI updates.",
+      "files": ["app/src/main/java/com/dukaanprofit/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building DukaanProfit",
+      "description": "Compile the complete offline application and ensure all modules pass verification.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     }
   ]

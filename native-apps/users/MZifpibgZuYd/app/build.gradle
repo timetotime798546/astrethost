@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.morgbilling.app"
+    namespace "com.dukaanprofit.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.morgbilling.app"
+        applicationId "com.dukaanprofit.app"
 
         minSdkVersion 21
 
