@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Camera Crash",
+      "description": "Identify missing Android M+ runtime camera permissions and Android 11+ package visibility query filter causing crash.",
+      "files": ["app/src/main/AndroidManifest.xml", "app/src/main/java/com/docscanpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Update Package Visibility Queries",
+      "description": "Add intent queries for MediaStore.ACTION_IMAGE_CAPTURE in AndroidManifest.xml for Android 11+ compliance.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Runtime Permission Checks",
+      "description": "Add checkSelfPermission and requestPermissions for android.permission.CAMERA before launching the camera intent.",
+      "files": ["app/src/main/java/com/docscanpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Add Permission Callback Handler",
+      "description": "Implement onRequestPermissionsResult to gracefully proceed to camera upon grant or alert user on denial.",
+      "files": ["app/src/main/java/com/docscanpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Defensive Camera Intent Launcher",
+      "description": "Wrap camera intent launch in safe try-catch blocks to prevent uncaught ActivityNotFoundException or SecurityException.",
+      "files": ["app/src/main/java/com/docscanpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Robust Image Capture Result Handling",
+      "description": "Support both intent extras thumbnail and direct content Uri fallbacks in onActivityResult.",
+      "files": ["app/src/main/java/com/docscanpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Gallery and File Safety Enhancements",
+      "description": "Enhance gallery picker error handling and null checks during document image loading.",
+      "files": ["app/src/main/java/com/docscanpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Storage Directory Validation",
+      "description": "Verify local document cache paths and temporary scan file creation safety.",
+      "files": ["app/src/main/java/com/docscanpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify UI State Transitions",
+      "description": "Ensure navigation tab switching and document list refreshing operate smoothly post-scan.",
+      "files": ["app/src/main/java/com/docscanpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building DocScan Pro",
+      "description": "Compile the fixed Android application with all camera permission safeguards.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    }
+  ]
+}

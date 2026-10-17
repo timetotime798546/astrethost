@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#12131A">
+
+    <!-- Top Action Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="#1E222D"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Cancel"
+            android:textColor="#94A3B8"
+            android:background="@android:color/transparent" />
+
+        <TextView
+            android:id="@+id/tvEditorTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Edit &amp; Redact"
+            android:textColor="#F1F5F9"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/btnSavePdf"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Save PDF"
+            android:textStyle="bold"
+            android:textColor="#12131A"
+            android:background="#00E5FF"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp" />
+    </LinearLayout>
+
+    <!-- Document Canvas View -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#0A0B0E"
+        android:padding="8dp">
+
+        <com.docscanpro.app.TouchCanvasView
+            android:id="@+id/touchCanvasView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tvToolNotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="8dp"
+            android:background="#A0000000"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textColor="#00E5FF"
+            android:textSize="12sp"
+            android:text="Touch &amp; Drag to redact document info"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <!-- Filter Buttons Bar -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#161822"
+        android:scrollbars="none"
+        android:padding="6dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnFilterOriginal"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginRight="6dp"
+                android:text="Original"
+                android:textSize="12sp"
+                android:textColor="#F1F5F9"
+                android:background="#2E364A" />
+
+            <Button
+                android:id="@+id/btnFilterMagic"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginRight="6dp"
+                android:text="Magic Color"
+                android:textSize="12sp"
+                android:textColor="#00E5FF"
+                android:background="#2E364A" />
+
+            <Button
+                android:id="@+id/btnFilterGray"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginRight="6dp"
+                android:text="Grayscale"
+                android:textSize="12sp"
+                android:textColor="#F1F5F9"
+                android:background="#2E364A" />
+
+            <Button
+                android:id="@+id/btnFilterBw"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginRight="6dp"
+                android:text="B&amp;W Text"
+                android:textSize="12sp"
+                android:textColor="#F1F5F9"
+                android:background="#2E364A" />
+
+            <Button
+                android:id="@+id/btnRotate"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginRight="6dp"
+                android:text="Rotate 90°"
+                android:textSize="12sp"
+                android:textColor="#F1F5F9"
+                android:background="#2E364A" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Editing Tool Controls (Crop, Redact Brush, Redact Rect, Clear) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="#1E222D"
+        android:gravity="center"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <Button
+            android:id="@+id/btnToolView"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:text="View"
+            android:textSize="11sp"
+            android:textColor="#00E5FF"
+            android:background="#2E364A" />
+
+        <Button
+            android:id="@+id/btnToolRedactBrush"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:text="Brush"
+            android:textSize="11sp"
+            android:textColor="#F1F5F9"
+            android:background="#242B3A" />
+
+        <Button
+            android:id="@+id/btnToolRedactRect"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:text="Rect Box"
+            android:textSize="11sp"
+            android:textColor="#F1F5F9"
+            android:background="#242B3A" />
+
+        <Button
+            android:id="@+id/btnClearRedact"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="Reset Marks"
+            android:textSize="11sp"
+            android:textColor="#EF4444"
+            android:background="#242B3A" />
+    </LinearLayout>
+
+</LinearLayout>
