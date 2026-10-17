@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/bg_dark"
+    android:padding="16dp"
+    android:baselineAligned="false">
+
+    <!-- Left Panel: Fleet / Vehicle Showcase -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2"
+        android:orientation="vertical"
+        android:background="@color/bg_card"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_app_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/neon_blue"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <TextView
+            android:id="@+id/tv_car_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PHANTOM GT"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <!-- Car Switcher Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp">
+
+            <Button
+                android:id="@+id/btn_prev_car"
+                android:layout_width="54dp"
+                android:layout_height="44dp"
+                android:text="&lt;"
+                android:textColor="@color/neon_blue"
+                android:textSize="20sp"
+                android:background="@android:color/black" />
+
+            <View
+                android:id="@+id/view_car_color_preview"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="@color/neon_blue" />
+
+            <Button
+                android:id="@+id/btn_next_car"
+                android:layout_width="54dp"
+                android:layout_height="44dp"
+                android:text="&gt;"
+                android:textColor="@color/neon_blue"
+                android:textSize="20sp"
+                android:background="@android:color/black" />
+        </LinearLayout>
+
+        <!-- Stats Bars -->
+        <TextView
+            android:id="@+id/tv_stat_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TOP SPEED: 210 KM/H"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginTop="16dp" />
+        <ProgressBar
+            android:id="@+id/pb_stat_speed"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:max="350"
+            android:progress="210"
+            android:progressTint="@color/neon_blue" />
+
+        <TextView
+            android:id="@+id/tv_stat_accel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ACCELERATION: 6/10"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp" />
+        <ProgressBar
+            android:id="@+id/pb_stat_accel"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:max="10"
+            android:progress="6"
+            android:progressTint="@color/neon_pink" />
+
+        <TextView
+            android:id="@+id/tv_stat_handling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HANDLING: 7/10"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp" />
+        <ProgressBar
+            android:id="@+id/pb_stat_handling"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:max="10"
+            android:progress="7"
+            android:progressTint="@color/neon_green" />
+
+        <Button
+            android:id="@+id/btn_unlock_car"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="14dp"
+            android:text="SELECTED"
+            android:textColor="@color/bg_dark"
+            android:background="@color/neon_green"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Right Panel: Track Selection & Launch -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="16dp">
+
+        <!-- Currency & Record Board -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/bg_card"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CREDITS"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_coins_display"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 CR"
+                    android:textColor="@color/neon_amber"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BEST RECORD"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_high_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 PTS"
+                    android:textColor="@color/neon_blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Track Selector -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_track"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/btn_track_city"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="NEON CITY"
+                android:textColor="@color/bg_dark"
+                android:background="@color/neon_blue"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_track_desert"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="6dp"
+                android:text="CANYON"
+                android:textColor="@color/text_primary"
+                android:background="@color/bg_card"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btn_track_cyber"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="6dp"
+                android:text="CYBER"
+                android:textColor="@color/text_primary"
+                android:background="@color/bg_card"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Spacer -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- Launch Race Button -->
+        <Button
+            android:id="@+id/btn_start_race"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:text="@string/play"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:background="@color/neon_pink"
+            android:letterSpacing="0.1" />
+    </LinearLayout>
+</LinearLayout>
