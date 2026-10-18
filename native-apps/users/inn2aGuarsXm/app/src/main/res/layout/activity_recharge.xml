@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="पहाड़ी रनर रिचार्ज एवं स्क्रीनशॉट सत्यापन"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="3 फ्री चांस खत्म होने पर गेम पुनः शुरू करने के लिए नीचे दिए गए UPI पर ₹50 भेजें और पेमेंट का स्क्रीनशॉट यहाँ अपलोड करें।"
+            android:textColor="#616161"
+            android:textSize="14sp" />
+
+        <!-- Payment Details Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/card_bg"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="भुगतान विवरण (Payment UPI Details)"
+                android:textStyle="bold"
+                android:textColor="@color/text_dark"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="UPI ID: pahadirunner@upi"
+                android:textSize="16sp"
+                android:textColor="@color/primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="राशि (Amount): ₹50 (3 अतिरिक्त दौड़ + 50 सिक्के)"
+                android:textSize="14sp"
+                android:textColor="#E65100" />
+        </LinearLayout>
+
+        <!-- Screenshot Upload Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/card_bg"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="पेमेंट स्क्रीनशॉट अपलोड करें (Upload Screenshot)"
+                android:textStyle="bold"
+                android:textColor="@color/text_dark"
+                android:textSize="16sp" />
+
+            <!-- Selected Image Preview -->
+            <ImageView
+                android:id="@+id/ivScreenshotPreview"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="12dp"
+                android:background="#EEEEEE"
+                android:scaleType="centerInside"
+                android:contentDescription="Screenshot Preview" />
+
+            <Button
+                android:id="@+id/btnSelectImage"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="#546E7A"
+                android:text="गैलरी से स्क्रीनशॉट चुनें"
+                android:textColor="@color/text_light" />
+
+            <EditText
+                android:id="@+id/etNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="नोट या UTR नंबर (वैकल्पिक)"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/btnUploadVerify"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/button_green"
+                android:text="सत्यापित करें एवं रन अनलॉक करें"
+                android:textColor="@color/text_light"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/pbUpload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textColor="@color/primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnBackToGame"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="#B0BEC5"
+            android:text="वापस गेम पर जाएँ"
+            android:textColor="@color/text_dark" />
+
+    </LinearLayout>
+</ScrollView>

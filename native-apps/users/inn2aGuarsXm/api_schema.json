@@ -1,0 +1,33 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "game_profiles": {
+      "fields": {
+        "runs_left": "integer",
+        "coins": "integer",
+        "high_score": "integer"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "payment_requests": {
+      "fields": {
+        "image_id": "string",
+        "amount": "number",
+        "status": "string",
+        "note": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "total_coins": {
+      "type": "calculation",
+      "inputs": ["base_coins", "run_bonus"],
+      "formula": "base_coins + run_bonus"
+    }
+  }
+}
