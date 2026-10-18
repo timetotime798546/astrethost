@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Gradle build system",
+      "description": "Set up root and app Gradle build configuration with Java 8 compatibility and Android SDK 34 targets.",
+      "files": ["build.gradle", "settings.gradle", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create Android Manifest",
+      "description": "Configure application permissions for audio playback, network streaming, and wake lock support.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define UI color palette and themes",
+      "description": "Create high-contrast dark tuner display colors, neon accents, and material styling for the FM radio.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Design tuner and LCD display vector assets",
+      "description": "Build custom drawables for digital frequency screen, control buttons, visualizer bars, and dial markers.",
+      "files": [
+        "app/src/main/res/drawable/bg_tuner_display.xml",
+        "app/src/main/res/drawable/bg_metal_panel.xml",
+        "app/src/main/res/drawable/bg_preset_button.xml",
+        "app/src/main/res/drawable/bg_control_button.xml",
+        "app/src/main/res/drawable/ic_play.xml",
+        "app/src/main/res/drawable/ic_pause.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Radio Station data model",
+      "description": "Create structured radio station model with frequency, station callsign, genre, and stream URLs.",
+      "files": ["app/src/main/java/com/fmradio/app/RadioStation.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build dynamic Equalizer Visualizer custom view",
+      "description": "Implement a real-time retro LCD spectrum visualizer view using Android Canvas rendering.",
+      "files": ["app/src/main/java/com/fmradio/app/VisualizerView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Create Radio Playback and Tuning Controller",
+      "description": "Implement native MediaPlayer streaming, tuner scanning logic, frequency stepping, and audio state management.",
+      "files": ["app/src/main/java/com/fmradio/app/RadioManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design comprehensive Radio UI layout",
+      "description": "Assemble digital frequency readout, analog tuning scale, frequency seek controls, presets, and audio controls.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Main Activity tuner interactions",
+      "description": "Connect tuner slider, auto-seek scanner, preset storage, volume controller, and sleep timer.",
+      "files": ["app/src/main/java/com/fmradio/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building FM Radio",
+      "description": "Compile and assemble the debug APK for the FM Radio application.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
