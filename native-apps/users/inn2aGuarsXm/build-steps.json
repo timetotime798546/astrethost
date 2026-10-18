@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Meta and Build Environment",
+      "description": "Ensure compilation targets SDK 34 with Java 8 compatibility.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Verify API Schema and Data Operations",
+      "description": "Preserve cloud database collections for wallet balances, deposits, withdrawals, and game bets.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Native Audio Engine and Sound Synthesizer",
+      "description": "Implement SoundManager with synthesized arcade sound effects for bets, climbs, wins, crashes, and alerts.",
+      "files": ["app/src/main/java/com/aviatorpro/app/SoundManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Integrate Cockpit and Flight Sounds into Main Game",
+      "description": "Wire dynamic audio effects into betting presets, flight climbing ticks, cashout fanfare, and crash alerts.",
+      "files": ["app/src/main/java/com/aviatorpro/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Add Sound Feedback to Deposit Flow",
+      "description": "Attach coin and success sounds to deposit verification, screenshot uploads, and error alerts.",
+      "files": ["app/src/main/java/com/aviatorpro/app/DepositActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Add Sound Feedback to Withdrawal Flow",
+      "description": "Trigger payout request audio cues and input validation feedback in the withdraw screen.",
+      "files": ["app/src/main/java/com/aviatorpro/app/WithdrawActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Add Audio Cues to Login Interface",
+      "description": "Provide sound effects for credential submission, login success chime, and authentication errors.",
+      "files": ["app/src/main/java/com/aviatorpro/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Add Audio Cues to Registration Screen",
+      "description": "Add feedback sounds for user signup action and account creation confirmation.",
+      "files": ["app/src/main/java/com/aviatorpro/app/RegisterActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Add Audio Cues to Password Recovery Screen",
+      "description": "Implement sound triggers on OTP dispatch and successful password reset completion.",
+      "files": ["app/src/main/java/com/aviatorpro/app/ForgotPasswordActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Validate All Audio Threads and Release Hooks",
+      "description": "Ensure sound synthesis resources release cleanly on lifecycle destroy events without latency.",
+      "files": ["app/src/main/java/com/aviatorpro/app/SoundManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Aviator Pro Crash",
+      "description": "Assemble and build final Android APK package with complete sound effects.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
