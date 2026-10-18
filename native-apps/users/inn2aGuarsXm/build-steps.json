@@ -1,0 +1,147 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define App Metadata and Configuration",
+      "description": "Establish package metadata, application manifest parameters, and fixed build requirements.",
+      "files": ["app-meta.json", "app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Gradle Build System",
+      "description": "Set up SDK 34, Java 8 compilation compatibility, and standard Android Gradle plugin specifications.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define Backend API Schema",
+      "description": "Specify collections for user wallets, transactions, game rounds, deposits, withdrawals, and financial distribution allocations.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Establish Application Manifest & Permissions",
+      "description": "Configure activities, internet permissions, hardware acceleration, and material theme in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Color, Style, and Vector Graphic Assets",
+      "description": "Design aviation-style dark themes, metallic silver accents, glowing reds, aircraft shapes, and button backgrounds.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/drawable/bg_dark_gradient.xml",
+        "app/src/main/res/drawable/bg_card_dark.xml",
+        "app/src/main/res/drawable/bg_red_button.xml",
+        "app/src/main/res/drawable/bg_green_button.xml",
+        "app/src/main/res/drawable/bg_chip.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Synthesized Audio and Sound Engine",
+      "description": "Develop native AudioTrack and ToneGenerator synthesis for engine hum, win chime, countdown, and crash alerts.",
+      "files": ["app/src/main/java/com/arbajsbz/app/SoundManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Backend Network Client",
+      "description": "Build asynchronous HTTP client for TrumpleDroid generic cloud API handling auth, session tokens, and CRUD data.",
+      "files": ["app/src/main/java/com/arbajsbz/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Develop Aviation Multiplier Flight Canvas",
+      "description": "Construct high-performance animated custom View rendering real-time parabolic flight path, aircraft sprite, and rising multipliers.",
+      "files": ["app/src/main/java/com/arbajsbz/app/AviationFlightView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Authentication Screens",
+      "description": "Build user registration with ₹50 welcome promotional bonus initialization, login, and secure credentials management.",
+      "files": [
+        "app/src/main/res/layout/activity_login.xml",
+        "app/src/main/res/layout/activity_register.xml",
+        "app/src/main/java/com/arbajsbz/app/LoginActivity.java",
+        "app/src/main/java/com/arbajsbz/app/RegisterActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Primary Navigation & Game Dashboard",
+      "description": "Create the main flight arena with live multiplier tracking, bet placement, cashout logic, sound toggles, and round histories.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/java/com/arbajsbz/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Wallet and Deposit System",
+      "description": "Build real-time balance manager with ₹100-₹20000 quick selections, custom amounts, and bonus accounting.",
+      "files": [
+        "app/src/main/res/layout/activity_wallet.xml",
+        "app/src/main/java/com/arbajsbz/app/WalletActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Payout & Withdrawal Module",
+      "description": "Provide UPI ID and Bank Account payout requests with input validation, transaction reference generation, and status flow.",
+      "files": [
+        "app/src/main/res/layout/activity_withdraw.xml",
+        "app/src/main/java/com/arbajsbz/app/WithdrawActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Transaction History & Audit Ledger",
+      "description": "Develop full categorized financial ledger with date, transaction reference, type badges, and net balance delta displays.",
+      "files": [
+        "app/src/main/res/layout/activity_transactions.xml",
+        "app/src/main/java/com/arbajsbz/app/TransactionsActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement Administrator Dashboard & 60/40 Allocation System",
+      "description": "Create executive dashboard for audit metrics, withdrawal approvals, and 60% Owner / 40% Winner distribution calculations.",
+      "files": [
+        "app/src/main/res/layout/activity_admin.xml",
+        "app/src/main/java/com/arbajsbz/app/AdminDashboardActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Implement Settings and Responsible Gaming Hub",
+      "description": "Build volume sliders, audio switches, age verification policy, terms, privacy guidelines, and logout controls.",
+      "files": [
+        "app/src/main/res/layout/activity_settings.xml",
+        "app/src/main/java/com/arbajsbz/app/SettingsActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building ArbajSbz",
+      "description": "Compile, assemble debug APK and finalize all aviation gaming modules and business logic.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

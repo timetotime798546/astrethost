@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dark_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="16dp">
+
+            <Button
+                android:id="@+id/btn_settings_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="←"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_chip" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings &amp; Audio"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="14dp" />
+        </LinearLayout>
+
+        <!-- Audio Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_dark"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AUDIO &amp; SOUND CONTROLS"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:letterSpacing="0.05" />
+
+            <Switch
+                android:id="@+id/switch_sound"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sound Effects (Jet Engine, Crash, Win)"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+                android:checked="true" />
+
+            <Switch
+                android:id="@+id/switch_music"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Background Flight Music"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+                android:checked="true" />
+        </LinearLayout>
+
+        <!-- Account & Policies -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_dark"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RESPONSIBLE GAMING &amp; COMPLIANCE"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:letterSpacing="0.05" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• Age Requirement: 18+ strict verification.\n• Financial Allocation: Owner 60% and Winner 40% pool distribution ledger maintained.\n• Fair Flight Algorithm: Transparent multiplier trajectories.\n• Support Desk: support@arbajsbz.com"
+                android:textColor="@color/metallic_silver"
+                android:textSize="12sp"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginTop="10dp" />
+
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:text="LOGOUT SESSION"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@drawable/bg_chip" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
