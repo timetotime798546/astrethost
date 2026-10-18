@@ -1,0 +1,104 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Validate Project Configuration and Metadata",
+      "description": "Verify application coordinates, package identifiers, and target Android SDK 34 compatibility.",
+      "files": [
+        "app-meta.json",
+        "api_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Add Navigation and Auto-Search Vector Resources",
+      "description": "Create vector drawables for previous station, next station, and auto search radar triggers.",
+      "files": [
+        "app/src/main/res/drawable/ic_skip_previous.xml",
+        "app/src/main/res/drawable/ic_skip_next.xml",
+        "app/src/main/res/drawable/ic_auto_search.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Update UI Strings and Localized Labels",
+      "description": "Add user-facing text strings for auto discovery, station switching, error states, and filters.",
+      "files": [
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Enhance RadioStation Data Model",
+      "description": "Add JSON serialization and metadata attributes to support discovered live stations.",
+      "files": [
+        "app/src/main/java/com/radiofmlive/app/RadioStation.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Radio Browser Directory Client",
+      "description": "Create native HTTP client using public Radio Browser directory endpoints to search and discover live stations.",
+      "files": [
+        "app/src/main/java/com/radiofmlive/app/RadioBrowserApi.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Upgrade Preferences Manager for Discovered Stations",
+      "description": "Enable full JSON persistence for favorite stations discovered via auto search and preset stations.",
+      "files": [
+        "app/src/main/java/com/radiofmlive/app/PreferencesManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Upgrade Background Player Service with Next and Previous Actions",
+      "description": "Implement playlist navigation, wrapping bounds, notification skip actions, and stream error fallbacks.",
+      "files": [
+        "app/src/main/java/com/radiofmlive/app/RadioPlayerService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Auto Search Dialog Layout",
+      "description": "Build filter modal for querying live stations by station name, country, language, and genre.",
+      "files": [
+        "app/src/main/res/layout/dialog_auto_search.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Enhance Main Dashboard Layout with Navigation Controls",
+      "description": "Integrate previous, next, and auto-search buttons into the hero player and station filter bar.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Integrate Station Discovery and Playlist Traversal in MainActivity",
+      "description": "Wire UI buttons to sequential navigation, auto-search network queries, retry state handlers, and live stream validation.",
+      "files": [
+        "app/src/main/java/com/radiofmlive/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Radio FM Live",
+      "description": "Assemble and verify native Android package with seamless online station discovery and playback.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
