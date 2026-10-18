@@ -62,7 +62,8 @@
                 android:background="@drawable/bg_chip"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/white"
-                android:paddingHorizontal="12dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
                 android:hint="pilot@arbajsbz.com"
                 android:textColorHint="@color/text_secondary"
                 android:layout_marginTop="6dp"
@@ -82,11 +83,12 @@
                 android:background="@drawable/bg_chip"
                 android:inputType="textPassword"
                 android:textColor="@color/white"
-                android:paddingHorizontal="12dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
                 android:hint="••••••••"
                 android:textColorHint="@color/text_secondary"
                 android:layout_marginTop="6dp"
-                android:layout_marginBottom="24dp" />
+                android:layout_marginBottom="16dp" />
 
             <Button
                 android:id="@+id/btn_submit_login"
@@ -98,10 +100,20 @@
                 android:background="@drawable/bg_red_button" />
 
             <Button
+                android:id="@+id/btn_forgot_password"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:text="Forgot Password?"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:background="@android:color/transparent" />
+
+            <Button
                 android:id="@+id/btn_goto_register"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="4dp"
                 android:text="Create Account (Get ₹50 Bonus)"
                 android:textColor="@color/accent_gold"
                 android:background="@android:color/transparent" />

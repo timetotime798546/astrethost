@@ -45,8 +45,10 @@
             android:background="@drawable/bg_card_dark"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:paddingHorizontal="14dp"
-            android:paddingVertical="8dp">
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,6 +73,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:text="⚙"
             android:textColor="@color/white"
             android:background="@drawable/bg_chip" />
@@ -113,7 +116,7 @@
                 android:textSize="13sp"
                 android:letterSpacing="0.05" />
         </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
 
     <!-- Recent History Chips -->
     <LinearLayout
@@ -138,9 +141,12 @@
             android:text="1.42x"
             android:textColor="@color/accent_red_bright"
             android:background="@drawable/bg_chip"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:textSize="12sp" />
 
         <TextView
@@ -150,9 +156,12 @@
             android:text="2.80x"
             android:textColor="@color/accent_green"
             android:background="@drawable/bg_chip"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
             android:textSize="12sp" />
 
         <TextView
@@ -162,9 +171,12 @@
             android:text="1.15x"
             android:textColor="@color/accent_red_bright"
             android:background="@drawable/bg_chip"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
             android:textSize="12sp" />
 
         <TextView
@@ -174,9 +186,12 @@
             android:text="3.45x"
             android:textColor="@color/accent_green"
             android:background="@drawable/bg_chip"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -204,7 +219,8 @@
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:background="@drawable/bg_chip"
-                android:layout_marginEnd="4dp" />
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp" />
 
             <Button
                 android:id="@+id/btn_bet_200"
@@ -215,7 +231,8 @@
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:background="@drawable/bg_chip"
-                android:layout_marginEnd="4dp" />
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp" />
 
             <Button
                 android:id="@+id/btn_bet_500"
@@ -226,7 +243,8 @@
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:background="@drawable/bg_chip"
-                android:layout_marginEnd="4dp" />
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp" />
 
             <Button
                 android:id="@+id/btn_bet_1000"
@@ -256,7 +274,8 @@
                 android:hint="Bet Amount (₹)"
                 android:textColorHint="@color/text_secondary"
                 android:textColor="@color/white"
-                android:paddingHorizontal="14dp"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
                 android:text="100"
                 android:textSize="16sp" />
 
@@ -271,6 +290,7 @@
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:background="@drawable/bg_red_button" />
         </LinearLayout>
     </LinearLayout>
@@ -291,7 +311,8 @@
             android:textColor="@color/metallic_silver"
             android:textSize="12sp"
             android:background="@drawable/bg_chip"
-            android:layout_marginEnd="4dp" />
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp" />
 
         <Button
             android:id="@+id/nav_withdraw"
@@ -302,7 +323,8 @@
             android:textColor="@color/metallic_silver"
             android:textSize="12sp"
             android:background="@drawable/bg_chip"
-            android:layout_marginEnd="4dp" />
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp" />
 
         <Button
             android:id="@+id/nav_history"
@@ -313,7 +335,8 @@
             android:textColor="@color/metallic_silver"
             android:textSize="12sp"
             android:background="@drawable/bg_chip"
-            android:layout_marginEnd="4dp" />
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp" />
 
         <Button
             android:id="@+id/nav_admin"

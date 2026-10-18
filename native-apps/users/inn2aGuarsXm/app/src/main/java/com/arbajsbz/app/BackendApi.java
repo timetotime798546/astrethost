@@ -51,9 +51,9 @@ public class BackendApi {
             }
             reader.close();
             JSONObject json = new JSONObject(sb.toString());
-            return json.optString("app_id", "arbajsbz_gaming_app");
+            return json.optString("app_id", "app_6ad4f1f9c22cb");
         } catch (Exception e) {
-            return "arbajsbz_gaming_app";
+            return "app_6ad4f1f9c22cb";
         }
     }
 
@@ -127,6 +127,54 @@ public class BackendApi {
                     } else {
                         String errMsg = parseErrorMessage(res.body, "Login failed (" + res.code + ")");
                         postError(callback, errMsg);
+                    }
+                } catch (final Exception e) {
+                    postError(callback, e.getMessage());
+                }
+            }
+        }).start();
+    }
+
+    public void requestOtp(final String email, final ApiCallback callback) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    JSONObject body = new JSONObject();
+                    body.put("app_id", getAppId());
+                    body.put("email", email);
+
+                    HttpResult res = makeHttpRequest("POST", "/request-otp", body.toString(), null);
+                    if (res.isSuccess()) {
+                        JSONObject json = new JSONObject(res.body);
+                        postSuccess(callback, json);
+                    } else {
+                        postError(callback, parseErrorMessage(res.body, "Failed to request OTP"));
+                    }
+                } catch (final Exception e) {
+                    postError(callback, e.getMessage());
+                }
+            }
+        }).start();
+    }
+
+    public void resetPassword(final String email, final String otp, final String newPassword, final ApiCallback callback) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    JSONObject body = new JSONObject();
+                    body.put("app_id", getAppId());
+                    body.put("email", email);
+                    body.put("otp", otp);
+                    body.put("new_password", newPassword);
+
+                    HttpResult res = makeHttpRequest("POST", "/reset-password", body.toString(), null);
+                    if (res.isSuccess()) {
+                        JSONObject json = new JSONObject(res.body);
+                        postSuccess(callback, json);
+                    } else {
+                        postError(callback, parseErrorMessage(res.body, "Password reset failed"));
                     }
                 } catch (final Exception e) {
                     postError(callback, e.getMessage());
