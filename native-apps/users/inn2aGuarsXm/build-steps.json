@@ -1,0 +1,97 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Foundation Configuration",
+      "description": "Configuring project architecture, target SDK 34, package identity, and required system capabilities.",
+      "files": ["app-meta.json", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Cloud Backend Schema",
+      "description": "Constructing dynamic JSON schema for devices, remote sessions, authorization tokens, and command logging.",
+      "files": ["api_schema.json", "admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Manifest and Service Declarations",
+      "description": "Declaring native permissions, network states, activities, and foreground service definitions in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Asset Setup for Runtime Metadata",
+      "description": "Placing runtime app identification and configuration metadata in application assets.",
+      "files": ["app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Backend API Client Implementation",
+      "description": "Implementing generic REST API client supporting authentication, OTP reset, and generic CRUD endpoints.",
+      "files": ["app/src/main/java/com/mkdeviceapp/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Authentication Interface Design and Logic",
+      "description": "Creating secure user login, registration, and OTP verification layouts and controller logic.",
+      "files": [
+        "app/src/main/res/layout/activity_auth.xml",
+        "app/src/main/java/com/mkdeviceapp/app/AuthActivity.java",
+        "app/src/main/res/layout/activity_forgot_password.xml",
+        "app/src/main/java/com/mkdeviceapp/app/ForgotPasswordActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Device Pairing and Invitation Workflow",
+      "description": "Building invitation link generator, QR/code pairing mechanism, and client device consent handshakes.",
+      "files": [
+        "app/src/main/res/layout/activity_pairing.xml",
+        "app/src/main/java/com/mkdeviceapp/app/PairingActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Secondary Device Agent and Telemetry Reporter",
+      "description": "Developing background status aggregator for battery level, connectivity, uptime, and transparent remote session indicator.",
+      "files": [
+        "app/src/main/java/com/mkdeviceapp/app/DeviceTelemetryHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Main Controller Dashboard",
+      "description": "Creating device list overview, connection states, quick action panels, and pairing triggers.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/java/com/mkdeviceapp/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Remote Device Management and Control Console",
+      "description": "Implementing real-time status telemetry inspection, remote ping, session revocation, and security audit log view.",
+      "files": [
+        "app/src/main/res/layout/activity_device_detail.xml",
+        "app/src/main/java/com/mkdeviceapp/app/DeviceDetailActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building MK Device App",
+      "description": "Compiling resources, validating Android SDK components, and assembling the final APK build.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

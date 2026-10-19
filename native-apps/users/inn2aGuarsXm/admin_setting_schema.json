@@ -1,0 +1,25 @@
+{
+  "app_id": "mk_device_app_001",
+  "admin_setting_schema": {
+    "support_contact": {
+      "type": "string",
+      "label": "Support Email or System Admin",
+      "default": "support@mkdeviceapp.local"
+    },
+    "max_allowed_devices": {
+      "type": "integer",
+      "label": "Max Allowed Paired Devices",
+      "default": 5
+    },
+    "heartbeat_interval_sec": {
+      "type": "integer",
+      "label": "Telemetry Heartbeat Interval (Seconds)",
+      "default": 30
+    }
+  },
+  "initial_values": {
+    "support_contact": "support@mkdeviceapp.local",
+    "max_allowed_devices": 5,
+    "heartbeat_interval_sec": 30
+  }
+}
