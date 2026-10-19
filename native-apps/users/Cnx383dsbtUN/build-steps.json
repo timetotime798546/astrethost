@@ -2,107 +2,75 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure App Meta and Project Settings",
-      "description": "Establish app package structure, Gradle build files, and runtime application configuration.",
-      "files": ["app-meta.json", "app/build.gradle", "settings.gradle", "build.gradle"],
+      "title": "Configure App Meta and Project Identifiers",
+      "description": "Verify package namespace and application metadata for QuickPay Wallet.",
+      "files": ["app-meta.json", "app/src/main/assets/app-meta.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Define Backend API and Admin Schema Specifications",
-      "description": "Create api_schema.json and admin_setting_schema.json defining data models, logic formulas, and admin setting keys.",
-      "files": ["api_schema.json", "admin_setting_schema.json"],
+      "title": "Resolve Dependencies and Clean Build Configuration",
+      "description": "Remove unnecessary third-party dependencies from build.gradle and verify Java 8 compatibility.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Application Manifest and Permissions",
-      "description": "Declare system permissions (INTERNET, ACCESS_NETWORK_STATE) and register all activities using Material Light theme.",
+      "title": "Fix Manifest Intent Filters and Component Export Attributes",
+      "description": "Add explicit android:exported attributes to MainActivity and all secondary activities for Android 12+ compatibility.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Implement Colors, Strings, and Drawable Resources",
-      "description": "Construct color palettes, custom shape drawables, card borders, and reusable button backgrounds.",
-      "files": [
-        "app/src/main/res/values/colors.xml",
-        "app/src/main/res/values/strings.xml",
-        "app/src/main/res/drawable/bg_card.xml",
-        "app/src/main/res/drawable/bg_button_primary.xml",
-        "app/src/main/res/drawable/bg_input_field.xml",
-        "app/src/main/res/drawable/bg_qr_frame.xml"
-      ],
+      "title": "Verify Backend API and Admin Schema Specifications",
+      "description": "Ensure schemas define transactions collection, logic expressions, and admin parameters.",
+      "files": ["api_schema.json", "admin_setting_schema.json"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement Backend API and Network Client",
-      "description": "Develop native BackendApi client handling authentication, OTP password reset, dynamic data CRUD, and HTTP connections.",
+      "title": "Validate Network Client and Session Storage",
+      "description": "Verify BackendApi implementation for /login, /register, /logout, and Bearer token data handling.",
       "files": ["app/src/main/java/com/quickpaywallet/app/BackendApi.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Admin Config Remote Loader and 1-Hour Cache",
-      "description": "Build AdminConfigManager to fetch live admin settings (UPI ID, QR URL, Merchant Name) and enforce local 1-hour cache.",
+      "title": "Validate Dynamic Admin Configuration with 1-Hour Caching",
+      "description": "Verify AdminConfigManager fetches merchant UPI, QR code, and deposit limits with local cache expiry.",
       "files": ["app/src/main/java/com/quickpaywallet/app/AdminConfigManager.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Local Calculation and Transaction Engine",
-      "description": "Build CalculationHelper for instant offline cashback calculations, deposit range checks, and total balance aggregation.",
+      "title": "Check Offline Calculations and Helper Methods",
+      "description": "Ensure cashback bonuses, deposit limits, and wallet totals are computed accurately in native Java.",
       "files": ["app/src/main/java/com/quickpaywallet/app/CalculationHelper.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Construct Splash and Gateway Activity",
-      "description": "Build MainActivity layout and logic checking session tokens to route to HomeActivity or LoginActivity.",
+      "title": "Review Authentication Flow and Screens",
+      "description": "Verify LoginActivity, RegisterActivity, and ForgotPasswordActivity UI and callbacks.",
       "files": [
-        "app/src/main/res/layout/activity_main.xml",
-        "app/src/main/java/com/quickpaywallet/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Construct Authentication Screens",
-      "description": "Build layouts and controllers for LoginActivity and RegisterActivity with email/password validation and auto-login.",
-      "files": [
-        "app/src/main/res/layout/activity_login.xml",
         "app/src/main/java/com/quickpaywallet/app/LoginActivity.java",
-        "app/src/main/res/layout/activity_register.xml",
-        "app/src/main/java/com/quickpaywallet/app/RegisterActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Construct OTP Password Reset Workflow",
-      "description": "Implement ForgotPasswordActivity with step-1 OTP request and step-2 verification and password change.",
-      "files": [
-        "app/src/main/res/layout/activity_forgot_password.xml",
+        "app/src/main/java/com/quickpaywallet/app/RegisterActivity.java",
         "app/src/main/java/com/quickpaywallet/app/ForgotPasswordActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 11,
-      "title": "Construct Wallet Dashboard and Transaction UI",
-      "description": "Implement HomeActivity featuring live merchant info, QR code viewer, dynamic deposit calculator, and transaction history.",
-      "files": [
-        "app/src/main/res/layout/activity_home.xml",
-        "app/src/main/res/layout/item_transaction.xml",
-        "app/src/main/java/com/quickpaywallet/app/HomeActivity.java"
-      ],
+      "step": 9,
+      "title": "Review Dashboard UI and Transaction List Component",
+      "description": "Verify HomeActivity data fetching, live input recalculation, and transaction views.",
+      "files": ["app/src/main/java/com/quickpaywallet/app/HomeActivity.java"],
       "status": "pending"
     },
     {
-      "step": 12,
+      "step": 10,
       "title": "Building QuickPay Wallet",
-      "description": "Compile the complete Android application package and verify all native components and layout bindings.",
+      "description": "Compile the complete Android application package with fixed manifest and verified dependencies.",
       "files": [],
       "status": "pending"
     }
