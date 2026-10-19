@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Update Project Metadata and Dependency Configuration",
+      "description": "Purge third-party dependencies from build.gradle and verify compile target 34 without external libs.",
+      "files": ["app/build.gradle", "app-meta.json", "app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Android Manifest for Secure End-User Access",
+      "description": "Purge administrative activities to keep the APK strictly end-user facing with proper launcher registration.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Verify Offline Financial Calculations Engine",
+      "description": "Ensure high-precision BigDecimal arithmetic for deposit bonuses and balances locally.",
+      "files": ["app/src/main/java/com/payquick/app/WalletCalculator.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure Asynchronous Image Loader and Memory Cache",
+      "description": "Ensure high-performance LruCache native bitmap rendering for remote QR and service catalog visuals.",
+      "files": ["app/src/main/java/com/payquick/app/ImageLoader.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Refactor Backend API Client with 1-Hour Dynamic Config Caching",
+      "description": "Enforce strict 1-hour SharedPreferences caching on GET /get-app-config before executing network requests.",
+      "files": ["app/src/main/java/com/payquick/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Validate End-User Authentication and Reset Flow",
+      "description": "Retain secure OTP Gmail password reset and token storage for wallet users.",
+      "files": ["app/src/main/java/com/payquick/app/AuthActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Responsive Product Gallery and Transaction Rows",
+      "description": "Structure native XML card layouts for quick multi-service payment cards and ledger items.",
+      "files": ["app/src/main/res/layout/item_service_card.xml", "app/src/main/res/layout/item_transaction.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Refactor Wallet Dashboard Layout Removing Hardcoded Constants",
+      "description": "Remove hardcoded merchant titles, UPI IDs, and QR references from activity_main.xml.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Dynamic Config UI Binding and Fallback Engine in MainActivity",
+      "description": "Bind fetched and cached admin settings to UI elements with robust fallback defaults.",
+      "files": ["app/src/main/java/com/payquick/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building PayQuick",
+      "description": "Assemble and build the release-ready PayQuick Android package with zero external dependencies.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
