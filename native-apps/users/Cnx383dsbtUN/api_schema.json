@@ -1,0 +1,33 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "transactions": {
+      "fields": {
+        "amount": "number",
+        "cashback": "number",
+        "total_credited": "number",
+        "utr_number": "string",
+        "upi_id": "string",
+        "status": "string",
+        "created_time": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "cashback_bonus": {
+      "type": "calculation",
+      "inputs": ["deposit_amount", "cashback_percent"],
+      "formula": "deposit_amount * (cashback_percent / 100.0)"
+    },
+    "total_credit_amount": {
+      "type": "calculation",
+      "inputs": ["deposit_amount", "cashback_bonus"],
+      "formula": "deposit_amount + cashback_bonus"
+    }
+  }
+}

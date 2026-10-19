@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Validate Dynamic App ID Integration",
+      "description": "Align runtime assets and admin schema with the application ID app_6ad5d5a73b5c4.",
+      "files": ["admin_setting_schema.json", "app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Clean Build Script Dependencies",
+      "description": "Remove non-standard external dependencies and ensure pure Android SDK built-in classes.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Enhance Admin Config Network Engine",
+      "description": "Implement HTTP connection fetcher targeting get-app-config with exact 1-hour caching policy.",
+      "files": ["app/src/main/java/com/quickpaywallet/app/AdminConfigManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Ensure Robust Backend API Client",
+      "description": "Synchronize BackendApi with app_id lookup from assets/app-meta.json and Bearer token headers.",
+      "files": ["app/src/main/java/com/quickpaywallet/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Update Home Screen Layout for Config Visibility",
+      "description": "Add dynamic merchant verification badge, UPI copy controls, and responsive QR container.",
+      "files": ["app/src/main/res/layout/activity_home.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Live Config UI Binding in Dashboard",
+      "description": "Bind merchant name, UPI ID, dynamic QR code image, and recharge limits directly into HomeActivity.",
+      "files": ["app/src/main/java/com/quickpaywallet/app/HomeActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Enforce Offline Native Calculation of Cashback",
+      "description": "Calculate live cashback and net deposit balance in native Java using fetched admin parameters.",
+      "files": ["app/src/main/java/com/quickpaywallet/app/CalculationHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Validate Dynamic Image Loading with Thread Isolation",
+      "description": "Download and render payment QR code image safely on background thread without external libraries.",
+      "files": ["app/src/main/java/com/quickpaywallet/app/HomeActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Transaction Persistence and Balance Recalculation",
+      "description": "Fetch user records from GET /data and aggregate total wallet balance strictly on device.",
+      "files": ["app/src/main/java/com/quickpaywallet/app/HomeActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building QuickPay Wallet",
+      "description": "Compile the complete verified project with live admin config fetching and 1-hour cache rule.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
