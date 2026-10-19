@@ -1,0 +1,49 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "projects": {
+      "fields": {
+        "title": "string",
+        "project_type": "string",
+        "prompt": "string",
+        "aspect_ratio": "string",
+        "style": "string",
+        "status": "string",
+        "media_url": "string",
+        "output_metadata": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "characters": {
+      "fields": {
+        "name": "string",
+        "appearance": "string",
+        "clothing": "string",
+        "voice_tone": "string",
+        "reference_image": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "stories": {
+      "fields": {
+        "title": "string",
+        "language": "string",
+        "genre": "string",
+        "full_script": "string",
+        "scene_count": "integer"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "estimated_speech_duration_sec": {
+      "type": "calculation",
+      "inputs": ["word_count", "speech_rate_wpm"],
+      "formula": "(word_count / speech_rate_wpm) * 60"
+    }
+  }
+}
