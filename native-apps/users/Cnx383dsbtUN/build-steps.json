@@ -1,0 +1,101 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Establish application package naming, metadata identifiers, and application configuration.",
+      "files": ["app-meta.json", "app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Backend API Schema",
+      "description": "Create data schema for user career match statistics, tournament trophies, and local run rate logic.",
+      "files": ["api_schema.json", "admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Build Environment",
+      "description": "Configure Gradle build setup for Java 8 compatibility and Android SDK 34 target.",
+      "files": ["build.gradle", "settings.gradle", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Setup Manifest and Permissions",
+      "description": "Register game activities, landscape orientation, vibration, and network permissions in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Cricket Styling & Color Palette",
+      "description": "Construct stadium green hues, pitch accents, scoreboard styling, and material themes.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml", "app/src/main/res/values/styles.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Career Session Manager",
+      "description": "Create local session persistence for player career runs, high scores, matches played, and offline sync.",
+      "files": ["app/src/main/java/com/cricketpro3d/app/SessionManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build Generic Backend API Client",
+      "description": "Build network client with dynamic app_id extraction from assets for player profiles and high scores.",
+      "files": ["app/src/main/java/com/cricketpro3d/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create User Authentication System",
+      "description": "Implement player signup, login, and OTP password recovery screens with cloud career sync.",
+      "files": [
+        "app/src/main/res/layout/activity_login.xml",
+        "app/src/main/java/com/cricketpro3d/app/LoginActivity.java",
+        "app/src/main/res/layout/activity_register.xml",
+        "app/src/main/java/com/cricketpro3d/app/RegisterActivity.java",
+        "app/src/main/res/layout/activity_forgot_password.xml",
+        "app/src/main/java/com/cricketpro3d/app/ForgotPasswordActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Construct Main Menu & Match Selection Lobby",
+      "description": "Build interactive menu to choose match modes (Super Over, T20 2-Over Chase, 5-Over Trophy Match, Nets).",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/java/com/cricketpro3d/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Develop 3D Perspective Cricket Engine",
+      "description": "Build 3D stadium, textured pitch, stumps with flying bails, dynamic bowler run-up, ball trajectory physics, and batsman timing.",
+      "files": ["app/src/main/java/com/cricketpro3d/app/Cricket3DView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Match Controller & HUD",
+      "description": "Design live scoreboard HUD, shot selection pads (Loft/Ground, Left/Straight/Leg), commentary ticker, and over breakdown.",
+      "files": [
+        "app/src/main/res/layout/activity_game.xml",
+        "app/src/main/java/com/cricketpro3d/app/GameActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building CricketPro3D",
+      "description": "Assemble, compile, and finalize the complete 3D Cricket native APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
