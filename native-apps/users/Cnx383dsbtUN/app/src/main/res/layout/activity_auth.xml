@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F172A"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="PayQuick"
+            android:textColor="#38BDF8"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Fast, Secure &amp; Intelligent Wallet"
+            android:textColor="#94A3B8"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/card_auth_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:background="#1E293B"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tv_auth_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign In to Wallet"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Email Address"
+                android:textColor="#CBD5E1"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="6dp"
+                android:background="#334155"
+                android:hint="user@example.com"
+                android:inputType="textEmailAddress"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#64748B"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_password_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="Password"
+                android:textColor="#CBD5E1"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="6dp"
+                android:background="#334155"
+                android:hint="••••••••"
+                android:inputType="textPassword"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#64748B"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:id="@+id/layout_otp_fields"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="OTP Code (from email)"
+                    android:textColor="#CBD5E1"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/et_otp"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="6dp"
+                    android:background="#334155"
+                    android:hint="Enter 6-digit OTP"
+                    android:inputType="number"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#64748B"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="New Password"
+                    android:textColor="#CBD5E1"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/et_new_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="6dp"
+                    android:background="#334155"
+                    android:hint="Create new password"
+                    android:inputType="textPassword"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#64748B"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_auth_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="#F87171"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_action"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="#0284C7"
+                android:text="LOGIN"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_toggle_mode"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="10dp"
+                android:background="#1E293B"
+                android:text="Don't have an account? Sign Up"
+                android:textColor="#38BDF8"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btn_forgot_password"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="#1E293B"
+                android:text="Forgot Password?"
+                android:textColor="#94A3B8"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

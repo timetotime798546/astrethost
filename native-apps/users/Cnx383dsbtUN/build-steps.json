@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Update Project Configuration and Dependencies",
+      "description": "Purge third-party dependencies from build.gradle and verify compile target 34 without external libs.",
+      "files": ["app/build.gradle", "app-meta.json", "app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Manifest and Launcher Permissions",
+      "description": "Set up internet permission and register activities cleanly.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Financial Calculation Engine",
+      "description": "Maintain high-precision BigDecimal arithmetic for deposit bonuses and balances locally.",
+      "files": ["app/src/main/java/com/payquick/app/WalletCalculator.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Asynchronous Image Loader",
+      "description": "Render remote QR and service catalog visuals with LruCache.",
+      "files": ["app/src/main/java/com/payquick/app/ImageLoader.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Fix Dynamic Admin Settings Fetch Engine",
+      "description": "Implement multi-level JSON unpacking, status verification, and reliable cache invalidation in BackendApi.",
+      "files": ["app/src/main/java/com/payquick/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "End-User Authentication and Reset Flow",
+      "description": "Maintain secure OTP Gmail password reset and token storage for wallet users.",
+      "files": ["app/src/main/java/com/payquick/app/AuthActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Responsive Product Gallery and Transaction Rows",
+      "description": "Structure native XML card layouts for quick multi-service payment cards and ledger items.",
+      "files": ["app/src/main/res/layout/item_service_card.xml", "app/src/main/res/layout/item_transaction.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Setup Dashboard Layout",
+      "description": "Dynamic header, UPI ID label, QR code display, deposit bonus calculator, and gallery.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Integrate Dynamic Config UI Binding and Fallback Engine",
+      "description": "Ensure MainActivity smoothly updates UI with fetched admin values and fallback handling.",
+      "files": ["app/src/main/java/com/payquick/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building PayQuick",
+      "description": "Assemble and build the release-ready PayQuick Android package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
