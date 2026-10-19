@@ -1,0 +1,105 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Application Metadata",
+      "description": "Define application name, package identifier, and runtime environment settings.",
+      "files": ["app-meta.json", "app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Backend API Schema",
+      "description": "Establish collections for transactions and local wallet calculation rules.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Admin Setting Schema",
+      "description": "Setup dynamic admin controls for Merchant Name, UPI ID, QR Code image URL, and Max Deposit Limit.",
+      "files": ["admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Set Up Gradle Build Configuration",
+      "description": "Configure Android SDK 34, Java 8 compilation compatibility, and project structure without external dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Construct Android Manifest",
+      "description": "Register activities, permissions for Internet access, and theme configurations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Reusable HTTP Backend Client",
+      "description": "Develop native Java networking helper supporting register, login, OTP recovery, and CRUD data synchronization.",
+      "files": ["app/src/main/java/com/payquick/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop Local Image Caching Helper",
+      "description": "Implement native asynchronous bitmap loader for merchant QR code and multi-image service showcase.",
+      "files": ["app/src/main/java/com/payquick/app/ImageLoader.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Deterministic Wallet Calculator",
+      "description": "Implement local Java logic for deposit verification and 2% cashback bonus calculation.",
+      "files": ["app/src/main/java/com/payquick/app/WalletCalculator.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Build Authentication Interface & Logic",
+      "description": "Create login, signup, and OTP reset workflows adhering to backend token contracts.",
+      "files": [
+        "app/src/main/res/layout/activity_auth.xml",
+        "app/src/main/java/com/payquick/app/AuthActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Build Admin Settings Activity",
+      "description": "Create editable configuration panel to modify merchant credentials and QR code parameters.",
+      "files": [
+        "app/src/main/res/layout/activity_admin_settings.xml",
+        "app/src/main/java/com/payquick/app/AdminSettingsActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Dashboard and Wallet Layout",
+      "description": "Create layouts for wallet card, horizontal service catalog gallery, deposit box, and transaction history.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/res/layout/item_transaction.xml",
+        "app/src/main/res/layout/item_service_card.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Core Dashboard Logic",
+      "description": "Orchestrate wallet balances, deposit calculations, dynamic service payments, and transaction history sync in MainActivity.",
+      "files": ["app/src/main/java/com/payquick/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building PayQuick",
+      "description": "Compile the complete native APK with Temurin 17 and Gradle 8.5.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
