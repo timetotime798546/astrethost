@@ -1,0 +1,45 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.arbajaistudio.app">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:roundIcon="@drawable/icon"
+        android:label="Arbaj AI Studio"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Material">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".VideoPlayerActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize"
+            android:label="Video Player" />
+
+        <activity
+            android:name=".AuthActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+    </application>
+</manifest>

@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050811"
+    android:orientation="vertical">
+
+    <!-- Top Action Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#0F172A"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <Button
+            android:id="@+id/btn_back_player"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="#1E293B"
+            android:text="&lt; Back"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_player_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Video Preview"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_download_video"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="#10B981"
+            android:text="Download MP4"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Video Surface Container -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#000000"
+        android:gravity="center">
+
+        <VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
+
+        <ProgressBar
+            android:id="@+id/pb_video_buffering"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_centerInParent="true"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_player_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="20dp"
+            android:text="Unable to play video"
+            android:textColor="#EF4444"
+            android:textSize="14sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <!-- Playback Controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0F172A"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_play_pause"
+                android:layout_width="120dp"
+                android:layout_height="44dp"
+                android:layout_marginRight="10dp"
+                android:background="#2563EB"
+                android:text="Pause"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_replay"
+                android:layout_width="120dp"
+                android:layout_height="44dp"
+                android:background="#334155"
+                android:text="Replay"
+                android:textColor="#CBD5E1"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_video_meta_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="#94A3B8"
+            android:textSize="12sp" />
+    </LinearLayout>
+</LinearLayout>

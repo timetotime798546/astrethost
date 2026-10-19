@@ -1,0 +1,96 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Studio Build Architecture",
+      "description": "Configuring project foundation, Android SDK 34 specifications, and Java 8 bytecode compatibility.",
+      "files": ["app-meta.json", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Declare Application Manifest & Storage Permissions",
+      "description": "Declaring network capabilities, external storage read/write, and launch filters in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Establish Cloud Backend & Settings Schema",
+      "description": "Configuring cloud persistence for generated videos, jobs, characters, and configurable AI video endpoints.",
+      "files": ["api_schema.json", "admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Embed Assets Metadata",
+      "description": "Placing runtime app identification and configuration metadata in application assets.",
+      "files": ["app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Native Backend API Client",
+      "description": "Building native HTTP client supporting user authentication, OTP reset, and generic CRUD operations.",
+      "files": ["app/src/main/java/com/arbajaistudio/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Engineer Real AI Video Generation Engine",
+      "description": "Developing robust AI video generation client supporting Text-to-Video, Image-to-Video, job polling, and direct provider pipeline.",
+      "files": ["app/src/main/java/com/arbajaistudio/app/VideoGenerationEngine.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop Creative Engine Helper & Calculators",
+      "description": "Creating native Java algorithms for scene breakdown, resolution computing, and speech duration calculations.",
+      "files": ["app/src/main/java/com/arbajaistudio/app/CreativeEngineHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build User Authentication Interfaces",
+      "description": "Designing secure sign in, registration, and OTP password recovery layouts and activity logic.",
+      "files": [
+        "app/src/main/res/layout/activity_auth.xml",
+        "app/src/main/java/com/arbajaistudio/app/AuthActivity.java",
+        "app/src/main/res/layout/activity_forgot_password.xml",
+        "app/src/main/java/com/arbajaistudio/app/ForgotPasswordActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Construct Studio Main Dashboard Layout with Video Player",
+      "description": "Designing interactive studio interface equipped with native VideoView, real-time stage progress, and controls.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Video Player Activity & Downloader",
+      "description": "Implementing dedicated VideoPlayerActivity with MediaController and system DownloadManager integrations.",
+      "files": [
+        "app/src/main/res/layout/activity_video_player.xml",
+        "app/src/main/java/com/arbajaistudio/app/VideoPlayerActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Main Studio Controller with Genuine Video Workflow",
+      "description": "Programming complete interactive workflow for genuine text-to-video, image-to-video, job polling, and playback.",
+      "files": ["app/src/main/java/com/arbajaistudio/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Arbaj AI Studio",
+      "description": "Assembling native resources, validating SDK contracts, and producing debug APK output.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

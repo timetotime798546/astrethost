@@ -1,0 +1,31 @@
+{
+  "app_id": "app_6ad61623b32fd",
+  "admin_setting_schema": {
+    "ai_video_provider": {
+      "type": "string",
+      "label": "AI Video Generation Provider Engine",
+      "default": "pollinations_cogvideo"
+    },
+    "custom_video_api_key": {
+      "type": "string",
+      "label": "Custom Video AI API Key (Optional)",
+      "default": ""
+    },
+    "max_video_duration_sec": {
+      "type": "integer",
+      "label": "Max Video Generation Duration (Seconds)",
+      "default": 10
+    },
+    "server_announcement": {
+      "type": "string",
+      "label": "Studio System Announcement",
+      "default": "Welcome to Arbaj AI Studio - Real AI Video Generation Engine Online!"
+    }
+  },
+  "initial_values": {
+    "ai_video_provider": "pollinations_cogvideo",
+    "custom_video_api_key": "",
+    "max_video_duration_sec": 10,
+    "server_announcement": "Welcome to Arbaj AI Studio - Real AI Video Generation Engine Online!"
+  }
+}
