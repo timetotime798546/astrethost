@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/card_bg">
+
+    <TextView
+        android:id="@+id/tvDialogItemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Record"
+        android:textColor="@color/text_main"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/etItemTitle"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="Title / Name"
+        android:inputType="textCapWords"
+        android:background="@drawable/bg_input"
+        android:paddingHorizontal="12dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:id="@+id/etItemCategory"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="Category (e.g. Work, Security, Personal)"
+        android:inputType="textCapWords"
+        android:background="@drawable/bg_input"
+        android:paddingHorizontal="12dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:id="@+id/etItemContent"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:hint="Record Details / Description"
+        android:inputType="textMultiLine"
+        android:gravity="top|start"
+        android:background="@drawable/bg_input"
+        android:padding="12dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Priority (1-3): "
+            android:textColor="@color/text_main"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etItemPriority"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:hint="1"
+            android:inputType="number"
+            android:gravity="center"
+            android:background="@drawable/bg_input"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/cbItemCompleted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Completed"
+            android:textColor="@color/text_main" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnCancelDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Cancel"
+            android:background="#E2E8F0"
+            android:textColor="@color/text_main"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnSaveRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Save"
+            android:background="@drawable/bg_button"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</LinearLayout>

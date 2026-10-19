@@ -1,0 +1,19 @@
+{
+  "app_id": "authportal_app_v1",
+  "admin_setting_schema": {
+    "portal_banner_text": {
+      "type": "string",
+      "label": "Portal Banner Announcement",
+      "default": "Welcome to AuthPortal Secure Workspace"
+    },
+    "support_email": {
+      "type": "string",
+      "label": "Support Email Address",
+      "default": "support@authportal.local"
+    }
+  },
+  "initial_values": {
+    "portal_banner_text": "Welcome to AuthPortal Secure Workspace",
+    "support_email": "support@authportal.local"
+  }
+}
