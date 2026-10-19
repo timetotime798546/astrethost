@@ -1,0 +1,103 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Specify app identity, package name, and asset IDs for Tap Coin Arcade.",
+      "files": ["app-meta.json", "app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Cloud Backend Schema",
+      "description": "Set up player game profiles and offline calculation logic definitions.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Remote Admin Schema",
+      "description": "Define dynamic arcade event announcements and multiplier settings.",
+      "files": ["admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Set Up Gradle Build Configuration",
+      "description": "Configure Android Gradle Plugin 8.3.2, compileSdkVersion 34, and Java 8 compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Configure Android Application Manifest",
+      "description": "Define system permissions and declare Arcade MainActivity with fullscreen theme.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Color Palette & Typography",
+      "description": "Provide neon arcade dark colors, gold coin accents, and UI string references.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Arcade Shapes & Drawables",
+      "description": "Construct circular gold tap coin, neon arcade containers, and action button shapes.",
+      "files": [
+        "app/src/main/res/drawable/shape_coin.xml",
+        "app/src/main/res/drawable/shape_coin_pressed.xml",
+        "app/src/main/res/drawable/selector_coin.xml",
+        "app/src/main/res/drawable/bg_arcade_card.xml",
+        "app/src/main/res/drawable/bg_claim_button.xml",
+        "app/src/main/res/drawable/bg_upgrade_button.xml",
+        "app/src/main/res/drawable/bg_input_box.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Interactive Game Activity Layout",
+      "description": "Build high-impact arcade gaming layout with center tap coin, real-time counters, and claim bar.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Auth and Password Reset Dialog Layouts",
+      "description": "Create modals for quick player login, register, and Gmail OTP password recovery.",
+      "files": [
+        "app/src/main/res/layout/dialog_auth.xml",
+        "app/src/main/res/layout/dialog_reset_password.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Backend Network & App-Action Client",
+      "description": "Create BackendApi handling secure POST /app-action balance updates, login, and admin caching.",
+      "files": ["app/src/main/java/com/tapcoinarcade/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Arcade Game Engine & Local Score Manager",
+      "description": "Develop touch handling, combo multiplier calculations, tap power, and SharedPreferences storage.",
+      "files": ["app/src/main/java/com/tapcoinarcade/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Tap Coin Arcade",
+      "description": "Compile native Java source and package Android debug APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

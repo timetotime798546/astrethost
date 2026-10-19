@@ -1,0 +1,24 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "player_profile": {
+      "fields": {
+        "player_name": "string",
+        "high_score": "integer",
+        "total_taps": "integer"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "combo_points": {
+      "type": "calculation",
+      "inputs": ["taps", "multiplier"],
+      "formula": "taps * multiplier"
+    }
+  }
+}
