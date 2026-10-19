@@ -1,0 +1,32 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "career_stats": {
+      "fields": {
+        "matches_played": "integer",
+        "matches_won": "integer",
+        "highest_score": "integer",
+        "total_runs": "integer",
+        "total_sixes": "integer",
+        "total_fours": "integer"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "run_rate": {
+      "type": "calculation",
+      "inputs": ["total_runs", "total_overs"],
+      "formula": "total_runs / total_overs"
+    },
+    "strike_rate": {
+      "type": "calculation",
+      "inputs": ["runs", "balls"],
+      "formula": "(runs / balls) * 100"
+    }
+  }
+}
