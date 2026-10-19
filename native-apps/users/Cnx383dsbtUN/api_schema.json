@@ -1,0 +1,24 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "player_profiles": {
+      "fields": {
+        "score": "integer",
+        "crashes": "integer",
+        "high_score": "integer"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "crash_deduction": {
+      "type": "calculation",
+      "inputs": ["current_score"],
+      "formula": "current_score - 10"
+    }
+  }
+}
