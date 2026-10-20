@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <!-- Custom 3D Surface View -->
+    <com.runner3d.app.GameView
+        android:id="@+id/game_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- In-Game HUD Header -->
+    <LinearLayout
+        android:id="@+id/hud_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DISTANCE"
+                android:textSize="11sp"
+                android:letterSpacing="0.1"
+                android:textColor="@color/neon_cyan" />
+
+            <TextView
+                android:id="@+id/tv_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 m"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ENERGY GEMS"
+                android:textSize="11sp"
+                android:letterSpacing="0.1"
+                android:textColor="@color/neon_yellow" />
+
+            <TextView
+                android:id="@+id/tv_gems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/neon_yellow" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Speed Meter & Multiplier -->
+    <TextView
+        android:id="@+id/tv_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="1.0x"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/neon_magenta"
+        android:background="#33000000"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp" />
+
+    <!-- Directional On-Screen Action Controls for Accessibility -->
+    <RelativeLayout
+        android:id="@+id/controls_bar"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_gravity="bottom"
+        android:padding="12dp">
+
+        <Button
+            android:id="@+id/btn_left"
+            android:layout_width="72dp"
+            android:layout_height="64dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:text="◀"
+            android:textSize="22sp"
+            android:textColor="@color/text_white"
+            android:background="#4400E5FF" />
+
+        <Button
+            android:id="@+id/btn_right"
+            android:layout_width="72dp"
+            android:layout_height="64dp"
+            android:layout_toRightOf="@id/btn_left"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentBottom="true"
+            android:text="▶"
+            android:textSize="22sp"
+            android:textColor="@color/text_white"
+            android:background="#4400E5FF" />
+
+        <Button
+            android:id="@+id/btn_slide"
+            android:layout_width="72dp"
+            android:layout_height="64dp"
+            android:layout_toLeftOf="@+id/btn_jump"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true"
+            android:text="▼"
+            android:textSize="22sp"
+            android:textColor="@color/text_white"
+            android:background="#44FF007F" />
+
+        <Button
+            android:id="@+id/btn_jump"
+            android:layout_width="72dp"
+            android:layout_height="64dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="▲"
+            android:textSize="22sp"
+            android:textColor="@color/text_white"
+            android:background="#44FFD700" />
+    </RelativeLayout>
+
+    <!-- Start / Tutorial Instructions Overlay -->
+    <LinearLayout
+        android:id="@+id/start_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/overlay_bg"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CYBER RUNNER 3D"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/neon_cyan"
+            android:letterSpacing="0.08" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="DODGE HAZARDS • COLLECT GEMS"
+            android:textSize="13sp"
+            android:letterSpacing="0.1"
+            android:textColor="@color/text_muted" />
+
+        <TextView
+            android:id="@+id/tv_start_high_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="BEST RECORD: 0 m"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/neon_yellow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/swipe_hint"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:textColor="@color/text_white" />
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="220dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="36dp"
+            android:text="ENGAGE RUN"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/bg_dark"
+            android:background="#00E5FF" />
+    </LinearLayout>
+
+    <!-- Game Over Overlay Modal -->
+    <LinearLayout
+        android:id="@+id/game_over_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/overlay_bg"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_over"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:textColor="@color/neon_magenta"
+            android:letterSpacing="0.06" />
+
+        <TextView
+            android:id="@+id/tv_final_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="DISTANCE: 0 m"
+            android:textSize="20sp"
+            android:textColor="@color/text_white" />
+
+        <TextView
+            android:id="@+id/tv_final_gems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="GEMS COLLECTED: 0"
+            android:textSize="16sp"
+            android:textColor="@color/neon_yellow" />
+
+        <TextView
+            android:id="@+id/tv_best_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="NEW RECORD!"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/neon_cyan" />
+
+        <Button
+            android:id="@+id/btn_retry"
+            android:layout_width="220dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/restart_btn"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/bg_dark"
+            android:background="#00E5FF" />
+    </LinearLayout>
+
+</FrameLayout>

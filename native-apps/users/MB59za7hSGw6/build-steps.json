@@ -1,0 +1,114 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Application Metadata",
+      "description": "Define package name, application identifiers, and runtime metadata configurations.",
+      "files": [
+        "app-meta.json",
+        "api_schema.json",
+        "admin_setting_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Setup Gradle Build Configuration",
+      "description": "Configure compilation SDK, Java 8 compatibility, and zero-dependency build setup.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Manifest and System Permissions",
+      "description": "Declare full-screen hardware-accelerated game activity with fixed orientation.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Bundle Asset Metadata",
+      "description": "Store application identity JSON in assets for runtime reflection and state persistence.",
+      "files": [
+        "app/src/main/assets/app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Color Schemes and Visual Styles",
+      "description": "Establish neon cyberpunk palette, game typography, and full-screen theme resources.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml",
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Develop Synthesized Audio Engine",
+      "description": "Build real-time procedural sound generator using native Android AudioTrack for jumps, coins, and impacts.",
+      "files": [
+        "app/src/main/java/com/runner3d/app/SoundEffectManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build 3D Perspective Projection Engine",
+      "description": "Develop 3D lane projection, horizon scaling, depth sorting, and polygonal terrain rendering.",
+      "files": [
+        "app/src/main/java/com/runner3d/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Obstacle and Collectible Mechanics",
+      "description": "Generate dynamic hurdles, low lasers, overhead beams, and spinning 3D energy gems.",
+      "files": [
+        "app/src/main/java/com/runner3d/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Player Kinematics and Gesture Controller",
+      "description": "Support jump physics, sliding crouch, lane switching, and directional swipe gestures.",
+      "files": [
+        "app/src/main/java/com/runner3d/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design Heads-Up Display and Overlay UI",
+      "description": "Create HUD layout with score counter, coin meter, distance tracker, and Game Over modal.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Wire Main Activity and Game Lifecycle",
+      "description": "Coordinate game states, high score saving with SharedPreferences, and UI events.",
+      "files": [
+        "app/src/main/java/com/runner3d/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Runner 3D",
+      "description": "Assemble native APK using Gradle build pipeline with optimized release configuration.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
