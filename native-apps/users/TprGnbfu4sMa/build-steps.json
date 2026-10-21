@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Project Environment",
+      "description": "Initialize metadata, Java 17 configuration, and project architecture.",
+      "files": ["app-meta.json", "build-steps.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Setup Gradle Build Scripts",
+      "description": "Configure Android Gradle Plugin 8.3.2, compileSdk 34, and dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Android Manifest",
+      "description": "Declare permissions and main application activities without external dependencies.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Setup Schemas and Assets",
+      "description": "Define api_schema and admin_setting_schema for standalone offline operation.",
+      "files": ["api_schema.json", "admin_setting_schema.json", "app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Colors and Theme Styles",
+      "description": "Define modern dark/light material styling and color palettes.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Generative Art Engine",
+      "description": "Create procedural canvas renderer for high-resolution graphics and animated frames.",
+      "files": ["app/src/main/java/com/geradorvideoimagem/app/ArtEngine.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Hardware MP4 Video Generator",
+      "description": "Develop hardware-accelerated MediaCodec and MediaMuxer native video compiler.",
+      "files": ["app/src/main/java/com/geradorvideoimagem/app/Mp4VideoGenerator.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Media Data Model",
+      "description": "Implement data structure for tracking created images and MP4 clips.",
+      "files": ["app/src/main/java/com/geradorvideoimagem/app/MediaItem.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create User Interface Layouts",
+      "description": "Build responsive XML layouts for generation controls, live preview, and gallery.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Interactive Main Activity",
+      "description": "Connect UI controls, background thread processing, and native VideoView playback.",
+      "files": ["app/src/main/java/com/geradorvideoimagem/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Gerador Video e Imagem AI",
+      "description": "Assemble and verify debug build with zero third-party dependencies.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
