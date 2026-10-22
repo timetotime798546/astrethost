@@ -1,0 +1,19 @@
+{
+  "app_id": "studymaster_planner_app",
+  "admin_setting_schema": {
+    "announcement_banner": {
+      "type": "string",
+      "label": "Study Tips & Motivational Quote",
+      "default": "Small steps every day lead to big academic achievements!"
+    },
+    "exam_season_mode": {
+      "type": "boolean",
+      "label": "Exam Season High Priority Alert",
+      "default": false
+    }
+  },
+  "initial_values": {
+    "announcement_banner": "Small steps every day lead to big academic achievements!",
+    "exam_season_mode": false
+  }
+}
