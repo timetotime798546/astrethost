@@ -1,0 +1,27 @@
+{
+  "backend": false,
+  "roles": {},
+  "collections": {},
+  "logic": {
+    "evaluate_expression": {
+      "type": "calculation",
+      "inputs": ["expression_string"],
+      "formula": "parseAndEvaluate(expression_string)"
+    },
+    "percentage": {
+      "type": "calculation",
+      "inputs": ["value", "percent"],
+      "formula": "value * (percent / 100)"
+    },
+    "square_root": {
+      "type": "calculation",
+      "inputs": ["radicand"],
+      "formula": "sqrt(radicand)"
+    },
+    "factorial": {
+      "type": "calculation",
+      "inputs": ["n"],
+      "formula": "n!"
+    }
+  }
+}
