@@ -1,0 +1,12 @@
+{
+  "backend": false,
+  "roles": {},
+  "collections": {},
+  "logic": {
+    "evaluate_expression": {
+      "type": "calculation",
+      "inputs": ["expression"],
+      "formula": "evaluate(expression)"
+    }
+  }
+}
