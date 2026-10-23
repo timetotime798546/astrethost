@@ -1,0 +1,12 @@
+{
+  "backend": false,
+  "roles": {},
+  "collections": {},
+  "logic": {
+    "circle_accuracy": {
+      "type": "calculation",
+      "inputs": ["roundness", "consistency", "closure"],
+      "formula": "(roundness * 0.50) + (consistency * 0.30) + (closure * 0.20)"
+    }
+  }
+}
