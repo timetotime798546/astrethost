@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Metadata",
+      "description": "Establish package metadata, application identifier, and schema configuration.",
+      "files": ["app-meta.json", "api_schema.json", "admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Gradle Build Script",
+      "description": "Configure Android build settings with compileSdkVersion 34 and Java 8 compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Setup Android Manifest",
+      "description": "Declare application entry activity, material theme, and vibration permissions.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define Color Resources",
+      "description": "Create arcade dark palette and vibrant neon colors for snake, food, and UI elements.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define String Resources",
+      "description": "Declare localized game labels, button titles, and difficulty indicators.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Directional Controller Drawables",
+      "description": "Design vector and shape drawables for arcade D-Pad buttons.",
+      "files": ["app/src/main/res/drawable/btn_arcade.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build Main Activity Layout",
+      "description": "Assemble arcade scoreboard, interactive game canvas, and virtual direction controls.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Snake Game Engine View",
+      "description": "Develop custom Android 2D canvas view with grid calculations, collision detection, and rendering.",
+      "files": ["app/src/main/java/com/retrosnake/app/SnakeView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Main Game Controller Activity",
+      "description": "Wire user inputs, persistent high score storage, difficulty adjustment, and game state loops.",
+      "files": ["app/src/main/java/com/retrosnake/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Retro Snake",
+      "description": "Execute final build verification and package the debug APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
