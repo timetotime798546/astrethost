@@ -1,0 +1,107 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Metadata and Configuration",
+      "description": "Establish package structure, application identifiers, and baseline configuration.",
+      "files": ["app-meta.json", "admin_setting_schema.json", "api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Gradle Build Scripts",
+      "description": "Set up SDK version 34, Java 17 compile options, and build targets.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Declare Manifest and Permissions",
+      "description": "Configure AndroidManifest with activities, intents, and icons.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Color Palettes and Visual Styles",
+      "description": "Define custom theme, color accents, and drawable cards for note items.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Card and Button Drawables",
+      "description": "Create shape XML drawables for note cards, search bar, and category chips.",
+      "files": [
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/search_bg.xml",
+        "app/src/main/res/drawable/chip_bg.xml",
+        "app/src/main/res/drawable/btn_primary.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Main Activity Layout",
+      "description": "Build layout with summary stats bar, search box, category filters, and note list.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Note List Item Layout",
+      "description": "Build responsive list item displaying title, excerpt, date, category tag, and pin icon.",
+      "files": ["app/src/main/res/layout/item_note.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Note Editor Layout",
+      "description": "Create editor layout with real-time character/word statistics, color selector, category picker, and text fields.",
+      "files": ["app/src/main/res/layout/activity_editor.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop Note Data Model",
+      "description": "Create Note Java class with JSON serialization, category metadata, and timestamp formatting.",
+      "files": ["app/src/main/java/com/offlinenotes/app/Note.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Local Notes Manager",
+      "description": "Develop local persistent storage manager with filtering, search query handling, and offline calculations.",
+      "files": ["app/src/main/java/com/offlinenotes/app/NotesManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Create Custom Note List Adapter",
+      "description": "Implement BaseAdapter with note item rendering, color accents, and click listeners.",
+      "files": ["app/src/main/java/com/offlinenotes/app/NoteAdapter.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Note Editor Activity",
+      "description": "Code create, edit, save, delete logic with live offline character and word counters.",
+      "files": ["app/src/main/java/com/offlinenotes/app/NoteEditorActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Main Activity Controller",
+      "description": "Integrate search filtering, category tabs, note listing, and navigation.",
+      "files": ["app/src/main/java/com/offlinenotes/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Offline Notes",
+      "description": "Compile debug APK and assemble native Android artifacts.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
