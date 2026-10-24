@@ -2,198 +2,191 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/cctv_black">
 
-    <!-- Top Action Bar -->
+    <!-- Live Surveillance Camera View Frame -->
+    <FrameLayout
+        android:id="@+id/camera_preview_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000" />
+
+    <!-- Top CCTV Status Header HUD -->
     <LinearLayout
-        android:id="@+id/header_bar"
+        android:id="@+id/top_hud_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#A60A0F14"
         android:orientation="vertical"
-        android:background="@color/primary"
-        android:paddingLeft="16dp"
-        android:paddingTop="18dp"
-        android:paddingRight="16dp"
-        android:paddingBottom="16dp">
+        android:padding="12dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/app_name"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_stats"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0 notes"
-                android:textColor="#94A3B8"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/rec_indicator_dot"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/cctv_rec_red"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_channel_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="CAM-01 [OFFLINE MONITOR]"
+                    android:textColor="@color/cctv_hud_green"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_live_clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="monospace"
+                android:text="2025-01-01 00:00:00"
+                android:textColor="#FFFFFF"
                 android:textSize="13sp" />
-        </LinearLayout>
+        </RelativeLayout>
 
-        <!-- Search Input -->
-        <EditText
-            android:id="@+id/et_search"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/search_bg"
-            android:hint="@string/search_hint"
-            android:textColor="@color/text_primary"
-            android:textColorHint="@color/text_secondary"
-            android:textSize="14sp"
-            android:paddingLeft="14dp"
-            android:paddingRight="14dp"
-            android:singleLine="true" />
-    </LinearLayout>
-
-    <!-- Horizontal Category Filter ScrollView -->
-    <HorizontalScrollView
-        android:id="@+id/category_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/header_bar"
-        android:scrollbars="none"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:background="#FFFFFF">
-
+        <!-- Storage & Free Disk Bar -->
         <LinearLayout
-            android:id="@+id/ll_categories"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tab_all"
+                android:id="@+id/tv_storage_stats"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="monospace"
+                android:text="Saved: 0 files (0 MB) | Free: Calculating..."
+                android:textColor="@color/cctv_text_secondary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/tv_rec_timer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:text="@string/all_categories"
-                android:textColor="#FFFFFF"
-                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:text="00:00:00"
+                android:textColor="@color/cctv_rec_red"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                android:background="@drawable/btn_primary"
-                android:paddingLeft="14dp"
-                android:paddingTop="6dp"
-                android:paddingRight="14dp"
-                android:paddingBottom="6dp" />
-
-            <TextView
-                android:id="@+id/tab_personal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:text="@string/category_personal"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp"
-                android:background="@drawable/chip_bg" />
-
-            <TextView
-                android:id="@+id/tab_work"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:text="@string/category_work"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp"
-                android:background="@drawable/chip_bg" />
-
-            <TextView
-                android:id="@+id/tab_ideas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:text="@string/category_ideas"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp"
-                android:background="@drawable/chip_bg" />
-
-            <TextView
-                android:id="@+id/tab_todo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:text="@string/category_todo"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp"
-                android:background="@drawable/chip_bg" />
-
-            <TextView
-                android:id="@+id/tab_study"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category_study"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp"
-                android:background="@drawable/chip_bg" />
+                android:visibility="gone" />
         </LinearLayout>
-    </HorizontalScrollView>
-
-    <!-- Empty State View -->
-    <LinearLayout
-        android:id="@+id/ll_empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/category_scroll"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/tv_empty_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/no_notes_found"
-            android:textColor="@color/text_secondary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_empty_desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/tap_to_add"
-            android:textColor="@color/text_muted"
-            android:textSize="14sp" />
     </LinearLayout>
 
-    <!-- Notes List -->
-    <ListView
-        android:id="@+id/lv_notes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/category_scroll"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        android:padding="12dp"
-        android:clipToPadding="false" />
-
-    <!-- Floating Action Button for Add Note -->
-    <Button
-        android:id="@+id/fab_add"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_alignParentBottom="true"
+    <!-- Side Tools Panel (Torch, Camera Flip, Vault) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_margin="20dp"
-        android:background="@drawable/fab_bg"
-        android:text="+"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:gravity="center" />
+        android:layout_centerVertical="true"
+        android:layout_marginRight="12dp"
+        android:background="#B3141C24"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/btn_flip_camera"
+            android:layout_width="72dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:background="#2E3D4D"
+            android:text="FLIP"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_toggle_torch"
+            android:layout_width="72dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:background="#2E3D4D"
+            android:text="TORCH"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_view_vault"
+            android:layout_width="72dp"
+            android:layout_height="52dp"
+            android:background="#00796B"
+            android:text="VAULT"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Crosshair Target Overlay in Center (CCTV Aesthetic) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:alpha="0.35"
+        android:fontFamily="monospace"
+        android:text="┼"
+        android:textColor="@color/cctv_hud_green"
+        android:textSize="44sp" />
+
+    <!-- Bottom Controls Deck -->
+    <LinearLayout
+        android:id="@+id/bottom_control_deck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#E6141C24"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_record_toggle"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/cctv_rec_red"
+                android:fontFamily="monospace"
+                android:text="● START CCTV RECORDING"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="100% Offline Surveillance • Footage Saved Locally in Secure Vault"
+            android:textColor="@color/cctv_text_secondary"
+            android:textSize="11sp" />
+    </LinearLayout>
 
 </RelativeLayout>

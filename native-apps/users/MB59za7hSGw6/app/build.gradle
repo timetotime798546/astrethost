@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.offlinenotes.app"
+    namespace "com.offlinecctvrecord.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.offlinenotes.app"
+        applicationId "com.offlinecctvrecord.app"
 
         minSdkVersion 21
 

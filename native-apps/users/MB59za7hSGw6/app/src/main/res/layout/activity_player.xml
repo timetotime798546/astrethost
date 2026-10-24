@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Offline CCTV Video Playback View -->
+    <VideoView
+        android:id="@+id/video_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <!-- Header Overlay -->
+    <LinearLayout
+        android:id="@+id/player_hud_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#990A0F14"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_player_back"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="#2E3D4D"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="← BACK"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_player_filename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="middle"
+                android:fontFamily="monospace"
+                android:singleLine="true"
+                android:text="CCTV RECORDING PLAYBACK"
+                android:textColor="@color/cctv_hud_green"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_player_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="Offline Playback • Local Storage"
+                android:textColor="@color/cctv_text_secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Bottom Playback Quick Controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#990A0F14"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <Button
+            android:id="@+id/btn_replay"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginRight="12dp"
+            android:background="#1F2B37"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="↺ REPLAY"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_play_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@color/cctv_accent"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:text="PAUSE"
+            android:textColor="#0A0F14"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>
