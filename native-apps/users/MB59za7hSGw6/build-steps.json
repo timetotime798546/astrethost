@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Define Project Metadata",
+      "description": "Establish package metadata, application identifier, and schema configuration.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Clean Build Dependencies in Gradle",
+      "description": "Remove unnecessary third-party dependencies to ensure pure native Android SDK compilation.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Fix Android Manifest Exported Attribute",
+      "description": "Declare explicit android:exported=true on MainActivity to resolve Android 12+ manifest merger failure.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Verify Color Palette Resources",
+      "description": "Retain arcade color definitions for snake, grid, and UI elements.",
+      "files": ["app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify String Resources",
+      "description": "Maintain arcade labels and difficulty strings.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify Controller Drawables",
+      "description": "Ensure tactile arcade D-pad button selectors are preserved.",
+      "files": ["app/src/main/res/drawable/btn_arcade.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Verify Main Activity Layout",
+      "description": "Maintain arcade scoreboard, game canvas, and virtual controls.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify Snake Game Engine View",
+      "description": "Keep custom 2D canvas view grid rendering and collision mechanics.",
+      "files": ["app/src/main/java/com/retrosnake/app/SnakeView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Game Controller Activity",
+      "description": "Validate game loops, score tracking, and vibration feedback handlers.",
+      "files": ["app/src/main/java/com/retrosnake/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Retro Snake",
+      "description": "Execute final Gradle build and produce signed APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
