@@ -1,0 +1,102 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Diagnose AAPT Resource Linking Error",
+      "description": "Locate and remove invalid Theme.Material.NoTitleBar.Fullscreen reference that caused AAPT2 compilation failure.",
+      "files": [
+        "app/src/main/AndroidManifest.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Built-in Material Theme in Manifest",
+      "description": "Set application and activity theme to @android:style/Theme.Material to ensure native platform compatibility.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Update Styles Resource Definition",
+      "description": "Configure GameTheme with standard @android:style/Theme.Material parent and fullscreen window attributes.",
+      "files": [
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Purge External Dependencies from Gradle",
+      "description": "Remove third-party nanohttpd library from app/build.gradle to comply with pure native Android SDK architecture.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify ToneGenerator and Vibrator Feedback",
+      "description": "Ensure SoundHelper properly leverages system ToneGenerator and Vibrator services.",
+      "files": [
+        "app/src/main/java/com/slicemaster/app/SoundHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Validate Particle Effect Pipeline",
+      "description": "Confirm particle pool initialization, physics acceleration, and alpha fading routine.",
+      "files": [
+        "app/src/main/java/com/slicemaster/app/Particle.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Verify Blade Swipe Geometry",
+      "description": "Validate SliceTrail line segment interpolation and circle intersection collision checks.",
+      "files": [
+        "app/src/main/java/com/slicemaster/app/SliceTrail.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Check Fruit Physics and Separation",
+      "description": "Verify split halves geometry calculation, rotation physics, and fruit rendering code.",
+      "files": [
+        "app/src/main/java/com/slicemaster/app/Fruit.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify SurfaceView Game Loop",
+      "description": "Check thread synchronization, touch dispatching, combo calculation, and HUD drawing in GameView.",
+      "files": [
+        "app/src/main/java/com/slicemaster/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Validate Fullscreen Immersive Lifecycle",
+      "description": "Ensure MainActivity sticky immersive decor flags and window feature requests initialize without title bar.",
+      "files": [
+        "app/src/main/java/com/slicemaster/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Slice Master",
+      "description": "Compile, link resources with AAPT2, and assemble the release APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
