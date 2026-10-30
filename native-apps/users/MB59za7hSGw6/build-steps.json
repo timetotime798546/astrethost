@@ -2,29 +2,27 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure Build Environment",
-      "description": "Set up Gradle build settings, target SDK 34, Java 8 source compatibility, and app-meta configuration.",
+      "title": "Diagnose AAPT Resource Linking Error",
+      "description": "Identify invalid Android platform style Theme.Material.NoTitleBar.Fullscreen in AndroidManifest and styles.xml.",
       "files": [
-        "app/build.gradle",
-        "app-meta.json"
+        "app/src/main/AndroidManifest.xml",
+        "app/src/main/res/values/styles.xml"
       ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Define Application Schemas",
-      "description": "Establish offline api_schema.json and admin_setting_schema.json configurations.",
+      "title": "Fix Game Theme Style Declaration",
+      "description": "Update GameTheme to extend valid @android:style/Theme.Material with fullscreen window flags.",
       "files": [
-        "api_schema.json",
-        "admin_setting_schema.json",
-        "app/src/main/assets/app-meta.json"
+        "app/src/main/res/values/styles.xml"
       ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Application Manifest",
-      "description": "Define AndroidManifest.xml with fullscreen hardware-accelerated game activity and orientation lock.",
+      "title": "Update Application Manifest",
+      "description": "Apply @style/GameTheme to application tag and remove obsolete package attribute to comply with AGP 8.3.2 namespace rules.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -32,19 +30,17 @@
     },
     {
       "step": 4,
-      "title": "Create Color Palette and Theme Styles",
-      "description": "Add dark arcade theme colors, fruit tint constants, and fullscreen style definitions.",
+      "title": "Clean Dependencies in Gradle Script",
+      "description": "Remove unnecessary third-party nanohttpd dependency from app/build.gradle and ensure native-only compilation.",
       "files": [
-        "app/src/main/res/values/colors.xml",
-        "app/src/main/res/values/strings.xml",
-        "app/src/main/res/values/styles.xml"
+        "app/build.gradle"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement Haptic and Audio Effects Helper",
-      "description": "Create SoundHelper for haptic vibration pulses and synthesized audio feedback during slicing and explosions.",
+      "title": "Verify Audio and Haptic Feedback System",
+      "description": "Ensure ToneGenerator and Vibrator mechanics operate properly under the corrected theme context.",
       "files": [
         "app/src/main/java/com/slicemaster/app/SoundHelper.java"
       ],
@@ -52,8 +48,8 @@
     },
     {
       "step": 6,
-      "title": "Create Particle and Juice Splash Engine",
-      "description": "Implement juice droplet particles and bomb fire sparks with realistic physics and alpha fading.",
+      "title": "Validate Particle Rendering Pipeline",
+      "description": "Confirm particle pool physics calculations and alpha fading routines.",
       "files": [
         "app/src/main/java/com/slicemaster/app/Particle.java"
       ],
@@ -61,8 +57,8 @@
     },
     {
       "step": 7,
-      "title": "Implement Touch Blade Trail Mechanics",
-      "description": "Construct swipe gesture tracker with decaying blade trail, glowing neon strokes, and line-segment collision detection.",
+      "title": "Verify Slice Trail Segment Collision",
+      "description": "Confirm swipe trail decay and circle intersection collision checks remain optimized.",
       "files": [
         "app/src/main/java/com/slicemaster/app/SliceTrail.java"
       ],
@@ -70,8 +66,8 @@
     },
     {
       "step": 8,
-      "title": "Design Fruit and Bomb Entity Model",
-      "description": "Develop Fruit class supporting Watermelon, Apple, Banana, Orange, Strawberry, and Bomb with split half rendering and gravity.",
+      "title": "Verify Fruit Geometry and Cutting Logic",
+      "description": "Ensure slicing angle separation forces and half-fruit rendering calculate accurately.",
       "files": [
         "app/src/main/java/com/slicemaster/app/Fruit.java"
       ],
@@ -79,8 +75,8 @@
     },
     {
       "step": 9,
-      "title": "Build Real-Time Game Canvas View",
-      "description": "Develop GameView with 60 FPS game loop, spawning waves, slice hit-testing, combo calculation, screen shake, and HUD rendering.",
+      "title": "Validate Game SurfaceView Loop",
+      "description": "Check thread synchronization, touch event delegation, score tracking, and HUD drawing.",
       "files": [
         "app/src/main/java/com/slicemaster/app/GameView.java"
       ],
@@ -88,26 +84,17 @@
     },
     {
       "step": 10,
-      "title": "Design Main Game Screen Layout",
-      "description": "Create activity_main.xml layout hosting the custom GameView and overlay containers.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Implement Main Game Activity Controller",
-      "description": "Set up MainActivity with fullscreen lifecycle management, high-score handling, and touch event coordination.",
+      "title": "Verify Immersive Activity Lifecycle",
+      "description": "Ensure MainActivity sticky immersive mode operates cleanly with the newly defined Theme.Material parent.",
       "files": [
         "app/src/main/java/com/slicemaster/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 12,
+      "step": 11,
       "title": "Building Slice Master",
-      "description": "Compile, package, and assemble the debug APK for Slice Master.",
+      "description": "Compile, package, link resources, and build the APK release artifact.",
       "files": [],
       "status": "pending"
     }
