@@ -1,0 +1,115 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Build Environment",
+      "description": "Set up Gradle build settings, target SDK 34, Java 8 source compatibility, and app-meta configuration.",
+      "files": [
+        "app/build.gradle",
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Application Schemas",
+      "description": "Establish offline api_schema.json and admin_setting_schema.json configurations.",
+      "files": [
+        "api_schema.json",
+        "admin_setting_schema.json",
+        "app/src/main/assets/app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Application Manifest",
+      "description": "Define AndroidManifest.xml with fullscreen hardware-accelerated game activity and orientation lock.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Color Palette and Theme Styles",
+      "description": "Add dark arcade theme colors, fruit tint constants, and fullscreen style definitions.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Haptic and Audio Effects Helper",
+      "description": "Create SoundHelper for haptic vibration pulses and synthesized audio feedback during slicing and explosions.",
+      "files": [
+        "app/src/main/java/com/slicemaster/app/SoundHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Particle and Juice Splash Engine",
+      "description": "Implement juice droplet particles and bomb fire sparks with realistic physics and alpha fading.",
+      "files": [
+        "app/src/main/java/com/slicemaster/app/Particle.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Touch Blade Trail Mechanics",
+      "description": "Construct swipe gesture tracker with decaying blade trail, glowing neon strokes, and line-segment collision detection.",
+      "files": [
+        "app/src/main/java/com/slicemaster/app/SliceTrail.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Fruit and Bomb Entity Model",
+      "description": "Develop Fruit class supporting Watermelon, Apple, Banana, Orange, Strawberry, and Bomb with split half rendering and gravity.",
+      "files": [
+        "app/src/main/java/com/slicemaster/app/Fruit.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Build Real-Time Game Canvas View",
+      "description": "Develop GameView with 60 FPS game loop, spawning waves, slice hit-testing, combo calculation, screen shake, and HUD rendering.",
+      "files": [
+        "app/src/main/java/com/slicemaster/app/GameView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design Main Game Screen Layout",
+      "description": "Create activity_main.xml layout hosting the custom GameView and overlay containers.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Main Game Activity Controller",
+      "description": "Set up MainActivity with fullscreen lifecycle management, high-score handling, and touch event coordination.",
+      "files": [
+        "app/src/main/java/com/slicemaster/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Slice Master",
+      "description": "Compile, package, and assemble the debug APK for Slice Master.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
