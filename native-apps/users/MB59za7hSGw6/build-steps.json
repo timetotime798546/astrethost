@@ -2,85 +2,93 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure Application Environment",
-      "description": "Set up build configuration, compile targets, and enforce pure Java/SDK architecture without external dependencies.",
-      "files": ["app/build.gradle"],
+      "title": "Define application metadata and project configuration",
+      "description": "Specify app title, package identifier, and runtime environment settings.",
+      "files": ["app-meta.json", "api_schema.json", "admin_setting_schema.json"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Configure Manifest and System Permissions",
-      "description": "Declare install package permissions, external storage access, and custom file provider for package distribution.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Configure Gradle build script",
+      "description": "Configure Gradle 8.5 and Android Gradle Plugin 8.3.2 with Android SDK 34.",
+      "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Define Project Schemas",
-      "description": "Establish local backend and administrative configuration compliance descriptors.",
-      "files": ["api_schema.json", "admin_setting_schema.json"],
+      "title": "Create Android Manifest configuration",
+      "description": "Register MainActivity and set Material Light theme and icon declarations.",
+      "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Implement Native Package Content Provider",
-      "description": "Build custom ContentProvider to serve generated APK files securely to the Android package installer.",
-      "files": ["app/src/main/java/com/aabinstaller/app/ApkFileProvider.java"],
+      "title": "Establish theme styles and color palettes",
+      "description": "Define modern habit tracking color schemes, card backgrounds, and typography styles.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml", "app/src/main/res/values/styles.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Create AAB Bundle Metadata Model",
-      "description": "Model package parameters, manifest versions, dex files, native ABIs, and asset directory counts.",
-      "files": ["app/src/main/java/com/aabinstaller/app/AabBundleInfo.java"],
+      "title": "Build XML shape and progress drawables",
+      "description": "Generate card containers, streak badges, category chips, and custom progress bar drawables.",
+      "files": [
+        "app/src/main/res/drawable/bg_card.xml",
+        "app/src/main/res/drawable/bg_stat_box.xml",
+        "app/src/main/res/drawable/bg_button_primary.xml",
+        "app/src/main/res/drawable/bg_button_secondary.xml",
+        "app/src/main/res/drawable/bg_badge_streak.xml",
+        "app/src/main/res/drawable/bg_chip.xml",
+        "app/src/main/res/drawable/progress_bar_custom.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Build Android Binary XML Processor",
-      "description": "Implement parser and compiler to ensure AndroidManifest.xml conforms to binary RES_XML_TYPE specifications.",
-      "files": ["app/src/main/java/com/aabinstaller/app/BinaryXmlUtil.java"],
+      "title": "Implement Habit data model",
+      "description": "Create data model for habit specifications, categories, frequencies, and timestamped completions.",
+      "files": ["app/src/main/java/com/habitflowtracker/app/model/Habit.java"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Develop APK v1 and v2 Signature Engine",
-      "description": "Implement pure Java RSA key generation, X.509 DER certificate creation, PKCS#7 v1 signing, and APK Signing Block v2 injection.",
-      "files": ["app/src/main/java/com/aabinstaller/app/ApkSignerUtil.java"],
+      "title": "Implement offline Habit calculation engine",
+      "description": "Build native Java algorithms for daily completion rates, current streaks, best streaks, and weekly stats.",
+      "files": ["app/src/main/java/com/habitflowtracker/app/util/HabitCalculator.java"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Implement AAB Archive Remapping Engine",
-      "description": "Remap base/dex, base/res, base/manifest, base/assets, and base/lib directories into standard APK structure.",
-      "files": ["app/src/main/java/com/aabinstaller/app/AabConverter.java"],
+      "title": "Implement persistent Habit storage repository",
+      "description": "Develop JSON-based SharedPreferences storage manager to persist habits and completion history.",
+      "files": ["app/src/main/java/com/habitflowtracker/app/util/HabitStorage.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Installation Session Pipeline",
-      "description": "Handle unknown app installation permissions, Intent ACTION_VIEW fallback, and PackageInstaller commit sessions.",
-      "files": ["app/src/main/java/com/aabinstaller/app/PackageInstallManager.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Design Conversion Dashboard Interface",
-      "description": "Construct Material-themed layout featuring bundle picker, technical inspection card, progress indicator, and live logs.",
+      "title": "Design main dashboard layout",
+      "description": "Construct UI containing daily streak overview, analytics metrics cards, filter tabs, and habit list container.",
       "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
+      "step": 10,
+      "title": "Create habit management dialogs",
+      "description": "Construct interactive modal layouts for adding new habits, editing existing habits, and viewing detailed stats.",
+      "files": ["app/src/main/res/layout/dialog_add_habit.xml", "app/src/main/res/layout/dialog_habit_details.xml"],
+      "status": "pending"
+    },
+    {
       "step": 11,
-      "title": "Integrate Activity Controller & Event Handlers",
-      "description": "Connect SAF file chooser, asynchronous bundle processing, log streaming, and installation actions.",
-      "files": ["app/src/main/java/com/aabinstaller/app/MainActivity.java"],
+      "title": "Implement MainActivity controller",
+      "description": "Connect UI events, dynamic habit card rendering, streak recalculation, and category filtering.",
+      "files": ["app/src/main/java/com/habitflowtracker/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 12,
-      "title": "Building AAB Installer",
-      "description": "Compile sources, verify Android package parameters, and assemble the debug APK.",
+      "title": "Building HabitFlow Tracker",
+      "description": "Assemble and build the final Android habit tracking application.",
       "files": [],
       "status": "pending"
     }

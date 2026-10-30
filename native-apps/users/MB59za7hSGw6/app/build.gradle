@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.aabinstaller.app"
+    namespace "com.habitflowtracker.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.aabinstaller.app"
+        applicationId "com.habitflowtracker.app"
 
         minSdkVersion 21
 

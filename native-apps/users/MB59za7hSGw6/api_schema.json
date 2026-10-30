@@ -2,5 +2,21 @@
   "backend": false,
   "roles": {},
   "collections": {},
-  "logic": {}
+  "logic": {
+    "completion_rate": {
+      "type": "calculation",
+      "inputs": ["completed_count", "total_habits"],
+      "formula": "(completed_count / total_habits) * 100"
+    },
+    "current_streak": {
+      "type": "calculation",
+      "inputs": ["consecutive_days_active"],
+      "formula": "consecutive_days_active"
+    },
+    "weekly_score": {
+      "type": "calculation",
+      "inputs": ["seven_day_completions", "seven_day_targets"],
+      "formula": "(seven_day_completions / seven_day_targets) * 100"
+    }
+  }
 }
