@@ -1,0 +1,95 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Pure Native Build Gradle",
+      "description": "Remove unnecessary third-party dependencies and configure Android Gradle Plugin 8.3.2 with Java 8 compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Cyber Styling & Color Palette",
+      "description": "Establish cyberpunk color palette and full-screen material window styling in XML resource files.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Construct 3D Geometry and Shader Pipeline",
+      "description": "Implement 3D geometric mesh buffers, GLSL vertex/fragment shaders, and transformation matrices for OpenGL ES 2.0.",
+      "files": ["app/src/main/java/com/cyberrunner/app/CyberGeometry.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Develop 3D Endless Runner OpenGL ES Renderer",
+      "description": "Build CyberRenderer implementing 3D camera projection, infinite neon synthwave grid, side buildings, and dynamic depth obstacles.",
+      "files": ["app/src/main/java/com/cyberrunner/app/CyberRenderer.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build CyberGLSurfaceView Touch Controller",
+      "description": "Create specialized GLSurfaceView managing renderer lifecycle, single and double jump physics, and user input handling.",
+      "files": ["app/src/main/java/com/cyberrunner/app/CyberGLSurfaceView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Synthesize Native Procedural Audio Engine",
+      "description": "Implement zero-dependency real-time audio synthesizer for jump impulses, 3D coin picks, and crash effects using AudioTrack.",
+      "files": ["app/src/main/java/com/cyberrunner/app/SoundManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement High Score Persistence Engine",
+      "description": "Establish local storage leaderboard tracking top runs, collected cyber coins, and timestamps via SharedPreferences.",
+      "files": ["app/src/main/java/com/cyberrunner/app/ScoreManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design 3D Heads-Up Display (HUD) Interface",
+      "description": "Create modern cyberpunk overlay layout featuring score, coins, speed gauge, and state banners.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Hall of Fame Leaderboard Layout",
+      "description": "Build high-contrast neon ranking table with rank numbers, scores, coins, and reset capabilities.",
+      "files": ["app/src/main/res/layout/activity_leaderboard.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Integrate Main Game Controller Activity",
+      "description": "Wire GLSurfaceView, audio toggles, HUD updates, and activity lifecycle synchronization in MainActivity.",
+      "files": ["app/src/main/java/com/cyberrunner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Integrate Leaderboard Activity Controller",
+      "description": "Populate dynamic ranking items, date formatting, and clear record management in LeaderboardActivity.",
+      "files": ["app/src/main/java/com/cyberrunner/app/LeaderboardActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Configure Android Manifest Declarations",
+      "description": "Declare hardware-accelerated activities, portrait orientations, and launcher intent filters.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building CyberRunner",
+      "description": "Compile, package, and verify the 3D CyberRunner release APK using Gradle 8.5.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
