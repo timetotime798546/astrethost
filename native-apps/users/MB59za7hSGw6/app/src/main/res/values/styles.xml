@@ -1,0 +1,9 @@
+<resources>
+    <style name="CyberTheme" parent="@android:style/Theme.Material.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:colorPrimary">@color/cyan_neon</item>
+        <item name="android:colorPrimaryDark">@color/bg_dark</item>
+        <item name="android:colorAccent">@color/magenta_neon</item>
+    </style>
+</resources>
