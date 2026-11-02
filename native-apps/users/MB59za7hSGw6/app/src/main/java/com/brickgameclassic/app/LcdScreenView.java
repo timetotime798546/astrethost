@@ -169,14 +169,14 @@ public class LcdScreenView extends View {
     }
 
     private void drawBoardGrid(Canvas canvas, float startX, float startY, float cellSize) {
-        byte[][] board = (engine != null) ? engine.getBoard() : null;
+        int[][] board = (engine != null) ? engine.getBoard() : null;
 
         // Render base board
         for (int r = 0; r < BrickGameEngine.ROWS; r++) {
             for (int c = 0; c < BrickGameEngine.COLS; c++) {
                 float x = startX + c * cellSize;
                 float y = startY + r * cellSize;
-                boolean isFilled = (board != null && board[r][c] == 1);
+                boolean isFilled = (board != null && board[r][c] != 0);
                 drawBrickPixel(canvas, x, y, cellSize, isFilled);
             }
         }

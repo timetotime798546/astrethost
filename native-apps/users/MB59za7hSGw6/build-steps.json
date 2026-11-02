@@ -3,63 +3,63 @@
     {
       "step": 1,
       "title": "Clean Build Script Dependencies",
-      "description": "Purge non-standard external dependencies from build.gradle to ensure 100% Android SDK native compliance.",
+      "description": "Remove non-standard third-party dependencies from build.gradle to ensure 100% native Android SDK compliance.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Resolve Missing Color Resource References",
-      "description": "Define text_shell_label, shell_screen_frame, and shell_blue_dark color definitions in colors.xml to resolve AAPT2 linking failure.",
-      "files": ["app/src/main/res/values/colors.xml"],
+      "title": "Fix Board Grid Type in LCD View",
+      "description": "Correct board matrix type from byte[][] to int[][] in LcdScreenView to resolve compilation failure with BrickGameEngine.getBoard().",
+      "files": ["app/src/main/java/com/brickgameclassic/app/LcdScreenView.java"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Optimize Manifest Declarations",
-      "description": "Streamline AndroidManifest.xml for Android Gradle Plugin 8.3 namespace compliance.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Verify Color Resources",
+      "description": "Confirm text_shell_label, shell_screen_frame, and arcade palette colors are defined.",
+      "files": ["app/src/main/res/values/colors.xml"],
       "status": "pending"
     },
     {
       "step": 4,
       "title": "Verify 3D Vector Math Pipeline",
-      "description": "Confirm pitch and yaw transformation matrices and perspective depth projection.",
+      "description": "Validate 3D vector transformations, pitch and yaw rotations, and dot product calculations.",
       "files": ["app/src/main/java/com/brickgameclassic/app/Vector3D.java"],
       "status": "pending"
     },
     {
       "step": 5,
       "title": "Verify Polygon Depth Sorter",
-      "description": "Ensure Painter's depth sorting algorithm correctly rasterizes voxel cubes and transparent wireframe walls.",
+      "description": "Ensure Painter's depth sorting correctly arranges polygons from furthest to nearest.",
       "files": ["app/src/main/java/com/brickgameclassic/app/PolyFace3D.java"],
       "status": "pending"
     },
     {
       "step": 6,
       "title": "Verify Tetromino Topologies",
-      "description": "Confirm 7 classic tetromino shapes, rotations, and neon RGB palette assignments.",
+      "description": "Check classic 7 tetromino rotational matrices and neon color definitions.",
       "files": ["app/src/main/java/com/brickgameclassic/app/Tetromino.java"],
       "status": "pending"
     },
     {
       "step": 7,
       "title": "Verify Core Game Engine",
-      "description": "Check collision detection, line clear scoring, level speed progression, and ghost projection.",
+      "description": "Validate collision detection, line clear scoring, gravity loop, and drop mechanics.",
       "files": ["app/src/main/java/com/brickgameclassic/app/BrickGameEngine.java"],
       "status": "pending"
     },
     {
       "step": 8,
       "title": "Verify 3D Viewport Rendering",
-      "description": "Validate 3D glass cage rendering, directional Lambertian shading, and touch camera orbital navigation.",
+      "description": "Confirm 3D glass cage rendering, directional Lambertian lighting, and touch orbital camera.",
       "files": ["app/src/main/java/com/brickgameclassic/app/GameView3D.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Verify Audio Tone Synthesis",
-      "description": "Validate fail-safe 8-bit sound tones for rotations, movement, and line clears.",
+      "title": "Verify Retro Tone Audio",
+      "description": "Confirm safe 8-bit ToneGenerator synthesis for piece movement, rotation, and line clears.",
       "files": ["app/src/main/java/com/brickgameclassic/app/SoundManager.java"],
       "status": "pending"
     },
