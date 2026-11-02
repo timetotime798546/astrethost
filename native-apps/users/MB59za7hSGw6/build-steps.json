@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Application Metadata",
+      "description": "Initialize app-meta.json and admin settings schema for Brick Game Classic.",
+      "files": ["app-meta.json", "admin_setting_schema.json", "api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Gradle Build Script",
+      "description": "Set up Gradle build file with SDK 34, Java 8 compatibility, and zero external dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Android Manifest",
+      "description": "Define application manifest with orientation locking, full hardware acceleration, and standard icon.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Color Palette & Theme Resources",
+      "description": "Define retro handheld plastic shell colors, LCD matrix tints, and control button styles.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Button and Shell Drawables",
+      "description": "Design vector and shape drawables for tactile game buttons, D-pad, and console shell borders.",
+      "files": ["app/src/main/res/drawable/btn_round_yellow.xml", "app/src/main/res/drawable/btn_round_cyan.xml", "app/src/main/res/drawable/btn_small_pill.xml", "app/src/main/res/drawable/lcd_bezel_background.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Retro Audio Synthesizer",
+      "description": "Implement SoundManager using Android ToneGenerator for authentic 8-bit piezo buzzer sounds.",
+      "files": ["app/src/main/java/com/brickgameclassic/app/SoundManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Tetromino Shapes & Game Logic Engine",
+      "description": "Develop full brick game logic including rotation matrix, collision detection, and line clears.",
+      "files": ["app/src/main/java/com/brickgameclassic/app/Tetromino.java", "app/src/main/java/com/brickgameclassic/app/BrickGameEngine.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Authentic LCD Screen Custom View",
+      "description": "Develop high-fidelity monochrome segmented LCD screen view drawing matrix cells and side panels.",
+      "files": ["app/src/main/java/com/brickgameclassic/app/LcdScreenView.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Handheld Console Layout",
+      "description": "Compose layout with authentic blue handheld casing, screen bezels, speaker grille, and arcade buttons.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Main Handheld Game Activity",
+      "description": "Hook up game loop, touch controls, high score persistence, and game state transitions.",
+      "files": ["app/src/main/java/com/brickgameclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Brick Game Classic",
+      "description": "Compile debug APK using Gradle build tools.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
