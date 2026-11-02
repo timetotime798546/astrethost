@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_arcade_dark"
+    android:gravity="center_horizontal"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <!-- Top Header: Title & Camera Switcher & Status -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/lbl_branding"
+            android:textColor="@color/neon_cyan"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <Button
+            android:id="@+id/btnCamPreset"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/btn_small_pill"
+            android:text="@string/lbl_cam"
+            android:textColor="@color/neon_cyan"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp" />
+    </LinearLayout>
+
+    <!-- Score HUD Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/bg_arcade_card"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="center_vertical">
+
+        <!-- Score -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_score"
+                android:textColor="@color/text_dim"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txtScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000000"
+                android:textColor="@color/neon_cyan"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Hi-Score -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_hi_score"
+                android:textColor="@color/text_dim"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txtHiScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000000"
+                android:textColor="@color/neon_yellow"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Level -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_level"
+                android:textColor="@color/text_dim"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txtLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/text_bright"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Lines -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_lines"
+                android:textColor="@color/text_dim"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txtLines"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/text_bright"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 3D Game Surface Viewport (Swipe / drag on screen to orbit camera) -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3">
+
+        <com.brickgameclassic.app.GameView3D
+            android:id="@+id/gameView3D"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <!-- Secondary Console Buttons: Reset, Sound, Start/Pause -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="6dp">
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/btn_small_pill"
+            android:text="@string/lbl_reset"
+            android:textColor="@color/text_dim"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:layout_marginRight="12dp" />
+
+        <Button
+            android:id="@+id/btnSound"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/btn_small_pill"
+            android:text="SOUND: ON"
+            android:textColor="@color/text_dim"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:layout_marginRight="12dp" />
+
+        <Button
+            android:id="@+id/btnStartPause"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/btn_small_pill"
+            android:text="@string/lbl_start_pause"
+            android:textColor="@color/neon_cyan"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
+    </LinearLayout>
+
+    <!-- Bottom Arcade Action Controls Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:baselineAligned="false">
+
+        <!-- D-PAD Cluster (Left) -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <!-- Hard Drop (Top of D-Pad) -->
+            <Button
+                android:id="@+id/btnHardDrop"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/btn_round_yellow"
+                android:text="▲"
+                android:textColor="@color/neon_yellow"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Left Button -->
+            <Button
+                android:id="@+id/btnLeft"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn_round_yellow"
+                android:text="◀"
+                android:textColor="@color/text_bright"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Soft Down Button -->
+            <Button
+                android:id="@+id/btnDown"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/btn_round_yellow"
+                android:text="▼"
+                android:textColor="@color/text_bright"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Right Button -->
+            <Button
+                android:id="@+id/btnRight"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn_round_yellow"
+                android:text="▶"
+                android:textColor="@color/text_bright"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Right Side: Big 3D ROTATE Button -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.85"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnRotate"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:background="@drawable/btn_round_cyan"
+                android:text="@string/lbl_rotate"
+                android:textColor="@color/bg_arcade_dark"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,87 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Clean Build Script Dependencies",
+      "description": "Purge non-standard external dependencies from build.gradle to ensure 100% Android SDK native compliance.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure 3D Coordinate and Matrix Math Engine",
+      "description": "Implement pure Java 3D vector transformations, rotation matrices (Yaw/Pitch), perspective projection, and Lambertian lighting calculations.",
+      "files": ["app/src/main/java/com/brickgameclassic/app/Vector3D.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement 3D Cube and Polygon Depth Sorter",
+      "description": "Create 3D polyhedral face structures with normal vectors, back-face culling, and Painter's algorithm depth sorting.",
+      "files": ["app/src/main/java/com/brickgameclassic/app/PolyFace3D.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Upgrade Tetromino Piece Architecture",
+      "description": "Assign distinct vibrant 3D color themes and matrix topologies to each tetromino shape.",
+      "files": ["app/src/main/java/com/brickgameclassic/app/Tetromino.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Upgrade Brick Game Logic Engine",
+      "description": "Add 3D color metadata to placed blocks, ghost piece destination calculation, and 3D line clear events.",
+      "files": ["app/src/main/java/com/brickgameclassic/app/BrickGameEngine.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create High-Performance 3D Game Viewport",
+      "description": "Build GameView3D with 3D glass cage, illuminated 3D tetrominoes, real-time touch camera orbital rotation, 3D ghost projection, and line explosion particles.",
+      "files": ["app/src/main/java/com/brickgameclassic/app/GameView3D.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Update 3D Color Palettes and Styling",
+      "description": "Define rich 3D shading tones, neon accents, dark arcade background colors, and control button drawables.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/drawable/btn_round_cyan.xml",
+        "app/src/main/res/drawable/btn_round_yellow.xml",
+        "app/src/main/res/drawable/btn_small_pill.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Refactor Layout for 3D Arcade Gameplay",
+      "description": "Integrate 3D viewport, camera perspective switchers, floating HUD overlay, and responsive arcade controls.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Refine Audio Synthesis Engine",
+      "description": "Safely manage 8-bit sound tones for rotations, movement, 3D drops, and multi-line clearances.",
+      "files": ["app/src/main/java/com/brickgameclassic/app/SoundManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Integrate 3D Camera Controls and Activity Lifecycle",
+      "description": "Connect interactive 3D rotation, camera preset toggles, high score persistence, and continuous touch controls in MainActivity.",
+      "files": ["app/src/main/java/com/brickgameclassic/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Brick Game Classic",
+      "description": "Compile debug APK using Gradle build tools.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
