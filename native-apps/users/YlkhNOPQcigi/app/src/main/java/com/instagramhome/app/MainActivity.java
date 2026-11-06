@@ -212,7 +212,7 @@ public class MainActivity extends Activity {
         TextView userTxt = new TextView(this);
         userTxt.setText(post.username);
         userTxt.setTextSize(14sp);
-        userTxt.setTextStyle(android.graphics.Typeface.BOLD);
+        userTxt.setTypeface(null, android.graphics.Typeface.BOLD);
         userTxt.setTextColor(Color.parseColor("#262626"));
         LinearLayout.LayoutParams userLp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
         userLp.setMargins(20, 0, 0, 0);
@@ -266,7 +266,7 @@ public class MainActivity extends Activity {
         final TextView likesTxt = new TextView(this);
         likesTxt.setText(post.likesCount + " likes");
         likesTxt.setTextSize(13sp);
-        likesTxt.setTextStyle(android.graphics.Typeface.BOLD);
+        likesTxt.setTypeface(null, android.graphics.Typeface.BOLD);
         likesTxt.setTextColor(Color.parseColor("#262626"));
         likesTxt.setPadding(24, 0, 24, 4);
         card.addView(likesTxt);
@@ -348,7 +348,7 @@ public class MainActivity extends Activity {
                         });
                     }
                 } catch (Exception e) {
-                    // Silently retain fallback background
+                    // Retain fallback background
                 }
             }
         }).start();

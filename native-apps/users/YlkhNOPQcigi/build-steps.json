@@ -12,8 +12,8 @@
     },
     {
       "step": 2,
-      "title": "Configure Manifest and Permissions",
-      "description": "Adding internet permissions and launcher activity configuration.",
+      "title": "Clean Manifest and Permissions Settings",
+      "description": "Configuring network permissions and launcher activity without redundant package declarations.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -21,8 +21,8 @@
     },
     {
       "step": 3,
-      "title": "Define Gradle Dependencies and Target SDK",
-      "description": "Configuring build settings with SDK 34 without external libraries.",
+      "title": "Configure Gradle Dependencies and Target SDK",
+      "description": "Setting SDK 34 compatibility and removing external dependencies.",
       "files": [
         "app/build.gradle"
       ],
@@ -31,7 +31,7 @@
     {
       "step": 4,
       "title": "Define API and Admin Setting Schemas",
-      "description": "Setting up local schema specifications.",
+      "description": "Configuring offline schema specifications for Instagram Home.",
       "files": [
         "api_schema.json",
         "admin_setting_schema.json"
@@ -40,8 +40,8 @@
     },
     {
       "step": 5,
-      "title": "Design Instagram Header and Story Tray Layout",
-      "description": "Creating top action bar and horizontal scrolling story view.",
+      "title": "Fix Layout XML Attributes and Navigation Bar",
+      "description": "Removing invalid border attributes and standardizing AAPT resource linking.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -50,16 +50,16 @@
     {
       "step": 6,
       "title": "Implement Native Image Loader",
-      "description": "Building thread-safe background HTTP image loader with caching.",
+      "description": "Ensuring background image downloading and LRU memory caching.",
       "files": [
-        "app/src/main/java/com/instagramhome/app/MainActivity.java"
+        "app/src/main/java/com/instagramhome/app/ImageLoader.java"
       ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Construct Interactive Feed Controller",
-      "description": "Populating Instagram feed items dynamically with likes and comments.",
+      "title": "Construct Interactive Instagram Home Feed",
+      "description": "Populating stories tray and post feed items with interactive elements.",
       "files": [
         "app/src/main/java/com/instagramhome/app/MainActivity.java"
       ],
@@ -67,8 +67,8 @@
     },
     {
       "step": 8,
-      "title": "Integrate Direct Instagram Web Launcher",
-      "description": "Adding seamless connection button to load instagram.com directly.",
+      "title": "Integrate Direct Instagram Web Intent Launcher",
+      "description": "Providing seamless link handling to open instagram.com in browser.",
       "files": [
         "app/src/main/java/com/instagramhome/app/MainActivity.java"
       ],
@@ -76,8 +76,8 @@
     },
     {
       "step": 9,
-      "title": "Final Verification and App Compilation",
-      "description": "Validating project integrity and preparing build outputs.",
+      "title": "Perform Pre-Compilation Validation",
+      "description": "Verifying resources, layout tags, and Java 8 compatibility.",
       "files": [],
       "status": "pending"
     },
