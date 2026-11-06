@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Facebook Home Project",
+      "description": "Setting up workspace dependencies, package configurations, and project structure.",
+      "files": ["app-meta.json", "app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Android Manifest & Permissions",
+      "description": "Declaring network permissions, application theme, and main activity entries.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define Application Theme & Color Palette",
+      "description": "Configuring classic social platform color scheme including brand blue, backgrounds, and text styles.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Setup Backend API & Data Schemas",
+      "description": "Declaring remote API collection rules, administrative configurations, and dynamic logic.",
+      "files": ["api_schema.json", "admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Backend API Client",
+      "description": "Creating native network communication client for user authentication, posts stream, and data syncing.",
+      "files": ["app/src/main/java/com/facebookhome/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Data Models & Helpers",
+      "description": "Building data structures for posts, user profiles, and feed items.",
+      "files": ["app/src/main/java/com/facebookhome/app/PostModel.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design User Authentication UI",
+      "description": "Constructing clean registration and login screens for user onboarding.",
+      "files": ["app/src/main/res/layout/activity_login.xml", "app/src/main/java/com/facebookhome/app/LoginActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Stories & Post Item Layouts",
+      "description": "Creating reusable view components for stories horizontal feed and main timeline post cards.",
+      "files": ["app/src/main/res/layout/item_story.xml", "app/src/main/res/layout/item_post.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Main Dashboard & Feed View",
+      "description": "Constructing top navigation header, compose post input box, multi-tab layout, and main feed container.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Main Activity Business Logic",
+      "description": "Coding post creation, timeline rendering, dynamic likes, external web launcher, and tab navigation.",
+      "files": ["app/src/main/java/com/facebookhome/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Synchronize App Assets",
+      "description": "Embedding metadata assets for runtime app_id resolution.",
+      "files": ["app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building Facebook home",
+      "description": "Compiling resource layouts, Java classes, and assembling debug APK build.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

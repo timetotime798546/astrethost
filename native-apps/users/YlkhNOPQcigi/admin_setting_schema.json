@@ -1,0 +1,19 @@
+{
+  "app_id": "facebook_home_app_v1",
+  "admin_setting_schema": {
+    "welcome_banner": {
+      "type": "string",
+      "label": "Welcome Announcement",
+      "default": "Welcome to Facebook Home!"
+    },
+    "facebook_url": {
+      "type": "string",
+      "label": "Facebook Web Portal Link",
+      "default": "https://www.facebook.com"
+    }
+  },
+  "initial_values": {
+    "welcome_banner": "Welcome to Facebook Home!",
+    "facebook_url": "https://www.facebook.com"
+  }
+}
