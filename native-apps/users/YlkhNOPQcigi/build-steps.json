@@ -1,0 +1,86 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize App Metadata",
+      "description": "Configure package com.instafeedapp.app and app specifications.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Database and API Schema",
+      "description": "Set up collections for Instagram posts and user interactions.",
+      "files": ["api_schema.json", "admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Build",
+      "description": "Setup target SDK 34 and native Java standard build dependencies.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure Manifest Permissions",
+      "description": "Declare internet permissions and MainActivity standard declaration.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Color and String Resources",
+      "description": "Create standard UI palette matching modern social feeds.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Native Image Loader Helper",
+      "description": "Implement async HTTP image fetcher with memory caching without third party dependencies.",
+      "files": ["app/src/main/java/com/instafeedapp/app/ImageLoader.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Generic API Client",
+      "description": "Connect to REST backend using standard HttpURLConnection and JSON parsing.",
+      "files": ["app/src/main/java/com/instafeedapp/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build XML Layout Components",
+      "description": "Construct main feed layout, story bar, post items, and post creation dialogs.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/res/layout/item_post.xml",
+        "app/src/main/res/layout/dialog_add_post.xml",
+        "app/src/main/res/layout/dialog_auth.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Define Data Models",
+      "description": "Create Java model for post records and interactive state management.",
+      "files": ["app/src/main/java/com/instafeedapp/app/PostItem.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Main Feed Logic",
+      "description": "Wire layout elements, stories, like counters, post publishing, and user authentication.",
+      "files": ["app/src/main/java/com/instafeedapp/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Insta Feed App",
+      "description": "Assemble final APK package.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
