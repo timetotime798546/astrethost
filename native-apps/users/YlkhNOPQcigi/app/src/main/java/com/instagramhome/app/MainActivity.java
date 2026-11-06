@@ -191,14 +191,14 @@ public class MainActivity extends Activity {
             avatar.setLayoutParams(new FrameLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             avatar.setText(story.emoji);
-            avatar.setTextSize(26sp());
+            avatar.setTextSize(26f);
             avatar.setGravity(Gravity.CENTER);
             avatar.setBackgroundColor(Color.WHITE);
             ring.addView(avatar);
 
             TextView tvName = new TextView(this);
             tvName.setText(story.username);
-            tvName.setTextSize(11sp());
+            tvName.setTextSize(11f);
             tvName.setTextColor(Color.parseColor("#262626"));
             tvName.setGravity(Gravity.CENTER);
             tvName.setPadding(0, 8, 0, 0);
@@ -225,7 +225,7 @@ public class MainActivity extends Activity {
         if (postsToDisplay.isEmpty()) {
             TextView emptyText = new TextView(this);
             emptyText.setText("No posts found matching your search.");
-            emptyText.setTextSize(14sp());
+            emptyText.setTextSize(14f);
             emptyText.setTextColor(Color.GRAY);
             emptyText.setGravity(Gravity.CENTER);
             emptyText.setPadding(0, 60, 0, 60);
@@ -252,7 +252,7 @@ public class MainActivity extends Activity {
 
             TextView userAvatar = new TextView(this);
             userAvatar.setText(post.userEmoji);
-            userAvatar.setTextSize(20sp());
+            userAvatar.setTextSize(20f);
             userAvatar.setPadding(0, 0, 12, 0);
 
             LinearLayout userMeta = new LinearLayout(this);
@@ -264,12 +264,12 @@ public class MainActivity extends Activity {
             TextView tvUsername = new TextView(this);
             tvUsername.setText(post.username);
             tvUsername.setTypeface(null, Typeface.BOLD);
-            tvUsername.setTextSize(14sp());
+            tvUsername.setTextSize(14f);
             tvUsername.setTextColor(Color.BLACK);
 
             TextView tvLocation = new TextView(this);
             tvLocation.setText(post.location);
-            tvLocation.setTextSize(11sp());
+            tvLocation.setTextSize(11f);
             tvLocation.setTextColor(Color.GRAY);
 
             userMeta.addView(tvUsername);
@@ -277,7 +277,7 @@ public class MainActivity extends Activity {
 
             TextView btnMore = new TextView(this);
             btnMore.setText("•••");
-            btnMore.setTextSize(14sp());
+            btnMore.setTextSize(14f);
             btnMore.setTextColor(Color.BLACK);
             btnMore.setPadding(8, 8, 8, 8);
 
@@ -296,7 +296,7 @@ public class MainActivity extends Activity {
             mediaEmoji.setLayoutParams(new FrameLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             mediaEmoji.setText(post.imageEmoji);
-            mediaEmoji.setTextSize(64sp());
+            mediaEmoji.setTextSize(64f);
             mediaEmoji.setGravity(Gravity.CENTER);
             mediaEmoji.setTextColor(Color.WHITE);
             mediaCanvas.addView(mediaEmoji);
@@ -329,7 +329,7 @@ public class MainActivity extends Activity {
 
             final Button btnLike = new Button(this);
             btnLike.setText(post.isLiked ? "❤️" : "🤍");
-            btnLike.setTextSize(18sp());
+            btnLike.setTextSize(18f);
             btnLike.setBackgroundColor(Color.TRANSPARENT);
             btnLike.setLayoutParams(new LinearLayout.LayoutParams(110, 100));
 
@@ -348,7 +348,7 @@ public class MainActivity extends Activity {
 
             final Button btnComment = new Button(this);
             btnComment.setText("💬");
-            btnComment.setTextSize(18sp());
+            btnComment.setTextSize(18f);
             btnComment.setBackgroundColor(Color.TRANSPARENT);
             btnComment.setLayoutParams(new LinearLayout.LayoutParams(110, 100));
 
@@ -361,7 +361,7 @@ public class MainActivity extends Activity {
 
             Button btnShare = new Button(this);
             btnShare.setText("✈️");
-            btnShare.setTextSize(18sp());
+            btnShare.setTextSize(18f);
             btnShare.setBackgroundColor(Color.TRANSPARENT);
             btnShare.setLayoutParams(new LinearLayout.LayoutParams(110, 100));
             btnShare.setOnClickListener(new View.OnClickListener() {
@@ -376,7 +376,7 @@ public class MainActivity extends Activity {
 
             final Button btnBookmark = new Button(this);
             btnBookmark.setText(post.isSaved ? "🔖" : "🏷️");
-            btnBookmark.setTextSize(18sp());
+            btnBookmark.setTextSize(18f);
             btnBookmark.setBackgroundColor(Color.TRANSPARENT);
             btnBookmark.setLayoutParams(new LinearLayout.LayoutParams(110, 100));
 
@@ -401,7 +401,7 @@ public class MainActivity extends Activity {
             TextView tvLikes = new TextView(this);
             tvLikes.setText(post.likesCount + " likes");
             tvLikes.setTypeface(null, Typeface.BOLD);
-            tvLikes.setTextSize(13sp());
+            tvLikes.setTextSize(13f);
             tvLikes.setTextColor(Color.BLACK);
             tvLikes.setPadding(16, 0, 16, 4);
             postCard.addView(tvLikes);
@@ -413,7 +413,7 @@ public class MainActivity extends Activity {
 
             TextView tvCaption = new TextView(this);
             tvCaption.setText(post.username + " " + post.caption);
-            tvCaption.setTextSize(13sp());
+            tvCaption.setTextSize(13f);
             tvCaption.setTextColor(Color.BLACK);
             captionLayout.addView(tvCaption);
             postCard.addView(captionLayout);
@@ -422,7 +422,7 @@ public class MainActivity extends Activity {
             if (!post.comments.isEmpty()) {
                 TextView tvViewComments = new TextView(this);
                 tvViewComments.setText("View all " + post.comments.size() + " comments");
-                tvViewComments.setTextSize(12sp());
+                tvViewComments.setTextSize(12f);
                 tvViewComments.setTextColor(Color.GRAY);
                 tvViewComments.setPadding(16, 2, 16, 4);
 
@@ -438,7 +438,7 @@ public class MainActivity extends Activity {
                 // Show latest comment snippet
                 TextView tvLatestComment = new TextView(this);
                 tvLatestComment.setText(post.comments.get(post.comments.size() - 1));
-                tvLatestComment.setTextSize(12sp());
+                tvLatestComment.setTextSize(12f);
                 tvLatestComment.setTextColor(Color.parseColor("#333333"));
                 tvLatestComment.setPadding(16, 0, 16, 4);
                 postCard.addView(tvLatestComment);
@@ -447,7 +447,7 @@ public class MainActivity extends Activity {
             // 7. Time Stamp
             TextView tvTime = new TextView(this);
             tvTime.setText(post.timeAgo);
-            tvTime.setTextSize(10sp());
+            tvTime.setTextSize(10f);
             tvTime.setTextColor(Color.GRAY);
             tvTime.setPadding(16, 2, 16, 12);
             postCard.addView(tvTime);
@@ -468,7 +468,7 @@ public class MainActivity extends Activity {
         for (String c : post.comments) {
             TextView commentItem = new TextView(this);
             commentItem.setText("• " + c);
-            commentItem.setTextSize(13sp());
+            commentItem.setTextSize(13f);
             commentItem.setTextColor(Color.BLACK);
             commentItem.setPadding(0, 6, 0, 6);
             layout.addView(commentItem);
@@ -476,7 +476,7 @@ public class MainActivity extends Activity {
 
         final EditText etNewComment = new EditText(this);
         etNewComment.setHint("Add a comment as instagram_user...");
-        etNewComment.setTextSize(13sp());
+        etNewComment.setTextSize(13f);
         layout.addView(etNewComment);
 
         builder.setView(layout);
@@ -500,7 +500,7 @@ public class MainActivity extends Activity {
 
         TextView header = new TextView(this);
         header.setText("Explore Trending Content");
-        header.setTextSize(18sp());
+        header.setTextSize(18f);
         header.setTypeface(null, Typeface.BOLD);
         header.setTextColor(Color.BLACK);
         header.setPadding(12, 16, 12, 16);
@@ -528,7 +528,7 @@ public class MainActivity extends Activity {
 
             TextView emojiView = new TextView(this);
             emojiView.setText(exploreEmojis[i]);
-            emojiView.setTextSize(36sp());
+            emojiView.setTextSize(36f);
             emojiView.setGravity(Gravity.CENTER);
             tile.addView(emojiView);
 
@@ -557,7 +557,7 @@ public class MainActivity extends Activity {
 
         TextView avatar = new TextView(this);
         avatar.setText("👤");
-        avatar.setTextSize(48sp());
+        avatar.setTextSize(48f);
         avatar.setPadding(16, 16, 24, 16);
         avatar.setBackgroundColor(Color.parseColor("#F3F4F6"));
 
@@ -579,12 +579,12 @@ public class MainActivity extends Activity {
         TextView tvName = new TextView(this);
         tvName.setText("Instagram Developer");
         tvName.setTypeface(null, Typeface.BOLD);
-        tvName.setTextSize(14sp());
+        tvName.setTextSize(14f);
         tvName.setTextColor(Color.BLACK);
 
         TextView tvBio = new TextView(this);
         tvBio.setText("🚀 Android Native Application Developer\n📸 Photography & Mobile UI Enthusiast\n📍 San Francisco, CA");
-        tvBio.setTextSize(13sp());
+        tvBio.setTextSize(13f);
         tvBio.setTextColor(Color.parseColor("#333333"));
         tvBio.setPadding(0, 4, 0, 16);
 
@@ -594,7 +594,7 @@ public class MainActivity extends Activity {
         // Edit Profile Button
         Button btnEditProfile = new Button(this);
         btnEditProfile.setText("Edit Profile");
-        btnEditProfile.setTextSize(13sp());
+        btnEditProfile.setTextSize(13f);
         btnEditProfile.setBackgroundColor(Color.parseColor("#EFEFEF"));
         btnEditProfile.setTextColor(Color.BLACK);
         btnEditProfile.setOnClickListener(new View.OnClickListener() {
@@ -615,12 +615,12 @@ public class MainActivity extends Activity {
         TextView tvCount = new TextView(this);
         tvCount.setText(count);
         tvCount.setTypeface(null, Typeface.BOLD);
-        tvCount.setTextSize(16sp());
+        tvCount.setTextSize(16f);
         tvCount.setTextColor(Color.BLACK);
 
         TextView tvLabel = new TextView(this);
         tvLabel.setText(label);
-        tvLabel.setTextSize(12sp());
+        tvLabel.setTextSize(12f);
         tvLabel.setTextColor(Color.GRAY);
 
         col.addView(tvCount);
@@ -715,26 +715,4 @@ public class MainActivity extends Activity {
 
         targetView.setVisibility(View.VISIBLE);
     }
-
-    private float spToPx(float sp) {
-        return sp * getResources().getDisplayMetrics().scaledDensity;
-    }
-
-    private float sp2px(float sp) {
-        return spToPx(sp);
-    }
-
-    private float 14sp() { return 14; }
-    private float 11sp() { return 11; }
-    private float 12sp() { return 12; }
-    private float 13sp() { return 13; }
-    private float 10sp() { return 10; }
-    private float 16sp() { return 16; }
-    private float 18sp() { return 18; }
-    private float 20sp() { return 20; }
-    private float 24sp() { return 24; }
-    private float 26sp() { return 26; }
-    private float 36sp() { return 36; }
-    private float 48sp() { return 48; }
-    private float 64sp() { return 64; }
 }
