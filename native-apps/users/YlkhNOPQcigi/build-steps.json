@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project Configuration",
+      "description": "Setting up core directory structure and application parameters.",
+      "files": [
+        "app-meta.json",
+        "build-steps.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Manifest and Permissions",
+      "description": "Adding internet permissions and launcher activity configuration.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define Gradle Dependencies and Target SDK",
+      "description": "Configuring build settings with SDK 34 without external libraries.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define API and Admin Setting Schemas",
+      "description": "Setting up local schema specifications.",
+      "files": [
+        "api_schema.json",
+        "admin_setting_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Instagram Header and Story Tray Layout",
+      "description": "Creating top action bar and horizontal scrolling story view.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Native Image Loader",
+      "description": "Building thread-safe background HTTP image loader with caching.",
+      "files": [
+        "app/src/main/java/com/instagramhome/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Construct Interactive Feed Controller",
+      "description": "Populating Instagram feed items dynamically with likes and comments.",
+      "files": [
+        "app/src/main/java/com/instagramhome/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Integrate Direct Instagram Web Launcher",
+      "description": "Adding seamless connection button to load instagram.com directly.",
+      "files": [
+        "app/src/main/java/com/instagramhome/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Final Verification and App Compilation",
+      "description": "Validating project integrity and preparing build outputs.",
+      "files": [],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building instagram home",
+      "description": "Compiling final native package for deployment.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
