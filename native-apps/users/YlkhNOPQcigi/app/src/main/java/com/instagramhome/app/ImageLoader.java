@@ -14,17 +14,15 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ImageLoader {
+
     private static ImageLoader instance;
-    private LruCache<String, Bitmap> memoryCache;
-    private ExecutorService executorService;
-    private Handler mainHandler;
+    private final LruCache<String, Bitmap> memoryCache;
+    private final ExecutorService executorService;
+    private final Handler mainHandler;
 
     private ImageLoader() {
         int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
         int cacheSize = maxMemory / 8;
-        if (cacheSize <= 0) {
-            cacheSize = 1024 * 8;
-        }
         memoryCache = new LruCache<String, Bitmap>(cacheSize) {
             @Override
             protected int sizeOf(String key, Bitmap bitmap) {
@@ -42,13 +40,13 @@ public class ImageLoader {
         return instance;
     }
 
-    public void loadImage(final String urlString, final ImageView imageView) {
-        if (urlString == null || urlString.trim().isEmpty()) {
+    public void displayImage(final String url, final ImageView imageView) {
+        if (url == null || url.length() == 0) {
             return;
         }
 
-        imageView.setTag(urlString);
-        Bitmap cachedBitmap = memoryCache.get(urlString);
+        imageView.setTag(url);
+        Bitmap cachedBitmap = memoryCache.get(url);
         if (cachedBitmap != null) {
             imageView.setImageBitmap(cachedBitmap);
             return;
@@ -57,33 +55,42 @@ public class ImageLoader {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                try {
-                    URL url = new URL(urlString);
-                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                    conn.setDoInput(true);
-                    conn.setConnectTimeout(8000);
-                    conn.setReadTimeout(8000);
-                    conn.connect();
-
-                    InputStream input = conn.getInputStream();
-                    final Bitmap bitmap = BitmapFactory.decodeStream(input);
-                    input.close();
-
-                    if (bitmap != null) {
-                        memoryCache.put(urlString, bitmap);
-                        mainHandler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (urlString.equals(imageView.getTag())) {
-                                    imageView.setImageBitmap(bitmap);
-                                }
+                final Bitmap bitmap = downloadBitmap(url);
+                if (bitmap != null) {
+                    memoryCache.put(url, bitmap);
+                    mainHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (url.equals(imageView.getTag())) {
+                                imageView.setImageBitmap(bitmap);
                             }
-                        });
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                        }
+                    });
                 }
             }
         });
+    }
+
+    private Bitmap downloadBitmap(String urlStr) {
+        InputStream input = null;
+        HttpURLConnection connection = null;
+        try {
+            URL url = new URL(urlStr);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(8000);
+            connection.setReadTimeout(8000);
+            connection.setInstanceFollowRedirects(true);
+            connection.connect();
+            input = connection.getInputStream();
+            return BitmapFactory.decodeStream(input);
+        } catch (Exception e) {
+            return null;
+        } finally {
+            try {
+                if (input != null) input.close();
+                if (connection != null) connection.disconnect();
+            } catch (Exception ignored) {
+            }
+        }
     }
 }

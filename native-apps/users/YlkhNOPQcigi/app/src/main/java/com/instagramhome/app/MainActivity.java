@@ -1,61 +1,92 @@
 package com.instagramhome.app;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
-import android.net.Uri;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends Activity {
 
-    private static final String INSTAGRAM_URL = "https://www.instagram.com";
-
     private LinearLayout storiesContainer;
     private LinearLayout postsContainer;
-    private Handler mainHandler;
+    private LinearLayout exploreGridContainer;
+    private LinearLayout profileContainer;
+    
+    private ScrollView feedScrollView;
+    private ScrollView exploreScrollView;
+    private ScrollView profileScrollView;
+    
+    private EditText etSearch;
+    private Button btnNotifications;
+    private Button btnDirectMessage;
+    
+    private Button navHome;
+    private Button navSearch;
+    private Button navAdd;
+    private Button navReels;
+    private Button navProfile;
 
-    private static class PostModel {
+    private List<PostModel> allPosts;
+    private List<StoryModel> allStories;
+
+    private static class StoryModel {
         String username;
-        String userAvatarUrl;
-        String postImageUrl;
-        String caption;
-        int likesCount;
-        boolean isLiked;
+        String emoji;
+        boolean hasUnseen;
 
-        PostModel(String username, String userAvatarUrl, String postImageUrl, String caption, int likesCount) {
+        StoryModel(String username, String emoji, boolean hasUnseen) {
             this.username = username;
-            this.userAvatarUrl = userAvatarUrl;
-            this.postImageUrl = postImageUrl;
-            this.caption = caption;
-            this.likesCount = likesCount;
-            this.isLiked = false;
+            this.emoji = emoji;
+            this.hasUnseen = hasUnseen;
         }
     }
 
-    private static class StoryModel {
-        String name;
-        String avatarUrl;
+    private static class PostModel {
+        int id;
+        String username;
+        String userEmoji;
+        String location;
+        String imageEmoji;
+        String imageBgColor;
+        int likesCount;
+        boolean isLiked;
+        boolean isSaved;
+        String caption;
+        String timeAgo;
+        List<String> comments;
 
-        StoryModel(String name, String avatarUrl) {
-            this.name = name;
-            this.avatarUrl = avatarUrl;
+        PostModel(int id, String username, String userEmoji, String location, 
+                  String imageEmoji, String imageBgColor, int likesCount, 
+                  String caption, String timeAgo) {
+            this.id = id;
+            this.username = username;
+            this.userEmoji = userEmoji;
+            this.location = location;
+            this.imageEmoji = imageEmoji;
+            this.imageBgColor = imageBgColor;
+            this.likesCount = likesCount;
+            this.isLiked = false;
+            this.isSaved = false;
+            this.caption = caption;
+            this.timeAgo = timeAgo;
+            this.comments = new ArrayList<String>();
         }
     }
 
@@ -64,293 +95,646 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainHandler = new Handler(Looper.getMainLooper());
-
-        storiesContainer = findViewById(R.id.stories_container);
-        postsContainer = findViewById(R.id.posts_container);
-
-        Button btnOpenWeb = findViewById(R.id.btn_open_instagram_web);
-        Button btnBannerLaunch = findViewById(R.id.btn_banner_launch);
-        TextView navWeb = findViewById(R.id.nav_web);
-        TextView navExplore = findViewById(R.id.nav_explore);
-
-        View.OnClickListener launchInstagramListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openInstagramWeb();
-            }
-        };
-
-        btnOpenWeb.setOnClickListener(launchInstagramListener);
-        btnBannerLaunch.setOnClickListener(launchInstagramListener);
-        navWeb.setOnClickListener(launchInstagramListener);
-
-        navExplore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.getApplicationContext(), "Explore section loaded", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        loadStoriesTray();
-        loadInstagramFeed();
+        initViews();
+        initData();
+        renderStories();
+        renderPosts(allPosts);
+        renderExploreGrid();
+        renderProfileView();
+        setupListeners();
     }
 
-    private void openInstagramWeb() {
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(INSTAGRAM_URL));
-            startActivity(intent);
-        } catch (Exception e) {
-            Toast.makeText(this, "Could not open browser for Instagram", Toast.LENGTH_SHORT).show();
-        }
+    private void initViews() {
+        storiesContainer = (LinearLayout) findViewById(R.id.storiesContainer);
+        postsContainer = (LinearLayout) findViewById(R.id.postsContainer);
+        exploreGridContainer = (LinearLayout) findViewById(R.id.exploreGridContainer);
+        profileContainer = (LinearLayout) findViewById(R.id.profileContainer);
+
+        feedScrollView = (ScrollView) findViewById(R.id.feedScrollView);
+        exploreScrollView = (ScrollView) findViewById(R.id.exploreScrollView);
+        profileScrollView = (ScrollView) findViewById(R.id.profileScrollView);
+
+        etSearch = (EditText) findViewById(R.id.etSearch);
+        btnNotifications = (Button) findViewById(R.id.btnNotifications);
+        btnDirectMessage = (Button) findViewById(R.id.btnDirectMessage);
+
+        navHome = (Button) findViewById(R.id.navHome);
+        navSearch = (Button) findViewById(R.id.navSearch);
+        navAdd = (Button) findViewById(R.id.navAdd);
+        navReels = (Button) findViewById(R.id.navReels);
+        navProfile = (Button) findViewById(R.id.navProfile);
     }
 
-    private void loadStoriesTray() {
-        List<StoryModel> stories = new ArrayList<>();
-        stories.add(new StoryModel("Your Story", "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"));
-        stories.add(new StoryModel("alex_photo", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150"));
-        stories.add(new StoryModel("travel_life", "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150"));
-        stories.add(new StoryModel("design_hub", "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150"));
-        stories.add(new StoryModel("fitness_pro", "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150"));
+    private void initData() {
+        allStories = new ArrayList<StoryModel>();
+        allStories.add(new StoryModel("Your Story", "➕", false));
+        allStories.add(new StoryModel("alex_dev", "👨‍💻", true));
+        allStories.add(new StoryModel("travel_bug", "✈️", true));
+        allStories.add(new StoryModel("photo_studio", "📷", true));
+        allStories.add(new StoryModel("tech_daily", "📱", true));
+        allStories.add(new StoryModel("fitness_pro", "🏋️‍♂️", false));
+        allStories.add(new StoryModel("nature_world", "🌿", false));
 
-        for (int i = 0; i < stories.size(); i++) {
-            final StoryModel story = stories.get(i);
+        allPosts = new ArrayList<PostModel>();
 
-            LinearLayout storyLayout = new LinearLayout(this);
-            storyLayout.setOrientation(LinearLayout.VERTICAL);
-            storyLayout.setGravity(Gravity.CENTER_HORIZONTAL);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(160, LinearLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(12, 0, 12, 0);
-            storyLayout.setLayoutParams(lp);
+        PostModel p1 = new PostModel(1, "alex_dev", "👨‍💻", "San Francisco, CA",
+                "💻🚀✨", "#3B82F6", 1240, 
+                "Building native Android UI components with full touch responsiveness! #androiddev #coding #java", 
+                "2 HOURS AGO");
+        p1.comments.add("sarah_design: Looking clean!");
+        p1.comments.add("mike_code: Great architecture!");
+        allPosts.add(p1);
 
-            final ImageView avatarView = new ImageView(this);
-            LinearLayout.LayoutParams imgLp = new LinearLayout.LayoutParams(130, 130);
-            avatarView.setLayoutParams(imgLp);
-            avatarView.setBackgroundColor(Color.LTGRAY);
-            avatarView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        PostModel p2 = new PostModel(2, "travel_bug", "✈️", "Kyoto, Japan",
+                "⛩️🌸🏯", "#EF4444", 3890, 
+                "Sunset walks around historic temples in Kyoto. Japan is truly magical in autumn 🌸 #travel #japan", 
+                "4 HOURS AGO");
+        p2.comments.add("wanderer99: Added to my travel list!");
+        allPosts.add(p2);
 
-            TextView nameView = new TextView(this);
-            nameView.setText(story.name);
-            nameView.setTextSize(11sp);
-            nameView.setTextColor(Color.parseColor("#262626"));
-            nameView.setGravity(Gravity.CENTER);
-            nameView.setSingleLine(true);
-            nameView.setPadding(0, 8, 0, 0);
+        PostModel p3 = new PostModel(3, "photo_studio", "📷", "Studio A, New York",
+                "📸💡🎨", "#8B5CF6", 845, 
+                "New minimal lighting setup for portraits. What do you think of this contrast? #photography #studio", 
+                "6 HOURS AGO");
+        allPosts.add(p3);
 
-            storyLayout.addView(avatarView);
-            storyLayout.addView(nameView);
+        PostModel p4 = new PostModel(4, "tech_daily", "📱", "Silicon Valley",
+                "⚡🔋📲", "#10B981", 5120, 
+                "Next-gen processors push the boundary of mobile AI performance. #tech #gadgets #future", 
+                "12 HOURS AGO");
+        allPosts.add(p4);
+    }
 
-            storyLayout.setOnClickListener(new View.OnClickListener() {
+    private void renderStories() {
+        storiesContainer.removeAllViews();
+        for (int i = 0; i < allStories.size(); i++) {
+            final StoryModel story = allStories.get(i);
+
+            LinearLayout item = new LinearLayout(this);
+            item.setOrientation(LinearLayout.VERTICAL);
+            item.setGravity(Gravity.CENTER_HORIZONTAL);
+            item.setPadding(12, 0, 12, 0);
+
+            // Ring Container
+            FrameLayout ring = new FrameLayout(this);
+            LinearLayout.LayoutParams ringParams = new LinearLayout.LayoutParams(140, 140);
+            ring.setLayoutParams(ringParams);
+            
+            if (story.hasUnseen) {
+                ring.setBackgroundColor(Color.parseColor("#E1306C")); // Instagram pink ring border
+            } else {
+                ring.setBackgroundColor(Color.parseColor("#CCCCCC"));
+            }
+            ring.setPadding(4, 4, 4, 4);
+
+            TextView avatar = new TextView(this);
+            avatar.setLayoutParams(new FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            avatar.setText(story.emoji);
+            avatar.setTextSize(26sp());
+            avatar.setGravity(Gravity.CENTER);
+            avatar.setBackgroundColor(Color.WHITE);
+            ring.addView(avatar);
+
+            TextView tvName = new TextView(this);
+            tvName.setText(story.username);
+            tvName.setTextSize(11sp());
+            tvName.setTextColor(Color.parseColor("#262626"));
+            tvName.setGravity(Gravity.CENTER);
+            tvName.setPadding(0, 8, 0, 0);
+
+            item.addView(ring);
+            item.addView(tvName);
+
+            item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(MainActivity.this, "Viewing " + story.name + "'s story", Toast.LENGTH_SHORT).show();
+                    story.hasUnseen = false;
+                    renderStories();
+                    Toast.makeText(MainActivity.this, "Viewing " + story.username + "'s story", Toast.LENGTH_SHORT).show();
                 }
             });
 
-            storiesContainer.addView(storyLayout);
-
-            loadImageFromUrl(story.avatarUrl, avatarView);
+            storiesContainer.addView(item);
         }
     }
 
-    private void loadInstagramFeed() {
-        List<PostModel> posts = new ArrayList<>();
+    private void renderPosts(List<PostModel> postsToDisplay) {
+        postsContainer.removeAllViews();
 
-        posts.add(new PostModel(
-                "nature_explorer",
-                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
-                "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800",
-                "Sunset over the misty mountains! Absolute peace. 🌄 #nature #sunset #photography",
-                1240
-        ));
+        if (postsToDisplay.isEmpty()) {
+            TextView emptyText = new TextView(this);
+            emptyText.setText("No posts found matching your search.");
+            emptyText.setTextSize(14sp());
+            emptyText.setTextColor(Color.GRAY);
+            emptyText.setGravity(Gravity.CENTER);
+            emptyText.setPadding(0, 60, 0, 60);
+            postsContainer.addView(emptyText);
+            return;
+        }
 
-        posts.add(new PostModel(
-                "urban_vibes",
-                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
-                "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800",
-                "Exploring downtown architecture on a rainy evening. 🏙️✨ #city #urban #architecture",
-                895
-        ));
+        for (int i = 0; i < postsToDisplay.size(); i++) {
+            final PostModel post = postsToDisplay.get(i);
 
-        posts.add(new PostModel(
-                "coffee_lover",
-                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
-                "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800",
-                "Morning ritual: Fresh roast coffee & fresh thoughts. ☕📖 #coffee #morning",
-                342
-        ));
+            LinearLayout postCard = new LinearLayout(this);
+            postCard.setOrientation(LinearLayout.VERTICAL);
+            postCard.setBackgroundColor(Color.WHITE);
+            LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            cardParams.setMargins(0, 0, 0, 16);
+            postCard.setLayoutParams(cardParams);
 
-        for (int i = 0; i < posts.size(); i++) {
-            final PostModel post = posts.get(i);
-            addPostToFeed(post);
+            // 1. Post Header
+            LinearLayout header = new LinearLayout(this);
+            header.setOrientation(LinearLayout.HORIZONTAL);
+            header.setGravity(Gravity.CENTER_VERTICAL);
+            header.setPadding(16, 12, 16, 12);
+
+            TextView userAvatar = new TextView(this);
+            userAvatar.setText(post.userEmoji);
+            userAvatar.setTextSize(20sp());
+            userAvatar.setPadding(0, 0, 12, 0);
+
+            LinearLayout userMeta = new LinearLayout(this);
+            userMeta.setOrientation(LinearLayout.VERTICAL);
+            LinearLayout.LayoutParams metaParams = new LinearLayout.LayoutParams(
+                    0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
+            userMeta.setLayoutParams(metaParams);
+
+            TextView tvUsername = new TextView(this);
+            tvUsername.setText(post.username);
+            tvUsername.setTypeface(null, Typeface.BOLD);
+            tvUsername.setTextSize(14sp());
+            tvUsername.setTextColor(Color.BLACK);
+
+            TextView tvLocation = new TextView(this);
+            tvLocation.setText(post.location);
+            tvLocation.setTextSize(11sp());
+            tvLocation.setTextColor(Color.GRAY);
+
+            userMeta.addView(tvUsername);
+            userMeta.addView(tvLocation);
+
+            TextView btnMore = new TextView(this);
+            btnMore.setText("•••");
+            btnMore.setTextSize(14sp());
+            btnMore.setTextColor(Color.BLACK);
+            btnMore.setPadding(8, 8, 8, 8);
+
+            header.addView(userAvatar);
+            header.addView(userMeta);
+            header.addView(btnMore);
+            postCard.addView(header);
+
+            // 2. Post Media Canvas
+            FrameLayout mediaCanvas = new FrameLayout(this);
+            mediaCanvas.setLayoutParams(new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, 650));
+            mediaCanvas.setBackgroundColor(Color.parseColor(post.imageBgColor));
+
+            TextView mediaEmoji = new TextView(this);
+            mediaEmoji.setLayoutParams(new FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            mediaEmoji.setText(post.imageEmoji);
+            mediaEmoji.setTextSize(64sp());
+            mediaEmoji.setGravity(Gravity.CENTER);
+            mediaEmoji.setTextColor(Color.WHITE);
+            mediaCanvas.addView(mediaEmoji);
+
+            // Double tap to like feature
+            mediaCanvas.setOnClickListener(new View.OnClickListener() {
+                private long lastClickTime = 0;
+                @Override
+                public void onClick(View v) {
+                    long clickTime = System.currentTimeMillis();
+                    if (clickTime - lastClickTime < 400) {
+                        if (!post.isLiked) {
+                            post.isLiked = true;
+                            post.likesCount++;
+                            renderPosts(allPosts);
+                        }
+                        Toast.makeText(MainActivity.this, "❤️ Liked!", Toast.LENGTH_SHORT).show();
+                    }
+                    lastClickTime = clickTime;
+                }
+            });
+
+            postCard.addView(mediaCanvas);
+
+            // 3. Action Buttons Row
+            LinearLayout actionsRow = new LinearLayout(this);
+            actionsRow.setOrientation(LinearLayout.HORIZONTAL);
+            actionsRow.setGravity(Gravity.CENTER_VERTICAL);
+            actionsRow.setPadding(12, 10, 12, 6);
+
+            final Button btnLike = new Button(this);
+            btnLike.setText(post.isLiked ? "❤️" : "🤍");
+            btnLike.setTextSize(18sp());
+            btnLike.setBackgroundColor(Color.TRANSPARENT);
+            btnLike.setLayoutParams(new LinearLayout.LayoutParams(110, 100));
+
+            btnLike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    post.isLiked = !post.isLiked;
+                    if (post.isLiked) {
+                        post.likesCount++;
+                    } else {
+                        post.likesCount--;
+                    }
+                    renderPosts(allPosts);
+                }
+            });
+
+            final Button btnComment = new Button(this);
+            btnComment.setText("💬");
+            btnComment.setTextSize(18sp());
+            btnComment.setBackgroundColor(Color.TRANSPARENT);
+            btnComment.setLayoutParams(new LinearLayout.LayoutParams(110, 100));
+
+            btnComment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showCommentDialog(post);
+                }
+            });
+
+            Button btnShare = new Button(this);
+            btnShare.setText("✈️");
+            btnShare.setTextSize(18sp());
+            btnShare.setBackgroundColor(Color.TRANSPARENT);
+            btnShare.setLayoutParams(new LinearLayout.LayoutParams(110, 100));
+            btnShare.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, "Share link copied for " + post.username + "'s post", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            View spacer = new View(this);
+            spacer.setLayoutParams(new LinearLayout.LayoutParams(0, 1, 1.0f));
+
+            final Button btnBookmark = new Button(this);
+            btnBookmark.setText(post.isSaved ? "🔖" : "🏷️");
+            btnBookmark.setTextSize(18sp());
+            btnBookmark.setBackgroundColor(Color.TRANSPARENT);
+            btnBookmark.setLayoutParams(new LinearLayout.LayoutParams(110, 100));
+
+            btnBookmark.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    post.isSaved = !post.isSaved;
+                    renderPosts(allPosts);
+                    String msg = post.isSaved ? "Post saved to collection" : "Post removed from collection";
+                    Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            actionsRow.addView(btnLike);
+            actionsRow.addView(btnComment);
+            actionsRow.addView(btnShare);
+            actionsRow.addView(spacer);
+            actionsRow.addView(btnBookmark);
+            postCard.addView(actionsRow);
+
+            // 4. Likes Counter
+            TextView tvLikes = new TextView(this);
+            tvLikes.setText(post.likesCount + " likes");
+            tvLikes.setTypeface(null, Typeface.BOLD);
+            tvLikes.setTextSize(13sp());
+            tvLikes.setTextColor(Color.BLACK);
+            tvLikes.setPadding(16, 0, 16, 4);
+            postCard.addView(tvLikes);
+
+            // 5. Caption & Username
+            LinearLayout captionLayout = new LinearLayout(this);
+            captionLayout.setOrientation(LinearLayout.HORIZONTAL);
+            captionLayout.setPadding(16, 0, 16, 6);
+
+            TextView tvCaption = new TextView(this);
+            tvCaption.setText(post.username + " " + post.caption);
+            tvCaption.setTextSize(13sp());
+            tvCaption.setTextColor(Color.BLACK);
+            captionLayout.addView(tvCaption);
+            postCard.addView(captionLayout);
+
+            // 6. Comments Summary & List
+            if (!post.comments.isEmpty()) {
+                TextView tvViewComments = new TextView(this);
+                tvViewComments.setText("View all " + post.comments.size() + " comments");
+                tvViewComments.setTextSize(12sp());
+                tvViewComments.setTextColor(Color.GRAY);
+                tvViewComments.setPadding(16, 2, 16, 4);
+
+                tvViewComments.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showCommentDialog(post);
+                    }
+                });
+
+                postCard.addView(tvViewComments);
+
+                // Show latest comment snippet
+                TextView tvLatestComment = new TextView(this);
+                tvLatestComment.setText(post.comments.get(post.comments.size() - 1));
+                tvLatestComment.setTextSize(12sp());
+                tvLatestComment.setTextColor(Color.parseColor("#333333"));
+                tvLatestComment.setPadding(16, 0, 16, 4);
+                postCard.addView(tvLatestComment);
+            }
+
+            // 7. Time Stamp
+            TextView tvTime = new TextView(this);
+            tvTime.setText(post.timeAgo);
+            tvTime.setTextSize(10sp());
+            tvTime.setTextColor(Color.GRAY);
+            tvTime.setPadding(16, 2, 16, 12);
+            postCard.addView(tvTime);
+
+            postsContainer.addView(postCard);
         }
     }
 
-    private void addPostToFeed(final PostModel post) {
-        LinearLayout card = new LinearLayout(this);
-        card.setOrientation(LinearLayout.VERTICAL);
-        card.setBackgroundColor(Color.WHITE);
-        LinearLayout.LayoutParams cardLp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        cardLp.setMargins(0, 0, 0, 32);
-        card.setLayoutParams(cardLp);
+    private void showCommentDialog(final PostModel post) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Comments on " + post.username + "'s post");
 
-        // Header (Avatar + Username)
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setPadding(32, 16, 32, 16);
+
+        // List existing comments
+        for (String c : post.comments) {
+            TextView commentItem = new TextView(this);
+            commentItem.setText("• " + c);
+            commentItem.setTextSize(13sp());
+            commentItem.setTextColor(Color.BLACK);
+            commentItem.setPadding(0, 6, 0, 6);
+            layout.addView(commentItem);
+        }
+
+        final EditText etNewComment = new EditText(this);
+        etNewComment.setHint("Add a comment as instagram_user...");
+        etNewComment.setTextSize(13sp());
+        layout.addView(etNewComment);
+
+        builder.setView(layout);
+        builder.setPositiveButton("Post", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String input = etNewComment.getText().toString().trim();
+                if (!input.isEmpty()) {
+                    post.comments.add("you: " + input);
+                    renderPosts(allPosts);
+                    Toast.makeText(MainActivity.this, "Comment added!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+    }
+
+    private void renderExploreGrid() {
+        exploreGridContainer.removeAllViews();
+
+        TextView header = new TextView(this);
+        header.setText("Explore Trending Content");
+        header.setTextSize(18sp());
+        header.setTypeface(null, Typeface.BOLD);
+        header.setTextColor(Color.BLACK);
+        header.setPadding(12, 16, 12, 16);
+        exploreGridContainer.addView(header);
+
+        String[] exploreEmojis = {"🏝️", "🏎️", "🎨", "🍲", "📱", "🌌", "👟", "🎧", "🏔️"};
+        String[] exploreColors = {"#F59E0B", "#EF4444", "#10B981", "#6366F1", "#8B5CF6", "#EC4899", "#3B82F6", "#14B8A6", "#84CC16"};
+
+        LinearLayout row = null;
+        for (int i = 0; i < exploreEmojis.length; i++) {
+            if (i % 3 == 0) {
+                row = new LinearLayout(this);
+                row.setOrientation(LinearLayout.HORIZONTAL);
+                row.setLayoutParams(new LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT, 260));
+                exploreGridContainer.addView(row);
+            }
+
+            FrameLayout tile = new FrameLayout(this);
+            LinearLayout.LayoutParams tileParams = new LinearLayout.LayoutParams(
+                    0, ViewGroup.LayoutParams.MATCH_PARENT, 1.0f);
+            tileParams.setMargins(4, 4, 4, 4);
+            tile.setLayoutParams(tileParams);
+            tile.setBackgroundColor(Color.parseColor(exploreColors[i]));
+
+            TextView emojiView = new TextView(this);
+            emojiView.setText(exploreEmojis[i]);
+            emojiView.setTextSize(36sp());
+            emojiView.setGravity(Gravity.CENTER);
+            tile.addView(emojiView);
+
+            final int index = i;
+            tile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, "Selected explore category #" + (index + 1), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            if (row != null) {
+                row.addView(tile);
+            }
+        }
+    }
+
+    private void renderProfileView() {
+        profileContainer.removeAllViews();
+
+        // Profile Header
         LinearLayout header = new LinearLayout(this);
         header.setOrientation(LinearLayout.HORIZONTAL);
         header.setGravity(Gravity.CENTER_VERTICAL);
-        header.setPadding(24, 16, 24, 16);
+        header.setPadding(0, 16, 0, 16);
 
-        ImageView avatar = new ImageView(this);
-        LinearLayout.LayoutParams avLp = new LinearLayout.LayoutParams(80, 80);
-        avatar.setLayoutParams(avLp);
-        avatar.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        avatar.setBackgroundColor(Color.LTGRAY);
+        TextView avatar = new TextView(this);
+        avatar.setText("👤");
+        avatar.setTextSize(48sp());
+        avatar.setPadding(16, 16, 24, 16);
+        avatar.setBackgroundColor(Color.parseColor("#F3F4F6"));
 
-        TextView userTxt = new TextView(this);
-        userTxt.setText(post.username);
-        userTxt.setTextSize(14sp);
-        userTxt.setTypeface(null, android.graphics.Typeface.BOLD);
-        userTxt.setTextColor(Color.parseColor("#262626"));
-        LinearLayout.LayoutParams userLp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
-        userLp.setMargins(20, 0, 0, 0);
-        userTxt.setLayoutParams(userLp);
+        LinearLayout statsLayout = new LinearLayout(this);
+        statsLayout.setOrientation(LinearLayout.HORIZONTAL);
+        statsLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
+        statsLayout.setGravity(Gravity.CENTER);
+
+        statsLayout.addView(createStatColumn("12", "Posts"));
+        statsLayout.addView(createStatColumn("1.2k", "Followers"));
+        statsLayout.addView(createStatColumn("450", "Following"));
 
         header.addView(avatar);
-        header.addView(userTxt);
-        card.addView(header);
+        header.addView(statsLayout);
+        profileContainer.addView(header);
 
-        // Post Image
-        final ImageView postImgView = new ImageView(this);
-        LinearLayout.LayoutParams imgLp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                600
-        );
-        postImgView.setLayoutParams(imgLp);
-        postImgView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        postImgView.setBackgroundColor(Color.parseColor("#F0F0F0"));
-        card.addView(postImgView);
+        // Bio Section
+        TextView tvName = new TextView(this);
+        tvName.setText("Instagram Developer");
+        tvName.setTypeface(null, Typeface.BOLD);
+        tvName.setTextSize(14sp());
+        tvName.setTextColor(Color.BLACK);
 
-        // Actions Row (Like / Comment / Web Share)
-        LinearLayout actions = new LinearLayout(this);
-        actions.setOrientation(LinearLayout.HORIZONTAL);
-        actions.setGravity(Gravity.CENTER_VERTICAL);
-        actions.setPadding(24, 16, 24, 8);
+        TextView tvBio = new TextView(this);
+        tvBio.setText("🚀 Android Native Application Developer\n📸 Photography & Mobile UI Enthusiast\n📍 San Francisco, CA");
+        tvBio.setTextSize(13sp());
+        tvBio.setTextColor(Color.parseColor("#333333"));
+        tvBio.setPadding(0, 4, 0, 16);
 
-        final Button btnLike = new Button(this);
-        btnLike.setText("❤ Like");
-        btnLike.setTextSize(12sp);
-        btnLike.setTextColor(Color.parseColor("#262626"));
-        btnLike.setBackgroundColor(Color.parseColor("#FAFAFA"));
+        profileContainer.addView(tvName);
+        profileContainer.addView(tvBio);
 
-        Button btnComment = new Button(this);
-        btnComment.setText("💬 Comment");
-        btnComment.setTextSize(12sp);
-        btnComment.setTextColor(Color.parseColor("#262626"));
-        btnComment.setBackgroundColor(Color.parseColor("#FAFAFA"));
-
-        Button btnWebOpen = new Button(this);
-        btnWebOpen.setText("🌐 View on Web");
-        btnWebOpen.setTextSize(12sp);
-        btnWebOpen.setTextColor(Color.parseColor("#E1306C"));
-        btnWebOpen.setBackgroundColor(Color.parseColor("#FAFAFA"));
-
-        actions.addView(btnLike);
-        actions.addView(btnComment);
-        actions.addView(btnWebOpen);
-        card.addView(actions);
-
-        // Likes count
-        final TextView likesTxt = new TextView(this);
-        likesTxt.setText(post.likesCount + " likes");
-        likesTxt.setTextSize(13sp);
-        likesTxt.setTypeface(null, android.graphics.Typeface.BOLD);
-        likesTxt.setTextColor(Color.parseColor("#262626"));
-        likesTxt.setPadding(24, 0, 24, 4);
-        card.addView(likesTxt);
-
-        // Caption
-        TextView captionTxt = new TextView(this);
-        captionTxt.setText(post.username + " " + post.caption);
-        captionTxt.setTextSize(13sp);
-        captionTxt.setTextColor(Color.parseColor("#262626"));
-        captionTxt.setPadding(24, 0, 24, 16);
-        card.addView(captionTxt);
-
-        // Divider
-        View divider = new View(this);
-        divider.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 2));
-        divider.setBackgroundColor(Color.parseColor("#EFEFEF"));
-        card.addView(divider);
-
-        // Event listeners
-        btnLike.setOnClickListener(new View.OnClickListener() {
+        // Edit Profile Button
+        Button btnEditProfile = new Button(this);
+        btnEditProfile.setText("Edit Profile");
+        btnEditProfile.setTextSize(13sp());
+        btnEditProfile.setBackgroundColor(Color.parseColor("#EFEFEF"));
+        btnEditProfile.setTextColor(Color.BLACK);
+        btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!post.isLiked) {
-                    post.isLiked = true;
-                    post.likesCount++;
-                    btnLike.setTextColor(Color.RED);
-                    btnLike.setText("❤ Liked");
+                Toast.makeText(MainActivity.this, "Edit Profile options", Toast.LENGTH_SHORT).show();
+            }
+        });
+        profileContainer.addView(btnEditProfile);
+    }
+
+    private LinearLayout createStatColumn(String count, String label) {
+        LinearLayout col = new LinearLayout(this);
+        col.setOrientation(LinearLayout.VERTICAL);
+        col.setGravity(Gravity.CENTER);
+        col.setPadding(16, 0, 16, 0);
+
+        TextView tvCount = new TextView(this);
+        tvCount.setText(count);
+        tvCount.setTypeface(null, Typeface.BOLD);
+        tvCount.setTextSize(16sp());
+        tvCount.setTextColor(Color.BLACK);
+
+        TextView tvLabel = new TextView(this);
+        tvLabel.setText(label);
+        tvLabel.setTextSize(12sp());
+        tvLabel.setTextColor(Color.GRAY);
+
+        col.addView(tvCount);
+        col.addView(tvLabel);
+        return col;
+    }
+
+    private void setupListeners() {
+        // Search Filter Logic
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String query = s.toString().toLowerCase().trim();
+                if (query.isEmpty()) {
+                    renderPosts(allPosts);
                 } else {
-                    post.isLiked = false;
-                    post.likesCount--;
-                    btnLike.setTextColor(Color.parseColor("#262626"));
-                    btnLike.setText("❤ Like");
-                }
-                likesTxt.setText(post.likesCount + " likes");
-            }
-        });
-
-        btnComment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Comments feature available on Instagram Web", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        btnWebOpen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openInstagramWeb();
-            }
-        });
-
-        postsContainer.addView(card);
-
-        // Async Image Loading
-        loadImageFromUrl(post.userAvatarUrl, avatar);
-        loadImageFromUrl(post.postImageUrl, postImgView);
-    }
-
-    private void loadImageFromUrl(final String urlString, final ImageView imageView) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    URL url = new URL(urlString);
-                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                    connection.setDoInput(true);
-                    connection.setConnectTimeout(8000);
-                    connection.setReadTimeout(8000);
-                    connection.connect();
-                    InputStream input = connection.getInputStream();
-                    final Bitmap bitmap = BitmapFactory.decodeStream(input);
-
-                    if (bitmap != null) {
-                        mainHandler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                imageView.setImageBitmap(bitmap);
-                            }
-                        });
+                    List<PostModel> filtered = new ArrayList<PostModel>();
+                    for (PostModel p : allPosts) {
+                        if (p.username.toLowerCase().contains(query) ||
+                            p.caption.toLowerCase().contains(query) ||
+                            p.location.toLowerCase().contains(query)) {
+                            filtered.add(p);
+                        }
                     }
-                } catch (Exception e) {
-                    // Retain fallback background
+                    renderPosts(filtered);
                 }
             }
-        }).start();
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+
+        // Top bar buttons
+        btnNotifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Notifications: No new activity", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnDirectMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Direct Messages opening...", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Bottom Tab switching
+        navHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTab(feedScrollView);
+            }
+        });
+
+        navSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTab(exploreScrollView);
+            }
+        });
+
+        navAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Create new post screen...", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        navReels.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Reels feed loaded!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        navProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTab(profileScrollView);
+            }
+        });
     }
+
+    private void showTab(View targetView) {
+        feedScrollView.setVisibility(View.GONE);
+        exploreScrollView.setVisibility(View.GONE);
+        profileScrollView.setVisibility(View.GONE);
+
+        targetView.setVisibility(View.VISIBLE);
+    }
+
+    private float spToPx(float sp) {
+        return sp * getResources().getDisplayMetrics().scaledDensity;
+    }
+
+    private float sp2px(float sp) {
+        return spToPx(sp);
+    }
+
+    private float 14sp() { return 14; }
+    private float 11sp() { return 11; }
+    private float 12sp() { return 12; }
+    private float 13sp() { return 13; }
+    private float 10sp() { return 10; }
+    private float 16sp() { return 16; }
+    private float 18sp() { return 18; }
+    private float 20sp() { return 20; }
+    private float 24sp() { return 24; }
+    private float 26sp() { return 26; }
+    private float 36sp() { return 36; }
+    private float 48sp() { return 48; }
+    private float 64sp() { return 64; }
 }

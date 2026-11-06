@@ -2,18 +2,17 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Project Configuration",
-      "description": "Setting up core directory structure and application parameters.",
+      "title": "Initialize Instagram Home Project",
+      "description": "Setting up package structure and app metadata for Instagram Home.",
       "files": [
-        "app-meta.json",
-        "build-steps.json"
+        "app-meta.json"
       ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Clean Manifest and Permissions Settings",
-      "description": "Configuring network permissions and launcher activity without redundant package declarations.",
+      "title": "Configure Application Manifest",
+      "description": "Declaring network permissions, target themes, and main activity entry point.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -21,8 +20,8 @@
     },
     {
       "step": 3,
-      "title": "Configure Gradle Dependencies and Target SDK",
-      "description": "Setting SDK 34 compatibility and removing external dependencies.",
+      "title": "Configure Build Gradle",
+      "description": "Setting target SDK 34, min SDK 21, package namespace, and Java 8 compatibility.",
       "files": [
         "app/build.gradle"
       ],
@@ -30,18 +29,17 @@
     },
     {
       "step": 4,
-      "title": "Define API and Admin Setting Schemas",
-      "description": "Configuring offline schema specifications for Instagram Home.",
+      "title": "Define API Schema",
+      "description": "Configuring schema mode for offline local state and custom UI rendering.",
       "files": [
-        "api_schema.json",
-        "admin_setting_schema.json"
+        "api_schema.json"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Fix Layout XML Attributes and Navigation Bar",
-      "description": "Removing invalid border attributes and standardizing AAPT resource linking.",
+      "title": "Design Instagram Home Navigation Layout",
+      "description": "Creating top action bar with direct messages icon and dynamic search input.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -49,42 +47,80 @@
     },
     {
       "step": 6,
-      "title": "Implement Native Image Loader",
-      "description": "Ensuring background image downloading and LRU memory caching.",
+      "title": "Build Dynamic Stories Bar View",
+      "description": "Constructing horizontal scroll container for user story avatars and updates.",
       "files": [
-        "app/src/main/java/com/instagramhome/app/ImageLoader.java"
+        "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Construct Interactive Instagram Home Feed",
-      "description": "Populating stories tray and post feed items with interactive elements.",
+      "title": "Implement Feed Post Card Structure",
+      "description": "Designing native post cards with user headers, media placeholders, action buttons, and dynamic comments.",
       "files": [
-        "app/src/main/java/com/instagramhome/app/MainActivity.java"
+        "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Integrate Direct Instagram Web Intent Launcher",
-      "description": "Providing seamless link handling to open instagram.com in browser.",
+      "title": "Construct Bottom Navigation Bar",
+      "description": "Building custom tab bar for Home, Explore, Create, Reels, and Profile switching.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Main Activity Core Controller",
+      "description": "Coding post initializations, dynamic state binding, and tab navigation handling.",
       "files": [
         "app/src/main/java/com/instagramhome/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Perform Pre-Compilation Validation",
-      "description": "Verifying resources, layout tags, and Java 8 compatibility.",
-      "files": [],
+      "step": 10,
+      "title": "Implement Interactive Like & Heart Animation Logic",
+      "description": "Handling post like toggling, double-tap heart interactions, and incrementing live counters.",
+      "files": [
+        "app/src/main/java/com/instagramhome/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
-      "step": 10,
-      "title": "Building instagram home",
-      "description": "Compiling final native package for deployment.",
+      "step": 11,
+      "title": "Implement Bookmark & Save Post Manager",
+      "description": "Adding interactive save/bookmark toggle states and notification feedback.",
+      "files": [
+        "app/src/main/java/com/instagramhome/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Comment Input & Overlay Manager",
+      "description": "Enabling native comment submission dialog and real-time feed feed update.",
+      "files": [
+        "app/src/main/java/com/instagramhome/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Live Search & Post Filtering",
+      "description": "Coding live filter mechanism for search query matches across usernames and captions.",
+      "files": [
+        "app/src/main/java/com/instagramhome/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Building Instagram Home",
+      "description": "Finalizing build assembly and generating executable debug APK.",
       "files": [],
       "status": "pending"
     }
