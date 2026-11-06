@@ -1,0 +1,121 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Meta and Project Settings",
+      "description": "Establish metadata and core setup for YouTube Media Hub.",
+      "files": [
+        "app-meta.json",
+        "api_schema.json",
+        "admin_setting_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Setup Gradle Build Configuration",
+      "description": "Configure build.gradle with Android SDK compile and target version 34.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define Android Manifest Permissions & Activities",
+      "description": "Declare internet, storage permissions, and main activities in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Video Data Model",
+      "description": "Implement VideoItem Java data structure for video metadata and links.",
+      "files": [
+        "app/src/main/java/com/youtubemediahub/app/VideoItem.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Develop Custom List Item Layout",
+      "description": "Design layout xml for rendering video cards with thumbnails, title, duration, and action buttons.",
+      "files": [
+        "app/src/main/res/layout/list_item_video.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Video List Adapter",
+      "description": "Develop custom ArrayAdapter to bind video data to the ListView.",
+      "files": [
+        "app/src/main/java/com/youtubemediahub/app/VideoAdapter.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Native Video Player UI",
+      "description": "Create activity_player layout featuring native VideoView and playback controls.",
+      "files": [
+        "app/src/main/res/layout/activity_player.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Player Activity Logic",
+      "description": "Write PlayerActivity logic using native VideoView, MediaController, and YouTube intent handler.",
+      "files": [
+        "app/src/main/java/com/youtubemediahub/app/PlayerActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Media Upload UI",
+      "description": "Construct activity_upload layout with file preview, title inputs, and upload status controls.",
+      "files": [
+        "app/src/main/res/layout/activity_upload.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Media Upload Activity",
+      "description": "Write UploadActivity to pick media files and perform native HTTP multipart uploads.",
+      "files": [
+        "app/src/main/java/com/youtubemediahub/app/UploadActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Main Screen UI",
+      "description": "Create activity_main layout with video search bar, category filters, and action buttons.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Main Activity Logic",
+      "description": "Connect video search, download manager launcher, playback navigation, and category filtering.",
+      "files": [
+        "app/src/main/java/com/youtubemediahub/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building YouTube Media Hub",
+      "description": "Assemble and compile debug APK package for installation and execution.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
