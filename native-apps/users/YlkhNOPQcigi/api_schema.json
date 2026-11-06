@@ -1,0 +1,27 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "posts": {
+      "fields": {
+        "author_name": "string",
+        "author_email": "string",
+        "content": "string",
+        "image_url": "string",
+        "likes": "integer",
+        "timestamp": "integer"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "engagement_score": {
+      "type": "calculation",
+      "inputs": ["likes", "comments_count"],
+      "formula": "likes + (comments_count * 2)"
+    }
+  }
+}

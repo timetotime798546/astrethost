@@ -1,0 +1,19 @@
+{
+  "app_id": "social_connect_app_v1",
+  "admin_setting_schema": {
+    "welcome_message": {
+      "type": "string",
+      "label": "Welcome Banner Message",
+      "default": "Welcome to Social Connect!"
+    },
+    "web_shortcut_url": {
+      "type": "string",
+      "label": "External Social URL",
+      "default": "https://www.facebook.com"
+    }
+  },
+  "initial_values": {
+    "welcome_message": "Welcome to Social Connect!",
+    "web_shortcut_url": "https://www.facebook.com"
+  }
+}

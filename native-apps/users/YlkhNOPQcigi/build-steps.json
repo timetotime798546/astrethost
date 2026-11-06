@@ -1,0 +1,105 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Generate package structure and metadata configuration for Social Connect.",
+      "files": ["app-meta.json", "app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define API and Admin Schemas",
+      "description": "Establish generic data schemas, collection logic, and backend configurations.",
+      "files": ["api_schema.json", "admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Build Environment",
+      "description": "Set up build.gradle parameters targeting API 34 with Java 8 compatibility.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Android Manifest",
+      "description": "Configure activity declarations and internet permissions in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define Resource Colors and Styles",
+      "description": "Create custom visual themes, brand colors, and control styling.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Backend API Client",
+      "description": "Build asynchronous HTTP engine for dynamic user auth and post data operations.",
+      "files": ["app/src/main/java/com/socialconnect/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Session Storage Manager",
+      "description": "Build persistent SharedPreferences session manager for auth tokens and user profile.",
+      "files": ["app/src/main/java/com/socialconnect/app/SessionManager.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create Native Social Logic Helper",
+      "description": "Implement offline business rules, engagement formulas, and relative timestamp calculations.",
+      "files": ["app/src/main/java/com/socialconnect/app/SocialLogicHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create Data Models",
+      "description": "Define PostModel class for structuring native feed updates.",
+      "files": ["app/src/main/java/com/socialconnect/app/PostModel.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Authentication Activities",
+      "description": "Build user sign up, account login, and OTP password recovery screens.",
+      "files": [
+        "app/src/main/java/com/socialconnect/app/LoginActivity.java",
+        "app/src/main/java/com/socialconnect/app/RegisterActivity.java",
+        "app/src/main/java/com/socialconnect/app/ForgotPasswordActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Layout Resources",
+      "description": "Construct UI XML layouts for auth screens, social feeds, post composer, and profile view.",
+      "files": [
+        "app/src/main/res/layout/activity_login.xml",
+        "app/src/main/res/layout/activity_register.xml",
+        "app/src/main/res/layout/activity_forgot_password.xml",
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/res/layout/item_post.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Main Feed & Client Controller",
+      "description": "Build main social feed, creation dialog, profile management, and launcher integration.",
+      "files": ["app/src/main/java/com/socialconnect/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Social Connect",
+      "description": "Compile native APK using assembleDebug tasks.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
