@@ -1,0 +1,105 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Set up application package name com.youtubebackgroundplayer.app and app label.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Setup API Schema",
+      "description": "Configure static offline schema as YouTube playback operates locally without external API backend.",
+      "files": ["api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Build Script",
+      "description": "Set Android SDK target to 34 and compile settings with Java 8 support.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure Manifest Permissions & Services",
+      "description": "Declare internet, background service, notification permissions, and components in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define Visual Resources",
+      "description": "Create application colors, strings, dark theme styles, and vector drawables.",
+      "files": [
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml",
+        "app/src/main/res/drawable/ic_home.xml",
+        "app/src/main/res/drawable/ic_back.xml",
+        "app/src/main/res/drawable/ic_forward.xml",
+        "app/src/main/res/drawable/ic_refresh.xml",
+        "app/src/main/res/drawable/ic_history.xml",
+        "app/src/main/res/drawable/ic_delete.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Layout Views",
+      "description": "Build user interface layouts for Main Web view, History Screen, and History list items.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/res/layout/activity_history.xml",
+        "app/src/main/res/layout/item_history.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement SQLite History Model & Database",
+      "description": "Create database helper and model for local YouTube video playback history management.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/HistoryItem.java",
+        "app/src/main/java/com/youtubebackgroundplayer/app/HistoryDbHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement History Adapter",
+      "description": "Create custom ListView adapter with delete callback for history items.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/HistoryAdapter.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Foreground Audio Service",
+      "description": "Build media service with notification channel to maintain audio focus for background playback.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement History Activity",
+      "description": "Develop UI handler for displaying, opening, and clearing saved playback history.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/HistoryActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Main YouTube Activity",
+      "description": "Build native web container with custom client, back navigation, audio focus, and history logging.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building YouTube Background Player",
+      "description": "Compile the complete application and assemble the APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
