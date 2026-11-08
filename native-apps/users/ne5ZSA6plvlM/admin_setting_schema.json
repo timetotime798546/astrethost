@@ -1,0 +1,19 @@
+{
+  "app_id": "com_qnapdftoppt_app",
+  "admin_setting_schema": {
+    "app_title": {
+      "type": "string",
+      "label": "Application Name",
+      "default": "Q&A PDF to PPT Converter"
+    },
+    "slide_footer_watermark": {
+      "type": "string",
+      "label": "PPT Slide Watermark Text",
+      "default": "Created with Q&A PDF to PPT Maker"
+    }
+  },
+  "initial_values": {
+    "app_title": "Q&A PDF to PPT Converter",
+    "slide_footer_watermark": "Created with Q&A PDF to PPT Maker"
+  }
+}

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1A237E"
+    android:padding="16dp">
+
+    <!-- Header Navigation Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvSlideCounter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Slide 1 of 5"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnToggleAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hide Answer"
+            android:textSize="12sp"
+            android:background="#FF9800"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <!-- Main Slide Display Area -->
+    <LinearLayout
+        android:id="@+id/slideDisplayCard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="24dp"
+        android:elevation="6dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvSlideHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QUESTION #1"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#1E88E5"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:id="@+id/tvQuestionContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="What is Photosynthesis?"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:layout_marginBottom="24dp" />
+
+        <LinearLayout
+            android:id="@+id/answerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E8F5E9"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ANSWER:"
+                android:textStyle="bold"
+                android:textColor="#2E7D32"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tvAnswerContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Photosynthesis converts light energy into chemical energy."
+                android:textSize="16sp"
+                android:textColor="#1B5E20" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Navigation Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/btnPrevSlide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="◀ Previous"
+            android:background="#3949AB"
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="8dp" />
+
+        <Button
+            android:id="@+id/btnNextSlide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Next ▶"
+            android:background="#3949AB"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="8dp" />
+
+    </LinearLayout>
+
+    <!-- Final PowerPoint Export Action Button -->
+    <Button
+        android:id="@+id/btnExportPptx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="💾 Generate &amp; Download .PPTX Presentation"
+        android:background="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:textSize="15sp" />
+
+</LinearLayout>

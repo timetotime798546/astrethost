@@ -1,0 +1,34 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": [
+      "own"
+    ]
+  },
+  "collections": {
+    "conversions": {
+      "fields": {
+        "title": "string",
+        "question_count": "number",
+        "file_name": "string",
+        "created_at": "string"
+      },
+      "operations": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "logic": {
+    "total_slides": {
+      "type": "calculation",
+      "inputs": [
+        "question_count"
+      ],
+      "formula": "question_count + 1"
+    }
+  }
+}

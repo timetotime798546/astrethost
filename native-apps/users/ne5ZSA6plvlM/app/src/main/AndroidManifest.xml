@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qnapdftoppt.app">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:roundIcon="@drawable/icon"
+        android:label="Q&amp;A to PPT Maker"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Material.Light">
+
+        <activity
+            android:name=".AuthActivity"
+            android:exported="true"
+            android:label="Account Login"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="Q&amp;A PDF to PPT Dashboard" />
+
+        <activity
+            android:name=".PdfPickerActivity"
+            android:exported="false"
+            android:label="Import Q&amp;A Document" />
+
+        <activity
+            android:name=".QnAEditorActivity"
+            android:exported="false"
+            android:label="Edit Questions &amp; Answers" />
+
+        <activity
+            android:name=".SlidePreviewActivity"
+            android:exported="false"
+            android:label="PowerPoint Presentation Preview" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.qnapdftoppt.app.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

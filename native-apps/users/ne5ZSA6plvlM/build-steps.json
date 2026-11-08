@@ -1,0 +1,159 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Project Environment",
+      "description": "Initialize package settings, SDK targets (34), and native Java dependencies.",
+      "files": [
+        "app-meta.json",
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Application Permissions and Manifest",
+      "description": "Configure AndroidManifest with file permissions, themes, and screen declarations.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Application Resources & Styles",
+      "description": "Set up material color themes, strings, slide colors, and custom button layouts.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define Database and Admin Schemas",
+      "description": "Create api_schema.json and admin_setting_schema.json for app backend data.",
+      "files": [
+        "api_schema.json",
+        "admin_setting_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Data Models",
+      "description": "Create QnAItem model and ConversionRecord model for handling question-answer slides.",
+      "files": [
+        "app/src/main/java/com/qnapdftoppt/app/QnAItem.java",
+        "app/src/main/java/com/qnapdftoppt/app/ConversionRecord.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Backend API Client",
+      "description": "Build HTTP client for authentication, OTP password reset, data persistence, and admin config caching.",
+      "files": [
+        "app/src/main/java/com/qnapdftoppt/app/BackendApi.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop OpenXML PPTX Slide Generator Engine",
+      "description": "Implement native Zip-based OpenXML PPTX exporter to generate playable PowerPoint presentations.",
+      "files": [
+        "app/src/main/java/com/qnapdftoppt/app/PptxGenerator.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Develop Native PDF Renderer & Q&A Parser",
+      "description": "Implement PdfRenderer helper for rendering PDF documents and extracting structured Q&A text.",
+      "files": [
+        "app/src/main/java/com/qnapdftoppt/app/PdfQnAParser.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Create User Authentication UI",
+      "description": "Build Login, Registration, and Forgot Password OTP screens.",
+      "files": [
+        "app/src/main/res/layout/activity_auth.xml",
+        "app/src/main/java/com/qnapdftoppt/app/AuthActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Create Main Dashboard View & Layout",
+      "description": "Design dashboard with PDF upload card, text editor trigger, slide stats, and conversion history.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/res/layout/item_history.xml",
+        "app/src/main/java/com/qnapdftoppt/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Create PDF Picker and Visual Extractor",
+      "description": "Build PDF document loader, page navigator, and automatic question-answer detection view.",
+      "files": [
+        "app/src/main/res/layout/activity_pdf_picker.xml",
+        "app/src/main/java/com/qnapdftoppt/app/PdfPickerActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Create Interactive Q&A Editor",
+      "description": "Design card-based slide editor for modifying questions, answers, and visual slide properties.",
+      "files": [
+        "app/src/main/res/layout/activity_qna_editor.xml",
+        "app/src/main/res/layout/item_qna.xml",
+        "app/src/main/java/com/qnapdftoppt/app/QnAEditorActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Build Presentation Slide Previewer",
+      "description": "Implement real-time visual slide deck viewer with slide counter, theme toggles, and answer reveal effects.",
+      "files": [
+        "app/src/main/res/layout/activity_slide_preview.xml",
+        "app/src/main/java/com/qnapdftoppt/app/SlidePreviewActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Integrate Native PPT File Export & Sharing",
+      "description": "Connect PowerPoint generator to Android file provider and system intent sharer.",
+      "files": [
+        "app/src/main/java/com/qnapdftoppt/app/SlidePreviewActivity.java",
+        "app/src/main/java/com/qnapdftoppt/app/PptxGenerator.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Verify Java 8 Compatibility & Local Calculations",
+      "description": "Ensure offline slide deck count calculation and zero external third-party library dependencies.",
+      "files": [
+        "app/src/main/java/com/qnapdftoppt/app/PptxGenerator.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building Q&A PDF to PPT Converter",
+      "description": "Compile final debug APK with assembleDebug and verify OpenXML PowerPoint generation.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F7FA"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Question &amp; Answer PDF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#1E88E5"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick a document from storage or paste raw Q&amp;A content below."
+        android:textColor="#757575"
+        android:textSize="13sp"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnOpenFilePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📁 Browse PDF Document"
+        android:background="#1E88E5"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tvSelectedFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No file selected yet"
+        android:textColor="#424242"
+        android:textStyle="italic"
+        android:background="#E0E0E0"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Extracted / Raw Q&amp;A Text:"
+        android:textStyle="bold"
+        android:textColor="#212121"
+        android:layout_marginBottom="6dp" />
+
+    <EditText
+        android:id="@+id/etRawContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Q1: What is Force?\nAns: Push or pull acting on a body.\n\nQ2: What is Energy?\nAns: Ability to do work."
+        android:gravity="top"
+        android:padding="12dp"
+        android:background="#FFFFFF"
+        android:inputType="textMultiLine"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnParseText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Convert to PowerPoint Slides →"
+        android:background="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:padding="14dp" />
+
+</LinearLayout>
