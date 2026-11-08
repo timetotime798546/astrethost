@@ -7,87 +7,125 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.AudioFocusRequest;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.MediaMetadata;
 import android.media.session.MediaSession;
 import android.media.session.PlaybackState;
+import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
+import android.util.Log;
 
-public class BackgroundAudioService extends Service {
+public class BackgroundAudioService extends Service implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener {
 
-    public static final String ACTION_START = "com.youtubebackgroundplayer.app.action.START";
-    public static final String ACTION_PLAY = "com.youtubebackgroundplayer.app.action.PLAY";
-    public static final String ACTION_PAUSE = "com.youtubebackgroundplayer.app.action.PAUSE";
-    public static final String ACTION_STOP = "com.youtubebackgroundplayer.app.action.STOP";
-    public static final String ACTION_UPDATE_TITLE = "com.youtubebackgroundplayer.app.action.UPDATE_TITLE";
-    public static final String EXTRA_TITLE = "extra_title";
+    private static final String TAG = "BgAudioService";
+    public static final String CHANNEL_ID = "yt_bg_media_channel";
+    public static final int NOTIFICATION_ID = 1002;
 
-    private static final String CHANNEL_ID = "yt_bg_channel";
-    private static final int NOTIFICATION_ID = 1001;
+    public static final String ACTION_PLAY = "com.youtubebackgroundplayer.app.ACTION_PLAY";
+    public static final String ACTION_PAUSE = "com.youtubebackgroundplayer.app.ACTION_PAUSE";
+    public static final String ACTION_TOGGLE = "com.youtubebackgroundplayer.app.ACTION_TOGGLE";
+    public static final String ACTION_NEXT = "com.youtubebackgroundplayer.app.ACTION_NEXT";
+    public static final String ACTION_PREV = "com.youtubebackgroundplayer.app.ACTION_PREV";
+    public static final String ACTION_STOP = "com.youtubebackgroundplayer.app.ACTION_STOP";
 
+    public interface OnAudioStateChangeListener {
+        void onTrackPrepared(int durationMs);
+        void onPlaybackStateChanged(boolean isPlaying);
+        void onTrackCompleted();
+        void onError(String message);
+    }
+
+    private final IBinder binder = new LocalBinder();
+    private MediaPlayer mediaPlayer;
     private MediaSession mediaSession;
-    private NotificationManager notificationManager;
-    private String currentTitle = "YouTube Audio Player";
-    private boolean isPlaying = true;
+    private AudioManager audioManager;
+    private OnAudioStateChangeListener listener;
+
+    private String currentTitle = "No Track Selected";
+    private String currentArtist = "YouTube Background Engine";
+    private String currentStreamUrl = "";
+
+    private boolean isPrepared = false;
+    private boolean isPlayingState = false;
+
+    public class LocalBinder extends Binder {
+        public BackgroundAudioService getService() {
+            return BackgroundAudioService.this;
+        }
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        initMediaPlayer();
         initMediaSession();
         createNotificationChannel();
     }
 
+    private void initMediaPlayer() {
+        if (mediaPlayer == null) {
+            mediaPlayer = new MediaPlayer();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                mediaPlayer.setAudioAttributes(
+                        new AudioAttributes.Builder()
+                                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                                .setUsage(AudioAttributes.USAGE_MEDIA)
+                                .build()
+                );
+            } else {
+                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            }
+            mediaPlayer.setOnPreparedListener(this);
+            mediaPlayer.setOnCompletionListener(this);
+            mediaPlayer.setOnErrorListener(this);
+        }
+    }
+
     private void initMediaSession() {
-        mediaSession = new MediaSession(this, "YTBgPlayerSession");
+        mediaSession = new MediaSession(this, "YTBgAudioSession");
         mediaSession.setFlags(MediaSession.FLAG_HANDLES_MEDIA_BUTTONS | MediaSession.FLAG_HANDLES_TRANSPORT_CONTROLS);
         mediaSession.setCallback(new MediaSession.Callback() {
             @Override
             public void onPlay() {
-                super.onPlay();
-                isPlaying = true;
-                updatePlaybackState(PlaybackState.STATE_PLAYING);
-                buildAndShowNotification();
+                playAudio();
             }
 
             @Override
             public void onPause() {
-                super.onPause();
-                isPlaying = false;
-                updatePlaybackState(PlaybackState.STATE_PAUSED);
-                buildAndShowNotification();
+                pauseAudio();
+            }
+
+            @Override
+            public void onSkipToNext() {
+                if (listener != null) listener.onTrackCompleted();
             }
 
             @Override
             public void onStop() {
-                super.onStop();
-                stopForeground(true);
-                stopSelf();
+                stopAudio();
             }
         });
         mediaSession.setActive(true);
-        updatePlaybackState(PlaybackState.STATE_PLAYING);
-    }
-
-    private void updatePlaybackState(int state) {
-        PlaybackState.Builder builder = new PlaybackState.Builder()
-                .setActions(PlaybackState.ACTION_PLAY | PlaybackState.ACTION_PAUSE | PlaybackState.ACTION_STOP |
-                        PlaybackState.ACTION_SKIP_TO_NEXT | PlaybackState.ACTION_SKIP_TO_PREVIOUS)
-                .setState(state, PlaybackState.PLAYBACK_POSITION_UNKNOWN, 1.0f);
-        mediaSession.setPlaybackState(builder.build());
+        updatePlaybackState(PlaybackState.STATE_STOPPED);
     }
 
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID,
-                    "YouTube Background Playback",
+                    "YouTube Audio Service",
                     NotificationManager.IMPORTANCE_LOW
             );
-            channel.setDescription("Keeps audio playing in background and provides lock screen media controls.");
+            channel.setDescription("Background audio playback session controls");
             channel.setShowBadge(false);
-            if (notificationManager != null) {
-                notificationManager.createNotificationChannel(channel);
+            NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            if (manager != null) {
+                manager.createNotificationChannel(channel);
             }
         }
     }
@@ -96,50 +134,158 @@ public class BackgroundAudioService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null && intent.getAction() != null) {
             String action = intent.getAction();
-
-            if (ACTION_START.equals(action)) {
-                if (intent.hasExtra(EXTRA_TITLE)) {
-                    String title = intent.getStringExtra(EXTRA_TITLE);
-                    if (title != null && !title.trim().isEmpty()) {
-                        currentTitle = title;
-                    }
-                }
-                isPlaying = true;
-                updatePlaybackState(PlaybackState.STATE_PLAYING);
-                startForeground(NOTIFICATION_ID, buildNotification());
-            } else if (ACTION_UPDATE_TITLE.equals(action)) {
-                if (intent.hasExtra(EXTRA_TITLE)) {
-                    String title = intent.getStringExtra(EXTRA_TITLE);
-                    if (title != null && !title.trim().isEmpty()) {
-                        currentTitle = title;
-                        updateMetadata(currentTitle);
-                        buildAndShowNotification();
-                    }
-                }
-            } else if (ACTION_PLAY.equals(action)) {
-                isPlaying = true;
-                updatePlaybackState(PlaybackState.STATE_PLAYING);
-                buildAndShowNotification();
+            if (ACTION_PLAY.equals(action)) {
+                playAudio();
             } else if (ACTION_PAUSE.equals(action)) {
-                isPlaying = false;
-                updatePlaybackState(PlaybackState.STATE_PAUSED);
-                buildAndShowNotification();
+                pauseAudio();
+            } else if (ACTION_TOGGLE.equals(action)) {
+                togglePlayPause();
             } else if (ACTION_STOP.equals(action)) {
-                isPlaying = false;
-                stopForeground(true);
-                stopSelf();
+                stopAudio();
             }
         }
         return START_STICKY;
     }
 
-    private void updateMetadata(String title) {
-        if (mediaSession != null) {
-            MediaMetadata.Builder metadataBuilder = new MediaMetadata.Builder();
-            metadataBuilder.putString(MediaMetadata.METADATA_KEY_TITLE, title);
-            metadataBuilder.putString(MediaMetadata.METADATA_KEY_ARTIST, "YouTube Background Player");
-            mediaSession.setMetadata(metadataBuilder.build());
+    public void playTrack(String streamUrl, String title, String artist) {
+        this.currentStreamUrl = streamUrl;
+        this.currentTitle = title;
+        this.currentArtist = artist;
+        this.isPrepared = false;
+
+        try {
+            mediaPlayer.reset();
+            mediaPlayer.setDataSource(streamUrl);
+            mediaPlayer.prepareAsync();
+            updateMediaMetadata(title, artist);
+            startForeground(NOTIFICATION_ID, buildNotification());
+        } catch (Exception e) {
+            Log.e(TAG, "Error playing audio track: " + e.getMessage());
+            if (listener != null) listener.onError("Failed to play track: " + e.getMessage());
         }
+    }
+
+    @Override
+    public void onPrepared(MediaPlayer mp) {
+        isPrepared = true;
+        playAudio();
+        if (listener != null) {
+            listener.onTrackPrepared(mp.getDuration());
+        }
+    }
+
+    public void playAudio() {
+        if (mediaPlayer != null && isPrepared) {
+            requestAudioFocus();
+            mediaPlayer.start();
+            isPlayingState = true;
+            updatePlaybackState(PlaybackState.STATE_PLAYING);
+            buildAndShowNotification();
+            if (listener != null) listener.onPlaybackStateChanged(true);
+        }
+    }
+
+    public void pauseAudio() {
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+            isPlayingState = false;
+            updatePlaybackState(PlaybackState.STATE_PAUSED);
+            buildAndShowNotification();
+            if (listener != null) listener.onPlaybackStateChanged(false);
+        }
+    }
+
+    public void togglePlayPause() {
+        if (isPlayingState) {
+            pauseAudio();
+        } else {
+            playAudio();
+        }
+    }
+
+    public void stopAudio() {
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
+            isPlayingState = false;
+            isPrepared = false;
+            updatePlaybackState(PlaybackState.STATE_STOPPED);
+        }
+        stopForeground(true);
+        if (listener != null) listener.onPlaybackStateChanged(false);
+    }
+
+    public void seekTo(int positionMs) {
+        if (mediaPlayer != null && isPrepared) {
+            mediaPlayer.seekTo(positionMs);
+        }
+    }
+
+    public int getCurrentPosition() {
+        if (mediaPlayer != null && isPrepared) {
+            return mediaPlayer.getCurrentPosition();
+        }
+        return 0;
+    }
+
+    public int getDuration() {
+        if (mediaPlayer != null && isPrepared) {
+            return mediaPlayer.getDuration();
+        }
+        return 0;
+    }
+
+    public boolean isPlaying() {
+        return isPlayingState && mediaPlayer != null && mediaPlayer.isPlaying();
+    }
+
+    private void requestAudioFocus() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            AudioFocusRequest focusRequest = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
+                    .setAudioAttributes(
+                            new AudioAttributes.Builder()
+                                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                                    .build()
+                    )
+                    .setAcceptsDelayedFocusGain(true)
+                    .setOnAudioFocusChangeListener(new AudioManager.OnAudioFocusChangeListener() {
+                        @Override
+                        public void onAudioFocusChange(int focusChange) {
+                            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+                                pauseAudio();
+                            } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
+                                playAudio();
+                            }
+                        }
+                    })
+                    .build();
+            audioManager.requestAudioFocus(focusRequest);
+        } else {
+            audioManager.requestAudioFocus(new AudioManager.OnAudioFocusChangeListener() {
+                @Override
+                public void onAudioFocusChange(int focusChange) {
+                    if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+                        pauseAudio();
+                    }
+                }
+            }, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
+        }
+    }
+
+    private void updatePlaybackState(int state) {
+        PlaybackState.Builder builder = new PlaybackState.Builder()
+                .setActions(PlaybackState.ACTION_PLAY | PlaybackState.ACTION_PAUSE | PlaybackState.ACTION_SKIP_TO_NEXT | PlaybackState.ACTION_STOP)
+                .setState(state, PlaybackState.PLAYBACK_POSITION_UNKNOWN, 1.0f);
+        mediaSession.setPlaybackState(builder.build());
+    }
+
+    private void updateMediaMetadata(String title, String artist) {
+        MediaMetadata.Builder metadataBuilder = new MediaMetadata.Builder();
+        metadataBuilder.putString(MediaMetadata.METADATA_KEY_TITLE, title);
+        metadataBuilder.putString(MediaMetadata.METADATA_KEY_ARTIST, artist);
+        mediaSession.setMetadata(metadataBuilder.build());
     }
 
     private Notification buildNotification() {
@@ -148,10 +294,10 @@ public class BackgroundAudioService extends Service {
         PendingIntent contentPendingIntent = PendingIntent.getActivity(
                 this, 0, openAppIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
-        Intent playPauseIntent = new Intent(this, BackgroundAudioService.class);
-        playPauseIntent.setAction(isPlaying ? ACTION_PAUSE : ACTION_PLAY);
-        PendingIntent playPausePendingIntent = PendingIntent.getService(
-                this, 1, playPauseIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        Intent toggleIntent = new Intent(this, BackgroundAudioService.class);
+        toggleIntent.setAction(ACTION_TOGGLE);
+        PendingIntent togglePendingIntent = PendingIntent.getService(
+                this, 1, toggleIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         Intent stopIntent = new Intent(this, BackgroundAudioService.class);
         stopIntent.setAction(ACTION_STOP);
@@ -166,10 +312,10 @@ public class BackgroundAudioService extends Service {
         }
 
         builder.setContentTitle(currentTitle)
-                .setContentText("YouTube Background Audio Playing")
+                .setContentText(currentArtist)
                 .setSmallIcon(android.R.drawable.ic_media_play)
                 .setContentIntent(contentPendingIntent)
-                .setOngoing(true)
+                .setOngoing(isPlayingState)
                 .setVisibility(Notification.VISIBILITY_PUBLIC);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -178,11 +324,10 @@ public class BackgroundAudioService extends Service {
                     .setShowActionsInCompactView(0, 1));
         }
 
-        if (isPlaying) {
-            builder.addAction(android.R.drawable.ic_media_pause, "Pause", playPausePendingIntent);
-        } else {
-            builder.addAction(android.R.drawable.ic_media_play, "Play", playPausePendingIntent);
-        }
+        int playIcon = isPlayingState ? android.R.drawable.ic_media_pause : android.R.drawable.ic_media_play;
+        String playTitle = isPlayingState ? "Pause" : "Play";
+
+        builder.addAction(playIcon, playTitle, togglePendingIntent);
         builder.addAction(android.R.drawable.ic_menu_close_clear_cancel, "Stop", stopPendingIntent);
 
         return builder.build();
@@ -190,19 +335,45 @@ public class BackgroundAudioService extends Service {
 
     private void buildAndShowNotification() {
         Notification notification = buildNotification();
-        if (notificationManager != null) {
-            notificationManager.notify(NOTIFICATION_ID, notification);
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if (manager != null) {
+            manager.notify(NOTIFICATION_ID, notification);
+        }
+    }
+
+    public void setOnAudioStateChangeListener(OnAudioStateChangeListener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public void onCompletion(MediaPlayer mp) {
+        isPlayingState = false;
+        updatePlaybackState(PlaybackState.STATE_STOPPED);
+        if (listener != null) {
+            listener.onTrackCompleted();
         }
     }
 
     @Override
+    public boolean onError(MediaPlayer mp, int what, int extra) {
+        isPlayingState = false;
+        if (listener != null) {
+            listener.onError("Playback network stream error code: " + what);
+        }
+        return true;
+    }
+
+    @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return binder;
     }
 
     @Override
     public void onDestroy() {
-
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
         if (mediaSession != null) {
             mediaSession.release();
         }

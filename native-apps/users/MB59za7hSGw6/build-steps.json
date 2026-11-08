@@ -2,71 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize Project Structure",
-      "description": "Setting up project configuration, app metadata, and standard package structure.",
-      "files": ["app-meta.json", "build-steps.json", "api_schema.json"],
+      "title": "Initialize Project Metadata",
+      "description": "Setting up core project app configuration, app ID, and package identity.",
+      "files": ["app-meta.json", "api_schema.json"],
       "status": "pending"
     },
     {
       "step": 2,
       "title": "Configure App Build Settings",
-      "description": "Configuring app/build.gradle with Android SDK level 34 and Java 8 settings.",
+      "description": "Configuring app/build.gradle for Android SDK level 34 and Java 8 standard compiler settings.",
       "files": ["app/build.gradle"],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Setup Manifest Permissions & Service",
-      "description": "Adding Internet, Foreground Service, Media Playback, and Notification permissions to AndroidManifest.xml.",
+      "title": "Configure Manifest Permissions & Service",
+      "description": "Adding Internet, Foreground Service Media Playback, WakeLock, and Notification permissions to AndroidManifest.xml.",
       "files": ["app/src/main/AndroidManifest.xml"],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Create Color Palette & Theme Values",
-      "description": "Defining dark-mode primary colors, accent red colors, and app strings.",
+      "title": "Create Color Scheme & String Resources",
+      "description": "Defining dark-themed UI colors, red accent colors, and app strings.",
       "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Design App Interface Layout",
-      "description": "Creating modern dark UI layout with header toolbar, navigation buttons, loading progress bar, and full-screen WebView.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Implement Audio Track Data Model",
+      "description": "Creating native AudioTrack data model and built-in streaming track repository.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/AudioTrack.java"],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Background Audio Service",
-      "description": "Creating BackgroundAudioService with Android MediaSession and MediaStyle notification controls for background playback.",
-      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"],
+      "title": "Design Audio Item List Layout",
+      "description": "Creating standard Android ListView row layout for audio item details and playback control buttons.",
+      "files": ["app/src/main/res/layout/item_audio_track.xml"],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Implement Web Engine & Navigation Control",
-      "description": "Configuring MainActivity with JavaScript, DOM storage, user gesture bypass, web navigation, and background service binding.",
-      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "title": "Design App Interface Layout",
+      "description": "Building full layout containing search bar, category chips, audio track list, bottom mini-player bar, and full player overlay view.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Add Android 13+ Notification Permission Handler",
-      "description": "Implementing dynamic runtime permission requests for POST_NOTIFICATIONS on Android 13 and above.",
-      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "title": "Implement Background Media Service Engine",
+      "description": "Creating BackgroundAudioService managing native Android MediaPlayer, MediaSession, audio focus management, and foreground notification controls.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Implement Network Error Resilience",
-      "description": "Adding WebView error handling and offline fallback UI logic.",
+      "title": "Implement Native Audio Player & Navigation Logic",
+      "description": "Building MainActivity with track filtering, dynamic list adapter, service synchronization, seekbar listeners, and sleep timer popup.",
       "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building YouTube Background Player",
-      "description": "Final assembly and packaging of the YouTube Background Player Android application.",
+      "description": "Final assembly and compilation of the native audio background player application.",
       "files": [],
       "status": "pending"
     }
