@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Update Project Metadata",
+      "description": "Configuring project app identity, metadata, and app ID.",
+      "files": ["app-meta.json", "app/src/main/assets/app-meta.json", "api_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure App Build Settings",
+      "description": "Updating app/build.gradle dependencies and compiler settings for SDK level 34.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Update Manifest Permissions",
+      "description": "Adding Internet, Foreground Service Media Playback, and Notification permissions to AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Update UI Styling Resources",
+      "description": "Defining theme resources, dark YouTube branding colors, and app strings.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Browser UI Layout",
+      "description": "Building activity_main layout featuring top browser navigation bar, loading progress bar, and full WebView.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Background Media Service Engine",
+      "description": "Creating BackgroundAudioService to manage foreground audio focus session and system notifications.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Web Chrome & Navigation Logic",
+      "description": "Configuring JavaScript support, DOM storage, CookieManager, and WebView navigation handlers.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Integrate Main Browser Activity",
+      "description": "Adding desktop/mobile site toggle, direct site loading, URL indicator, and back navigation.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify YouTube Playback Integration",
+      "description": "Ensuring direct initialization of https://www.youtube.com with media playback features enabled.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building YouTube Background Player",
+      "description": "Final compilation and packaging of the YouTube WebView background player application.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
