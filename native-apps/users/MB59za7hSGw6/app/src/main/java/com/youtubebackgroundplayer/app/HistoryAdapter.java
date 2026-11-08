@@ -1,6 +1,7 @@
 package com.youtubebackgroundplayer.app;
 
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class HistoryAdapter extends BaseAdapter {
 
@@ -20,30 +19,28 @@ public class HistoryAdapter extends BaseAdapter {
     }
 
     private Context context;
-    private List<HistoryItem> items;
+    private List<HistoryItem> historyList;
     private OnDeleteClickListener deleteClickListener;
-    private SimpleDateFormat dateFormat;
 
-    public HistoryAdapter(Context context, List<HistoryItem> items, OnDeleteClickListener listener) {
+    public HistoryAdapter(Context context, List<HistoryItem> historyList, OnDeleteClickListener listener) {
         this.context = context;
-        this.items = items;
+        this.historyList = historyList;
         this.deleteClickListener = listener;
-        this.dateFormat = new SimpleDateFormat("MMM dd, yyyy HH:mm", Locale.getDefault());
     }
 
     @Override
     public int getCount() {
-        return items.size();
+        return historyList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return items.get(position);
+        return historyList.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return items.get(position).getId();
+        return historyList.get(position).getId();
     }
 
     @Override
@@ -52,19 +49,21 @@ public class HistoryAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_history, parent, false);
             holder = new ViewHolder();
-            holder.tvTitle = convertView.findViewById(R.id.tv_item_title);
-            holder.tvUrl = convertView.findViewById(R.id.tv_item_url);
-            holder.tvDate = convertView.findViewById(R.id.tv_item_date);
-            holder.btnDelete = convertView.findViewById(R.id.btn_delete_item);
+            holder.txtTitle = (TextView) convertView.findViewById(R.id.txt_item_title);
+            holder.txtUrl = (TextView) convertView.findViewById(R.id.txt_item_url);
+            holder.txtDate = (TextView) convertView.findViewById(R.id.txt_item_date);
+            holder.btnDelete = (ImageButton) convertView.findViewById(R.id.btn_delete_item);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        final HistoryItem item = items.get(position);
-        holder.tvTitle.setText(item.getTitle());
-        holder.tvUrl.setText(item.getUrl());
-        holder.tvDate.setText(dateFormat.format(new Date(item.getTimestamp())));
+        final HistoryItem item = historyList.get(position);
+        holder.txtTitle.setText(item.getTitle());
+        holder.txtUrl.setText(item.getUrl());
+
+        String formattedDate = DateFormat.format("MMM dd, yyyy - hh:mm a", new Date(item.getTimestamp())).toString();
+        holder.txtDate.setText(formattedDate);
 
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,10 +77,10 @@ public class HistoryAdapter extends BaseAdapter {
         return convertView;
     }
 
-    static class ViewHolder {
-        TextView tvTitle;
-        TextView tvUrl;
-        TextView tvDate;
+    private static class ViewHolder {
+        TextView txtTitle;
+        TextView txtUrl;
+        TextView txtDate;
         ImageButton btnDelete;
     }
 }

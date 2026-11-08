@@ -3,117 +3,135 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/bg_dark">
+    android:background="@color/yt_dark_bg">
 
-    <!-- Top Navigation Control Bar -->
+    <!-- Header Navigation Toolbar -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/toolbar_bg"
-        android:gravity="center_vertical"
+        android:layout_height="56dp"
         android:orientation="horizontal"
-        android:paddingStart="4dp"
-        android:paddingEnd="4dp">
-
-        <ImageButton
-            android:id="@+id/btn_home"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/btn_home"
-            android:src="@drawable/ic_home" />
+        android:background="@color/yt_surface"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
 
         <ImageButton
             android:id="@+id/btn_back"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/btn_back"
-            android:src="@drawable/ic_back" />
+            android:src="@drawable/ic_back"
+            android:contentDescription="Back" />
 
         <ImageButton
             android:id="@+id/btn_forward"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/btn_forward"
-            android:src="@drawable/ic_forward" />
+            android:src="@drawable/ic_forward"
+            android:contentDescription="Forward" />
 
         <ImageButton
             android:id="@+id/btn_refresh"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/btn_refresh"
-            android:src="@drawable/ic_refresh" />
+            android:src="@drawable/ic_refresh"
+            android:contentDescription="Refresh" />
+
+        <ImageButton
+            android:id="@+id/btn_home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_home"
+            android:contentDescription="Home" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
             android:text="YouTube"
-            android:textColor="@color/text_primary"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textColor="@color/yt_red"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingEnd="12dp" />
 
         <ImageButton
             android:id="@+id/btn_history"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/btn_history"
-            android:src="@drawable/ic_history" />
+            android:src="@drawable/ic_history"
+            android:contentDescription="History" />
+
     </LinearLayout>
 
-    <!-- Page Loading Progress Bar -->
+    <!-- Loading Progress Bar -->
     <ProgressBar
         android:id="@+id/progress_bar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:indeterminate="false"
         android:max="100"
-        android:progressDrawable="@color/progress_color"
+        android:progressDrawable="@color/yt_red"
         android:visibility="gone" />
 
-    <!-- Error Container -->
-    <LinearLayout
-        android:id="@+id/layout_error"
+    <!-- YouTube WebView Frame -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:visibility="gone">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/tv_error_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <WebView
+            android:id="@+id/web_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/error_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:gravity="center"
-            android:text="@string/error_network"
-            android:textColor="@color/text_secondary"
-            android:textSize="16sp" />
+            android:background="@color/yt_dark_bg"
+            android:padding="24dp"
+            android:visibility="gone">
 
-        <Button
-            android:id="@+id/btn_retry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/accent_red"
-            android:text="@string/btn_retry"
-            android:textColor="@color/text_primary" />
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connection Error"
+                android:textColor="@color/yt_text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
 
-    <!-- Native WebView Container -->
-    <WebView
-        android:id="@+id/web_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unable to load YouTube website. Please check your network connection and try again."
+                android:textColor="@color/yt_text_secondary"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_marginBottom="24dp" />
+
+            <Button
+                android:id="@+id/btn_retry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Retry Loading"
+                android:background="@drawable/btn_rounded"
+                android:textColor="@color/yt_text_primary"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </LinearLayout>

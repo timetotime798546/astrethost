@@ -2,65 +2,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_dark"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/yt_dark_bg">
 
-    <!-- Header Toolbar -->
-    <RelativeLayout
+    <!-- Top Action Bar -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@color/toolbar_bg"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp">
-
-        <ImageButton
-            android:id="@+id/btn_back_history"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_centerVertical="true"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/btn_back"
-            android:src="@drawable/ic_back" />
+        android:orientation="horizontal"
+        android:background="@color/yt_surface"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/btn_back_history"
-            android:paddingStart="8dp"
-            android:text="@string/title_history"
-            android:textColor="@color/text_primary"
-            android:textSize="18sp"
+            android:layout_weight="1"
+            android:text="@string/history_title"
+            android:textColor="@color/yt_text_primary"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_clear_all"
             android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="@string/clear_all"
+            android:textColor="@color/yt_red"
+            android:background="?android:attr/selectableItemBackground"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- History List View -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/list_history"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/yt_surface_light"
+            android:dividerHeight="1dp" />
+
+        <TextView
+            android:id="@+id/txt_empty"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:text="@string/btn_clear_all"
-            android:textColor="@color/accent_red" />
-    </RelativeLayout>
+            android:layout_gravity="center"
+            android:text="@string/no_history"
+            android:textColor="@color/yt_text_secondary"
+            android:textSize="16sp"
+            android:visibility="gone" />
 
-    <!-- Empty History View -->
-    <TextView
-        android:id="@+id/tv_empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/empty_history"
-        android:textColor="@color/text_secondary"
-        android:textSize="16sp"
-        android:visibility="gone" />
-
-    <!-- History List -->
-    <ListView
-        android:id="@+id/lv_history"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@color/divider_color"
-        android:dividerHeight="1dp" />
+    </FrameLayout>
 
 </LinearLayout>
