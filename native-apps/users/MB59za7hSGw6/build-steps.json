@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze background playback failure root cause",
+      "description": "Identify screen lock and activity pause state triggers that cause YouTube HTML5 player to pause in WebView.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Add POST_NOTIFICATIONS runtime permission check",
+      "description": "Declare and request android.permission.POST_NOTIFICATIONS at runtime on Android 13+ (API 33).",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create native MediaSession in BackgroundAudioService",
+      "description": "Instantiate android.media.session.MediaSession with transport controls and media button handlers.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure PlaybackState and MediaMetadata",
+      "description": "Update PlaybackState with active actions (PLAY, PAUSE, PLAY_PAUSE) and current track metadata.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Notification.MediaStyle for foreground service",
+      "description": "Attach MediaSession token and media transport action buttons to foreground playback notification.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Add JavascriptInterface bridge for HTML5 video state",
+      "description": "Expose native WebAppInterface method to receive play/pause events directly from WebView video element.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Inject JS observer to sync HTML5 play/pause events",
+      "description": "Listen to video DOM play, pause, and ended events to update native MediaSession state accurately.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Page Visibility API overrides",
+      "description": "Override document.hidden and visibilityState in YouTube web player to suppress automatic pause scripts.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Maintain Audio Focus and WakeLock during backgrounding",
+      "description": "Ensure partial wake lock and audio focus retention when Activity goes into onPause/onStop states.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Verify watch history recording functionality",
+      "description": "Confirm SQLite watch history storage operates without interfering with background audio playback.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Enforce Java 8 language compatibility",
+      "description": "Confirm source code uses traditional inner classes without Java 8+ lambdas or streams.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building YouTube Background Player",
+      "description": "Final compilation and build verification.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
