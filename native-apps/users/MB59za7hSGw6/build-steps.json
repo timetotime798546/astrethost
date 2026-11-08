@@ -2,109 +2,85 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize YouTube Background Player project structure",
-      "description": "Create base project configurations and app metadata.",
-      "files": ["app-meta.json", "api_schema.json"],
-      "status": "pending"
-    },
-    {
-      "step": 2,
-      "title": "Configure Android App Manifest and permissions",
-      "description": "Add Internet, Network State, Foreground Service, and Media Playback permissions to AndroidManifest.xml.",
-      "files": ["app/src/main/AndroidManifest.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Configure Gradle build script",
-      "description": "Configure build parameters, compile options, and target SDK version 34.",
-      "files": ["app/build.gradle"],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Setup color palette and dark theme definitions",
-      "description": "Create UI color definitions for dark YouTube layout and custom styles.",
-      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml", "app/src/main/res/values/styles.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Create navigation and player drawables",
-      "description": "Add vector icons for toolbar navigation, history management, and background media state.",
-      "files": [
-        "app/src/main/res/drawable/ic_back.xml",
-        "app/src/main/res/drawable/ic_forward.xml",
-        "app/src/main/res/drawable/ic_refresh.xml",
-        "app/src/main/res/drawable/ic_home.xml",
-        "app/src/main/res/drawable/ic_history.xml",
-        "app/src/main/res/drawable/ic_delete.xml",
-        "app/src/main/res/drawable/ic_play.xml",
-        "app/src/main/res/drawable/ic_pause.xml",
-        "app/src/main/res/drawable/btn_rounded.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Implement History item data model",
-      "description": "Create HistoryItem class to represent saved YouTube watch entries.",
-      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/HistoryItem.java"],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Implement SQLite Database Helper",
-      "description": "Create HistoryDbHelper to handle local history persistence, insertion, listing, and deletion.",
-      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/HistoryDbHelper.java"],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Implement History BaseAdapter",
-      "description": "Create HistoryAdapter to populate watch history in ListView without AndroidX dependencies.",
-      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/HistoryAdapter.java"],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Implement Foreground Media Service",
-      "description": "Create BackgroundAudioService for handling audio playback notifications and MediaSession.",
-      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Design layout for Main Activity UI",
-      "description": "Define Toolbar controls, progress indicator, and WebView container in activity_main.xml.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Design layout for History Activity UI",
-      "description": "Define header, clear action button, list container, and empty state view in activity_history.xml.",
-      "files": ["app/src/main/res/layout/activity_history.xml", "app/src/main/res/layout/item_history.xml"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Implement HistoryActivity logic",
-      "description": "Add code to view history items, navigate back to videos, delete single entries, or clear all.",
-      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/HistoryActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Implement MainActivity logic",
-      "description": "Integrate WebView settings, DOM storage, JavaScript execution, navigation controls, and history tracking.",
+      "title": "Analyze build issue in MainActivity",
+      "description": "Locate invalid API constant references causing compilation failure in MainActivity.java.",
       "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
       "status": "pending"
     },
     {
-      "step": 14,
+      "step": 2,
+      "title": "Fix SDK version check syntax",
+      "description": "Replace invalid constant with Build.VERSION_CODES.LOLLIPOP in CookieManager setup and WebResourceError handling.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Verify WebView settings and background playback",
+      "description": "Ensure DOM storage, JavaScript execution, and third-party cookies are properly initialized.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Verify navigation controls",
+      "description": "Ensure back, forward, refresh, home, and history actions perform seamlessly.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Verify audio foreground service interaction",
+      "description": "Check background audio service lifecycle start and stop events during activity destroyed state.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Validate history persistence with SQLite",
+      "description": "Confirm watched YouTube links and titles are logged to local SQLite history.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Validate error recovery layout",
+      "description": "Ensure connection failure error layout displays retry options cleanly.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify dark UI theme styling",
+      "description": "Ensure YouTube dark surface theme XML styling is consistent across main activity.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Check AndroidManifest setup",
+      "description": "Verify foreground service media playback permissions and hardware acceleration flags.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Verify Java 8 target compatibility",
+      "description": "Ensure anonymous inner classes are used without lambda expressions.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Review overall project configuration",
+      "description": "Confirm metadata, app options, and compile targets are properly aligned.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
       "title": "Building YouTube Background Player",
-      "description": "Validate build configurations and assemble final debug APK.",
+      "description": "Final compilation build validation.",
       "files": [],
       "status": "pending"
     }
