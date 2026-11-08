@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze background audio playback failure causes",
+      "description": "Identify screen lock and activity pause state triggers that cause YouTube HTML5 player to pause in WebView.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Add WAKE_LOCK permission",
+      "description": "Declare android.permission.WAKE_LOCK in AndroidManifest.xml to keep CPU active during background playback.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement PowerManager WakeLock in BackgroundAudioService",
+      "description": "Acquire PARTIAL_WAKE_LOCK when background media service starts to prevent CPU sleep during audio playback.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Page Visibility API JS override helper",
+      "description": "Develop JavaScript injection routine that overrides document.hidden and suppresses visibilitychange events.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Inject JS override into WebView lifecycle hooks",
+      "description": "Execute JavaScript override on page load, pause, and stop events to keep YouTube HTML5 player active.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Prevent premature WebView lifecycle pausing",
+      "description": "Ensure onPause and onStop methods in MainActivity do not destroy or pause the WebView instance.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Maintain audio focus and background notification",
+      "description": "Verify BackgroundAudioService retains media playback focus and active foreground service notification.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify watch history database recording",
+      "description": "Confirm SQLite watch history storage operates without interfering with background playback.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify toolbar navigation and error state layout",
+      "description": "Check back, forward, refresh, home, and connection error handling views.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Enforce Java 8 language compatibility",
+      "description": "Confirm source code uses traditional inner classes without Java 8+ lambdas.",
+      "files": ["app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Validate build settings and dependencies",
+      "description": "Check Gradle build configuration and target SDK version alignment.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building YouTube Background Player",
+      "description": "Final compilation and build verification.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
