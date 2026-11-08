@@ -1,0 +1,49 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze audio focus conflict causing playback termination",
+      "description": "Identified that requesting audio focus from BackgroundAudioService stole focus from WebView internal audio player, triggering automatic video pause.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java",
+        "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Fix Audio Focus self-preemption loop in BackgroundAudioService",
+      "description": "Refactored audio focus handling so BackgroundAudioService updates MediaSession and WakeLock without taking focus away from WebView audio output.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Enhance HTML5 Page Visibility API and event overrides in WebView",
+      "description": "Injected Javascript overrides for document.hidden, visibilityState, document.hasFocus, and event propagation to prevent YouTube player from auto-pausing.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Strengthen notification and background state persistence",
+      "description": "Updated foreground notification pending intents and media metadata update cycle for continuous background audio.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java",
+        "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Building YouTube Background Player",
+      "description": "Final compilation and validation.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
