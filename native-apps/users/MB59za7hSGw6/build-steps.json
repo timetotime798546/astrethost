@@ -1,0 +1,38 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Prevent background service destruction on activity finish",
+      "description": "Removed stopService call inside MainActivity onDestroy to ensure background audio service remains active when app is closed or removed.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Implement back button backgrounding",
+      "description": "Updated onBackPressed to trigger moveTaskToBack, allowing continuous webview media session execution without terminating activity.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Add task removal lifecycle handling in BackgroundAudioService",
+      "description": "Overrode onTaskRemoved in BackgroundAudioService so background playback continues uninterrupted when app is swiped away from recent apps list.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Building YouTube Background Player",
+      "description": "Final project build and verification.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
