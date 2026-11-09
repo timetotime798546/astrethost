@@ -2,53 +2,59 @@
   "steps": [
     {
       "step": 1,
-      "title": "Update Application Metadata",
-      "description": "Configured app-meta.json with app name BG Tube Player and package com.bgtubeplayer.app.",
+      "title": "Fix Color Resource Declarations",
+      "description": "Defined theme colors (yt_dark_bg, yt_surface, yt_red, yt_text_primary, yt_text_secondary) in colors.xml.",
       "files": [
-        "app-meta.json"
+        "app/src/main/res/values/colors.xml"
       ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Update Backend API Schema Configuration",
-      "description": "Verified offline local mode in api_schema.json.",
+      "title": "Create Progress Bar Layer List Drawable",
+      "description": "Created progress_bar_red.xml layer-list drawable to replace invalid color reference in progress bar.",
       "files": [
-        "api_schema.json"
+        "app/src/main/res/drawable/progress_bar_red.xml"
       ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Configure Application Gradle Build Script",
-      "description": "Updated namespace and applicationId to com.bgtubeplayer.app in build.gradle.",
+      "title": "Create Navigation Vector Icons",
+      "description": "Added ic_back, ic_forward, ic_refresh, ic_home, and ic_history vector drawables for toolbar navigation.",
       "files": [
-        "app/build.gradle"
+        "app/src/main/res/drawable/ic_back.xml",
+        "app/src/main/res/drawable/ic_forward.xml",
+        "app/src/main/res/drawable/ic_refresh.xml",
+        "app/src/main/res/drawable/ic_home.xml",
+        "app/src/main/res/drawable/ic_history.xml"
       ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Update Android Manifest Declarations",
-      "description": "Updated activity and service component declarations to package com.bgtubeplayer.app.",
+      "title": "Create Media Action Vector Icons",
+      "description": "Added ic_play, ic_pause, and ic_delete vector icons for background media session and history management.",
       "files": [
-        "app/src/main/AndroidManifest.xml"
+        "app/src/main/res/drawable/ic_play.xml",
+        "app/src/main/res/drawable/ic_pause.xml",
+        "app/src/main/res/drawable/ic_delete.xml"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Update Resource String Values",
-      "description": "Updated string resources with new BG Tube Player branding.",
+      "title": "Add Rounded Button Background",
+      "description": "Added btn_rounded.xml shape drawable for custom buttons in main UI and clear history dialogs.",
       "files": [
-        "app/src/main/res/values/strings.xml"
+        "app/src/main/res/drawable/btn_rounded.xml"
       ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Update Main Activity Layout Header",
-      "description": "Updated header toolbar label to BG Tube in activity_main.xml.",
+      "title": "Update Activity Main XML Layout",
+      "description": "Updated activity_main.xml to use valid progress bar drawable and verify all resource references.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -56,60 +62,51 @@
     },
     {
       "step": 7,
-      "title": "Refactor History Item Data Model",
-      "description": "Moved HistoryItem to package com.bgtubeplayer.app.",
+      "title": "Update History Activity XML Layout",
+      "description": "Verified layout resource resolution in activity_history.xml.",
       "files": [
-        "app/src/main/java/com/bgtubeplayer/app/HistoryItem.java"
+        "app/src/main/res/layout/activity_history.xml"
       ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Refactor History Database Helper",
-      "description": "Updated HistoryDbHelper database manager in package com.bgtubeplayer.app.",
+      "title": "Update History Item XML Layout",
+      "description": "Verified layout resource references in item_history.xml for list row items.",
       "files": [
-        "app/src/main/java/com/bgtubeplayer/app/HistoryDbHelper.java"
+        "app/src/main/res/layout/item_history.xml"
       ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Refactor History Adapter",
-      "description": "Updated HistoryAdapter in package com.bgtubeplayer.app.",
-      "files": [
-        "app/src/main/java/com/bgtubeplayer/app/HistoryAdapter.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Refactor Background Audio Service",
-      "description": "Updated BackgroundAudioService media session and playback actions in package com.bgtubeplayer.app.",
+      "title": "Verify Background Audio Service Controls",
+      "description": "Ensured notification action drawables match vector icons in BackgroundAudioService.java.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/BackgroundAudioService.java"
       ],
       "status": "pending"
     },
     {
-      "step": 11,
-      "title": "Refactor History Activity",
-      "description": "Updated HistoryActivity watch history interface in package com.bgtubeplayer.app.",
+      "step": 10,
+      "title": "Verify History SQLite Database Helper",
+      "description": "Verified database operations and history persistence logic in HistoryDbHelper.java.",
       "files": [
-        "app/src/main/java/com/bgtubeplayer/app/HistoryActivity.java"
+        "app/src/main/java/com/bgtubeplayer/app/HistoryDbHelper.java"
       ],
       "status": "pending"
     },
     {
-      "step": 12,
-      "title": "Refactor Main Activity Control Center",
-      "description": "Updated MainActivity background playback controller in package com.bgtubeplayer.app.",
+      "step": 11,
+      "title": "Verify Main Activity Navigation",
+      "description": "Verified WebView controller setup, Javascript interface bridge, and toolbar listeners in MainActivity.java.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 13,
+      "step": 12,
       "title": "Building BG Tube Player",
       "description": "Final build assembly and verification for BG Tube Player.",
       "files": [],
