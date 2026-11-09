@@ -1,0 +1,88 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project",
+      "description": "Set up native Android application structure with Java 8 configuration.",
+      "files": ["app/build.gradle", "app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Application Metadata",
+      "description": "Add app-meta.json configuration assets for dynamic package and app tracking.",
+      "files": ["app-meta.json", "app/src/main/assets/app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define API & Admin Schema",
+      "description": "Establish backend communication definitions for cloud sync and preferences.",
+      "files": ["api_schema.json", "admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Backend API Client",
+      "description": "Create HTTP client using standard HttpURLConnection for cloud storage.",
+      "files": ["app/src/main/java/com/aigirlfriendstream/app/BackendApi.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build Hinglish AI Chat Engine",
+      "description": "Develop romantic, sweet, and flirty Hinglish conversational logic.",
+      "files": ["app/src/main/java/com/aigirlfriendstream/app/HinglishAiEngine.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design Home Control Panel Layout",
+      "description": "Create splash UI layout with dual mode choices: Gallery Stream & AI Girlfriend Mode.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement MainActivity Logic",
+      "description": "Handle runtime permissions for camera/storage/audio and mode selection routing.",
+      "files": ["app/src/main/java/com/aigirlfriendstream/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Gallery Stream Layout",
+      "description": "Create full-screen media player interface with loop controls and overlay HUD.",
+      "files": ["app/src/main/res/layout/activity_gallery_stream.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Gallery Stream Activity",
+      "description": "Handle gallery intent picker, video looping playback, mute toggles, and streaming UI.",
+      "files": ["app/src/main/java/com/aigirlfriendstream/app/GalleryStreamActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design Live AI Girlfriend Video Call Layout",
+      "description": "Build interactive chat screen with video overlay and flirty message stream.",
+      "files": ["app/src/main/res/layout/activity_ai_girlfriend.xml", "app/src/main/res/layout/item_chat_message.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Live AI Girlfriend Activity",
+      "description": "Integrate interactive simulated live video call, camera feed preview, and Hinglish AI response stream.",
+      "files": ["app/src/main/java/com/aigirlfriendstream/app/AiGirlfriendActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building AI Girlfriend Stream",
+      "description": "Final compilation and validation of the native Android application binary.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
