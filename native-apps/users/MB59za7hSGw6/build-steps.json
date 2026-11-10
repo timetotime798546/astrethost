@@ -1,0 +1,93 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Validate project build configuration and dependency tree",
+      "description": "Configure top-level and app gradle build scripts for Android SDK 34 target.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure background audio service and permissions in AndroidManifest",
+      "description": "Set foreground service permissions, media playback declarations, and activity launch settings.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Fix AudioFocus transient loss feedback loop in BackgroundAudioService",
+      "description": "Prevent audio focus request echoes and transient ducking events from pausing playback on video start.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement WakeLock and sticky service lifecycle for lock screen playback",
+      "description": "Maintain PARTIAL_WAKE_LOCK and persistent foreground status when screen is locked or task is removed.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Patch HTML5 Page Visibility API and focus event listeners in JS injection",
+      "description": "Override document.hidden, document.visibilityState, and event listeners to prevent YouTube auto-pause script execution.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Intercept HTMLVideoElement.prototype.pause in WebView JavaScript bridge",
+      "description": "Differentiate explicit user pause actions from automatic visibility-based background pause calls.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Preserve WebView timers and lifecycle during backgrounding",
+      "description": "Ensure WebView timers remain unpaused onActivityPause and onActivityStop events.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Synchronize notification controls with HTML5 video element state",
+      "description": "Allow playback toggle commands from system notifications to cleanly update state without triggering visibility loops.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java",
+        "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify local history storage and activity response listeners",
+      "description": "Ensure SQLite database logging operates safely alongside continuous media streaming.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/HistoryDbHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building YouTube Background Player",
+      "description": "Compile final project APK and verify background audio persistence.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
