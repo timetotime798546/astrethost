@@ -2,17 +2,17 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze build failure logs and manifest merger errors",
-      "description": "Examine the manifest merger log to locate missing name attributes and deprecated package declaration.",
+      "title": "Analyze AndroidManifest merger log",
+      "description": "Examine the manifest merger error log to identify missing attributes and package declaration issues.",
       "files": [
-        "build-error.log"
+        "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Clean manifest XML package attribute",
-      "description": "Remove legacy package attribute from manifest root element in compliance with AGP 8.3.2 namespace rules.",
+      "title": "Remove legacy package attribute from AndroidManifest",
+      "description": "Clean manifest root tag to align with AGP 8.3.2 namespace rules.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -20,8 +20,8 @@
     },
     {
       "step": 3,
-      "title": "Reformat android:name attributes in AndroidManifest",
-      "description": "Ensure valid namespace declaration and standard android:name key attributes for permissions, activities, intent filters, and services.",
+      "title": "Format permission declarations",
+      "description": "Ensure all uses-permission tags have explicit android:name attributes with proper Android namespace syntax.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -29,17 +29,17 @@
     },
     {
       "step": 4,
-      "title": "Validate build target SDK 34 and Java 8 compatibility",
-      "description": "Verify compileSdkVersion 34, targetSdkVersion 34, and Java 8 language target configuration in app build.gradle.",
+      "title": "Configure application theme and properties",
+      "description": "Set application icon, label, cleartext traffic, and standard Material theme.",
       "files": [
-        "app/build.gradle"
+        "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Verify MainActivity launcher activity registration",
-      "description": "Confirm MainActivity is correctly configured with exported status and launcher intent category.",
+      "title": "Configure MainActivity declaration",
+      "description": "Define MainActivity with proper exported flag and LAUNCHER intent filter.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -47,8 +47,8 @@
     },
     {
       "step": 6,
-      "title": "Verify BackgroundAudioService foreground service type",
-      "description": "Ensure BackgroundAudioService is properly registered with mediaPlayback foreground service type.",
+      "title": "Configure HistoryActivity declaration",
+      "description": "Register watch history screen component with label reference.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -56,37 +56,35 @@
     },
     {
       "step": 7,
-      "title": "Audit watch history layout and list rendering",
-      "description": "Check HistoryActivity registration in manifest and verify SQLite database helper compatibility.",
+      "title": "Configure BackgroundAudioService component",
+      "description": "Register foreground service for audio playback with mediaPlayback foreground service type.",
       "files": [
-        "app/src/main/AndroidManifest.xml",
-        "app/src/main/java/com/bgtubeplayer/app/HistoryDbHelper.java"
+        "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Confirm media session and notification channel setup",
-      "description": "Verify background playback controls and notification permission handling in service and main activity.",
+      "title": "Validate Gradle namespace configuration",
+      "description": "Confirm app build.gradle namespace matches target package name com.bgtubeplayer.app.",
       "files": [
-        "app/src/main/java/com/bgtubeplayer/app/BackgroundAudioService.java",
-        "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
+        "app/build.gradle"
       ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Validate layout resource IDs and vector drawables",
-      "description": "Check layout XML components and vector icon definitions for XML validity.",
+      "title": "Verify API target compatibility",
+      "description": "Ensure compilation targets Android SDK 34 with Java 8 language level.",
       "files": [
-        "app/src/main/res/layout/activity_main.xml"
+        "app/build.gradle"
       ],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building BG Tube Player",
-      "description": "Final compilation and validation of clean AndroidManifest structure and release APK output.",
+      "description": "Compile final APK package with updated manifest configuration.",
       "files": [],
       "status": "pending"
     }
