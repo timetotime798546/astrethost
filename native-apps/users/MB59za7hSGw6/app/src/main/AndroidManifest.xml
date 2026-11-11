@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/android"
-    package="com.bgtubeplayer.app">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -19,7 +18,7 @@
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.bgtubeplayer.app.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|screenLayout"
             android:exported="true">
             <intent-filter>
@@ -29,12 +28,12 @@
         </activity>
 
         <activity
-            android:name=".HistoryActivity"
+            android:name="com.bgtubeplayer.app.HistoryActivity"
             android:label="@string/history_title"
             android:exported="false" />
 
         <service
-            android:name=".BackgroundAudioService"
+            android:name="com.bgtubeplayer.app.BackgroundAudioService"
             android:foregroundServiceType="mediaPlayback"
             android:exported="false" />
 

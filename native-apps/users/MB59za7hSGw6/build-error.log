@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: BG Tube Player
 App ID: app_6af43ad0721eb
-Build ID: 42998848752
-Time: 2026-11-11 04:53:45
+Build ID: 43000238224
+Time: 2026-11-11 05:05:55
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 175720
-Extracted error characters: 23425
-File references detected: 127
+Original log characters: 185037
+Extracted error characters: 29732
+File references detected: 226
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.21+9 from tool-cache
 Setting Java 17.0.21+9 as the default
-(node:2191) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2206) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/69b36dd1-61a5-4bec-a861-bf9972744566
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/0672e151-4dab-41c2-a15c-c63088f57493
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -187,9 +187,11 @@ Project Name:
 bg-tube-player
 
 PROJECT FILES
+./api_schema.json
 ./app-meta.json
 ./app/build.gradle
 ./app/proguard-rules.pro
+./build-error.log
 ./build-steps.json
 ./build.gradle
 ./local.properties
@@ -220,21 +222,45 @@ Warning: SDK processing. This version only understands SDK XML versions up to 3 
 > Task :app:mergeReleaseResources
 > Task :app:createReleaseCompatibleScreenManifests
 > Task :app:extractDeepLinksRelease
-> Task :app:processReleaseMainManifest FAILED
-
-FAILURE: Build failed with an exception.
 > Task :app:parseReleaseLocalResources
 
-A problem was found with the configuration of task ':app:processReleaseMainManifest' (type 'ProcessApplicationManifest').
-- In plugin 'com.android.internal.version-check' type 'com.android.build.gradle.tasks.ProcessApplicationManifest' property 'mainManifest' specifies file '/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml' which doesn't exist.
+> Task :app:processReleaseMainManifest FAILED
+package="com.bgtubeplayer.app" found in source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml.
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml:5:5-67 Error:
+Missing 'name' key attribute on element uses-permission at AndroidManifest.xml:5:5-67
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml:6:5-79 Error:
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.bgtubeplayer.app" from the source AndroidManifest.xml: /home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml.
+Missing 'name' key attribute on element uses-permission at AndroidManifest.xml:6:5-79
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml:7:5-68 Error:
+Missing 'name' key attribute on element uses-permission at AndroidManifest.xml:7:5-68
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml:8:5-77 Error:
+Missing 'name' key attribute on element uses-permission at AndroidManifest.xml:8:5-77
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml:9:5-92 Error:
+Missing 'name' key attribute on element uses-permission at AndroidManifest.xml:9:5-92
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml:10:5-77 Error:
+Missing 'name' key attribute on element uses-permission at AndroidManifest.xml:10:5-77
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml:21:9-29:20 Error:
+Missing 'name' key attribute on element activity at AndroidManifest.xml:21:9-29:20
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml:25:13-28:29 Error:
+Missing one of the key attributes 'action#name,category#name,data#scheme,data#host,data#mimeType,data#port,data#path,data#pathPattern,data#pathPrefix' on element intent-filter at AndroidManifest.xml:25:13-28:29
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml:26:17-69 Error:
+Missing 'name' key attribute on element action at AndroidManifest.xml:26:17-69
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml:27:17-77 Error:
+Missing 'name' key attribute on element category at AndroidManifest.xml:27:17-77
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml:31:9-34:40 Error:
+Missing 'name' key attribute on element activity at AndroidManifest.xml:31:9-34:40
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml:36:9-39:40 Error:
+Missing 'name' key attribute on element service at AndroidManifest.xml:36:9-39:40
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/AndroidManifest.xml Error:
+Validation failed, exiting
 
-Reason: An input file was expected to be present but it doesn't exist.
+See https://developer.android.com/r/studio-ui/build/manifest-merger for more information about the manifest merger.
 
-Possible solutions:
-1. Make sure the file exists before the task is called.
-2. Make sure that the task which produces the file is declared as an input.
+FAILURE: Build failed with an exception.
 
-For more information, please refer to https://docs.gradle.org/8.5/userguide/validation_problems.html#input_file_does_not_exist in the Gradle documentation.
+Execution failed for task ':app:processReleaseMainManifest'.
+> Manifest merger failed with multiple errors, see logs
 
 * Try:
 > Run with --info or --debug option to get more log output.
@@ -242,38 +268,10 @@ For more information, please refer to https://docs.gradle.org/8.5/userguide/vali
 > Get more help at https://help.gradle.org.
 
 * Exception is:
-org.gradle.internal.execution.WorkValidationException: A problem was found with the configuration of task ':app:processReleaseMainManifest' (type 'ProcessApplicationManifest').
-
-at org.gradle.internal.execution.WorkValidationException$BuilderWithSummary.build(WorkValidationException.java:137)
-at org.gradle.internal.execution.WorkValidationException$BuilderWithSummary.get(WorkValidationException.java:119)
-at org.gradle.internal.execution.steps.ValidateStep.throwValidationException(ValidateStep.java:178)
-at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:100)
-at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:55)
-at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
-at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
-at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
-at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:81)
-at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
-at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
-at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
-at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
-at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
-at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
-at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:75)
-at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:41)
-at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:66)
-at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:66)
-at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:38)
-at org.gradle.internal.execution.steps.AssignWorkspaceStep.lambda$execute$0(AssignWorkspaceStep.java:32)
-at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:293)
-at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:30)
-at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:21)
-at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:37)
-at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:27)
-at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47)
-at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
-at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
-at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:processReleaseMainManifest'.
+at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:148)
+at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:282)
+at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:134)
 at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
 at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
@@ -301,31 +299,98 @@ at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareE
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
-at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:116)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
-at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
-at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
-at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
-at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
-at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
-at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
-at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
-at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
-at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
-at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:264)
-at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:128)
-at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
-at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
-at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
-at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
 at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: java.lang.RuntimeException: Manifest merger failed with multiple errors, see logs
+at com.android.build.gradle.internal.tasks.manifest.ManifestHelperKt.mergeManifests(ManifestHelper.kt:125)
+at com.android.build.gradle.internal.tasks.manifest.ManifestHelperKt.mergeManifests$default(ManifestHelper.kt:46)
+at com.android.build.gradle.tasks.ProcessApplicationManifest.doTaskAction(ProcessApplicationManifest.kt:178)
+at com.android.build.gradle.internal.tasks.NonIncrementalTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:66)
+at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+at com.android.build.gradle.internal.tasks.NonIncrementalTask.taskAction(NonIncrementalTask.kt:97)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:248)
+at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+at org.gradle.internal.operations.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:68)
+at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:233)
+at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:216)
+at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:199)
+at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:166)
+at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:41)
+at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:74)
+at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:50)
+at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:28)
+at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.executeDelegateBroadcastingChanges(CaptureStateAfterExecutionStep.java:100)
+at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:72)
+at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:50)
+at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:179)
+at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:70)
+at org.gradle.internal.Either$Right.fold(Either.java:175)
+at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:59)
+at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:68)
+at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:46)
+at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:36)
+at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:25)
+at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:36)
+at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:22)
+at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:91)
+at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:55)
+at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:55)
+at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:37)
+at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:76)
+at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:37)
+at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:108)
+at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:55)
+at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
+at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
+at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
+at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:81)
+at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
+at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
+at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
+at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:75)
+at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:41)
+at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:66)
+at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:66)
+at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:38)
+at org.gradle.internal.execution.steps.AssignWorkspaceStep.lambda$execute$0(AssignWorkspaceStep.java:32)
+at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:293)
+at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:30)
+at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:21)
+at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:37)
+at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:27)
+at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47)
+at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
+at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
+at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 25s
+BUILD FAILED in 22s
 11 actionable tasks: 11 executed
 Process completed with exit code 1.
 
