@@ -2,8 +2,8 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure Android Manifest permissions and service declarations",
-      "description": "Declare foreground service permissions, media playback service type, internet access, wake locks, and register BackgroundAudioService and activities.",
+      "title": "Configure Android Manifest and Permissions",
+      "description": "Fix XML attribute declaration namespaces, declare foreground service media playback permissions, internet access, wake lock, and register all components.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -11,8 +11,8 @@
     },
     {
       "step": 2,
-      "title": "Set up application dependencies and Gradle configuration",
-      "description": "Define Java 8 source compatibility, compile and target SDK version 34, minimum SDK 21, and application packaging parameters.",
+      "title": "Configure Application Build Gradle Script",
+      "description": "Ensure SDK target version 34, Java 8 compatibility, and remove external dependencies.",
       "files": [
         "app/build.gradle"
       ],
@@ -20,8 +20,8 @@
     },
     {
       "step": 3,
-      "title": "Create app metadata configuration",
-      "description": "Define application metadata including app_name, package_name, and app_id for runtime context initialization.",
+      "title": "Define Application Metadata and Package Settings",
+      "description": "Set metadata configuration for app ID app_6af3ddac2aa56 and target package name com.youtubebackgroundplayer.app.",
       "files": [
         "app-meta.json"
       ],
@@ -29,19 +29,18 @@
     },
     {
       "step": 4,
-      "title": "Define UI color palette and style resources",
-      "description": "Create dark theme color definitions including YouTube red accent, surface colors, text primary, and background styles.",
+      "title": "Define Dark Theme Colors and Resource Strings",
+      "description": "Maintain YouTube dark styling palette, button drawables, and UI resource strings.",
       "files": [
         "app/src/main/res/values/colors.xml",
-        "app/src/main/res/values/styles.xml",
         "app/src/main/res/values/strings.xml"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement custom BackgroundWebView subclass",
-      "description": "Create BackgroundWebView to override onWindowVisibilityChanged and prevent Android WebKit native C++ audio engine from auto-pausing media on screen lock or app minimize.",
+      "title": "Implement Background WebView Engine Interface",
+      "description": "Maintain BackgroundWebView overriding window visibility changes for continuous background playback.",
       "files": [
         "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundWebView.java"
       ],
@@ -49,8 +48,8 @@
     },
     {
       "step": 6,
-      "title": "Design main activity layout with BackgroundWebView frame",
-      "description": "Construct layout using standard UI elements and integrate BackgroundWebView to maintain continuous rendering when hidden.",
+      "title": "Design Main Activity User Interface Layout",
+      "description": "Construct browser controls, progress bar, error screen container, and WebView integration.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -58,36 +57,54 @@
     },
     {
       "step": 7,
-      "title": "Implement watch history SQLite database manager",
-      "description": "Build HistoryDbHelper to handle creation, insertion, retrieval, and deletion of user watch history records.",
+      "title": "Implement Watch History SQLite Storage Database",
+      "description": "Manage database operations for user video browsing history.",
       "files": [
-        "app/src/main/java/com/youtubebackgroundplayer/app/HistoryDbHelper.java",
-        "app/src/main/java/com/youtubebackgroundplayer/app/HistoryItem.java"
+        "app/src/main/java/com/youtubebackgroundplayer/app/HistoryDbHelper.java"
       ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Develop foreground media session service for background audio",
-      "description": "Implement BackgroundAudioService with MediaSession, AudioFocus handling, PowerManager WakeLock, and system audio notification controls.",
+      "title": "Create Watch History Data Models and Adapter",
+      "description": "Handle history records mapping and list view rendering.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/HistoryItem.java",
+        "app/src/main/java/com/youtubebackgroundplayer/app/HistoryAdapter.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop Foreground Audio Service and Notification Handler",
+      "description": "Manage media session controls, notification bar play/pause actions, audio focus, and wake lock state.",
       "files": [
         "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"
       ],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Implement dynamic JavaScript bridge and screen-off lock listener",
-      "description": "Inject visibility API overrides, HTMLMediaElement pause method interception, AudioContext resume loop, and broadcast receivers for uninterrupted playback when app is minimized or screen is locked.",
+      "step": 10,
+      "title": "Implement Main Web Player Activity Control Logic",
+      "description": "Inject background play JavaScript bridges, manage web navigation, handle background receivers, and bind media service.",
       "files": [
         "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 10,
+      "step": 11,
+      "title": "Implement Watch History Management Activity Screen",
+      "description": "Handle history viewing, selection redirecting, and clear history dialogs.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/HistoryActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
       "title": "Building YouTube Background Player",
-      "description": "Final build, verification, and APK assembly.",
+      "description": "Compile final release APK with fixed manifest declarations.",
       "files": [],
       "status": "pending"
     }
