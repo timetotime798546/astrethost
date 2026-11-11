@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure System Permissions in Android Manifest",
+      "description": "Add Internet, Foreground Service Media Playback, Wake Lock, Wi-Fi State, and Notification permissions in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Enhance Custom WebView Engine for Screen Off Playback",
+      "description": "Override WebView window visibility, view focus, and onPause event hooks in BackgroundWebView.java so WebKit never suspends audio rendering when screen turns off.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundWebView.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Partial Wake Lock and Wi-Fi Streaming Lock",
+      "description": "Upgrade BackgroundAudioService.java with CPU Partial Wake Lock and Wi-Fi Lock to prevent network throttling and CPU sleep during screen lock.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement WebKit Timers and Page Visibility JavaScript Injection",
+      "description": "Update Javascript injection in MainActivity.java to continuously override Page Visibility API, block pause events, and maintain background web media session.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Task Removal and Task Minimization Navigation",
+      "description": "Configure onTaskRemoved and moveTaskToBack in MainActivity to ensure background playback seamlessly continues when user swipes away or exits app.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Register Screen Off and Lock Screen Broadcast Observers",
+      "description": "Register intent filters for ACTION_SCREEN_OFF, ACTION_SCREEN_ON, and USER_PRESENT to trigger JS audio keep-alive signals on screen lock state changes.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Foreground Media Session Notification Controls",
+      "description": "Ensure media playback notification state remains active and updated with metadata across lock screen controls.",
+      "files": [
+        "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Building YouTube Background Player",
+      "description": "Compile final APK with screen lock and background audio continuation fixes.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
