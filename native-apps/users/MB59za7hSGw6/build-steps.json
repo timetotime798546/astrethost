@@ -2,79 +2,96 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure project dependencies and manifest settings",
-      "description": "Set up target SDK 34, compile SDK 34, package name com.bgtubeplayer.app, and declare permissions in AndroidManifest.xml.",
+      "title": "Configure project settings and package identifier",
+      "description": "Set up namespace com.bgtubeplayer.app and build tool parameters in build.gradle.",
       "files": [
-        "app/build.gradle",
-        "app/src/main/AndroidManifest.xml"
+        "app/build.gradle"
       ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Update application resources and string values",
-      "description": "Update application string resource to BG Tube Player.",
+      "title": "Declare application permissions and activity components",
+      "description": "Configure AndroidManifest.xml with background service and notification permissions under com.bgtubeplayer.app.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Update resource strings and branding",
+      "description": "Set application string resource to BG Tube Player.",
       "files": [
         "app/src/main/res/values/strings.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 3,
-      "title": "Implement HistoryItem data model",
-      "description": "Update package name in HistoryItem model class.",
+      "step": 4,
+      "title": "Configure app metadata assets",
+      "description": "Update asset metadata with package name com.bgtubeplayer.app.",
+      "files": [
+        "app/src/main/assets/app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement HistoryItem model class",
+      "description": "Define HistoryItem data structure within com.bgtubeplayer.app namespace.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/HistoryItem.java"
       ],
       "status": "pending"
     },
     {
-      "step": 4,
-      "title": "Build SQLite database helper for watch history",
-      "description": "Update package reference for HistoryDbHelper for watch history persistence.",
+      "step": 6,
+      "title": "Implement HistoryDbHelper SQLite storage",
+      "description": "Configure local watch history persistence under package com.bgtubeplayer.app.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/HistoryDbHelper.java"
       ],
       "status": "pending"
     },
     {
-      "step": 5,
-      "title": "Construct custom HistoryAdapter for list rendering",
-      "description": "Update package namespace in custom HistoryAdapter class.",
+      "step": 7,
+      "title": "Construct custom HistoryAdapter view adapter",
+      "description": "Implement history list item renderer under package com.bgtubeplayer.app.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/HistoryAdapter.java"
       ],
       "status": "pending"
     },
     {
-      "step": 6,
+      "step": 8,
       "title": "Configure BackgroundAudioService foreground capabilities",
-      "description": "Update package namespace, intent actions, and wake lock configurations in BackgroundAudioService.",
+      "description": "Implement foreground media playback service and audio focus listener in com.bgtubeplayer.app.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/BackgroundAudioService.java"
       ],
       "status": "pending"
     },
     {
-      "step": 7,
-      "title": "Implement HistoryActivity navigation logic",
-      "description": "Update package reference and handle history item deletion and URL selection in HistoryActivity.",
+      "step": 9,
+      "title": "Implement HistoryActivity and UI interaction",
+      "description": "Handle history browsing, item selection, and deletion in HistoryActivity.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/HistoryActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 8,
-      "title": "Update MainActivity WebView and JavaScript bridge",
-      "description": "Configure MainActivity under new package com.bgtubeplayer.app with complete background playback JavaScript injection.",
+      "step": 10,
+      "title": "Configure MainActivity WebView and media controls",
+      "description": "Set up JavaScript media bridge and playback control flow in MainActivity.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 9,
+      "step": 11,
       "title": "Building BG Tube Player",
       "description": "Final compilation and build verification for BG Tube Player.",
       "files": [],
