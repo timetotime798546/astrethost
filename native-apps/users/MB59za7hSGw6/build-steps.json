@@ -2,8 +2,8 @@
   "steps": [
     {
       "step": 1,
-      "title": "Analyze AndroidManifest merger log",
-      "description": "Examine the manifest merger error log to identify missing attributes and package declaration issues.",
+      "title": "Analyze build error log and manifest configuration",
+      "description": "Examine the manifest merger error log to pinpoint namespace and attribute issue causes.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -11,8 +11,8 @@
     },
     {
       "step": 2,
-      "title": "Remove legacy package attribute from AndroidManifest",
-      "description": "Clean manifest root tag to align with AGP 8.3.2 namespace rules.",
+      "title": "Remove deprecated package attribute from AndroidManifest",
+      "description": "Strip the legacy package attribute from the manifest tag to comply with AGP 8.3.2 requirements.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -20,8 +20,8 @@
     },
     {
       "step": 3,
-      "title": "Format permission declarations",
-      "description": "Ensure all uses-permission tags have explicit android:name attributes with proper Android namespace syntax.",
+      "title": "Validate permissions syntax in AndroidManifest",
+      "description": "Ensure uses-permission elements are properly formatted with standard Android names.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -29,8 +29,8 @@
     },
     {
       "step": 4,
-      "title": "Configure application theme and properties",
-      "description": "Set application icon, label, cleartext traffic, and standard Material theme.",
+      "title": "Verify application theme and metadata",
+      "description": "Configure light theme, launcher icon references, and network cleartext flags.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -38,8 +38,8 @@
     },
     {
       "step": 5,
-      "title": "Configure MainActivity declaration",
-      "description": "Define MainActivity with proper exported flag and LAUNCHER intent filter.",
+      "title": "Configure MainActivity intent filters",
+      "description": "Define MainActivity with explicit exported attribute and launcher intent filter.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -47,8 +47,8 @@
     },
     {
       "step": 6,
-      "title": "Configure HistoryActivity declaration",
-      "description": "Register watch history screen component with label reference.",
+      "title": "Configure HistoryActivity component",
+      "description": "Register watch history screen component with exported set to false.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -56,8 +56,8 @@
     },
     {
       "step": 7,
-      "title": "Configure BackgroundAudioService component",
-      "description": "Register foreground service for audio playback with mediaPlayback foreground service type.",
+      "title": "Configure BackgroundAudioService foreground service",
+      "description": "Register audio playback service component with mediaPlayback foreground service type.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -65,8 +65,8 @@
     },
     {
       "step": 8,
-      "title": "Validate Gradle namespace configuration",
-      "description": "Confirm app build.gradle namespace matches target package name com.bgtubeplayer.app.",
+      "title": "Verify Gradle namespace alignment",
+      "description": "Confirm namespace in app build.gradle matches com.bgtubeplayer.app.",
       "files": [
         "app/build.gradle"
       ],
@@ -74,8 +74,8 @@
     },
     {
       "step": 9,
-      "title": "Verify API target compatibility",
-      "description": "Ensure compilation targets Android SDK 34 with Java 8 language level.",
+      "title": "Validate Java version compatibility",
+      "description": "Ensure compileOptions remain aligned with Java 8 compatibility.",
       "files": [
         "app/build.gradle"
       ],
@@ -84,7 +84,7 @@
     {
       "step": 10,
       "title": "Building BG Tube Player",
-      "description": "Compile final APK package with updated manifest configuration.",
+      "description": "Compile final APK package with verified manifest configuration.",
       "files": [],
       "status": "pending"
     }
