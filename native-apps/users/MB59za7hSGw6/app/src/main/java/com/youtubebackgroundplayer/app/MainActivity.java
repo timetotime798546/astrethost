@@ -2,9 +2,11 @@ package com.youtubebackgroundplayer.app;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -35,7 +37,7 @@ public class MainActivity extends Activity {
     private static final int REQUEST_CODE_HISTORY = 1002;
     private static final int PERMISSION_REQUEST_NOTIFICATIONS = 1003;
 
-    private WebView webView;
+    private BackgroundWebView webView;
     private ProgressBar progressBar;
     private LinearLayout errorContainer;
     private ImageButton btnBack;
@@ -51,6 +53,19 @@ public class MainActivity extends Activity {
     private boolean isServiceBound = false;
     private PowerManager.WakeLock appWakeLock;
     private Handler mainHandler = new Handler(Looper.getMainLooper());
+
+    private BroadcastReceiver screenStateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent != null) {
+                String action = intent.getAction();
+                if (Intent.ACTION_SCREEN_OFF.equals(action) || Intent.ACTION_SCREEN_ON.equals(action)) {
+                    enableBackgroundMode(true);
+                    triggerJsKeepAlive();
+                }
+            }
+        }
+    };
 
     private ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
@@ -126,6 +141,7 @@ public class MainActivity extends Activity {
         setupWebView();
         setupListeners();
         checkNotificationPermission();
+        registerScreenStateReceiver();
 
         serviceIntent = new Intent(this, BackgroundAudioService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -138,6 +154,14 @@ public class MainActivity extends Activity {
         webView.loadUrl(YOUTUBE_HOME);
     }
 
+    private void registerScreenStateReceiver() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        filter.addAction(Intent.ACTION_SCREEN_ON);
+        filter.addAction(Intent.ACTION_USER_PRESENT);
+        registerReceiver(screenStateReceiver, filter);
+    }
+
     private void checkNotificationPermission() {
         if (Build.VERSION.SDK_INT >= 33) {
             if (checkSelfPermission("android.permission.POST_NOTIFICATIONS") != PackageManager.PERMISSION_GRANTED) {
@@ -147,7 +171,7 @@ public class MainActivity extends Activity {
     }
 
     private void initViews() {
-        webView = (WebView) findViewById(R.id.web_view);
+        webView = (BackgroundWebView) findViewById(R.id.web_view);
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         errorContainer = (LinearLayout) findViewById(R.id.error_container);
 
@@ -264,8 +288,16 @@ public class MainActivity extends Activity {
                 "    };" +
                 "  }" +
 
+                "  if (window.AudioContext) {" +
+                "    var origResume = AudioContext.prototype.resume;" +
+                "    AudioContext.prototype.resume = function() {" +
+                "      return origResume.apply(this, arguments);" +
+                "    };" +
+                "  }" +
+
                 "  window.forcePlayVideo = function() {" +
                 "    window.userRequestedPause = false;" +
+                "    window.isBackgroundAudioActive = true;" +
                 "    var v = document.querySelector('video');" +
                 "    if (v) { v.play(); }" +
                 "  };" +
@@ -308,7 +340,7 @@ public class MainActivity extends Activity {
                 "        var v = document.querySelector('video');" +
                 "        if (v && v.paused && !window.userRequestedPause) { v.play(); }" +
                 "      }" +
-                "    }, 600);" +
+                "    }, 500);" +
                 "  }" +
 
                 "} catch(e) {}" +
@@ -388,7 +420,7 @@ public class MainActivity extends Activity {
         if (appWakeLock != null) {
             if (enable && !appWakeLock.isHeld()) {
                 try {
-                    appWakeLock.acquire(3600000);
+                    appWakeLock.acquire(24 * 60 * 60 * 1000L);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -398,40 +430,37 @@ public class MainActivity extends Activity {
             injectBackgroundAudioJs();
             final String jsCmd = "if(typeof window.enableBgMode === 'function') { window.enableBgMode(" + enable + "); }";
             webView.evaluateJavascript(jsCmd, null);
-            mainHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (webView != null) {
-                        webView.evaluateJavascript(jsCmd, null);
-                    }
-                }
-            }, 300);
+        }
+    }
+
+    private void triggerJsKeepAlive() {
+        if (webView != null) {
+            webView.evaluateJavascript("var v = document.querySelector('video'); if (v && v.paused && !window.userRequestedPause) { v.play(); }", null);
         }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        enableBackgroundMode(false);
-        if (appWakeLock != null && appWakeLock.isHeld()) {
-            try {
-                appWakeLock.release();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (webView != null) {
+            webView.onResume();
+            webView.resumeTimers();
         }
+        enableBackgroundMode(true);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         enableBackgroundMode(true);
+        triggerJsKeepAlive();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         enableBackgroundMode(true);
+        triggerJsKeepAlive();
     }
 
     @Override
@@ -439,7 +468,7 @@ public class MainActivity extends Activity {
         if (webView != null && webView.canGoBack()) {
             webView.goBack();
         } else {
-            // Send activity to background so playback remains uninterrupted
+            // Keep playback running seamlessly by pushing task to background
             moveTaskToBack(true);
         }
     }
@@ -457,6 +486,11 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+        try {
+            unregisterReceiver(screenStateReceiver);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (appWakeLock != null && appWakeLock.isHeld()) {
             try {
                 appWakeLock.release();

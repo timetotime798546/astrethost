@@ -53,7 +53,7 @@ public class BackgroundAudioService extends Service implements AudioManager.OnAu
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         if (pm != null) {
-            wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "YouTubeBackgroundPlayer:AudioWakeLock");
+            wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "YouTubeBackgroundPlayer:AudioServiceLock");
             wakeLock.setReferenceCounted(false);
         }
 
@@ -145,7 +145,7 @@ public class BackgroundAudioService extends Service implements AudioManager.OnAu
             requestAudioFocus();
             if (wakeLock != null && !wakeLock.isHeld()) {
                 try {
-                    wakeLock.acquire(3600000);
+                    wakeLock.acquire(24 * 60 * 60 * 1000L); // Hold partial wake lock during audio playback
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -200,7 +200,7 @@ public class BackgroundAudioService extends Service implements AudioManager.OnAu
 
     @Override
     public void onTaskRemoved(Intent rootIntent) {
-        // Keep foreground service active and media controls intact even when swiped away
+        // Keep service alive so audio stream continues when app card is swiped away
         super.onTaskRemoved(rootIntent);
     }
 

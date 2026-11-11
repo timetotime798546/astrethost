@@ -3,7 +3,7 @@
     {
       "step": 1,
       "title": "Configure Android Manifest permissions and service declarations",
-      "description": "Declare foreground service permissions, media playback service type, internet access, wake locks, and register BackgroundAudioService, MainActivity, and HistoryActivity.",
+      "description": "Declare foreground service permissions, media playback service type, internet access, wake locks, and register BackgroundAudioService and activities.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -23,14 +23,13 @@
       "title": "Create app metadata configuration",
       "description": "Define application metadata including app_name, package_name, and app_id for runtime context initialization.",
       "files": [
-        "app/src/main/assets/app-meta.json",
         "app-meta.json"
       ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Define UI color palette and theme resources",
+      "title": "Define UI color palette and style resources",
       "description": "Create dark theme color definitions including YouTube red accent, surface colors, text primary, and background styles.",
       "files": [
         "app/src/main/res/values/colors.xml",
@@ -41,22 +40,17 @@
     },
     {
       "step": 5,
-      "title": "Create custom UI layout drawables and control icons",
-      "description": "Add custom vector drawables for navigation controls, play/pause state icons, refresh, history, and rounded button drawables.",
+      "title": "Implement custom BackgroundWebView subclass",
+      "description": "Create BackgroundWebView to override onWindowVisibilityChanged and prevent Android WebKit native C++ audio engine from auto-pausing media on screen lock or app minimize.",
       "files": [
-        "app/src/main/res/drawable/btn_rounded.xml",
-        "app/src/main/res/drawable/ic_back.xml",
-        "app/src/main/res/drawable/ic_forward.xml",
-        "app/src/main/res/drawable/ic_refresh.xml",
-        "app/src/main/res/drawable/ic_home.xml",
-        "app/src/main/res/drawable/ic_history.xml"
+        "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundWebView.java"
       ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Design main activity layout with navigation toolbar and webview",
-      "description": "Construct responsive layout with header navigation bar, progress bar indicator, high-performance WebView frame, and error state view.",
+      "title": "Design main activity layout with BackgroundWebView frame",
+      "description": "Construct layout using standard UI elements and integrate BackgroundWebView to maintain continuous rendering when hidden.",
       "files": [
         "app/src/main/res/layout/activity_main.xml"
       ],
@@ -65,7 +59,7 @@
     {
       "step": 7,
       "title": "Implement watch history SQLite database manager",
-      "description": "Build HistoryDbHelper to handle creation, insertion, retrieval, and deletion of user watch history records using native SQLite database.",
+      "description": "Build HistoryDbHelper to handle creation, insertion, retrieval, and deletion of user watch history records.",
       "files": [
         "app/src/main/java/com/youtubebackgroundplayer/app/HistoryDbHelper.java",
         "app/src/main/java/com/youtubebackgroundplayer/app/HistoryItem.java"
@@ -75,7 +69,7 @@
     {
       "step": 8,
       "title": "Develop foreground media session service for background audio",
-      "description": "Implement BackgroundAudioService with MediaSession, AudioFocus handling, PowerManager WakeLock, foreground notification controls, and task removal lifecycle logic.",
+      "description": "Implement BackgroundAudioService with MediaSession, AudioFocus handling, PowerManager WakeLock, and system audio notification controls.",
       "files": [
         "app/src/main/java/com/youtubebackgroundplayer/app/BackgroundAudioService.java"
       ],
@@ -83,8 +77,8 @@
     },
     {
       "step": 9,
-      "title": "Optimize JavaScript bridge injection for persistent screen-lock audio",
-      "description": "Inject visibility API overrides, HTMLVideoElement pause method interception, and automatic audio recovery loop for screen lock and app close background playback.",
+      "title": "Implement dynamic JavaScript bridge and screen-off lock listener",
+      "description": "Inject visibility API overrides, HTMLMediaElement pause method interception, AudioContext resume loop, and broadcast receivers for uninterrupted playback when app is minimized or screen is locked.",
       "files": [
         "app/src/main/java/com/youtubebackgroundplayer/app/MainActivity.java"
       ],
