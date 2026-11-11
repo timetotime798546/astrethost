@@ -29,7 +29,7 @@ public class BackgroundAudioService extends Service implements AudioManager.OnAu
     private PowerManager.WakeLock wakeLock;
     private MediaSession mediaSession;
     private boolean isPlaying = false;
-    private String currentTitle = "BG Tube Player";
+    private String currentTitle = "BG Tube Player Audio";
     private MediaStateChangeListener mediaStateChangeListener;
     private Object audioFocusRequestObj;
     private boolean hasAudioFocus = false;
@@ -167,7 +167,7 @@ public class BackgroundAudioService extends Service implements AudioManager.OnAu
         if (title != null && !title.trim().isEmpty() && !title.equalsIgnoreCase("YouTube")) {
             this.currentTitle = title;
         } else if (this.currentTitle == null || this.currentTitle.isEmpty()) {
-            this.currentTitle = "BG Tube Player";
+            this.currentTitle = "BG Tube Player Audio";
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && mediaSession != null) {
@@ -240,7 +240,7 @@ public class BackgroundAudioService extends Service implements AudioManager.OnAu
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID,
-                    "BG Tube Player",
+                    "BG Tube Player Audio",
                     NotificationManager.IMPORTANCE_LOW
             );
             channel.setDescription("Background audio session control notification");

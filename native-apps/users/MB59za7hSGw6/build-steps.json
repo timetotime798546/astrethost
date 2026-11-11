@@ -3,7 +3,7 @@
     {
       "step": 1,
       "title": "Configure project dependencies and manifest settings",
-      "description": "Set up target SDK 34, compile SDK 34, and declare required foreground service and notification permissions in AndroidManifest.xml.",
+      "description": "Set up target SDK 34, compile SDK 34, package name com.bgtubeplayer.app, and declare permissions in AndroidManifest.xml.",
       "files": [
         "app/build.gradle",
         "app/src/main/AndroidManifest.xml"
@@ -12,127 +12,71 @@
     },
     {
       "step": 2,
-      "title": "Define custom theme and dark visual design system",
-      "description": "Create XML color palette, Material application styles, and custom button background shapes tailored for YouTube dark mode UI.",
+      "title": "Update application resources and string values",
+      "description": "Update application string resource to BG Tube Player.",
       "files": [
-        "app/src/main/res/values/colors.xml",
-        "app/src/main/res/values/styles.xml",
-        "app/src/main/res/drawable/btn_rounded.xml"
+        "app/src/main/res/values/strings.xml"
       ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Create custom vector icons for media, navigation, and exit controls",
-      "description": "Add vector drawables for navigation, media playback, history, and app exit actions.",
-      "files": [
-        "app/src/main/res/drawable/ic_back.xml",
-        "app/src/main/res/drawable/ic_forward.xml",
-        "app/src/main/res/drawable/ic_refresh.xml",
-        "app/src/main/res/drawable/ic_home.xml",
-        "app/src/main/res/drawable/ic_history.xml",
-        "app/src/main/res/drawable/ic_delete.xml",
-        "app/src/main/res/drawable/ic_play.xml",
-        "app/src/main/res/drawable/ic_pause.xml",
-        "app/src/main/res/drawable/ic_exit.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Design Main Activity layout structure with Exit button",
-      "description": "Update activity_main.xml header layout to feature an Exit button alongside web action controls.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Design Watch History UI layouts",
-      "description": "Construct XML layout files for HistoryActivity screen display and custom list view item rows.",
-      "files": [
-        "app/src/main/res/layout/activity_history.xml",
-        "app/src/main/res/layout/item_history.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 6,
       "title": "Implement HistoryItem data model",
-      "description": "Create Java model class encapsulating watch history entry ID, video title, page URL, and timestamp attributes.",
+      "description": "Update package name in HistoryItem model class.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/HistoryItem.java"
       ],
       "status": "pending"
     },
     {
-      "step": 7,
+      "step": 4,
       "title": "Build SQLite database helper for watch history",
-      "description": "Develop HistoryDbHelper for persistent entry insertion, record retrieval, individual deletion, and bulk table clearing.",
+      "description": "Update package reference for HistoryDbHelper for watch history persistence.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/HistoryDbHelper.java"
       ],
       "status": "pending"
     },
     {
-      "step": 8,
+      "step": 5,
       "title": "Construct custom HistoryAdapter for list rendering",
-      "description": "Implement custom BaseAdapter mapping history items to list views with human-readable timestamps and delete listeners.",
+      "description": "Update package namespace in custom HistoryAdapter class.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/HistoryAdapter.java"
       ],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Enhance BackgroundAudioService with complete shutdown capabilities",
-      "description": "Implement stopForegroundAndAudio method in service to completely kill media sessions, notifications, audio focus, and wake locks on app exit.",
+      "step": 6,
+      "title": "Configure BackgroundAudioService foreground capabilities",
+      "description": "Update package namespace, intent actions, and wake lock configurations in BackgroundAudioService.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/BackgroundAudioService.java"
       ],
       "status": "pending"
     },
     {
-      "step": 10,
-      "title": "Implement WebAppInterface JavaScript bridge",
-      "description": "Create JavascriptInterface bridge class to sync video state changes between web elements and BackgroundAudioService.",
-      "files": [
-        "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Inject JavaScript background audio override logic",
-      "description": "Inject custom JavaScript into WebView overriding Page Visibility API to prevent audio playback suspension when app is backgrounded.",
-      "files": [
-        "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Implement Exit button listener and application termination handler",
-      "description": "Wire up exit button action to pause video media playback, release media resources, unbind service, stop background service, and terminate application process.",
-      "files": [
-        "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 13,
-      "title": "Develop HistoryActivity screen logic",
-      "description": "Handle watch history list updates, item navigation callback, single item deletion, and clear history dialog actions.",
+      "step": 7,
+      "title": "Implement HistoryActivity navigation logic",
+      "description": "Update package reference and handle history item deletion and URL selection in HistoryActivity.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/HistoryActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 14,
+      "step": 8,
+      "title": "Update MainActivity WebView and JavaScript bridge",
+      "description": "Configure MainActivity under new package com.bgtubeplayer.app with complete background playback JavaScript injection.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
       "title": "Building BG Tube Player",
-      "description": "Final compilation, verification of complete exit and background audio termination capabilities, and project build completion.",
+      "description": "Final compilation and build verification for BG Tube Player.",
       "files": [],
       "status": "pending"
     }
