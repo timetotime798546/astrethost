@@ -28,6 +28,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
+import com.bgtubeplayer.app.R;
+
 public class MainActivity extends Activity {
 
     private static final String YOUTUBE_HOME = "https://www.youtube.com";

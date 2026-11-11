@@ -3,7 +3,7 @@
     {
       "step": 1,
       "title": "Configure project settings and package identifier",
-      "description": "Set up namespace com.bgtubeplayer.app and build tool parameters in build.gradle.",
+      "description": "Set up namespace com.bgtubeplayer.app and build parameters.",
       "files": [
         "app/build.gradle"
       ],
@@ -11,8 +11,8 @@
     },
     {
       "step": 2,
-      "title": "Declare application permissions and activity components",
-      "description": "Configure AndroidManifest.xml with background service and notification permissions under com.bgtubeplayer.app.",
+      "title": "Declare permissions and application components",
+      "description": "Configure AndroidManifest.xml with background audio and notification permissions.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -20,17 +20,19 @@
     },
     {
       "step": 3,
-      "title": "Update resource strings and branding",
-      "description": "Set application string resource to BG Tube Player.",
+      "title": "Update resource strings and styling",
+      "description": "Configure strings and custom styles for BG Tube Player.",
       "files": [
-        "app/src/main/res/values/strings.xml"
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
       ],
       "status": "pending"
     },
     {
       "step": 4,
       "title": "Configure app metadata assets",
-      "description": "Update asset metadata with package name com.bgtubeplayer.app.",
+      "description": "Ensure metadata asset aligns with package com.bgtubeplayer.app.",
       "files": [
         "app/src/main/assets/app-meta.json"
       ],
@@ -38,8 +40,8 @@
     },
     {
       "step": 5,
-      "title": "Implement HistoryItem model class",
-      "description": "Define HistoryItem data structure within com.bgtubeplayer.app namespace.",
+      "title": "Implement HistoryItem data model",
+      "description": "Define data model class under package com.bgtubeplayer.app.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/HistoryItem.java"
       ],
@@ -48,7 +50,7 @@
     {
       "step": 6,
       "title": "Implement HistoryDbHelper SQLite storage",
-      "description": "Configure local watch history persistence under package com.bgtubeplayer.app.",
+      "description": "Manage database persistence for watch history.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/HistoryDbHelper.java"
       ],
@@ -56,8 +58,8 @@
     },
     {
       "step": 7,
-      "title": "Construct custom HistoryAdapter view adapter",
-      "description": "Implement history list item renderer under package com.bgtubeplayer.app.",
+      "title": "Fix resource R references in HistoryAdapter",
+      "description": "Explicitly import generated R class inside HistoryAdapter.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/HistoryAdapter.java"
       ],
@@ -65,8 +67,8 @@
     },
     {
       "step": 8,
-      "title": "Configure BackgroundAudioService foreground capabilities",
-      "description": "Implement foreground media playback service and audio focus listener in com.bgtubeplayer.app.",
+      "title": "Fix resource R references in BackgroundAudioService",
+      "description": "Explicitly import generated R class inside BackgroundAudioService.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/BackgroundAudioService.java"
       ],
@@ -74,8 +76,8 @@
     },
     {
       "step": 9,
-      "title": "Implement HistoryActivity and UI interaction",
-      "description": "Handle history browsing, item selection, and deletion in HistoryActivity.",
+      "title": "Fix resource R references in HistoryActivity",
+      "description": "Explicitly import generated R class inside HistoryActivity.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/HistoryActivity.java"
       ],
@@ -83,8 +85,8 @@
     },
     {
       "step": 10,
-      "title": "Configure MainActivity WebView and media controls",
-      "description": "Set up JavaScript media bridge and playback control flow in MainActivity.",
+      "title": "Fix resource R references in MainActivity",
+      "description": "Explicitly import generated R class inside MainActivity.",
       "files": [
         "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
       ],
@@ -93,7 +95,7 @@
     {
       "step": 11,
       "title": "Building BG Tube Player",
-      "description": "Final compilation and build verification for BG Tube Player.",
+      "description": "Compile final APK package for BG Tube Player.",
       "files": [],
       "status": "pending"
     }
