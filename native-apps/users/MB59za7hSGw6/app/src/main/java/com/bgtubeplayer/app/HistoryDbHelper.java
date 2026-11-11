@@ -47,7 +47,6 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        // Check if last entry is the same URL to prevent unnecessary duplicates
         Cursor cursor = db.query(TABLE_HISTORY, new String[]{COLUMN_URL}, null, null, null, null, COLUMN_ID + " DESC", "1");
         if (cursor != null && cursor.moveToFirst()) {
             String lastUrl = cursor.getString(0);
