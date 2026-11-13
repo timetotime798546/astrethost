@@ -1,0 +1,95 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure project settings and package identifier",
+      "description": "Configure app package com.bgtubeplayer.app and build settings in build.gradle.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Declare application components and permissions",
+      "description": "Configure AndroidManifest.xml with background audio permissions and activity definitions.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define string resources and theme palette",
+      "description": "Configure color palette, app strings, and dark theme definitions for playback UI.",
+      "files": [
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create user profile vector asset",
+      "description": "Create vector icon drawable for top header user profile button.",
+      "files": [
+        "app/src/main/res/drawable/ic_user.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement database helper for watch history",
+      "description": "Maintain SQLite database helper and data model class to persist user watch history.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/HistoryDbHelper.java",
+        "app/src/main/java/com/bgtubeplayer/app/HistoryItem.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement background audio foreground service",
+      "description": "Maintain foreground audio service managing MediaSession controls, notifications, and audio focus.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design user profile and full-screen trial lock overlays",
+      "description": "Update activity_main.xml layout with dynamic countdown overlay and full-screen expiry lock dialog.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement zero-server-poll local caching and lifetime paid bypass",
+      "description": "Store premium status in SharedPreferences to permanently bypass network calls for paid users.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement smart network sync and dynamic client-side trial timer",
+      "description": "Calculate dynamic trial countdown on client and trigger Worker API sync strictly on cold boot (unpaid), trial expiry, or manual refresh.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building BG Tube Player",
+      "description": "Compile and assemble debug APK package for BG Tube Player.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
