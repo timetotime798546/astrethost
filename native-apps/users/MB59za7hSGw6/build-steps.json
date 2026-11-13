@@ -1,0 +1,123 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure project settings and package identifier",
+      "description": "Configure app package com.bgtubeplayer.app and build settings in build.gradle.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Declare application components and permissions",
+      "description": "Configure AndroidManifest.xml with background audio permissions and activity definitions.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define string resources and theme palette",
+      "description": "Configure color palette, app strings, and dark theme definitions for playback UI.",
+      "files": [
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create vector assets and button drawables",
+      "description": "Define rounded button states and vector icons for playback and navigation controls.",
+      "files": [
+        "app/src/main/res/drawable/btn_rounded.xml",
+        "app/src/main/res/drawable/ic_back.xml",
+        "app/src/main/res/drawable/ic_forward.xml",
+        "app/src/main/res/drawable/ic_refresh.xml",
+        "app/src/main/res/drawable/ic_home.xml",
+        "app/src/main/res/drawable/ic_history.xml",
+        "app/src/main/res/drawable/ic_delete.xml",
+        "app/src/main/res/drawable/ic_play.xml",
+        "app/src/main/res/drawable/ic_pause.xml",
+        "app/src/main/res/drawable/ic_exit.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design main webview activity layout",
+      "description": "Build activity_main XML layout containing navigation toolbar, progress indicator, and container view.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design history screen and item layouts",
+      "description": "Construct XML layout resources for watch history list screen and custom list items.",
+      "files": [
+        "app/src/main/res/layout/activity_history.xml",
+        "app/src/main/res/layout/item_history.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement database helper for watch history",
+      "description": "Create SQLite database helper and data model class to persist user watch history.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/HistoryDbHelper.java",
+        "app/src/main/java/com/bgtubeplayer/app/HistoryItem.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement history list adapter",
+      "description": "Create custom BaseAdapter for rendering watch history rows with item deletion triggers.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/HistoryAdapter.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement background audio foreground service",
+      "description": "Build foreground audio service managing MediaSession controls, notifications, and audio focus.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement history activity logic",
+      "description": "Handle history query loading, item selection URL callbacks, and clear history dialogs.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/HistoryActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement main activity webview integration",
+      "description": "Configure webview web client events, background JavaScript state bridge, and UI control listeners.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building BG Tube Player",
+      "description": "Compile and assemble debug APK package for BG Tube Player.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
