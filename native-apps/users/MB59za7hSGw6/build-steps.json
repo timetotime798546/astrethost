@@ -1,0 +1,133 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure project settings and package identifier",
+      "description": "Set up namespace com.bgtubeplayer.app and application build parameters.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Declare permissions and application components",
+      "description": "Configure AndroidManifest.xml with background audio and notification permissions.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define application resources and theme styles",
+      "description": "Configure color palette, app strings, and dark theme definitions.",
+      "files": [
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create toolbar icons and drawable resources",
+      "description": "Add control icons and button backgrounds for navigation toolbar.",
+      "files": [
+        "app/src/main/res/drawable/btn_rounded.xml",
+        "app/src/main/res/drawable/btn_primary.xml",
+        "app/src/main/res/drawable/ic_back.xml",
+        "app/src/main/res/drawable/ic_forward.xml",
+        "app/src/main/res/drawable/ic_refresh.xml",
+        "app/src/main/res/drawable/ic_home.xml",
+        "app/src/main/res/drawable/ic_history.xml",
+        "app/src/main/res/drawable/ic_delete.xml",
+        "app/src/main/res/drawable/ic_play.xml",
+        "app/src/main/res/drawable/ic_pause.xml",
+        "app/src/main/res/drawable/ic_exit.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Trial and Paywall Manager",
+      "description": "Create device trial verification manager with Cloudflare worker endpoint integration.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/PaywallManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Setup main user interface layout with paywall lock overlay",
+      "description": "Build activity_main layout containing navigation controls, webview container, and full-screen paywall overlay.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Setup history view layout resources",
+      "description": "Create layouts for watch history list screen and individual list items.",
+      "files": [
+        "app/src/main/res/layout/activity_history.xml",
+        "app/src/main/res/layout/item_history.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement SQLite database helper for watch history",
+      "description": "Create local database manager to store and manage video playback history.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/HistoryDbHelper.java",
+        "app/src/main/java/com/bgtubeplayer/app/HistoryItem.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Configure R class imports in HistoryAdapter",
+      "description": "Add explicit package R import to resolve layout and view identifiers.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/HistoryAdapter.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Configure R class imports in BackgroundAudioService",
+      "description": "Ensure accurate resource resolution for background media playback service notification.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Configure R class imports in HistoryActivity",
+      "description": "Resolve layout resources and dialog actions for watch history management.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/HistoryActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Integrate Paywall verification flow in MainActivity",
+      "description": "Connect paywall lock UI and background audio playback bridge.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building BG Tube Player",
+      "description": "Compile final APK package for BG Tube Player.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
