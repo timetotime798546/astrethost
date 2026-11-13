@@ -1,0 +1,118 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure project structure and app identity",
+      "description": "Set up package identity com.bgtubeplayer.app and build settings in build.gradle.",
+      "files": [
+        "app/build.gradle",
+        "app-meta.json",
+        "api_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure AndroidManifest for background playback and permissions",
+      "description": "Declare foreground service, media playback, and network permissions in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define native design system resources and color themes",
+      "description": "Create dark theme styles, colors, and string resources for the native player interface.",
+      "files": [
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create vector drawables and background shapes for UI elements",
+      "description": "Design custom button backgrounds, player control icons, and card containers using vector drawables.",
+      "files": [
+        "app/src/main/res/drawable/btn_rounded.xml",
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/btn_primary.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement TrialPaywallManager for device status and trial validation",
+      "description": "Build paywall manager with local caching, device ID retrieval, and subscription check logic.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/TrialPaywallManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create native video player layout and dynamic audio controls UI",
+      "description": "Construct activity_main.xml layout with native player controls, media visualizer, and paywall view container.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement watch history model and SQLite database helper",
+      "description": "Create HistoryItem class and HistoryDbHelper for managing playback history records locally.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/HistoryItem.java",
+        "app/src/main/java/com/bgtubeplayer/app/HistoryDbHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build custom history adapter and list item layout",
+      "description": "Construct item_history.xml and HistoryAdapter to render playback history items.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/HistoryAdapter.java",
+        "app/src/main/res/layout/item_history.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement foreground BackgroundAudioService for media control",
+      "description": "Create BackgroundAudioService with MediaSession, notification controls, and audio focus management.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement HistoryActivity for managing playback history",
+      "description": "Create HistoryActivity controller to display, filter, and clear watch history.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/HistoryActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement MainActivity native media controller and paywall logic",
+      "description": "Build MainActivity using native MediaPlayer components, audio focus handling, and subscription gate.",
+      "files": [
+        "app/src/main/java/com/bgtubeplayer/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building BG Tube Player",
+      "description": "Compile and assemble the final binary for BG Tube Player.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
