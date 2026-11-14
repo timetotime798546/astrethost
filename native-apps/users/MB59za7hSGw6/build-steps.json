@@ -1,0 +1,161 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure project package and gradle build environment",
+      "description": "Configure Gradle 8.5 build settings, target SDK 34, compile SDK 34, and Temurin 17 Java 8 source compatibility.",
+      "files": [
+        "app/build.gradle",
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Android Manifest and permissions",
+      "description": "Declare foreground service media playback, internet access, wake lock, post notifications permissions, and activity metadata in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Setup API schema and app metadata configuration",
+      "description": "Set up api_schema.json and app-meta.json for offline backend capability and identity storage.",
+      "files": [
+        "api_schema.json",
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure application strings, color definitions, and dark material theme",
+      "description": "Define resource strings, dark theme colors, and custom styles in strings.xml, colors.xml, and styles.xml.",
+      "files": [
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create XML drawables and vector icons",
+      "description": "Create custom vector drawables for player actions, navigation buttons, card containers, and paywall action controls.",
+      "files": [
+        "app/src/main/res/drawable/btn_rounded.xml",
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/btn_primary.xml",
+        "app/src/main/res/drawable/ic_back.xml",
+        "app/src/main/res/drawable/ic_forward.xml",
+        "app/src/main/res/drawable/ic_refresh.xml",
+        "app/src/main/res/drawable/ic_home.xml",
+        "app/src/main/res/drawable/ic_history.xml",
+        "app/src/main/res/drawable/ic_delete.xml",
+        "app/src/main/res/drawable/ic_play.xml",
+        "app/src/main/res/drawable/ic_pause.xml",
+        "app/src/main/res/drawable/ic_exit.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Define watch history layout components",
+      "description": "Construct activity_history.xml and item_history.xml layouts for history display and item actions.",
+      "files": [
+        "app/src/main/res/layout/activity_history.xml",
+        "app/src/main/res/layout/item_history.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Define main application view hierarchy and paywall overlay",
+      "description": "Build activity_main.xml layout containing main Web View content, navigation bar, error container, and lock screen paywall overlay.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement HistoryItem data model",
+      "description": "Define HistoryItem Java class to encapsulate watch history record fields including id, title, url, and timestamp.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryItem.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement SQLite helper database manager",
+      "description": "Develop HistoryDbHelper to create, query, insert, and delete video watch history items locally.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryDbHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement watch history ListView adapter",
+      "description": "Create HistoryAdapter to bind HistoryItem records to custom item views and handle item deletion clicks.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryAdapter.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement background audio foreground service",
+      "description": "Create BackgroundAudioService with MediaSession, wake lock, audio focus management, and notification media controls.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement paywall access status and remote verification manager",
+      "description": "Create TrialPaywallManager to query access status, manage device ID generation, cache UPI details, and evaluate plan status.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/TrialPaywallManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement HistoryActivity UI controller",
+      "description": "Create HistoryActivity to render the history list, support item navigation, handle selection results, and clear history records.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement MainActivity web integration and background audio bridge",
+      "description": "Create MainActivity to configure WebView settings, inject JavaScript audio bridge, handle background playback state, and enforce paywall locking.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building LockPlayTube",
+      "description": "Compile and build final LockPlayTube APK package.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java",
+        "app/src/main/java/com/lockplaytube/app/HistoryActivity.java",
+        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java",
+        "app/src/main/java/com/lockplaytube/app/TrialPaywallManager.java",
+        "app/src/main/java/com/lockplaytube/app/HistoryDbHelper.java",
+        "app/src/main/java/com/lockplaytube/app/HistoryAdapter.java",
+        "app/src/main/java/com/lockplaytube/app/HistoryItem.java"
+      ],
+      "status": "pending"
+    }
+  ]
+}
