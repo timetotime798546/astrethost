@@ -1,0 +1,122 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure app dependencies, build scripts, and package settings",
+      "description": "Configure Gradle settings, Java 8 compatibility options, compileSdkVersion 34, and applicationId in build.gradle.",
+      "files": [
+        "app/build.gradle",
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define AndroidManifest permissions, foreground service, and activity declarations",
+      "description": "Declare system permissions for Internet, foreground service media playback, notifications, wake locks, and configure main launcher activity metadata in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure theme styles, dark palette color definitions, and UI strings",
+      "description": "Setup dark mode color palette, custom app strings for video player toolbar, history management, and paywall overlay controls in resource XML files.",
+      "files": [
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create vector drawables for player navigation controls and UI containers",
+      "description": "Add vector graphic assets for playback action icons, exit buttons, rounded action buttons, and card background shapes.",
+      "files": [
+        "app/src/main/res/drawable/btn_rounded.xml",
+        "app/src/main/res/drawable/btn_primary.xml",
+        "app/src/main/res/drawable/card_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design main activity layout container and lock paywall view overlay",
+      "description": "Construct activity_main.xml layout structure with header navigation bar, web view container, network error placeholder, and dynamic premium paywall overlay.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Design watch history list activity and custom history item layout",
+      "description": "Create activity_history.xml and item_history.xml layout structures for displaying saved video playback history records with clear options.",
+      "files": [
+        "app/src/main/res/layout/activity_history.xml",
+        "app/src/main/res/layout/item_history.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement local SQLite database helper for video watch history storage",
+      "description": "Create HistoryDbHelper.java to handle SQLite database operations for adding, retrieving, deleting individual, and clearing all watch history items.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryDbHelper.java",
+        "app/src/main/java/com/lockplaytube/app/HistoryItem.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement watch history adapter for ListView presentation",
+      "description": "Create HistoryAdapter.java to bind history models with custom item views and handle item removal callback listeners.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryAdapter.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement background media audio playback service and Notification Controller",
+      "description": "Develop BackgroundAudioService.java to maintain persistent background audio sessions, wake locks, media session state callbacks, and system notification controls.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement paywall access status manager and device identifier validation",
+      "description": "Create TrialPaywallManager.java to query worker configuration endpoints, manage SharedPreferences access flags, and handle unique device ID generation.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/TrialPaywallManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement MainActivity web engine, media bridge injection, and background audio integration",
+      "description": "Develop MainActivity.java to manage YouTube web rendering, JavaScript audio bridge, paywall verification status polling, and service binding.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building LockPlayTube",
+      "description": "Compile and assemble final debug APK for LockPlayTube application.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryAdapter.java",
+        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java",
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java",
+        "app/src/main/java/com/lockplaytube/app/HistoryActivity.java"
+      ],
+      "status": "pending"
+    }
+  ]
+}
