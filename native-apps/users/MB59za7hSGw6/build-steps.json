@@ -1,0 +1,32 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Fix JavaScript bridge interval focus loop in MainActivity",
+      "description": "Remove periodic video state bridge callbacks from setInterval to prevent continuous focus re-requests.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Optimize Audio Focus management in BackgroundAudioService",
+      "description": "Prevent duplicate audio focus requests and handle transient focus loss without interrupting HTML5 video playback.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Building LockPlayTube",
+      "description": "Compile final APK with updated audio playback state management.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java",
+        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    }
+  ]
+}
