@@ -1,0 +1,71 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure project settings and package identity",
+      "description": "Configure Gradle build settings, SDK target 34, compile SDK 34, and Temurin 17 Java 8 compatibility for LockPlayTube.",
+      "files": [
+        "app/build.gradle",
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Android Manifest and permissions",
+      "description": "Verify foreground service media playback, internet, wake lock, and notification permissions in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define backend schema metadata",
+      "description": "Specify api_schema.json for offline backend operational state.",
+      "files": [
+        "api_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define UI color palette and string resources",
+      "description": "Maintain dark theme styling, colors, and application string definitions.",
+      "files": [
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Fix audio focus and media playback state management",
+      "description": "Update BackgroundAudioService to acquire audio focus when entering playing state and release focus on transient loss or pause.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Fix video switching and JavaScript bridge conflict",
+      "description": "Update MainActivity to stop and clear previous HTML5 video elements before switching videos, remove forced play retry loop, and manage multi-video playback sessions.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Building LockPlayTube",
+      "description": "Assemble and build the updated LockPlayTube application package.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java",
+        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    }
+  ]
+}
