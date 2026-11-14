@@ -1,0 +1,103 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure project package and gradle build parameters",
+      "description": "Set up namespace com.locktrutube.player and build options in app/build.gradle.",
+      "files": [
+        "app/build.gradle",
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Declare Android permissions and application attributes in AndroidManifest",
+      "description": "Configure background audio service, media playback permissions, and activity metadata in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure UI string resources, dark mode colors, and style definitions",
+      "description": "Define resources in strings.xml, colors.xml, and styles.xml for player and paywall UI.",
+      "files": [
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create background vector icons and rounded background drawables",
+      "description": "Add UI drawables for media controls, navigation, cards, and buttons.",
+      "files": [
+        "app/src/main/res/drawable/btn_rounded.xml",
+        "app/src/main/res/drawable/card_bg.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Define watch history list layout and item views",
+      "description": "Construct activity_history.xml and item_history.xml layouts.",
+      "files": [
+        "app/src/main/res/layout/activity_history.xml",
+        "app/src/main/res/layout/item_history.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Define main application layout container and full screen paywall overlay",
+      "description": "Construct activity_main.xml layout containing player container and locked paywall view.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement SQLite helper class and data adapter for watch history",
+      "description": "Manage video watch history persistence using HistoryDbHelper and HistoryAdapter.",
+      "files": [
+        "app/src/main/java/com/locktrutube/player/HistoryDbHelper.java",
+        "app/src/main/java/com/locktrutube/player/HistoryAdapter.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement background audio playback service and media notification controller",
+      "description": "Enforce background media playback with BackgroundAudioService.",
+      "files": [
+        "app/src/main/java/com/locktrutube/player/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement paywall access status manager",
+      "description": "Manage dynamic paywall status, device ID generation, and remote access checks in TrialPaywallManager.",
+      "files": [
+        "app/src/main/java/com/locktrutube/player/TrialPaywallManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building LockTruTube Player",
+      "description": "Resolve package resource imports across legacy source packages and compile final APK.",
+      "files": [
+        "app/src/main/java/com/locktrutube/player/HistoryAdapter.java",
+        "app/src/main/java/com/locktrutube/player/BackgroundAudioService.java",
+        "app/src/main/java/com/locktrutube/player/MainActivity.java",
+        "app/src/main/java/com/locktrutube/player/HistoryActivity.java"
+      ],
+      "status": "pending"
+    }
+  ]
+}
