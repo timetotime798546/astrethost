@@ -18,6 +18,8 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
 
+import com.locktrutube.player.R;
+
 public class BackgroundAudioService extends Service implements AudioManager.OnAudioFocusChangeListener {
 
     private static final String CHANNEL_ID = "yt_bg_channel";

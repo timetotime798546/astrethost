@@ -36,6 +36,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.locktrutube.player.R;
+
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
