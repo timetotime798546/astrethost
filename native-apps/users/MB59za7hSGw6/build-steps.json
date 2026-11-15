@@ -1,0 +1,94 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Inspect WebView client setup",
+      "description": "Analyze existing WebView settings and WebChromeClient hooks for permissions.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure custom WebChromeClient",
+      "description": "Override onPermissionRequest method in WebChromeClient to capture microphone permission requests from web pages.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Detect RESOURCE_AUDIO_CAPTURE resource",
+      "description": "Filter requested resources to identify voice search or microphone audio capture requests.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Check system RECORD_AUDIO status",
+      "description": "Verify if the Android system runtime permission RECORD_AUDIO is granted.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Prompt system runtime permission",
+      "description": "Request RECORD_AUDIO permission from the user if not yet granted.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Handle permission grant and denial",
+      "description": "Grant or deny pending WebChromeClient PermissionRequest inside onRequestPermissionsResult.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Automatically grant web microphone access",
+      "description": "Call PermissionRequest.grant with AUDIO_CAPTURE resource once system permission is confirmed.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Preserve background audio service",
+      "description": "Verify that MediaSession and background audio playback features remain intact.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Maintain watch history and paywall logic",
+      "description": "Ensure history database tracking and paywall status verification function without regression.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building LockPlayTube",
+      "description": "Compile the updated APK with full microphone auto-grant support for voice search.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    }
+  ]
+}
