@@ -1,0 +1,115 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize app metadata and package structure",
+      "description": "Configure app-meta.json and package identifiers for LockPlayTube.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure permissions and Android Manifest",
+      "description": "Declare foreground service, internet, audio record, and wake lock permissions in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Design custom toolbar and WebView layout",
+      "description": "Construct standard layout structure with custom toolbar navigation, loading progress bar, and paywall container.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement SQLite database for watch history",
+      "description": "Create HistoryDbHelper class to store, retrieve, and delete video watch history items.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryDbHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build watch history Activity and adapter",
+      "description": "Implement HistoryActivity and HistoryAdapter with custom list items to display and manage watch history.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryActivity.java",
+        "app/src/main/java/com/lockplaytube/app/HistoryAdapter.java",
+        "app/src/main/res/layout/activity_history.xml",
+        "app/src/main/res/layout/item_history.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement background audio playback service",
+      "description": "Set up BackgroundAudioService with MediaSession, notifications, and audio focus management.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement paywall and access verification manager",
+      "description": "Create TrialPaywallManager for device ID generation, access verification, and dynamic UPI QR code fetching.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/TrialPaywallManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Configure WebView settings and JavaScript interfaces",
+      "description": "Setup WebViewClient, WebChromeClient, and JavaScript bridges for playback state synchronization.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Integrate native voice speech recognition",
+      "description": "Implement Android SpeechRecognizer and voice recognition callbacks to feed spoken queries directly into YouTube search.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Inject background playback polyfills",
+      "description": "Inject custom JavaScript into WebView to override page visibility API and allow screen-off background play.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Configure paywall lock screen overlay controls",
+      "description": "Wire up device ID copying, UPI ID copying, WhatsApp proof submission, and manual re-verification status checks.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building LockPlayTube",
+      "description": "Finalize and build the complete native Android application package.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    }
+  ]
+}
