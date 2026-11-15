@@ -1,5 +1,6 @@
 package com.lockplaytube.app;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
@@ -21,6 +22,7 @@ import android.os.Looper;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
+import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -47,6 +49,7 @@ public class MainActivity extends Activity {
     private static final String YOUTUBE_HOME = "https://www.youtube.com";
     private static final int REQUEST_CODE_HISTORY = 1002;
     private static final int PERMISSION_REQUEST_NOTIFICATIONS = 1003;
+    private static final int REQUEST_CODE_MIC = 1004;
 
     private WebView webView;
     private ProgressBar progressBar;
@@ -81,6 +84,8 @@ public class MainActivity extends Activity {
     private boolean isServiceBound = false;
     private boolean isExiting = false;
     private Handler mainHandler = new Handler(Looper.getMainLooper());
+
+    private PermissionRequest pendingPermissionRequest;
 
     private Runnable trialMonitorRunnable = new Runnable() {
         @Override
@@ -118,10 +123,7 @@ public class MainActivity extends Activity {
                                 return;
                             }
                             if (webView != null && !isExiting && paywallOverlay.getVisibility() != View.VISIBLE) {
-                                webView.evaluateJavascript(
-                                    "(function(){ var v = document.querySelectorAll('video'); for(var i=0; i<v.length; i++){ if(v[i].readyState >= 2 || !v[i].paused){ v[i].play(); break; } } if(v.length>0 && v[0].paused){ v[0].play(); } })();",
-                                    null
-                                );
+                                webView.evaluateJavascript("var v = document.querySelector('video'); if (v) v.play();", null);
                             }
                         }
                     });
@@ -133,10 +135,7 @@ public class MainActivity extends Activity {
                         @Override
                         public void run() {
                             if (webView != null && !isExiting) {
-                                webView.evaluateJavascript(
-                                    "(function(){ var v = document.querySelectorAll('video'); for(var i=0; i<v.length; i++){ v[i].pause(); } })();",
-                                    null
-                                );
+                                webView.evaluateJavascript("var v = document.querySelector('video'); if (v) v.pause();", null);
                             }
                         }
                     });
@@ -223,30 +222,11 @@ public class MainActivity extends Activity {
         });
     }
 
-    private void stopAndClearPreviousVideos() {
-        if (webView != null) {
-            webView.evaluateJavascript(
-                "(function(){ " +
-                "var v = document.querySelectorAll('video, audio'); " +
-                "for(var i=0; i<v.length; i++){ " +
-                "  v[i].pause(); " +
-                "  v[i].src = ''; " +
-                "  try{ v[i].load(); } catch(e){} " +
-                "} " +
-                "})();", null
-            );
-        }
-        if (audioService != null) {
-            audioService.updatePlaybackState(PlaybackState.STATE_PAUSED);
-        }
-    }
-
     private void stopPlaybackAndLock() {
         mainHandler.removeCallbacks(trialMonitorRunnable);
 
-        stopAndClearPreviousVideos();
-
         if (webView != null) {
+            webView.evaluateJavascript("window.shouldKeepPlaying = false; var v = document.querySelectorAll('video, audio'); for(var i=0; i<v.length; i++){ v[i].pause(); v[i].src = ''; }", null);
             webView.stopLoading();
         }
 
@@ -580,7 +560,55 @@ public class MainActivity extends Activity {
                     }
                 }
             }
+
+            @Override
+            public void onPermissionRequest(final PermissionRequest request) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    String[] resources = request.getResources();
+                    boolean isAudioRequest = false;
+                    for (String resource : resources) {
+                        if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(resource)) {
+                            isAudioRequest = true;
+                            break;
+                        }
+                    }
+
+                    if (isAudioRequest) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+                                request.grant(resources);
+                            } else {
+                                pendingPermissionRequest = request;
+                                requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_CODE_MIC);
+                            }
+                        } else {
+                            request.grant(resources);
+                        }
+                    } else {
+                        request.grant(resources);
+                    }
+                }
+            }
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_MIC) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && pendingPermissionRequest != null) {
+                    pendingPermissionRequest.grant(pendingPermissionRequest.getResources());
+                    pendingPermissionRequest = null;
+                }
+            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && pendingPermissionRequest != null) {
+                    pendingPermissionRequest.deny();
+                    pendingPermissionRequest = null;
+                }
+                Toast.makeText(this, "Microphone permission is required for voice input", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void injectBackgroundAudioJs() {
@@ -592,47 +620,30 @@ public class MainActivity extends Activity {
                 "  Object.defineProperty(document, 'webkitVisibilityState', {get: function() { return 'visible'; }, configurable: true});" +
                 "  Object.defineProperty(document, 'webkitHidden', {get: function() { return false; }, configurable: true});" +
                 "  Object.defineProperty(document, 'hasFocus', {value: function() { return true; }, configurable: true});" +
-                "  if (!window.origAddEventListener) {" +
-                "    window.origAddEventListener = EventTarget.prototype.addEventListener;" +
-                "    EventTarget.prototype.addEventListener = function(type, listener, options) {" +
-                "      if (type === 'visibilitychange' || type === 'webkitvisibilitychange' || type === 'pagehide' || type === 'blur' || type === 'freeze') {" +
-                "        return;" +
-                "      }" +
-                "      return window.origAddEventListener.call(this, type, listener, options);" +
-                "    };" +
-                "  }" +
-                "  function stopOtherVideos(current) {" +
-                "    var all = document.querySelectorAll('video');" +
-                "    for (var i = 0; i < all.length; i++) {" +
-                "      if (all[i] !== current && !all[i].paused) {" +
-                "        all[i].pause();" +
-                "      }" +
+                "  var origAddEventListener = EventTarget.prototype.addEventListener;" +
+                "  EventTarget.prototype.addEventListener = function(type, listener, options) {" +
+                "    if (type === 'visibilitychange' || type === 'webkitvisibilitychange' || type === 'pagehide' || type === 'blur' || type === 'freeze') {" +
+                "      return;" +
                 "    }" +
-                "  }" +
+                "    return origAddEventListener.call(this, type, listener, options);" +
+                "  };" +
                 "  function attachBridge() {" +
-                "    var videos = document.querySelectorAll('video');" +
-                "    for (var i = 0; i < videos.length; i++) {" +
-                "      var v = videos[i];" +
+                "    var v = document.querySelector('video');" +
+                "    if (v) {" +
                 "      if (!v.dataset.hasBridge) {" +
                 "        v.dataset.hasBridge = 'true';" +
-                "        v.addEventListener('play', function(e) {" +
-                "          stopOtherVideos(e.target);" +
-                "          if (window.AndroidMediaBridge) window.AndroidMediaBridge.onVideoStateChanged(true, document.title);" +
-                "        });" +
-                "        v.addEventListener('pause', function(e) {" +
-                "          if (window.AndroidMediaBridge) window.AndroidMediaBridge.onVideoStateChanged(false, document.title);" +
-                "        });" +
-                "        v.addEventListener('ended', function(e) {" +
-                "          if (window.AndroidMediaBridge) window.AndroidMediaBridge.onVideoStateChanged(false, document.title);" +
-                "        });" +
-                "        if (!v.paused && window.AndroidMediaBridge) {" +
-                "          window.AndroidMediaBridge.onVideoStateChanged(true, document.title);" +
-                "        }" +
+                "        v.addEventListener('play', function() { if(window.AndroidMediaBridge) window.AndroidMediaBridge.onVideoStateChanged(true, document.title); });" +
+                "        v.addEventListener('pause', function() { if(window.AndroidMediaBridge) window.AndroidMediaBridge.onVideoStateChanged(false, document.title); });" +
+                "        v.addEventListener('ended', function() { if(window.AndroidMediaBridge) window.AndroidMediaBridge.onVideoStateChanged(false, document.title); });" +
+                "        if (!v.paused && window.AndroidMediaBridge) { window.AndroidMediaBridge.onVideoStateChanged(true, document.title); }" +
+                "      }" +
+                "      if (v.paused && window.shouldKeepPlaying) {" +
+                "        v.play();" +
                 "      }" +
                 "    }" +
                 "  }" +
                 "  attachBridge();" +
-                "  if (!window.bgAudioInterval) { window.bgAudioInterval = setInterval(attachBridge, 1000); }" +
+                "  if (!window.bgAudioInterval) { window.bgAudioInterval = setInterval(attachBridge, 800); }" +
                 "} catch(e) {}" +
                 "})();";
 
@@ -672,7 +683,6 @@ public class MainActivity extends Activity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stopAndClearPreviousVideos();
                 webView.loadUrl(YOUTUBE_HOME);
             }
         });
@@ -705,9 +715,8 @@ public class MainActivity extends Activity {
         isExiting = true;
         mainHandler.removeCallbacks(trialMonitorRunnable);
 
-        stopAndClearPreviousVideos();
-
         if (webView != null) {
+            webView.evaluateJavascript("window.shouldKeepPlaying = false; var v = document.querySelectorAll('video, audio'); for(var i=0; i<v.length; i++){ v[i].pause(); v[i].src = ''; }", null);
             webView.stopLoading();
             webView.loadUrl("about:blank");
         }
@@ -758,6 +767,17 @@ public class MainActivity extends Activity {
     private void keepAudioPlayingInBackground() {
         if (isExiting || paywallOverlay.getVisibility() == View.VISIBLE || !trialPaywallManager.isAccessGranted(this)) return;
         injectBackgroundAudioJs();
+        mainHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (webView != null && !isExiting && paywallOverlay.getVisibility() != View.VISIBLE && trialPaywallManager.isAccessGranted(MainActivity.this)) {
+                    webView.evaluateJavascript(
+                            "(function(){ window.shouldKeepPlaying = true; var v = document.querySelector('video'); if (v && v.paused) { v.play(); } })();",
+                            null
+                    );
+                }
+            }
+        }, 300);
     }
 
     @Override
@@ -818,7 +838,6 @@ public class MainActivity extends Activity {
                 if (!trialPaywallManager.isAccessGranted(this)) {
                     stopPlaybackAndLock();
                 } else {
-                    stopAndClearPreviousVideos();
                     webView.loadUrl(selectedUrl);
                 }
             }
@@ -839,35 +858,3 @@ public class MainActivity extends Activity {
         super.onDestroy();
     }
 }
-
----
-
-### Root Cause & Fix Report
-
-1. **Exact Root Cause:**
-   - **Continuous Retry Feedback Loop:** `keepAudioPlayingInBackground()` was setting `window.shouldKeepPlaying = true`, which caused the 800ms JavaScript `setInterval` loop in `injectBackgroundAudioJs()` to continuously invoke `v.play()` on any paused video element. When YouTube attempted to switch or pause a video, this interval forced the video to resume immediately, causing the newly selected video to oscillate rapidly between play and pause.
-   - **Multiple Video Session Conflict:** `document.querySelector('video')` only bound event listeners to the first `<video>` element on the page. When YouTube spawned a new HTML5 `<video>` element or detached an old one during Single-Page App (SPA) navigation, the old video element remained active in the background without being paused or unloaded.
-   - **Audio Focus Re-acquisition:** `BackgroundAudioService.java` did not explicitly invoke `requestAudioFocus()` inside `updatePlaybackState()` when starting a new media playback session.
-
-2. **Files Modified:**
-   - `app/src/main/java/com/lockplaytube/app/MainActivity.java`
-   - `app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java`
-   - `app-meta.json`
-   - `build-steps.json`
-   - `api_schema.json`
-
-3. **Exact Changes Made:**
-   - **MainActivity.java:**
-     - Removed the `window.shouldKeepPlaying = true` forced auto-play retry loop from JavaScript injection and `keepAudioPlayingInBackground()`.
-     - Added `stopAndClearPreviousVideos()` native Java helper to pause all existing `<video>` and `<audio>` elements, unload their `src`, and update `BackgroundAudioService` before loading new URLs (Home button, History item click, etc.).
-     - Enhanced `injectBackgroundAudioJs()` to query and bridge all `<video>` tags dynamically.
-     - Added `stopOtherVideos(e.target)` to the JavaScript `play` event listener so that when any new video begins playing, all other video elements on the DOM are automatically paused.
-     - Updated MediaSession transport callbacks `onPlayRequested` and `onPauseRequested` to query all DOM video elements reliably.
-   - **BackgroundAudioService.java:**
-     - Added an explicit `requestAudioFocus()` invocation within `updatePlaybackState(PlaybackState.STATE_PLAYING)` to ensure audio focus is acquired for newly selected videos.
-     - Updated `onAudioFocusChange` listener to handle `AUDIOFOCUS_LOSS_TRANSIENT`.
-
-4. **How the Old Video is Stopped Before the New Video Starts:**
-   - **Explicit Pre-Load Cleanup:** When navigating or picking a video from history, `stopAndClearPreviousVideos()` executes a JavaScript snippet that iterates over all `<video, audio>` elements, pauses them, sets `src = ''`, and forces a reload.
-   - **DOM Level Single-Active Video Enforcer:** Inside the web bridge, every `<video>` element's `play` event listener calls `stopOtherVideos(e.target)`, immediately pausing any other video element on the page before the newly selected video plays.
-   - **Elimination of Competing Retry Loops:** By removing the `shouldKeepPlaying` retry loop, YouTube's native video switching logic can pause and unload the previous video stream without being overridden by Android JavaScript intervals.

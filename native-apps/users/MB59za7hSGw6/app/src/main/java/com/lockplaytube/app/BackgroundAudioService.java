@@ -166,7 +166,6 @@ public class BackgroundAudioService extends Service implements AudioManager.OnAu
         }
 
         if (isPlaying) {
-            requestAudioFocus();
             if (wakeLock != null && !wakeLock.isHeld()) {
                 try {
                     wakeLock.acquire(3600000);
@@ -338,7 +337,7 @@ public class BackgroundAudioService extends Service implements AudioManager.OnAu
 
     @Override
     public void onAudioFocusChange(int focusChange) {
-        if (focusChange == AudioManager.AUDIOFOCUS_LOSS || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT) {
+        if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
             hasAudioFocus = false;
             if (mediaStateChangeListener != null) {
                 mediaStateChangeListener.onPauseRequested();

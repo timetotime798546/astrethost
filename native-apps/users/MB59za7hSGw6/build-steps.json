@@ -2,116 +2,92 @@
   "steps": [
     {
       "step": 1,
-      "title": "Initialize LockPlayTube application project structure",
-      "description": "Set up base project configuration with Java 17 Temurin, Gradle 8.5, target SDK 34, and compile SDK 34 for background YouTube playback.",
-      "files": [
-        "app/build.gradle",
-        "app-meta.json"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 2,
-      "title": "Configure permissions and application components in AndroidManifest",
-      "description": "Declare Internet, Foreground Service Media Playback, Notification, and Wake Lock permissions in AndroidManifest.xml.",
+      "title": "Add RECORD_AUDIO permission to AndroidManifest",
+      "description": "Declare RECORD_AUDIO permission in AndroidManifest.xml for microphone access support.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 3,
-      "title": "Configure app theme and visual asset resources",
-      "description": "Define dark-themed color palette, UI background drawables, vector icons, and layout styles in values and drawable resources.",
-      "files": [
-        "app/src/main/res/values/colors.xml",
-        "app/src/main/res/values/strings.xml",
-        "app/src/main/res/values/styles.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 4,
-      "title": "Initialize offline API schema configuration",
-      "description": "Configure api_schema.json to specify standalone offline architecture without remote database requirements.",
-      "files": [
-        "api_schema.json"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Implement local SQLite watch history storage helper",
-      "description": "Create HistoryDbHelper and HistoryItem classes to persist watched YouTube video URLs, timestamps, and titles locally.",
-      "files": [
-        "app/src/main/java/com/lockplaytube/app/HistoryDbHelper.java",
-        "app/src/main/java/com/lockplaytube/app/HistoryItem.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Implement history list view adapter and UI components",
-      "description": "Construct HistoryAdapter and activity_history layout for displaying, selecting, and deleting watch history records.",
-      "files": [
-        "app/src/main/java/com/lockplaytube/app/HistoryAdapter.java",
-        "app/src/main/res/layout/item_history.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Build watch history management Activity screen",
-      "description": "Implement HistoryActivity to manage watched items list display, history clearing dialogs, and video re-navigation.",
-      "files": [
-        "app/src/main/java/com/lockplaytube/app/HistoryActivity.java",
-        "app/src/main/res/layout/activity_history.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Implement background audio playback service and Notification controls",
-      "description": "Construct BackgroundAudioService with foreground service handling, media session callback handling, audio focus management, and lock screen notification integration.",
-      "files": [
-        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Implement trial access and paywall access manager",
-      "description": "Create TrialPaywallManager to query cloud worker server status, manage device ID registration, and handle premium status validation.",
-      "files": [
-        "app/src/main/java/com/lockplaytube/app/TrialPaywallManager.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Construct main WebView browser and background audio JavaScript bridge",
-      "description": "Set up MainActivity layout with header controls, dynamic QR code loader, paywall overlay container, and error retry state views.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 11,
-      "title": "Integrate JavaScript media state listeners and single video session management",
-      "description": "Enhance MainActivity to inject video bridge scripts, handle auto-pause on previous videos, manage media service binding, and enforce paywall lock state.",
+      "step": 2,
+      "title": "Configure WebChromeClient permission handler in MainActivity",
+      "description": "Implement onPermissionRequest in WebChromeClient to intercept Web Audio requests from WebView.",
       "files": [
         "app/src/main/java/com/lockplaytube/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 12,
-      "title": "Building LockPlayTube",
-      "description": "Assemble and compile the complete LockPlayTube native Android app package using Gradle assembleDebug.",
+      "step": 3,
+      "title": "Implement dynamic runtime microphone permission prompt",
+      "description": "Trigger runtime RECORD_AUDIO permission request only when the web page initiates audio input capture.",
       "files": [
-        "app/src/main/java/com/lockplaytube/app/MainActivity.java",
-        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Handle permission request results",
+      "description": "Grant or deny WebView audio capture resources based on user permission response in onRequestPermissionsResult.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Preserve background audio playback integration",
+      "description": "Verify background audio service and wake lock controls remain active and unaffected.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Preserve history db and paywall functionality",
+      "description": "Ensure paywall verification and watch history SQLite operations function without modification.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Validate build configurations",
+      "description": "Ensure package com.lockplaytube.app and Gradle configurations align with Android 14 SDK guidelines.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Perform system integration checks",
+      "description": "Check full interaction between WebChromeClient, media session service, and app permissions.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify UI overlay and layout structures",
+      "description": "Ensure activity_main layout components and paywall overlays remain responsive.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building LockPlayTube",
+      "description": "Compile final project APK with microphone permission and web audio capability.",
+      "files": [
+        "app/src/main/AndroidManifest.xml",
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
       ],
       "status": "pending"
     }
