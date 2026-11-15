@@ -11,7 +11,7 @@
     },
     {
       "step": 2,
-      "title": "Configure Gradle build parameters and remove legacy third-party dependencies",
+      "title": "Configure Gradle build parameters and dependencies",
       "description": "Specify compileSdk 34, targetSdk 34, minSdk 21, and Java 8 compatibility in Gradle scripts without external dependencies.",
       "files": [
         "app/build.gradle",
@@ -66,8 +66,8 @@
     },
     {
       "step": 7,
-      "title": "Develop background audio playback service with MediaSession controls",
-      "description": "Implement BackgroundAudioService managing native audio playback, AudioFocus, MediaSession transport state, wake locking, and status notification.",
+      "title": "Fix Java syntax error in background audio service",
+      "description": "Correct invalid Build.VERSION_CODES reference to Build.VERSION_CODES.LOLLIPOP in BackgroundAudioService.",
       "files": [
         "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
       ],

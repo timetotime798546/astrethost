@@ -81,7 +81,7 @@ public class BackgroundAudioService extends Service implements AudioManager.OnAu
             mediaPlayer.release();
         }
         mediaPlayer = new MediaPlayer();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.21) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mediaPlayer.setAudioAttributes(
                 new AudioAttributes.Builder()
                     .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
