@@ -1,0 +1,131 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize application configuration and metadata",
+      "description": "Define application package details, app title, and package identifier in app-meta.json.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Gradle build parameters and remove legacy third-party dependencies",
+      "description": "Specify compileSdk 34, targetSdk 34, minSdk 21, and Java 8 compatibility in Gradle scripts without external dependencies.",
+      "files": [
+        "app/build.gradle",
+        "build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure AndroidManifest for foreground media service and permissions",
+      "description": "Declare Internet, Foreground Service Media Playback, Wake Lock, Post Notifications, and Audio Recording permissions alongside MainActivity, HistoryActivity, and BackgroundAudioService.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define UI styling, dark theme colors, and custom shape drawables",
+      "description": "Establish dark theme colors, custom background card drawables, and rounded button styles.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/btn_rounded.xml",
+        "app/src/main/res/drawable/btn_primary.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement SQLite watch history storage and data models",
+      "description": "Maintain HistoryDbHelper and HistoryItem model classes for logging watch and listen entries locally.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryDbHelper.java",
+        "app/src/main/java/com/lockplaytube/app/HistoryItem.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create watch history management activity and adapter UI",
+      "description": "Build HistoryActivity and HistoryAdapter to display history records and allow item deletion.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryActivity.java",
+        "app/src/main/java/com/lockplaytube/app/HistoryAdapter.java",
+        "app/src/main/res/layout/activity_history.xml",
+        "app/src/main/res/layout/item_history.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Develop background audio playback service with MediaSession controls",
+      "description": "Implement BackgroundAudioService managing native audio playback, AudioFocus, MediaSession transport state, wake locking, and status notification.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build paywall lock manager and worker status check system",
+      "description": "Create TrialPaywallManager to query cloud backend status, generate UPI QR code URLs, and enforce premium access.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/TrialPaywallManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Construct native layout with media search, playback view, and paywall overlay",
+      "description": "Design activity_main XML layout with native media player card, search toolbar, channel list, and full-screen paywall lock overlay.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement native Java media player controller with audio streaming support",
+      "description": "Develop native media track selection, search filtering, seek progress tracking, and playback state management inside MainActivity.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Integrate speech recognition for native voice search",
+      "description": "Implement SpeechRecognizer listeners and voice search search filter injection into the track adapter.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Connect background audio service binding and playback synchronization",
+      "description": "Bind MainActivity to BackgroundAudioService for persistent background media streaming and lockscreen notification synchronization.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building LockPlayTube",
+      "description": "Assemble and build the final native APK package for LockPlayTube.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    }
+  ]
+}
