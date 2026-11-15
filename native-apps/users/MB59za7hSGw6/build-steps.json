@@ -1,0 +1,131 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize application configuration and metadata",
+      "description": "Define application package details, app title, and package identifier in app-meta.json.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Gradle build parameters and SDK targets",
+      "description": "Specify compileSdk 34, targetSdk 34, minSdk 21, Java 8 compatibility, and dependencies in Gradle build scripts.",
+      "files": [
+        "build.gradle",
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure AndroidManifest for system permissions and components",
+      "description": "Declare Internet, Foreground Service, Media Playback, Wake Lock, Post Notifications, and Audio Recording permissions alongside MainActivity, HistoryActivity, and BackgroundAudioService.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Define UI visual style, dark theme, and color palette",
+      "description": "Define dark theme colors, surface elements, text formatting, and custom background shapes.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/drawable/card_bg.xml",
+        "app/src/main/res/drawable/btn_rounded.xml",
+        "app/src/main/res/drawable/btn_primary.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement local SQLite watch history storage",
+      "description": "Create HistoryDbHelper and HistoryItem model classes for logging video history entries and managing database records.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryDbHelper.java",
+        "app/src/main/java/com/lockplaytube/app/HistoryItem.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Develop watch history activity and list UI adapter",
+      "description": "Construct HistoryActivity, HistoryAdapter, and XML layouts for rendering watch history and enabling item deletion.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryActivity.java",
+        "app/src/main/java/com/lockplaytube/app/HistoryAdapter.java",
+        "app/src/main/res/layout/activity_history.xml",
+        "app/src/main/res/layout/item_history.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Construct background audio service and media session interface",
+      "description": "Implement BackgroundAudioService with MediaSession transport controls, audio focus handling, wake lock, and ongoing status notification.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build paywall manager and worker verification system",
+      "description": "Create TrialPaywallManager to verify access status, query cloud worker endpoints, handle device IDs, and load UPI payment QR codes.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/TrialPaywallManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design main activity layout with navigation bar and paywall lock overlay",
+      "description": "Create activity_main XML layout featuring web control toolbar, progress bar, error state container, and scrollable paywall overlay.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Configure WebView browser integration and JavaScript bridge",
+      "description": "Set up WebSettings, WebChromeClient, WebViewClient, and Java-JS interaction bridges inside MainActivity.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement JS audio polyfills for continuous screen-off playback",
+      "description": "Inject JavaScript overrides for Page Visibility APIs and event listeners to keep media playback active when running in the background.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Integrate native voice speech recognition and search query handler",
+      "description": "Implement native SpeechRecognizer integration and JS bridge to allow voice searching on YouTube.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building LockPlayTube",
+      "description": "Assemble and build the final executable application package for LockPlayTube.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    }
+  ]
+}
