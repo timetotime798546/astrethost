@@ -1,0 +1,94 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize app metadata and package structure",
+      "description": "Verify package configuration and app identification for LockPlayTube.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure permissions and services in AndroidManifest",
+      "description": "Ensure audio record, internet, wake lock, and background audio service permissions are configured.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Declare AndroidBridge JS interface for voice search",
+      "description": "Expose AndroidBridge class with @JavascriptInterface method to trigger native voice recognition.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Integrate native Android SpeechRecognizer",
+      "description": "Implement SpeechRecognizer and RecognitionListener in MainActivity to listen for voice input.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Inject Web Speech API polyfill and voice button interceptor",
+      "description": "Inject JavaScript overriding SpeechRecognition and catching voice search clicks in WebView.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Inject spoken text into search inputs",
+      "description": "Pass recognized voice input back to WebView HTML search box and trigger search dispatch.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Maintain background audio service and media session",
+      "description": "Ensure BackgroundAudioService and MediaSession functionality remain active.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/BackgroundAudioService.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Preserve watch history database integration",
+      "description": "Ensure history logging and SQLite persistence operate normally.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/HistoryDbHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Preserve premium paywall lock overlay",
+      "description": "Ensure access verification and status checking remain active.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/TrialPaywallManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building LockPlayTube",
+      "description": "Complete assembly and validation of updated native voice search code.",
+      "files": [
+        "app/src/main/java/com/lockplaytube/app/MainActivity.java"
+      ],
+      "status": "pending"
+    }
+  ]
+}
