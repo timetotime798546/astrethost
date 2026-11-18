@@ -3,7 +3,7 @@
     {
       "step": 1,
       "title": "Initialize application metadata and package configuration",
-      "description": "Set up project metadata, app title LockPlayHome, and package path com.lockplayhome.app in app-meta.json.",
+      "description": "Set up project metadata, new app title LockPlayHome, and updated package com.lockplayhome.app.",
       "files": [
         "app-meta.json",
         "app/src/main/assets/app-meta.json"
@@ -13,7 +13,7 @@
     {
       "step": 2,
       "title": "Configure application build dependencies and Gradle scripts",
-      "description": "Define build environment configurations, namespace, and applicationId in build.gradle.",
+      "description": "Update namespace and applicationId to com.lockplayhome.app in build.gradle.",
       "files": [
         "app/build.gradle"
       ],
@@ -21,8 +21,8 @@
     },
     {
       "step": 3,
-      "title": "Declare permissions and components in AndroidManifest",
-      "description": "Configure permissions for network, background audio playback, notifications, wake locks, and activities.",
+      "title": "Declare required permissions and updated component package paths in AndroidManifest",
+      "description": "Configure permissions for network, media playback service, notifications, wake locks, and audio recording with updated package references.",
       "files": [
         "app/src/main/AndroidManifest.xml"
       ],
@@ -30,8 +30,8 @@
     },
     {
       "step": 4,
-      "title": "Build SQLite database helper for watch history",
-      "description": "Implement HistoryDbHelper class in package com.lockplayhome.app to store watch history items locally.",
+      "title": "Update watch history SQLite database helper",
+      "description": "Migrate HistoryDbHelper and HistoryItem models to com.lockplayhome.app package.",
       "files": [
         "app/src/main/java/com/lockplayhome/app/HistoryDbHelper.java",
         "app/src/main/java/com/lockplayhome/app/HistoryItem.java"
@@ -40,8 +40,8 @@
     },
     {
       "step": 5,
-      "title": "Create watch history user interface and list adapter",
-      "description": "Develop HistoryActivity and custom BaseAdapter layout to render watch history entries.",
+      "title": "Update watch history user interface and list adapter",
+      "description": "Migrate HistoryActivity and HistoryAdapter to com.lockplayhome.app package.",
       "files": [
         "app/src/main/java/com/lockplayhome/app/HistoryActivity.java",
         "app/src/main/java/com/lockplayhome/app/HistoryAdapter.java"
@@ -50,8 +50,8 @@
     },
     {
       "step": 6,
-      "title": "Implement background audio playback service and media notification",
-      "description": "Build BackgroundAudioService under package com.lockplayhome.app utilizing MediaSession and notifications.",
+      "title": "Update background audio playback service",
+      "description": "Refactor BackgroundAudioService with updated action intent filters and package name.",
       "files": [
         "app/src/main/java/com/lockplayhome/app/BackgroundAudioService.java"
       ],
@@ -59,8 +59,8 @@
     },
     {
       "step": 7,
-      "title": "Construct trial paywall manager and verification logic",
-      "description": "Develop TrialPaywallManager to manage device ID verification and premium access check.",
+      "title": "Update trial paywall manager",
+      "description": "Migrate TrialPaywallManager to com.lockplayhome.app package.",
       "files": [
         "app/src/main/java/com/lockplayhome/app/TrialPaywallManager.java"
       ],
@@ -68,8 +68,8 @@
     },
     {
       "step": 8,
-      "title": "Configure WebView settings and JavaScript bridge interfaces",
-      "description": "Set up JavaScript integration, WebChromeClient, WebViewClient, and media bridges in MainActivity.",
+      "title": "Update main activity implementation",
+      "description": "Refactor MainActivity under com.lockplayhome.app maintaining all web playback and paywall logic.",
       "files": [
         "app/src/main/java/com/lockplayhome/app/MainActivity.java"
       ],
@@ -77,24 +77,15 @@
     },
     {
       "step": 9,
-      "title": "Integrate native voice speech recognition",
-      "description": "Implement SpeechRecognizer integration in MainActivity to handle voice search input.",
-      "files": [
-        "app/src/main/java/com/lockplayhome/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 10,
-      "title": "Update UI strings and application resources",
-      "description": "Update app name string resources for LockPlayHome.",
+      "title": "Update string resources for app name",
+      "description": "Update app_name and background notification text to LockPlayHome in strings.xml.",
       "files": [
         "app/src/main/res/values/strings.xml"
       ],
       "status": "pending"
     },
     {
-      "step": 11,
+      "step": 10,
       "title": "Building LockPlayHome",
       "description": "Assemble and build the final executable APK package for LockPlayHome.",
       "files": [
