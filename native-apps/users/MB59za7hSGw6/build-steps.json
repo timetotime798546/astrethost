@@ -3,7 +3,7 @@
     {
       "step": 1,
       "title": "Initialize application metadata and package configuration",
-      "description": "Set up project metadata, new app title LockPlayHome, and updated package com.lockplayhome.app.",
+      "description": "Set up project metadata, app title LockPlayHome, and package com.lockplayhome.app.",
       "files": [
         "app-meta.json",
         "app/src/main/assets/app-meta.json"
@@ -31,7 +31,7 @@
     {
       "step": 4,
       "title": "Update watch history SQLite database helper",
-      "description": "Migrate HistoryDbHelper and HistoryItem models to com.lockplayhome.app package.",
+      "description": "Ensure HistoryDbHelper and HistoryItem models are under com.lockplayhome.app package.",
       "files": [
         "app/src/main/java/com/lockplayhome/app/HistoryDbHelper.java",
         "app/src/main/java/com/lockplayhome/app/HistoryItem.java"
@@ -41,7 +41,7 @@
     {
       "step": 5,
       "title": "Update watch history user interface and list adapter",
-      "description": "Migrate HistoryActivity and HistoryAdapter to com.lockplayhome.app package.",
+      "description": "Ensure HistoryActivity and HistoryAdapter reference resources under com.lockplayhome.app package.",
       "files": [
         "app/src/main/java/com/lockplayhome/app/HistoryActivity.java",
         "app/src/main/java/com/lockplayhome/app/HistoryAdapter.java"
@@ -51,7 +51,7 @@
     {
       "step": 6,
       "title": "Update background audio playback service",
-      "description": "Refactor BackgroundAudioService with updated action intent filters and package name.",
+      "description": "Refactor BackgroundAudioService with correct R imports and action intent filters under com.lockplayhome.app package.",
       "files": [
         "app/src/main/java/com/lockplayhome/app/BackgroundAudioService.java"
       ],
@@ -60,7 +60,7 @@
     {
       "step": 7,
       "title": "Update trial paywall manager",
-      "description": "Migrate TrialPaywallManager to com.lockplayhome.app package.",
+      "description": "Configure TrialPaywallManager under com.lockplayhome.app package.",
       "files": [
         "app/src/main/java/com/lockplayhome/app/TrialPaywallManager.java"
       ],
@@ -69,7 +69,7 @@
     {
       "step": 8,
       "title": "Update main activity implementation",
-      "description": "Refactor MainActivity under com.lockplayhome.app maintaining all web playback and paywall logic.",
+      "description": "Refactor MainActivity under com.lockplayhome.app with explicit R resource imports.",
       "files": [
         "app/src/main/java/com/lockplayhome/app/MainActivity.java"
       ],

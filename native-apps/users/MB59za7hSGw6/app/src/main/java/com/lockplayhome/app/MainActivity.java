@@ -47,6 +47,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import com.lockplayhome.app.R;
+
 public class MainActivity extends Activity {
 
     private static final String YOUTUBE_HOME = "https://www.youtube.com";

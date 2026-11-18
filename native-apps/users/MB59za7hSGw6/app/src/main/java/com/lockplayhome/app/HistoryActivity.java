@@ -14,6 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lockplayhome.app.R;
+
 public class HistoryActivity extends Activity {
 
     private ListView listHistory;

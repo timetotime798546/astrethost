@@ -12,6 +12,8 @@ import android.widget.TextView;
 import java.util.Date;
 import java.util.List;
 
+import com.lockplayhome.app.R;
+
 public class HistoryAdapter extends BaseAdapter {
 
     public interface OnDeleteClickListener {
