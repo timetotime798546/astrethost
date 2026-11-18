@@ -41,8 +41,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.hometubeplay.app.R;
-
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;

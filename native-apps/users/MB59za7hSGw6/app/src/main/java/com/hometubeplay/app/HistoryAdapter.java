@@ -9,8 +9,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.hometubeplay.app.R;
-
 import java.util.Date;
 import java.util.List;
 
