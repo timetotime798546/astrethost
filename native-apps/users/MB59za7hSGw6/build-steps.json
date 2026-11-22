@@ -1,0 +1,148 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Project Setup",
+      "description": "Initialize package structures and build configurations for Modern Calculator.",
+      "files": [
+        "app/build.gradle",
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Manifest",
+      "description": "Set application permissions, entry activity, and theme configurations.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Design Color Palette & Styles",
+      "description": "Create modern dark slate and violet color palettes and UI element styles.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml",
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Create Drawable Layout Assets",
+      "description": "Build custom shape background gradients and rounded corner drawables for keypad buttons.",
+      "files": [
+        "app/src/main/res/drawable/bg_btn_number.xml",
+        "app/src/main/res/drawable/bg_btn_operator.xml",
+        "app/src/main/res/drawable/bg_btn_equals.xml",
+        "app/src/main/res/drawable/bg_btn_function.xml",
+        "app/src/main/res/drawable/bg_display_card.xml",
+        "app/src/main/res/drawable/bg_card_rounded.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Build Expression Evaluator Engine",
+      "description": "Implement a native recursive mathematical expression parser supporting standard and scientific functions.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/CalculatorEngine.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create History Storage & Model",
+      "description": "Implement local data structure and list adapter for managing calculation history.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/HistoryItem.java",
+        "app/src/main/java/com/moderncalculator/app/HistoryAdapter.java",
+        "app/src/main/res/layout/item_history.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Construct Calculator Main UI Layout",
+      "description": "Design responsive multi-tab layout with display screen, mode selector, standard keypad, scientific panel, and utility tools.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Main Activity Controller",
+      "description": "Wire user interaction logic, button keypads, real-time expression rendering, and mode switching.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Scientific Function Operations",
+      "description": "Connect scientific functions including trig, logarithmic, roots, powers, factorials, and constants.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Quick Unit Converters",
+      "description": "Integrate real-time converters for Length, Weight, Area, and Temperature.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Financial Tools (BMI & Tip Splitter)",
+      "description": "Add dedicated calculators for BMI index and Tip & Bill splitting.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement History & Clipboard Management",
+      "description": "Add memory dialog, tap-to-reuse expressions/results, clear history, and copy to clipboard.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Add Backend & Admin Schema Files",
+      "description": "Provide required structural metadata configurations.",
+      "files": [
+        "api_schema.json",
+        "admin_setting_schema.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Verify Code Compatibility",
+      "description": "Validate Java 8 syntax compatibility and standard Android SDK requirements.",
+      "files": [
+        "app/src/main/java/com/moderncalculator/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Modern Calculator",
+      "description": "Final compilation pass to output assembleDebug APK artifact.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
