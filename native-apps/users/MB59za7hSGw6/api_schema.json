@@ -1,0 +1,42 @@
+{
+  "backend": true,
+  "api_base_url": "https://trumpledroid-api.cloudbeta28624.workers.dev",
+  "roles": {
+    "user": ["own"]
+  },
+  "collections": {
+    "categories": {
+      "fields": {
+        "name": "string",
+        "color": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    },
+    "notes": {
+      "fields": {
+        "title": "string",
+        "content": "string",
+        "category": "string",
+        "date": "string"
+      },
+      "operations": ["create", "read", "update", "delete"]
+    }
+  },
+  "logic": {
+    "word_count": {
+      "type": "calculation",
+      "inputs": ["content"],
+      "formula": "split_spaces(content).length"
+    },
+    "character_count": {
+      "type": "calculation",
+      "inputs": ["content"],
+      "formula": "content.length"
+    },
+    "total_notes": {
+      "type": "calculation",
+      "inputs": ["notes_list"],
+      "formula": "notes_list.length"
+    }
+  }
+}
