@@ -1,0 +1,102 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Validate Project Package and Metadata Configuration",
+      "description": "Confirm metadata parameters and package configuration for Al Faris Kirana.",
+      "files": [
+        "app-meta.json",
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Inspect Customer Details Screen Layout Structure",
+      "description": "Analyze Customer Details screen view hierarchy and tab container constraints.",
+      "files": [
+        "app/src/main/res/layout/activity_customer_detail.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Add Active Status Column in SQLite Database Helper",
+      "description": "Ensure customer table schema supports soft deletion state with default active value.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Soft Customer Deletion Engine",
+      "description": "Add database query method to mark customer inactive while maintaining historical transaction records.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Filter Active Customers in Customer List and Billing Terminal",
+      "description": "Update queries to exclude soft-deleted inactive customers from active ledger lists and selection dropdowns.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Add Bottom Action Bar with Delete Customer Button",
+      "description": "Restructure Customer Details layout so the Delete Customer button is permanently visible at the screen bottom.",
+      "files": [
+        "app/src/main/res/layout/activity_customer_detail.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Wire Delete Button to Native Android Confirmation Dialog",
+      "description": "Connect click listener to AlertDialog asking user confirmation before marking customer inactive.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/CustomerDetailActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Preserve Historical Sales and Udhaar Ledger Records",
+      "description": "Verify customer soft deletion leaves sales, udhaar, jama, and payment histories fully intact.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Add Post-Deletion UI Refresh and Toast Notification",
+      "description": "Display Toast notification and refresh customer list automatically upon customer removal.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/CustomerDetailActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Verify Full Functionality of Customer Deletion Workflow",
+      "description": "Validate complete customer deletion lifecycle, layout rendering, and data integrity.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/CustomerDetailActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Al Faris Kirana",
+      "description": "Compile updated APK package with soft customer deletion and bottom action bar button.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
