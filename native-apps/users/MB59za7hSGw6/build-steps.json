@@ -1,0 +1,124 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Project Structure & Build Configuration",
+      "description": "Establish Gradle build setup and manifest declarations conforming to Android SDK 34 without external dependencies.",
+      "files": ["app/build.gradle", "app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Setup App Meta and Schemas",
+      "description": "Create app-meta, api_schema, and admin settings metadata for offline kirana operations.",
+      "files": ["app-meta.json", "api_schema.json", "admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Define Design Resources and Styles",
+      "description": "Generate XML colors, strings, drawables, and material styles for grocery store POS interface.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/strings.xml", "app/src/main/res/values/styles.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement SQLite Database Engine and Models",
+      "description": "Develop SQLiteOpenHelper and entity models for products, customers, sales, udhaar credit, purchases, and expenses.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/DatabaseHelper.java",
+        "app/src/main/java/com/alfariskirana/app/Product.java",
+        "app/src/main/java/com/alfariskirana/app/Customer.java",
+        "app/src/main/java/com/alfariskirana/app/SaleItem.java",
+        "app/src/main/java/com/alfariskirana/app/Expense.java",
+        "app/src/main/java/com/alfariskirana/app/Purchase.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Dashboard and Quick Navigation",
+      "description": "Build MainActivity dashboard displaying key performance indicators (sales, udhaar, low stock) with quick-action shortcuts.",
+      "files": ["app/src/main/java/com/alfariskirana/app/MainActivity.java", "app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Product Catalog & Inventory Management",
+      "description": "Create ProductListActivity and AddEditProductActivity to manage stock, units, cost, and selling rates.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/ProductListActivity.java",
+        "app/src/main/java/com/alfariskirana/app/AddEditProductActivity.java",
+        "app/src/main/res/layout/activity_product_list.xml",
+        "app/src/main/res/layout/activity_add_edit_product.xml",
+        "app/src/main/res/layout/item_product.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Build Customer & Udhaar Ledger System",
+      "description": "Develop CustomerListActivity, AddEditCustomerActivity, and CustomerDetailActivity for managing khata credit and repayments.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/CustomerListActivity.java",
+        "app/src/main/java/com/alfariskirana/app/AddEditCustomerActivity.java",
+        "app/src/main/java/com/alfariskirana/app/CustomerDetailActivity.java",
+        "app/src/main/res/layout/activity_customer_list.xml",
+        "app/src/main/res/layout/activity_add_edit_customer.xml",
+        "app/src/main/res/layout/activity_customer_detail.xml",
+        "app/src/main/res/layout/item_customer.xml",
+        "app/src/main/res/layout/item_udhaar.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build POS Billing and Cart Module",
+      "description": "Implement NewSaleActivity and SaleBillDetailActivity supporting item quantity adjustment, stock validation, and bill print summary.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/NewSaleActivity.java",
+        "app/src/main/java/com/alfariskirana/app/SaleBillDetailActivity.java",
+        "app/src/main/res/layout/activity_new_sale.xml",
+        "app/src/main/res/layout/activity_sale_bill_detail.xml",
+        "app/src/main/res/layout/item_cart.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Purchases and Expense Trackers",
+      "description": "Construct activities for supplier procurement stock updates and daily kirana overhead expenses.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/PurchaseListActivity.java",
+        "app/src/main/java/com/alfariskirana/app/AddPurchaseActivity.java",
+        "app/src/main/java/com/alfariskirana/app/ExpenseListActivity.java",
+        "app/src/main/java/com/alfariskirana/app/AddExpenseActivity.java",
+        "app/src/main/res/layout/activity_purchase_list.xml",
+        "app/src/main/res/layout/activity_add_purchase.xml",
+        "app/src/main/res/layout/activity_expense_list.xml",
+        "app/src/main/res/layout/activity_add_expense.xml",
+        "app/src/main/res/layout/item_purchase.xml",
+        "app/src/main/res/layout/item_expense.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Reports and Data Export Manager",
+      "description": "Build ReportsActivity and BackupManager utility for generating business analytics and offline CSV backup exports.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/ReportsActivity.java",
+        "app/src/main/java/com/alfariskirana/app/BackupManager.java",
+        "app/src/main/res/layout/activity_reports.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Al Faris Kirana",
+      "description": "Assemble and verify Android APK build with full offline SQLite storage and POS capabilities.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
