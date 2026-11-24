@@ -44,7 +44,7 @@ public class AddEditCustomerActivity extends Activity {
         }
 
         double balance = balStr.isEmpty() ? 0 : Double.parseDouble(balStr);
-        Customer c = new Customer(0, name, mobile, balance);
+        Customer c = new Customer(0L, name, mobile, balance);
         dbHelper.saveCustomer(c);
         Toast.makeText(this, "Customer added successfully", Toast.LENGTH_SHORT).show();
         finish();

@@ -91,7 +91,7 @@ public class NewSaleActivity extends Activity {
     private void setupSpinners() {
         // Customer Spinner
         customerList.clear();
-        customerList.add(new Customer(0, "Walk-in Customer", "", 0));
+        customerList.add(new Customer(0L, "Walk-in Customer", "", 0.0));
         customerList.addAll(dbHelper.getAllCustomers(""));
 
         List<String> customerNames = new ArrayList<String>();

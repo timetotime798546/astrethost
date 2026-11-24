@@ -2,114 +2,89 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure Application Metadata and Package Configuration",
-      "description": "Ensure accurate app meta specification and package identifier structure for Al Faris Kirana.",
+      "title": "Validate App Metadata and Manifest Configuration",
+      "description": "Ensure package name and app configuration are aligned for Al Faris Kirana.",
       "files": [
-        "app-meta.json",
-        "api_schema.json",
-        "admin_setting_schema.json"
+        "app-meta.json"
       ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Define Brand Palette, Color Tokens, and Material Styles",
-      "description": "Configure emerald jewel brand colors, background neutrals, metric container strokes, and button styling in colors.xml, styles.xml, and strings.xml.",
+      "title": "Configure Color Palette and Material Theme Attributes",
+      "description": "Verify emerald green theme palette and UI card styling.",
       "files": [
-        "app/src/main/res/values/colors.xml",
-        "app/src/main/res/values/styles.xml",
-        "app/src/main/res/values/strings.xml"
+        "app/src/main/res/values/colors.xml"
       ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Create Dynamic Surface Backgrounds, Header Badges, and Custom Buttons",
-      "description": "Design gradient header shapes, white elevated cards, input field selectors, pill status indicators, and custom button drawables.",
+      "title": "Fix Customer Model Overloaded Constructor Signatures",
+      "description": "Provide explicit constructor signatures supporting primitive types (long, String, String, double) for initial balance assignment.",
       "files": [
-        "app/src/main/res/drawable/bg_header_gradient.xml",
-        "app/src/main/res/drawable/bg_card_white.xml",
-        "app/src/main/res/drawable/bg_metric_sales.xml",
-        "app/src/main/res/drawable/bg_metric_udhaar.xml",
-        "app/src/main/res/drawable/bg_metric_products.xml",
-        "app/src/main/res/drawable/bg_metric_stock.xml",
-        "app/src/main/res/drawable/bg_button_primary.xml",
-        "app/src/main/res/drawable/bg_button_accent.xml",
-        "app/src/main/res/drawable/bg_button_danger.xml",
-        "app/src/main/res/drawable/bg_button_outline.xml",
-        "app/src/main/res/drawable/bg_input_field.xml",
-        "app/src/main/res/drawable/bg_badge_pill_green.xml",
-        "app/src/main/res/drawable/bg_badge_pill_red.xml",
-        "app/src/main/res/drawable/bg_badge_pill_gold.xml"
+        "app/src/main/java/com/alfariskirana/app/Customer.java"
       ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Enhance Data Models for Customers and Ledger Transactions",
-      "description": "Define updated Customer and UdhaarTransaction objects supporting Total Udhaar, Total Jama, Pending Balance, and Customer Advance.",
+      "title": "Update NewSaleActivity Customer Instantiation Types",
+      "description": "Ensure walk-in customer creation explicitly matches Customer constructor parameter types.",
       "files": [
-        "app/src/main/java/com/alfariskirana/app/Customer.java",
-        "app/src/main/java/com/alfariskirana/app/UdhaarTransaction.java"
+        "app/src/main/java/com/alfariskirana/app/NewSaleActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Upgrade Database Architecture for Udhaar and Jama Ledger Accounting",
-      "description": "Implement robust SQLite transaction logic in DatabaseHelper to isolate Credit (Udhaar) and Payment (Jama) records and compute strict non-negative pending balances.",
+      "title": "Update AddEditCustomerActivity Constructor Call",
+      "description": "Ensure customer form initialization uses the updated long-id constructor.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/AddEditCustomerActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Verify Udhaar Transaction Accounting Engine",
+      "description": "Validate transaction credit and payment ledger models.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/UdhaarTransaction.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Validate SQLite Database Ledger Computations",
+      "description": "Confirm accurate running balance calculations for Udhaar and Jama transactions.",
       "files": [
         "app/src/main/java/com/alfariskirana/app/DatabaseHelper.java"
       ],
       "status": "pending"
     },
     {
-      "step": 6,
-      "title": "Construct Udhaar Entry and Payment Repayment Dialog Interfaces",
-      "description": "Create clean modal dialog XML layouts for recording new credit transactions and customer payment deposits with method selection.",
-      "files": [
-        "app/src/main/res/layout/dialog_add_udhaar.xml",
-        "app/src/main/res/layout/dialog_add_jama.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Upgrade Customer Directory View and Search Filtering System",
-      "description": "Modify CustomerListActivity and item_customer.xml to display Total Udhaar, Total Jama, and Pending Udhaar metrics with live search capability.",
-      "files": [
-        "app/src/main/res/layout/activity_customer_list.xml",
-        "app/src/main/res/layout/item_customer.xml",
-        "app/src/main/java/com/alfariskirana/app/CustomerListActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
       "step": 8,
-      "title": "Build Customer Summary Dashboard with Three Independent Totals",
-      "description": "Engineer CustomerDetailActivity showcasing Total Udhaar, Total Jama, and Pending Udhaar summary cards along with separate Udhaar and Jama tabs.",
+      "title": "Verify POS Cart Billing and Receipt Generation",
+      "description": "Verify POS checkout cart, discounts, and itemized bill rendering.",
       "files": [
-        "app/src/main/res/layout/activity_customer_detail.xml",
-        "app/src/main/res/layout/item_udhaar.xml",
-        "app/src/main/res/layout/item_jama.xml",
-        "app/src/main/java/com/alfariskirana/app/CustomerDetailActivity.java"
+        "app/src/main/java/com/alfariskirana/app/SaleBillDetailActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 9,
-      "title": "Update Main Store POS Dashboard with Store Metrics",
-      "description": "Refactor MainActivity and activity_main.xml to reflect live aggregate metrics for Total Pending Udhaar, Total Jama Received, and Store Sales.",
+      "title": "Verify Expense Tracking and Reports Export Utility",
+      "description": "Verify financial metrics summary and CSV backup export features.",
       "files": [
-        "app/src/main/res/layout/activity_main.xml",
-        "app/src/main/java/com/alfariskirana/app/MainActivity.java"
+        "app/src/main/java/com/alfariskirana/app/ReportsActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building Al Faris Kirana",
-      "description": "Compile layout resources, validate database calculations, link activity navigation routes, and build the updated APK package.",
+      "description": "Compile Java source code, resolve references, and package final APK.",
       "files": [],
       "status": "pending"
     }

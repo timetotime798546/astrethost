@@ -11,6 +11,16 @@ public class Customer {
 
     public Customer() {}
 
+    public Customer(long id, String name, String mobile, double pendingBalance) {
+        this.id = id;
+        this.name = name;
+        this.mobile = mobile;
+        this.pendingBalance = pendingBalance;
+        this.totalUdhaar = 0.0;
+        this.totalJama = 0.0;
+        this.advanceBalance = 0.0;
+    }
+
     public Customer(long id, String name, String mobile, double totalUdhaar, double totalJama, double pendingBalance, double advanceBalance) {
         this.id = id;
         this.name = name;
