@@ -1,0 +1,118 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Establish Premium Professional Color Palette and Theme Tokens",
+      "description": "Define sophisticated emerald, deep slate, soft cream, and vibrant status tones for a modern retail POS visual hierarchy.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create Elegant Rounded Cards and Gradient Background Assets",
+      "description": "Construct high-end gradient headers, crisp surface cards with micro-borders, and tinted metric surfaces.",
+      "files": [
+        "app/src/main/res/drawable/bg_header_gradient.xml",
+        "app/src/main/res/drawable/bg_card_white.xml",
+        "app/src/main/res/drawable/bg_metric_sales.xml",
+        "app/src/main/res/drawable/bg_metric_udhaar.xml",
+        "app/src/main/res/drawable/bg_metric_products.xml",
+        "app/src/main/res/drawable/bg_metric_stock.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Interactive UI Widgets, Pills, Badges and Input Fields",
+      "description": "Implement refined buttons, status chips, inventory indicator badges, and modern input containers.",
+      "files": [
+        "app/src/main/res/drawable/bg_button_primary.xml",
+        "app/src/main/res/drawable/bg_button_accent.xml",
+        "app/src/main/res/drawable/bg_button_danger.xml",
+        "app/src/main/res/drawable/bg_button_outline.xml",
+        "app/src/main/res/drawable/bg_input_field.xml",
+        "app/src/main/res/drawable/bg_badge_pill_green.xml",
+        "app/src/main/res/drawable/bg_badge_pill_red.xml",
+        "app/src/main/res/drawable/bg_badge_pill_gold.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Revamp Main POS Dashboard with Professional Visual Layout",
+      "description": "Redesign MainActivity with modern header typography, four balanced KPI stat cards, quick billing button, and grid navigation.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Upgrade Inventory Catalog and Item Presentation",
+      "description": "Elevate product list and item card rows with category chips, unit price highlights, and dynamic stock health badges.",
+      "files": [
+        "app/src/main/res/layout/activity_product_list.xml",
+        "app/src/main/res/layout/item_product.xml",
+        "app/src/main/res/layout/activity_add_edit_product.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Refine Customer Directory & Khata Udhaar Ledger Interface",
+      "description": "Overhaul customer balances, ledger timeline cards, payment reception module, and clear visual accounting markers.",
+      "files": [
+        "app/src/main/res/layout/activity_customer_list.xml",
+        "app/src/main/res/layout/item_customer.xml",
+        "app/src/main/res/layout/activity_customer_detail.xml",
+        "app/src/main/res/layout/item_udhaar.xml",
+        "app/src/main/res/layout/activity_add_edit_customer.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Transform New Sale Billing POS & Cart Experience",
+      "description": "Modernize live sale terminal with floating summary footer, cart line item removal, discount calculations, and payment modes.",
+      "files": [
+        "app/src/main/res/layout/activity_new_sale.xml",
+        "app/src/main/res/layout/item_cart.xml",
+        "app/src/main/res/layout/activity_sale_bill_detail.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Redesign Stock Inward Purchases and Store Expense Trackers",
+      "description": "Modernize supplier restock ledger, expense categories, and structured entry forms with card containers.",
+      "files": [
+        "app/src/main/res/layout/activity_purchase_list.xml",
+        "app/src/main/res/layout/item_purchase.xml",
+        "app/src/main/res/layout/activity_add_purchase.xml",
+        "app/src/main/res/layout/activity_expense_list.xml",
+        "app/src/main/res/layout/item_expense.xml",
+        "app/src/main/res/layout/activity_add_expense.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Enhance Financial Analytics & CSV Backup Dashboard",
+      "description": "Present sales margins, purchase costs, overhead expenses, and profit figures inside a clean executive report.",
+      "files": [
+        "app/src/main/res/layout/activity_reports.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Al Faris Kirana",
+      "description": "Compile, assemble, and finalize the professional high-grade native Android APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
