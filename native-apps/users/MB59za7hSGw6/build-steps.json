@@ -8,7 +8,7 @@
         "app-meta.json",
         "app/src/main/AndroidManifest.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 2,
@@ -17,7 +17,7 @@
       "files": [
         "app/src/main/res/layout/activity_customer_detail.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 3,
@@ -26,7 +26,7 @@
       "files": [
         "app/src/main/java/com/alfariskirana/app/DatabaseHelper.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 4,
@@ -35,7 +35,7 @@
       "files": [
         "app/src/main/java/com/alfariskirana/app/DatabaseHelper.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 5,
@@ -44,7 +44,7 @@
       "files": [
         "app/src/main/java/com/alfariskirana/app/DatabaseHelper.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 6,
@@ -53,7 +53,7 @@
       "files": [
         "app/src/main/res/layout/activity_customer_detail.xml"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 7,
@@ -62,7 +62,7 @@
       "files": [
         "app/src/main/java/com/alfariskirana/app/CustomerDetailActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 8,
@@ -71,16 +71,16 @@
       "files": [
         "app/src/main/java/com/alfariskirana/app/DatabaseHelper.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 9,
-      "title": "Add Post-Deletion UI Refresh and Toast Notification",
-      "description": "Display Toast notification and refresh customer list automatically upon customer removal.",
+      "title": "Fix Missing Intent Import in CustomerDetailActivity",
+      "description": "Add missing android.content.Intent import to resolve compilation symbol error when launching SaleBillDetailActivity.",
       "files": [
         "app/src/main/java/com/alfariskirana/app/CustomerDetailActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 10,
@@ -89,7 +89,7 @@
       "files": [
         "app/src/main/java/com/alfariskirana/app/CustomerDetailActivity.java"
       ],
-      "status": "pending"
+      "status": "completed"
     },
     {
       "step": 11,
