@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Inward Stock Purchase"
+        android:textColor="@color/primary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Supplier / Dealer Name"
+        android:textColor="@color/text_dark" />
+
+    <EditText
+        android:id="@+id/et_purchase_supplier"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/card_bg"
+        android:hint="e.g. Metro Cash &amp; Carry"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Product *"
+        android:textColor="@color/text_dark" />
+
+    <Spinner
+        android:id="@+id/sp_purchase_product"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/card_bg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity to Inward *"
+        android:textColor="@color/text_dark" />
+
+    <EditText
+        android:id="@+id/et_purchase_qty"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/card_bg"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Cost / Purchase Amount (₹) *"
+        android:textColor="@color/text_dark" />
+
+    <EditText
+        android:id="@+id/et_purchase_amount"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
+        android:background="@color/card_bg"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp" />
+
+    <Button
+        android:id="@+id/btn_save_purchase"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/primary"
+        android:text="RECORD STOCK INWARD"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+</LinearLayout>
