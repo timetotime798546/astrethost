@@ -1,0 +1,93 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Validate App Metadata and Package Configuration",
+      "description": "Verify package configuration and metadata parameters for Al Faris Kirana.",
+      "files": [
+        "app-meta.json",
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Update Database Helper Default Units",
+      "description": "Restrict default grocery catalog units to strictly किलो (KG) and पीस (Piece).",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Update New Sale POS Terminal Layout",
+      "description": "Add dedicated Unit Spinner with strict options for किलो (KG) and पीस (Piece).",
+      "files": [
+        "app/src/main/res/layout/activity_new_sale.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Enhance New Sale Billing Logic",
+      "description": "Implement Unit Spinner binding, product default unit matching, decimal quantity support, and cart calculations.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/NewSaleActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Update Cart Item Layout Display",
+      "description": "Show clear quantity, selected unit name (KG or Piece), and price calculations in the cart row.",
+      "files": [
+        "app/src/main/res/layout/item_cart.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Update Product Form Layout",
+      "description": "Replace text input with strict Spinner for product base unit selection.",
+      "files": [
+        "app/src/main/res/layout/activity_add_edit_product.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Update Add/Edit Product Activity Logic",
+      "description": "Bind unit selector to किलो (KG) and पीस (Piece) in product creation and editing flow.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/AddEditProductActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Update Sale Receipt & Invoice Details",
+      "description": "Ensure selected unit is rendered clearly in invoice line items and saved history.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/SaleBillDetailActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify UI & Decimal Quantity Formatting",
+      "description": "Ensure decimal quantities (e.g. 0.5 kg, 2.5 kg) calculate totals accurately without truncation.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/SaleItem.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Al Faris Kirana",
+      "description": "Compile source code, verify database schema, and finalize application build.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
