@@ -1,0 +1,94 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Validate App Metadata and Manifest Configuration",
+      "description": "Ensure package name and app configuration are aligned for Al Faris Kirana.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Update UdhaarTransaction Model",
+      "description": "Add per-record pending amount tracking and transaction parent reference.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/UdhaarTransaction.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Update SQLite Database Ledger Engine",
+      "description": "Implement safe database migration, per-item pending Udhaar tracking, and Jama deduction transactions.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Enhance POS New Sale Payment Mode Selector",
+      "description": "Add required Cash vs Credit selector with validation rules for Walk-in vs registered customers.",
+      "files": [
+        "app/src/main/res/layout/activity_new_sale.xml",
+        "app/src/main/java/com/alfariskirana/app/NewSaleActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Update Customer Udhaar Record Layout & Jama Button",
+      "description": "Add Jama Karein action button and remaining pending display to each Udhaar transaction item.",
+      "files": [
+        "app/src/main/res/layout/item_udhaar.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Update Payment Entry Dialog",
+      "description": "Include original amount, pending amount, payment mode selector, and exact remaining validation.",
+      "files": [
+        "app/src/main/res/layout/dialog_add_jama.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Update Customer Ledger Detail Activity",
+      "description": "Connect Jama buttons for specific Udhaar records and enforce exact balance accounting rules.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/CustomerDetailActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Update Store Metrics & Dashboard Summary",
+      "description": "Separate Cash and Credit sales, total Jama received, and accurate pending balance totals.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Update Financial Reports Activity",
+      "description": "Differentiate cash vs credit revenue and recalculate net profit accurately.",
+      "files": [
+        "app/src/main/java/com/alfariskirana/app/ReportsActivity.java",
+        "app/src/main/res/layout/activity_reports.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Al Faris Kirana",
+      "description": "Compile source code, verify database ledger integrity, and build application.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
