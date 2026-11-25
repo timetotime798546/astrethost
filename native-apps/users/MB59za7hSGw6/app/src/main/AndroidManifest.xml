@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.varshalaxmi.loanmanager">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:roundIcon="@drawable/icon"
+        android:label="VarshaLaxmi"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Material.Light">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="VarshaLaxmi Dashboard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".CustomerListActivity"
+            android:label="Customer Management"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".AddCustomerActivity"
+            android:label="Add / Edit Customer"
+            android:parentActivityName=".CustomerListActivity" />
+
+        <activity
+            android:name=".CustomerDetailActivity"
+            android:label="Customer Profile"
+            android:parentActivityName=".CustomerListActivity" />
+
+        <activity
+            android:name=".NewLoanActivity"
+            android:label="Issue New Loan"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".CollectPaymentActivity"
+            android:label="Collect Loan Payment"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".LoanRecordsActivity"
+            android:label="Loan Ledger Records"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".PaymentHistoryActivity"
+            android:label="Payment Logs"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".ReportsActivity"
+            android:label="Financial Reports"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".BackupRestoreActivity"
+            android:label="Backup &amp; Restore"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Settings &amp; PIN Security"
+            android:parentActivityName=".MainActivity" />
+
+    </application>
+
+</manifest>
