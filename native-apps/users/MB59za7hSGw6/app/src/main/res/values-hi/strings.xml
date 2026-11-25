@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">मुंबई मेडिकल</string>
+    <string name="app_subtitle">मेडिकल स्टोर प्रबंधन प्रणाली</string>
+    
+    <!-- Dashboard -->
+    <string name="store_overview">स्टोर का कुल विवरण</string>
+    <string name="total_medicines">कुल दवाएं</string>
+    <string name="stock_value">स्टॉक का मूल्य</string>
+    <string name="today_sales">आज की बिक्री</string>
+    <string name="today_profit">आज का लाभ</string>
+    <string name="low_stock">कम स्टॉक</string>
+    <string name="expiring_soon">जल्द समाप्त (एक्सपायरी)</string>
+    <string name="items">आइटम</string>
+    <string name="quick_actions">त्वरित कार्य</string>
+    <string name="btn_new_sale">+ नई बिक्री</string>
+    <string name="btn_new_purchase">+ नई खरीद</string>
+    <string name="btn_medicines">दवा स्टॉक</string>
+    <string name="btn_sales_history">बिक्री इतिहास</string>
+    <string name="btn_customers">ग्राहक</string>
+    <string name="btn_suppliers">आपूर्तिकर्ता (सप्लायर)</string>
+    <string name="btn_reports">रिपोर्ट और विश्लेषण</string>
+    <string name="btn_backup_restore">बैकअप और रिस्टोर</string>
+    <string name="change_language">भाषा (Language)</string>
+    <string name="select_language">भाषा चुनें</string>
+    <string name="lang_english">English</string>
+    <string name="lang_hindi">हिंदी (Hindi)</string>
+
+    <!-- Photo Management UI -->
+    <string name="photo_label">फोटो संलग्नक (ऐच्छिक)</string>
+    <string name="btn_take_photo">📷 फोटो खींचें</string>
+    <string name="btn_choose_gallery">🖼 गैलरी से चुनें</string>
+    <string name="btn_change_photo">फोटो बदलें</string>
+    <string name="btn_remove_photo">फोटो हटाएं</string>
+    <string name="select_photo_option">फोटो का विकल्प चुनें</string>
+    <string name="camera_permission_required">ऐप में फोटो खींचने के लिए कैमरा अनुमति आवश्यक है।</string>
+    <string name="camera_permission_denied_msg">कैमरा अनुमति अस्वीकृत की गई। आप गैलरी से फोटो चुन सकते हैं।</string>
+    <string name="photo_removed">फोटो हटा दी गई</string>
+    <string name="tap_to_view_full">बड़ी फोटो देखने के लिए टैप करें</string>
+
+    <!-- Terms -->
+    <string name="customer">ग्राहक</string>
+    <string name="medicine">दवा</string>
+    <string name="udhar">उधार</string>
+    <string name="jama">जमा</string>
+    <string name="pending_balance">बाकी राशि</string>
+    <string name="total_udhar">कुल उधार</string>
+    <string name="total_jama">कुल जमा</string>
+    <string name="backup">बैकअप</string>
+    <string name="restore">रिस्टोर</string>
+    <string name="sales">बिक्री</string>
+    <string name="purchase">खरीद</string>
+
+    <!-- Khata & Customer UI -->
+    <string name="customer_directory">ग्राहक निर्देशिका और खाता</string>
+    <string name="add_customer">+ नया ग्राहक जोड़ें</string>
+    <string name="search_customer_hint">नाम या फोन नंबर से ग्राहक खोजें...</string>
+    <string name="khata_summary">खाता का कुल विवरण</string>
+    <string name="add_udhar">+ उधार जोड़ें</string>
+    <string name="add_jama">+ जमा जोड़ें</string>
+    <string name="transaction_history">लेन-देन का इतिहास</string>
+    <string name="account_clear">खाता पूरी तरह से चुकता है (₹ 0.00)</string>
+    <string name="customer_owes">ग्राहक पर बाकी है</string>
+    <string name="advance_balance">अग्रिम (Advance) जमा राशि</string>
+    <string name="amount_required">राशि (₹) *</string>
+    <string name="date">दिनांक</string>
+    <string name="description_notes">विवरण / नोट</string>
+    <string name="payment_mode">भुगतान का माध्यम</string>
+
+    <!-- Backup & Restore -->
+    <string name="backup_restore_title">ऑफ़लाइन ज़िप बैकअप और रिस्टोर</string>
+    <string name="backup_desc">अपने स्टोर के सभी रिकॉर्ड, बिक्री इतिहास, ग्राहक खाते, दवा डेटाबेस और फोटो फ़ाइलों को सुरक्षित रूप से ज़िप फ़ाइल में बैकअप करें।</string>
+    <string name="create_zip_backup">ज़िप बैकअप बनाएं (स्थान चुनें)</string>
+    <string name="restore_from_backup">बैकअप फ़ाइल से डेटाबेस और फोटो रिस्टोर करें</string>
+    <string name="backup_success">बैकअप ज़िप सफलतापूर्वक सहेजा गया!</string>
+    <string name="restore_confirm_title">डेटाबेस और फोटो रिस्टोर करें?</string>
+    <string name="restore_confirm_msg">यह आपके वर्तमान स्टोर डेटा और फोटो को बैकअप फ़ाइल से बदल देगा। क्या आप जारी रखना चाहते हैं?</string>
+    <string name="restore_success">डेटाबेस और फोटो सफलतापूर्वक रिस्टोर हो गए!</string>
+    <string name="restore_failed">रिस्टोर विफल रहा या अमान्य बैकअप फ़ाइल।</string>
+
+    <!-- Common UI -->
+    <string name="cancel">रद्द करें</string>
+    <string name="save">सहेजें</string>
+    <string name="delete">हटाएं</string>
+    <string name="edit_info">जानकारी बदलें</string>
+    <string name="ok">ठीक है</string>
+    <string name="no_customers_found">कोई ग्राहक नहीं मिला। नया ग्राहक पंजीकृत करने के लिए \'+ नया ग्राहक जोड़ें\' पर टैप करें।</string>
+</resources>
