@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.kkgstore.store"
+    namespace "com.mumbaimedical.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.kkgstore.store"
+        applicationId "com.mumbaimedical.app"
 
         minSdkVersion 21
 

@@ -2,259 +2,177 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/bg_light">
 
-    <!-- Top POS Terminal Bar -->
+    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_header_gradient"
+        android:background="@color/primary_dark"
         android:padding="16dp">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="POS Billing Terminal"
-            android:textColor="#FFFFFF"
-            android:textSize="19sp"
+            android:text="New Sales Billing"
+            android:textColor="@color/white"
+            android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Top Selection Area Card -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:background="@drawable/bg_card_white"
-        android:orientation="vertical"
-        android:padding="14dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Customer Account"
-            android:textColor="@color/text_dark"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/sp_customers"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/bg_input_field" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Add Item to Cart"
-            android:textColor="@color/text_dark"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:orientation="vertical">
-
-            <!-- Row 1: Product Selection -->
-            <Spinner
-                android:id="@+id/sp_products"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:background="@drawable/bg_input_field" />
-
-            <!-- Row 2: Quantity, Unit Selector, Add Button -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/et_item_qty"
-                    android:layout_width="0dp"
-                    android:layout_height="44dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_input_field"
-                    android:gravity="center"
-                    android:hint="Qty"
-                    android:inputType="numberDecimal"
-                    android:text="1"
-                    android:textSize="14sp" />
-
-                <!-- Unit Selection: Restricted strictly to KG and Piece -->
-                <Spinner
-                    android:id="@+id/sp_unit"
-                    android:layout_width="0dp"
-                    android:layout_height="44dp"
-                    android:layout_marginStart="6dp"
-                    android:layout_weight="1.6"
-                    android:background="@drawable/bg_input_field" />
-
-                <Button
-                    android:id="@+id/btn_add_to_cart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="44dp"
-                    android:layout_marginStart="6dp"
-                    android:background="@drawable/bg_button_accent"
-                    android:paddingStart="14dp"
-                    android:paddingEnd="14dp"
-                    android:text="+ Add"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Cart Items Header -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingBottom="4dp"
-        android:text="CURRENT CART ITEMS"
-        android:textColor="@color/text_muted"
-        android:textSize="11sp"
-        android:textStyle="bold" />
-
-    <!-- Cart Items List -->
-    <ListView
-        android:id="@+id/lv_cart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:clipToPadding="false"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="6dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:paddingBottom="6dp" />
-
-    <!-- Bottom Bill Summary Bar -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_card_white"
-        android:elevation="12dp"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="12dp">
 
+        <!-- Customer selection -->
+        <EditText
+            android:id="@+id/etCustomerName"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_input"
+            android:hint="Customer Name (Optional)"
+            android:paddingHorizontal="12dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Add item row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Subtotal:"
-                android:textColor="@color/text_muted"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/tv_bill_subtotal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="₹ 0.00"
-                android:textColor="@color/text_dark"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:text="Discount (₹):"
-                android:textColor="@color/text_muted"
-                android:textSize="13sp" />
-
-            <EditText
-                android:id="@+id/et_discount"
-                android:layout_width="90dp"
-                android:layout_height="36dp"
-                android:background="@drawable/bg_input_field"
-                android:gravity="end|center_vertical"
-                android:hint="0.00"
-                android:inputType="numberDecimal"
-                android:paddingEnd="8dp"
-                android:text="0"
-                android:textSize="13sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Grand Total:"
-                android:textColor="@color/primary"
-                android:textSize="19sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_bill_grand_total"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="₹ 0.00"
-                android:textColor="@color/primary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- Payment Type Selector: नगद (Cash) vs उधार (Credit) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:text="भुगतान का प्रकार (Payment Type) *"
-                android:textColor="@color/text_dark"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
             <Spinner
-                android:id="@+id/sp_payment_mode"
+                android:id="@+id/spMedicines"
                 android:layout_width="0dp"
-                android:layout_height="42dp"
+                android:layout_height="44dp"
+                android:layout_weight="2"
+                android:background="@drawable/bg_input"
+                android:layout_marginEnd="4dp" />
+
+            <EditText
+                android:id="@+id/etSaleQty"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_input_field" />
+                android:background="@drawable/bg_input"
+                android:hint="Qty"
+                android:inputType="number"
+                android:paddingHorizontal="8dp"
+                android:layout_marginEnd="4dp" />
+
+            <Button
+                android:id="@+id/btnAddCart"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_button"
+                android:text="Add"
+                android:textColor="@color/white" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_complete_sale"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BILL ITEMS"
+            android:textColor="@color/text_muted"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginVertical="4dp" />
+
+        <!-- Cart Items List -->
+        <ListView
+            android:id="@+id/lvCart"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/bg_button_primary"
-            android:text="COMPLETE &amp; PRINT BILL"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="@color/card_border"
+            android:dividerHeight="1dp" />
+
+        <!-- Calculation Summary Footer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Subtotal:"
+                    android:textColor="@color/text_dark" />
+                <TextView
+                    android:id="@+id/tvSubtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹ 0.00"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Discount (₹):"
+                    android:textColor="@color/text_dark" />
+                <EditText
+                    android:id="@+id/etDiscount"
+                    android:layout_width="80dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="0"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="8dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Grand Total:"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvGrandTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹ 0.00"
+                    android:textColor="@color/success_green"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnCompleteSale"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_button"
+                android:text="Complete &amp; Print Bill"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

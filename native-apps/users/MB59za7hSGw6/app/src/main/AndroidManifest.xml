@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kkgstore.store">
+    package="com.mumbaimedical.app">
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:roundIcon="@drawable/icon"
-        android:label="@string/app_name"
-        android:theme="@android:style/Theme.Material.Light">
+        android:label="Mumbai Medical"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Material.Light.NoActionBar">
 
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -23,64 +24,54 @@
         </activity>
 
         <activity
-            android:name=".DemoLockActivity"
-            android:label="Demo Lock"
-            android:noHistory="true"
-            android:exported="false" />
+            android:name=".MedicineListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ProductListActivity"
-            android:label="सामान लिस्ट (Products)" />
-
-        <activity
-            android:name=".AddEditProductActivity"
-            android:label="प्रोडक्ट फॉर्म" />
-
-        <activity
-            android:name=".CustomerListActivity"
-            android:label="ग्राहक खाता (Khata Ledger)" />
-
-        <activity
-            android:name=".AddEditCustomerActivity"
-            android:label="नया ग्राहक" />
-
-        <activity
-            android:name=".CustomerDetailActivity"
-            android:label="ग्राहक उधार व जमा" />
-
-        <activity
-            android:name=".FullScreenImageActivity"
-            android:label="Photo Viewer"
-            android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen" />
+            android:name=".AddEditMedicineActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".NewSaleActivity"
-            android:label="नया बिल (Point of Sale)" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
-            android:name=".SaleBillDetailActivity"
-            android:label="बिक्री बिल" />
+            android:name=".SalesListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
-            android:name=".PurchaseListActivity"
-            android:label="स्टॉक खरीदारी" />
+            android:name=".NewPurchaseActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
-            android:name=".AddPurchaseActivity"
-            android:label="खरीदारी दर्ज करें" />
+            android:name=".CustomerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ExpenseListActivity"
-            android:label="दुकान के खर्चे" />
+            android:name=".SupplierActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
-            android:name=".AddExpenseActivity"
-            android:label="नया खर्चा दर्ज करें" />
+            android:name=".ExpiryAlertsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".ReportsActivity"
-            android:label="रिपोर्ट्स व बैकअप" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".BackupRestoreActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
     </application>
-
 </manifest>
