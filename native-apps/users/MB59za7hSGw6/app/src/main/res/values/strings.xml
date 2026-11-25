@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mumbai Medical</string>
+    <string name="app_subtitle">Pharmacy Management System</string>
+    
+    <!-- Dashboard -->
+    <string name="store_overview">STORE OVERVIEW</string>
+    <string name="total_medicines">Total Medicines</string>
+    <string name="stock_value">Stock Value</string>
+    <string name="today_sales">Today\'s Sales</string>
+    <string name="today_profit">Today\'s Profit</string>
+    <string name="low_stock">Low Stock</string>
+    <string name="expiring_soon">Expiring Soon</string>
+    <string name="items">Items</string>
+    <string name="quick_actions">QUICK ACTIONS</string>
+    <string name="btn_new_sale">+ New Sale</string>
+    <string name="btn_new_purchase">+ New Purchase</string>
+    <string name="btn_medicines">Medicines Stock</string>
+    <string name="btn_sales_history">Sales History</string>
+    <string name="btn_customers">Customers</string>
+    <string name="btn_suppliers">Suppliers</string>
+    <string name="btn_reports">Reports &amp; Analytics</string>
+    <string name="btn_backup_restore">Backup &amp; Restore</string>
+    <string name="change_language">Language / भाषा</string>
+    <string name="select_language">Select Language</string>
+    <string name="lang_english">English</string>
+    <string name="lang_hindi">Hindi (हिंदी)</string>
+
+    <!-- Photo Management UI -->
+    <string name="photo_label">Photo Attachment (Optional)</string>
+    <string name="btn_take_photo">📷 Take Photo</string>
+    <string name="btn_choose_gallery">🖼 Choose from Gallery</string>
+    <string name="btn_change_photo">Change Photo</string>
+    <string name="btn_remove_photo">Remove Photo</string>
+    <string name="select_photo_option">Select Photo Option</string>
+    <string name="camera_permission_required">Camera permission is required to capture photos directly inside the app.</string>
+    <string name="camera_permission_denied_msg">Camera permission was denied. You can still choose images from Gallery.</string>
+    <string name="photo_removed">Photo removed</string>
+    <string name="tap_to_view_full">Tap thumbnail to view full image</string>
+
+    <!-- Terms -->
+    <string name="customer">Customer</string>
+    <string name="medicine">Medicine</string>
+    <string name="udhar">Udhar</string>
+    <string name="jama">Jama</string>
+    <string name="pending_balance">Pending Balance</string>
+    <string name="total_udhar">Total Udhar</string>
+    <string name="total_jama">Total Jama</string>
+    <string name="backup">Backup</string>
+    <string name="restore">Restore</string>
+    <string name="sales">Sales</string>
+    <string name="purchase">Purchase</string>
+
+    <!-- Khata & Customer UI -->
+    <string name="customer_directory">Customer Directory &amp; Khata</string>
+    <string name="add_customer">+ Add Customer</string>
+    <string name="search_customer_hint">Search customer by name or phone...</string>
+    <string name="khata_summary">KHATA ACCOUNT SUMMARY</string>
+    <string name="add_udhar">+ Add Udhar</string>
+    <string name="add_jama">+ Add Jama</string>
+    <string name="transaction_history">TRANSACTION HISTORY</string>
+    <string name="account_clear">Account is fully clear (₹ 0.00)</string>
+    <string name="customer_owes">Customer owes</string>
+    <string name="advance_balance">Advance balance available</string>
+    <string name="amount_required">Amount (₹) *</string>
+    <string name="date">Date</string>
+    <string name="description_notes">Description / Notes</string>
+    <string name="payment_mode">Payment Mode</string>
+
+    <!-- Backup & Restore -->
+    <string name="backup_restore_title">Offline ZIP Backup &amp; Restore</string>
+    <string name="backup_desc">Safely backup all your store records, sales history, customer ledgers, inventory database, and photo files into a local ZIP archive.</string>
+    <string name="create_zip_backup">Create ZIP Backup (Select Location)</string>
+    <string name="restore_from_backup">Restore Database &amp; Photos from Backup</string>
+    <string name="backup_success">Backup ZIP saved successfully with database and photos!</string>
+    <string name="restore_confirm_title">Restore Database &amp; Photos?</string>
+    <string name="restore_confirm_msg">This will replace your current store data and photos with the records from the backup ZIP file. Continue?</string>
+    <string name="restore_success">Database and photos restored successfully!</string>
+    <string name="restore_failed">Restore failed or invalid backup file.</string>
+
+    <!-- Common UI -->
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="edit_info">Edit Info</string>
+    <string name="ok">OK</string>
+    <string name="no_customers_found">No customers found. Tap \'+ Add Customer\' to register a new customer.</string>
+</resources>
