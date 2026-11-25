@@ -1,0 +1,95 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Clean Demo Data & Configure Upgrade Strategy",
+      "description": "Remove pre-seeded dummy records for clean fresh installations and preserve database migration compatibility.",
+      "files": [
+        "app/src/main/java/com/mumbaimedical/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Register Customer Khata Activities",
+      "description": "Update AndroidManifest.xml to register new activities for Customer Add/Edit and Customer Ledger Khata.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Customer Directory Layouts",
+      "description": "Create layouts for customer listing, customer add/edit form, and individual customer list item UI.",
+      "files": [
+        "app/src/main/res/layout/activity_customer.xml",
+        "app/src/main/res/layout/activity_add_customer.xml",
+        "app/src/main/res/layout/item_customer.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Customer Khata Ledger Layouts",
+      "description": "Build layout UI for Udhar/Jama balance summaries, action buttons, and Khata transaction history items.",
+      "files": [
+        "app/src/main/res/layout/activity_customer_khata.xml",
+        "app/src/main/res/layout/item_khata.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Enhance Sales Billing UI",
+      "description": "Update New Sale layout to support customer selection dropdown and credit/cash payment modes.",
+      "files": [
+        "app/src/main/res/layout/activity_new_sale.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Customer Management Activity",
+      "description": "Build CustomerActivity with real-time name/phone search, edit customer functionality, and navigation to Khata ledger.",
+      "files": [
+        "app/src/main/java/com/mumbaimedical/app/CustomerActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Add/Edit Customer Form",
+      "description": "Build AddCustomerActivity to capture customer name, phone, and multiline address safely into SQLite.",
+      "files": [
+        "app/src/main/java/com/mumbaimedical/app/AddCustomerActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Customer Khata Engine",
+      "description": "Build CustomerKhataActivity for recording Udhar/Jama entries, calculating pending balance, and listing transaction history.",
+      "files": [
+        "app/src/main/java/com/mumbaimedical/app/CustomerKhataActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Integrate Credit Sales with Customer Ledger",
+      "description": "Update NewSaleActivity to link sales with customer ledgers and create Udhar ledger entries for credit sales.",
+      "files": [
+        "app/src/main/java/com/mumbaimedical/app/NewSaleActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Mumbai Medical",
+      "description": "Compile the updated application, verify database transactions, and build the APK release target.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
