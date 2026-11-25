@@ -68,8 +68,8 @@
     },
     {
       "step": 8,
-      "title": "Implement Customer Khata Engine",
-      "description": "Build CustomerKhataActivity for recording Udhar/Jama entries, calculating pending balance, and listing transaction history.",
+      "title": "Fix Imports and Implement Customer Khata Engine",
+      "description": "Add missing LinearLayout import and build CustomerKhataActivity for recording Udhar/Jama entries and calculating balance.",
       "files": [
         "app/src/main/java/com/mumbaimedical/app/CustomerKhataActivity.java"
       ],

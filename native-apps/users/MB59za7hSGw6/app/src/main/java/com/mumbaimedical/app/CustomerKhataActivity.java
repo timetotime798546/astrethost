@@ -6,12 +6,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
@@ -224,7 +226,7 @@ public class CustomerKhataActivity extends Activity {
 
         final EditText etAmount = new EditText(this);
         etAmount.setHint("Amount (₹) *");
-        etAmount.setInputType(android.text.InputType.TYPE_CLASS_NUMBER | android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        etAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         container.addView(etAmount);
 
         final EditText etNotes = new EditText(this);
@@ -255,7 +257,14 @@ public class CustomerKhataActivity extends Activity {
                     return;
                 }
 
-                double amount = Double.parseDouble(amtStr);
+                double amount;
+                try {
+                    amount = Double.parseDouble(amtStr);
+                } catch (NumberFormatException e) {
+                    Toast.makeText(CustomerKhataActivity.this, "Invalid amount format", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if (amount <= 0) {
                     Toast.makeText(CustomerKhataActivity.this, "Amount must be greater than zero", Toast.LENGTH_SHORT).show();
                     return;
