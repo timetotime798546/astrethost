@@ -2,26 +2,8 @@
   "steps": [
     {
       "step": 1,
-      "title": "Fix Imports & Resolve Compilation Errors",
-      "description": "Add missing android.widget.LinearLayout and widget imports in CustomerKhataActivity.java.",
-      "files": [
-        "app/src/main/java/com/mumbaimedical/app/CustomerKhataActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 2,
-      "title": "Implement Localization Engine",
-      "description": "Create LocaleHelper to manage English and Hindi language switching dynamically across all activities.",
-      "files": [
-        "app/src/main/java/com/mumbaimedical/app/LocaleHelper.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 3,
-      "title": "Create String Resources (English & Hindi)",
-      "description": "Define localized strings for English and Hindi (values-hi/strings.xml) covering all UI text, terms, and dialogs.",
+      "title": "Fix Missing String Resources",
+      "description": "Add missing 'items' string resource to values/strings.xml and values-hi/strings.xml to resolve R.string.items compilation failure.",
       "files": [
         "app/src/main/res/values/strings.xml",
         "app/src/main/res/values-hi/strings.xml"
@@ -29,75 +11,9 @@
       "status": "pending"
     },
     {
-      "step": 4,
-      "title": "Redesign Customer Khata Layout",
-      "description": "Create three distinct summary cards for Udhar, Jama, and Pending Balance, and enhance transaction history styling.",
-      "files": [
-        "app/src/main/res/layout/activity_customer_khata.xml",
-        "app/src/main/res/layout/item_khata.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 5,
-      "title": "Upgrade Customer Khata Dialogs & Ledger Logic",
-      "description": "Implement separate forms for Udhar and Jama entries with date, payment mode, amount, and notes.",
-      "files": [
-        "app/src/main/java/com/mumbaimedical/app/CustomerKhataActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "title": "Implement Storage Access Framework Backup",
-      "description": "Upgrade Backup functionality to allow user selection of save location via ACTION_CREATE_DOCUMENT.",
-      "files": [
-        "app/src/main/java/com/mumbaimedical/app/BackupRestoreActivity.java",
-        "app/src/main/res/layout/activity_backup_restore.xml"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "title": "Implement Storage Access Framework Restore",
-      "description": "Upgrade Restore functionality to let user choose backup ZIP via ACTION_OPEN_DOCUMENT with validation.",
-      "files": [
-        "app/src/main/java/com/mumbaimedical/app/BackupRestoreActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Add Language Selection UI to Main Screen",
-      "description": "Integrate language switch button and first-launch prompt into MainActivity.",
-      "files": [
-        "app/src/main/res/layout/activity_main.xml",
-        "app/src/main/java/com/mumbaimedical/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Apply Locale Base Context to All Activities",
-      "description": "Ensure attachBaseContext is properly hooked into all application activities for full app translation.",
-      "files": [
-        "app/src/main/java/com/mumbaimedical/app/CustomerActivity.java",
-        "app/src/main/java/com/mumbaimedical/app/AddCustomerActivity.java",
-        "app/src/main/java/com/mumbaimedical/app/MedicineListActivity.java",
-        "app/src/main/java/com/mumbaimedical/app/AddEditMedicineActivity.java",
-        "app/src/main/java/com/mumbaimedical/app/NewSaleActivity.java",
-        "app/src/main/java/com/mumbaimedical/app/SalesListActivity.java",
-        "app/src/main/java/com/mumbaimedical/app/NewPurchaseActivity.java",
-        "app/src/main/java/com/mumbaimedical/app/SupplierActivity.java",
-        "app/src/main/java/com/mumbaimedical/app/ExpiryAlertsActivity.java",
-        "app/src/main/java/com/mumbaimedical/app/ReportsActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 10,
+      "step": 2,
       "title": "Building Mumbai Medical",
-      "description": "Compile the updated application with multi-language support and SAF Backup/Restore.",
+      "description": "Recompile Mumbai Medical application with fixed string resource definitions.",
       "files": [],
       "status": "pending"
     }

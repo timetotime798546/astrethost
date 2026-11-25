@@ -19,9 +19,9 @@ If the build fails again, inspect the new error and continue fixing the actual c
 ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Mumbai Medical
-App ID: app_6b07269310ec1
-Build ID: 45677741474
-Time: 2026-11-25 13:42:35
+App ID: app_6b07339ac0628
+Build ID: 45683444738
+Time: 2026-11-25 14:17:12
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 192317
+Original log characters: 192476
 Extracted error characters: 30042
-File references detected: 239
+File references detected: 243
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -45,7 +45,7 @@ token: ***
 
 Resolved Java 17.0.21+9 from tool-cache
 Setting Java 17.0.21+9 as the default
-(node:2288) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2185) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/0672b4eb-62b3-46f7-8ac4-ee1cd7d13915
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/91651722-f7be-4c61-b465-378c7afc11ec
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -192,6 +192,7 @@ PROJECT FILES
 ./app-meta.json
 ./app/build.gradle
 ./app/proguard-rules.pro
+./build-error.log
 ./build-steps.json
 ./build.gradle
 ./local.properties
@@ -236,23 +237,34 @@ Recommendation: remove package="com.mumbaimedical.app" from the source AndroidMa
 > Task :app:stripReleaseDebugSymbols NO-SOURCE
 > Task :app:extractReleaseNativeSymbolTables NO-SOURCE
 > Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
-> Task :app:processReleaseManifestForPackage
 > Task :app:checkReleaseDuplicateClasses
-> Task :app:processReleaseResources
 > Task :app:desugarReleaseFileDependencies
-
-/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/java/com/mumbaimedical/app/CustomerKhataActivity.java:221: error: cannot find symbol
-> Task :app:compileReleaseJavaWithJavac FAILED
-LinearLayout container = new LinearLayout(this);
+> Task :app:mergeReleaseArtProfile
+> Task :app:mergeReleaseShaders
+> Task :app:processReleaseManifestForPackage
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets
+> Task :app:compressReleaseAssets
+> Task :app:mergeExtDexRelease
+> Task :app:extractReleaseVersionControlInfo
+> Task :app:processReleaseJavaRes NO-SOURCE
+> Task :app:collectReleaseDependencies
+> Task :app:processReleaseResources
+> Task :app:sdkReleaseDependencyData
+> Task :app:mergeReleaseJavaResource
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/java/com/mumbaimedical/app/MainActivity.java:194: error: cannot find symbol
+tvLowStockCount.setText(lowStock + " " + getString(R.string.items));
 ^
-symbol:   class LinearLayout
-location: class CustomerKhataActivity
-/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/java/com/mumbaimedical/app/CustomerKhataActivity.java:222: error: cannot find symbol
-container.setOrientation(LinearLayout.VERTICAL);
-symbol:   variable LinearLayout
+symbol:   variable items
+location: class string
+/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/java/com/mumbaimedical/app/MainActivity.java:195: error: cannot find symbol
+tvExpiringCount.setText(expiring + " " + getString(R.string.items));
 Note: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-3 errors
+2 errors
+
+> Task :app:compileReleaseJavaWithJavac FAILED
 
 FAILURE: Build failed with an exception.
 
@@ -281,10 +293,10 @@ at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOpera
 at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
-19 actionable tasks: 19 executed
 at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
 at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
 at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+28 actionable tasks: 28 executed
 at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
 at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
 at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
@@ -318,12 +330,7 @@ at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCom
 at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:52)
 at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.call(CompileJavaBuildOperationReportingCompiler.java:64)
 at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.call(CompileJavaBuildOperationReportingCompiler.java:48)
-at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler.execute(CompileJavaBuildOperationReportingCompiler.java:48)
-at org.gradle.api.tasks.compile.JavaCompile.performCompilation(JavaCompile.java:220)
-at org.gradle.api.tasks.compile.JavaCompile.performIncrementalCompilation(JavaCompile.java:161)
-at org.gradle.api.tasks.compile.JavaCompile.compile(JavaCompile.java:146)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.r
+at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperatio
 
 ================ EXTRACTED LOG CONTINUED ================
 
@@ -406,7 +413,7 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
 
-BUILD FAILED in 22s
+BUILD FAILED in 40s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
