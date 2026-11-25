@@ -3,6 +3,7 @@ package com.mumbaimedical.app;
 import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -52,7 +53,7 @@ public class ExpiryAlertsActivity extends Activity {
                     TextView tv = (TextView) view;
                     tv.setText("EXPIRY DATE: " + exp);
                     tv.setTextColor(getResources().getColor(R.color.warning_red));
-                    tv.setTextStyle(android.graphics.Typeface.BOLD);
+                    tv.setTypeface(null, Typeface.BOLD);
                     return true;
                 }
                 return false;
