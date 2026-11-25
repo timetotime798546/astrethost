@@ -1,0 +1,90 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze and Plan Premium Design System",
+      "description": "Establish luxury emerald and gold color palette, elevation tokens, rounded shapes, and typography structures.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create Modern Graphic Assets & XML Drawables",
+      "description": "Craft custom gradient headers, rounded cards, glowing stat containers, and styled tab navigation indicators.",
+      "files": [
+        "app/src/main/res/drawable/bg_header_gradient.xml",
+        "app/src/main/res/drawable/bg_card_premium.xml",
+        "app/src/main/res/drawable/bg_stat_emerald.xml",
+        "app/src/main/res/drawable/bg_stat_gold.xml",
+        "app/src/main/res/drawable/bg_stat_red.xml",
+        "app/src/main/res/drawable/bg_btn_primary.xml",
+        "app/src/main/res/drawable/bg_btn_gold.xml",
+        "app/src/main/res/drawable/bg_avatar_circle.xml",
+        "app/src/main/res/drawable/bg_nav_bar.xml",
+        "app/src/main/res/drawable/bg_nav_tab_active.xml",
+        "app/src/main/res/drawable/bg_edit_text.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Refactor Main Navigation Layout",
+      "description": "Redesign activity_main.xml with a gradient app bar, status badges, dynamic viewport, and modern bottom navigation tabs.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Enhance Customer Ledger List Items",
+      "description": "Upgrade item_customer.xml with circle avatars, status badges, high-contrast typography, and quick action buttons.",
+      "files": ["app/src/main/res/layout/item_customer.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Redesign Loan Card Items",
+      "description": "Upgrade item_loan.xml into a sleek card format with interest calculation tags, date badges, and prominent due balances.",
+      "files": ["app/src/main/res/layout/item_loan.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Style Payment History Items",
+      "description": "Upgrade item_payment.xml with transaction icons, date stamps, and color-coded green credit indicators.",
+      "files": ["app/src/main/res/layout/item_payment.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Redesign Modal Dialog Layouts",
+      "description": "Elevate dialog_add_customer.xml, dialog_add_loan.xml, and dialog_add_payment.xml with rounded input containers.",
+      "files": [
+        "app/src/main/res/layout/dialog_add_customer.xml",
+        "app/src/main/res/layout/dialog_add_loan.xml",
+        "app/src/main/res/layout/dialog_add_payment.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Integrate Dynamic UI Logic in Controller",
+      "description": "Update MainActivity.java for active tab state highlights, dynamic gradient stat cards, customer initials generation, and polished animations.",
+      "files": ["app/src/main/java/com/varshalaxmi/loanmanager/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Design Consistency & Resource Bundling",
+      "description": "Audit strings, localized tags, layout margins, and contrast accessibility across dark and light viewing states.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building VarshaLaxmi",
+      "description": "Compile final APK package with premium UI overhaul.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
