@@ -1,0 +1,87 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Initialize Project & Dependencies",
+      "description": "Configure Android project structure, theme settings, and dependencies without external AndroidX libraries.",
+      "files": ["app/build.gradle", "app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define UI Color System & Styles",
+      "description": "Create Emerald Green and Gold premium theme color definitions, typography, and resources.",
+      "files": ["app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml", "app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Build Data Models",
+      "description": "Define Java POJO classes for Customer, Loan, Loan Tranche, and Payment entity objects.",
+      "files": [
+        "app/src/main/java/com/varshalaxmi/loanmanager/model/Customer.java",
+        "app/src/main/java/com/varshalaxmi/loanmanager/model/Loan.java",
+        "app/src/main/java/com/varshalaxmi/loanmanager/model/Payment.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Offline SQLite Database Helper",
+      "description": "Develop database setup, table creation, relationships, and CRUD repository methods.",
+      "files": ["app/src/main/java/com/varshalaxmi/loanmanager/db/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Financial Interest Engine",
+      "description": "Develop calculation algorithm supporting Daily, Monthly, Yearly, Simple, Flat, and Reducing Balance interest logic.",
+      "files": ["app/src/main/java/com/varshalaxmi/loanmanager/util/InterestCalculator.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement ZIP Backup & Data Export Utilities",
+      "description": "Develop backup generation and file restoration using Java ZIP archives and JSON data formatting.",
+      "files": ["app/src/main/java/com/varshalaxmi/loanmanager/util/BackupRestoreHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Design Navigation & Dashboard Views",
+      "description": "Construct responsive main XML layouts and bottom tab bar navigation for mobile screens.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/res/layout/item_customer.xml",
+        "app/src/main/res/layout/item_loan.xml",
+        "app/src/main/res/layout/item_payment.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Construct Dialog Input Layouts",
+      "description": "Design customer addition, loan issuance, and payment collection modal XML views.",
+      "files": [
+        "app/src/main/res/layout/dialog_add_customer.xml",
+        "app/src/main/res/layout/dialog_add_loan.xml",
+        "app/src/main/res/layout/dialog_add_payment.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Develop Main Application Controller",
+      "description": "Integrate SQLite storage, interactive navigation tabs, localization, calculations, and reporting screens.",
+      "files": ["app/src/main/java/com/varshalaxmi/loanmanager/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building VarshaLaxmi",
+      "description": "Compile native Android project binaries and verify local ledger workflow.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
