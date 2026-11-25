@@ -1,0 +1,154 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Project Build Specifications",
+      "description": "Configuring Gradle build settings, target SDK 34, namespace com.varshalaxmi.loanmanager, and Temurin 17 Java compatibility.",
+      "files": [
+        "app/build.gradle",
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Database Architecture & Relational Helper",
+      "description": "Constructing offline SQLite DatabaseHelper supporting multi-loan accounts, additions, repayment logs, interest formulas, and app preferences.",
+      "files": [
+        "app/src/main/java/com/varshalaxmi/loanmanager/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Design Material Theme Colors & Style Guidelines",
+      "description": "Defining VarshaLaxmi visual theme resources, gold accent highlights, dark green headers, and typography styles.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Build Dashboard Core & Analytics Overview UI",
+      "description": "Designing main financial stats dashboard layout with real-time portfolio metrics and standard button launcher grid.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml",
+        "app/src/main/java/com/varshalaxmi/loanmanager/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Construct Borrower Management Screen & Adapters",
+      "description": "Creating real-time search interface, list adapter, and summary item layouts for borrower management.",
+      "files": [
+        "app/src/main/res/layout/activity_customer_list.xml",
+        "app/src/main/res/layout/item_customer.xml",
+        "app/src/main/java/com/varshalaxmi/loanmanager/CustomerListActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Build Borrower Registration & Profile Edit Form",
+      "description": "Implementing borrower profile registration and editing activity with input validation.",
+      "files": [
+        "app/src/main/res/layout/activity_add_customer.xml",
+        "app/src/main/java/com/varshalaxmi/loanmanager/AddCustomerActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement Detailed Borrower Portfolio & Reminders UI",
+      "description": "Creating complete borrower profile with combined statement cards, active loan lists, and WhatsApp reminder integration.",
+      "files": [
+        "app/src/main/res/layout/activity_customer_detail.xml",
+        "app/src/main/java/com/varshalaxmi/loanmanager/CustomerDetailActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Develop Multi-Mode Loan Issuance Engine",
+      "description": "Coding new loan screen supporting Mode A (new loan creation) and Mode B (top-up existing active loan) with dynamic interest rate calculation options.",
+      "files": [
+        "app/src/main/res/layout/activity_new_loan.xml",
+        "app/src/main/java/com/varshalaxmi/loanmanager/NewLoanActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Implement Payment Collection & Split Allocator",
+      "description": "Building collection activity supporting automated principal/interest split as well as manual custom allocation.",
+      "files": [
+        "app/src/main/res/layout/activity_collect_payment.xml",
+        "app/src/main/java/com/varshalaxmi/loanmanager/CollectPaymentActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Build Loan Ledger & Filtered Register Activity",
+      "description": "Developing filtered loan ledger view with tab filters for Active, Closed, and All loan accounts.",
+      "files": [
+        "app/src/main/res/layout/activity_loan_records.xml",
+        "app/src/main/res/layout/item_loan.xml",
+        "app/src/main/java/com/varshalaxmi/loanmanager/LoanRecordsActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Payment History & Date Filter Log",
+      "description": "Creating historical payment collection log activity with date filtering and payment breakdown views.",
+      "files": [
+        "app/src/main/res/layout/activity_payment_history.xml",
+        "app/src/main/res/layout/item_payment.xml",
+        "app/src/main/java/com/varshalaxmi/loanmanager/PaymentHistoryActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Build Portfolio Analytics & Financial Reports",
+      "description": "Implementing aggregate financial reporting for capital disbursed, collections received, and total pure interest earned.",
+      "files": [
+        "app/src/main/res/layout/activity_reports.xml",
+        "app/src/main/java/com/varshalaxmi/loanmanager/ReportsActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Integrate SAF Database Backup & Restore Manager",
+      "description": "Implementing Storage Access Framework export and import handlers for local offline database backups.",
+      "files": [
+        "app/src/main/res/layout/activity_backup_restore.xml",
+        "app/src/main/java/com/varshalaxmi/loanmanager/BackupRestoreActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement Security PIN Lock & App Settings",
+      "description": "Coding security lock screen, passcode verification, and app preferences manager.",
+      "files": [
+        "app/src/main/res/layout/activity_settings.xml",
+        "app/src/main/java/com/varshalaxmi/loanmanager/SettingsActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building VarshaLaxmi",
+      "description": "Assembling native Android APK binary with zero external dependencies.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
