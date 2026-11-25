@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kkgstore.store">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:roundIcon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Material.Light">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".DemoLockActivity"
+            android:label="Demo Lock"
+            android:noHistory="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".ProductListActivity"
+            android:label="सामान लिस्ट (Products)" />
+
+        <activity
+            android:name=".AddEditProductActivity"
+            android:label="प्रोडक्ट फॉर्म" />
+
+        <activity
+            android:name=".CustomerListActivity"
+            android:label="ग्राहक खाता (Khata Ledger)" />
+
+        <activity
+            android:name=".AddEditCustomerActivity"
+            android:label="नया ग्राहक" />
+
+        <activity
+            android:name=".CustomerDetailActivity"
+            android:label="ग्राहक उधार व जमा" />
+
+        <activity
+            android:name=".FullScreenImageActivity"
+            android:label="Photo Viewer"
+            android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen" />
+
+        <activity
+            android:name=".NewSaleActivity"
+            android:label="नया बिल (Point of Sale)" />
+
+        <activity
+            android:name=".SaleBillDetailActivity"
+            android:label="बिक्री बिल" />
+
+        <activity
+            android:name=".PurchaseListActivity"
+            android:label="स्टॉक खरीदारी" />
+
+        <activity
+            android:name=".AddPurchaseActivity"
+            android:label="खरीदारी दर्ज करें" />
+
+        <activity
+            android:name=".ExpenseListActivity"
+            android:label="दुकान के खर्चे" />
+
+        <activity
+            android:name=".AddExpenseActivity"
+            android:label="नया खर्चा दर्ज करें" />
+
+        <activity
+            android:name=".ReportsActivity"
+            android:label="रिपोर्ट्स व बैकअप" />
+
+    </application>
+
+</manifest>

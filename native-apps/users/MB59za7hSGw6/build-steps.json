@@ -1,0 +1,94 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Configure app metadata with app name KKG Store and package name com.kkgstore.store.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Update Database Schema for Photo Support",
+      "description": "Upgrade SQLite DatabaseHelper to version 2 with photo_path support in udhaar_entries table and safe migration.",
+      "files": [
+        "app/src/main/java/com/kkgstore/store/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Implement Image Storage & Compression Utilities",
+      "description": "Develop ImageUtils to resize photos to max 1280px, apply 70% JPEG compression, adjust EXIF rotation, and store in private files/udhar_photos directory.",
+      "files": [
+        "app/src/main/java/com/kkgstore/store/ImageUtils.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Full-Screen Image Viewer",
+      "description": "Create FullScreenImageActivity layout and touch-interactive viewer with close X button for full offline photo viewing.",
+      "files": [
+        "app/src/main/res/layout/activity_full_screen_image.xml",
+        "app/src/main/java/com/kkgstore/store/FullScreenImageActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Update Add Udhaar Layout with Camera & Gallery Controls",
+      "description": "Add camera capture and gallery photo picker action buttons, preview thumbnail, and clear photo controls to Udhaar dialog.",
+      "files": [
+        "app/src/main/res/layout/dialog_add_udhaar.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Update Udhaar Item List View with Clickable Photo Thumbnail",
+      "description": "Add thumbnail preview layout element to item_udhaar.xml for rendering attached Udhar receipt photos.",
+      "files": [
+        "app/src/main/res/layout/item_udhaar.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Integrate Camera Capture & Photo Display into Customer Details",
+      "description": "Connect photo capture result handlers, photo path persistence, thumbnail click listeners, and full-screen viewer intent in CustomerDetailActivity.",
+      "files": [
+        "app/src/main/java/com/kkgstore/store/CustomerDetailActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Update Reports & Full Data ZIP Backup/Restore System",
+      "description": "Update ReportsActivity ZIP backup and restore functionality to pack/unpack database file along with all stored Udhar photos in files/udhar_photos.",
+      "files": [
+        "app/src/main/res/layout/activity_reports.xml",
+        "app/src/main/java/com/kkgstore/store/ReportsActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Configure Manifest and Permissions",
+      "description": "Declare Camera permissions and full-screen image viewer activity in AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building KKG Store",
+      "description": "Compile and assemble the updated APK package for KKG Store with Udhar photo capture and backup features.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
