@@ -1,0 +1,91 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Remove Annual Interest Options",
+      "description": "Purge all references to Annual/Yearly interest rates from string resources, adapters, and UI pickers.",
+      "files": ["app/src/main/res/values/strings.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Refine Interest Rate Input UI",
+      "description": "Update loan entry dialog to enforce numeric-only rate inputs with dedicated percentage unit labels.",
+      "files": ["app/src/main/res/layout/dialog_add_loan.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Add Loan Top-Up Dialog",
+      "description": "Create dialog for adding funds to an existing loan to expand principal on specific dates.",
+      "files": ["app/src/main/res/layout/dialog_add_topup.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Enhance Payment Allocation Dialog",
+      "description": "Update payment collection dialog with allocation selectors for Interest Payment, Principal Payment, and Combined Payment.",
+      "files": ["app/src/main/res/layout/dialog_add_payment.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Update Loan and Payment Card Views",
+      "description": "Redesign item_loan.xml and item_payment.xml to display combined outstanding principal, accrued interest, and allocation types.",
+      "files": ["app/src/main/res/layout/item_loan.xml", "app/src/main/res/layout/item_payment.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Loan Addition Model",
+      "description": "Implement LoanAddition model class for tracking date-stamped top-ups to existing loans.",
+      "files": ["app/src/main/java/com/varshalaxmi/loanmanager/model/LoanAddition.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Update Payment and Loan Data Models",
+      "description": "Add payment type allocation fields to Payment model and ledger calculations to Loan model.",
+      "files": [
+        "app/src/main/java/com/varshalaxmi/loanmanager/model/Payment.java",
+        "app/src/main/java/com/varshalaxmi/loanmanager/model/Loan.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Implement Segmented Interest Calculator",
+      "description": "Develop calculation engine supporting Daily and Monthly interest on combined time-segmented outstanding principal.",
+      "files": ["app/src/main/java/com/varshalaxmi/loanmanager/util/InterestCalculator.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Migrate Database Schema & Ledger Queries",
+      "description": "Upgrade SQLite database version with loan_additions table and payment allocation tracking while preserving existing data.",
+      "files": ["app/src/main/java/com/varshalaxmi/loanmanager/db/DatabaseHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Update Backup and Restore Helper",
+      "description": "Include loan additions and payment allocation attributes in JSON backup/restore workflow.",
+      "files": ["app/src/main/java/com/varshalaxmi/loanmanager/util/BackupRestoreHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Integrate Activity UI Handlers",
+      "description": "Wire up top-up additions, repayment allocations, clean rate input validation, and ledger reporting in MainActivity.",
+      "files": ["app/src/main/java/com/varshalaxmi/loanmanager/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Building VarshaLaxmi",
+      "description": "Compile final APK package with updated loan and interest calculations.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
