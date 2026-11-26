@@ -1,0 +1,51 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Add Deletion Protection Methods to Database Helper",
+      "description": "Implement safe transaction checks and deletion methods for stock medicines and customer ledgers to protect existing transaction history.",
+      "files": [
+        "app/src/main/java/com/mumbaimedical/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Add Delete Action to Stock Inventory UI",
+      "description": "Add delete icon to item_medicine layout and implement confirmation dialog with transaction safety in MedicineListActivity.",
+      "files": [
+        "app/src/main/res/layout/item_medicine.xml",
+        "app/src/main/java/com/mumbaimedical/app/MedicineListActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Add Customer Deletion with Financial Protection",
+      "description": "Add delete icon to item_customer layout and enforce confirmation dialogs while preserving historical financial records in CustomerActivity.",
+      "files": [
+        "app/src/main/res/layout/item_customer.xml",
+        "app/src/main/java/com/mumbaimedical/app/CustomerActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement WhatsApp Udhar-Jama Account Statement Sharing",
+      "description": "Add WhatsApp share buttons in customer list and Khata ledger screens, automatically formatting mobile numbers and sending structured balance statements.",
+      "files": [
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/layout/activity_customer_khata.xml",
+        "app/src/main/java/com/mumbaimedical/app/CustomerKhataActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Building Mumbai Medical",
+      "description": "Recompile Mumbai Medical application with stock delete action, customer delete protection, and WhatsApp Udhar-Jama statement sharing.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
