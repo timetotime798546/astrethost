@@ -7,9 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -180,28 +178,6 @@ public class MainActivity extends Activity {
             tabSettings.setBackgroundResource(R.drawable.bg_nav_tab_active);
             textSet.setTextColor(activeColor);
             textSet.setTypeface(null, Typeface.BOLD);
-        }
-
-        applyFooterIcons(tabIndex, activeColor, inactiveColor);
-    }
-
-    private void applyFooterIcons(int activeTabIndex, int activeColor, int inactiveColor) {
-        Drawable baseIcon = getResources().getDrawable(R.drawable.icon);
-        if (baseIcon == null || baseIcon.getConstantState() == null) {
-            return;
-        }
-
-        TextView[] tabs = {textDash, textCust, textLoans, textRep, textSet};
-        float density = getResources().getDisplayMetrics().density;
-        int iconSize = (int) (20 * density);
-        int padding = (int) (2 * density);
-
-        for (int i = 0; i < tabs.length; i++) {
-            Drawable d = baseIcon.getConstantState().newDrawable().mutate();
-            d.setBounds(0, 0, iconSize, iconSize);
-            d.setColorFilter(i == activeTabIndex ? activeColor : inactiveColor, PorterDuff.Mode.SRC_IN);
-            tabs[i].setCompoundDrawables(null, d, null, null);
-            tabs[i].setCompoundDrawablePadding(padding);
         }
     }
 
