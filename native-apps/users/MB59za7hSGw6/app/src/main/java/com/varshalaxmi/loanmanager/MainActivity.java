@@ -186,8 +186,7 @@ public class MainActivity extends Activity {
     }
 
     private void applyFooterIcons(int activeTabIndex, int activeColor, int inactiveColor) {
-        Drawable baseIcon = Drawable.createFromStream(
-                getResources().openRawResource(R.drawable.Icon), null);
+        Drawable baseIcon = getResources().getDrawable(R.drawable.icon);
         if (baseIcon == null || baseIcon.getConstantState() == null) {
             return;
         }
