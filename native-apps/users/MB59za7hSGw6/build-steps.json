@@ -1,0 +1,97 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Analyze Box Stock Manager Architecture",
+      "description": "Review SQLite DatabaseHelper, Product models, and layout components for stock tracking.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/DatabaseHelper.java",
+        "app/src/main/java/com/boxstockmanager/app/Product.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Validate App Configuration and Metadata",
+      "description": "Check package name com.boxstockmanager.app and target SDK configuration in build.gradle.",
+      "files": [
+        "app/build.gradle",
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Review MultiFormatReader ZXing Integration",
+      "description": "Ensure universal barcode formats (QR, EAN-13, CODE-128) are properly decoded in live camera view.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Configure Tesseract OCR Native Engine",
+      "description": "Verify eng.traineddata extraction from assets and initialization of TessBaseAPI instance.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Enhance Image Preprocessing for Text Recognition",
+      "description": "Apply contrast matrix adjustment on low-light image frames for improved OCR text accuracy.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Configure Product Field Extractors",
+      "description": "Refine label regex matchers for Brand, Model, IMEI, Storage, RAM, and Color extraction.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/ProductScannerResult.java",
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Update Inventory Stock Movement Handler",
+      "description": "Ensure stock IN and OUT transactions correctly update product balances and log scan records.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/DatabaseHelper.java",
+        "app/src/main/java/com/boxstockmanager/app/StockTransaction.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify UI Dashboard Summary Metrics",
+      "description": "Calculate total product count, low stock warnings, out of stock count, and daily movement statistics locally.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java",
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Audit Camera and Gallery Scan Workflows",
+      "description": "Test full lifecycle of live surface camera scanner and image gallery barcode decoding.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Box Stock Manager",
+      "description": "Compiling project and building final APK.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
