@@ -13,7 +13,7 @@
     {
       "step": 2,
       "title": "Integrate TessBaseAPI Offline OCR Engine",
-      "description": "Configured local Tesseract 5.5.0 traineddata initialization from application assets.",
+      "description": "Corrected Tesseract 5.5.0 package import to cz.adaptech.tesseract4android.TessBaseAPI matching local JAR contents.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
       ],
@@ -86,7 +86,7 @@
     {
       "step": 10,
       "title": "Verify Java 8 Compatibility and Offline Build Environment",
-      "description": "Enforced standard inner classes, anonymous listeners, andTemurin 17 Java 8 build compliance.",
+      "description": "Enforced standard inner classes, anonymous listeners, and Temurin 17 Java 8 build compliance.",
       "files": [
         "app/build.gradle",
         "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
