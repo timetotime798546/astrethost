@@ -22,7 +22,7 @@
     {
       "step": 3,
       "title": "Exclude Duplicate AndroidManifest.xml from Gradle Packaging",
-      "description": "Added explicit packaging resource exclusions in app/build.gradle to prevent APK entry collisions.",
+      "description": "Added explicit packaging resource exclusions for AndroidManifest.xml entries in app/build.gradle to prevent APK zip entry collisions.",
       "files": [
         "app/build.gradle"
       ],
