@@ -2,35 +2,35 @@
   "steps": [
     {
       "step": 1,
-      "title": "Inspect Product Item Layout XML",
-      "description": "Analyzed item_product.xml layout hierarchy and identified touch focus blocking attributes on root container.",
+      "title": "Inspect MainActivity Java Source",
+      "description": "Analyzed MainActivity.java to locate accidental non-Java Markdown diagnostic text.",
       "files": [
-        "app/src/main/res/layout/item_product.xml"
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Update Item Layout Touch & Focus Attributes",
-      "description": "Configured root container with descendantFocusability set to afterDescendants and ensured child action buttons retain focusable false and clickable true attributes.",
+      "title": "Remove Accidental Markdown Comments",
+      "description": "Stripped out trailing Markdown report lines following the closing brace of MainActivity.",
       "files": [
-        "app/src/main/res/layout/item_product.xml"
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Verify Product Model & Database Helper Methods",
-      "description": "Ensured getProductById and softDeleteProduct properly resolve SQLite product primary keys.",
+      "title": "Verify Class Structure & Closing Braces",
+      "description": "Ensured all inner classes (ProductAdapter, TransactionAdapter, BoxAdapter) and MainActivity are properly closed.",
       "files": [
-        "app/src/main/java/com/boxstockmanager/app/DatabaseHelper.java"
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Configure ProductAdapter View Holder & View Wiring",
-      "description": "Re-wired ProductAdapter getView method to explicitly obtain btn_item_view, btn_item_edit, and btn_item_delete references.",
+      "title": "Verify Product Adapter Listener Integrity",
+      "description": "Preserved VIEW, EDIT, and DELETE click listeners without modifying existing button action logic.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
       ],
@@ -38,17 +38,17 @@
     },
     {
       "step": 5,
-      "title": "Implement VIEW Button Click Listener",
-      "description": "Attached click listener to VIEW button with Log.e debugging and product detail dialog presentation.",
+      "title": "Validate Database Helper Integration",
+      "description": "Confirmed DatabaseHelper method calls remain compatible with MainActivity.",
       "files": [
-        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+        "app/src/main/java/com/boxstockmanager/app/DatabaseHelper.java"
       ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement EDIT Button Click Listener",
-      "description": "Attached click listener to EDIT button with Log.e debugging to prefill existing database product values into form dialog.",
+      "title": "Validate Scanner Dialog & Camera Operations",
+      "description": "Verified ZXing barcode decoder and surface camera preview lifecycle handlers.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
       ],
@@ -56,8 +56,8 @@
     },
     {
       "step": 7,
-      "title": "Implement DELETE Button Click Listener",
-      "description": "Attached click listener to DELETE button with Log.e debugging and AlertDialog confirmation for soft deletion.",
+      "title": "Check UI Navigation and View Containers",
+      "description": "Verified tab switching between Dashboard, Products, Stock IN, Stock OUT, and History.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
       ],
@@ -65,8 +65,8 @@
     },
     {
       "step": 8,
-      "title": "Configure Dynamic List Refreshing",
-      "description": "Ensured ListView adapter notifyDataSetChanged and Dashboard stats reload immediately after product edit or deletion.",
+      "title": "Confirm Java 8 Language Compatibility",
+      "description": "Ensured source code relies strictly on Java 8 standard anonymous inner classes.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
       ],
@@ -74,17 +74,17 @@
     },
     {
       "step": 9,
-      "title": "Validate Java 8 Compatibility",
-      "description": "Verified all button click listeners utilize standard anonymous inner classes compatible with Java 8.",
+      "title": "Verify Manifest & Layout Permissions",
+      "description": "Checked AndroidManifest.xml permissions and camera feature declarations.",
       "files": [
-        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+        "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
       "step": 10,
       "title": "Building Box Stock Manager",
-      "description": "Compile updated layout and Java sources to produce corrected APK.",
+      "description": "Compile cleaned Java source files and assemble debug APK.",
       "files": [],
       "status": "pending"
     }
