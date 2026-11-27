@@ -1,0 +1,119 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Verify eng.traineddata asset file copying and path resolution",
+      "description": "Ensure eng.traineddata is copied into context.getFilesDir()/tesseract/tessdata/eng.traineddata and log existence and file length.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Tesseract reflection probing for dev.ffmpegkit.tesseract components",
+      "description": "Probe constructors, methods, and parameters for TesseractInitializer, TesseractOCR, TesseractJNI, TesseractResult, and TesseractWord.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Initialize Tesseract OCR engine across available constructors and init methods",
+      "description": "Attempt reflection instantiation and setup across TesseractOCR and TesseractJNI using context and asset directory paths.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement diagnostic logger for OCR initialization and traineddata file status",
+      "description": "Log detailed diagnostic state including file paths, byte sizes, tried constructors, init status, and reflection exceptions.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Enhance ProductScannerResult to capture barcode, raw OCR text, and diagnostic reports",
+      "description": "Ensure ProductScannerResult encapsulates both barcode/QR data, full raw OCR text, and diagnostic status fallback.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/ProductScannerResult.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Update OcrScannerHelper bitmap preprocessing and multi-angle recognition",
+      "description": "Perform multi-angle bitmap rotation (0, 90, 270, 180 degrees) with high-contrast grayscale preprocessing for OCR recognition.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement complete text extraction logic with Luhn IMEI and spec parser",
+      "description": "Extract brand, model, IMEI 1/2 with Luhn validation, serial, RAM, storage, and color while preserving full OCR text.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Create diagnostic summary generator for fallback when raw OCR text is empty",
+      "description": "Generate concise [OCR-DIAG] report containing traineddata size, candidate reflection methods, init status, and failure cause when OCR yields empty text.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Update ScanLogManager saveScanLog to unify Barcode/QR and full OCR/OCR-DIAG text",
+      "description": "Combine detected Barcode/QR code and full raw OCR text or [OCR-DIAG] diagnostic summary into a unified fullText log entry.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/ScanLogManager.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Integrate camera scan text capture into ScanLogManager",
+      "description": "Pass live camera scan results (barcode/QR + full OCR or [OCR-DIAG]) directly to ScanLogManager.saveScanLog.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Integrate gallery upload scan text capture into ScanLogManager",
+      "description": "Pass gallery image upload scan results (barcode/QR + full OCR or [OCR-DIAG]) directly to ScanLogManager.saveScanLog.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Update history subtab UI to auto-refresh scan text log on tab switch",
+      "description": "Ensure Scan Text Log list reloads fresh entries when switching subtabs in History view.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Building Box Stock Manager",
+      "description": "Build box-stock-manager APK with unified full-text logging for Camera and Gallery scans, dev.ffmpegkit.tesseract OCR integration, and diagnostic reporting.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
