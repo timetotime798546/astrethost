@@ -12,15 +12,24 @@
     },
     {
       "step": 2,
-      "title": "Fix dev.ffmpegkit.tesseract OCR Package Import",
-      "description": "Corrected Tesseract package imports from com.googlecode.tesseract.android to dev.ffmpegkit.tesseract matching the local JAR API.",
+      "title": "Fix Tesseract Dependency Jar Manifest Collision",
+      "description": "Identified duplicate AndroidManifest.xml inside bundled local library JARs causing package failure.",
       "files": [
-        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+        "app/build.gradle"
       ],
       "status": "pending"
     },
     {
       "step": 3,
+      "title": "Exclude Duplicate AndroidManifest.xml from Gradle Packaging",
+      "description": "Added explicit packaging resource exclusions in app/build.gradle to prevent APK entry collisions.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
       "title": "Implement Image Preprocessing and Enhancement Pipeline",
       "description": "Added grayscale conversion, contrast boosting, and text region preprocessing for higher OCR precision.",
       "files": [
@@ -29,7 +38,7 @@
       "status": "pending"
     },
     {
-      "step": 4,
+      "step": 5,
       "title": "Implement Robust Luhn 15-Digit IMEI Extraction",
       "description": "Added label detection for IMEI 1 & IMEI 2 with Luhn checksum validation to prevent false IMEI detections.",
       "files": [
@@ -38,7 +47,7 @@
       "status": "pending"
     },
     {
-      "step": 5,
+      "step": 6,
       "title": "Add Dynamic Model, Brand, RAM, Storage, and Color Text Parser",
       "description": "Implemented text pattern regex matchers for box packaging attributes.",
       "files": [
@@ -47,7 +56,7 @@
       "status": "pending"
     },
     {
-      "step": 6,
+      "step": 7,
       "title": "Unify Live Camera Frame Processing for QR, Barcode, and OCR",
       "description": "Enabled simultaneous live camera detection of QR codes, barcodes, and printed text frames.",
       "files": [
@@ -56,16 +65,16 @@
       "status": "pending"
     },
     {
-      "step": 7,
+      "step": 8,
       "title": "Upgrade Gallery Image Picker to Unified Multi-Angle Pipeline",
-      "description": "Integrated EXIF rotation correction and multi-angle QR/Barcode/OCR decodes for selected photos.",
+      "description": "Integrated multi-angle QR/Barcode/OCR decodes for selected packaging photos.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
       ],
       "status": "pending"
     },
     {
-      "step": 8,
+      "step": 9,
       "title": "Integrate Extracted Scanner Results into Product Entry Form",
       "description": "Connected combined barcode, QR, and OCR extraction output directly into the auto-filled Product Entry layout.",
       "files": [
@@ -74,7 +83,7 @@
       "status": "pending"
     },
     {
-      "step": 9,
+      "step": 10,
       "title": "Ensure SQLite Database Persistence and Conflict Safeguards",
       "description": "Validated product saving, edit, delete, stock movement, and non-overwriting empty field rules.",
       "files": [
@@ -84,7 +93,7 @@
       "status": "pending"
     },
     {
-      "step": 10,
+      "step": 11,
       "title": "Verify Java 8 Compatibility and Offline Build Environment",
       "description": "Enforced standard inner classes, anonymous listeners, and Temurin 17 Java 8 build compliance.",
       "files": [
@@ -94,9 +103,9 @@
       "status": "pending"
     },
     {
-      "step": 11,
+      "step": 12,
       "title": "Building Box Stock Manager",
-      "description": "Compile release APK with dev.ffmpegkit.tesseract OCR box scanner and unified camera scanning.",
+      "description": "Compile release APK with dev.ffmpegkit.tesseract OCR box scanner and resolved Gradle packaging rules.",
       "files": [],
       "status": "pending"
     }

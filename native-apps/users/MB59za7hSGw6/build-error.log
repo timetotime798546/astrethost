@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Box Stock Manager
 App ID: app_6b0923f7bf2d2
-Build ID: 45952565357
-Time: 2026-11-27 01:34:21
+Build ID: 45953628389
+Time: 2026-11-27 01:44:06
 ==================================================
 
 ==================================================
@@ -31,9 +31,9 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 198789
+Original log characters: 188367
 Extracted error characters: 30042
-File references detected: 299
+File references detected: 262
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
@@ -43,17 +43,17 @@ token: ***
 
 ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
 
-Resolved Java 17.0.21+9 from tool-cache
-Setting Java 17.0.21+9 as the default
-(node:2417) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Resolved Java 17.0.21+2 from tool-cache
+Setting Java 17.0.21+2 as the default
+(node:2668) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
 
 Java configuration:
 Distribution: temurin
-Version: 17.0.21+9
-Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+Version: 17.0.21+2
+Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-2/x64
 
 Creating settings.xml with server-id: github
 Writing to /home/runner/.m2/settings.xml
@@ -64,8 +64,8 @@ cmdline-tools-version: 15859902
 accept-android-sdk-licenses: true
 log-accepted-android-sdk-licenses: true
 env:
-JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
-JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-2/x64
+JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-2/x64
 
 Found preinstalled sdkmanager in /usr/local/lib/android/sdk/cmdline-tools/latest with following source.properties:
 Pkg.Revision=20.0
@@ -74,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/e3d0f2e3-f2b4-4373-ba57-9945ad7a7dd7
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/0a5c4673-b33a-41d3-a915-973cdc7ebbaa
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -194,6 +194,7 @@ PROJECT FILES
 ./app/libs/core-3.3.3.jar
 ./app/libs/tesseract-android-5.5.0.jar
 ./app/proguard-rules.pro
+./build-error.log
 ./build-steps.json
 ./build.gradle
 ./local.properties
@@ -216,8 +217,8 @@ Warning: SDK processing. This version only understands SDK XML versions up to 3 
 > Task :app:preBuild UP-TO-DATE
 > Task :app:preReleaseBuild UP-TO-DATE
 > Task :app:javaPreCompileRelease
-> Task :app:checkReleaseAarMetadata
 > Task :app:generateReleaseResValues
+> Task :app:checkReleaseAarMetadata
 > Task :app:mapReleaseSourceSetPaths
 > Task :app:generateReleaseResources
 > Task :app:packageReleaseResources
@@ -236,40 +237,56 @@ Warning: SDK processing. This version only understands SDK XML versions up to 3 
 > Task :app:processReleaseManifestForPackage
 > Task :app:checkReleaseDuplicateClasses
 > Task :app:processReleaseResources
-/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java:19: error: package com.googlecode.tesseract.android does not exist
-import com.googlecode.tesseract.android.TessBaseAPI;
 
-^
-> Task :app:compileReleaseJavaWithJavac FAILED
-/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java:35: error: cannot find symbol
-private static TessBaseAPI tessBaseAPI;
-symbol:   class TessBaseAPI
-location: class OcrScannerHelper
-/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java:62: error: cannot find symbol
-tessBaseAPI = new TessBaseAPI();
-/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java:65: error: package TessBaseAPI does not exist
-tessBaseAPI.setPageSegMode(TessBaseAPI.PageSegMode.PSM_AUTO);
 Note: /home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/src/main/java/com/boxstockmanager/app/MainActivity.java uses or overrides a deprecated API.
+> Task :app:compileReleaseJavaWithJavac
 Note: Recompile with -Xlint:deprecation for details.
-4 errors
+
+> Task :app:generateReleaseLintVitalReportModel
+Generating lint files for backported methods only (compile API B)
 
 > Task :app:desugarReleaseFileDependencies
+> Task :app:dexBuilderRelease
+> Task :app:mergeReleaseArtProfile
+> Task :app:mergeReleaseGlobalSynthetics
+> Task :app:mergeReleaseShaders
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets
+> Task :app:compressReleaseAssets
+> Task :app:extractReleaseVersionControlInfo
+> Task :app:processReleaseJavaRes NO-SOURCE
+> Task :app:mergeExtDexRelease
+> Task :app:optimizeReleaseResources
+> Task :app:collectReleaseDependencies
+> Task :app:sdkReleaseDependencyData
+> Task :app:validateSigningRelease
+> Task :app:writeReleaseAppMetadata
+> Task :app:writeReleaseSigningConfigVersions
+> Task :app:mergeReleaseJavaResource
+> Task :app:mergeDexRelease
+> Task :app:compileReleaseArtProfile
+> Task :app:packageRelease FAILED
+> Task :app:lintVitalAnalyzeRelease
+
 FAILURE: Build failed with an exception.
 
-Execution failed for task ':app:compileReleaseJavaWithJavac'.
-19 actionable tasks: 19 executed
-> Compilation failed; see the compiler error output for details.
+Execution failed for task ':app:packageRelease'.
+> A failure occurred while executing com.android.build.gradle.tasks.PackageAndroidArtifact$IncrementalSplitterRunnable
+> Zip file '/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/build/outputs/apk/release/app-release.apk' already contains entry 'AndroidManifest.xml', cannot overwrite
 
 * Try:
-> Run with --info option to get more log output.
+> Run with --info or --debug option to get more log output.
 > Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
 
 * Exception is:
-org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileReleaseJavaWithJavac'.
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:packageRelease'.
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:148)
 at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:282)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:134)
+39 actionable tasks: 39 executed
 at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
 at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
 at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
@@ -296,42 +313,23 @@ at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareE
 at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
 at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
-at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:116)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
-at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
-at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
-at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
-at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
-at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
-at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
-at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
-at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
-at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
-at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
-at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
-at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:264)
-at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:128)
-at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
-at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
-at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
-at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
 at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler error output for details.
-at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:57)
-at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:39)
-at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
-at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(Normali
-
-================ EXTRACTED LOG CONTINUED ================
-
-factory.IncrementalTaskAction.doExecute(IncrementalTaskAction.java:45)
-at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
-at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.execute(IncrementalTaskAction.java:26)
-at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
-at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:248)
+Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing com.android.build.gradle.tasks.PackageAndroidArtifact$IncrementalSplitterRunnable
+at org.gradle.workers.internal.DefaultWorkerExecutor$WorkItemExecution.waitForCompletion(DefaultWorkerExecutor.java:283)
+at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$2(DefaultAsyncWorkTracker.java:130)
+at org.gradle.internal.Factories$1.create(Factories.java:31)
+at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:336)
+at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:319)
+at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLock(DefaultWorkerLeaseService.java:324)
+at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:126)
+at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$0(DefaultAsyncWorkTracker.java:100)
+at org.gradle.internal.work.DefaultWorkerLeaseService.runAsIsolatedTask(DefaultWorkerLeaseService.java:212)
+at org.gradle.internal.work.DefaultWorkerLeaseService.runAsIsolatedTask(DefaultWorkerLeaseService.java:201)
+at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:100)
+at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForAll(DefaultAsyncWorkTracker.java:78)
+at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForCompletion(DefaultAsyncWorkTracker.java:66)
+at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:256)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
 at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
 at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
@@ -340,28 +338,11 @@ at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecu
 at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:216)
 at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:199)
 at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:166)
-at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
-at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
-at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
-at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
-at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
-at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
-at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
-at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
-at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:41)
-at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:74)
-at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
-at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:50)
-at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:28)
-at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.executeDelegateBroadcastingChanges(CaptureStateAfterExecutionStep.java:100)
-at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:72)
-at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:50)
-at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
-at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
-at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:179)
-at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:70)
-at org.gradle.internal.Either$Right.fold(Either.java:175)
-at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:59)
+at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteSte
+
+================ EXTRACTED LOG CONTINUED ================
+
+ernal.execution.caching.CachingState.fold(CachingState.java:59)
 at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:68)
 at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:46)
 at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:36)
@@ -383,7 +364,7 @@ at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:55
 at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
 at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
 at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
-at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:86)
+at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:81)
 at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
 at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
 at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
@@ -405,8 +386,42 @@ at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47
 at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
 at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
 at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
+Caused by: java.lang.IllegalStateException: Zip file '/home/runner/work/astrethost/astrethost/native-apps/users/MB59za7hSGw6/app/build/outputs/apk/release/app-release.apk' already contains entry 'AndroidManifest.xml', cannot overwrite
+at com.android.zipflinger.ZipArchive.validateName(ZipArchive.java:345)
+at com.android.zipflinger.ZipArchive.writeSource(ZipArchive.java:302)
+at com.android.zipflinger.ZipArchive.add(ZipArchive.java:163)
+at com.android.signflinger.SignedApk.add(SignedApk.java:179)
+at com.android.zipflinger.StableArchive.close(StableArchive.java:72)
+at com.android.zipflinger.SynchronizedArchive.close(SynchronizedArchive.java:54)
+at com.android.builder.internal.packaging.ApkFlinger.close(ApkFlinger.kt:247)
+at com.google.common.io.Closer.close(Closer.java:218)
+at com.android.builder.internal.packaging.IncrementalPackager.close(IncrementalPackager.java:538)
+at kotlin.io.CloseableKt.closeFinally(Closeable.kt:56)
+at com.android.build.gradle.tasks.PackageAndroidArtifact$Companion.doTask(PackageAndroidArtifact.kt:1119)
+at com.android.build.gradle.tasks.PackageAndroidArtifact$Companion.access$doTask(PackageAndroidArtifact.kt:923)
+at com.android.build.gradle.tasks.PackageAndroidArtifact$IncrementalSplitterRunnable.doExecute(PackageAndroidArtifact.kt:523)
+at com.android.build.gradle.internal.workeractions.WorkActionAdapter.execute(WorkActionAdapter.kt:38)
+at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:63)
+at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:66)
+at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:62)
+at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:100)
+at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:62)
+at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
+at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
+at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
+at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:59)
+at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:170)
+at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:187)
+at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$700(DefaultConditionalExecutionQueue.java:120)
+at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:162)
+at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:264)
+at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:128)
+at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:133)
+at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:157)
+at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:126)
+... 2 more
 
-BUILD FAILED in 31s
+BUILD FAILED in 28s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
