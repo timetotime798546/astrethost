@@ -87,8 +87,8 @@
     },
     {
       "step": 10,
-      "title": "Implement Main Activity Controller",
-      "description": "Handle camera preview lifecycle, ZXing scanning, gallery decoder, and inventory filters.",
+      "title": "Fix Missing Java Locale Import and Controller Logic",
+      "description": "Add missing java.util.Locale import to MainActivity and manage camera preview lifecycle.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
       ],
