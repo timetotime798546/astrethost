@@ -1011,7 +1011,6 @@ public class MainActivity extends Activity {
                             .setMessage("Revert stock movement and delete this record?")
                             .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                                 @Override
-                                int checkWhich = 0;
                                 public void onClick(DialogInterface dialog, int which) {
                                     if (dbHelper.deleteTransactionAndRecalculate(tx.getId())) {
                                         Toast.makeText(ctx, "Transaction Deleted Successfully", Toast.LENGTH_SHORT).show();
