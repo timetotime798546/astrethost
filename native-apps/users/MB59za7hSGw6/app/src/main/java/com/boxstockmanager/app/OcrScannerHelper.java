@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ import java.util.regex.Pattern;
 public class OcrScannerHelper {
 
     private static final String TAG = "OcrScannerHelper";
-    private static Object tessInstance = null;
+    private static Object tessOcrInstance = null;
     private static boolean isTessInitialized = false;
 
     /**
@@ -40,7 +41,9 @@ public class OcrScannerHelper {
      * Target path: context.getFilesDir() + "/tesseract/tessdata/eng.traineddata".
      */
     public static synchronized void initTesseractIfNeeded(Context context) {
-        if (isTessInitialized && tessInstance != null) return;
+        if (isTessInitialized && tessOcrInstance != null) {
+            return;
+        }
 
         try {
             File filesDir = context.getFilesDir();
@@ -60,54 +63,115 @@ public class OcrScannerHelper {
                     is = context.getAssets().open("tessdata/eng.traineddata");
                 } catch (Exception e) {
                     Log.d(TAG, "tessdata/eng.traineddata not found, falling back to eng.traineddata");
-                    is = context.getAssets().open("eng.traineddata");
+                    try {
+                        is = context.getAssets().open("eng.traineddata");
+                    } catch (Exception ex) {
+                        Log.e(TAG, "Could not open eng.traineddata asset: " + ex.getMessage());
+                    }
                 }
 
-                OutputStream os = new FileOutputStream(trainedFile);
-                byte[] buffer = new byte[8192];
-                int read;
-                while ((read = is.read(buffer)) != -1) {
-                    os.write(buffer, 0, read);
+                if (is != null) {
+                    OutputStream os = new FileOutputStream(trainedFile);
+                    byte[] buffer = new byte[8192];
+                    int read;
+                    while ((read = is.read(buffer)) != -1) {
+                        os.write(buffer, 0, read);
+                    }
+                    os.flush();
+                    os.close();
+                    is.close();
+                    Log.d(TAG, "Successfully copied eng.traineddata (" + trainedFile.length() + " bytes)");
                 }
-                os.flush();
-                os.close();
-                is.close();
-                Log.d(TAG, "Successfully copied eng.traineddata (" + trainedFile.length() + " bytes)");
             } else {
                 Log.d(TAG, "eng.traineddata already exists (" + trainedFile.length() + " bytes)");
             }
 
             String datapath = tessRootDir.getAbsolutePath();
-            Log.d(TAG, "Initializing TessBaseAPI with datapath: " + datapath);
+            Log.d(TAG, "Initializing Tesseract with datapath: " + datapath);
 
+            // Probe dev.ffmpegkit.tesseract.TesseractInitializer
             try {
-                com.googlecode.tesseract.android.TessBaseAPI baseApi = new com.googlecode.tesseract.android.TessBaseAPI();
-                boolean success = baseApi.init(datapath, "eng");
-                Log.d(TAG, "TessBaseAPI direct init result: " + success + " for datapath: " + datapath);
-
-                if (success) {
-                    tessInstance = baseApi;
-                    isTessInitialized = true;
-                } else {
-                    Log.e(TAG, "TessBaseAPI direct init returned false for datapath: " + datapath);
+                Class<?> initClass = Class.forName("dev.ffmpegkit.tesseract.TesseractInitializer");
+                Log.d(TAG, "Found dev.ffmpegkit.tesseract.TesseractInitializer");
+                Method[] initMethods = initClass.getDeclaredMethods();
+                for (Method m : initMethods) {
+                    try {
+                        m.setAccessible(true);
+                        Class<?>[] types = m.getParameterTypes();
+                        if (types.length == 1 && types[0].isAssignableFrom(Context.class)) {
+                            m.invoke(null, context);
+                            Log.d(TAG, "Invoked TesseractInitializer." + m.getName() + "(Context)");
+                        } else if (types.length == 2 && types[0] == String.class && types[1] == String.class) {
+                            m.invoke(null, datapath, "eng");
+                            Log.d(TAG, "Invoked TesseractInitializer." + m.getName() + "(String, String)");
+                        }
+                    } catch (Exception ignored) {}
                 }
-            } catch (Throwable t) {
-                Log.e(TAG, "Direct TessBaseAPI instantiation failed, trying reflection: " + t.getMessage());
-                try {
-                    Class<?> tessClass = Class.forName("com.googlecode.tesseract.android.TessBaseAPI");
-                    Object inst = tessClass.getConstructor().newInstance();
-                    Method initM = tessClass.getMethod("init", String.class, String.class);
-                    Object res = initM.invoke(inst, datapath, "eng");
-                    boolean success = (res instanceof Boolean) ? (Boolean) res : true;
-                    Log.d(TAG, "TessBaseAPI reflection init result: " + success);
-                    if (success) {
-                        tessInstance = inst;
-                        isTessInitialized = true;
-                    }
-                } catch (Exception ex) {
-                    Log.e(TAG, "Reflection init failed: " + ex.getMessage(), ex);
-                }
+            } catch (ClassNotFoundException e) {
+                Log.d(TAG, "TesseractInitializer class not found, skipping static init call.");
             }
+
+            // Probe dev.ffmpegkit.tesseract.TesseractOCR
+            try {
+                Class<?> ocrClass = Class.forName("dev.ffmpegkit.tesseract.TesseractOCR");
+                Log.d(TAG, "Found dev.ffmpegkit.tesseract.TesseractOCR");
+
+                Object instance = null;
+
+                Constructor<?>[] constructors = ocrClass.getConstructors();
+                for (Constructor<?> c : constructors) {
+                    try {
+                        Class<?>[] pTypes = c.getParameterTypes();
+                        if (pTypes.length == 0) {
+                            instance = c.newInstance();
+                            Log.d(TAG, "Instantiated TesseractOCR with default constructor");
+                            break;
+                        } else if (pTypes.length == 2 && pTypes[0] == String.class && pTypes[1] == String.class) {
+                            instance = c.newInstance(datapath, "eng");
+                            Log.d(TAG, "Instantiated TesseractOCR(datapath, eng)");
+                            break;
+                        } else if (pTypes.length == 1 && pTypes[0].isAssignableFrom(Context.class)) {
+                            instance = c.newInstance(context);
+                            Log.d(TAG, "Instantiated TesseractOCR(Context)");
+                            break;
+                        }
+                    } catch (Exception ignored) {}
+                }
+
+                if (instance == null) {
+                    try {
+                        instance = ocrClass.getDeclaredConstructor().newInstance();
+                    } catch (Exception ignored) {}
+                }
+
+                if (instance != null) {
+                    Method[] methods = ocrClass.getDeclaredMethods();
+                    for (Method m : methods) {
+                        try {
+                            String mName = m.getName().toLowerCase(Locale.US);
+                            if (mName.contains("init") || mName.contains("create") || mName.contains("setup")) {
+                                m.setAccessible(true);
+                                Class<?>[] pTypes = m.getParameterTypes();
+                                if (pTypes.length == 2 && pTypes[0] == String.class && pTypes[1] == String.class) {
+                                    m.invoke(instance, datapath, "eng");
+                                    Log.d(TAG, "Invoked TesseractOCR." + m.getName() + "(datapath, eng)");
+                                } else if (pTypes.length == 1 && pTypes[0] == String.class) {
+                                    m.invoke(instance, datapath);
+                                    Log.d(TAG, "Invoked TesseractOCR." + m.getName() + "(datapath)");
+                                }
+                            }
+                        } catch (Exception ignored) {}
+                    }
+                    tessOcrInstance = instance;
+                    isTessInitialized = true;
+                    Log.d(TAG, "TesseractOCR initialized successfully.");
+                } else {
+                    Log.e(TAG, "Could not instantiate TesseractOCR");
+                }
+            } catch (ClassNotFoundException e) {
+                Log.e(TAG, "dev.ffmpegkit.tesseract.TesseractOCR class not found", e);
+            }
+
         } catch (Throwable t) {
             Log.e(TAG, "Unexpected error in initTesseractIfNeeded: " + t.getMessage(), t);
             isTessInitialized = false;
@@ -115,47 +179,113 @@ public class OcrScannerHelper {
     }
 
     /**
-     * Executes Tesseract OCR using TessBaseAPI methods (setImage, getUTF8Text, clear).
+     * Executes Tesseract OCR using methods on dev.ffmpegkit.tesseract.TesseractOCR (recognize/getText).
      */
     public static synchronized String extractTextFromTesseract(Object instance, Bitmap bitmap) {
-        if (instance == null || bitmap == null) return null;
-
-        if (instance instanceof com.googlecode.tesseract.android.TessBaseAPI) {
+        if (bitmap == null) return null;
+        if (instance == null) {
             try {
-                com.googlecode.tesseract.android.TessBaseAPI baseApi = (com.googlecode.tesseract.android.TessBaseAPI) instance;
-                baseApi.setImage(bitmap);
-                String rawText = baseApi.getUTF8Text();
-                try {
-                    baseApi.clear();
-                } catch (Exception ignored) {}
-                return rawText;
-            } catch (Exception e) {
-                Log.e(TAG, "Error executing TessBaseAPI.setImage/getUTF8Text: " + e.getMessage(), e);
-            }
-        }
-
-        // Reflection fallback
-        Class<?> clazz = instance.getClass();
-        String text = null;
-        try {
-            Method setImageM = clazz.getMethod("setImage", Bitmap.class);
-            setImageM.invoke(instance, bitmap);
-
-            Method getUTF8M = clazz.getMethod("getUTF8Text");
-            Object res = getUTF8M.invoke(instance);
-            if (res != null) {
-                text = res.toString();
-            }
-
-            try {
-                Method clearM = clazz.getMethod("clear");
-                clearM.invoke(instance);
+                Class<?> ocrClass = Class.forName("dev.ffmpegkit.tesseract.TesseractOCR");
+                Method[] methods = ocrClass.getDeclaredMethods();
+                for (Method m : methods) {
+                    if (m.getParameterTypes().length == 1 && m.getParameterTypes()[0] == Bitmap.class) {
+                        m.setAccessible(true);
+                        Object res = m.invoke(null, bitmap);
+                        String parsed = parseOcrResultObject(res);
+                        if (parsed != null && !parsed.isEmpty()) return parsed;
+                    }
+                }
             } catch (Exception ignored) {}
-        } catch (Exception e) {
-            Log.e(TAG, "Error invoking TessBaseAPI setImage/getUTF8Text via reflection: " + e.getMessage(), e);
+            return null;
         }
 
-        return text;
+        try {
+            Class<?> clazz = instance.getClass();
+            Method[] methods = clazz.getDeclaredMethods();
+
+            for (Method m : methods) {
+                String mName = m.getName().toLowerCase(Locale.US);
+                if (mName.contains("recognize") || mName.contains("gettext") || mName.contains("utf8")
+                        || mName.contains("process") || mName.contains("extract") || mName.contains("read")
+                        || mName.contains("scan")) {
+                    m.setAccessible(true);
+                    Class<?>[] pTypes = m.getParameterTypes();
+                    if (pTypes.length == 1 && pTypes[0] == Bitmap.class) {
+                        Object resultObj = m.invoke(instance, bitmap);
+                        String text = parseOcrResultObject(resultObj);
+                        if (text != null && !text.trim().isEmpty()) {
+                            return text.trim();
+                        }
+                    }
+                }
+            }
+
+            for (Method m : methods) {
+                m.setAccessible(true);
+                Class<?>[] pTypes = m.getParameterTypes();
+                if (pTypes.length == 1 && pTypes[0] == Bitmap.class) {
+                    Object resultObj = m.invoke(instance, bitmap);
+                    String text = parseOcrResultObject(resultObj);
+                    if (text != null && !text.trim().isEmpty()) {
+                        return text.trim();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error invoking OCR extraction via reflection: " + e.getMessage(), e);
+        }
+
+        return null;
+    }
+
+    private static String parseOcrResultObject(Object res) {
+        if (res == null) return null;
+        if (res instanceof String) {
+            return (String) res;
+        }
+
+        try {
+            Class<?> resClass = res.getClass();
+            Method[] methods = resClass.getDeclaredMethods();
+            for (Method m : methods) {
+                String mName = m.getName().toLowerCase(Locale.US);
+                if (mName.contains("text") || mName.contains("string") || mName.contains("utf8") || mName.contains("value")) {
+                    if (m.getParameterTypes().length == 0 && m.getReturnType() == String.class) {
+                        m.setAccessible(true);
+                        String str = (String) m.invoke(res);
+                        if (str != null && !str.trim().isEmpty()) {
+                            return str.trim();
+                        }
+                    }
+                }
+            }
+
+            for (Method m : methods) {
+                if (m.getParameterTypes().length == 0 && Iterable.class.isAssignableFrom(m.getReturnType())) {
+                    m.setAccessible(true);
+                    Iterable<?> iterable = (Iterable<?>) m.invoke(res);
+                    if (iterable != null) {
+                        StringBuilder sb = new StringBuilder();
+                        for (Object word : iterable) {
+                            if (word != null) {
+                                String wordStr = parseOcrResultObject(word);
+                                if (wordStr != null) {
+                                    sb.append(wordStr).append(" ");
+                                }
+                            }
+                        }
+                        if (sb.length() > 0) return sb.toString().trim();
+                    }
+                }
+            }
+        } catch (Exception ignored) {}
+
+        String str = res.toString();
+        if (str != null && !str.contains("@")) {
+            return str;
+        }
+
+        return null;
     }
 
     /**
@@ -173,9 +303,9 @@ public class OcrScannerHelper {
             result.setBarcode(decodedStr);
         }
 
-        // 2. Perform Offline OCR using TessBaseAPI
+        // 2. Perform Offline OCR using dev.ffmpegkit.tesseract engine
         initTesseractIfNeeded(context);
-        if (tessInstance != null) {
+        if (tessOcrInstance != null || isTessInitialized) {
             try {
                 int[] angles = new int[]{0, 90, 270, 180};
                 StringBuilder aggregatedText = new StringBuilder();
@@ -189,7 +319,7 @@ public class OcrScannerHelper {
                     }
 
                     Bitmap processedBmp = preprocessBitmapForOcr(rotatedBmp);
-                    String ocrText = extractTextFromTesseract(tessInstance, processedBmp);
+                    String ocrText = extractTextFromTesseract(tessOcrInstance, processedBmp);
 
                     if (ocrText != null && !ocrText.trim().isEmpty()) {
                         String cleanText = ocrText.trim();

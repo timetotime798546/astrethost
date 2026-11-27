@@ -2,8 +2,8 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure TessBaseAPI Asset Copying with Fallback",
-      "description": "Updated initTesseractIfNeeded to check asset paths tessdata/eng.traineddata and eng.traineddata before copying to tesseract/tessdata directory.",
+      "title": "Configure Asset Copying for Tesseract eng.traineddata",
+      "description": "Copy eng.traineddata from tessdata/eng.traineddata or eng.traineddata into context.getFilesDir()/tesseract/tessdata/eng.traineddata.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
       ],
@@ -11,8 +11,8 @@
     },
     {
       "step": 2,
-      "title": "Initialize Native TessBaseAPI Engine",
-      "description": "Instantiated com.googlecode.tesseract.android.TessBaseAPI directly and called init() with parent directory path and eng language.",
+      "title": "Update Tesseract Initialization to dev.ffmpegkit.tesseract",
+      "description": "Probe and initialize dev.ffmpegkit.tesseract.TesseractInitializer and dev.ffmpegkit.tesseract.TesseractOCR via safe reflection.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
       ],
@@ -20,8 +20,8 @@
     },
     {
       "step": 3,
-      "title": "Update processBitmapUnified for High Quality Text Extraction",
-      "description": "Passed processed bitmap to TessBaseAPI.setImage() and extracted raw text via getUTF8Text().",
+      "title": "Implement Dynamic Method Discovery for Tesseract Text Recognition",
+      "description": "Invoke TesseractOCR recognition methods and process TesseractResult/TesseractWord objects dynamically.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
       ],
@@ -29,8 +29,8 @@
     },
     {
       "step": 4,
-      "title": "Parse Printed Product Attributes and Store Raw Text",
-      "description": "Sent UTF-8 raw text to parsePrintedProductInfo and updated ProductScannerResult rawOcrText.",
+      "title": "Integrate Unified ZXing Barcode and Tesseract OCR Extraction",
+      "description": "Run ZXing multi-angle decoding and Tesseract text extraction on preprocessed frames, passing extracted data to parsePrintedProductInfo.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
       ],
@@ -38,8 +38,8 @@
     },
     {
       "step": 5,
-      "title": "Refine IMEI 1 and IMEI 2 Luhn Extraction Rules",
-      "description": "Enforced 15-digit Luhn checksum verification and digit correction for extracted IMEI candidates.",
+      "title": "Validate Luhn Checksum IMEI Extraction",
+      "description": "Verify 15-digit Luhn checksum validation for IMEI candidates and map IMEI 1 and IMEI 2 fields.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
       ],
@@ -47,8 +47,8 @@
     },
     {
       "step": 6,
-      "title": "Enhance Hardware Attributes and Label Parsers",
-      "description": "Expanded pattern matchers for Brand, Model, Color, RAM, Storage, and Serial Number identifiers.",
+      "title": "Extract Printed Hardware Specifications",
+      "description": "Parse brand, model, serial number, color, RAM, and storage parameters from recognized printed box text.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
       ],
@@ -56,36 +56,17 @@
     },
     {
       "step": 7,
-      "title": "Update MainActivity Product Form Autofill",
-      "description": "Auto-filled description field and displayed Toast notification showing raw OCR text snippet while preserving ZXing barcode decoding.",
+      "title": "Ensure Java 8 Compilation Compatibility",
+      "description": "Validate traditional standard Java 8 source compatibility with zero missing class dependencies.",
       "files": [
-        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "title": "Verify Non-Blocking Frame Processing",
-      "description": "Ensured live preview frame decoding runs seamlessly on secondary threads.",
-      "files": [
-        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "title": "Verify Java 8 Language Restrictions",
-      "description": "Validated code structure using standard Java 8 syntax and anonymous inner classes.",
-      "files": [
-        "app/src/main/java/com/boxstockmanager/app/MainActivity.java",
         "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
       ],
       "status": "pending"
     },
     {
-      "step": 10,
+      "step": 8,
       "title": "Building Box Stock Manager",
-      "description": "Compile final APK with functioning offline Tesseract OCR text extraction and ZXing barcode scanning.",
+      "description": "Build box-stock-manager APK using dev.ffmpegkit.tesseract OCR integration and ZXing barcode reader.",
       "files": [],
       "status": "pending"
     }
