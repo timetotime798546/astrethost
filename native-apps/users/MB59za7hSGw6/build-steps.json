@@ -1,0 +1,104 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure TessBaseAPI and Asset File Initialization",
+      "description": "Configured OcrScannerHelper to copy eng.traineddata from assets into the local tesseract/tessdata directory and initialize TessBaseAPI with clear status logging.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Implement Native TessBaseAPI OCR Extraction Methods",
+      "description": "Updated extractTextFromTesseract to invoke setImage(Bitmap), getUTF8Text(), and clear() on TessBaseAPI instances.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Integrate Multi-Angle Rotation with ZXing and Tesseract",
+      "description": "Combined multi-directional barcode decoding with native Tesseract text extraction for live camera frames and gallery images.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Refine IMEI 1 and IMEI 2 Luhn Extraction Rules",
+      "description": "Enforced strict 15-digit Luhn checksum verification and digit correction for IMEI slot recognition.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Enhance Hardware Attributes and Label Parsers",
+      "description": "Expanded pattern matchers for Brand, Model, Color, RAM, Storage, and Serial Number identifiers.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Optimize Non-Blocking Frame Processing Pipeline",
+      "description": "Ensured camera frame preview handling remains smooth while performing asynchronous OCR processing.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java",
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Maintain Safe Product Field Prefill and Non-Overwriting Logic",
+      "description": "Updated product form dialog in MainActivity to preserve existing user input when scanning.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify SQLite Inventory and Stock History Operations",
+      "description": "Verified seamless SQLite database interaction for inventory records, stock IN, stock OUT, and transaction recalculations.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/DatabaseHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Java 8 Compatibility Standards",
+      "description": "Validated code against Java 8 language restrictions using anonymous inner classes and Temurin 17 build constraints.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java",
+        "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Validate Debug Build Environment",
+      "description": "Tested Gradle 8.5 build scripts and Manifest configurations.",
+      "files": [
+        "app/build.gradle",
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Box Stock Manager",
+      "description": "Compile final APK with offline TessBaseAPI OCR support, multi-format barcode scanning, and stock management.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
