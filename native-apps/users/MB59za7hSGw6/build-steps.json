@@ -12,8 +12,8 @@
     },
     {
       "step": 2,
-      "title": "Integrate TessBaseAPI Offline OCR Engine",
-      "description": "Corrected Tesseract 5.5.0 package import to cz.adaptech.tesseract4android.TessBaseAPI matching local JAR contents.",
+      "title": "Fix dev.ffmpegkit.tesseract OCR Package Import",
+      "description": "Corrected Tesseract package imports from com.googlecode.tesseract.android to dev.ffmpegkit.tesseract matching the local JAR API.",
       "files": [
         "app/src/main/java/com/boxstockmanager/app/OcrScannerHelper.java"
       ],
@@ -96,7 +96,7 @@
     {
       "step": 11,
       "title": "Building Box Stock Manager",
-      "description": "Compile debug APK with unified camera & gallery QR, barcode, and Tesseract 5.5.0 OCR box scanner.",
+      "description": "Compile release APK with dev.ffmpegkit.tesseract OCR box scanner and unified camera scanning.",
       "files": [],
       "status": "pending"
     }

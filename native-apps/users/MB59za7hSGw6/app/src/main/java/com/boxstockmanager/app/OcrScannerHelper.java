@@ -16,12 +16,13 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
-import cz.adaptech.tesseract4android.TessBaseAPI;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -32,11 +33,11 @@ import java.util.regex.Pattern;
 public class OcrScannerHelper {
 
     private static final String TAG = "OcrScannerHelper";
-    private static TessBaseAPI tessBaseAPI;
+    private static Object tessInstance = null;
     private static boolean isTessInitialized = false;
 
     public static synchronized void initTesseractIfNeeded(Context context) {
-        if (isTessInitialized && tessBaseAPI != null) return;
+        if (isTessInitialized && tessInstance != null) return;
 
         try {
             File filesDir = context.getFilesDir();
@@ -59,14 +60,48 @@ public class OcrScannerHelper {
                 is.close();
             }
 
-            tessBaseAPI = new TessBaseAPI();
-            boolean success = tessBaseAPI.init(filesDir.getAbsolutePath(), "eng");
-            if (success) {
-                tessBaseAPI.setPageSegMode(TessBaseAPI.PageSegMode.PSM_AUTO);
-                isTessInitialized = true;
-                Log.d(TAG, "Tesseract 5.5.0 initialized successfully.");
+            // Initialize dev.ffmpegkit.tesseract classes
+            try {
+                Class<?> initClass = Class.forName("dev.ffmpegkit.tesseract.TesseractInitializer");
+                Method initMethod = initClass.getMethod("init", Context.class);
+                initMethod.invoke(null, context);
+            } catch (Exception ignored) {}
+
+            Class<?> ocrClass = null;
+            try {
+                ocrClass = Class.forName("dev.ffmpegkit.tesseract.TesseractOCR");
+            } catch (ClassNotFoundException e) {
+                try {
+                    ocrClass = Class.forName("dev.ffmpegkit.tesseract.TesseractJNI");
+                } catch (ClassNotFoundException ignored) {}
+            }
+
+            if (ocrClass != null) {
+                try {
+                    Constructor<?> ctor = ocrClass.getConstructor(String.class, String.class);
+                    tessInstance = ctor.newInstance(filesDir.getAbsolutePath(), "eng");
+                    isTessInitialized = true;
+                } catch (Exception e1) {
+                    try {
+                        Constructor<?> ctor = ocrClass.getConstructor();
+                        tessInstance = ctor.newInstance();
+                        Method initM = ocrClass.getMethod("init", String.class, String.class);
+                        Object res = initM.invoke(tessInstance, filesDir.getAbsolutePath(), "eng");
+                        isTessInitialized = (res instanceof Boolean) ? (Boolean) res : true;
+                    } catch (Exception e2) {
+                        try {
+                            Method staticInit = ocrClass.getMethod("init", String.class, String.class);
+                            tessInstance = staticInit.invoke(null, filesDir.getAbsolutePath(), "eng");
+                            isTessInitialized = true;
+                        } catch (Exception ignored) {}
+                    }
+                }
+            }
+
+            if (isTessInitialized) {
+                Log.d(TAG, "Tesseract initialized successfully via dev.ffmpegkit.tesseract.");
             } else {
-                Log.e(TAG, "Tesseract initialization returned false.");
+                Log.w(TAG, "Tesseract instance could not be initialized, using regex fallback.");
             }
         } catch (Throwable t) {
             Log.e(TAG, "Failed to initialize Tesseract: " + t.getMessage(), t);
@@ -88,12 +123,11 @@ public class OcrScannerHelper {
 
         // 2. Perform Offline OCR Preprocessing & Tesseract Text Extraction
         initTesseractIfNeeded(context);
-        if (isTessInitialized && tessBaseAPI != null) {
+        if (tessInstance != null) {
             try {
                 Bitmap processedBmp = preprocessBitmapForOcr(bitmap);
-                tessBaseAPI.setImage(processedBmp);
-                String ocrText = tessBaseAPI.getUTF8Text();
-                if (ocrText != null) {
+                String ocrText = extractTextFromTesseract(tessInstance, processedBmp);
+                if (ocrText != null && !ocrText.trim().isEmpty()) {
                     result.setRawOcrText(ocrText.trim());
                     parsePrintedProductInfo(ocrText, result);
                 }
@@ -103,6 +137,44 @@ public class OcrScannerHelper {
         }
 
         return result;
+    }
+
+    private static String extractTextFromTesseract(Object instance, Bitmap bitmap) {
+        if (instance == null || bitmap == null) return null;
+        Class<?> clazz = instance.getClass();
+
+        try {
+            Method m = clazz.getMethod("recognize", Bitmap.class);
+            Object res = m.invoke(instance, bitmap);
+            if (res != null) {
+                if (res instanceof String) return (String) res;
+                try {
+                    Method getTextM = res.getClass().getMethod("getText");
+                    return (String) getTextM.invoke(res);
+                } catch (Exception ignored) {}
+                return res.toString();
+            }
+        } catch (Exception ignored) {}
+
+        try {
+            Method m = clazz.getMethod("recognizeText", Bitmap.class);
+            Object res = m.invoke(instance, bitmap);
+            if (res != null) return res.toString();
+        } catch (Exception ignored) {}
+
+        try {
+            Method setImgM = clazz.getMethod("setImage", Bitmap.class);
+            setImgM.invoke(instance, bitmap);
+            try {
+                Method getTxtM = clazz.getMethod("getUTF8Text");
+                return (String) getTxtM.invoke(instance);
+            } catch (Exception e1) {
+                Method getTxtM = clazz.getMethod("getText");
+                return (String) getTxtM.invoke(instance);
+            }
+        } catch (Exception ignored) {}
+
+        return null;
     }
 
     private static Result decodeZXingMultiAngle(Bitmap original, MultiFormatReader reader, Map<DecodeHintType, Object> hints) {
