@@ -2,57 +2,71 @@
   "steps": [
     {
       "step": 1,
-      "title": "Configure Application Manifest and Permissions",
-      "description": "Define permissions for hardware camera, gallery reading, and app configuration.",
-      "files": ["app/src/main/AndroidManifest.xml"],
+      "title": "Validate Application Manifest and Security Permissions",
+      "description": "Define permissions for hardware camera, vibration, and external storage reading.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 2,
-      "title": "Set up Gradle Environment",
+      "title": "Set up Gradle Build Environment",
       "description": "Configure Java 8 compatibility and local ZXing core dependency.",
-      "files": ["app/build.gradle"],
+      "files": [
+        "app/build.gradle"
+      ],
       "status": "pending"
     },
     {
       "step": 3,
-      "title": "Implement Product Data Model",
-      "description": "Define comprehensive Product entity for detailed inventory storage.",
-      "files": ["app/src/main/java/com/boxstockmanager/app/Product.java"],
+      "title": "Fix XML Entity Escaping in Dashboard Layout",
+      "description": "Fix unescaped ampersand entity reference in activity_main.xml layout.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Implement Stock Transaction Model",
-      "description": "Define StockTransaction entity for tracking stock history.",
-      "files": ["app/src/main/java/com/boxstockmanager/app/StockTransaction.java"],
+      "title": "Verify Product Data Model Entity",
+      "description": "Maintain product model class supporting product codes, barcodes, prices, and stock counts.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/Product.java"
+      ],
       "status": "pending"
     },
     {
       "step": 5,
-      "title": "Implement BoxItem Model",
-      "description": "Maintain backward compatible box model for quick box overview.",
-      "files": ["app/src/main/java/com/boxstockmanager/app/BoxItem.java"],
+      "title": "Verify Stock Transaction Data Model",
+      "description": "Maintain transaction model for stock movement history tracking.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/StockTransaction.java"
+      ],
       "status": "pending"
     },
     {
       "step": 6,
-      "title": "Implement Database Management",
-      "description": "Construct DatabaseHelper for offline SQLite operations, transactions, and recalculations.",
-      "files": ["app/src/main/java/com/boxstockmanager/app/DatabaseHelper.java"],
+      "title": "Verify Box Item Model Entity",
+      "description": "Maintain legacy box item entity for backward compatibility.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/BoxItem.java"
+      ],
       "status": "pending"
     },
     {
       "step": 7,
-      "title": "Design Dashboard and Main Screen UI Layout",
-      "description": "Create bottom navigation layout with containers for Dashboard, Products, Stock In, Stock Out, and History.",
-      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "title": "Validate Database Management and SQLite Helpers",
+      "description": "Construct DatabaseHelper for offline SQLite storage and transaction recalculations.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/DatabaseHelper.java"
+      ],
       "status": "pending"
     },
     {
       "step": 8,
-      "title": "Design Item Row Layouts",
-      "description": "Create card layouts for product listings, transaction history, and legacy box items.",
+      "title": "Verify Item Row Layout Templates",
+      "description": "Ensure product cards, stock transaction rows, and quick box list layouts are valid.",
       "files": [
         "app/src/main/res/layout/item_product.xml",
         "app/src/main/res/layout/item_transaction.xml",
@@ -62,39 +76,28 @@
     },
     {
       "step": 9,
-      "title": "Design Product Form and Detail Dialogs",
-      "description": "Construct dialog layouts for product entry/edit forms and full detail viewer.",
+      "title": "Verify Form and Dialog View Layouts",
+      "description": "Ensure product entry form dialog and live camera scanner overlay layout are valid.",
       "files": [
         "app/src/main/res/layout/dialog_product_form.xml",
-        "app/src/main/res/layout/dialog_product_detail.xml"
+        "app/src/main/res/layout/dialog_product_detail.xml",
+        "app/src/main/res/layout/dialog_scanner.xml"
       ],
       "status": "pending"
     },
     {
       "step": 10,
-      "title": "Design Full-Screen Scanner Dialog Layout",
-      "description": "Construct camera scanner viewfinder overlay layout with flash and close controls.",
-      "files": ["app/src/main/res/layout/dialog_scanner.xml"],
+      "title": "Implement Main Activity Controller",
+      "description": "Handle camera preview lifecycle, ZXing scanning, gallery decoder, and inventory filters.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
       "status": "pending"
     },
     {
       "step": 11,
-      "title": "Implement Scanner and Camera Lifecycle Controller",
-      "description": "Integrate camera frame analysis, QR key-value parser, and gallery picker decoder.",
-      "files": ["app/src/main/java/com/boxstockmanager/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 12,
-      "title": "Implement Inventory and History Logic",
-      "description": "Handle filtering, stock validation, transaction edit/delete stock recalculation.",
-      "files": ["app/src/main/java/com/boxstockmanager/app/MainActivity.java"],
-      "status": "pending"
-    },
-    {
-      "step": 13,
       "title": "Building Box Stock Manager",
-      "description": "Compile and assemble the release package.",
+      "description": "Compile and assemble the final application package.",
       "files": [],
       "status": "pending"
     }
