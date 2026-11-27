@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Universal ZXing MultiFormatReader",
+      "description": "Expanded supported format hints to include Aztec, QR, EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, ITF, Codabar, Data Matrix, and PDF417.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Enable Continuous Camera Auto-Focus",
+      "description": "Added camera parameters configuration to enable FOCUS_MODE_CONTINUOUS_PICTURE and FOCUS_MODE_CONTINUOUS_VIDEO for sharp live scanning.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Enhance Live Camera Preview Frame Decoding",
+      "description": "Implemented multi-orientation Y-plane byte array rotation fallback to detect vertical and tilted codes seamlessly in real-time.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Multi-Angle Gallery Image Decoder",
+      "description": "Built image gallery scanning pipeline attempting decodes across 0°, 90°, 180°, and 270° bitmap rotations with RGBLuminanceSource.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Add High-Resolution Image Scaling Safeguard",
+      "description": "Added dynamic image downscaling fallback to prevent OutOfMemory errors while retaining barcode sharpness for large photo pickers.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Unify Common Result Handling Logic",
+      "description": "Unified camera scanner and gallery upload callbacks into a shared result handler that pre-fills full decoded values without truncation.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Support Long Text, URLs & Serial Numbers",
+      "description": "Ensured Exide Solar URLs, website links, IMEI numbers, and long serial strings are preserved completely in Barcode and Code fields.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Validate Stock Movement & Product Form Operations",
+      "description": "Verified auto-navigation to Stock IN, Stock OUT, Product Details, or New Product creation based on active scanner context.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Java 8 Language Compatibility",
+      "description": "Enforced standard anonymous inner classes and Temurin 17 Java 8 build compliance.",
+      "files": [
+        "app/src/main/java/com/boxstockmanager/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Box Stock Manager",
+      "description": "Compile final debug APK with universal QR/barcode camera and gallery upload scanning.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
