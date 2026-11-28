@@ -108,7 +108,7 @@ public class AddEditMobileActivity extends Activity {
         btnFormManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AddEditMobileActivity.java, "Manual Entry Mode", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddEditMobileActivity.this, "Manual Entry Mode", Toast.LENGTH_SHORT).show();
             }
         });
 
