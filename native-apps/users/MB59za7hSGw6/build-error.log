@@ -20,8 +20,8 @@ ASTRETHOST BUILD ERROR LOG
 ==================================================
 App Name: Smart OCR Scanner
 App ID: app_6b0a29e106b13
-Build ID: 46093881465
-Time: 2026-11-27 20:37:33
+Build ID: 46094800703
+Time: 2026-11-27 20:47:58
 ==================================================
 
 ==================================================
@@ -31,24 +31,23 @@ Method: File reference + extension + error keyword + context
 Context before match: 8 lines
 Context after match: 12 lines
 Maximum extracted characters: 30000
-Original log characters: 1218468
+Original log characters: 194063
 Extracted error characters: 30042
-File references detected: 8071
+File references detected: 283
 ==================================================
 
 WHAT WENT WRONG / RELEVANT BUILD ERROR
 ==================================================
 
-job-status: success
 token: ***
 
 ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
 
 Resolved Java 17.0.21+2 from tool-cache
 Setting Java 17.0.21+2 as the default
-(node:2365) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
-Creating toolchains.xml for JDK version 17 from temurin
+(node:2199) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
+Creating toolchains.xml for JDK version 17 from temurin
 Writing to /home/runner/.m2/toolchains.xml
 
 Java configuration:
@@ -75,7 +74,7 @@ Pkg.Desc=Android SDK Command-line Tools
 
 Wrong version in preinstalled sdkmanager
 Downloading commandline tools from https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip
-[command]/usr/bin/unzip -o -q /home/runner/work/_temp/7befa5a5-ea37-4cd3-9433-31dd5cf946c3
+[command]/usr/bin/unzip -o -q /home/runner/work/_temp/ce97cbaa-e41d-4dd5-b00b-a7d3754498c5
 Accepting Android SDK licenses
 [command]/usr/local/lib/android/sdk/cmdline-tools/22.0/bin/sdkmanager --licenses
 WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
@@ -196,6 +195,7 @@ PROJECT FILES
 ./build-error.log
 ./build-steps.json
 ./build.gradle
+./gradle.properties
 ./local.properties
 ./release.keystore
 ./settings.gradle
@@ -212,149 +212,199 @@ BUILDING RELEASE APK
 Starting Gradle build...
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:javaPreCompileRelease
+> Task :app:generateReleaseResValues
+> Task :app:checkReleaseAarMetadata FAILED
+> Task :app:mapReleaseSourceSetPaths
 
 FAILURE: Build failed with an exception.
 
-A problem occurred configuring root project 'MB59za7hSGw6'.
-> Could not resolve all files for configuration ':classpath'.
-> Could not resolve org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.20.
-Required by:
-project : > com.android.tools.build:gradle:8.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.build:gradle-settings-api:8.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools:sdk-common:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools:repository:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.build:aaptcompiler:8.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.analytics-library:shared:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.lint:lint-model:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > androidx.databinding:databinding-compiler-common:8.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.utp:android-test-plugin-host-emulator-control-proto:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.utp:android-test-plugin-host-retention-proto:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.build:builder:8.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.build:builder-model:8.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.build:gradle-api:8.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools:sdk-common:31.3.2 > com.android.tools:common:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.build:builder:8.3.2 > com.android.tools.analytics-library:tracker:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.build:builder:8.3.2 > com.android.tools.build:manifest-merger:31.3.2
-> Could not get resource 'https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.9.20/kotlin-stdlib-jdk8-1.9.20.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.9.20/kotlin-stdlib-jdk8-1.9.20.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve org.apache.httpcomponents:httpmime:4.5.6.
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools:sdklib:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.analytics-library:crash:31.3.2
-> Could not get resource 'https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpmime/4.5.6/httpmime-4.5.6.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpmime/4.5.6/httpmime-4.5.6.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve commons-io:commons-io:2.13.0.
-> Could not get resource 'https://repo.maven.apache.org/maven2/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve org.ow2.asm:asm:9.6.
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.lint:lint-typedef-remover:31.3.2
-> Could not get resource 'https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.6/asm-9.6.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.6/asm-9.6.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve org.ow2.asm:asm-analysis:9.6.
-> Could not get resource 'https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/9.6/asm-analysis-9.6.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/9.6/asm-analysis-9.6.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve org.ow2.asm:asm-commons:9.6.
-> Could not get resource 'https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/9.6/asm-commons-9.6.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/9.6/asm-commons-9.6.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve org.ow2.asm:asm-util:9.6.
-> Could not get resource 'https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/9.6/asm-util-9.6.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/9.6/asm-util-9.6.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve org.bouncycastle:bcpkix-jdk15on:1.67.
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.build:builder:8.3.2 > com.android.tools.build:apkzlib:8.3.2
-> Could not get resource 'https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.67/bcpkix-jdk15on-1.67.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.67/bcpkix-jdk15on-1.67.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve org.glassfish.jaxb:jaxb-runtime:2.3.2.
-> Could not get resource 'https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-runtime/2.3.2/jaxb-runtime-2.3.2.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-runtime/2.3.2/jaxb-runtime-2.3.2.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve net.sf.jopt-simple:jopt-simple:4.9.
-> Could not get resource 'https://repo.maven.apache.org/maven2/net/sf/jopt-simple/jopt-simple/4.9/jopt-simple-4.9.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/net/sf/jopt-simple/jopt-simple/4.9/jopt-simple-4.9.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve com.squareup:javapoet:1.10.0.
-> Could not get resource 'https://repo.maven.apache.org/maven2/com/squareup/javapoet/1.10.0/javapoet-1.10.0.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/com/squareup/javapoet/1.10.0/javapoet-1.10.0.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve com.google.protobuf:protobuf-java:3.22.3.
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.ddms:ddmlib:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.build:aapt2-proto:8.3.2-10880808
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.utp:android-device-provider-ddmlib-proto:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.utp:android-device-provider-gradle-proto:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.utp:android-test-plugin-host-additional-test-output-proto:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.utp:android-test-plugin-host-coverage-proto:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.utp:android-test-plugin-host-logcat-proto:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.utp:android-test-plugin-host-apk-installer-proto:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.utp:android-test-plugin-result-listener-gradle-proto:31.3.2
-project : > com.android.tools.build:gradle:8.3.2 > com.android.tools.analytics-library:shared:31.3.2 > com.android.tools.analytics-library:protos:31.3.2
-> Could not get resource 'https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java/3.22.3/protobuf-java-3.22.3.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java/3.22.3/protobuf-java-3.22.3.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve com.google.protobuf:protobuf-java-util:3.22.3.
-> Could not get resource 'https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java-util/3.22.3/protobuf-java-util-3.22.3.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java-util/3.22.3/protobuf-java-util-3.22.3.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve com.google.code.gson:gson:2.10.1.
-> Could not get resource 'https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve io.grpc:grpc-core:1.57.0.
-> Could not get resource 'https://repo.maven.apache.org/maven2/io/grpc/grpc-core/1.57.0/grpc-core-1.57.0.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/io/grpc/grpc-core/1.57.0/grpc-core-1.57.0.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve io.grpc:grpc-netty:1.57.0.
-> Could not get resource 'https://repo.maven.apache.org/maven2/io/grpc/grpc-netty/1.57.0/grpc-netty-1.57.0.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/io/grpc/grpc-netty/1.57.0/grpc-netty-1.57.0.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve io.grpc:grpc-protobuf:1.57.0.
-> Could not get resource 'https://repo.maven.apache.org/maven2/io/grpc/grpc-protobuf/1.57.0/grpc-protobuf-1.57.0.pom'.
-> Could not GET 'https://repo.maven.apache.org/maven2/io/grpc/grpc-protobuf/1.57.0/grpc-protobuf-1.57.0.pom'. Received status code 429 from server: Too Many Requests
-> Could not resolve io.grpc:grpc-stub:1.57.0.
-> Could not get resource 'https://repo.maven.apache.org/maven2/io/grpc/grpc-stub/1.57.0/grpc-stub-1.57.0.pom'.
-> Could not
+Execution failed for task ':app:checkReleaseAarMetadata'.
+> A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction
+> 2 issues were found when checking AAR metadata:
+
+1.  Dependency 'androidx.core:core-ktx:1.15.0' requires libraries and applications that
+depend on it to compile against version 35 or later of the
+Android APIs.
+
+:app is currently compiled against android-34.
+
+Also, the maximum recommended compile SDK version for Android Gradle
+plugin 8.3.2 is 34.
+
+Recommended action: Update this project's version of the Android Gradle
+allows newer APIs to be used) can be done separately from updating
+targetSdk (which opts the app in to new runtime behavior) and
+minSdk (which determines which devices the app can be installed
+on).
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:checkReleaseAarMetadata'.
+at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:148)
+at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:282)
+at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
+at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:134)
+at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:80)
+at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:116)
+at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
+at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
+at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
+at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
+at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
+at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
+at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
+at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:264)
+at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:128)
+at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction
+at org.gradle.workers.internal.DefaultWorkerExecutor$WorkItemExecution.waitForCompletion(DefaultWorkerExecutor.java:283)
+at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$2(DefaultAsyncWorkTracker.java:130)
+at org.gradle.internal.Factories$1.create(Factories.java:31)
+at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:336)
+at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:319)
+at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLock(DefaultWorkerLeaseService.java:324)
+at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:126)
+at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:92)
+at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForAll(DefaultAsyncWorkTracker.java:78)
+at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForCompletion(DefaultAsyncWorkTracker.java:66)
+at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:256)
+at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+at org.gradle.internal.operations.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:68)
+at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:233)
+at org.gradle.api
 
 ================ EXTRACTED LOG CONTINUED ================
 
-ource.transport.http.HttpErrorStatusCodeException: Could not GET 'https://repo.maven.apache.org/maven2/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.pom'. Received status code 429 from server: Too Many Requests
-Cause 37: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.google.auto.value:auto-value-annotations:1.6.2.
-Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.google.auto.value:auto-value-annotations:1.6.2.
-Caused by: org.gradle.api.resources.ResourceException: Could not get resource 'https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-annotations/1.6.2/auto-value-annotations-1.6.2.pom'.
-Caused by: org.gradle.internal.resource.transport.http.HttpErrorStatusCodeException: Could not GET 'https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-annotations/1.6.2/auto-value-annotations-1.6.2.pom'. Received status code 429 from server: Too Many Requests
-Cause 38: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.google.errorprone:error_prone_annotations:2.3.1.
-Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.google.errorprone:error_prone_annotations:2.3.1.
-Caused by: org.gradle.api.resources.ResourceException: Could not get resource 'https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.3.1/error_prone_annotations-2.3.1.pom'.
-Caused by: org.gradle.internal.resource.transport.http.HttpErrorStatusCodeException: Could not GET 'https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.3.1/error_prone_annotations-2.3.1.pom'. Received status code 429 from server: Too Many Requests
-Cause 39: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.google.guava:guava:32.0.1-jre.
-Cause 40: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.google.protobuf:protobuf-java:3.22.3.
-Cause 41: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.google.protobuf:protobuf-java-util:3.22.3.
-Cause 42: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.google.dagger:dagger:2.28.3.
-Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.google.dagger:dagger:2.28.3.
-Caused by: org.gradle.api.resources.ResourceException: Could not get resource 'https://repo.maven.apache.org/maven2/com/google/dagger/dagger/2.28.3/dagger-2.28.3.pom'.
-Caused by: org.gradle.internal.resource.transport.http.HttpErrorStatusCodeException: Could not GET 'https://repo.maven.apache.org/maven2/com/google/dagger/dagger/2.28.3/dagger-2.28.3.pom'. Received status code 429 from server: Too Many Requests
-Cause 43: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.bitbucket.b_c:jose4j:0.7.0.
-Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.bitbucket.b_c:jose4j:0.7.0.
-Caused by: org.gradle.api.resources.ResourceException: Could not get resource 'https://repo.maven.apache.org/maven2/org/bitbucket/b_c/jose4j/0.7.0/jose4j-0.7.0.pom'.
-Caused by: org.gradle.internal.resource.transport.http.HttpErrorStatusCodeException: Could not GET 'https://repo.maven.apache.org/maven2/org/bitbucket/b_c/jose4j/0.7.0/jose4j-0.7.0.pom'. Received status code 429 from server: Too Many Requests
-Cause 44: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.slf4j:slf4j-api:1.7.30.
-Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.slf4j:slf4j-api:1.7.30.
-Caused by: org.gradle.api.resources.ResourceException: Could not get resource 'https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.pom'.
-Caused by: org.gradle.internal.resource.transport.http.HttpErrorStatusCodeException: Could not GET 'https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.pom'. Received status code 429 from server: Too Many Requests
-Cause 45: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.google.code.gson:gson:2.10.1.
-Cause 46: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.jetbrains.kotlin:kotlin-stdlib:1.3.71.
-Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.jetbrains.kotlin:kotlin-stdlib:1.3.71.
-Caused by: org.gradle.api.resources.ResourceException: Could not get resource 'https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.3.71/kotlin-stdlib-1.3.71.pom'.
-Caused by: org.gradle.internal.resource.transport.http.HttpErrorStatusCodeException: Could not GET 'https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.3.71/kotlin-stdlib-1.3.71.pom'. Received status code 429 from server: Too Many Requests
-Cause 47: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.ow2.asm:asm:9.6.
-Cause 48: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.ow2.asm:asm-util:9.6.
-Cause 49: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.ow2.asm:asm-commons:9.6.
-Cause 50: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.jdom:jdom2:2.0.6.
-Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.jdom:jdom2:2.0.6.
-Caused by: org.gradle.api.resources.ResourceException: Could not get resource 'https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.pom'.
-Caused by: org.gradle.internal.resource.transport.http.HttpErrorStatusCodeException: Could not GET 'https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.pom'. Received status code 429 from server: Too Many Requests
-Cause 51: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve commons-codec:commons-codec:1.10.
-Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve commons-codec:commons-codec:1.10.
-Caused by: org.gradle.api.resources.ResourceException: Could not get resource 'https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.10/commons-codec-1.10.pom'.
-Caused by: org.gradle.internal.resource.transport.http.HttpErrorStatusCodeException: Could not GET 'https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.10/commons-codec-1.10.pom'. Received status code 429 from server: Too Many Requests
-Cause 52: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.squareup:javawriter:2.5.0.
-Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.squareup:javawriter:2.5.0.
-Caused by: org.gradle.api.resources.ResourceException: Could not get resource 'https://repo.maven.apache.org/maven2/com/squareup/javawriter/2.5.0/javawriter-2.5.0.pom'.
-Caused by: org.gradle.internal.resource.transport.http.HttpErrorStatusCodeException: Could not GET 'https://repo.maven.apache.org/maven2/com/squareup/javawriter/2.5.0/javawriter-2.5.0.pom'. Received status code 429 from server: Too Many Requests
-Cause 53: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.google.code.findbugs:jsr305:3.0.2.
-Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve com.google.code.findbugs:jsr305:3.0.2.
-Caused by: org.gradle.api.resources.ResourceException: Could not get resource 'https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.pom'.
-Caused by: org.gradle.internal.resource.transport.http.HttpErrorStatusCodeException: Could not GET 'https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.pom'. Received status code 429 from server: Too Many Requests
+cutionStep.java:41)
+at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:74)
+at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:50)
+at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:28)
+at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.executeDelegateBroadcastingChanges(CaptureStateAfterExecutionStep.java:100)
+at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:72)
+at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:50)
+at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:179)
+at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:70)
+at org.gradle.internal.Either$Right.fold(Either.java:175)
+at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:59)
+at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:68)
+at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:46)
+at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:36)
+at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:25)
+at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:36)
+at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:22)
+at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:91)
+at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:55)
+at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:55)
+at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:37)
+at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:76)
+at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:37)
+at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:108)
+at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:55)
+at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
+at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
+at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
+at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:81)
+at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
+at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
+at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
+at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:75)
+at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:41)
+at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:66)
+at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:66)
+at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:38)
+at org.gradle.internal.execution.steps.AssignWorkspaceStep.lambda$execute$0(AssignWorkspaceStep.java:32)
+at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:293)
+at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:30)
+at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:21)
+at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:37)
+at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:27)
+at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47)
+at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
+at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
+at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:145)
+Caused by: java.lang.RuntimeException: 2 issues were found when checking AAR metadata:
 
-BUILD FAILED in 1m 8s
+plugin to one that supports 35, then update this project to use
+compileSdk of at least 35.
+
+Note that updating a library or application's compileSdk (which
+at com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction.execute(CheckAarMetadataTask.kt:281)
+at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:63)
+at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:66)
+at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:62)
+at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:100)
+at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:62)
+at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
+at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
+at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
+at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:59)
+at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:170)
+at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:187)
+at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$700(DefaultConditionalExecutionQueue.java:120)
+at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:162)
+at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:133)
+at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:157)
+at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:126)
+... 2 more
+
+BUILD FAILED in 42s
 Process completed with exit code 1.
 
 [36;1mrm -f gradle-8.5-bin.zip[0m
