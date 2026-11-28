@@ -1,0 +1,93 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure Application Metadata",
+      "description": "Set package name com.smartocrscanner.app and app parameters in app-meta.json.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Configure Android Manifest",
+      "description": "Add CameraScanActivity and camera hardware permission features to AndroidManifest.xml.",
+      "files": [
+        "app/src/main/AndroidManifest.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Enhance Database Helper for QR & Barcode Matching",
+      "description": "Add findMobileByIdentifier method to search products by Product ID, SKU, Barcode, IMEIs, and Serial Number.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/ScanHistoryDbHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Implement Real-time ZXing Camera Barcode Scanner",
+      "description": "Create CameraScanActivity using ZXing MultiFormatReader for real-time camera QR and barcode recognition.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/CameraScanActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Design Camera Scanning Overlay Layout",
+      "description": "Create activity_camera_scan.xml layout with viewfinder frame, flashlight control, and action controls.",
+      "files": [
+        "app/src/main/res/layout/activity_camera_scan.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Integrate Barcode & OCR Gallery Processing",
+      "description": "Update MainActivity to handle both ZXing barcode decoding and ML Kit OCR on uploaded gallery photos.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Fix Toast Context Reference and Add Barcode Pre-fill",
+      "description": "Fix AddEditMobileActivity Toast context bug and auto-populate scanned barcode into form fields.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/AddEditMobileActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Update Main Dashboard Layout Buttons",
+      "description": "Refine camera scan and gallery upload options on activity_main.xml for dual barcode & OCR scanning.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Product Duplication Prevention",
+      "description": "Ensure existing products automatically navigate to details/edit view while new barcodes open pre-filled intake forms.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/MainActivity.java",
+        "app/src/main/java/com/smartocrscanner/app/AddEditMobileActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Smart OCR Scanner",
+      "description": "Compile project with integrated ZXing library and ML Kit OCR.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
