@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Update Application Metadata",
+      "description": "Set package metadata for Smart OCR Scanner with INR currency support.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Update Inventory Form Layout",
+      "description": "Update purchase price and selling price input hints to use Indian Rupee (₹).",
+      "files": [
+        "app/src/main/res/layout/activity_add_edit_mobile.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Update Stock Out Screen Layout",
+      "description": "Update stock out form price labels and selected device purchase banner to INR (₹).",
+      "files": [
+        "app/src/main/res/layout/activity_stock_out.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Update Mobile Stock Item Layout",
+      "description": "Update price display format in item_mobile_stock layout to INR (₹).",
+      "files": [
+        "app/src/main/res/layout/item_mobile_stock.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Update Main Dashboard Currency Formatting",
+      "description": "Update MainActivity price list item formatting to display costs in INR (₹).",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Update Stock In Activity Currency",
+      "description": "Update StockInActivity adapter formatting to show purchase and selling prices with ₹ symbol.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/StockInActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Update Stock Out Activity Currency & Logs",
+      "description": "Update StockOutActivity list items and selected mobile details to display ₹.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/StockOutActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Update All Mobiles Inventory Activity",
+      "description": "Update AllMobilesActivity item adapter to display cost and target prices in ₹.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/AllMobilesActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Update Audit Log Message Currency",
+      "description": "Update ScanHistoryDbHelper transaction log message formatting to use INR (₹).",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/ScanHistoryDbHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Smart OCR Scanner",
+      "description": "Compile project with updated Indian Rupee (₹) currency configuration.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
