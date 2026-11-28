@@ -1,13 +1,14 @@
-// ==========================================
-// TOP-LEVEL BUILD FILE
-// Android Gradle Plugin 8.3.2
-// Gradle 8.5
-// ==========================================
 
 buildscript {
 
     repositories {
         google()
+
+        // Google-hosted Maven Central mirror
+        maven {
+            url 'https://maven-central.storage-download.googleapis.com/maven2/'
+        }
+
         mavenCentral()
     }
 
@@ -16,15 +17,16 @@ buildscript {
     }
 }
 
-
-// ==========================================
-// ALL PROJECTS
-// ==========================================
-
 allprojects {
 
     repositories {
         google()
+
+        // Google-hosted Maven Central mirror
+        maven {
+            url 'https://maven-central.storage-download.googleapis.com/maven2/'
+        }
+
         mavenCentral()
     }
 }
