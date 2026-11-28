@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Smart OCR Stock Scanner</string>
+    <string name="dashboard_subtitle">Mobile Shop Inventory &amp; OCR Stock Manager</string>
+    <string name="scan_with_camera">Scan Mobile (Camera)</string>
+    <string name="upload_image">Scan Mobile (Gallery)</string>
+    <string name="scan_history">Audit Logs</string>
+    <string name="total_scans">Total Mobiles</string>
+    <string name="available_stock">Available Stock</string>
+    <string name="stock_in_count">Stock In</string>
+    <string name="stock_out_count">Stock Out</string>
+    <string name="recent_scans">Recent Mobile Intake</string>
+    <string name="copy_all">Copy Text</string>
+    <string name="share_text">Share Text</string>
+    <string name="save_to_history">Save Entry</string>
+    <string name="scan_another">Scan Another</string>
+    <string name="clear_text">Clear Text</string>
+    <string name="clear_history">Clear History</string>
+    <string name="no_readable_text">No readable text detected in image.</string>
+    <string name="ocr_processing">Extracting Mobile Details with ML Kit...</string>
+    <string name="camera_permission_required">Camera permission is required for mobile photo OCR scanning.</string>
+</resources>
