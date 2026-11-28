@@ -3,13 +3,13 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace "com.smartocrscanner.app"
+    namespace "com.bhagwatistock.app"
 
     compileSdkVersion 34
 
     defaultConfig {
 
-        applicationId "com.smartocrscanner.app"
+        applicationId "com.bhagwatistock.app"
 
         minSdkVersion 21
 
