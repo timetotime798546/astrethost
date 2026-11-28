@@ -1,0 +1,120 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Set app metadata and package identifiers for Bhagwati Stock.",
+      "files": [
+        "app-meta.json",
+        "app/src/main/assets/app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Professional Theme & Color Palette",
+      "description": "Establish a sleek slate-indigo dark/light color palette, typography styles, and theme configurations.",
+      "files": [
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml",
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Create Professional XML Drawables",
+      "description": "Build custom rounded card backgrounds, gradient headers, button styles, state badges, and input container drawables.",
+      "files": [
+        "app/src/main/res/drawable/bg_header.xml",
+        "app/src/main/res/drawable/bg_card.xml",
+        "app/src/main/res/drawable/bg_stat_card.xml",
+        "app/src/main/res/drawable/bg_btn_primary.xml",
+        "app/src/main/res/drawable/bg_btn_accent.xml",
+        "app/src/main/res/drawable/bg_btn_success.xml",
+        "app/src/main/res/drawable/bg_btn_orange.xml",
+        "app/src/main/res/drawable/bg_btn_outline.xml",
+        "app/src/main/res/drawable/bg_badge_available.xml",
+        "app/src/main/res/drawable/bg_badge_sold.xml",
+        "app/src/main/res/drawable/bg_badge_accent.xml",
+        "app/src/main/res/drawable/bg_input.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Redesign Main Dashboard Layout",
+      "description": "Upgrade MainActivity layout with executive inventory summary metrics, styled feature action buttons, OCR triggers, and recent intake cards.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Redesign Mobile Intake & Edit Form",
+      "description": "Refine AddEditMobileActivity layout with structured section cards, elevated form inputs, dual IMEI fields, and OCR status container.",
+      "files": [
+        "app/src/main/res/layout/activity_add_edit_mobile.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Redesign Stock In & Stock Out Screens",
+      "description": "Enhance StockInActivity and StockOutActivity layouts with quick action search bars, selected device banners, and customer entry fields.",
+      "files": [
+        "app/src/main/res/layout/activity_stock_in.xml",
+        "app/src/main/res/layout/activity_stock_out.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Redesign All Inventory & Audit Log Screens",
+      "description": "Polishing AllMobilesActivity, HistoryActivity, and ResultActivity layouts with professional filters, list cards, and status tags.",
+      "files": [
+        "app/src/main/res/layout/activity_all_mobiles.xml",
+        "app/src/main/res/layout/activity_history.xml",
+        "app/src/main/res/layout/activity_result.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Redesign Custom Adapter Item Components",
+      "description": "Improve item_mobile_stock, item_inventory_log, and item_history list item layouts with modern typography and styled action chips.",
+      "files": [
+        "app/src/main/res/layout/item_mobile_stock.xml",
+        "app/src/main/res/layout/item_inventory_log.xml",
+        "app/src/main/res/layout/item_history.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Refine Camera Scanner Preview Overlay",
+      "description": "Stylize real-time camera viewfinder reticle, status banners, and OCR preview bottom panel in CameraScanActivity.",
+      "files": [
+        "app/src/main/res/layout/activity_camera_scan.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Verify Java Controllers & ID Bindings",
+      "description": "Ensure complete backward compatibility across all activity logic, database operations, OCR parsing, and adapter listeners.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Building Bhagwati Stock",
+      "description": "Assemble final release-ready debug package for Bhagwati Stock.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
