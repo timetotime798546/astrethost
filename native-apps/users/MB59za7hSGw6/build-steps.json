@@ -3,7 +3,7 @@
     {
       "step": 1,
       "title": "Update App Package & Metadata",
-      "description": "Configure package name to com.bhagwatistock.app and update app branding to Bhagwati Stock across app-meta files.",
+      "description": "Configure package name to com.bhagwatistock.app and update app branding across project metadata files.",
       "files": [
         "app-meta.json",
         "app/src/main/assets/app-meta.json"
@@ -12,8 +12,8 @@
     },
     {
       "step": 2,
-      "title": "Update Gradle Namespace & ApplicationId",
-      "description": "Update applicationId and namespace to com.bhagwatistock.app in build.gradle.",
+      "title": "Update Gradle Build Configuration",
+      "description": "Configure applicationId and namespace to com.bhagwatistock.app with Java 8 compatibility in build.gradle.",
       "files": [
         "app/build.gradle"
       ],
@@ -21,145 +21,152 @@
     },
     {
       "step": 3,
-      "title": "Update Manifest Authority & String Resources",
-      "description": "Update FileProvider authority to com.bhagwatistock.app.fileprovider and app title in strings.xml to Bhagwati Stock.",
+      "title": "Update Android Manifest & Provider Authority",
+      "description": "Declare permissions, activities, and FileProvider authority for com.bhagwatistock.app in AndroidManifest.xml.",
       "files": [
-        "app/src/main/AndroidManifest.xml",
-        "app/src/main/res/values/strings.xml"
+        "app/src/main/AndroidManifest.xml"
       ],
       "status": "pending"
     },
     {
       "step": 4,
-      "title": "Refactor ScanModel Data Class",
-      "description": "Update package declaration for ScanModel to com.bhagwatistock.app.",
+      "title": "Configure App Resources & Theme Palette",
+      "description": "Define color palette, Material themes, and text string resources for Bhagwati Stock inventory management.",
+      "files": [
+        "app/src/main/res/values/strings.xml",
+        "app/src/main/res/values/colors.xml",
+        "app/src/main/res/values/styles.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Scan Data Model",
+      "description": "Create ScanModel data structure for managing OCR scanner log entries and character metrics.",
       "files": [
         "app/src/main/java/com/bhagwatistock/app/ScanModel.java"
       ],
       "status": "pending"
     },
     {
-      "step": 5,
-      "title": "Refactor MobileModel Data Class",
-      "description": "Update package declaration for MobileModel to com.bhagwatistock.app.",
+      "step": 6,
+      "title": "Implement Mobile Inventory Model",
+      "description": "Build MobileModel data class with dual IMEI validation, model specs, pricing, and stock status fields.",
       "files": [
         "app/src/main/java/com/bhagwatistock/app/MobileModel.java"
       ],
       "status": "pending"
     },
     {
-      "step": 6,
-      "title": "Refactor InventoryLogModel Data Class",
-      "description": "Update package declaration for InventoryLogModel to com.bhagwatistock.app.",
+      "step": 7,
+      "title": "Implement Inventory Log Model",
+      "description": "Build InventoryLogModel class for tracking stock movement, intake operations, sales, and edit history.",
       "files": [
         "app/src/main/java/com/bhagwatistock/app/InventoryLogModel.java"
       ],
       "status": "pending"
     },
     {
-      "step": 7,
-      "title": "Refactor ScanHistoryDbHelper Database Layer",
-      "description": "Update package declaration for ScanHistoryDbHelper SQLite helper class to com.bhagwatistock.app.",
+      "step": 8,
+      "title": "Implement SQLite Database Layer",
+      "description": "Create ScanHistoryDbHelper for managing SQLite tables, schema migrations, duplicate IMEI checks, and inventory queries.",
       "files": [
         "app/src/main/java/com/bhagwatistock/app/ScanHistoryDbHelper.java"
       ],
       "status": "pending"
     },
     {
-      "step": 8,
-      "title": "Refactor MobileOcrParser Spec Parser",
-      "description": "Update package declaration for MobileOcrParser engine to com.bhagwatistock.app.",
+      "step": 9,
+      "title": "Implement Mobile OCR Spec Parser",
+      "description": "Implement MobileOcrParser engine to extract brand, model, IMEI, serial number, RAM, ROM, and color from raw text.",
       "files": [
         "app/src/main/java/com/bhagwatistock/app/MobileOcrParser.java"
       ],
       "status": "pending"
     },
     {
-      "step": 9,
-      "title": "Refactor BackupHelper Backup Engine",
-      "description": "Update package declaration for BackupHelper zip archive manager to com.bhagwatistock.app.",
+      "step": 10,
+      "title": "Implement ZIP Backup & Restore Engine",
+      "description": "Build BackupHelper to create and restore compressed ZIP archives of database records and shared preferences.",
       "files": [
         "app/src/main/java/com/bhagwatistock/app/BackupHelper.java"
       ],
       "status": "pending"
     },
     {
-      "step": 10,
-      "title": "Refactor HistoryAdapter List Adapter",
-      "description": "Update package declaration for HistoryAdapter scan log adapter to com.bhagwatistock.app.",
+      "step": 11,
+      "title": "Implement History Adapter Component",
+      "description": "Build HistoryAdapter to handle clipboard copy, sharing, and rendering scan history items in ListView.",
       "files": [
         "app/src/main/java/com/bhagwatistock/app/HistoryAdapter.java"
       ],
       "status": "pending"
     },
     {
-      "step": 11,
-      "title": "Refactor MainActivity Controller",
-      "description": "Update package declaration and internal intent references in MainActivity to com.bhagwatistock.app.",
-      "files": [
-        "app/src/main/java/com/bhagwatistock/app/MainActivity.java"
-      ],
-      "status": "pending"
-    },
-    {
       "step": 12,
-      "title": "Refactor CameraScanActivity Live Scanner",
-      "description": "Update package declaration in CameraScanActivity for live ML Kit text and barcode recognition to com.bhagwatistock.app.",
+      "title": "Build Main Dashboard Controller",
+      "description": "Implement MainActivity for display of inventory summary metrics, recent stock intakes, OCR triggers, and backup controls.",
       "files": [
-        "app/src/main/java/com/bhagwatistock/app/CameraScanActivity.java"
+        "app/src/main/java/com/bhagwatistock/app/MainActivity.java",
+        "app/src/main/res/layout/activity_main.xml"
       ],
       "status": "pending"
     },
     {
       "step": 13,
-      "title": "Refactor AddEditMobileActivity Intake Form",
-      "description": "Update package declaration and form handlers in AddEditMobileActivity to com.bhagwatistock.app.",
+      "title": "Build Live ML Kit Camera Scanner Activity",
+      "description": "Implement CameraScanActivity for real-time ML Kit OCR text recognition and ZXing barcode reading with flashlight toggle.",
       "files": [
-        "app/src/main/java/com/bhagwatistock/app/AddEditMobileActivity.java"
+        "app/src/main/java/com/bhagwatistock/app/CameraScanActivity.java",
+        "app/src/main/res/layout/activity_camera_scan.xml"
       ],
       "status": "pending"
     },
     {
       "step": 14,
-      "title": "Refactor StockInActivity Management View",
-      "description": "Update package declaration in StockInActivity to com.bhagwatistock.app.",
+      "title": "Build Mobile Intake & Edit Form",
+      "description": "Implement AddEditMobileActivity for manual data entry, automatic OCR spec parsing, and validation of dual 15-digit IMEIs.",
       "files": [
-        "app/src/main/java/com/bhagwatistock/app/StockInActivity.java"
+        "app/src/main/java/com/bhagwatistock/app/AddEditMobileActivity.java",
+        "app/src/main/res/layout/activity_add_edit_mobile.xml"
       ],
       "status": "pending"
     },
     {
       "step": 15,
-      "title": "Refactor StockOutActivity Sales View",
-      "description": "Update package declaration in StockOutActivity to com.bhagwatistock.app.",
+      "title": "Build Stock In Management View",
+      "description": "Implement StockInActivity for searching, filtering, and managing incoming mobile stock entries.",
       "files": [
-        "app/src/main/java/com/bhagwatistock/app/StockOutActivity.java"
+        "app/src/main/java/com/bhagwatistock/app/StockInActivity.java",
+        "app/src/main/res/layout/activity_stock_in.xml"
       ],
       "status": "pending"
     },
     {
       "step": 16,
-      "title": "Refactor AllMobilesActivity Inventory View",
-      "description": "Update package declaration in AllMobilesActivity to com.bhagwatistock.app.",
+      "title": "Build Stock Out & Sales Activity",
+      "description": "Implement StockOutActivity to select available inventory, capture customer details, and process device sales.",
       "files": [
-        "app/src/main/java/com/bhagwatistock/app/AllMobilesActivity.java"
+        "app/src/main/java/com/bhagwatistock/app/StockOutActivity.java",
+        "app/src/main/res/layout/activity_stock_out.xml"
       ],
       "status": "pending"
     },
     {
       "step": 17,
-      "title": "Refactor ResultActivity and HistoryActivity",
-      "description": "Update package declarations in ResultActivity and HistoryActivity to com.bhagwatistock.app.",
+      "title": "Build All Inventory & Audit Log Screens",
+      "description": "Implement AllMobilesActivity, HistoryActivity, and ResultActivity for comprehensive inventory management and audit log tracking.",
       "files": [
-        "app/src/main/java/com/bhagwatistock/app/ResultActivity.java",
-        "app/src/main/java/com/bhagwatistock/app/HistoryActivity.java"
+        "app/src/main/java/com/bhagwatistock/app/AllMobilesActivity.java",
+        "app/src/main/java/com/bhagwatistock/app/HistoryActivity.java",
+        "app/src/main/java/com/bhagwatistock/app/ResultActivity.java"
       ],
       "status": "pending"
     },
     {
       "step": 18,
       "title": "Building Bhagwati Stock",
-      "description": "Compile project with updated app name Bhagwati Stock and package com.bhagwatistock.app.",
+      "description": "Compile project resources and assemble debug APK for Bhagwati Stock app.",
       "files": [],
       "status": "pending"
     }
