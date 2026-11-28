@@ -1,0 +1,93 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Update Application Metadata",
+      "description": "Set package metadata for Smart OCR Scanner with Backup & Restore capabilities.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Create Backup and Restore Engine",
+      "description": "Implement BackupHelper to securely zip and unpack database, settings, and files using SAF.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/BackupHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Update Main Dashboard Layout",
+      "description": "Add Backup and Restore buttons to the main dashboard layout.",
+      "files": [
+        "app/src/main/res/layout/activity_main.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Integrate SAF Handlers in Main Activity",
+      "description": "Add Storage Access Framework document picker intents and response handlers to MainActivity.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Implement Zip Archive Backup Operation",
+      "description": "Export database, images, and mobile records to user-selected ZIP destination.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/BackupHelper.java",
+        "app/src/main/java/com/smartocrscanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Zip Restore & Database Integrity Verification",
+      "description": "Validate backup ZIP contents and SQLite database integrity before restoring app state.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/BackupHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Enforce Zip Slip Path Traversal Protection",
+      "description": "Implement canonical path validation during zip extraction for system security.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/BackupHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Verify Database Connection Management",
+      "description": "Ensure ScanHistoryDbHelper safely closes during restore and reinitializes cleanly.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/ScanHistoryDbHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Existing Stock & OCR Features",
+      "description": "Confirm all existing OCR scanning, stock in/out, and INR currency formatting remain active.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Smart OCR Scanner",
+      "description": "Compile project with Backup and Restore implementation.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
