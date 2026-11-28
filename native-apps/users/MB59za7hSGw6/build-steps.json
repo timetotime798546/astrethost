@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Identity",
+      "description": "Set package name com.smartocrscanner.app and metadata.",
+      "files": [
+        "app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Update Form Layout Hints",
+      "description": "Update IMEI 2 input hint to indicate 15 required digits in activity_add_edit_mobile.xml.",
+      "files": [
+        "app/src/main/res/layout/activity_add_edit_mobile.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Enforce IMEI 2 Requirement",
+      "description": "Make IMEI 2 a required field when creating or editing a mobile record.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/AddEditMobileActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Enforce 15-Digit Format Validation",
+      "description": "Ensure both IMEI 1 and IMEI 2 consist of exactly 15 numeric digits.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/AddEditMobileActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Enforce Unique Dual IMEI Validation",
+      "description": "Check that IMEI 1 and IMEI 2 are not identical to each other.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/AddEditMobileActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Preserve Automatic OCR Pre-Fill",
+      "description": "Retain ML Kit text recognition pre-filling logic for both IMEI numbers.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/AddEditMobileActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Fix Context References in Event Handlers",
+      "description": "Replace invalid class variable reference with proper outer class activity reference in Toast notifications.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/AddEditMobileActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Validate Database Duplicate Verification",
+      "description": "Keep checking database for duplicate IMEI 1 and IMEI 2 entries across existing stock records.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/AddEditMobileActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Verify Add & Edit Form Consistency",
+      "description": "Ensure validation logic seamlessly applies when inserting a new device or editing existing mobile details.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/AddEditMobileActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Building Smart OCR Scanner",
+      "description": "Compile final APK package and verify updated IMEI validation rules.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
