@@ -1,0 +1,109 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Set up app package name com.smartocrscanner.app and application identity.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Schema Configuration",
+      "description": "Configure api_schema.json and admin_setting_schema.json for offline OCR processing.",
+      "files": ["api_schema.json", "admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Gradle Build System",
+      "description": "Include Google ML Kit Text Recognition dependency and compile options in build.gradle.",
+      "files": ["app/build.gradle"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Setup Android Manifest & Permissions",
+      "description": "Declare camera permissions and FileProvider in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml", "app/src/main/res/xml/file_paths.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Configure UI Resources & Themes",
+      "description": "Define application colors, strings, and style definitions.",
+      "files": ["app/src/main/res/values/strings.xml", "app/src/main/res/values/colors.xml", "app/src/main/res/values/styles.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Create Scan Data Model",
+      "description": "Implement ScanModel Java class for OCR record items.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/ScanModel.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Implement SQLite Storage Helper",
+      "description": "Create ScanHistoryDbHelper for local persistence of scanned text and timestamps.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/ScanHistoryDbHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Build History List Adapter",
+      "description": "Construct HistoryAdapter to render scan records with copy, share, and delete actions.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/HistoryAdapter.java"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Main Dashboard Layout",
+      "description": "Create activity_main.xml layout with camera scan, gallery upload, and scan metrics.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Design OCR Result Screen Layout",
+      "description": "Create activity_result.xml layout for text editing, copying, and sharing actions.",
+      "files": ["app/src/main/res/layout/activity_result.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Design Scan History Layout",
+      "description": "Create activity_history.xml and item_history.xml for browsing and filtering past scans.",
+      "files": ["app/src/main/res/layout/activity_history.xml", "app/src/main/res/layout/item_history.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement OCR Engine & Main Activity",
+      "description": "Code camera capture, image picker, and Google ML Kit Text Recognition in MainActivity.java.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/MainActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement Result Activity Logic",
+      "description": "Code text viewing, inline editing, copying to clipboard, and text sharing in ResultActivity.java.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/ResultActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement History Activity Logic",
+      "description": "Code history search, clear-all confirmation, and item deletion in HistoryActivity.java.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/HistoryActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Building Smart OCR Scanner",
+      "description": "Compile final APK package and verify offline OCR execution.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
