@@ -140,7 +140,7 @@
                 android:padding="12dp"
                 android:textColor="@color/text_primary"
                 android:layout_marginBottom="10dp"
-                android:inputType="textCharacters" />
+                android:inputType="textCapCharacters" />
 
             <EditText
                 android:id="@+id/etImei1"
