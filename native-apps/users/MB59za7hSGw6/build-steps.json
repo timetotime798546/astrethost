@@ -1,0 +1,167 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Update App Package & Metadata",
+      "description": "Configure package name to com.bhagwatistock.app and update app branding to Bhagwati Stock across app-meta files.",
+      "files": [
+        "app-meta.json",
+        "app/src/main/assets/app-meta.json"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Update Gradle Namespace & ApplicationId",
+      "description": "Update applicationId and namespace to com.bhagwatistock.app in build.gradle.",
+      "files": [
+        "app/build.gradle"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Update Manifest Authority & String Resources",
+      "description": "Update FileProvider authority to com.bhagwatistock.app.fileprovider and app title in strings.xml to Bhagwati Stock.",
+      "files": [
+        "app/src/main/AndroidManifest.xml",
+        "app/src/main/res/values/strings.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Refactor ScanModel Data Class",
+      "description": "Update package declaration for ScanModel to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/ScanModel.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Refactor MobileModel Data Class",
+      "description": "Update package declaration for MobileModel to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/MobileModel.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Refactor InventoryLogModel Data Class",
+      "description": "Update package declaration for InventoryLogModel to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/InventoryLogModel.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Refactor ScanHistoryDbHelper Database Layer",
+      "description": "Update package declaration for ScanHistoryDbHelper SQLite helper class to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/ScanHistoryDbHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Refactor MobileOcrParser Spec Parser",
+      "description": "Update package declaration for MobileOcrParser engine to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/MobileOcrParser.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Refactor BackupHelper Backup Engine",
+      "description": "Update package declaration for BackupHelper zip archive manager to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/BackupHelper.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Refactor HistoryAdapter List Adapter",
+      "description": "Update package declaration for HistoryAdapter scan log adapter to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/HistoryAdapter.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Refactor MainActivity Controller",
+      "description": "Update package declaration and internal intent references in MainActivity to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/MainActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Refactor CameraScanActivity Live Scanner",
+      "description": "Update package declaration in CameraScanActivity for live ML Kit text and barcode recognition to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/CameraScanActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Refactor AddEditMobileActivity Intake Form",
+      "description": "Update package declaration and form handlers in AddEditMobileActivity to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/AddEditMobileActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Refactor StockInActivity Management View",
+      "description": "Update package declaration in StockInActivity to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/StockInActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Refactor StockOutActivity Sales View",
+      "description": "Update package declaration in StockOutActivity to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/StockOutActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Refactor AllMobilesActivity Inventory View",
+      "description": "Update package declaration in AllMobilesActivity to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/AllMobilesActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 17,
+      "title": "Refactor ResultActivity and HistoryActivity",
+      "description": "Update package declarations in ResultActivity and HistoryActivity to com.bhagwatistock.app.",
+      "files": [
+        "app/src/main/java/com/bhagwatistock/app/ResultActivity.java",
+        "app/src/main/java/com/bhagwatistock/app/HistoryActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 18,
+      "title": "Building Bhagwati Stock",
+      "description": "Compile project with updated app name Bhagwati Stock and package com.bhagwatistock.app.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}

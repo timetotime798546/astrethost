@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Real-time Camera Preview -->
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Scanner Reticle & Status Overlay -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvScanStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reading printed text &amp; barcodes..."
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:background="#B30F172A"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Viewfinder Reticle Frame -->
+        <View
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:background="@android:color/transparent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Align mobile box label or printed specification paper"
+            android:textColor="#E2E8F0"
+            android:textSize="11sp"
+            android:background="#80000000"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+
+    <!-- Top Header Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="top">
+
+        <Button
+            android:id="@+id/btnCloseScanner"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="✕"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:background="#80000000" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnFlashlight"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="🔦 Flash OFF"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:background="#80000000"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp" />
+    </LinearLayout>
+
+    <!-- Bottom Live OCR Details Panel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:background="#CC0F172A"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LIVE CAMERA OCR DETECTED SPECS"
+            android:textColor="#94A3B8"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <TextView
+            android:id="@+id/tvOcrLivePreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Point camera at printed paper or box label..."
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnUseScannedInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✅ Use Scanned Info &amp; Fill Form"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@color/accent"
+            android:padding="12dp" />
+    </LinearLayout>
+
+</FrameLayout>
