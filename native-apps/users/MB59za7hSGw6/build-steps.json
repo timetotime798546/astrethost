@@ -1,0 +1,126 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Configure App Metadata",
+      "description": "Set up app package name com.smartocrscanner.app and application identity for Mobile Shop Stock Management.",
+      "files": ["app-meta.json"],
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "title": "Define Schema Configuration",
+      "description": "Configure offline api_schema.json and admin_setting_schema.json.",
+      "files": ["api_schema.json", "admin_setting_schema.json"],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "title": "Configure Android Manifest & Activities",
+      "description": "Register Stock Management activities, camera permissions, and FileProvider in AndroidManifest.xml.",
+      "files": ["app/src/main/AndroidManifest.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "title": "Update Application Colors & Strings",
+      "description": "Define strings and color schemes for Mobile Shop Inventory, Stock In/Out, and OCR parsing.",
+      "files": ["app/src/main/res/values/strings.xml", "app/src/main/res/values/colors.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "title": "Create Mobile Inventory Data Models",
+      "description": "Implement MobileModel and InventoryLogModel Java classes for shop stock management.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/MobileModel.java", "app/src/main/java/com/smartocrscanner/app/InventoryLogModel.java"],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "title": "Implement Mobile OCR Text Parser",
+      "description": "Create MobileOcrParser to automatically extract Brand, Model, IMEI 1/2, Serial, RAM, Storage, and Color from text.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/MobileOcrParser.java"],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "title": "Upgrade SQLite Database Helper",
+      "description": "Upgrade ScanHistoryDbHelper with mobiles and inventory_logs tables while preserving existing scan data.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/ScanHistoryDbHelper.java"],
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "title": "Design Dashboard Layout",
+      "description": "Redesign activity_main.xml to display total stock, stock in/out summary, quick actions, and recent mobile entries.",
+      "files": ["app/src/main/res/layout/activity_main.xml"],
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "title": "Design Mobile Form & Stock Screen Layouts",
+      "description": "Create layout files for mobile addition/editing, Stock In, Stock Out, inventory listing, and activity history.",
+      "files": [
+        "app/src/main/res/layout/activity_add_edit_mobile.xml",
+        "app/src/main/res/layout/activity_stock_in.xml",
+        "app/src/main/res/layout/activity_stock_out.xml",
+        "app/src/main/res/layout/activity_all_mobiles.xml",
+        "app/src/main/res/layout/item_mobile_stock.xml",
+        "app/src/main/res/layout/item_inventory_log.xml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 10,
+      "title": "Implement Add/Edit Mobile Form Logic",
+      "description": "Code AddEditMobileActivity for OCR camera/gallery pre-fill and manual mobile entry with duplicate IMEI validation.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/AddEditMobileActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 11,
+      "title": "Implement Stock In Activity Logic",
+      "description": "Code StockInActivity for viewing incoming inventory, camera/gallery OCR stock intake, edit, and delete functions.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/StockInActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 12,
+      "title": "Implement Stock Out Activity Logic",
+      "description": "Code StockOutActivity to search inventory by IMEI/Serial/Model, record customer sales details, and mark devices as SOLD.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/StockOutActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 13,
+      "title": "Implement All Mobiles Inventory Listing",
+      "description": "Code AllMobilesActivity with live search, brand filters, status filters (Available/Sold), and item operations.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/AllMobilesActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 14,
+      "title": "Implement Stock Audit History Activity",
+      "description": "Code HistoryActivity for reviewing Stock In, Stock Out, edits, and deletions with timestamped logs.",
+      "files": ["app/src/main/java/com/smartocrscanner/app/HistoryActivity.java"],
+      "status": "pending"
+    },
+    {
+      "step": 15,
+      "title": "Update Main Dashboard & OCR Result Activities",
+      "description": "Integrate ML Kit text recognition with mobile auto-parser in MainActivity and ResultActivity.",
+      "files": [
+        "app/src/main/java/com/smartocrscanner/app/MainActivity.java",
+        "app/src/main/java/com/smartocrscanner/app/ResultActivity.java"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 16,
+      "title": "Building Smart OCR Scanner",
+      "description": "Compile final APK package and verify offline Mobile Shop Stock Management execution.",
+      "files": [],
+      "status": "pending"
+    }
+  ]
+}
