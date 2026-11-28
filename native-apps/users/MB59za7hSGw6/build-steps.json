@@ -74,11 +74,10 @@
     },
     {
       "step": 9,
-      "title": "Verify Product Duplication Prevention",
-      "description": "Ensure existing products automatically navigate to details/edit view while new barcodes open pre-filled intake forms.",
+      "title": "Fix Missing Resource Link in Camera Layout",
+      "description": "Replace missing ic_launcher_background reference in activity_camera_scan.xml with native Android color resource.",
       "files": [
-        "app/src/main/java/com/smartocrscanner/app/MainActivity.java",
-        "app/src/main/java/com/smartocrscanner/app/AddEditMobileActivity.java"
+        "app/src/main/res/layout/activity_camera_scan.xml"
       ],
       "status": "pending"
     },
