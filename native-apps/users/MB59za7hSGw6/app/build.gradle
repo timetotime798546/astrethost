@@ -1,3 +1,4 @@
+
 apply plugin: 'com.android.application'
 
 android {
@@ -58,5 +59,15 @@ dependencies {
         include: ['*.jar']
     )
 
+    // Existing dependency
     implementation 'org.nanohttpd:nanohttpd:2.3.1'
+
+    // Google ML Kit OCR
+    implementation 'com.google.mlkit:text-recognition:16.0.1'
+
+    // AndroidX Core
+    implementation 'androidx.core:core:1.15.0'
+
+    // Google Play Services Tasks
+    implementation 'com.google.android.gms:play-services-tasks:18.2.0'
 }
